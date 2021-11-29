@@ -1,17 +1,26 @@
-- Hardware manuals
-    - [ADM-CS-SECC](charge-controllers/test.md)
-    - [ADM-CS-EVCC](charge-controllers/ADM-CS-EVCC/)
+- SECC
+    - [Hardware manual](charge-controllers/ADM-CS-SECC.md)
+    - [Configuration](charge-controllers/secc_configuration.md)
+    - [Generic CAN interface](charge-controllers/secc_can_generic.md)
+    - [Migration from 3.x to 4.x](charge-controllers/secc_migration_3_to_4.md)
+    - [Features](charge-controllers/secc_features.md)
+        - [AC charging](charge-controllers/secc_ac_charging.md)
+        - [Climate control](charge-controllers/secc_climate_control.md)
+        - [OCPP](charge-controllers/secc_ocpp.md)
+    - [Special](charge-controllers/secc_special.md)
+        - [Flashing Advantics power modules](charge-controllers/secc_afpu.md)
 
-- CAN interfaces
-    - SECC Generic
-    - EVCC Generic
+- EVCC
+    - [Hardware manual](charge-controllers/ADM-CS-EVCC.md)
+    - [Configuration](charge-controllers/evcc_configuration.md)
+    - [Generic CAN interface](charge-controllers/evcc_can_generic.md)
+    - [Features](charge-controllers/evcc_features.md)
+        - [Temperature control](charge-controllers/evcc_temperature_control.md)
+    - [Special](charge-controllers/evcc_special.md)
+        - [Orion BMS setup](charge-controllers/evcc_orion_bms/md)
 
 - Linux systems
-    - 3.x branch
-    - 4.x branch
-
-- Features
-    - [Climate control](charge-controllers/climate_control.md)
-
-- Migration guides
-    - SECC 3.x to 4.x
+    - [3.x branch](charge-controllers/systems_branch3.md)
+        - [Update guide](charge-controllers/sys3_update.md)
+        - [Developer guide](charge-controllers/sys3_developer.md)
+    - [4.x branch](charge-controllers/systems_branch4.m)
