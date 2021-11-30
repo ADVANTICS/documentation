@@ -1,6 +1,5 @@
-# Climate control
-
 > [!UPDATE] {docsify-updated}
+# Climate control
 
 ## Concepts
 
