@@ -1,6 +1,9 @@
 > [!UPDATE] {docsify-updated}
 # Climate control
 
+> [!NOTE]
+> Only available from version 4.x of the controller system
+
 ## Concepts
 
 The climate control integrated in `evse-controller` application is taking temperature channels as input and realise actions as output in reaction to the measured temperatures.

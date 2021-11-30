@@ -1,4 +1,8 @@
+> [!UPDATE] {docsify-updated}
 # AC Charging
+
+> [!NOTE]
+> Only available from version 4.x of the controller system
 
 > [!NOTE]
 > AC charging is only working on `ADM-CS-SECC` (DIN rail variant) controller, as it has a dedicated CCS AC port.
