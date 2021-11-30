@@ -84,7 +84,16 @@
     .markdown-section p, .markdown-section ol, .markdown-section ul {
         text-align: justify;
     }
-    /* Compact tables */
+    /* Tables */
+    .markdown-section .small-table table {
+        width: auto;
+    }
+    .markdown-section .noheader-table thead {
+        display: none;
+    }
+    .markdown-section .noheader-table tbody {
+        border-top: 1px solid var(--table-cell-border-color);
+    }
     .markdown-section .compact-table > span {
         font-weight: 600;
         font-size: 1.25em;
@@ -111,6 +120,10 @@
     }
     .markdown-section .wrap {
         white-space: normal;
+    }
+    .markdown-section img  {
+         display: block;
+         margin: auto;
     }
   </style>
 </head>
@@ -180,8 +193,8 @@
       //   title: 'Table of Contents',
       // },
       footer: {
-          copy: '<span>Acme &copy; 2020</span>',
-          auth: 'by Me',
+          copy: '<span>&copy; 2017</span>',
+          auth: 'Advantics',
           pre: '<hr/>',
           style: 'text-align: right;',
           class: 'className',
@@ -208,7 +221,7 @@
   <script src="//unpkg.com/docsify-puml/dist/docsify-puml.min.js"></script>
   <script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script>
   <script src="https://cdn.jsdelivr.net/npm/docsify-example-panels"></script>
-  <script src="//unpkg.com/docsify-glossary/dist/docsify-glossary.min.js"></script>
+  <!-- <script src="//unpkg.com/docsify-glossary/dist/docsify-glossary.min.js"></script> -->
   <!-- <script src="https://unpkg.com/docsify-toc@1.0.0/dist/toc.js"></script> -->
   <script src="//unpkg.com/docsify-fontawesome/dist/docsify-fontawesome.min.js"></script>
   <script src="//unpkg.com/docsify-footer-enh/dist/docsify-footer-enh.min.js"></script>
