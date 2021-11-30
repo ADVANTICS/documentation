@@ -1,4 +1,4 @@
-- SECC
+- **SECC**
     - [Hardware manual](charge-controllers/ADM-CS-SECC.md)
     - [Configuration](charge-controllers/secc_configuration.md)
     - [Generic CAN interface](charge-controllers/secc_can_generic.md)
@@ -6,20 +6,23 @@
     - [Features](charge-controllers/secc_features.md)
         - [AC charging](charge-controllers/secc_ac_charging.md)
         - [Climate control](charge-controllers/secc_climate_control.md)
+        - [Parallel charging](charge-controllers/secc_parallel_charging.md)
         - [OCPP](charge-controllers/secc_ocpp.md)
     - [Special](charge-controllers/secc_special.md)
         - [Flashing Advantics power modules](charge-controllers/secc_afpu.md)
 
-- EVCC
+- **EVCC**
     - [Hardware manual](charge-controllers/ADM-CS-EVCC.md)
     - [Configuration](charge-controllers/evcc_configuration.md)
     - [Generic CAN interface](charge-controllers/evcc_can_generic.md)
     - [Features](charge-controllers/evcc_features.md)
+        - [CAN sensor](charge-controllers/evcc_can_sensor.md)
+        - [No BMS mode](charge-controllers/evcc_no_bms_mode.md)
         - [Temperature control](charge-controllers/evcc_temperature_control.md)
     - [Special](charge-controllers/evcc_special.md)
         - [Orion BMS setup](charge-controllers/evcc_orion_bms/md)
 
-- Linux systems
+- **Linux systems**
     - [3.x branch](charge-controllers/systems_branch3.md)
         - [Update guide](charge-controllers/sys3_update.md)
         - [User guide](charge-controllers/sys3_user/README.md)
