@@ -38,6 +38,9 @@
         --docsify-example-panels-right-panel-width: 50%;
         --sidebar-nav-link-before-content-l3: "";
     }
+    .cover .cover-main > p a {
+        font-weight: var(--strong-font-weight);
+    }
     /* Copy button */
     .copy-button {
         fill: currentColor;
@@ -74,6 +77,12 @@
         /* CCS can't select predecessor... */
         position: relative;
         top: -1em;
+    }
+    .markdown-section .bigger-300 img {
+        width: 300px;
+    }
+    .markdown-section .bigger-1000 img {
+        width: 1000px;
     }
     /* Don't put extra space between a text line and a list */
     .markdown-section p ~ ul, .markdown-section p ~ ol {
@@ -177,15 +186,20 @@
       'flexible-alerts': {
           style: 'callout',
           comment: {
-            label: 'Comment',
-            icon: 'fas fa-comment',
-            className: 'note'
-        },
+              label: 'Comment',
+              icon: 'fas fa-comment',
+              className: 'note'
+          },
           update: {
               label: 'Last updated:',
               icon: 'fas fa-edit',
               className: 'update',
-          }
+          },
+          fcc: {
+              label: 'FCC Compliance disclaimer',
+              icon: 'fas fa-info',
+              className: 'tip',
+          },
       },
       // toc: {
       //   scope: '.markdown-section',
