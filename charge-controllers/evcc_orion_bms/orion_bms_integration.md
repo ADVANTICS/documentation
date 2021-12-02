@@ -22,11 +22,9 @@ To edit the CAN messages sent by the Orion BMS, follow these steps:
 
 ![Edit_CANbus_messages.PNG](images/Edit_CANbus_messages.png)
 
-1. Press "Edit CANBUS Messages", and configure the signals as shown in the following figure:
-    
-    
-    ![CAN_Settings.PNG](images/CAN_Settings.png)
-    
+2. Press "Edit CANBUS Messages", and configure the signals as shown in the following figure:
+
+![CAN_Settings.PNG](images/CAN_Settings.png)
 
 The messages that you should add are:
 
