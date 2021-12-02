@@ -27,7 +27,7 @@
         - [No BMS mode](charge-controllers/evcc_no_bms_mode.md)
         - [Temperature control](charge-controllers/evcc_temperature_control.md)
     - [Special](charge-controllers/evcc_special.md)
-        - [Orion BMS setup](charge-controllers/evcc_orion_bms/md)
+        - [Orion BMS setup](charge-controllers/evcc_orion_bms/orion_bms_integration.md)
 
 - **Linux systems**
     - [3.x branch](charge-controllers/systems_branch3.md)
