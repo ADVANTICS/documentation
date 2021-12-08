@@ -6,7 +6,10 @@ in a vehicle, it will provide AC and DC charging abstraction through a simple CA
 Thanks to charge inlet monitoring and control, as well as DC contactor control, very little is
 required from the vehicle to get the system up and running.
 
+<div class="bigger-1000">
+
 ![CINCH ModICE connectors](images/PEV_connector.png "CINCH ModICE connectors")
+</div>
 <figcaption style="text-align: center">Figure 2: CINCH ModICE connectors</figcaption>
 
 ## Power input

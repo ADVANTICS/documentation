@@ -35,7 +35,10 @@ Every electric vehicle project is different – requiring different subset of in
 - Standard IEC 61851-21-2, Electric vehicle requirements for conductive connection to an AC/DC supply
 - CharIN association – [CCS implementation guide](https://www.charinev.org/ccs-at-a-glance/ccs-implementation-guideline/)
 
+<div class="bigger-1000">
+
 ![Functionality overview](images/functionalities.jpg "Functionality overview")
+</div>
 <figcaption style="text-align: center">Figure 1: Functionality overview</figcaption>
 
 ## Mechanical housing
