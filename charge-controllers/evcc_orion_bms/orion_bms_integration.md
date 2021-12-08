@@ -1,11 +1,9 @@
 > [!UPDATE] {docsify-updated}
 # ORION BMS Integration
 
-# Introduction:
-
 This is a guide for integrating Orion BMS with ADVANTICS EVCC for CCS DC charging.
 
-# Interface:
+## Interface
 
 Integrating the Orion BMS with ADVANTICS EVCC is possible using the CAN Bus PEV Generic Interface and Orion Programmable CANBUS Interface via the ORION BMS Software utility.
 
@@ -21,6 +19,7 @@ To edit the CAN messages sent by the Orion BMS, follow these steps:
 1. Launch OrionBMS 2 Utility:
 
 ![Edit_CANbus_messages.PNG](images/Edit_CANbus_messages.png)
+<br/>
 
 2. Press "Edit CANBUS Messages", and configure the signals as shown in the following figure:
 
@@ -31,9 +30,10 @@ The messages that you should add are:
 ![messages_to_add.PNG](images/messages_to_add.png)
 
 
-> [!Note] for the signals 'Maximum Pack CCL' and 'Pack Current' you should change the 'field length' to 2 bytes.
+> [!NOTE]
+> For the signals 'Maximum Pack CCL' and 'Pack Current' you should change the 'field length' to 2 bytes.
 
-# Provide Signals not supported by the BMS:
+## Provide Signals not supported by the BMS
 
 Some signals are not supported by the BMS. The solution for that is to provide the missing signals as follows:
 
