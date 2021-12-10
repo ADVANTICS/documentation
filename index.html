@@ -58,6 +58,20 @@
     .alert.callout.update p.title {
         color: #17a2b8;
     }
+    .alert.callout.dlist {
+        border: none;
+        padding: 0 !important;
+        margin: 0 !important;
+    }
+    .alert.callout.dlist .icon {
+        display: none;
+    }
+    .alert.callout.dlist p {
+        margin: 0.5rem 0 0.5rem 1.25rem;
+    }
+    .alert.callout.dlist p.title {
+        margin-left: 0;
+    }
     /* Inline code similar to Notion style */
     code:not([class*="lang-"]):not([class*="language-"]) {
         color: #EB5757 !important;
@@ -200,6 +214,11 @@
               icon: 'fas fa-info',
               className: 'tip',
           },
+          dlist: {
+              label: '',
+              icon: '',
+              className: 'dlist',
+          }
       },
       // toc: {
       //   scope: '.markdown-section',
