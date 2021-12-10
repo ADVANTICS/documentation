@@ -557,7 +557,7 @@ file)
 and controller IO to drive contactors, you do not need to send [DC_Status2](charge-controllers/evcc_generic/can.md#DC_Status2).
 
 > [!NOTE]
-> See also <<No code mode>> section for special mode requiring no message to be sent from you to
+> See also [No code mode](charge-controllers/evcc_no_code_mode.md) section for special mode requiring no message to be sent from you to
 > reach a working charge.
 
 ```plantuml

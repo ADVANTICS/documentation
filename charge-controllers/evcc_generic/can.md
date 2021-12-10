@@ -961,7 +961,7 @@ DC charging specific status (from BMS to charge controller), message 1.
 Current target sent to EVSE.
 Will be capped by maximum current from config file and from EVSE data.
 
-Alternatively, use max_current in `/srv/config.cfg` when in <<No BMS mode>>.
+Alternatively, use max_current in `/srv/config.cfg` when in [No BMS mode](charge-controllers/evcc_configuration/no_bms.md).
 When doing so, you should set a safe `max_charge_voltage` to terminate the
 charge earlier than at full pack (ie. bulk charging):
 
@@ -1001,7 +1001,7 @@ Declare it as such in `/srv/config.cfg`:
     use_can_sensor = Isabellenhutte IVT-S
 
 In such case, this signal will be ignored.
-Refer to <<CAN sensor>> documentation to know how the sensor should be wired.
+Refer to [CAN sensor](charge-controllers/evcc_configuration/can_sensor.md) documentation to know how the sensor should be wired.
 
 > [!NOTE]
 > Signal is of signed data type for compatibility with future bidirectional
@@ -1144,7 +1144,7 @@ Declare it as such in `/srv/config.cfg`:
     use_can_sensor = Isabellenhutte IVT-S
 
 In such case, this signal will be ignored.
-Refer to <<CAN sensor>> documentation to know how the sensor should be wired.
+Refer to [CAN sensor](charge-controllers/evcc_configuration/can_sensor.md) documentation to know how the sensor should be wired.
 
 
 
@@ -1168,7 +1168,7 @@ Declare it as such in `/srv/config.cfg`:
     use_can_sensor = Isabellenhutte IVT-S
 
 In such case, this signal will be ignored.
-Refer to <<CAN sensor>> documentation to know how the sensor should be wired.
+Refer to [CAN sensor](charge-controllers/evcc_configuration/can_sensor.md) documentation to know how the sensor should be wired.
 
 
 

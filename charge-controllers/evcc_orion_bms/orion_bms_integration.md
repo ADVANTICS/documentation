@@ -39,9 +39,9 @@ Some signals are not supported by the BMS. The solution for that is to provide t
 
 __*Use Isabellenhutte Sensor:*__
 
-Please refer to [CAN sensor](charge-controllers/evcc_can_sensor.md) to know how the sensor should be wired.
+Please refer to [CAN sensor](charge-controllers/evcc_configuration/can_sensor.md) to know how the sensor should be wired.
 
-- Inlet Voltage: According to the standard the Inlet Voltage should be measured from the vehicle side just before the contactors, it's used mainly during Precharge to close the contactors on the correct voltage. Please check [Generic PEV CAN interface](charge-controllers/evcc_can_generic.md) to configure the controller to use the Isabellenhutte Sensor.
+- Inlet Voltage: According to charging standards, Inlet Voltage should be measured from the vehicle side just before the contactors. It's used mainly during Precharge to close contactors on the correct voltage. Please check [CAN sensor](charge-controllers/evcc_configuration/can_sensor.md) to configure the controller to use the Isabellenhutte Sensor.
 
 The following signals should be provided by the sensor even though the BMS can provide them:
 
@@ -54,4 +54,4 @@ Use the 12V input (R-3F) on the ADM-CS-EVCC unit to indicate the end of charge.
 
 __*Contactors with feedback:*__
 
-It's better to use contactors with feedback. The ADM-CS-EVCC unit has DC contactors feedback inputs. Check [Generic PEV CAN interface](charge-controllers/evcc_can_generic.md) to configure the controller to use contactors with the feedback inputs.
+The ADM-CS-EVCC unit has optional DC contactors feedback inputs. Check [DC contactors](charge-controllers/evcc_configuration/dc_contactors.md) to configure the controller to use contactors with the feedback inputs.
