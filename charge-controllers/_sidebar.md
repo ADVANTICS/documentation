@@ -1,5 +1,9 @@
 - **SECC**
     - [Hardware manual](charge-controllers/ADM-CS-SECC.md)
+        - [Introduction](charge-controllers/ADM-CS-SECC/introduction.md)
+        - [Interfaces](charge-controllers/ADM-CS-SECC/interfaces.md)
+        - [Charge station overview](charge-controllers/ADM-CS-SECC/evse_overview.md)
+        - [Examples of use](charge-controllers/ADM-CS-SECC/examples.md)
     - [Configuration](charge-controllers/secc_configuration.md)
     - [Generic CAN interface](charge-controllers/secc_can_generic.md)
     - [Migration from 3.x to 4.x](charge-controllers/secc_migration_3_to_4.md)
