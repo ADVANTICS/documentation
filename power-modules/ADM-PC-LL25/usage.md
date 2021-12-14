@@ -3,18 +3,7 @@
 
 ## Typical use case
 
-Typical use cases include:
-
-    - 3-phase Power Factor Correction (PFC)
-    - 3-phase grid-tied inverter (on-line)
-    - 1-phase off-grid inverter
-    - 3-phase off-grid inverter
-    - DC/DC (bidirectional Buck)
-    - DC/DC (bidirectional Boost)
-    - Hybrid modes (individual phase control, generating inverter + boost..)
-    - Fixed voltage ratio
-
-For more use case examples, please see the ADM-PC-BP25 flyer, and discuss other possibilities with ADVANTICS.
+Typical use case is 3-phase unidirectional EV battery charging.
 
 ## Form factor
 
@@ -27,12 +16,6 @@ Some of the common features are:
     - Each power module have at least one (optimally two) communication interface connectors
     - All mounting screws holes for mounting to the heatsink are designed for 5 mm screws
     - 24V powered
-
-<div class="bigger-300">
-
-![afe top view](images/top_view.jpg "afe top view")
-</div>
-<figcaption style="text-align: center">Figure 2: ADM-PC-BP25 top view</figcaption>
 
 
 ## Communication interface and power supply
@@ -85,13 +68,12 @@ The total end-to-end wire length of the network should not exceed 10 m with mult
 </div>
 <figcaption style="text-align: center">Figure 6: An example of a 1:1 chaining cable</figcaption>
 
-
 ![chain diagram](images/chain_diagram.png ':size=70%')
 <figcaption style="text-align: center">Figure 7: Chaining and termination diagram</figcaption>
 
 ### CAN bus
 
-The communication with ADVANTICS power modules is realized over CAN bus 2.0B, with data rate of 500 kbit/s and extended addressing. Please see the ADM-PC-BP25 Communication Manual for the protocol description. 
+The communication with ADVANTICS power modules is realized over CAN bus 2.0B, with data rate of 500 kbit/s and extended addressing. Please see the ADM-PC-LL25 Communication Manual for the protocol description. 
 Up to 32 modules of the same type can be chained, limited by the available addresses. The modules of different type do not collide with each other on the addresses.
 
 ### CAN bus termination
@@ -131,65 +113,50 @@ The power modules use press-fit PCB terminals for connecting the power cables or
 
 ### Topology
 
-The ADM-PC-BP25 is a 3-phase Silicon Carbide bridge, with individual phase chokes. Up to 1000 V DC bus operation is possible (depending on the product variant).
+The ADM-PC-LL25 is a 3-phase Silicon Carbide bridge with isolation transformer, output SiC rectifier bridge and ground fault detection. Up to 1200V DC bus operation is possible (depending on the product variant).
 
 <div class="bigger-300">
 
-![AFE topology](images/afe_topology.svg "AFE topology")
-</div>
-<figcaption style="text-align: center">Figure 9: ADM-PC-BP25 converter topology</figcaption>
-
-The topology is inherently bidirectional. A DSP (Digital Signal Processor) is used to control the individual transistor pairs directly – allowing for very versatile control modes and strategies. To understand how can the converter be used as a DC/DC, imagine all three phases (L1, L2, L3) being connected in parallel using an external wiring. In case of a DC/DC, all phases will then produce (almost) constant duty cycle, resulting in a controlled boost/buck topology. Each phase is then offset by 120 degrees, for the lowest current and voltage ripple.
+The topology is inherently **unidirectional**. A DSP (Digital Signal Processor) is used to control the individual transistor pairs directly – allowing for very versatile control modes and strategies. 
 
 ### Protection mechanisms
 
 #### Overcurrent (L1,L2,L3) protection
 
-The overcurrent protection has three levels. HW, FW and SW. The HW protection is set to +-85 Amps per phase. It is instantaneous, using window comparators and logic, and is fully independent of the digital signal processor firmware. The FW protection is set to +-80 Amps and is verified on low-pass filtered signal with BW of approximately 5 Hz. SW protection works on the same level as FW protection, but is user-adjustable over CAN bus.
+The overcurrent protection has three levels. HW, FW and SW. The HW protection is set to +-60 Amps peak per phase. It is instantaneous, using window comparators and logic, and is fully independent of the digital signal processor firmware. The FW protection is set to +-60 Amps and is verified on low-pass filtered signal with BW of approximately 5 Hz. SW protection works on the same level as FW protection, but is user-adjustable over CAN bus.
 
 #### Overvoltage protection
 
-Similarly there is a three level overvoltage protection on the DC bus. The limit is set to 860 V (VA08 variant) and 1060 V (VA01 variant), is instantaneous, using comparators and logic, and is fully independent of the digital signal processor firmware. A voltage exceeding this level will cause a converter shutdown. Customer should be aware that the module has no means of protecting itself if excessive voltage is presented on its input. Excessive voltage will destroy the switching devices. The L1, L2, L3 voltages only provides SW protection for user’s convenience, as the phase voltages are always lower or equal to the DC bus voltage.
+Similarly there is a two level overvoltage protection on the DC bus. The limit is set to 800 V (VA00 variant) in FW. A voltage exceeding this level will cause a converter shutdown. Customer should be aware that the module has no means of protecting itself if excessive voltage is presented on its input. Excessive voltage will destroy the switching devices. 
 
-#### Passive high voltage discharge
+#### Active high voltage discharge
 
-The module has a slow internal bleeding circuit for capacitor discharge. The purpose of this bleeder is to remove any residual voltage on the terminals when the converter is not operating. This bleeder is not a safety feature meant to protect users from dangerous voltages. It can take more than 4 minutes for the internal bleeder to drop capacitor voltage to a safe level. If safety bleeding is required, it must be implemented externally (for example by using low ohmic power resistor and a DC contactor).
+The module has a fast internal bleeding circuit for capacitor discharge. The purpose of this bleeder is to remove any residual voltage on the terminals when the converter is not operating. 
 
 ### Limits
 
-When talking about similar topologies, there are four main limiting aspects – the voltage, current, power and temperature. Since the converter can be used in many different ways, the way how limits are considered also changes. To make understanding these limits easier, always think of limits per phase (even if they are connected in parallel).
+There are four main limiting aspects – the voltage, current, power and temperature. Since the converter can be used in many different ways, the way how limits are considered also changes.
 
 #### Voltage limit
 
-The voltage limit is the simplest to consider. The switching devices have blocking voltage defined (1000 V for VA08 variant, and 1200 V for VA01 variant). The maximum allowed voltage is then derated by 200V for each variant - that is to 800 V and 1000 V respectively. The module will not allow the user to exceed these limits. The absolute value of the voltage will have an impact on the maximum power available – as switching losses increase slightly with the bus voltage. But in general, having higher voltage on both sides of the converter results in higher power available, and higher efficiency.
+The voltage limit is the simplest to consider. The switching devices have blocking voltage defined (1000 V for VA00 variant, and 1200 V for VA08 variant). The maximum allowed voltage is then derated by 200V for each variant - that is to 800 V and 1000 V respectively. The module will not allow the user to exceed these limits. The absolute value of the voltage will have an impact on the maximum power available – as switching losses increase slightly with the bus voltage. But in general, having higher voltage on both sides of the converter results in higher power available, and higher efficiency.
 
 > [!WARNING]
-> The module is equiped with HW protections that will shut down the converter if the limits are exceeded. 
-> But the module cannot protect itself against voltages applied on its terminals. Make sure that the applied voltage is within the operational limits
+> The module cannot protect itself against voltages applied on its terminals. Make sure that the applied voltage is within the operational limits
 
 
 #### Current limit
 
-Always consider current limit in the sense of phase currents. When the module is used as a DC/DC, the total current limit is 100 A for VA01 variant – resulting in maximum phase current of 33 A. When the module is used as a 3-phase power factor correction unit, the phase current is actually an AC current - expressed in Amps RMS. Therefore the phase limit will appear lower (30 A per phase for VA01 variant), as the module has to proccess much higher peak currents (42.5 A).
+The total **output current limit** is 65 A for VA00 variant.
 
 #### Power limit
 
-The maximum power at given low side (phase) voltage and low side (phase) current is calculated as max phase current times phase voltage. For very high values of the phase voltage the total transistor dissipation becomes the limiting factor. The maximum power is set to 50 kW. The power envelope is actually much more complicated, as it depends on bus voltage to phase voltage ratio, output current and the duty cycle, as well as on current shape (AC vs DC). Consult the details with ADVANTICS, if you’re not sure your application fits within the power capabilities.
-<div class="bigger-300">
+The maximum power at given low side (phase) voltage and low side (phase) current is calculated as max phase current times phase voltage. For very high values of the phase voltage the total transistor dissipation becomes the limiting factor. The maximum power is set to 25 kW. The power envelope is actually much more complicated, as it depends on bus voltage to phase voltage ratio, output current and the duty cycle, as well as on current shape (AC vs DC). Consult the details with ADVANTICS, if you’re not sure your application fits within the power capabilities.
 
-![power envelope va01](images/power_envelope_va01.svg "power envelope va01")
-</div>
-<figcaption style="text-align: center">Figure 10: Power envelope of the variant VA01</figcaption>
-
-<div class="bigger-300">
-
-![power envelope va08](images/power_envelope_va08.svg "power envelope va08")
-</div>
-<figcaption style="text-align: center">Figure 11: Power envelope of the variant VA08</figcaption>
 
 #### Thermal limit
 
-There are two temperature sensors installed in the module. The inductor temperature sensor, and the bridge temperature sensor (also call as transistor bar sensor). Both sensors report the current temperature over the CAN bus (in degrees Celsius). The shutdown temperature of the transistor bar sensor is 80 °C. The shutdown temperature of the inductor temperature sensor is 130 °C.
+There are two temperature sensors installed in the module, and an optional one not installed by default. The transistor bar temperature sensor, the diode rectifier temperature sensor and an optional transformer sensor. All sensors report the current temperature over the CAN bus (in degrees Celsius). The shutdown temperature of the transistor bar sensor is 80 °C. The shutdown temperature of the rectifier temperature sensor is 80 °C.
 Care must be taken to not operate the module near the temperature limits, as it will reduce the lifetime of the unit.
 
 > [!WARNING]
@@ -199,10 +166,4 @@ Care must be taken to not operate the module near the temperature limits, as it 
 
 For a correct operation, sufficient cooling is needed. **Never run the module without a heatsink attached!** The thermal protection might not react fast enough, if the transistor bar is not cooled.
 The power modules are designed to be installed on a flat metallic cooling surface. The module can output up to 750 W of heat through the aluminium bar and inductors. This heat needs to be evacuated through the user-supplied metallic plate. It is possible to use either forced aircooled heatsink or a watercooled plate. Consult the details of your implementation with ADVANTICS for cooling design verification. Pre-drilled heatsinks for module verification are also offered for rapid prototyping.
-There are four cooling surfaces on this module – three inductors and one transistor bar. Consult with the Assembly Manual for ADM-PC-BP25 for the list of required materials and the assembly procedure.
-
-<div class="bigger-300">
-
-![heat flow](images/heat_flow.png "heat flow")
-</div>
-<figcaption style="text-align: center">Figure 12: Heat flow path</figcaption>
+There are four cooling surfaces on this module – three inductors and one transistor bar. Consult with the Assembly Manual for ADM-PC-LL25 for the list of required materials and the assembly procedure.

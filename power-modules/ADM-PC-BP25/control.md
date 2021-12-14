@@ -7,10 +7,8 @@ This chapter only deals with high-level control. Please consult the ADM-PC-BP25 
 
 Engineering Toolkit for Advantics (ETKA), available for both Windows and Linux, consists of a series of applications and tools to work with ADVANTICS modules. ETKA is a GUI which together with a PeakCAN USB adapter allows customers to rapidly test and verify modules without writing any code.
 
-<div class="bigger-300">
 
-![etka](images/etka.png "etka")
-</div>
+![etka](images/etka.png ':size=80%')
 <figcaption style="text-align: center">Figure 13: ETKA GUI application</figcaption>
 
 ## Start procedure
@@ -137,11 +135,11 @@ Used to set custom current limits for three phases. This is software protection 
 AFE can operate in many different control modes, which includes both AC and DC applications. Some applications require a proper precharge to be done before connecting sources to the module. This is true whenever voltage source connected to three phases is of higher voltage than the DC link, which is in all applications that include boost and rectifier control modes. Otherwise, a permanent damage to the device might occur which will not be visible at first but it will definitely cause MOSFET failure.
 Setpoints are configured as follows:
 
-    - Duty cycle setpoint in **AFE_control** message
-    - Voltage setpoint in  **AFE_Voltage_Setpoint_Control** message, and **Voltage setpoint (2)** in **AFE_Rectifier_Setpoint_Control** message
-    - Current setpoint in **AFE_Current_Setpoint_Control** message, and **Current setpoint (2)** in **AFE_Rectifier_Setpoint_Control** message
-    - Frequency setpoint in **AFE_Frequency_Setpoint_Control** message. It cannot be changed once the converter has been started
-    - Phase setpoint in **AFE_Phase_Setpoint_Control** message. It cannot be changed once the converter has been started
+    - Duty cycle setpoint in AFE_control message
+    - Voltage setpoint in  AFE_Voltage_Setpoint_Control message, and Voltage setpoint (2) in AFE_Rectifier_Setpoint_Control message
+    - Current setpoint in AFE_Current_Setpoint_Control message, and **Current setpoint (2) in AFE_Rectifier_Setpoint_Control message
+    - Frequency setpoint in AFE_Frequency_Setpoint_Control message. It cannot be changed once the converter has been started
+    - Phase setpoint in AFE_Phase_Setpoint_Control message. It cannot be changed once the converter has been started
 
 ### PWM
 Directly sets duty cycles for each phase. This is for testing purposes only and should never be used by customers!

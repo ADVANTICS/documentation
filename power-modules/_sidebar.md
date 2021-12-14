@@ -5,3 +5,11 @@
         - [Servicing](power-modules/ADM-PC-BP25/servicing.md)
         - [Control](power-modules/ADM-PC-BP25/control.md)
         - [Application examples](power-modules/ADM-PC-BP25/application_examples.md)
+
+- **ADM-PC-LL25**
+    - [Hardware manual](power-modules/ADM-PC-LL25/README.md)
+        - [Introduction](power-modules/ADM-PC-LL25/introduction.md)
+        - [Usage](power-modules/ADM-PC-LL25/usage.md)
+        - [Servicing](power-modules/ADM-PC-LL25/servicing.md)
+        - [Control](power-modules/ADM-PC-LL25/control.md)
+        - [Application examples](power-modules/ADM-PC-LL25/application_examples.md)
