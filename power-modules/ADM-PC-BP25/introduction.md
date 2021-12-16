@@ -3,12 +3,12 @@
 
 The ADM-PC-BP25 is a power converter with integrated controller and CAN bus interface. The main features are:
 
-    - 3-phase Silicon Carbide bridge
-    - Hard-switched, non-isolated topology
-    - Fully bidirectional power flow
-    - High frequency switching
-    - Advanced DSP control
-    - Flat mounting surface – compatible with extruded heatsinks and watercooling
+- 3-phase Silicon Carbide bridge
+- Hard-switched, non-isolated topology
+- Fully bidirectional power flow
+- High frequency switching
+- Advanced DSP control
+- Flat mounting surface – compatible with extruded heatsinks and watercooling
 
 ## Who is this product for?
 

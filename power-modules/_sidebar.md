@@ -1,13 +1,18 @@
 - **ADM-PC-BP25**
-    - [Hardware manual](power-modules/ADM-PC-BP25/README.md)
+    - [User manual](power-modules/ADM-PC-BP25/README.md)
+        - [Safety Hazards](power-modules/ADM-PC-BP25/safety_hazards.md)
         - [Introduction](power-modules/ADM-PC-BP25/introduction.md)
-        - [Usage](power-modules/ADM-PC-BP25/usage.md)
-        - [Servicing](power-modules/ADM-PC-BP25/servicing.md)
-        - [Control](power-modules/ADM-PC-BP25/control.md)
+        - [Specifications](power-modules/ADM-PC-BP25/specifications.md)
+        - [Installation](power-modules/ADM-PC-BP25/installation.md)
+        - [Communication Interface](power-modules/ADM-PC-BP25/comm_interface.md)
+        - [CAN database](power-modules/ADM-PC-BP25/can_database.md)
+        - [Theory of operation](power-modules/ADM-PC-BP25/theory_of_operation.md)
+        - [Quick Start](power-modules/ADM-PC-BP25/quick_start.md)
         - [Application examples](power-modules/ADM-PC-BP25/application_examples.md)
+        - [Servicing](power-modules/ADM-PC-BP25/servicing.md)
 
 - **ADM-PC-LL25**
-    - [Hardware manual](power-modules/ADM-PC-LL25/README.md)
+    - [User manual](power-modules/ADM-PC-LL25/README.md)
         - [Introduction](power-modules/ADM-PC-LL25/introduction.md)
         - [Usage](power-modules/ADM-PC-LL25/usage.md)
         - [Servicing](power-modules/ADM-PC-LL25/servicing.md)
