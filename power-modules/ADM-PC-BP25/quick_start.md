@@ -4,13 +4,7 @@
 
 This chapter only deals with high-level control. Please consult the ADM-PC-BP25 CAN database section for the CAN bus addresses and format. The CAN database is distributed in both KCD and DBC formats.
 
-## ETKA
-
-Engineering Toolkit for Advantics (ETKA), available for both Windows and Linux, consists of a series of applications and tools to work with ADVANTICS modules. ETKA is a GUI which together with a PeakCAN USB adapter allows customers to rapidly test and verify modules without writing any code.
-
-
-![etka](images/etka.png ':size=80%')
-<figcaption style="text-align: center">Figure 13: ETKA GUI application</figcaption>
+[etka.md](../common/etka.md ':include')
 
 ## Quick start procedure
 

@@ -33,6 +33,4 @@
 |-----|-----------|
 |**Voltage range**|VA01: 1000 V<sub>DC</sub> bus max <br /> VA08: 800 V<sub>DC</sub> bus max |
 
-
-
 </div>

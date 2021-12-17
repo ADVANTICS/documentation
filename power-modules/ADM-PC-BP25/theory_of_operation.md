@@ -70,10 +70,8 @@ AFE can operate in many different control modes, which includes both AC and DC a
 
 >[!WARNING] Verify if your application requires precharge before appliying any voltage on the module or permanent damage might occur to the module
 
-Since the AFE topology is inherently bidirectional, some terms such as buck/boost and rectifier/inverter might be misleading, because power flow can be in either direction. Hence, the name of the operating mode will be given by the voltage side controlled by the user. For example, in Buck mode, the user controls the low side voltage (L1,L2,L3) for a given DC bus voltage, whereas in Boost mode the user controls the DC bus voltage for a given low side voltage (L1,L2,L3).
-
-To start operating the device, please refer to the "Quickstart" section. However, it can be summarized in:
-1. Power up and clearing interlock
+To start operating the device, please refer to the [Quick Start](power-modules/ADM-PC-BP25/quick_start.md) section. However, it can be summarized in:
+1. Power up and clear interlock
 2. Select setpoints
 3. Select control mode and enable
 
@@ -86,59 +84,131 @@ Setpoints are configured as follows:
 - Phase setpoint in **AFE_Phase_Setpoint_Control** message. It cannot be changed once the converter has been started
 
 ### PWM mode
-In this mode, the user selected pwm duty cycles are directly applied in each phase. This is for testing purposes only and should never be used by customers!
+In this mode, the user selected pwm duty cycles are directly applied in each phase. This is for testing purposes only and should never be used by customers.
 
-### Neutral mode
+>[!WARNING] Do not use this mode unless it is required by Advantics for test purposes
+
+### Neutral mode 
 For a given DC link voltage, the AFE will generate an open-loop voltage on L1,L2 and L3 that is 50% of the input. In this mode the three phases must be shorted and the voltage source connected to the DC link. Input side is defined to be the DC link, and output side to be the three phases. 
 
 This control mode is usually used together with other modules operating in the Inverter 3-phase, or in Inverter 1-phase Sync. modes, in order to generate the neutral point.
 When the frequency setpoint is configured, this module will generate synchronization pulses used by the other modules in Inverter 1-phase Sync. mode in order to synchronize themselves with respect to the pulse. This process provides great flexibility to generate any type of AC voltage of any frequency, amplitude (within DC link voltage) and phase.
 
-For more information about possible applications, please refer to the "Application Examples" section.
+For more information about possible applications, please refer to the [Application Examples](power-modules/ADM-PC-BP25/application_examples.md) section.
+
+![power envelope va01](images/AFE_neutral-AFE_neutral.svg ':size=50%')
+<figcaption style="text-align: center">Simple connection of ADM-PC-BP25 in Neutral mode</figcaption>
 
 ### Buck mode
 The AFE will act as a Constant Current/Constant Voltage source. For a given DC link voltage, the AFE will generate a closed-loop voltage on L1,L2 and L3 defined by the Voltage Setpoint or will clamp to the current limit set by the user current setpoint. In this mode the three phases must be shorted and the voltage source connected to the DC link. Input side is defined to be the DC link, and output side to be the three phases. Positive current direction is from the input to the output (from DC link to the three phases).
+
 Voltage setpoint corresponds to the output voltage reference. Current setpoint corresponds to the total output current, where total means the three phases combined.
+
+![power envelope va01](images/AFE_buck-AFE_buck.svg ':size=50%')
+<figcaption style="text-align: center">Simple connection of ADM-PC-BP25 in Buck mode</figcaption>
 
 ### Boost mode
 The AFE will act as a Constant Current/Constant Voltage source. For a given 'low voltage side' voltage, the AFE will generate a closed-loop voltage on the DC link defined by the Voltage Setpoint or will clamp to the current limit set by the user current setpoint. In this mode the three phases must be shorted and the voltage source connected to the three phases. Input side is defined to be the three phases, and output side to be the DC link. Positive current direction is from the input to the output (from three phases to DC link).
+
 Voltage setpoint corresponds to the output voltage reference. Current setpoint corresponds to the total input current, where total means the three phases combined.
 
 >[!WARNING]This application requires precharge to be implemented!
 
-![power envelope va08](images/schematic.svg ':size=60%')
-<figcaption style="text-align: center">Figure 11: Power envelope of the variant VA08</figcaption>
+![power envelope va08](images/AFE_boost-AFE_boost.svg ':size=70%')
+<figcaption style="text-align: center">Simple connection of ADM-PC-BP25 in Boost mode with precharge</figcaption>
 
 ### Boost & Neutral mode
+As the name indicates, this mode provides two 'outputs': a boosted DC voltage in the DC link, and a neutral voltage in L3. 
+
 The voltage source is connected to shorted L1-L2 phases. Input side is defined to be the two phases L1-L2, and output side to be the DC link. Positive current direction is from the input to the output.
-This application requires precharge to be implemented!
+
 Neutral is generated in open-loop on phase L3 as 50% of the DC link voltage. This control mode is usually used with another module operating in Inverter 3-phase control mode in order to generate a symmetrical three-phase voltage with neutral from low-voltage DC source.
+
 Voltage setpoint corresponds to the output voltage reference. Current setpoint corresponds to the total input current, where total means the two phases combined.
+
+>[!WARNING]This application requires precharge to be implemented!
+
+![power envelope va08](images/AFE_boost_neutral-AFE_boost_neutral.svg ':size=70%')
+<figcaption style="text-align: center">Example connection of ADM-PC-BP25 in boost & neutral mode with precharge</figcaption>
+
 ### Rectifier 1-phase mode
-AC voltage source is connected between phases L2 and L3, either line-to-neutral or line-to-line. Phase L1 is unused in this control mode. Input side is defined to be the two phases L2-L3, and output side to be the DC link. This control mode is still in experimental stage!
-This application requires precharge to be implemented!
-Voltage setpoint corresponds to the output voltage reference. Current setpoint corresponds to the total input RMS current limit and must be greater than zero, where total means single phase.
+In this mode, the module can be attached to an existing 1-phase grid to sink or source power from/to it and acting as an active power factor correction unit (PFC) with boost. The module reaches a power factor of 0.96-0.99 depending on the loading.
+Supported grid standards are:
+- EU grid (50Hz) both line-to-line or line-to-neutral
+- US 480V<sub>AC</sub> and 208V<sub>AC</sub> (60Hz)
+
+AC voltage source is connected between phases L2 and L3, either line-to-neutral or line-to-line. Phase L1 is unused in this control mode. Input side is defined to be the two phases L2-L3, and output side to be the DC link. 
+
+Voltage setpoint corresponds to the output voltage reference, and it must be bigger than the peak to peak amplitude of the AC voltage. Current setpoint corresponds to the total input RMS current limit and must be greater than zero, where total means single phase.
+
+>[!WARNING]This application requires precharge to be implemented!
+
+![power envelope va08](images/AFE_rectifier_1ph-AFE_rectifier_1ph.svg ':size=70%')
+<figcaption style="text-align: center">Example connection of ADM-PC-BP25 in rectifier 1-phase mode with precharge</figcaption>
+
 ### Rectifier 1-phase & Buck mode
-AC voltage source is connected between phases L2 and L3, either line-to-neutral or line-to-line. Battery is connected to the phase L1. Input side is defined to be the two phases L2-L3, and output side to be the DC link. This control mode is still in experimental stage!
-This application requires precharge to be implemented!
-Voltage setpoint corresponds to the output voltage reference. Current setpoint corresponds to the total input RMS current limit and must be greater than zero, where total means single phase.
+This mode is identical to Rectifier 1-phase mode, but it also generates a DC step-down voltage in phase L1. This voltage will always be smaller or equal than the DC link voltage.
+
+AC voltage source is connected between phases L2 and L3, either line-to-neutral or line-to-line.  Input side is defined to be the two phases L2-L3, and output side to be the DC link. 
+
+Voltage setpoint corresponds to the output voltage reference (DC link voltage), and it must be bigger than the peak to peak amplitude of the AC voltage. Current setpoint corresponds to the total input RMS current limit and must be greater than zero, where total means single phase.
 Voltage setpoint (2) corresponds to the phase L1 voltage reference. Current setpoint (2) corresponds to the phase L1 current limit, where positive current direction is from the DC link to the phase L1.
+
+>[!WARNING]This application requires precharge to be implemented!
+
+![power envelope va08](images/AFE_rectifier_1ph_buck-AFE_rectifier_1ph_buck.svg ':size=70%')
+<figcaption style="text-align: center">Example connection of ADM-PC-BP25 in rectifier 1-phase & Buck mode with precharge</figcaption>
+
 ### Rectifier 3-phase mode
-Symmetrical three-phase AC voltage source is connected to the three phases. Input side is defined to be the three phases, and output side to be the DC link.
-This application requires precharge to be implemented!
+In this mode, the module can be attached to an existing 3-phase grid to sink or source power from/to it and acting as an active power factor correction unit (PFC) with boost. The module reaches a power factor of 0.96-0.99 depending on the loading.
+
+Symmetrical three-phase AC voltage source is connected to the three phases. 
+
 Voltage setpoint corresponds to the output voltage reference. Current setpoint corresponds to the total input RMS current limit and must be greater than zero, where total means the three phases combined.
+
+>[!WARNING]This application requires precharge to be implemented!
+
+![power envelope va08](images/AFE_rectifier_3ph-AFE_rectifier_3ph.svg ':size=70%')
+<figcaption style="text-align: center">Example connection of ADM-PC-BP25 in Rectifier 3-phase mode with precharge</figcaption>
+
 ### Inverter 1-phase mode
-Voltage source is connected to the DC link. It generates sine-wave voltage in open-loop on phases L1 and L3 with 180° phase shift, and 50% of the DC link voltage on phase L2 (neutral).
+In this mode, the module is able to generate an open-loop AC voltage source of the desired frequency, and amplitude within the DC-link limit. 
+
+Voltage source is connected to the DC link. It generates a sine-wave voltage in open-loop on phases L1 and L3 with 180° phase shift, and 50% of the DC link voltage on phase L2 (neutral). Therefore, L1 to L3 voltage will be double of L1 to L2 voltage.
+
 Voltage setpoint corresponds to the phase RMS voltage reference. Current setpoint corresponds to the phase RMS current limit and must be greater than zero. Frequency setpoint corresponds to the sine-wave frequency.
+
+![power envelope va08](images/AFE_inverter_1-ph-AFE_inverter_1ph.svg ':size=60%')
+<figcaption style="text-align: center">Simple connection of ADM-PC-BP25 in boost mode with precharge</figcaption>
+
 ### Inverter 1-phase & Boost mode
-Voltage source is connected to the phase L1. It generates sine-wave voltage in open-loop on phases L2 and L3 with 180° phase shift.
-This application requires precharge to be implemented!
+In this mode, the module generates an AC voltage and at the same time, a boosted DC voltage in the DC-link.
+
+Voltage source is connected to the phase L1 and DC-. An AC sine-wave voltage is generated in open-loop on phases L2 and L3 with 180° phase shift.
+
 Voltage setpoint corresponds to the output RMS voltage reference. Current setpoint corresponds to the phase RMS current limit and must be greater than zero. Frequency setpoint corresponds to the sine-wave frequency.
 Voltage setpoint (2) corresponds to the DC link voltage reference. Current setpoint (2) corresponds to the phase L1 current limit, where positive current direction is from the phase L1 to the DC link.
+
+![power envelope va08](images/AFE_inverter_1-ph_boost-AFE_inverter_1-ph_boost.svg ':size=70%')
+<figcaption style="text-align: center">Example connection of ADM-PC-BP25 in inverter 1-phase mode.</figcaption>
+
 ### Inverter 1-phase Sync. mode
-Voltage source is connected to the DC link. The three phases must be shorted. It generates a sine-wave voltage in open-loop on the three phases. Input side is defined to be the DC link, and output side to be the three phases.
+In this mode, the module generates a 'floating' AC voltage sine-wave in open loop on the three phases. This control mode is usually used with another module operating in the Neutral control mode which generates a synchronization signal for the specified sine-wave frequency. For more information about possible applications, please refer to the [Application Examples](power-modules/ADM-PC-BP25/application_examples.md) section.
+
+Voltage source is connected to the DC link. The three phases must be shorted. Input side is defined to be the DC link, and output side to be the three phases.
+
 Voltage setpoint corresponds to the output RMS voltage reference. Current setpoint corresponds to the total output RMS current limit and must be greater than zero, where total means all three phases combined. Frequency setpoint corresponds to the sine-wave frequency. Phase setpoint corresponds to the phase shift with respect to the synchronization signal.
-This control mode is usually used with another module operating in the Neutral control mode which generates a synchronization signal for the specified sine-wave frequency.
+
+
+![power envelope va08](images/AFE_inverter_1-ph_sync-AFE_inverter_1-ph_sync.svg ':size=50%')
+<figcaption style="text-align: center">Example connection of ADM-PC-BP25 in Inverter 1-phase Sync.mode</figcaption>
+
 ### Inverter 3-phase mode
-Voltage source is connected to the DC link. Input side is defined to be the DC link, and output side to be the three phases. It generates a three-phase sine-wave voltage in open-loop on output with 120° phase shift. It is usually used with another module operating in the Boost & Neutral control mode which provides neutral line.
+In this mode, the module generates a 3-phase sine-wave voltage in open loop with a 120 degrees phase shift between phases. It is usually used with another module operating in the Boost & Neutral control mode which provides neutral line.
+
+Voltage source is connected to the DC link. Input side is defined to be the DC link, and output side to be the three phases. 
+
 Voltage setpoint corresponds to the output RMS voltage reference. Current setpoint corresponds to the output (per-phase) RMS current limit and must be greater than zero. Frequency setpoint corresponds to the sine-wave frequency.
+
+![power envelope va08](images/AFE_inverter_3ph-AFE_inverter_3ph.svg ':size=50%')
+<figcaption style="text-align: center">Example connection of ADM-PC-BP25 in inverter 3-phase mode </figcaption>
