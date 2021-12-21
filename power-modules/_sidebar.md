@@ -13,8 +13,13 @@
 
 - **ADM-PC-LL25**
     - [User manual](power-modules/ADM-PC-LL25/README.md)
+        - [Safety Hazards](power-modules/ADM-PC-LL25/safety_hazards.md)
         - [Introduction](power-modules/ADM-PC-LL25/introduction.md)
-        - [Usage](power-modules/ADM-PC-LL25/usage.md)
-        - [Servicing](power-modules/ADM-PC-LL25/servicing.md)
-        - [Control](power-modules/ADM-PC-LL25/control.md)
+        - [Specifications](power-modules/ADM-PC-LL25/specifications.md)
+        - [Installation](power-modules/ADM-PC-LL25/installation.md)
+        - [Communication Interface](power-modules/ADM-PC-LL25/comm_interface.md)
+        - [CAN database](power-modules/ADM-PC-LL25/can_database.md)
+        - [Theory of operation](power-modules/ADM-PC-LL25/theory_of_operation.md)
+        - [Quick Start](power-modules/ADM-PC-LL25/quick_start.md)
         - [Application examples](power-modules/ADM-PC-LL25/application_examples.md)
+        - [Servicing](power-modules/ADM-PC-LL25/servicing.md)

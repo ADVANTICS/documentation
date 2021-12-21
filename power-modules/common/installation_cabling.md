@@ -41,6 +41,8 @@ JST CPT product page: https://www.jst-mfg.com/product/detail_e.php?series=477
 </div>
 <figcaption style="text-align: center">Figure 5: JST CPT crimping tool WC-CPT021</figcaption>
 
+<div class="compact-table">
+
 | JST CPT pin | Name | Description |
 | ----------- | ----------- | -----------|
 |1 | +24V power | Interface and control power |
@@ -51,6 +53,8 @@ JST CPT product page: https://www.jst-mfg.com/product/detail_e.php?series=477
 |6 | CAN HIGH | Twisted pair between 6,7 |
 |7 | CAN LOW | Twisted pair between 6,7 |
 |8 | Signal ground | Interface ground |
+
+</div>
 
 ### Module Chaining <!-- {docsify-ignore} -->
 

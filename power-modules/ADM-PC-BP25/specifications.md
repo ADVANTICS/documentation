@@ -19,7 +19,7 @@
 |**Protection features**|Overcurrent<br />Overvoltage<br />Overheating <br /> Common interlock line|
 |**Parallel operation**|Buck: possible<br />Boost: possible<br />Rectifier: not possible<br />Inverter: not possible|
 |**Communication protocol**|CAN bus 2.0B, 500kbit/s with extended addressing|
-|**Communication chaning**|Possible. Up to 32 devices of the same type. More if different module types are chained.|
+|**Communication chaining**|Possible. Up to 32 devices of the same type. More if different module types are chained.|
 |**Logic power**| 24V |
 
 
