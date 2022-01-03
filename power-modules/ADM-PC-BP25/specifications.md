@@ -31,6 +31,9 @@
 
 |Field|ADM-PC-BP25|
 |-----|-----------|
-|**Voltage range**|VA01: 1000 V<sub>DC</sub> bus max <br /> VA08: 800 V<sub>DC</sub> bus max |
+|**Dimensions**| 230 x 60 x 255 mm |
+|**Weight**|  |
+|**Storage temperature**| 0 to 45 degrees Celsius |
+|**Storage relative humidity**| 20 to 80% without condensation|
 
 </div>

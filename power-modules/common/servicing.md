@@ -1,5 +1,58 @@
 # Servicing
 
+## Firmware update
+All Advantics MCP-25 family modules have a bootloader that allows the user to update the module firmware through CAN bus, thus, without requiring any additional hardware and cabling.
+
+To check and get the latest firmware release version consult with Advantics.
+
+The firmware of the module can be updated with the Advantics tool **AFPU** (Advantics Flash Programming Utility). It is a very simple command line interface (CLI) program provided by Advantics.
+
+The user just needs to:
+
+1. Navitage to the AFPU folder and open a terminal window
+2. Execute the following command:
+
+- For windows:
+
+    .\afpuexe.exe -m **MODULE** -p**X** flash C:\my_firmware_path\firmware_file.hex
+
+- For linux:
+
+    ./afpuexe.exe -m **MODULE** -p**X** flash 'C:\my_firmware_path\firmware_file.hex'
+
+In the commands above, **X** is the stack position of the target device, and **MODULE** can be any module type of the following list:
+- BOOTLOADER
+- FILTER
+- PFC
+- LLC
+- BUCK
+- AFE
+- ADM-PC-BI25
+- ADM-PC-LF45
+- ADM-PC-UP25
+- ADM-PC-LL25
+- ADM-PC-BC25
+- ADM-PC-BP25
+
+>[!WARNING]Take close attention to the -m switch. You must use the correct firmware for the correct module. Otherwise you risk to damage the module.
+
+>[!WARNING]Do not disconnect or turn off the module power supply while the flashing process is taking process or permanent damage to the module might occur.
+
+The command above will start the flashing procedure and will show an output similar to this (as an example):
+
+    Putting device on position 0 in reset...
+    Interrupting normal boot...
+    Found module: AFE
+    HW revision: 0x0
+    HW variant: 0x0
+    Stack position: 0x0
+    Serial number: 0x1afdab
+    Bootloader firmware info:
+    Git revision: 2019.12.12
+    Build date: 20191212/1833
+
+>[!NOTE]The Git revision/build date are information about the bootloader itself, NOT the module firmware.
+
 ## Manteinance plan
 
 The module does not contain any parts requiring regular maintenance. All the capacitors are either ceramic capacitors (low voltage) or film capacitors (high voltage). There are no electrolytic capacitors prone to drying out, and no cooling fans.
