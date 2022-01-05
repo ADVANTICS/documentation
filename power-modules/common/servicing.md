@@ -21,7 +21,6 @@ The user just needs to:
     ./afpuexe.exe -m **MODULE** -p**X** flash 'C:\my_firmware_path\firmware_file.hex'
 
 In the commands above, **X** is the stack position of the target device, and **MODULE** can be any module type of the following list:
-- BOOTLOADER
 - FILTER
 - PFC
 - LLC

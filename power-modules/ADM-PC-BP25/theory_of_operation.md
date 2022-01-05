@@ -212,3 +212,43 @@ Voltage setpoint corresponds to the output RMS voltage reference. Current setpoi
 
 ![power envelope va08](images/AFE_inverter_3ph-AFE_inverter_3ph.svg ':size=50%')
 <figcaption style="text-align: center">Example connection of ADM-PC-BP25 in inverter 3-phase mode </figcaption>
+
+
+## Parallel operation in DC/DC
+
+The ADM-PC-BP25 modules can be paralleled (starting from firmware release **2021.9.24**) in order to increase the maximum power. However, to enable parallel operation the user must read this section and follow the given guidelines.
+
+#### Group ID
+First of all, let's introduce the concept of **"Group ID"**. The Group ID is an identifier which will be shared by all the modules that perform the same function. For example, in the case of having 3 modules in parallel to work in Boost operation, all of them would share the same Group ID (i.e. Group ID 1). If, in the same bus we have 2 more modules that work in parallel in Buck mode, they would also share a Group ID but different from the previous (i.e. Group ID 2)
+
+Some considerations about the Group ID:
+-  The user can modify the Group ID of any device with the **AFE_Group_Control** message,
+-  The user can retrieve the current Group ID of a device with the **AFE_Group_Info** message.
+- The Group ID can range from 0 to 7. A Group ID of '0' means that the device does NOT share any group with other devices (default configuration)
+- The Group ID of a device is **not persistent**, and is set to '0' by default upon reboot/power-up.
+- The only limit on the maximum number of modules that belong to a group is impossed by the maximum stack number, 32.
+
+Please, refer to the [CAN database](power-modules/ADM-PC-BP25/can_database.md) for more information about the messages to set/retrieve the group ID.
+
+When one or more ADM-PC-BP25 that belong to a group (different from '0') are enabled and in buck or boost operation, they will start publishing system-level messages in the CAN bus called '_AFE_Broadcast' with a periodicity of 50 ms. The message should be disregarded by the user, and are used only by other ADM-PC-BP25 to coordinate their effort.
+
+#### Procedure for parallel operation
+For an example case of 2 modules (A and B), the process to enable parallel operation in a boost/buck mode is the following:
+
+1. Power-up modules and make sure that the firmware in all the modules is newer or equal to the 2021.9.24 release.
+
+2. Clear interlocks.
+
+3. Assign the same Group ID only to the desired modules that will work in parallel boost or buck operation (in this case A and B). The group ID should be different from '0' (for example, '1'). 
+
+4. Configure the setpoints for one of the devices in the group (for example, start with module A).
+
+5. Configure control mode to Boost or Buck.
+
+6. Start the converter for 'A' and wait until it reaches steady state.
+
+7. Repeat the process from point 4 to device 'B' and to as many devices as desired.
+
+>[!WARNING]Setpoints and control mode for devices working in parallel must be the same.
+
+>[!WARNING]Do not change the Group ID while the modules are enabled.

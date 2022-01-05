@@ -23,3 +23,16 @@
         - [Quick Start](power-modules/ADM-PC-LL25/quick_start.md)
         - [Application examples](power-modules/ADM-PC-LL25/application_examples.md)
         - [Servicing](power-modules/ADM-PC-LL25/servicing.md)
+
+- **ADM-PC-LF45**
+    - [User manual](power-modules/ADM-PC-LF45/README.md)
+        - [Safety Hazards](power-modules/ADM-PC-LF45/safety_hazards.md)
+        - [Introduction](power-modules/ADM-PC-LF45/introduction.md)
+        - [Specifications](power-modules/ADM-PC-LF45/specifications.md)
+        - [Installation](power-modules/ADM-PC-LF45/installation.md)
+        - [Communication Interface](power-modules/ADM-PC-LF45/comm_interface.md)
+        - [CAN database](power-modules/ADM-PC-LF45/can_database.md)
+        - [Theory of operation](power-modules/ADM-PC-LF45/theory_of_operation.md)
+        - [Quick Start](power-modules/ADM-PC-LF45/quick_start.md)
+        - [Application examples](power-modules/ADM-PC-LF45/application_examples.md)
+        - [Servicing](power-modules/ADM-PC-LF45/servicing.md)
