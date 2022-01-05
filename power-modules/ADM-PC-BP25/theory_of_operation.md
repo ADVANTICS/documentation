@@ -252,3 +252,11 @@ For an example case of 2 modules (A and B), the process to enable parallel opera
 >[!WARNING]Setpoints and control mode for devices working in parallel must be the same.
 
 >[!WARNING]Do not change the Group ID while the modules are enabled.
+
+
+#### Example of parallel operation
+
+In the following example, 4 modules are used. Two modules (A and B) work in parallel Boost operation sharing Group ID 1 and with a battery and precharge circuit. The other two modules (C and D) work in parallel Buck sharing Group ID 2, and have their output connected to a generic load.
+
+![power envelope va08](images/parallel_boost_buck-parallel_boost_buck.svg ':size=90%')
+<figcaption style="text-align: center">Example connection of 2 modules working in parallel Boost operation and 2 modules in parallel Buck </figcaption>
