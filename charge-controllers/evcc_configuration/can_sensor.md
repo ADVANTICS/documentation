@@ -23,4 +23,4 @@ reading polarity. Here is how you should wire this sensor:
 * Current is measured on the return path (DC -)
 
 > [!NOTE]
-> Upon start-up, Advantics controller WILL reconfigure the sensor as it see fits.
+> Upon start-up, Advantics controller WILL reconfigure the sensor as it sees fit.
