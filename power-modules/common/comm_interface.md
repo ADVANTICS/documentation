@@ -6,7 +6,7 @@ All ADVANTICS modules have a common interface for control and readout. The inter
 
 ![interface_connector](../common/images/interface_connectors.jpg "interface_connector")
 </div>
-<figcaption style="text-align: center">Figure 3: Example of a power module with two interface
+<figcaption style="text-align: center">Example of a power module with two interface
 connectors</figcaption>
 
 ### CAN bus

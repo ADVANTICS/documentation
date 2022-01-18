@@ -11,8 +11,8 @@ Please check the content of the package and compareit against the list attached 
 Temperature: 0 to 45 °C
 Relative humidity: 20 – 80 % without condensation
 
-#### Safety and electrical insulation <!-- {docsify-ignore} -->
-The module live parts including output/input terminals are of IPXX protected.
+<!--#### Safety and electrical insulation
+The module live parts including output/input terminals are of IPXX protected.-->
 
 ## Form factor
 

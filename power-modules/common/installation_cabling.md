@@ -12,7 +12,7 @@ The power modules use press-fit PCB terminals for connecting the power cables or
 
 ![press fit](../common/images/press_fit.png "press fit")
 </div>
-<figcaption style="text-align: center">Figure 8: The press-fit power terminal drawing</figcaption>
+<figcaption style="text-align: center">The press-fit power terminal drawing</figcaption>
 
 ### Power wiring <!-- {docsify-ignore} -->
 It is recommended to lead the wires by the shortest way out from PCB and avoid crossing and touching the PCB of the source module or any other module.
@@ -33,13 +33,13 @@ JST CPT product page: https://www.jst-mfg.com/product/detail_e.php?series=477
 
 ![CPT connector](../common/images/CPT_connector.png "CPT connector")
 </div>
-<figcaption style="text-align: center">Figure 4: Pintout of the CPT-connector pins 1-8</figcaption>
+<figcaption style="text-align: center">Pintout of the CPT-connector pins 1-8</figcaption>
 
 <div class="bigger-300">
 
 ![CPT crimp tool](../common/images/JST_CPT_crimp_tool.jpg "CPT crimp tool")
 </div>
-<figcaption style="text-align: center">Figure 5: JST CPT crimping tool WC-CPT021</figcaption>
+<figcaption style="text-align: center">JST CPT crimping tool WC-CPT021</figcaption>
 
 <div class="compact-table">
 
@@ -64,11 +64,11 @@ The total end-to-end wire length of the network should not exceed 10 m with mult
 
 ![chain cable](../common/images/JST_chain_cable.jpg "chain cable")
 </div>
-<figcaption style="text-align: center">Figure 6: An example of a 1:1 chaining cable</figcaption>
+<figcaption style="text-align: center">An example of a 1:1 chaining cable</figcaption>
 
 
 ![chain diagram](../common/images/chain_diagram.png ':size=70%')
-<figcaption style="text-align: center">Figure 7: Chaining and termination diagram</figcaption>
+<figcaption style="text-align: center">Chaining and termination diagram</figcaption>
 
 ### Functional accessories<!-- {docsify-ignore} -->
 

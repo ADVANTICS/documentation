@@ -17,7 +17,6 @@
 |**Power conversion modes**|Step-down (Buck)<br />Step-up (Boost)<br />Grid attached (Rectification) <br /> AC generation (Inverter) <br />|
 |**AC grid support**|EU (400V<sub>AC</sub> @ 50Hz) <br /> US (480V<sub>AC</sub> and 208V<sub>AC</sub>@ 60Hz)|
 |**Protection features**|Overcurrent<br />Overvoltage<br />Overheating <br /> Common interlock line|
-|**Parallel operation**|Buck: possible<br />Boost: possible<br />Rectifier: not possible<br />Inverter: not possible|
 |**Communication protocol**|CAN bus 2.0B, 500kbit/s with extended addressing|
 |**Communication chaining**|Possible. Up to 32 devices of the same type. More if different module types are chained.|
 |**Logic power**| 24V |
@@ -32,7 +31,6 @@
 |Field|ADM-PC-BP25|
 |-----|-----------|
 |**Dimensions**| 230 x 60 x 255 mm |
-|**Weight**|  |
 |**Storage temperature**| 0 to 45 degrees Celsius |
 |**Storage relative humidity**| 20 to 80% without condensation|
 

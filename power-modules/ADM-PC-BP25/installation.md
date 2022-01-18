@@ -7,7 +7,7 @@
 
 ![afe top view](images/top_view.jpg "afe top view")
 </div>
-<figcaption style="text-align: center">Figure 2: ADM-PC-BP25 top view</figcaption>
+<figcaption style="text-align: center">ADM-PC-BP25 top view</figcaption>
 
 ## Cooling considerations
 
@@ -19,7 +19,7 @@ There are four cooling surfaces on this module – three inductors and one trans
 
 ![heat flow](images/heat_flow.png "heat flow")
 </div>
-<figcaption style="text-align: center">Figure 12: Heat flow path</figcaption>
+<figcaption style="text-align: center">Heat flow path</figcaption>
 
 ## Drawings
 

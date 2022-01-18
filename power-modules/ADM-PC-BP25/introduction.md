@@ -22,7 +22,7 @@ Please see the Specification Sheet for ADM-PC-BP25 for electrical and mechanical
 
 ![afe drwaing](images/drawing.png "afe drawing")
 </div>
-<figcaption style="text-align: center">Figure 1: Drawing of the power module</figcaption>
+<figcaption style="text-align: center">Drawing of the power module</figcaption>
 
 ## Communication protocol
 

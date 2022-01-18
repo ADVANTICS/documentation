@@ -7,7 +7,7 @@ The ADM-PC-BP25 is a 3-phase Silicon Carbide bridge, with individual phase choke
 
 
 ![AFE topology](images/afe_topology.svg ':size=60%')
-<figcaption style="text-align: center">Figure 9: ADM-PC-BP25 converter topology</figcaption>
+<figcaption style="text-align: center">ADM-PC-BP25 converter topology</figcaption>
 
 The topology is inherently bidirectional. A DSP (Digital Signal Processor) is used to control the individual transistor pairs directly – allowing for very versatile control modes and strategies. To understand how can the converter be used as a DC/DC, imagine all three phases (L1, L2, L3) being connected in parallel using an external wiring. In case of a DC/DC, all phases will then produce (almost) constant duty cycle, resulting in a controlled boost/buck topology. Each phase is then offset by 120 degrees, for the lowest current and voltage ripple.
 
@@ -47,10 +47,10 @@ Always consider current limit in the sense of phase currents. When the module is
 The maximum power at given low side (phase) voltage and low side (phase) current is calculated as max phase current times phase voltage. For very high values of the phase voltage the total transistor dissipation becomes the limiting factor. The maximum power is set to 50 kW. The power envelope is actually much more complicated, as it depends on bus voltage to phase voltage ratio, output current and the duty cycle, as well as on current shape (AC vs DC). Consult the details with ADVANTICS, if you’re not sure your application fits within the power capabilities.
 
 ![power envelope va01](images/power_envelope_va01.svg ':size=60%')
-<figcaption style="text-align: center">Figure 10: Power envelope of the variant VA01</figcaption>
+<figcaption style="text-align: center">Power envelope of the variant VA01</figcaption>
 
 ![power envelope va08](images/power_envelope_va08.svg ':size=60%')
-<figcaption style="text-align: center">Figure 11: Power envelope of the variant VA08</figcaption>
+<figcaption style="text-align: center">Power envelope of the variant VA08</figcaption>
 
 #### Thermal limit
 
