@@ -13,13 +13,16 @@
 
 For a correct operation, sufficient cooling is needed. **Never run the module without a heatsink attached!** The thermal protection might not react fast enough, if the transistor bar is not cooled.
 The power modules are designed to be installed on a flat metallic cooling surface. The module can output up to 750 W of heat through the aluminium bar and inductors. This heat needs to be evacuated through the user-supplied metallic plate. It is possible to use either forced aircooled heatsink or a watercooled plate. Consult the details of your implementation with ADVANTICS for cooling design verification. Pre-drilled heatsinks for module verification are also offered for rapid prototyping.
-There are four cooling surfaces on this module – three inductors and one transistor bar. Consult with the Assembly Manual for ADM-PC-BP25 for the list of required materials and the assembly procedure.
+
+There are four cooling surfaces on this module – three inductors and one transistor bar. Inductors should be cooled with a good conducting silicone that cures/solidifies. The transistor bar should be cooled with a thermal paste. Consult with the [Recommended accessories](#recommended-accessories) subsection for the list of recommended materials. 
+
+>[!TIP] For a short tests of the module, cooling the inductors may not be needed, but the module still needs to be mounted on a heatsink. In this case, please verify the temperature of inductors through the CAN message or with ETKA software. 
 
 <div class="bigger-300">
 
 ![heat flow](images/heat_flow.png "heat flow")
 </div>
-<figcaption style="text-align: center">Heat flow path</figcaption>
+<figcaption style="text-align: center">Module attached to heatsink with silicone under inductors</figcaption>
 
 ## Drawings
 

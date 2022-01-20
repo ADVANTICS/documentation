@@ -53,7 +53,8 @@ When talking about similar topologies, there are four main limiting aspects – 
 
 #### Voltage limit
 
-To be completed
+Input voltage: up to 800 V
+Output voltage: up to 500 V
 
 > [!WARNING]
 > The module is equiped with HW protections that will shut down the converter if the limits are exceeded. 
@@ -62,11 +63,11 @@ To be completed
 
 #### Current limit
 
-To be completed
+The maximum output current is 65 Amps. 
 
 #### Power limit
 
-To be completed
+The module maximum power is 25 KW. Operation under that level is safe. Contact Advantics if your application requires slightly higher power levels.
 
 #### Thermal limit
 

@@ -16,7 +16,7 @@ Manufacturers of power electronics equipment (EV chargers, test gear, battery po
 
 ## Electrical and mechanical specifications
 
-Please see the Specification Sheet for ADM-PC-BP25 for electrical and mechanical details.
+Please see the [Specifications](power-modules/ADM-PC-BP25/specifications.md) section for ADM-PC-BP25 for electrical and mechanical details.
 
 <div class="bigger-300">
 
@@ -26,5 +26,5 @@ Please see the Specification Sheet for ADM-PC-BP25 for electrical and mechanical
 
 ## Communication protocol
 
-Please see the software development guide for ADM-PC-BP25 for details.
+Please see the [CAN protocol in Advantics products](power-modules/ADM-PC-BP25/can_database.md) section for details on the communication interface of the module.
 

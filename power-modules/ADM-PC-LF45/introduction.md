@@ -16,8 +16,8 @@ Manufacturers of power electronics equipment (EV chargers, test gear, battery po
 
 ## Electrical and mechanical specifications
 
-Please see the Specification Sheet for ADM-PC-LF25 for electrical and mechanical details.
+Please see the [Specifications](power-modules/ADM-PC-LF45/specifications.md) section for ADM-PC-LF45 for electrical and mechanical details.
 
 ## Communication protocol
 
-Please see the software development guide for ADM-PC-LF25 for details.
+Please see the [CAN protocol in Advantics products](power-modules/ADM-PC-LF45/can_database.md) section for details on the communication interface of the module.

@@ -16,7 +16,7 @@ Each frame can be of the __base__ or the __extended__ type, depending on the ID 
 A CAN frame ID in our system is formatted as follows:
 
 ![CAN_address](../common/images/CAN_address_space.png ':size=60%')
-<figcaption style="text-align: center">Figure X: CAN address space</figcaption>
+<figcaption style="text-align: center">CAN address space</figcaption>
 
 The message ID is divided into fields, accordingly with the ID priority restrictions, carrying node identity data. It comprises four different fields:
 
@@ -28,7 +28,7 @@ It is a 16bit field allocated that is intended to address a sub-set of the regis
  It is an 5bit field allows for up to 32 stacked devices. In systems where more than one device is stacked (i.e. paralleled), this field indicates the position of the addressed device in the stack. The position 0 is reserved to the __master__ if __master__ semantics make sense for given stack setup.
 
 ![Device type and stack position tree](../common/images/ID_type_stackPosition_master.png ':size=60%')
-<figcaption style="text-align: center">Figure X: Device type and stack position tree</figcaption>
+<figcaption style="text-align: center">Device type and stack position tree</figcaption>
 
 
 
@@ -39,7 +39,7 @@ Per each device __type__ there can be a master. In general lines, this exploits 
 The addressable space depends on the type of frame, if it is __base__ the dimension of the address space is 7 bits (128 registers), while for the __extended__ type this space is of 7 + 11 = 18 bits (262k).
 
 ![Device type and stack position tree](../common/images/protocol_regions.png ':size=60%')
-<figcaption style="text-align: center">Figure X: Addressable space division</figcaption>
+<figcaption style="text-align: center">Addressable space division</figcaption>
 
 #### Protocol description
 
