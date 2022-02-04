@@ -11,6 +11,13 @@ The ADM-PC-BP25 is a 3-phase Silicon Carbide bridge, with individual phase choke
 
 The topology is inherently bidirectional. A DSP (Digital Signal Processor) is used to control the individual transistor pairs directly – allowing for very versatile control modes and strategies. To understand how can the converter be used as a DC/DC, imagine all three phases (L1, L2, L3) being connected in parallel using an external wiring. In case of a DC/DC, all phases will then produce (almost) constant duty cycle, resulting in a controlled boost/buck topology. Each phase is then offset by 120 degrees, for the lowest current and voltage ripple.
 
+## Efficiency
+
+The ADM-PC-BP25 is able to reach an efficiency of 99% across a wide operating range, as shown in the following picture.
+
+![AFE topology](images/afe_efficiency.svg ':size=60%')
+<figcaption style="text-align: center">ADM-PC-BP25 efficiency</figcaption>
+
 ## Protection mechanisms
 
 #### Overcurrent (L1,L2,L3) protection

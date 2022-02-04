@@ -3,12 +3,18 @@ The power modules use press-fit PCB terminals for connecting the power cables or
 
 > [!TIP] **Recommended screws:** Screw ISO 14583-2011 M5 x 6 mm.
 >
-> **Recommended tightening:** 1 Nm, max. 2.2 Nm!
+> **Recommended tightening:** 1 Nm, maximum nominal torque 2.2 Nm.
 
 > [!WARNING]
 > If a longer screw is used, it will push against the PCB as it is screwed in, pulling the terminal out of the PCB. 
 > If this happens, the converter will be destroyed, will be a safety hazard, and warranty voided. Press-fit terminals cannot be re-fitted (or soldered) after they’ve been pulled! 
 <div class="bigger-300">
+
+In applications with heavy vibrations, consider using wedge locking washers such as the ones provided by NordLock (https://www.nord-lock.com/nord-lock/products/washers/).
+
+
+
+
 
 ![press fit](../common/images/press_fit.png "press fit")
 </div>
