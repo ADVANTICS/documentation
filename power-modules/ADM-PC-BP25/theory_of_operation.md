@@ -40,6 +40,8 @@ This feature is disabled by default upon boot-up. To enable it, the user just ha
 
 To disable the feature, send the **AFE_Keep_Alive** message with bit 0 cleared to 0. Then, the module will no longer expect to receive the message, and will not disable operation if the message is not received.
 
+For specific information about the message, please check the [CAN database](power-modules/ADM-PC-BP25/can_database.md) section.
+
 ## Limits
 
 When talking about similar topologies, there are four main limiting aspects – the voltage, current, power and temperature. Since the converter can be used in many different ways, the way how limits are considered also changes. To make understanding these limits easier, always think of limits per phase (even if they are connected in parallel).
