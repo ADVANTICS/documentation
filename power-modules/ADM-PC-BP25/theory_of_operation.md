@@ -32,6 +32,14 @@ Similarly there is a three level overvoltage protection on the DC bus. The limit
 
 The module has a slow internal bleeding circuit for capacitor discharge. The purpose of this bleeder is to remove any residual voltage on the terminals when the converter is not operating. This bleeder is not a safety feature meant to protect users from dangerous voltages. It can take more than 4 minutes for the internal bleeder to drop capacitor voltage to a safe level. If safety bleeding is required, it must be implemented externally (for example by using low ohmic power resistor and a DC contactor).
 
+#### Keep Alive feature
+
+Starting from firmware version 2022.2.17, the user can optionally send a 'Keep Alive' message with a periodicity of 1000 ms or less, so that if communication is lost, the module will disable itself after that time.
+
+This feature is disabled by default upon boot-up. To enable it, the user just has to send the **AFE_Keep_Alive** message (ID 0x70060) with bit 0 set to 1. Then, the module will expect to receive this same message constantly with a periodicity of 1000 ms or less. If not received, the module will disable operation. If the module is already disabled and the message does not arrive, nothing happens.
+
+To disable the feature, send the **AFE_Keep_Alive** message with bit 0 cleared to 0. Then, the module will no longer expect to receive the message, and will not disable operation if the message is not received.
+
 ## Limits
 
 When talking about similar topologies, there are four main limiting aspects – the voltage, current, power and temperature. Since the converter can be used in many different ways, the way how limits are considered also changes. To make understanding these limits easier, always think of limits per phase (even if they are connected in parallel).

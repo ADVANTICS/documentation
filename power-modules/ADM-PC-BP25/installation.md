@@ -77,4 +77,22 @@ residual current, then repeat tightening OF ALL screws.)
 
 [installation.md](../common/installation_cabling.md ':include')
 
+## 3-port connection
 
+In DC/DC modes, the ADM-PC-BP25 should be connected as a 3-port device. This means that only one of the two "DC-" terminals should be used, even though for readability both are used in schematics througout the user manual.
+
+A proper connection would be as in the picture below:
+
+
+![protection](images/AFE_3_port-AFE_3_port.svg ':size=60%')
+<figcaption style="text-align: center">Example of 3-port connection</figcaption>
+
+
+## Protection hardware
+
+If desired, the user may install diodes for extra protection as in the picture below:
+
+![protection](images/AFE_protection-AFE_protection.svg ':size=70%')
+<figcaption style="text-align: center">Example of placement for protection diodes</figcaption>
+
+ADVANTICS recommends the DD180N16S diode or an equivalent.
