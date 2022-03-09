@@ -231,12 +231,18 @@ Voltage setpoint corresponds to the output RMS voltage reference. Current setpoi
 <figcaption style="text-align: center">Example connection of ADM-PC-BP25 in inverter 3-phase mode </figcaption>
 
 
-## Parallel operation in DC/DC
+## Parallel operation in DC/DC and AC/DC
 
 The ADM-PC-BP25 modules can be paralleled (starting from firmware release **2021.9.24**) in order to increase the maximum power. However, to enable parallel operation the user must read this section and follow the given guidelines.
 
+#### When can the module be paralleled?
+The ADM-PC-BP25 can work in parallel operation in the following modes:
+- Buck (firmware 2021.9.24 or newer)
+- Boost (firmware 2021.9.24 or newer)
+- Rectifier 3-Phase (firmware 2022.3.9 or newer)
+
 #### Group ID
-First of all, let's introduce the concept of **"Group ID"**. The Group ID is an identifier which will be shared by all the modules that perform the same function. For example, in the case of having 3 modules in parallel to work in Boost operation, all of them would share the same Group ID (i.e. Group ID 1). If, in the same bus we have 2 more modules that work in parallel in Buck mode, they would also share a Group ID but different from the previous (i.e. Group ID 2)
+First of all, let's introduce the concept of **"Group ID"**. The Group ID is an identifier which will be shared by all the modules that will be paralleled. For example, in the case of having 3 modules in parallel to work in Boost operation and keep a constant bus voltage, all of them would share the same Group ID (i.e. Group ID 1). If in the same CAN bus we have 2 more modules that work in parallel in Buck mode, they would also share a Group ID but different from the previous (i.e. Group ID 2)
 
 Some considerations about the Group ID:
 -  The user can modify the Group ID of any device with the **AFE_Group_Control** message,
@@ -247,7 +253,7 @@ Some considerations about the Group ID:
 
 Please, refer to the [CAN database](power-modules/ADM-PC-BP25/can_database.md) for more information about the messages to set/retrieve the group ID.
 
-When one or more ADM-PC-BP25 that belong to a group (different from '0') are enabled and in buck or boost operation, they will start publishing system-level messages in the CAN bus called '_AFE_Broadcast' with a periodicity of 50 ms. The message should be disregarded by the user, and are used only by other ADM-PC-BP25 to coordinate their effort.
+When one or more ADM-PC-BP25 that belong to a group (different from '0') are enabled and in buck, boost or rectifier 3-Ph operation, they will start publishing system-level messages in the CAN bus called '_AFE_Broadcast' with a periodicity of 50 ms. The message should be disregarded by the user, and are used only by other ADM-PC-BP25 to coordinate their effort.
 
 #### Procedure for parallel operation
 For an example case of 2 modules (A and B), the process to enable parallel operation in a boost/buck mode is the following:
@@ -269,6 +275,8 @@ For an example case of 2 modules (A and B), the process to enable parallel opera
 >[!WARNING]Setpoints and control mode for devices working in parallel must be the same.
 
 >[!WARNING]Do not change the Group ID while the modules are enabled.
+
+>[!NOTE]Even though modules are connected in parallel, one module might be more loaded than others (i.e. perfect sharing of the load is not guaranteed)
 
 
 #### Example of parallel operation
