@@ -18,8 +18,8 @@
         - [IOs on CAN](charge-controllers/secc_can_ios.md)
         <!-- - [OCPP](charge-controllers/secc_ocpp.md) -->
         - [Parallel charging](charge-controllers/secc_parallel_charging.md)
-    <!-- - [Special](charge-controllers/secc_special.md)
-        - [Flashing Advantics power modules](charge-controllers/secc_afpu.md) -->
+        <!-- - [Special](charge-controllers/secc_special.md)
+            - [Flashing Advantics power modules](charge-controllers/secc_afpu.md) -->
 
 - **EVCC**
     <!-- - [Specifications](charge-controllers/ADM-CS-EVCC/specifications.md) -->
