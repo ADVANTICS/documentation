@@ -1,10 +1,9 @@
 - **SECC**
-    - [Hardware manual](charge-controllers/ADM-CS-SECC.md)
+    - [Hardware manual](charge-controllers/ADM-CS-SECC/README.md)
         - [Introduction](charge-controllers/ADM-CS-SECC/introduction.md)
         - [Interfaces](charge-controllers/ADM-CS-SECC/interfaces.md)
         - [Charge station overview](charge-controllers/ADM-CS-SECC/evse_overview.md)
         - [Examples of use](charge-controllers/ADM-CS-SECC/examples.md)
-    - [Configuration](charge-controllers/secc_configuration.md)
     - [Generic CAN interface](charge-controllers/secc_generic/README.md)
         - [Introduction](charge-controllers/secc_generic/introduction.md)
         - [Overview](charge-controllers/secc_generic/overview.md)
@@ -12,25 +11,25 @@
         - [CAN messages](charge-controllers/secc_generic/can.md)
         - [Appendix A](charge-controllers/secc_generic/appendix-a.md)
         - [Changelog](charge-controllers/secc_generic/changelog.md)
-    - [Migration from 3.x to 4.x](charge-controllers/secc_migration_3_to_4.md)
+    <!-- - [Migration from 3.x to 4.x](charge-controllers/secc_migration_3_to_4.md) -->
     - [Features](charge-controllers/secc_features.md)
         - [AC charging](charge-controllers/secc_ac_charging.md)
         - [Climate control](charge-controllers/secc_climate_control.md)
         - [IOs on CAN](charge-controllers/secc_can_ios.md)
-        - [OCPP](charge-controllers/secc_ocpp.md)
+        <!-- - [OCPP](charge-controllers/secc_ocpp.md) -->
         - [Parallel charging](charge-controllers/secc_parallel_charging.md)
-    - [Special](charge-controllers/secc_special.md)
-        - [Flashing Advantics power modules](charge-controllers/secc_afpu.md)
+    <!-- - [Special](charge-controllers/secc_special.md)
+        - [Flashing Advantics power modules](charge-controllers/secc_afpu.md) -->
 
 - **EVCC**
-    - [Specifications](charge-controllers/ADM-CS-EVCC/specifications.md)
+    <!-- - [Specifications](charge-controllers/ADM-CS-EVCC/specifications.md) -->
     - [Hardware manual](charge-controllers/ADM-CS-EVCC/README.md)
         - [Introduction](charge-controllers/ADM-CS-EVCC/introduction.md)
         - [Interfaces](charge-controllers/ADM-CS-EVCC/interfaces.md)
         - [Electric vehicle overview](charge-controllers/ADM-CS-EVCC/ev_overview.md)
         - [Examples of use](charge-controllers/ADM-CS-EVCC/examples.md)
         - [Troubleshooting](charge-controllers/ADM-CS-EVCC/troubleshooting.md)
-    - [Configuration](charge-controllers/evcc_configuration/README.md)
+    - [Configuration (2.x)](charge-controllers/evcc_configuration/README.md)
         - [Generalities](charge-controllers/evcc_configuration/generalities.md)
         - [Current deviation](charge-controllers/evcc_configuration/current_deviation.md)
         - [Inlet lock](charge-controllers/evcc_configuration/inlet_lock.md)
@@ -46,7 +45,7 @@
         - [Changelog](charge-controllers/evcc_generic/changelog.md)
     - [Features](charge-controllers/evcc_features.md)
         - [No code mode](charge-controllers/evcc_no_code_mode.md)
-        - [Temperature control](charge-controllers/evcc_temperature_control.md)
+        <!-- - [Temperature control](charge-controllers/evcc_temperature_control.md) -->
     - [Special](charge-controllers/evcc_special.md)
         - [Orion BMS setup](charge-controllers/evcc_orion_bms/orion_bms_integration.md)
 
@@ -62,4 +61,4 @@
             - [Read-only file system](charge-controllers/sys3_user/read-only.md)
             - [Developing with the controller](charge-controllers/sys3_user/developing.md)
             - [Developing in Python](charge-controllers/sys3_user/python.md)
-    - [4.x branch](charge-controllers/systems_branch4.m)
+    <!-- - [4.x branch](charge-controllers/systems_branch4.m) -->
