@@ -369,7 +369,7 @@ maximum and riskier voltage that charger would be applying across a whole charge
 By electrical safety standards, the insulation resistance should be of at least 100 Ohms/V. For a
 500 V test voltage that means an insulation resistance >= 50 kOhms.
 
-Inlet lock is be activated by now. Therefore, Advantics controller gives its permit to charger to
+Inlet lock should be activated by now. Therefore, Advantics controller gives its permit to charger to
 apply power. [EVSE_Information.Communication_Stage](charge-controllers/evcc_generic/can.md#EVSE_Information-Communication_Stage) goes to *Insulation_Test* state. Vehicle
 only has to wait as this step is fully happening on charger side.
 
@@ -539,7 +539,7 @@ Current request limits, in order applied:
 * Temperature sensors configured current derating curve (as a proportional modifier) [dynamic]
 * Ramp-up rate limit (see `current_ramp` entry in config file, default to 20 A/s) [dynamic]
 
-Advantics controller will stop charging in following conditions:ns
+Advantics controller will stop charging in following conditions:
 * DC contactors feedback (through CAN or controller IO) says they are open
 * If `max_charge_voltage` entry is defined in config file and present battery voltage is greater
 or equal to this value
