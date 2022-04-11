@@ -70,7 +70,7 @@ charge pistol cannot be pulled-out from that moment.
 
 > [!ATTENTION]
 > Advantics controller will NOT proceed with the rest of the sequence until inlet lock
-> reports a locked state. As there are different styles of lock feedback, it is ATTENTION to properly
+> reports a locked state. As there are different styles of lock feedback, it is IMPORTANT to properly
 > configure the controller for the right type of lock used in the inlet port.
 
 ```plantuml
