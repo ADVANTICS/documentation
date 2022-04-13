@@ -1,0 +1,308 @@
+VERSION "created by canmatrix"
+
+
+NS_ :
+
+BS_:
+
+BU_: Advantics_Charge_Controller Generic_Power_Modules 
+
+
+BO_ 2147909633 New_Charge_Session: 8 Advantics_Charge_Controller
+ SG_ Communication_Protocol : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ Plug_and_pins : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ EV_Maximum_Voltage : 16|16@1+ (0.1,0) [0|6553.5] "Volts" Vector__XXX
+ SG_ EV_Maximum_Current : 32|16@1+ (0.1,0) [0|6553.5] "Amps" Vector__XXX
+ SG_ Battery_Capacity : 48|8@1+ (2,0) [0|510] "kWh" Vector__XXX
+ SG_ State_of_Charge : 56|8@1+ (1,0) [0|100] "%" Vector__XXX
+
+BO_ 2147909634 Insulation_Test: 2 Advantics_Charge_Controller
+ SG_ Test_Voltage : 0|16@1+ (0.1,0) [0|6553.5] "Volts" Vector__XXX
+
+BO_ 2147909635 Precharge: 4 Advantics_Charge_Controller
+ SG_ Target_Voltage : 0|16@1+ (0.1,0) [0|6553.5] "Volts" Vector__XXX
+ SG_ Maximum_Current : 16|16@1+ (0.1,0) [0|6553.5] "Amps" Vector__XXX
+
+BO_ 2147909636 Charge_Status_Change: 1 Advantics_Charge_Controller
+ SG_ Vehicle_Ready_for_Charging : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 2147909637 Charging_Loop: 5 Advantics_Charge_Controller
+ SG_ Target_Voltage : 0|16@1+ (0.1,0) [0|6553.5] "Volts" Vector__XXX
+ SG_ Target_Current : 16|16@1- (0.1,0) [-3276.8|3276.7] "Amps" Vector__XXX
+ SG_ State_of_Charge : 32|8@1+ (1,0) [0|100] "%" Vector__XXX
+
+BO_ 2147909638 Emergency_Stop: 1 Advantics_Charge_Controller
+ SG_ Origin : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 2147909639 Charge_Session_Finished: 1 Advantics_Charge_Controller
+ SG_ State : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 2147909640 Controller_Inputs: 5 Advantics_Charge_Controller
+ SG_ Temperature_1 : 0|8@1- (1,0) [-128|127] "°C" Vector__XXX
+ SG_ Temperature_2 : 8|8@1- (1,0) [-128|127] "°C" Vector__XXX
+ SG_ Temperature_3 : 16|8@1- (1,0) [-128|127] "°C" Vector__XXX
+ SG_ Temperature_4 : 24|8@1- (1,0) [-128|127] "°C" Vector__XXX
+ SG_ Switch_1 : 32|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Switch_2 : 33|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Switch_3 : 34|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Switch_4 : 35|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Switch_5 : 36|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Switch_6 : 37|1@1+ (1,0) [0|1] "" Vector__XXX
+
+BO_ 2147909641 Advantics_Controller_Status: 1 Advantics_Charge_Controller
+ SG_ State : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+
+BO_ 2147876880 Power_Modules_Status: 8 Generic_Power_Modules
+ SG_ Present_Voltage : 0|16@1+ (0.1,0) [0|6553.5] "Volts" Vector__XXX
+ SG_ Present_Current : 16|16@1- (0.1,0) [-3276.8|3276.7] "Amps" Vector__XXX
+ SG_ Reserved : 32|16@1+ (1,0) [0|65535] "" Vector__XXX
+ SG_ System_Enable : 48|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ Insulation_Resistance : 56|8@1+ (2,0) [0|510] "kOhms" Vector__XXX
+
+BO_ 2147876881 Power_Modules_Limits: 8 Generic_Power_Modules
+ SG_ Maximum_Voltage : 0|16@1+ (0.1,0) [0|6553.5] "Volts" Vector__XXX
+ SG_ Maximum_Current : 16|16@1- (0.1,0) [-3276.8|3276.7] "Amps" Vector__XXX
+ SG_ Reserved : 32|32@1+ (1,0) [0|4294967295] "" Vector__XXX
+
+BO_ 2147876882 Sequence_Control: 3 Generic_Power_Modules
+ SG_ Start_Charge_Authorisation : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ CHAdeMO_Start_Button : 1|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ CCS_Authorisation_Done : 8|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ CCS_Authorisation_Valid : 9|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Charge_Parameters_Done : 10|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ User_Stop_Button : 16|1@1+ (1,0) [0|1] "" Vector__XXX
+
+
+CM_ BO_ 2147909633  "
+                Information about an incoming vehicle. Sent periodically from the moment a car is
+                plugged in and all the information are known. Until power modules send a
+                <<Power_Modules_Status.System_Enable>> with value  __Allowed__.
+            ";
+CM_ BO_ 2147909634  "
+                Test the insulation of the cable by applying a voltage from the charger. The battery
+                is not connected yet. Power modules report <<Power_Modules_Status.Present_Voltage>>
+                and <<Power_Modules_Status.Insulation_Resistance>> and the controller decides when
+                the test passes or fails.
+
+                Safety standards require a minimum of 100 Ohms/V insulation resistance. With a
+                typical test voltage of 500 V, insulation resistance should be >= 50 kOhms.
+            ";
+CM_ BO_ 2147909635  "
+                Precharge procedure, with CCS only. The vehicle decides to consider precharge done
+                when it senses voltage on its inlet to be close at 20 V to battery voltage.
+
+                Charger is expected to match battery voltage at its output while having no load,
+                apart from the capacitors on the line. When charging this capacitive load, it shall
+                not output more current than <<Precharge.Maximum_Current>>.
+            ";
+CM_ BO_ 2147909636  "
+                Signal a change in the charging procedure. Sent once only when something change.
+            ";
+CM_ BO_ 2147909637  "
+                Sent during the main charging loop. The vehicle is basically requesting current.
+                Note that while the request is expressed in both voltage and current, it is up to
+                power modules to determine which control mode they should run (ie. constant current,
+                constant voltage or constant power).
+
+                WARNING: The vehicle might not necessarily ramps up or down its requests.
+
+                IMPORTANT: It is also sent at few other moments in the charging process with values
+                <<Charging_Loop.Target_Voltage>> == 0 and <<Charging_Loop.Target_Current>> == 0.
+                This has the meaning of telling the power modules to go into a sort of \"Standby\"
+                mode. The power modules should turn off any power processing function, while remaning
+                ready to receive future requests.
+            ";
+CM_ BO_ 2147909638  "
+                Sent from the moment an emergency stop has been triggered.
+
+                Emergency_Stop are not explicitly rearmable. You either power cycle the whole setup.
+                Or the emergency condition disappear, and the message will stop being sent once the
+                controller pass in a state where it reevaluates emergency conditions.
+            ";
+CM_ BO_ 2147909639  "Charging is over and the vehicle should unplug soon.";
+CM_ BO_ 2147909640  "
+                NOTE: Not implemented yet.
+
+                Reports various input states of the charge controller.
+            ";
+CM_ BO_ 2147909641  "
+                Periodic message reporting the current status of the controller. This message is
+                sent all the time as soon as the application on the controller is running.
+
+                IMPORTANT: Power modules should implement a timeout on the reception of this message.
+                If the controller does not send this message within 200 ms, then power modules
+                should consider the controller to be in a defective state and stop any power function
+                as soon as possible.
+            ";
+CM_ BO_ 2147876880  "
+                Periodic message reporting the current status of power modules. This message should
+                be sent all the time when power modules are running.
+
+                [IMPORTANT]
+                ====
+                Controller implements a timeout on the reception of this message. It is used as a
+                source of interlock condition. As such, this interlock source is evaluated only in
+                states where power modules should be alive.
+
+                Therefore, it is NOT evaluated when waiting for a PEV to plug-in, or when
+                negotiating the connection with the PEV.
+
+                Power modules should be alive from the moment <<New_Charge_Session>> is sent, until
+                <<Charge_Session_Finished>> is sent. At any other time, power modules are allowed to
+                sleep and not send this message.
+                ====
+            ";
+CM_ BO_ 2147876881  "
+                Periodic message reporting the current limits of power modules. This message can be
+                sent as often as needed (but not faster than 100ms).
+
+                Values reported here will be capped by limits statically defined in the config file.
+                If a value is set to 0, then it means to use default limits from the config file.
+            ";
+CM_ BO_ 2147876882  "
+                This message has most flags controlling the charge sequence (apart from System_Enable).
+
+                The first byte is for flags having effect before a charge session starts.
+                The second byte is for flags having effect during parameters negotiation.
+                The third byte is for flags having effect during power stages (insulation test,
+                precharge and charging).
+
+                The controller config file should have the entry \"use_sequence_flags = true\" in the
+                \"[charger]\" section in order to take them into account.
+
+                To make sure the controller is taking a first message as initialisation of these
+                flags, send this first message after Advantics_Controller_Status message reports a
+                State of Waiting_For_PEV (value 1).
+
+                All signals default to value 0. Bits that are not used in this version should remain
+                at 0 to avoid incompatibility with future versions.
+            ";
+
+CM_ SG_ 2147909633 Communication_Protocol "The charging protocol the car is using.";
+CM_ SG_ 2147909633 Plug_and_pins "Plug type and DC pins selected by the car.";
+CM_ SG_ 2147909633 EV_Maximum_Voltage "Maximum battery voltage.";
+CM_ SG_ 2147909633 EV_Maximum_Current "Maximum battery current (optional, not all communication protocols give it).";
+CM_ SG_ 2147909633 Battery_Capacity "Total battery capacity (optional, not all communication protocols give it).";
+CM_ SG_ 2147909633 State_of_Charge "Battery SoC in percent.";
+CM_ SG_ 2147909634 Test_Voltage "
+                    Voltage to apply.
+
+                    Will be set back to 0 at the end of the test.
+                ";
+CM_ SG_ 2147909635 Target_Voltage "Voltage to apply.";
+CM_ SG_ 2147909635 Maximum_Current "
+                    Maximum current allowed by the vehicle (shouldn't be more than 2A).
+
+                    Will be set back to 0 at the end of the precharge procedure.
+                ";
+CM_ SG_ 2147909636 Vehicle_Ready_for_Charging "
+                    Tells when the vehicle intend to start or stop the charge.
+
+                    If value is __Charge_Started__, the power modules must be ready for the
+                    charging loop at any moment (with CCS it can still be in several hours).
+
+                    When value is __Charge_Stopped__, the vehicle stopped the charging process.
+                ";
+CM_ SG_ 2147909637 Target_Voltage "Voltage to apply.";
+CM_ SG_ 2147909637 Target_Current "Current to provide.";
+CM_ SG_ 2147909637 State_of_Charge "Battery SoC in percent (informative, do not rely on it).";
+CM_ SG_ 2147909638 Origin "From which side the emergency stop came from.";
+CM_ SG_ 2147909639 State "Was the session terminated cleanly or not.";
+CM_ SG_ 2147909640 Temperature_1 "Temperature sensor 1.";
+CM_ SG_ 2147909640 Temperature_2 "Temperature sensor 2.";
+CM_ SG_ 2147909640 Temperature_3 "Temperature sensor 3.";
+CM_ SG_ 2147909640 Temperature_4 "Temperature sensor 4.";
+CM_ SG_ 2147909640 Switch_1 "Input switch 1.";
+CM_ SG_ 2147909640 Switch_2 "Input switch 2.";
+CM_ SG_ 2147909640 Switch_3 "Input switch 3.";
+CM_ SG_ 2147909640 Switch_4 "Input switch 4.";
+CM_ SG_ 2147909640 Switch_5 "Input switch 5.";
+CM_ SG_ 2147909640 Switch_6 "Input switch 6.";
+CM_ SG_ 2147909641 State "
+                    Current internal state. For information only.
+
+                    Initialising:: Controller's applications are starting up.
+                    Waiting_For_PEV:: Controller is idle and ready for a plug-in.
+                    Negotiating_Connection:: Controller is plugged to a car and the connection is
+                        being initialised. Important charge information are exchanged.
+                    Connected_With_Full_Info:: All charge information from the PEV were retrieved
+                        and a charge session can be considered to be properly open.
+                    Insulation_Test:: Insulation of the charge cable is being tested.
+                    Precharge:: Charger is matching its output voltage to the present voltage of the
+                        battery.
+                    Waiting_For_Charge:: PEV is about to begin the actual charging.
+                    Charging:: Main charging loop going on.
+                    Ending_Charge:: A normal charge stop condition happenned and the PEV is exiting
+                        the charging loop.
+                    Welding_Detection:: PEV is testing if its contactors are welded.
+                    Closing_Communication:: PEV can unplug and charger is reinitialising in order to
+                        then go back to __Waiting_For_PEV__.
+                    CCS_Authorisation_Process:: Special state in CCS to authorise user.
+                    Not_Available:: Controller has been made unavailable by
+                        __Sequence_Control.Start_Charge_Authorisation__
+                ";
+CM_ SG_ 2147876880 Present_Voltage "Voltage measurement at the output of the charger";
+CM_ SG_ 2147876880 Present_Current "Current measurement at the output of the charger";
+CM_ SG_ 2147876880 Reserved "Reserved bytes for future uses.";
+CM_ SG_ 2147876880 System_Enable "
+                        Tells if charging is allowed.
+
+                        When <<New_Charge_Session>> is sent, the controller waits for this signal
+                        to be 1 to continue the charge sequence.
+
+                        If 0 is emitted between <<New_Charge_Session>> and before the charging loop
+                        starts, the charge controller tells the vehicle the charging service is
+                        unavailable.
+
+                        If 0 is emitted during the charging loop, this is interpreted as an
+                        emergency shutdown requested by power modules.
+                ";
+CM_ SG_ 2147876880 Insulation_Resistance "
+                    Reports the current insulation resistance, in multiple of 2 kOhms.
+
+                    TIP: If the RCD sensor only gives a boolean value, then 255 correspond to a __Valid__
+                    insulation, and 0 to an __Invalid__ insulation.
+
+                    IMPORTANT: Whenever a power function is used after the insulation test, if this
+                    signal reports an insulation resistance below the limit of 100 Ohms/V, then this
+                    is considered as an interlock condition and an emergency stop is carried out.
+                ";
+CM_ SG_ 2147876881 Maximum_Voltage "Max output voltage of the charger";
+CM_ SG_ 2147876881 Maximum_Current "Maximum output current of the charger";
+CM_ SG_ 2147876881 Reserved "Reserved bytes for future uses.";
+CM_ SG_ 2147876882 Start_Charge_Authorisation "
+                    Indicate if the controller should even attempt to start a charge session.
+                    Suitable for external authorisation permit that happens before user is allowed
+                    to plug or start a charge.
+
+                    Set to 0 to disallow charging, and 1 to allow.
+
+                    In CCS, it will keep CP PWM to 100%, even when detecting State B (9V).
+                    In CHAdeMO, it will simply ignore the start button.
+                    But in both case, it will register the user intent as wanting to charge. As soon
+                    as this flag allows charging, it will then start the charge session.
+                ";
+CM_ SG_ 2147876882 CHAdeMO_Start_Button "Simulate a press on the CHAdeMO start button. Only acts on change (so you need to cycle it back to 0).";
+CM_ SG_ 2147876882 CCS_Authorisation_Done "Tells if authorisation of vehicle is finished (CCS only)";
+CM_ SG_ 2147876882 CCS_Authorisation_Valid "Tells if authorisation of vehicle is valid (CCS only). Only meaningful when CCS_Authorisation_Done is 1.";
+CM_ SG_ 2147876882 Charge_Parameters_Done "Tells when fields in Power_Modules_Limits message can be considered stable and sent to the vehicle.";
+CM_ SG_ 2147876882 User_Stop_Button "Simulate a press on the user stop button (for normal charge termination). Only acts on change (so you need to cycle it back to 0).";
+
+
+
+
+
+
+VAL_ 2147909633 Communication_Protocol 0 "CCS_DIN_70121_2012_v2" 1 "CCS_ISO_15118_2010_v1" 2 "CCS_ISO_15118_2013_v2" 3 "CHAdeMO_v0.9" 4 "CHAdeMO_v1.0-v1.1-v1.2" 5 "CHAdeMO_v2.0";
+VAL_ 2147909633 Plug_and_pins 0 "CCS_DC_Core" 1 "CCS_DC_Extended" 2 "CHAdeMO";
+VAL_ 2147909636 Vehicle_Ready_for_Charging 0 "Charge_Stopped" 1 "Charge_Started";
+VAL_ 2147909638 Origin 1 "EVSE" 3 "PEV";
+VAL_ 2147909639 State 0 "Clean_Stop" 1 "Rushed_Stop";
+VAL_ 2147909641 State 0 "Initialising" 1 "Waiting_For_PEV" 2 "Negotiating_Connection" 3 "Connected_With_Full_Info" 4 "Insulation_Test" 5 "Precharge" 6 "Waiting_For_Charge" 7 "Charging" 8 "Ending_Charge" 9 "Welding_Detection" 10 "Closing_Communication" 11 "CCS_Authorisation_Process" 12 "Not_Available";
+VAL_ 2147876880 System_Enable 0 "Not_Allowed" 1 "Allowed";
+VAL_ 2147876882 Start_Charge_Authorisation 0 "Not_Allowed" 1 "Allowed";
+VAL_ 2147876882 CHAdeMO_Start_Button 0 "Not_Pressed" 1 "Pressed";
+VAL_ 2147876882 CCS_Authorisation_Done 0 "Not_Done" 1 "Done";
+VAL_ 2147876882 CCS_Authorisation_Valid 0 "Invalid" 1 "Valid";
+VAL_ 2147876882 Charge_Parameters_Done 0 "Not_Done" 1 "Done";
+VAL_ 2147876882 User_Stop_Button 0 "Not_Pressed" 1 "Pressed";
