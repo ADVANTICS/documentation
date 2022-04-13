@@ -13,7 +13,7 @@ format, and our software and firmware use it directly.
 
 ## DBC format
 
-As a courtesy we also provide our CAN DBs in the more usual DBC format. Note these are automaticaly
+As a courtesy we also provide our CAN DBs in the more usual DBC format. Note these are automatically
 converted from the Kayak ones. Therefore, they are not the reference DBs.
 
 - [Advantics Generic EVSE protocol v2.2](charge-controllers/secc_generic/Advantics_Generic_EVSE_protocol_v2.2.dbc ':ignore')
