@@ -1,6 +1,8 @@
 > [!UPDATE] {docsify-updated}
 # Current deviation
 
+These configuration entries are all under the `[vehicle]` section.
+
 ## current_deviation_a
 
 <figcaption>Example</figcaption>

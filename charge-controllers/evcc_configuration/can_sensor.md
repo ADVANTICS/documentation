@@ -9,6 +9,8 @@ PEV controller to quickly get started.
 The advantage is that you don't have to provide these information yourself through this generic
 interface. Which can mean you don't have to implement yourself the reading of such sensors.
 
+These configuration entries are all under the `[vehicle]` section.
+
 ## Isabellenhutte IVT-S sensors
 
 To use an Isabellenhutte IVT-S sensor, configure it in the following way:

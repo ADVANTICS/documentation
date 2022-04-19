@@ -1,6 +1,8 @@
 > [!UPDATE] {docsify-updated}
 # Inlet lock
 
+These configuration entries are all under the `[vehicle]` section.
+
 > [!NOTE]
 > For your information, when locking, Advantics controller drives the lock motor (positive lead)
 > during 600 ms. When unlocking, it drives it in the other direction (negative lead) during 600 ms as

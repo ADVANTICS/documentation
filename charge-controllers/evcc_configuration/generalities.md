@@ -1,6 +1,8 @@
 > [!UPDATE] {docsify-updated}
 # Generalities
 
+These configuration entries are all under the `[vehicle]` section.
+
 ## type
 
 <figcaption>Example</figcaption>

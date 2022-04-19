@@ -6,6 +6,8 @@ you use special types of contactors and/or want to add addition checks before cl
 contactors, this generic interface will tell you when to close or open them. In such case, you have
 to provide feedback on their status.
 
+These configuration entries are all under the `[vehicle]` section.
+
 ## dc_contactors_use_ios
 
 <figcaption>Example</figcaption>
