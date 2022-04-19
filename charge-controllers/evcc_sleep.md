@@ -1,7 +1,7 @@
 > [!UPDATE] {docsify-updated}
 # Sleep functions
 
-There are two ways you can make use of the sleep functions: an automatic one, or one were an digital
+There are two ways you can make use of the sleep functions: an automatic one, or one were a digital
 input is used as a sleep request.
 
 Note that the sleeping and waking-up events are themselves pretty "snappy", so they don't introduce
@@ -32,7 +32,7 @@ better off using the `auto_sleep` function described above, as it will have the 
 ## Wake-up events
 
 When the controller is asleep it will not respond to any event on the CAN bus or ethernet port. The
-controller can be woken-up in either by:
+controller can be woken-up either by:
 
 - Setting `2C2 - SWITCHED_POWER` terminal high.
 - Plugging-in an active charger, as we detect the rise in voltage on the CP line.
