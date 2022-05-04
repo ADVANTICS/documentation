@@ -52,7 +52,7 @@ The command above will start the flashing procedure and will show an output simi
 
 >[!NOTE]The Git revision/build date are information about the bootloader itself, NOT the module firmware.
 
-## Manteinance plan
+## Maintenance plan
 
 The module does not contain any parts requiring regular maintenance. All the capacitors are either ceramic capacitors (low voltage) or film capacitors (high voltage). There are no electrolytic capacitors prone to drying out, and no cooling fans.
 
