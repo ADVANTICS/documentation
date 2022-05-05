@@ -90,4 +90,4 @@ Here are a few useful links if you are getting started in the field of EV chargi
 * [CharIn official website](https://www.charin.global/)
 * [Chademo Official website](https://www.chademo.com/)
 * [Design Guide for Combined Charging System](https://tesla.o.auroraobjects.eu/Design_Guide_Combined_Charging_System_V3_1_1.pdf)
-* [Chademo Brochure](https://www.chademo.com/wp2016/wp-content/uploads/2018/06/CHAdeMO_Brochure_spring18.pdf)-
+* [Chademo Brochure](https://www.chademo.com/wp2016/wp-content/uploads/2018/06/CHAdeMO_Brochure_spring18.pdf)
