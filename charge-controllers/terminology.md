@@ -1,0 +1,9 @@
+## Terminology
+* **Back-end**: In the context of EV charging, *backend* refers to the part of a system that is independant from the nature of the protocol between the Electric vehicle and the charging (i.e., the part that is *behind* the frton-end, which is defined below). For a supply equipment, *backend* refers the power modules; for an electric vehicle, to the battery management system.
+* **BMS**: Battery Management System; Lithium-ion batteries require specific regulation of the charging process to (1), guarantee their safety, and (2), maximize their longevity. The BMS is **not** included in the Electric Vehicle Charge Controller, however, the charge controller is interacting with the on-board BMS when charging.
+* **EV**: Electric Vehicle
+* **EVCC** Electric Vehicles Charge Controller. This refers directly to the product discussed in this section: the charge controller is responsible for handling the communications with the supply equipment and interfacing with the Battery Management System (BMS).
+* **Front-end**: In the context of the interaction between a Supply Equipment and an Electric Vehicle,*front-end* refers the part of the system that interacts with (i.e., that is *facing*) the other party. In other words, the front-end englobes all the communications and protocols between the EV and the supply equipment.
+* **PEV**: Pluggable Electric Vehicle. Electric vehicles that are *not* pluggable are typically hybrid vehicles in which the battery is solely charged by the internal combustion engine. Since these vehicles are by their nature out of the scope of this document, you can consider *EV* and *PEV* as interchangable in this documentation.
+* **SE**: Supply Equipment, a broad term to designate charging stations.
+* **SECC**: Supply Equipment Charge Controller; it manages the communications with the Electric Vehicles and controls the power modules. 
