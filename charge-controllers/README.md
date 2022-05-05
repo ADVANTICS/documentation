@@ -7,8 +7,8 @@ Welcome to the charge controller documentation !If you are taking your first ste
 * [Additional resources](#additional-resources)
 
 If you feel confident in your knowledge of this type of products, you can move to the next chapters.<br>
-If you have already received your charge controller, the [Quick Start](#quick_start) chapter will help you getting your brand new charge controller running. 
-If you are facing issues that the technical manual does not address while developing on your charge controller, please check [Common Issues](#common_issues). There are recurrent mistakes that can happen when developing a charging system, and there are good chances that you issue is already covered there. 
+If you have already received your charge controller, the [Quick Start](charge-controllers/quick_start.md) chapter will help you getting your brand new charge controller running. 
+If you are facing issues that the technical manual does not address while developing on your charge controller, please check [Common Issues](charge-controllers/common_issues.md)). There are recurrent mistakes that can happen when developing a charging system, and there are good chances that you issue is already covered there. 
 
 
 ## Products
