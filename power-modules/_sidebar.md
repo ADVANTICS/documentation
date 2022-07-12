@@ -36,3 +36,17 @@
         - [Quick Start](power-modules/ADM-PC-LF45/quick_start.md)
         - [Application examples](power-modules/ADM-PC-LF45/application_examples.md)
         - [Servicing](power-modules/ADM-PC-LF45/servicing.md)
+
+<!-- {docsify-ignore} - **ADM-PC-BI25**
+    - [User manual](power-modules/ADM-PC-BI25/README.md)
+        - [Safety Hazards](power-modules/ADM-PC-BI25/safety_hazards.md)
+        - [Introduction](power-modules/ADM-PC-BI25/introduction.md)
+        - [Specifications](power-modules/ADM-PC-BI25/specifications.md)
+        - [Installation](power-modules/ADM-PC-BI25/installation.md)
+        - [Communication Interface](power-modules/ADM-PC-BI25/comm_interface.md)
+        - [CAN database](power-modules/ADM-PC-BI25/can_database.md)
+        - [Theory of operation](power-modules/ADM-PC-BI25/theory_of_operation.md)
+        - [Quick Start](power-modules/ADM-PC-BI25/quick_start.md)
+        - [Application examples](power-modules/ADM-PC-BI25/application_examples.md)
+        - [Servicing](power-modules/ADM-PC-BI25/servicing.md) -->
+

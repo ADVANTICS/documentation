@@ -230,19 +230,44 @@ Voltage setpoint corresponds to the output RMS voltage reference. Current setpoi
 ![power envelope va08](images/AFE_inverter_3ph-AFE_inverter_3ph.svg ':size=50%')
 <figcaption style="text-align: center">Example connection of ADM-PC-BP25 in inverter 3-phase mode </figcaption>
 
+## Setpoint selection
+For the module to work as it should, the current and voltage setpoints need to be selected properly depending on the application.
 
-## Parallel operation in DC/DC and AC/DC
+The ADM-PC-BP25 can work in two regimes: **current regulation or voltage regulation**. The switchover from one regime to another is done automatically by the internal logic of the module.
 
-The ADM-PC-BP25 modules can be paralleled (starting from firmware release **2021.9.24**) in order to increase the maximum power. However, to enable parallel operation the user must read this section and follow the given guidelines.
+When the output voltage of the module is defined by a battery or any other power module, the module should only work in current regulation regime, meaning that current will reach the desired setpoint, whereas the voltage setpoint will not be reached (because it is defined by an external source).
+
+When the voltage at the output of the module is not defined by a battery or any other power module connected to it, then the module will most likely work in voltage regulation and the voltage setpoint will be reached, unless the current setpoint is reached before.
+
+**The general convention that the user must follow is:**
+
+1. For modules working in **current regulation** (when output voltage is externally defined by a battery or another power module in voltage regulation):
+
+- Choose a positive current setpoint when pushing current towards the output, and a voltage setpoint above the output voltage. For example, if the module output is connected to a 400 V battery, and we want to push 50 A into it, we should use a voltage setpoint of 500 V (any value above 400 by a margin is valid), and a current setpoint of +50 A.
+
+- Choose a negative current setpoint when pulling current from the output, and a voltage setpoint below the output voltage. For example, if the module output is connected to a 400 V battery, and we want to pull 30 A from it, we should use a voltage setpoint of 350 V (any value below 400 by a margin is valid), and a current setpoint of -30 A.
+
+2. For modules working in **voltage regulation** (when the output voltage is not externally defined and current setpoint is not reached before):
+
+- Choose a positive current setpoint which is enough to supply the load by a margin, and whatever desired voltage. For example, if we want to create a bus voltage of 800 V, and we dont expect more than 30 A drawn from it, we could use 800 V as voltage setpoint, and 40 A current setpoint. Note that even if the current setpoint is possitive, in this case, the module can still sink or source current while maintaining the bus voltage.
+
+
+## Parallel operation in DC/DC and AC/DC for voltage regulation
+
+When in a application we need to increase the power, we may need to parallel several modules. 
+
+If the modules to be paralleled are expected to work in **current regulation**, then these modules can be paralleled without further action than just wiring them in parallel. Please, refer to the [Setpoint selection](#Setpoint-selection) section to better understand if/when the modules work in current regulation. For example, if we want to charge a battery with 150 Amps, we need two ADM-PC-BP25 modules in parallel. Assuming that the battery voltage is below the input voltage of the modules, then they would work in Buck mode and since the output voltage is defined by the battery, they must work in current regulation. Therefore, they can be paralleled without further action, and choose the voltage and current setpoints accordingly as explained in previous section.
+
+If the modules to be paralleled are expected to work in **voltage regulation**, then a special procedure must be followed, and the user must read this section and follow the given guidelines. 
 
 #### When can the module be paralleled?
-The ADM-PC-BP25 can work in parallel operation in the following modes:
+The ADM-PC-BP25 can work in parallel operation for voltage regulation in the following modes:
 - Buck (firmware 2021.9.24 or newer)
 - Boost (firmware 2021.9.24 or newer)
 - Rectifier 3-Phase (firmware 2022.3.9 or newer)
 
 #### Group ID
-First of all, let's introduce the concept of **"Group ID"**. The Group ID is an identifier which will be shared by all the modules that will be paralleled. For example, in the case of having 3 modules in parallel to work in Boost operation and keep a constant bus voltage, all of them would share the same Group ID (i.e. Group ID 1). If in the same CAN bus we have 2 more modules that work in parallel in Buck mode, they would also share a Group ID but different from the previous (i.e. Group ID 2)
+First of all, let's introduce the concept of **"Group ID"**. The Group ID is an identifier which will be shared by all the modules that will be paralleled. For example, in the case of having 3 modules in parallel to work in Boost operation and keep a constant bus voltage, all of them would share the same Group ID (i.e. Group ID 1). If in the same CAN bus we have 2 more modules that work in parallel in Buck mode to generate a different bus voltage, they would also share a Group ID but different from the previous (i.e. Group ID 2)
 
 Some considerations about the Group ID:
 -  The user can modify the Group ID of any device with the **AFE_Group_Control** message,
@@ -279,9 +304,14 @@ For an example case of 2 modules (A and B), the process to enable parallel opera
 >[!NOTE]Even though modules are connected in parallel, one module might be more loaded than others (i.e. perfect sharing of the load is not guaranteed)
 
 
-#### Example of parallel operation
+#### Examples of parallel operation
 
-In the following example, 4 modules are used. Two modules (A and B) work in parallel Boost operation sharing Group ID 1 and with a battery and precharge circuit. The other two modules (C and D) work in parallel Buck sharing Group ID 2, and have their output connected to a generic load.
+**Example 1:** 4 modules are used. Two modules (A and B) work in parallel Boost operation sharing Group ID 1 and with a battery and precharge circuit. The other two modules (C and D) work in parallel Buck sharing Group ID 2, and have their output connected to a generic load. All modules are working in voltage regulation mode and hence, the group ID is needed.
 
 ![power envelope va08](images/parallel_boost_buck-parallel_boost_buck.svg ':size=90%')
 <figcaption style="text-align: center">Example connection of 2 modules working in parallel Boost operation and 2 modules in parallel Buck </figcaption>
+
+**Example 2:** 4 modules are used. Two modules (A and B) work in parallel Boost operation sharing Group ID 1 and with a battery and precharge circuit. The other two modules (C and D) work in parallel Buck, and have their output connected to a battery. Because the output voltage is defined by the battery, the group ID is not needed, since modules will work in current regulation.
+
+![power envelope va08](images/diagrams-parallel_boost_buck_v2.svg ':size=90%')
+<figcaption style="text-align: center">Example connection of 2 modules working in parallel Boost operation (voltage regulation) and 2 modules in parallel Buck (current regulation, group ID not needed)</figcaption>
