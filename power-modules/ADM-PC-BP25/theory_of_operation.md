@@ -111,6 +111,8 @@ For a given DC link voltage, the AFE will generate an open-loop voltage on L1,L2
 This control mode is usually used together with other modules operating in the Inverter 3-phase, or in Inverter 1-phase Sync. modes, in order to generate the neutral point.
 When the frequency setpoint is configured, this module will generate synchronization pulses used by the other modules in Inverter 1-phase Sync. mode in order to synchronize themselves with respect to the pulse. This process provides great flexibility to generate any type of AC voltage of any frequency, amplitude (within DC link voltage) and phase.
 
+>[!NOTE] The frequency setpoint must be set BEFORE the Neutral mode is enabled.
+
 For more information about possible applications, please refer to the [Application Examples](power-modules/ADM-PC-BP25/application_examples.md) section.
 
 ![power envelope va01](images/AFE_neutral-AFE_neutral.svg ':size=50%')
@@ -195,6 +197,8 @@ Voltage source is connected to the DC link. It generates a sine-wave voltage in 
 
 Voltage setpoint corresponds to the phase RMS voltage reference. Current setpoint corresponds to the phase RMS current limit and must be greater than zero. Frequency setpoint corresponds to the sine-wave frequency.
 
+>[!NOTE] The frequency setpoint must be set BEFORE the Inverter 1-phase mode is enabled.
+
 ![power envelope va08](images/AFE_inverter_1-ph-AFE_inverter_1ph.svg ':size=60%')
 <figcaption style="text-align: center">Simple connection of ADM-PC-BP25 in boost mode with precharge</figcaption>
 
@@ -216,6 +220,8 @@ Voltage source is connected to the DC link. The three phases must be shorted. In
 
 Voltage setpoint corresponds to the output RMS voltage reference. Current setpoint corresponds to the total output RMS current limit and must be greater than zero, where total means all three phases combined. Frequency setpoint corresponds to the sine-wave frequency. Phase setpoint corresponds to the phase shift with respect to the synchronization signal.
 
+>[!NOTE] The frequency and phase setpoints must be set BEFORE the Inverter 1-phase Sync. mode is enabled.
+
 
 ![power envelope va08](images/AFE_inverter_1-ph_sync-AFE_inverter_1-ph_sync.svg ':size=50%')
 <figcaption style="text-align: center">Example connection of ADM-PC-BP25 in Inverter 1-phase Sync.mode</figcaption>
@@ -226,6 +232,8 @@ In this mode, the module generates a 3-phase sine-wave voltage in open loop with
 Voltage source is connected to the DC link. Input side is defined to be the DC link, and output side to be the three phases. 
 
 Voltage setpoint corresponds to the output RMS voltage reference. Current setpoint corresponds to the output (per-phase) RMS current limit and must be greater than zero. Frequency setpoint corresponds to the sine-wave frequency.
+
+>[!NOTE] The frequency setpoint must be set BEFORE the Inverter 3-phase mode is enabled.
 
 ![power envelope va08](images/AFE_inverter_3ph-AFE_inverter_3ph.svg ':size=50%')
 <figcaption style="text-align: center">Example connection of ADM-PC-BP25 in inverter 3-phase mode </figcaption>
@@ -249,7 +257,9 @@ When the voltage at the output of the module is not defined by a battery or any 
 
 2. For modules working in **voltage regulation** (when the output voltage is not externally defined and current setpoint is not reached before):
 
-- Choose a positive current setpoint which is enough to supply the load by a margin, and whatever desired voltage. For example, if we want to create a bus voltage of 800 V, and we dont expect more than 30 A drawn from it, we could use 800 V as voltage setpoint, and 40 A current setpoint. Note that even if the current setpoint is possitive, in this case, the module can still sink or source current while maintaining the bus voltage.
+- Choose a positive current setpoint which is enough to supply the load by a margin, and whatever desired voltage. Note that even if the current setpoint is possitive, in this case, the module can still sink or source current while maintaining the bus voltage.
+
+>[!NOTE] In DC/DC modes, the current setpoint is referred always to the total phase current, so make sure that the estimated current draw (and the selected current setpoint) is converted to low-voltage side (phase side) current draw by multiplying by the voltage ratio. For example, if we are boosting from 400V to 800V, and the expected current draw in the high-voltage bus is 40A, then, the setpoint has to be actually 80A + margin in the low voltage side.
 
 
 ## Parallel operation in DC/DC and AC/DC for voltage regulation

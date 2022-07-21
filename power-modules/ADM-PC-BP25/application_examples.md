@@ -24,6 +24,10 @@ Step down bidirectional DC/DC. The left side voltage must always be higher than 
 ## Bidirectional Boost-Buck
 Step up, followed by a Step down DC/DC. Removes the limitation of a simple Bidirectional Buck, as now the voltage regions can overlap. The first stage (no matter from which direction) is always a Step up. Then this voltage is stepped down to provide the Voltage and Current regulation.
 
+In the case of having batteries as source and loads we recommend to modify dynamically the DC bus voltage for a better efficiency and lower losses. This is because losses will be lower for a lower voltage ratio (input to output voltage difference). Hence, the DC Bus voltage can be selected as:
+
+**V_dc_setpoint = MAX(V_bat_source , V_bat_load) + 100;** (+100 is added to allow for some regulation margin). 
+
 ![Bidirectional boost buck](images/app_bidir_boost_buck.svg ':size=200%')
 <figcaption style="text-align: center">Bidirectional boost-buck</figcaption>
 
