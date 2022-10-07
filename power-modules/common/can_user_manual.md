@@ -49,7 +49,7 @@ ID Offset:: The ID offset, is a relative address location within the whole ID ra
 
 Payload:: Each CAN packet carries a payload which varies from 0 to 8 bytes (0 to 64 bits). The payload length is always fixed for each message type.
 
-Pyload length:: The payload is always measured in Bytes. The length is specified in octets, and range 0 to 8. Each Byte inside the payload is referred starting at 0 (0 to 7).
+Payload length:: The payload is always measured in Bytes. The length is specified in octets, and range 0 to 8. Each Byte inside the payload is referred starting at 0 (0 to 7).
 
 ### Message description
 
