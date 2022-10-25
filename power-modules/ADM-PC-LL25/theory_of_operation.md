@@ -46,10 +46,10 @@ For an operating point to be reachable, it has to fall within the blue areas of 
 To operate the LLC, use the 'Voltage control' mode. For more information, please refer to the [Control Modes](power-modules/ADM-PC-LL25/ADM-PC-LL25.md#control_modes) subsection.
 
 ### Advantics combo for AC/DC conversion (BP25 + LL25 or UP25 + LL25)
-In this scenario, the LLC is used together with a BP25 or a UP25 Advantics module. The BP25 or UP25 is used as AC/DC power converter with power factor correction, whereas the LLC is used as DC/DC isolated converter. The LLC will automatically manipulate the BP25 or UP25 for optimal operation. For this reason, the **reachable operating range is equal to the absolute maximum operating range**:
+In this scenario, the LLC is used together with a BP25 or a UP25 Advantics module. The BP25 or UP25 is used as AC/DC power converter with power factor correction, whereas the LLC is used as DC/DC isolated converter. The LLC will automatically manipulate the BP25 or UP25 for optimal operation. For this reason, the reachable operating range is bigger:
 
-![LLC absolute range](images/LLC_max_absolute_range.JPG ':size=40%')
-<figcaption style="text-align: center">ADM-PC-LL25 absolute maximum operating range</figcaption>
+![LLC absolute range](images/LLC_combo_range.JPG ':size=40%')
+<figcaption style="text-align: center">ADM-PC-LL25 operating range when used with the Advantics combo</figcaption>
 
 >[!NOTE] **The BP25 or the UP25 must have the same stack address as the LLC to work** properly.
 
