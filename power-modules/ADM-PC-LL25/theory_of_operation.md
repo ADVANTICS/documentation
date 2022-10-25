@@ -11,18 +11,59 @@ The ADM-PC-LL25 is a DC/DC multi-resonant LLC isolated converter with:
 - Output safety discharge
 - Ground fault detection.
 
-Up to 1200V DC bus and 500V output operation is possible(depending on the product variant). For more details on the specifications, please check the [ADM-PC-LL25 specifications](power-modules/ADM-PC-LL25/specifications.md).
+Up to 800V DC bus and 500V output operation is possible. For more details on the specifications, please check the [ADM-PC-LL25 specifications](power-modules/ADM-PC-LL25/specifications.md).
 
 ![LLC topology](images/LLC_topology-LLC_topology.svg ':size=70%')
 <figcaption style="text-align: center">ADM-PC-LL25 converter topology</figcaption>
 
 The topology is inherently **unidirectional**. A DSP (Digital Signal Processor) is used to control the individual transistor pairs directly – allowing for very versatile control modes and strategies.
 
-## Allowed load types
+## Operating range
 
-The ADM-PC-LL25 is designed to work in battery charging applications, and as such, **only battery loads are allowed**.
+The ADM-PC-LL25 operating range is complex to define. The absolute maximum operating range is defined in the picture below:
 
->[!ATTENTION] Only connect batteries to the ADM-PC-LL25 output. Connecting other types of loads might result in permanent damage in the module, the load, and represent a safety hazard.
+![LLC absolute range](images/LLC_max_absolute_range.JPG ':size=40%')
+<figcaption style="text-align: center">ADM-PC-LL25 absolute maximum operating range</figcaption>
+
+However, the actual reachable operating points will depend on the output current, the input voltage, the output voltage and their ratio. Furthermore, the LLC can be used with other power converters, or with our ADM-PC-BP25 or ADM-PC-UP25 as power factor correction (PFC) unit upstream. This allows the LLC to increase the operation range, as it can automatically adjust the input voltage depending on the needs.
+
+>[!WARNING] Only the last LLC hardware revision (rev. 4), is able to reach 70 Amps as max current. For previous hardware revisions, maximum reachable current is 60 Amps. Heatsink and cooling restrictions must still be taken into account to derate this value.
+
+>[!TIP] **Always ask ADVANTICS** if you are not sure wether the module can operate in a specific operating point or in certain scenarios. 
+
+Therefore, the LLC operating range will be divided in two scenarios: 'single' and 'advantics combo'
+
+### Single DC/DC
+In this scenario, the LLC is used as an independent DC/DC isolated converter. The input voltage source can be any other generic power converter, as long as the input voltage to the LLC is within 450-750 Volts.
+
+The normalized operating range is shown below:
+
+![LLC single ratio](images/LLC_single_ratio_range.JPG ':size=40%')
+<figcaption style="text-align: center">ADM-PC-LL25 normalized operating range when used in single DC/DC operation</figcaption>
+
+For an operating point to be reachable, it has to fall within the blue areas of both the normalized and the absolute operating range. Notice that for the normalized operating range, there is a darker blue area. The reachable points in this area will depend on the input voltage to the module. For a 450 V input, none of the dark blue area is rachable, wheras for the highest input voltage (750 V), the whole dark blue area is reachable.
+
+To operate the LLC, use the 'Voltage control' mode. For more information, please refer to the [Control Modes](power-modules/ADM-PC-LL25/ADM-PC-LL25.md#control_modes) subsection.
+
+### Advantics combo for AC/DC conversion (BP25 + LL25 or UP25 + LL25)
+In this scenario, the LLC is used together with a BP25 or a UP25 Advantics module. The BP25 or UP25 is used as AC/DC power converter with power factor correction, whereas the LLC is used as DC/DC isolated converter. The LLC will automatically manipulate the BP25 or UP25 for optimal operation. For this reason, the **reachable operating range is equal to the absolute maximum operating range**:
+
+![LLC absolute range](images/LLC_max_absolute_range.JPG ':size=40%')
+<figcaption style="text-align: center">ADM-PC-LL25 absolute maximum operating range</figcaption>
+
+>[!NOTE] **The BP25 or the UP25 must have the same stack address as the LLC to work** properly.
+
+>[!WARNING] When used with the UP25 module, the maximum output current should NOT be above 52 Amps. This is due to UP25 limitations.
+
+To operate the LLC with the Advantics combo, use the 'PPFC Voltage control' mode. For more information, please refer to the [Control Modes](power-modules/ADM-PC-LL25/ADM-PC-LL25.md#control_modes) subsection.
+
+## Allowed load types 
+The ADM-PC-LL25 is designed and optimized to work in battery charging applications. However, starting with firmware 2022.10.19, the LLC can be used as a generic DC/DC isolated converter to power other loads as well, such as resistive loads.
+
+>[!NOTE] **If a resistive load is present at the output, then, the minimum resistance of the load must be 4 Ohms**. Reachable operating range above still applies.
+
+>[!WARNING] The module is not able to generate an open circuit voltage. Thus, the module has to be enabled always under a load (either a battery or a resistive load), or it has to be precharged at the output with the 'precharge' operation mode.
+
 
 ## Protection mechanisms
 
@@ -54,7 +95,7 @@ When talking about similar topologies, there are four main limiting aspects – 
 #### Voltage limit
 
 Input voltage: up to 800 V
-Output voltage: up to 500 V
+Output voltage: from 200 to 500 V
 
 > [!WARNING]
 > The module is equiped with HW protections that will shut down the converter if the limits are exceeded. 
@@ -63,11 +104,11 @@ Output voltage: up to 500 V
 
 #### Current limit
 
-The maximum output current is 65 Amps. 
+The maximum output current is 70 Amps for hardware revision 4. For earlier versions, current limit is 60 Amps. If you are using a UP25 as PFC unit, then the maximum current limit is 52 Amps. 
 
 #### Power limit
 
-The module maximum power is 25 KW. Operation under that level is safe. Contact Advantics if your application requires slightly higher power levels.
+The module maximum power is 30 KW for hardware revision 4. For earlier versions, power limit is 25 KW. Operation under that level is safe. Contact Advantics if your application requires slightly higher power levels.
 
 #### Thermal limit
 
@@ -112,7 +153,7 @@ In this mode, the module behaves as a constant current source, pushing the curre
 In this mode, the module behaves as a constant current/constant voltage (CC/CV) source, where the module will provide a constant voltage unless the current limit has been reached, in which case a constant current will be applied.
 
 ### Precharge
-In this mode, the module will apply short power pulses to slowly charge the battery up to a safe voltage level. Then, the higher-level controller will normally switch to any of the other control modes.
+In this mode, the module will apply short power pulses to slowly charge the output capacitor up to a safe voltage level. Then, the higher-level controller will normally switch to any of the other control modes.
 
 ![basic connection](images/LLC_basic_connection-LLC_basic_connection.svg ':size=60%')
 <figcaption style="text-align: center">Example connection of ADM-PC-LL25 in pwm, current control, voltage control or precharge modes</figcaption>
