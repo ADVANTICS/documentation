@@ -4,9 +4,30 @@
 These configuration entries are all under the `[vehicle]` section.
 
 > [!NOTE]
-> For your information, when locking, Advantics controller drives the lock motor (positive lead)
-> during 600 ms. When unlocking, it drives it in the other direction (negative lead) during 600 ms as
-> well.
+> See also section [Features/Lock safety](charge-controllers/evcc_lock_safety.md).
+
+## locking_pulse_ms
+
+<figcaption>Example</figcaption>
+
+    locking_pulse_ms = 600
+
+To avoid burning the lock motor, it is driven only for a certain amount of time in one or the other
+direction. The length of these driving pulses default to 600 ms as it seems to correspond to most
+locking system available on the market. It can be configured to a different value if your lock is
+more peculiar.
+
+Default to 600 ms.
+
+> [!NOTE]
+> Internally, that value is capped to 2 seconds.
+
+> [!NOTE]
+> To avoid damaging lock motors even in the most severe unexpected situations, we used special
+> "watchdog" and "crash handler" to ensure the lock is de-energised even in case of a hard crash
+> during a locking or unlocking sequence. Also note that de-energising means it will not complete
+> the movement, nor unlock it. In such event, the lock will stay where it is, until the controller is
+> restarted and user safety can be ensured.
 
 ## lock_feedback_r_threshold
 

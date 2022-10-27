@@ -49,6 +49,7 @@
         - [No code mode](charge-controllers/evcc_no_code_mode.md)
         <!-- - [Temperature control](charge-controllers/evcc_temperature_control.md) -->
         - [Sleep functions](charge-controllers/evcc_sleep.md)
+        - [Lock safety](charge-controllers/evcc_lock_safety.md)
     - [Special](charge-controllers/evcc_special.md)
         - [Orion BMS setup](charge-controllers/evcc_orion_bms/orion_bms_integration.md)
 
