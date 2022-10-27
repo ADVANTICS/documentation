@@ -15,6 +15,26 @@ values are:
 > [!DLIST|label:Advantics_Generic_v1]
 > The first version of this interface
 
+## can_timeout_ms
+
+<figcaption>Example</figcaption>
+
+    can_timeout_ms = 500
+
+Timeout in milliseconds for receiving critical frames during powered phases, before triggering a fault.
+
+Default to 500 ms.
+
+## force_extended_ids
+
+<figcaption>Example</figcaption>
+
+    force_extended_ids = true
+
+If we should send 29-bits extended frame IDs even if the ID fits on the 11 bits of a simple frame ID.
+
+Default to false.
+
 ## max_voltage
 
 <figcaption>Example</figcaption>
