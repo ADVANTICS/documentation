@@ -129,6 +129,33 @@ DC charging. Set it to 80 to only do bulk charging.
 
 Default to 99 %.
 
+## inhibit_precharge_unmatch_t
+
+<figcaption>Example</figcaption>
+
+    inhibit_precharge_unmatch_t = 1
+
+When charging DC, in precharge the controller is actively checking the voltage at the inlet is
+within ±20 V of the battery voltage. When the inlet voltage match this range, the contactors are
+commanded to close.
+
+Contactors do not necessarily close immediately. In situations where contactors are actually managed
+by the vehicle and not the charge controller, the vehicle could be "preparing" for a few seconds
+before actually closing the contactors. While the controller waits to receive feedback that the
+contactors are closed, it will keep checking the inlet voltage is matching. If it no longer does for
+whatever reason, the controller considers it is an unmatch, and commands the contactors to reopen in
+order to avoid arcing.
+
+However in other situations, the moment contactors are actually closing, the reading of the inlet
+voltage could vary widely, by a few hundreds volt. This is particularly the case when using a [CAN
+sensor](charge-controllers/evcc_configuration/can_sensor.md) that measures the inlet voltage as a
+difference of two channels, themselves referenced to the battery DC-. If both contactors do not
+close exactly at the same time, the measured then calculated inlet voltage is invalid for a short
+amount of time. This config entry is here to prevent reopening the contactors for a specified amount
+of time after commanding them to close, in case there is a voltage unmatch.
+
+Default to 1 s.
+
 ## current_ramp
 
 <figcaption>Example</figcaption>
