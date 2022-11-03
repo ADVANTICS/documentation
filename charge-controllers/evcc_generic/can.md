@@ -158,6 +158,7 @@ The charging protocol EVSE is using.
 | CCS_PWM | 1 |
 | CCS_DIN_70121_2012_v2 | 2 |
 | CCS_ISO_15118_2013_v2 | 3 |
+| CCS_ISO_15118_2022 | 4 |
 
 </div>
 
@@ -204,7 +205,7 @@ In DC it corresponds to HLC data.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 24 | 16 | Signed | Amps | 0.1 | 0 | -400 | 400 |
+| 24 | 16 | Signed | Amps | 0.1 | 0 | -3276 | 3276 |
 
 </div>
 
@@ -476,7 +477,7 @@ Measured PWM top voltage on the CP line.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 16 | 8 | Unsigned | Volts | 0.1 | 0 | 0 | 25.5 |
+| 16 | 8 | Unsigned | Volts | 0.1 | 0 | 0 | 25 |
 
 </div>
 
@@ -985,7 +986,7 @@ In no BMS mode, this signal will be ignored.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 16 | Signed | Amps | 0.1 | 0 | -400 | 400 |
+| 0 | 16 | Signed | Amps | 0.1 | 0 | -3276 | 3276 |
 
 </div>
 
@@ -1014,7 +1015,7 @@ Refer to [CAN sensor](charge-controllers/evcc_configuration/can_sensor.md) docum
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 16 | 16 | Signed | Amps | 0.1 | 0 | -400 | 400 |
+| 16 | 16 | Signed | Amps | 0.1 | 0 | -3276 | 3276 |
 
 </div>
 
@@ -1152,7 +1153,7 @@ Refer to [CAN sensor](charge-controllers/evcc_configuration/can_sensor.md) docum
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 8 | 16 | Unsigned | Volts | 0.1 | 0 | 0 | 1500 |
+| 8 | 16 | Unsigned | Volts | 0.1 | 0 | 0 | 6553 |
 
 </div>
 
@@ -1176,7 +1177,7 @@ Refer to [CAN sensor](charge-controllers/evcc_configuration/can_sensor.md) docum
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 24 | 16 | Unsigned | Volts | 0.1 | 0 | 0 | 1500 |
+| 24 | 16 | Unsigned | Volts | 0.1 | 0 | 0 | 6553 |
 
 </div>
 

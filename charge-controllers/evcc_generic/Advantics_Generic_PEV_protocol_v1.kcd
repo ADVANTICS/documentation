@@ -2,7 +2,7 @@
 <NetworkDefinition xmlns="http://kayak.2codeornot2code.org/1.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="KCD_Definition.xsd">
-    <Document name="Advantics Generic PEV" version="1.0" author="[...]" company="Advantics" date="2020-10-27"/>
+    <Document name="Advantics Generic PEV" version="1.2" author="[...]" company="Advantics" date="2022-10-28"/>
 
     <Node id="0" name="Advantics_Charge_Controller"/>
     <Node id="1" name="Vehicle"/>
@@ -58,6 +58,7 @@
                     <Label name="CCS_PWM" value="1" />
                     <Label name="CCS_DIN_70121_2012_v2" value="2" />
                     <Label name="CCS_ISO_15118_2013_v2" value="3" />
+                    <Label name="CCS_ISO_15118_2022" value="4" />
                 </LabelSet>
             </Signal>
 
@@ -82,7 +83,7 @@
 
                     In DC it corresponds to HLC data.
                 </Notes>
-                <Value type="signed" slope="0.1" min="-400" max="400" unit="Amps"/>
+                <Value type="signed" slope="0.1" min="-3276" max="3276" unit="Amps"/>
             </Signal>
 
             <Signal name="RCD_Status" offset="40" length="1">
@@ -230,7 +231,7 @@
                     NOTE: Signal is of signed data type for compatibility with future bidirectional
                     implementations.
                 ]]></Notes>
-                <Value type="signed" slope="0.1" unit="Amps" min="-400" max="400"/>
+                <Value type="signed" slope="0.1" unit="Amps" min="-3276" max="3276"/>
             </Signal>
 
             <Signal name="Present_Current" offset="16" length="16" endianess="little">
@@ -249,7 +250,7 @@
                     NOTE: Signal is of signed data type for compatibility with future bidirectional
                     implementations.
                 ]]></Notes>
-                <Value type="signed" slope="0.1" unit="Amps" min="-400" max="400"/>
+                <Value type="signed" slope="0.1" unit="Amps" min="-3276" max="3276"/>
             </Signal>
         </Message>
 
@@ -309,7 +310,7 @@
                     In such case, this signal will be ignored.
                     Refer to <<CAN sensor>> documentation to know how the sensor should be wired.
                 ]]></Notes>
-                <Value type="unsigned" slope="0.1" unit="Volts" min="0" max="1500"/>
+                <Value type="unsigned" slope="0.1" unit="Volts" min="0" max="6553"/>
             </Signal>
 
             <Signal name="Inlet_Voltage" offset="24" length="16" endianess="little">
@@ -325,7 +326,7 @@
                     In such case, this signal will be ignored.
                     Refer to <<CAN sensor>> documentation to know how the sensor should be wired.
                 ]]></Notes>
-                <Value type="unsigned" slope="0.1" unit="Volts" min="0" max="1500"/>
+                <Value type="unsigned" slope="0.1" unit="Volts" min="0" max="6553"/>
             </Signal>
         </Message>
 
@@ -343,7 +344,7 @@
 
             <Signal name="CP_Top_Voltage" offset="16" length="8">
                 <Notes>Measured PWM top voltage on the CP line.</Notes>
-                <Value type="unsigned" slope="0.1" min="0" max="25.5" unit="Volts"/>
+                <Value type="unsigned" slope="0.1" min="0" max="25" unit="Volts"/>
             </Signal>
 
             <Signal name="CP_State" offset="24" length="8">

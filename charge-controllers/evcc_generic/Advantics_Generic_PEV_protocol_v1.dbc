@@ -12,7 +12,7 @@ BO_ 1536 EVSE_Information: 6 Advantics_Charge_Controller
  SG_ Communication_Stage : 0|8@1+ (1,0) [0|255] "" Vector__XXX
  SG_ Protocol : 8|8@1+ (1,0) [0|255] "" Vector__XXX
  SG_ Pins : 16|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ Max_Current : 24|16@1- (0.1,0) [-400|400] "Amps" Vector__XXX
+ SG_ Max_Current : 24|16@1- (0.1,0) [-3276|3276] "Amps" Vector__XXX
  SG_ RCD_Status : 40|1@1+ (1,0) [0|1] "" Vector__XXX
  SG_ Reserved_Flags : 41|7@1+ (1,0) [0|127] "" Vector__XXX
 
@@ -32,19 +32,19 @@ BO_ 1538 DC_Control: 1 Advantics_Charge_Controller
  SG_ Reserved_Flags : 1|7@1+ (1,0) [0|127] "" Vector__XXX
 
 BO_ 1554 DC_Status1: 4 Vehicle
- SG_ Current_Request : 0|16@1- (0.1,0) [-400|400] "Amps" Vector__XXX
- SG_ Present_Current : 16|16@1- (0.1,0) [-400|400] "Amps" Vector__XXX
+ SG_ Current_Request : 0|16@1- (0.1,0) [-3276|3276] "Amps" Vector__XXX
+ SG_ Present_Current : 16|16@1- (0.1,0) [-3276|3276] "Amps" Vector__XXX
 
 BO_ 1555 DC_Status2: 5 Vehicle
  SG_ Contactors_Closed : 0|1@1+ (1,0) [0|1] "" Vector__XXX
  SG_ Normal_End_of_Charge : 1|1@1+ (1,0) [0|1] "" Vector__XXX
  SG_ Reserved_Flags : 2|6@1+ (1,0) [0|63] "" Vector__XXX
- SG_ Battery_Voltage : 8|16@1+ (0.1,0) [0|1500] "Volts" Vector__XXX
- SG_ Inlet_Voltage : 24|16@1+ (0.1,0) [0|1500] "Volts" Vector__XXX
+ SG_ Battery_Voltage : 8|16@1+ (0.1,0) [0|6553] "Volts" Vector__XXX
+ SG_ Inlet_Voltage : 24|16@1+ (0.1,0) [0|6553] "Volts" Vector__XXX
 
 BO_ 1539 CCS_Extra_Information: 6 Advantics_Charge_Controller
  SG_ CP_Duty_Cycle : 0|16@1+ (0.1,0) [0|100] "%" Vector__XXX
- SG_ CP_Top_Voltage : 16|8@1+ (0.1,0) [0|25.5] "Volts" Vector__XXX
+ SG_ CP_Top_Voltage : 16|8@1+ (0.1,0) [0|25] "Volts" Vector__XXX
  SG_ CP_State : 24|8@1+ (1,0) [0|255] "" Vector__XXX
  SG_ PP_Resistance : 32|8@1+ (10,0) [0|2550] "Ohms" Vector__XXX
  SG_ Inlet_Lock_State : 40|2@1+ (1,0) [0|3] "" Vector__XXX
@@ -270,7 +270,7 @@ BA_ "GenSigStartValue" SG_ 1540 CPU_Temperature 40;
 BA_ "GenSigStartValue" SG_ 1540 CAN_Sensor_Temperature 40;
 
 VAL_ 1536 Communication_Stage 0 "Initialising" 1 "Waiting_For_EVSE" 2 "Negotiating_Connection" 3 "Connected_With_Full_Info" 4 "Insulation_Test" 5 "Precharge" 6 "Waiting_For_Charge" 7 "Charging" 8 "Ending_Charge" 9 "Welding_Detection" 10 "Closing_Communication";
-VAL_ 1536 Protocol 0 "" 1 "CCS_PWM" 2 "CCS_DIN_70121_2012_v2" 3 "CCS_ISO_15118_2013_v2";
+VAL_ 1536 Protocol 0 "" 1 "CCS_PWM" 2 "CCS_DIN_70121_2012_v2" 3 "CCS_ISO_15118_2013_v2" 4 "CCS_ISO_15118_2022";
 VAL_ 1536 Pins 0 "" 1 "CCS_AC" 2 "CCS_AC_Single_Phase_Core" 3 "CCS_AC_Three_Phase_Core" 4 "CCS_DC_Core" 5 "CCS_DC_Extended";
 VAL_ 1536 RCD_Status 0 "No_Error" 1 "Error";
 VAL_ 1537 Ready_To_Deliver_Power 0 "Not_Ready" 1 "Ready";
