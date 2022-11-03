@@ -53,8 +53,8 @@ next time power is applied it will do a full boot.
 
 In terms of power consumption, here are some rough measurements:
 
-- Power draw when awake and idle: ~1.9 W (~80 mA at 24 V)
-- Power draw when asleep: ~1.1 W (~47 mA at 24 V)
+- Power draw when awake and idle: \~1.9 W (\~80 mA at 24 V)
+- Power draw when asleep: \~1.1 W (\~47 mA at 24 V)
 
 ## Other considerations
 
