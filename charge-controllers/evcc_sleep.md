@@ -36,3 +36,28 @@ controller can be woken-up either by:
 
 - Setting `2C2 - SWITCHED_POWER` terminal high.
 - Plugging-in an active charger, as we detect the rise in voltage on the CP line.
+
+## Timings
+
+- Wake-up from power off (cold boot): ~30s before being available for charging.
+- Wake-up from sleep: < 1s, starting charge immediately.
+
+## Power requirements
+
+The controller should remain powered even when it sleeps. Otherwise it will loose its state and
+next time power is applied it will do a full boot.
+
+> [!NOTE]
+> Our charge controllers are designed to withstand harsh power off without damage to the internal
+> file system. The only penalty you incur when removing power during sleep is just longer boot time.
+
+In terms of power consumption, here are some rough measurements:
+
+- Power draw when awake and idle: ~1.9 W (~80 mA at 24 V)
+- Power draw when asleep: ~1.1 W (~47 mA at 24 V)
+
+## Other considerations
+
+When users are logged on the system (eg. by SSH), the sleep is prevented. Note also when there are
+no longer any user logged in, it will NOT go to sleep automatically. You will have to make the
+controller go through the
