@@ -53,7 +53,7 @@ next time power is applied it will do a full boot.
 
 In terms of power consumption, here are some rough measurements:
 
-<div class="compact-table">
+<div class="small-table compact-table">
 
 | State | Voltage | Current | Power |
 |-------|---------|---------|-------|
