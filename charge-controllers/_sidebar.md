@@ -53,6 +53,7 @@
         - [Lock safety](charge-controllers/evcc_lock_safety.md)
     - [Special](charge-controllers/evcc_special.md)
         - [Orion BMS setup](charge-controllers/evcc_orion_bms/orion_bms_integration.md)
+        - [Updater tool](charge-controllers/evcc_updater.md)
 
 - **Linux systems**
     - [3.x branch](charge-controllers/systems_branch3.md)

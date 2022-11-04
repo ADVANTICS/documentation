@@ -19,7 +19,7 @@ They are slow paced because the release process is substantial.
 
 <div class="small-table compact-table">
 
-| Version | Release date | Changelog | Full system image | Updater tool |
+| Version | Release date | Changelog | Full system image ([doc](charge-controllers/sys3_update.md#sd-card-update)) | Updater tool ([doc](charge-controllers/evcc_updater.md)) |
 |---------|--------------|-----------|-------------------|--------------|
 | 2.0.0rc3.dev2 (tentative) | 2022-11-03 | In writing | - | [Windows](https://www.dropbox.com/s/ib9srvbetbiecmz/pev-updater-2.0.0rc3.dev2.exe?dl=1)<br/>[Linux](https://www.dropbox.com/s/23blk376kc5xssg/pev-updater-2.0.0rc3.dev2?dl=1) |
 | 2.0.0rc2 | 2021-06-11 | [Changelog](https://www.dropbox.com/s/kxau5bgzmtpunig/CHANGELOG-PEV-2.0.0rc2.txt?dl=0) | [ADM-CS-EVCC (Gen3)](https://www.dropbox.com/s/8vzt78vj4mol866/adm-cs-evcc-2.0.0rc2.zip?dl=1) | - |

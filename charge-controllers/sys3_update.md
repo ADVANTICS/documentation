@@ -133,3 +133,7 @@ For EVCC version, uses _S80vehicle_ instead of _S80charger_.
 ```bash
 $ umount /mnt/sd
 ```
+
+## Updater tool
+
+For EVCC, see [EVCC Updater tool](charge-controllers/evcc_updater.md)
