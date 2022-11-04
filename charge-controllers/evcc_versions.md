@@ -51,7 +51,7 @@ Snapshots are made when we commit particular changes (eg. bug fix, new function)
 "up for grab" without waiting that we do a proper major release or even an intermediate container
 release.
 
-> [!IMPORTANT]
+> [!WARNING]
 > These are not automatic nightly releases. Yet, they are also far from being well tested. Use at
 > your own risk.
 
