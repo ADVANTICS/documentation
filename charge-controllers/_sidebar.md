@@ -30,6 +30,7 @@
         - [Electric vehicle overview](charge-controllers/ADM-CS-EVCC/ev_overview.md)
         - [Examples of use](charge-controllers/ADM-CS-EVCC/examples.md)
         - [Troubleshooting](charge-controllers/ADM-CS-EVCC/troubleshooting.md)
+    - [Versions](charge-controllers/evcc_versions.md)
     - [Configuration (2.x)](charge-controllers/evcc_configuration/README.md)
         - [Generalities](charge-controllers/evcc_configuration/generalities.md)
         - [Current deviation](charge-controllers/evcc_configuration/current_deviation.md)
