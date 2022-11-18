@@ -60,6 +60,6 @@ release.
 | Branch | Date | Notable differences | Download |
 |--------|------|---------------------|----------|
 | Stable | 2022-11-03 | Prefigure rc3 | [Snapshot](https://www.dropbox.com/s/iiwzinlcral8j0l/pev-snapshot-stable--2022-11-02.tar?dl=1) |
-| Bidirectional | 2022-11-?? | ISO 15118-20<br/>Generic CAN interface v2 | - |
+| Bidirectional | 2022-11-17 | ISO 15118-20<br/>Generic CAN interface v2 | [Snapshot](https://www.dropbox.com/s/mg9iqoeqwu1caqm/pev-bidir--2022-11-17.tar?dl=1) |
 
 </div>
