@@ -76,6 +76,7 @@ Defines which pins on the inlet/pistol are used in DC charging. Possible values 
 
 > [!DLIST|label:DC_extended]
 > Use the 2 DC pins at the bottom of the combo inlet/pistol.
+
 > [!DLIST|label:DC_core]
 > Use what is usually known as the AC pins, but for DC.
 
@@ -139,8 +140,10 @@ Possible values are:
 
 > [!DLIST|label:B1]
 > Suitable for NA use. Compatible with SAE J1772 (S3 switch + constant monitoring for e-stop).
+
 > [!DLIST|label:B2]
 > Suitable for EU and rest of the world use. Does current coding in AC.
+
 > [!DLIST|label:Any other value]
 > PP is ignored.
 
