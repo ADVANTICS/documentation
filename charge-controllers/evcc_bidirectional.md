@@ -12,6 +12,11 @@ It is possible to specify the absolute energy requests including the range for b
 
 In addition, the vehicle will be able to specify the time of departure which can be used in dynamic mode.
 
+> [!NOTE]
+> Bidirectionality is only available on a special development branch. You need update the containers
+> with the ones provided in the [Snapshots section](charge-controllers/evcc_versions.md#snapshots)
+> of the download page.
+
 ## Relevant config entries
 
 ### type
@@ -161,6 +166,11 @@ Default to 1.
 | [EV_Extra_BPT_Information](#EV_Extra_BPT_Information) | 0x616 | 4 | IN | Optional | New message |
 
 </div>
+
+Download CAN DBs:
+
+- [Advantics Generic PEV protocol v2 (Kayak format)](charge-controllers/evcc_generic/Advantics_Generic_PEV_protocol_v2.kcd ':ignore')
+- [Advantics Generic PEV protocol v2 (DBC format)](charge-controllers/evcc_generic/Advantics_Generic_PEV_protocol_v2.dbc ':ignore')
 
 ## EV_Information
 
