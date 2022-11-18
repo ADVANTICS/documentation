@@ -18,3 +18,4 @@ interface as well as other controller behaviours reside in the `[vehicle]` secti
 1. [DC contactors](charge-controllers/evcc_configuration/dc_contactors.md)
 1. [CAN sensor](charge-controllers/evcc_configuration/can_sensor.md)
 1. [No BMS mode](charge-controllers/evcc_configuration/no_bms.md)
+1. [CCS](charge-controllers/evcc_configuration/ccs.md)

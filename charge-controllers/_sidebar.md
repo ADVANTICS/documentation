@@ -38,6 +38,7 @@
         - [DC contactors](charge-controllers/evcc_configuration/dc_contactors.md)
         - [CAN sensor](charge-controllers/evcc_configuration/can_sensor.md)
         - [No BMS mode](charge-controllers/evcc_configuration/no_bms.md)
+        - [CCS](charge-controllers/evcc_configuration/ccs.md)
     - [Generic CAN interface](charge-controllers/evcc_generic/README.md)
         - [Introduction](charge-controllers/evcc_generic/introduction.md)
         - [Overview](charge-controllers/evcc_generic/overview.md)
