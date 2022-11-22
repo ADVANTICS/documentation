@@ -62,7 +62,7 @@ The outcomes of that summer are three folds:
 - As the PLC firmware is pushing these measurements "on change", their "change" algorithm also
 improved a lot as we managed to squash many edge-cases happening only under noise.
 - We asked to have extra raw data with each pushed measurement. With it we devised a noise quantifier,
-filter, and a compensation mechanism.
+a filter, and a compensation mechanism.
 
 So, not only Vertexcom now provides a more noise resilient solution. We also have more leeway in
 deciding which measurements we deem reliable. And on top of that, as we can also quantify the noise,
@@ -78,8 +78,8 @@ Here is a depiction of noise effects on CP PWM measurements, with an increasing 
 </div>
 
 From various studies, we can infer how noise tends to affect measurements. So the first step is to
-introduce a compensation (or correction of you want) based on what can find across analyses in
-various conditions:
+introduce a compensation (or correction if you want) based on what was found across various
+conditions:
 
 <div class="bigger-1000">
 
@@ -115,7 +115,7 @@ we can also say if the measured values can be trusted or not. And preferably wit
 avoid occasionally filtering out valid measurements.
 
 Because the data acquisition was made in a controlled environment, we are actually able to correlate
-each measurement not just with whether or not it was under noisy conditions. But also what we actually
+each measurement not just with whether or not it was under noisy conditions. But also with what we actually
 *expected* in those measurements. Here we see we obtained a false positive rate of 2.4%. It's not 0%,
 but it is already pretty damn good. What will happen for those 2.4% that will get ignored is that
 we will most likely receive another measurement update shortly after, with hopefully a slightly
@@ -131,8 +131,8 @@ Whereas here these performances are measured on an entirely different data set c
 later with the final released firmware.
 
 Finally, here is how we present these information in the logs (a bit formatted for clarity). Here
-we have a 5% CP duty cycle with a rather strong transient event (similar to vehicle DC contactors
-closing for instance):
+we have a 5% CP duty cycle with a rather strong transient event, similar to vehicle DC contactors
+closing for instance:
 
 ```
 2022-11-10 17:32:45,561: INFO   : CP Thread           : PWM MEAS: PWM_Measurements(
@@ -184,13 +184,13 @@ voltage. That was basically how we used to believe charger side was calling an e
 But now we can detect it, and correctly reject it!
 
 The `PWM_Measurements` objects that are printed out gives few information. As formatted here, the
-first line show the values measured by the PLC chipset firmware, with compensation. Second line show
+first line show the values measured by the PLC chipset firmware, with compensation. Second line shows
 a `noise_scores`, this is the result of our classifier used as a noise quantifier. Note that we only
 use it to print it out in the logs. Third line gives the `filter_scores`, which is our classifier
 result used as a decision maker. If the `all` score is more than 0, we reject the measurement.
 
-Observe also the difference between `noise_scores` and `filter_scores`. That gap indicates how much
-margin we can have sometimes. In these logs they were all so strong we rejected them. But in milder
+Observe also the differences between `noise_scores` and `filter_scores`. That gap indicates how much
+margin we can have sometimes. In this first log they were all so strong we rejected them. But in milder
 cases of noise it shows we can still be resilient to noise without over-filtering. For instance,
 here is a noisy measurement update at 50% duty cycle, with a persistent noise representative of a
 noisy on-board charger:
@@ -213,13 +213,13 @@ data the PLC chipset sent us for that measurement. This would allow us to have a
 actual noise profile that was observed. And in case the logs show our filter algorithm took the wrong
 decision, it will allow us to maybe figure out how to improve it :-).
 
-## In conclusion
+## In conclusion, it does not get yourself off the hook!
 
 This new PLC chipset firmware, plus the new noise detector, makes our vehicle charge controllers
-way more resilient to noise that they used to be!
+way more resilient to noise than they used to be!
 
 However, if you go back to the fundamentals at the beginning of this page, you will notice these are
-sitting at the end of the list of actions you should carry out. Understand that what these filters
+sitting at the end of the list of actions you should carry out. Understand that, what these filters
 are actually doing is just working around the effects of noise leading to incorrect readings.
 
 And they do so by applying statistical deductions. Or, said differently, it is pretty much guess
