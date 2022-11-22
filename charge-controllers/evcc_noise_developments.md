@@ -18,7 +18,7 @@ The fundamental fixes for noise are, **in order**:
 1. If not enough, its propagation should be limited.
 1. And if still not enough, the ones disturbed by the noise should filter it.
 
-## History - How we turned a weakness into a strength
+## How we turned a weakness into a strength
 
 In 2022 we received lots of support tickets with odd symptoms that seemed similar across various
 customers and types of vehicle. Dealing with charge controllers for many years now, we thought we
