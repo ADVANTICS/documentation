@@ -15,6 +15,9 @@ values are:
 > [!DLIST|label:Advantics_Generic_v1]
 > The first version of this interface
 
+> [!DLIST|label:Advantics_Generic_v2]
+> The second version of the generic interface (supports bidirectionality)
+
 ## can_timeout_ms
 
 <figcaption>Example</figcaption>
@@ -59,6 +62,16 @@ Default to 0 A.
 > You MUST edit this entry for charging to work. Otherwise all current requests will just
 > be limited to 0 A.
 
+## max_discharge_current
+
+<figcaption>Example</figcaption>
+
+    max_discharge_current = 30
+
+Maximum allowed current in discharge phase. Applicable in bidirectional mode only.
+
+Default to 0 A.
+
 ## max_power
 
 <figcaption>Example</figcaption>
@@ -71,6 +84,27 @@ battery voltage. A value of 0 means no maximum power is configured and it will n
 current requests.
 
 Default to 0 W (ie. not used).
+
+## max_discharge_power
+
+<figcaption>Example</figcaption>
+
+    max_discharge_power = 20000
+
+Maximum discharge power, in Watts. Applicable in bidirectional mode only.
+
+Default to 0 W.
+
+## max_energy_request
+
+<figcaption>Example</figcaption>
+
+    max_energy_request = 33000
+
+Absolute maximum energy request, in Wh. Can be dynamically overloaded through the Generic CAN
+Interface.
+
+Default to 0 Wh. Applicable in bidirectional mode only.
 
 ## min_voltage
 
@@ -93,6 +127,27 @@ Minimum current we want the charger to deliver (only relevant for CCS ISO AC).
 
 Default to 0 A.
 
+## min_discharge_power
+
+<figcaption>Example</figcaption>
+
+    min_discharge_power = 2000
+
+Minimum discharge power, in Watts. Applicable in bidirectional mode only.
+
+Default to 0 W.
+
+## min_energy_request
+
+<figcaption>Example</figcaption>
+
+    min_energy_request = 0
+
+Absolute minimum energy request, in Wh. Can be dynamically overloaded through the Generic CAN
+Interface. Applicable in bidirectional mode only.
+
+Default to 0 Wh.
+
 ## target_voltage
 
 <figcaption>Example</figcaption>
@@ -113,8 +168,8 @@ Default to 450 V.
 
     energy_capacity = 0
 
-Energy capacity of the battery, in Wh. Optional but recommended. Used for various informational
-calculations (SoC, remaining time, etc.).
+Energy capacity of the battery, in Wh. Required for bidirectional power transfers. Otherwise it is
+optional but recommended. Used for various informational calculations (SoC, remaining time, etc.).
 
 Default to 0 Wh.
 
@@ -128,6 +183,16 @@ Maximum state of charge above which Advantics controller will trigger a normal s
 DC charging. Set it to 80 to only do bulk charging.
 
 Default to 99 %.
+
+## is_bidirectional
+
+<figcaption>Example</figcaption>
+
+    is_bidirectional = true
+
+To allow bidirectionality, set to `true`.
+
+Default to false.
 
 ## inhibit_precharge_unmatch_t
 

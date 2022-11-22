@@ -19,140 +19,22 @@ In addition, the vehicle will be able to specify the time of departure which can
 
 ## Relevant config entries
 
-### type
-
-In the `[vehicle]` section. It is an existing config entry with a new valid value.
-
-<figcaption>Example</figcaption>
-
-    type = Advantics_Generic_v2
-
-This entry specify which vehicle interface type is to be used. For the Generic Interface supporting
-bidirectional power transfers, the valid values are:
-
-> [!DLIST|label:Advantics_Generic_v2]
-> The second version of the generic interface
-
-### is_bidirectional
-
-In the `[vehicle]` section. It is a new config entry.
-
-<figcaption>Example</figcaption>
-
-    is_bidirectional = true
-
-To allow bidirectionality, set to `true`.
-
-Default to false.
-
-### energy_capacity
-
-In the `[vehicle]` section. It is an extisting entry that was optional. For bidirectionality it is
-required.
-
-<figcaption>Example</figcaption>
-
-    energy_capacity = 33000
-
-Energy capacity of the battery, in Wh. Required for bidirectional power transfers. Otherwise it is
-optional but recommended. Used for various informational calculations (SoC, remaining time, etc.).
-
-Default to 0 Wh.
-
-### max_discharge_current
-
-In the `[vehicle]` section. It is a new config entry.
-
-<figcaption>Example</figcaption>
-
-    max_discharge_current = 30
-
-Maximum allowed current in discharge phase.
-
-Default to 0 A.
-
-### min_discharge_power
-
-In the `[vehicle]` section. It is a new config entry.
-
-<figcaption>Example</figcaption>
-
-    min_discharge_power = 2000
-
-Minimum discharge power, in Watts.
-
-Default to 0 W.
-
-### max_discharge_power
-
-In the `[vehicle]` section. It is a new config entry.
-
-<figcaption>Example</figcaption>
-
-    max_discharge_power = 20000
-
-Maximum discharge power, in Watts.
-
-Default to 0 W.
-
-### min_energy_request
-
-In the `[vehicle]` section. It is a new config entry.
-
-<figcaption>Example</figcaption>
-
-    min_energy_request = 0
-
-Absolute minimum energy request, in Wh. Can be dynamically overloaded through the Generic CAN API.
-
-Default to 0 Wh.
-
-### max_energy_request
-
-In the `[vehicle]` section. It is a new config entry.
-
-<figcaption>Example</figcaption>
-
-    max_energy_request = 33000
-
-Absolute maximum energy request, in Wh. Can be dynamically overloaded through the Generic CAN API.
-
-Default to 0 Wh.
-
-### enable_iso_part20
-
-In the `[ccs]` section. It is a new config entry.
-
-<figcaption>Example</figcaption>
-
-    enable_iso_part20 = true
-
-Loads support for ISO 15118-20.
-
-Default to true.
+- `[vehicle]` section
+  - [type](charge-controllers/evcc_configuration/generalities.md#type): Use `Advantics_Generic_v2`
+  - [is_bidirectional](charge-controllers/evcc_configuration/generalities.md#is_bidirectional): Set to `true`
+  - [energy_capacity](charge-controllers/evcc_configuration/generalities.md#energy_capacity): Becomes required
+  - [max_discharge_current](charge-controllers/evcc_configuration/generalities.md#max_discharge_current)
+  - [min_discharge_power](charge-controllers/evcc_configuration/generalities.md#min_discharge_power)
+  - [max_discharge_power](charge-controllers/evcc_configuration/generalities.md#max_discharge_power)
+  - [min_energy_request](charge-controllers/evcc_configuration/generalities.md#min_energy_request)
+  - [max_energy_request](charge-controllers/evcc_configuration/generalities.md#max_energy_request)
+- `[ccs]` section
+  - [enable_iso_part20](charge-controllers/evcc_configuration/ccs.md#enable_iso_part20)
+  - [iso_part20_dc_priority](charge-controllers/evcc_configuration/ccs.md#iso_part20_dc_priority)
 
 > [!NOTE]
-> When enabled, the `ccs-evcc` application is much longer to load. This performance point will be
-> addressed later.
-
-### iso_part20_dc_priority
-
-In the `[ccs]` section. It is a new config entry.
-
-<figcaption>Example</figcaption>
-
-    iso_part20_dc_priority = 1
-
-Sets the priority used in AppProtocol for ISO 15118-20 DC schema.
-
-Default to 1.
-
-> [!NOTE]
-> Other priority entries are:
->
-> - `iso_part2_priority` (default to 2)
-> - `iso_ed1_priority` (deprecated name for `iso_part2_priority`, default to 2)
-> - `din_priority` (default to 3)
+> When ISO 15118-20 is enabled in the `[ccs]` section, the `ccs-evcc` application takes much longer
+to load. This performance point will be addressed later.
 
 ## Changes in the EVCC Generic CAN interface v2:
 

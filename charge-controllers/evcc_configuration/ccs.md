@@ -23,6 +23,16 @@ Loads support for ISO 15118-2.
 
 Default to true.
 
+## enable_iso_part20
+
+<figcaption>Example</figcaption>
+
+    enable_iso_part20 = true
+
+Loads support for ISO 15118-20.
+
+Default to true.
+
 ## din_priority
 
 <figcaption>Example</figcaption>
@@ -45,6 +55,16 @@ Default to 2.
 
 > [!NOTE]
 > Entry named `iso_ed1_priority` was used previously. It is now deprecated.
+
+## iso_part20_dc_priority
+
+<figcaption>Example</figcaption>
+
+    iso_part20_dc_priority = 1
+
+Sets the priority used in AppProtocol for ISO 15118-20 DC schema.
+
+Default to 1.
 
 ## cabin_conditioning
 
