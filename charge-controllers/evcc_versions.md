@@ -19,13 +19,13 @@ They are slow paced because the release process is substantial.
 
 <div class="small-table compact-table">
 
-| Version | Release date | Changelog | Full system image ([doc](charge-controllers/sys3_update.md#sd-card-update)) | Updater tool ([doc](charge-controllers/evcc_updater.md)) |
-|---------|--------------|-----------|-------------------|--------------|
-| 2.0.0rc3 | 2022-11-03 | [Changelog](https://www.dropbox.com/s/1lse0d72w663562/CHANGELOG-PEV-2.0.0rc3.txt?dl=0) | - | Normal versions:<br/> [Windows](https://www.dropbox.com/s/s8whkkxw6jo6q4j/pev-updater-2.0.0rc3.exe?dl=1) \| [Linux](https://www.dropbox.com/s/i7yvqbrm2kbe6aj/pev-updater-2.0.0rc3?dl=1)<br/>Versions for pistol update:<br/>[Windows](https://www.dropbox.com/s/ro772527s9o9dn9/pev-plc-updater-2.0.0rc3.exe?dl=1) \| [Linux](https://www.dropbox.com/s/ao9j7nqf6t44wt6/pev-plc-updater-2.0.0.rc3?dl=1)<br/><b>Note: The update tool must be applied on a system that is at least in 2.0.0rc2. If not, update first to 2.0.0rc2.</b> |
-| 2.0.0rc2 | 2021-06-11 | [Changelog](https://www.dropbox.com/s/kxau5bgzmtpunig/CHANGELOG-PEV-2.0.0rc2.txt?dl=0) | [ADM-CS-EVCC (Gen3)](https://www.dropbox.com/s/8vzt78vj4mol866/adm-cs-evcc-2.0.0rc2.zip?dl=1) | - |
-| 2.0.0rc1 | 2021-02-04 | [Changelog](https://www.dropbox.com/s/y8zmdr7zh3bn1e9/CHANGELOG-PEV-2.0.0rc1.txt?dl=0) | [ADM-CS-EVCC (Gen3)](https://www.dropbox.com/s/ikk2aafubjovkir/adm-cs-evcc-2.0.0rc1.zip?dl=1) | - |
-| 2019-06-11--001 | 2019-06-11 | [Changelog](https://www.dropbox.com/s/m90hmfy1mm9js04/CHANGELOG-PEV--2019-06-11.txt?dl=0) | [ADM-CS-EVCC (Gen2)](https://www.dropbox.com/s/k2f2mfa7v77vrfv/advantics-charge-controller-pev-2019-06-11--001.zip?dl=1)<br/>[ADM-CO-CUI1](https://www.dropbox.com/s/yfzeq3sdzs2545w/advantics-charge-controller-generic-pev-2019-06-11--001.zip?dl=1) | - |
-| 2018-09-25--001 | 2018-09-25 | - | [ADM-CO-CUI1](https://www.dropbox.com/s/els4r3p8kwh10jo/advantics-charge-controller-pev-2018.09.25--001.zip?dl=1) | - |
+| Version | Release date | Changelog | Full system image ([doc](charge-controllers/sys3_update.md#sd-card-update)) | Updater tool ([doc](charge-controllers/evcc_updater.md)) | Notes |
+|---------|--------------|-----------|-------------------|--------------|-------|
+| 2.0.0rc3.post1 | 2022-11-03 | [Changelog](https://www.dropbox.com/s/1lse0d72w663562/CHANGELOG-PEV-2.0.0rc3.txt?dl=0) | - | Normal versions:<br/> [Windows](https://www.dropbox.com/s/vbgvy3yleqmx202/pev-updater-2.0.0rc3.post1.exe?dl=1) \| [Linux](https://www.dropbox.com/s/47lz08myc7vb69b/pev-updater-2.0.0rc3.post1?dl=1)<br/>Versions for pistol update:<br/>[Windows](https://www.dropbox.com/s/z69588amdecowox/pev-plc-updater-2.0.0rc3.post1.exe?dl=1) \| [Linux](https://www.dropbox.com/s/ypnxm2vdm560k7x/pev-plc-updater-2.0.0rc3.post1?dl=1) | <b>- The update tool must be applied on a system that is at least in 2.0.0rc2. If not, update first to 2.0.0rc2.</b><br/><br/>- post1 version fixes a minor missing file in the updater tool. |
+| 2.0.0rc2 | 2021-06-11 | [Changelog](https://www.dropbox.com/s/kxau5bgzmtpunig/CHANGELOG-PEV-2.0.0rc2.txt?dl=0) | [ADM-CS-EVCC (Gen3)](https://www.dropbox.com/s/8vzt78vj4mol866/adm-cs-evcc-2.0.0rc2.zip?dl=1) | - | - |
+| 2.0.0rc1 | 2021-02-04 | [Changelog](https://www.dropbox.com/s/y8zmdr7zh3bn1e9/CHANGELOG-PEV-2.0.0rc1.txt?dl=0) | [ADM-CS-EVCC (Gen3)](https://www.dropbox.com/s/ikk2aafubjovkir/adm-cs-evcc-2.0.0rc1.zip?dl=1) | - | - |
+| 2019-06-11--001 | 2019-06-11 | [Changelog](https://www.dropbox.com/s/m90hmfy1mm9js04/CHANGELOG-PEV--2019-06-11.txt?dl=0) | [ADM-CS-EVCC (Gen2)](https://www.dropbox.com/s/k2f2mfa7v77vrfv/advantics-charge-controller-pev-2019-06-11--001.zip?dl=1)<br/>[ADM-CO-CUI1](https://www.dropbox.com/s/yfzeq3sdzs2545w/advantics-charge-controller-generic-pev-2019-06-11--001.zip?dl=1) | - | - |
+| 2018-09-25--001 | 2018-09-25 | - | [ADM-CO-CUI1](https://www.dropbox.com/s/els4r3p8kwh10jo/advantics-charge-controller-pev-2018.09.25--001.zip?dl=1) | - | - |
 
 </div>
 
