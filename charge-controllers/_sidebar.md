@@ -15,6 +15,7 @@
     <!-- - [Migration from 3.x to 4.x](charge-controllers/secc_migration_3_to_4.md) -->
     - [Features](charge-controllers/secc_features.md)
         - [AC charging](charge-controllers/secc_ac_charging.md)
+        - [Bidirectional](charge-controllers/secc_generic/secc_bidirectional.md)
         - [Climate control](charge-controllers/secc_climate_control.md)
         - [IOs on CAN](charge-controllers/secc_can_ios.md)
         <!-- - [OCPP](charge-controllers/secc_ocpp.md) -->
