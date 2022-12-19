@@ -34,6 +34,10 @@ The version 3 of the interface provided improvements that made it easier to inte
 | [Power_Modules_Limits](#Power_Modules_Limits) | 0x60011 | - | - | - | removed | replaced by [DC_Power_Parameters](#DC_Power_Parameters)
 
 
+Download CAN DBs:
+
+- [Advantics Generic EVSE protocol v3 (Kayak format)](charge-controllers/secc_generic/Advantics_Generic_EVSE_protocol_v3.kcd ':ignore')
+- [Advantics Generic EVSE protocol v3 (DBC format)](charge-controllers/secc_generic/Advantics_Generic_EVSE_protocol_v3.dbc ':ignore')
 
 ## DC_Power_Control
 
