@@ -13,6 +13,9 @@ The version 3 of the interface provided improvements that made it easier to inte
 - In the pistol section
   - `charger_type`: Use `Advantics_Generic_DC_v3`
   - `is_bidirectional`: Set to `true`
+  - `max_charger_voltage`: will be used as the default value in case signal [<<DC_Power_Parameters.Maximum_Voltage>>](#DC_Power_Parameters) is 0.
+  - `max_charger_current`: will be used as the default value in case signal [<<DC_Power_Parameters.Maximum_Charge_Current>>](#DC_Power_Parameters) is 0.
+  - `max_charger_discharge_current`: will be used as the default value in case signal [<<DC_Power_Parameters.Maximum_Discharge_Current>>](#DC_Power_Parameters) is 0.
   - `enable_iso_part20`: Set to `true`
   - `enable_iso_ed1` has been renamed `enable_iso_part2`.
 
