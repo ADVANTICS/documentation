@@ -8,6 +8,10 @@ The third version of ADVANTICS generic interface for SECC introduces an even mor
 Based on charger configuration and vehicle parameters, the interface will select the operational mode and provide current limits to meet power transfer requirements.
 Version 3 of the interface provides improvements that made it easier to integrate, and are more user-friendly while keeping changes minimal to facilitate the migration.
 
+> [!NOTE]
+> Generic interface v3, CCS ISO 15118-20 and CHAdeMO V2G are available only from version 4.x.dev10
+> of the [development branch](https://www.notion.so/EVSE-Migration-from-3-x-to-4-x-7526d289f055493db054452cbbfeb98f).
+
 ## Relevant config entries
 
 - In the pistol section
