@@ -40,6 +40,48 @@ Download CAN DBs:
 - [Advantics Generic EVSE protocol v3 (Kayak format)](charge-controllers/secc_generic/Advantics_Generic_EVSE_protocol_v3.kcd ':ignore')
 - [Advantics Generic EVSE protocol v3 (DBC format)](charge-controllers/secc_generic/Advantics_Generic_EVSE_protocol_v3.dbc ':ignore')
 
+### Migration from v2
+
+There are two important concepts introduced with v3:
+
+- It can function with setpoints that either mean targets (as it used to), or limits of a range.
+- All preliminary power functions like insulation test and precharge have been merged into a single
+  message.
+
+Note that the range mode will only be used with charging protocols supporting it (usually the ones
+made for V2X applications).
+
+`Charging_Loop` has been renamed to `DC_Power_Control`. We kept the first signal, `Target_Voltage`
+as-is. Note that `Target_Current` got renamed `Current_Range_Max`, but still serves grossly the same
+function. Ie. in the simplest case you could still charge by using only that value as target current
+setpoint. And actually, that's how the target mode function.
+
+The `State_of_Charge` signal moved to the end of the message to make space for new signals that give
+the present power function, setpoint mode, and output bleeding command.
+
+The new power function signal covers these cases: Off, Standby, Insulation test, Precharge and Power
+transfer. Note that the "quircky" behaviour of v2 to use `Charging_Loop` with 0 V and 0 A targets to
+mean standby after insulation tests and precharge has been streamlined into a proper `Standby` power
+function. For compatibility, the 0 V and 0 A setpoints while in standby have also been kept. And as
+now there is a single "power-related" message, it becomes sementically more appropriate to emit it
+outside of the charging part of the session.
+
+You will however no longer receive the `Insulation_Test` and `Precharge` messages anymore have they
+have been entirely removed.
+
+The `Output_Bleed` command signal has been added to signal explicitly when the charger should
+actively stop presenting an output voltage. You should definitly read its [documentation](#DC_Power_Control-Output_Bleed)
+as it can be a bit tricky to use correctly. Note however that it might still change a little bit in
+the future for further clarity (like splitting the command with one for output contactors and one
+for power modules bleeding).
+
+Finally, `Power_Modules_Limits` has been renamed `DC_Power_Parameters`. It is also meant to be used
+pretty much as the old message was. Ie. the first signal is the same. The second has been renamed
+from `Maximum_Current` to `Maximum_Charge_Current` for consistency with the third, new, signal
+`Maximum_Discharge_Current`. A fourth signal, `Range_Target_Current` has been added, but is used
+only when we control the power modules directly, and the generic interface is used as a way to
+externally control some parameters of the charge.
+
 ## DC_Power_Control
 
 <div class="noheader-table small-table compact-table">
