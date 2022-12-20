@@ -33,6 +33,7 @@ Version 3 of the interface provides improvements that made it easier to integrat
 | [DC_Power_Parameters](#DC_Power_Parameters) | 0x60011 | 8 | IN | 100 | New message | - |
 | [Power_Modules_Limits](#Power_Modules_Limits) | 0x60011 | - | - | - | Removed | Replaced by [DC_Power_Parameters](#DC_Power_Parameters)
 
+</div>
 
 Download CAN DBs:
 
