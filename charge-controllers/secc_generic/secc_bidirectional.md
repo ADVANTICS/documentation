@@ -3,19 +3,19 @@
 
 ## Introduction
 
-The third version of ADVANTICS generic interface for SECC introduces an even more generic way of handling power transfer. This extended API provides new features more in line with the bidirectional enabled standards, ISO15118-20 and CHAdeMO V2G in particular.
+The third version of ADVANTICS generic interface for SECC introduces an even more generic way of handling power transfer. This extended API provides new features more in line with bidirectional enabled standards, ISO15118-20 and CHAdeMO V2G in particular.
 
-Based on the charger configuration and the vehicle parameters, the interface will select the control mode and set the current limits to meet the power transfer session requirements.
-The version 3 of the interface provided improvements that made it easier to integrate and more user-friendly while keeping the changes minimal to facilitate the migration.
+Based on charger configuration and vehicle parameters, the interface will select the operational mode and provide current limits to meet power transfer requirements.
+Version 3 of the interface provides improvements that made it easier to integrate, and are more user-friendly while keeping changes minimal to facilitate the migration.
 
 ## Relevant config entries
 
 - In the pistol section
   - `charger_type`: Use `Advantics_Generic_DC_v3`
   - `is_bidirectional`: Set to `true`
-  - `max_charger_voltage`: will be used as the default value in case signal [<<DC_Power_Parameters.Maximum_Voltage>>](#DC_Power_Parameters) is 0.
-  - `max_charger_current`: will be used as the default value in case signal [<<DC_Power_Parameters.Maximum_Charge_Current>>](#DC_Power_Parameters) is 0.
-  - `max_charger_discharge_current`: will be used as the default value in case signal [<<DC_Power_Parameters.Maximum_Discharge_Current>>](#DC_Power_Parameters) is 0.
+  - `max_charger_voltage`: will be used as the default value in case signal [DC_Power_Parameters.Maximum_Voltage](#DC_Power_Parameters-Maximum_Voltage) is 0.
+  - `max_charger_current`: will be used as the default value in case signal [DC_Power_Parameters.Maximum_Charge_Current](#DC_Power_Parameters-Maximum_Charge_Current) is 0.
+  - `max_charger_discharge_current`: will be used as the default value in case signal [DC_Power_Parameters.Maximum_Discharge_Current](#DC_Power_Parameters-Maximum_Discharge_Current) is 0.
   - `enable_iso_part20`: Set to `true`
   - `enable_iso_ed1` has been renamed `enable_iso_part2`.
 
@@ -27,11 +27,11 @@ The version 3 of the interface provided improvements that made it easier to inte
 | Name | ID | Length | Direction | Cycle time | Difference | Note |
 |------|----|--------|-----------|------------| ----------- |-----|
 | [DC_Power_Control](#DC_Power_Control) | 0x68005 | 8 | IN | 100 | New message | - |
-| [Charging_Loop](charge-controllers/secc_generic/can.md#Charging_Loops) | 0x68005 | - | - | - | removed | replaced by [DC_Power_Control](#DC_Power_Control)
-| [Insulation_Test](charge-controllers/secc_generic/can.md#Insulation_Tests) | 0x68002 | - | - | - | removed | Merged into [DC_Power_Control](#DC_Power_Control)
-| [Precharge](charge-controllers/secc_generic/can.md#Precharge) | 0x68003 | - | - | - | removed | Merged into [DC_Power_Control](#DC_Power_Control)
+| [Charging_Loop](charge-controllers/secc_generic/can.md#Charging_Loops) | 0x68005 | - | - | - | Removed | Replaced by [DC_Power_Control](#DC_Power_Control)
+| [Insulation_Test](charge-controllers/secc_generic/can.md#Insulation_Tests) | 0x68002 | - | - | - | Removed | Merged into [DC_Power_Control](#DC_Power_Control)
+| [Precharge](charge-controllers/secc_generic/can.md#Precharge) | 0x68003 | - | - | - | Removed | Merged into [DC_Power_Control](#DC_Power_Control)
 | [DC_Power_Parameters](#DC_Power_Parameters) | 0x60011 | 8 | IN | 100 | New message | - |
-| [Power_Modules_Limits](#Power_Modules_Limits) | 0x60011 | - | - | - | removed | replaced by [DC_Power_Parameters](#DC_Power_Parameters)
+| [Power_Modules_Limits](#Power_Modules_Limits) | 0x60011 | - | - | - | Removed | Replaced by [DC_Power_Parameters](#DC_Power_Parameters)
 
 
 Download CAN DBs:
@@ -59,7 +59,7 @@ Sent during any powered phase of a DC charge session. This message contains the
 power function in use, setpoint targets or range, the setpoints mode, the output
 bleeding command, and the present vehicle SoC.
 
-# Power function
+#### Power function
 
 The power function currently in use is given by [Power_Function](#DC_Power_Control-Power_Function).
 It covers the off state, standby, insulation test, precharge and the actual power
@@ -72,7 +72,7 @@ a load might be connected at that time.
 During *Insulation_Test*, the insulation of the cable is tested by applying a
 voltage from the charger. The battery is not connected yet. The test voltage to
 apply is given by [Target_Voltage](#DC_Power_Control-Target_Voltage). Power modules report
-[Present_Voltage](#Power_Modules_Status-Present_Voltage) and [Insulation_Resistance](#Power_Modules_Status-Insulation_Resistance)
+[Present_Voltage](charge-controllers/secc_generic/can.md#Power_Modules_Status-Present_Voltage) and [Insulation_Resistance](charge-controllers/secc_generic/can.md#Power_Modules_Status-Insulation_Resistance)
 and the controller decides when the test passes or fails. Safety standards require a
 minimum of 100 Ohms/V insulation resistance. With a typical test voltage of 500 V,
 insulation resistance should be >= 50 kOhms. Maximum current to use is not specified.
@@ -104,7 +104,7 @@ power extracted from the vehicle (ie. discharge).
 > Voltage mode for instance.
 
 
-# Setpoints mode
+#### Setpoints mode
 
 Either the vehicle control the current to be delivered or consummed (that's
 *Target_Mode*). Or, a range of acceptable values is given, and power modules are
@@ -132,7 +132,7 @@ However, during the rest of the session, for consistency, during *Insulation_Tes
 it will be *Target_Mode*. And during *Precharge* it will be *Range_Mode*.
 During other power functions it is not relevant.
 
-# Bidirectional power transfers
+#### Bidirectional power transfers
 
 Bidirectional power transfers are only possible when both the vehicle and the charger
 supports it (on charger side, `is_bidirectional` has to be set to True in the config
@@ -383,7 +383,7 @@ Output bleed is requested at the following points in the charge session:
   after. It will however wait that output voltage lower to <= 20 V to comply
   with charging standards. Therefore, this one is more about bleeding output
   capacitors before continuing to next step.
-- After power transfer, when [State](#Advantics_Controller_Status-State) is
+- After power transfer, when [State](charge-controllers/secc_generic/can.md#Advantics_Controller_Status-State) is
   *Ending_Charge*, current has lowered to less than 1 A, and after having
   opened output contactors (using controller own relay). In this case, the
   controller does not need to wait for voltage to lower. Note that at this point
@@ -391,7 +391,7 @@ Output bleed is requested at the following points in the charge session:
   does not wait on the voltage). Which means if your charger does not have output
   contactors, you should actually avoid bleeding output capacitors at this point,
   and ignore the bleed request.
-- When entering [State](#Advantics_Controller_Status-State) == *Closing_Communication*
+- When entering [State](charge-controllers/secc_generic/can.md#Advantics_Controller_Status-State) == *Closing_Communication*
   if output voltage is above 20 V. It could happen after a welding detection
   process from the vehicle in case there are no output contactors and output
   capacitors are still charged (or got recharged during welding detection). This
