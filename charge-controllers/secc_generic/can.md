@@ -97,6 +97,7 @@ The charging protocol the car is using.
 | CHAdeMO_v1.0-v1.1-v1.2 | 4 |
 | CHAdeMO_v2.0 | 5 |
 | CCS_PWM | 6 |
+| CCS_ISO_15118_2022 | 7 |
 
 </div>
 
@@ -1144,14 +1145,14 @@ Periodic message reporting the current status of power modules. This message sho
 be sent all the time when power modules are running.
 
 > [!ATTENTION]
-> 
+>
 > Controller implements a timeout on the reception of this message. It is used as a
 > source of interlock condition. As such, this interlock source is evaluated only in
 > states where power modules should be alive.
-> 
+>
 > Therefore, it is NOT evaluated when waiting for a PEV to plug-in, or when
 > negotiating the connection with the PEV.
-> 
+>
 > Power modules should be alive from the moment [New_Charge_Session](#New_Charge_Session) is sent, until
 > [Charge_Session_Finished](#Charge_Session_Finished) is sent. At any other time, power modules are allowed to
 > sleep and not send this message.
@@ -1709,5 +1710,3 @@ Reserved bits for future uses.
 | 4 | 60 | Unsigned |   | 1 | 0 |   |   |
 
 </div>
-
-
