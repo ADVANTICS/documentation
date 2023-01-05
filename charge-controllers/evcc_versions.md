@@ -39,7 +39,7 @@ are a bit more tested than snapshots. But not as much as for major releases.
 
 | Date | Comment | pev-controller | ccs-evcc | slac-pev |
 |------|---------|----------------|----------|----------|
-| 2023-01-05 | Fixes constant unlocking attempt when in AC_Ending_Charge for a long time | [2.0.6](https://www.dropbox.com/s/jhoe7qy2nwlcfky/pev-controller-2.0.6.tar?dl=0) | - | - |
+| 2023-01-05 | Fixes constant unlocking attempt when in AC_Ending_Charge for a long time | [2.0.6](https://www.dropbox.com/s/jhoe7qy2nwlcfky/pev-controller-2.0.6.tar?dl=1) | - | - |
 
 </div>
 
