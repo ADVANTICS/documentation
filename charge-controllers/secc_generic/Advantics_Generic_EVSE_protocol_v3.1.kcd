@@ -1,0 +1,1039 @@
+<?xml version="1.0" ?>
+<NetworkDefinition xmlns="http://kayak.2codeornot2code.org/1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="KCD_Definition.xsd">
+    <Document name="Advantics Generic EVSE" version="3.1" author="[...]" company="Advantics" date="2023-01-11"/>
+
+    <Node id="0" name="Advantics_Charge_Controller"/>
+    <Node id="6" name="Generic_Power_Modules"/>
+
+    <Bus name="AG_EVSE_Power" baudrate="500000">
+        <!-- Note on message IDs numbering scheme
+
+        - Bits 28..24: Pistol index (set to 0 in this CAN DB as it works for all indexes)
+        - Bits 23..16: Advantics protocol module type, fixed to 0x06 for generic interfaces
+        - Bit 15: Direction. 1=From Advantics controller, 0=To Advantics controller
+        - Bits 14..12: Interface version
+        - Bits 11..8: Message groups. 0=Core control, 1=Additional info, 2=Inputs/Outputs
+        - Bits 7..0: Messages within each group
+        -->
+
+        <Message id="0x6B000" length="1" name="Advantics_Controller_Status" interval="100" format="extended">
+            <Notes><![CDATA[
+                Periodic message reporting the current status of the controller. This message is
+                sent all the time as soon as the application on the controller is running.
+
+                IMPORTANT: Power modules should implement a timeout on the reception of this message.
+                If the controller does not send this message within 200 ms, then power modules
+                should consider the controller to be in a defective state and stop any power function
+                as soon as possible.
+            ]]></Notes>
+
+            <Producer>
+                <NodeRef id="0"/>
+            </Producer>
+
+            <Signal name="State" offset="0" length="8">
+                <Notes>
+                    Current internal state. For information only.
+
+                    Initialising:: Controller's applications are starting up.
+                    Waiting_For_PEV:: Controller is idle and ready for a plug-in.
+                    Negotiating_Connection:: Controller is plugged to a car and the connection is
+                        being initialised. Important charge information are exchanged.
+                    Connected_With_Full_Info:: All charge information from the PEV were retrieved
+                        and a charge session can be considered to be properly open.
+                    Insulation_Test:: Insulation of the charge cable is being tested.
+                    Precharge:: Charger is matching its output voltage to the present voltage of the
+                        battery.
+                    Waiting_For_Charge:: PEV is about to begin the actual charging.
+                    Charging:: Main charging loop going on.
+                    Ending_Charge:: A normal charge stop condition happenned and the PEV is exiting
+                        the charging loop.
+                    Welding_Detection:: PEV is testing if its contactors are welded.
+                    Closing_Communication:: PEV can unplug and charger is reinitialising in order to
+                        then go back to __Waiting_For_PEV__.
+                    CCS_Authorisation_Process:: Special state in CCS to authorise user.
+                    Not_Available:: Controller has been made unavailable by
+                        __Sequence_Control.Start_Charge_Authorisation__
+                </Notes>
+                <LabelSet>
+                    <Label name="Initialising" value="0" />
+                    <Label name="Waiting_For_PEV" value="1" />
+                    <Label name="Negotiating_Connection" value="2" />
+                    <Label name="Connected_With_Full_Info" value="3" />
+                    <Label name="Insulation_Test" value="4" />
+                    <Label name="Precharge" value="5" />
+                    <Label name="Waiting_For_Charge" value="6" />
+                    <Label name="Charging" value="7" />
+                    <Label name="Ending_Charge" value="8" />
+                    <Label name="Welding_Detection" value="9" />
+                    <Label name="Closing_Communication" value="10" />
+                    <Label name="CCS_Authorisation_Process" value="11" />
+                    <Label name="Not_Available" value="12" />
+                </LabelSet>
+            </Signal>
+        </Message>
+
+        <Message id="0x6B001" length="2" name="New_Charge_Session" interval="100" format="extended">
+            <Notes><![CDATA[
+                Information about an incoming vehicle. Sent periodically from the moment a car is
+                plugged in and all the information are known. Until power modules send a
+                <<Power_Modules_Status.System_Enable>> with value  __Allowed__.
+            ]]></Notes>
+
+            <Producer>
+                <NodeRef id="0"/>
+            </Producer>
+
+            <Signal name="Communication_Protocol" offset="0" length="8">
+                <Notes>The charging protocol the car is using.</Notes>
+                <LabelSet>
+                    <Label name="CCS_DIN_70121_2012_v2" value="0" />
+                    <Label name="CCS_ISO_15118_2010_v1" value="1" />
+                    <Label name="CCS_ISO_15118_2013_v2" value="2" />
+                    <Label name="CHAdeMO_v0.9" value="3" />
+                    <Label name="CHAdeMO_v1.0-v1.1-v1.2" value="4" />
+                    <Label name="CHAdeMO_v2.0" value="5" />
+                    <Label name="CCS_PWM" value="6" />
+                    <Label name="CCS_ISO_15118_2022" value="7" />
+                </LabelSet>
+            </Signal>
+
+            <Signal name="Plug_and_pins" offset="8" length="8">
+                <Notes>Plug type and DC pins selected by the car.</Notes>
+                <LabelSet>
+                    <Label name="CCS_DC_Core" value="0" />
+                    <Label name="CCS_DC_Extended" value="1" />
+                    <Label name="CHAdeMO" value="2" />
+                    <Label name="CCS_AC" value="3" />
+                </LabelSet>
+            </Signal>
+        </Message>
+
+        <Message id="0x6B002" length="1" name="Charge_Status_Change" format="extended">
+            <Notes><![CDATA[
+                Signal a change in the charging procedure. Sent once only when something change.
+            ]]></Notes>
+
+            <Producer>
+                <NodeRef id="0"/>
+            </Producer>
+
+            <Signal name="Vehicle_Ready_for_Charging" offset="0" length="8">
+                <Notes>
+                    Tells when the vehicle intend to start or stop the charge.
+
+                    If value is __Charge_Started__, the power modules must be ready for the
+                    charging loop at any moment (with CCS it can still be in several hours).
+
+                    When value is __Charge_Stopped__, the vehicle stopped the charging process.
+                </Notes>
+                <LabelSet>
+                    <Label name="Charge_Stopped" value="0" />
+                    <Label name="Charge_Started" value="1" />
+                </LabelSet>
+            </Signal>
+        </Message>
+
+        <Message id="0x6B003" length="7" name="DC_Power_Control" interval="100" format="extended">
+            <Notes><![CDATA[
+                Sent during any powered phase of a DC charge session. This message contains the
+                power function in use, setpoint targets or range, the setpoints mode, the output
+                contactors and voltage lowering commands.
+
+                # Power function
+
+                The power function currently in use is given by <<DC_Power_Control.Power_Function>>.
+                It covers the off state, standby, insulation test, precharge and the actual power
+                transfer.
+
+                During __Standby__, power modules should disable any power processing function (ie.
+                turn off), but not bleed their output capacitors (ie. leave the output floating) as
+                a load might be connected at that time, unless otherwise commanded by
+                <<DC_Power_Control.Lower_Output_Voltage>>.
+
+                During __Insulation_Test__, the insulation of the cable is tested by applying a
+                voltage from the charger. The battery is not connected yet. The test voltage to
+                apply is given by <<DC_Power_Control.Target_Voltage>>. Power modules report
+                <<Power_Modules_Status.Present_Voltage>> and <<Power_Modules_Status.Insulation_Resistance>>
+                and the controller decides when the test passes or fails. Safety standards require a
+                minimum of 100 Ohms/V insulation resistance. With a typical test voltage of 500 V,
+                insulation resistance should be >= 50 kOhms. Maximum current to use is not specified.
+
+                During __Precharge__ (CCS only), charger is expected to match battery voltage at its
+                output while having no load, apart from capacitors on the line. When charging this
+                capacitive load, it shall not output more current than <<DC_Power_Control.Current_Range_Max>>.
+                The battery voltage to match is given by <<DC_Power_Control.Target_Voltage>>. The
+                vehicle decides to consider precharge done when it senses on its inlet a voltage that
+                is +/- 20 V of its battery voltage.
+
+                During __Power_Transfer__, actual power is being transfered in one direction or
+                another. The meaning of setpoints depends on <<DC_Power_Control.Setpoints_Mode>>.
+                The transfer direction depends on the sign of current setpoints, with positive
+                meaning power being delivered to the vehicle (ie. charge). And negative meaning
+                power extracted from the vehicle (ie. discharge).
+
+                NOTE: While targets and ranges are expressed in both voltage and current, it is up
+                to power modules to determine which control mode they should use (ie. constant current,
+                constant voltage or constant power) depending on the present situation, and the load
+                attached to their output. Charging protocols do not define it. In a typical situation,
+                insulation tests and precharge have to be controlled in Constant Voltage. Whereas,
+                when a battery is connected to the charger output, the vehicle BMS specifies the
+                maximum current to be delivered to it, or consummed from it. Which makes it a
+                Constant Current process. But you might also encounter a vehicle with a different
+                pack voltage (eg. 800 V), and using a DC/DC in between the charger output and its
+                battery to convert the voltage. In such case, you might have to run into Constant
+                Voltage mode for instance.
+
+                # Setpoints mode
+
+                Either the vehicle control the current to be delivered or consummed (that's
+                __Target_Mode__). Or, a range of acceptable values is given, and power modules are
+                free to operate within that range (that's __Range_Mode__).
+
+                In the simplest (historical) case, power transfer is unidirectional, with the
+                vehicle requesting a certain amount of current for a target voltage, and power
+                modules have to deliver that current. __Target_Mode__ is used in that case.
+                And both min and max of the range have the same value. If you do less current than
+                requested, some vehicle might accept it, and some might terminate the charge on a
+                current deviation error. <<Power_Transfer_Parameters.Maximum_Charge_Current>> offers
+                a way to dynamically "negotiate" a lower current request properly.
+
+                If the vehicle and/or charging protocol wants to use limits instead of targets (eg.
+                CHAdeMO V2G, or ISO 15118-20 in Dynamic mode), then __Range_Mode__ is used. The min
+                and max of the range are given, and power modules can choose the actual load and
+                power transfer direction within that range.
+
+                Note however that, if in your application power modules are not able to decide of
+                the load by themselves, then you can treat the maximum of the range as the target
+                setpoint (which is why the same signal is used for both target and maximum).
+
+                During a power transfer, the setpoint mode does not change between range or target.
+                However, during the rest of the session, for consistency, during __Insulation_Test__
+                it will be __Target_Mode__. And during __Precharge__ it will be __Range_Mode__.
+                During other power functions it is not relevant.
+
+                # Bidirectional power transfers
+
+                Bidirectional power transfers are only possible when both the vehicle and the charger
+                supports it (on charger side, `is_bidirectional` has to be set to True in the config
+                file for that pistol). Bidirectional power transfer can happen either in
+                __Range_Mode__ (power modules choose when to switch over) or __Target_Mode__ (vehicle
+                decides when it is time to charge or discharge its battery). Bidirectional in range
+                mode would typically happen with CHAdeMO V2G, or ISO 15118-20 in Dynamic mode.
+                Whereas birectional in target mode would happen with ISO 15118-20 in Scheduled mode.
+
+                When in range mode, a portion of the range will be in the negative values (or all of
+                it if only discharge is possible). Note that the positive portion of the range, used
+                for charging, naturally follows min and max charge current values. Whereas the
+                negative portion of the range, used for discharging, is mirrored, and its min and
+                max are logically inverted. Said differently <<DC_Power_Control.Current_Range_Min>>
+                shows the maximum discharge current, but with a negative sign. And
+                <<DC_Power_Control.Current_Range_Max>> shows the maximum charge current with a
+                positive sign.
+
+                In the particular situation only discharge is possible, the minimum of the range is
+                still the maximum discharge current with a negative sign. And the maximum of the
+                range is then the minimum discharge current, also with a negative sign.
+
+                As such, you can see this range as a "continuous slider" on which you can pick an
+                operating point, moving between the maximum discharge current (the min), and the
+                maximum charge current (the max). With 0 as a midpoint (but not necessarily
+                symmetric). If no discharge is possible, then the min is positive. And if no charge
+                is possible, then the max is negative.
+
+                WARNING: The vehicle might not necessarily ramps up or down its requests.
+            ]]></Notes>
+
+            <Producer>
+                <NodeRef id="0"/>
+            </Producer>
+
+            <Signal name="Target_Voltage" offset="0" length="16">
+                <Notes>
+                    Voltage setpoint.
+
+                    In __Insulation_Test__, this is the test voltage, and it should corresponds to
+                    the maximum voltage a charger can theoretically deliver during a charge session.
+                    At the end of the test, this setpoint is set back to 0 V.
+
+                    In __Precharge__, it usually corresponds to the real battery voltage (unless the
+                    vehicle uses an intermediate DC/DC).
+
+                    In __Power_Transfer__, it usually corresponds to a voltage significantly higher
+                    than the battery voltage (implying a Constant Current process). However, if the
+                    vehicle uses an intermediate DC/DC, then it corresponds to the input voltage of
+                    that DC/DC.
+                </Notes>
+                <Value type="unsigned" slope="0.1" unit="Volts" />
+            </Signal>
+
+            <Signal name="Current_Range_Max" offset="16" length="16">
+                <Notes>
+                    Maximum current to provide (if positive), or minimum current to draw (if negative).
+
+                    In __Target_Mode__, this signal should be used as the target current setpoint.
+
+                    In __Insulation_Test__, this signal is not relevant.
+
+                    In __Precharge__, this signal carries the maximum current the vehicle wants
+                    charger to respect. Usually a value between 0 and 2 A.
+
+                    In __Power_Transfer__, this signal gives the maximum of the current range to use.
+                </Notes>
+                <Value type="signed" slope="0.1" unit="Amps" />
+            </Signal>
+
+            <Signal name="Current_Range_Min" offset="32" length="16">
+                <Notes><![CDATA[
+                    Maximum current to draw (if negative), or minimum current to provide (if positive).
+
+                    In __Target_Mode__, this signal will have the same value than
+                    <<DC_Power_Control.Current_Range_Max>>.
+
+                    In __Insulation_Test__, this signal is not relevant.
+
+                    In __Precharge__, this signal is 0 A.
+
+                    In __Power_Transfer__, this signal gives the minimum of the current range to use.
+                ]]></Notes>
+                <Value type="signed" slope="0.1" unit="Amps" />
+            </Signal>
+
+            <Signal name="Power_Function" offset="48" length="4">
+                <Notes><![CDATA[
+                    This signal describes the sort of power function expected from power modules at
+                    a particular point in the process.
+
+                    __Off__: Power modules turn off any power processing function. And the output of
+                    the charger (exposed on the pistol pins) has ~0 V, floating.
+
+                    __Standby__: Power modules do not run any power processing function, while
+                    remaining ready to receive future requests. A load might still be connected to
+                    their output. Therefore, unless comanded by <<DC_Power_Control.Lower_Output_Voltage>>,
+                    it should remain floating, with contactors still closed, and no discharge of
+                    their output capacitors should be attempted.
+
+                    __Insulation_Test__: Power modules (or an external dedicated safety module) apply
+                    high voltage and measure the current leaked through ground. The test voltage
+                    reaches up to the vehicle, but its input contactors are still open.
+
+                    __Precharge__: Power modules match the requested voltage while limiting their
+                    output current (only some capacitance should be charged during this process).
+                    The purpose is to avoid arcing when vehicle contactors close.
+                    Precharge is specific to CCS. In CHAdeMO you either have a diode at the output
+                    of the charger (unidirectional). Or a custom precharge circuit around the main
+                    output contactors (bidirectionnal, or unidirectional made without diode).
+
+                    __Power_Transfer__: Main mode of operation, as power is being transfered in one
+                    way or another. See the documentation of <<DC_Power_Control.Setpoints_Mode>> and
+                    others signals of this message for more details.
+                ]]></Notes>
+                <LabelSet>
+                    <Label name="Off" value="0" />
+                    <Label name="Standby" value="1" />
+                    <Label name="Insulation_Test" value="2" />
+                    <Label name="Precharge" value="4" />
+                    <Label name="Power_Transfer" value="8" />
+                </LabelSet>
+            </Signal>
+
+            <Signal name="Reserved" offset="52" length="1">
+                <Notes>Reserved bits for future uses.</Notes>
+            </Signal>
+
+            <Signal name="Setpoints_Mode" offset="53" length="1">
+                <Notes><![CDATA[
+                    Defines how power modules should follow setpoints.
+
+                    __Target_Mode__: Power transfer is controlled by the vehicle, and power modules
+                    should follow the given targets. Min and max of the range have the same value.
+
+                    __Range_Mode__: All parties provide ranges of acceptable limits, and the
+                    controller gives a merged view of that range. Power modules are then free to
+                    provide or draw power within that range.
+                ]]></Notes>
+                <LabelSet>
+                    <Label name="Target_Mode" value="0" />
+                    <Label name="Range_Mode" value="1" />
+                </LabelSet>
+            </Signal>
+
+            <Signal name="Output_Contactors" offset="54" length="1">
+                <Notes>
+                    Reflects contactors control done using controller's onboard relay.
+                </Notes>
+                <LabelSet>
+                    <Label name="Open" value="0" />
+                    <Label name="Close" value="1" />
+                </LabelSet>
+            </Signal>
+
+            <Signal name="Lower_Output_Voltage" offset="55" length="1">
+                <Notes><![CDATA[
+                    Tells when charger output voltage should forcibly be lowered to less than or
+                    equal to 20 V. It can be done, for instance, by bleeding the voltage of power
+                    modules output capacitors.
+
+                    Can only happen in __Standby__ function, with voltage and current setpoints set
+                    to 0.
+
+                    Output voltage lowering is requested at the following points in the charge
+                    session:
+
+                    - After insulation test, and before precharge (CCS) or power transfer (CHAdeMO).
+                      In this case, the controller does not command output contactors to open by
+                      itself (ie. using its onboard relay) as they would have to reclose shortly
+                      after. It will however wait that output voltage lower to <= 20 V to comply
+                      with charging standards.
+                    - After power transfer, when <<Advantics_Controller_Status.State>> is
+                      __Ending_Charge__, current has lowered to less than 1 A, and after having
+                      opened output contactors. In this case, the controller does not need to wait
+                      for voltage to lower. Note that at this point the vehicle battery might still
+                      be connected to pistol pins (hence why it does not wait on the voltage). Which
+                      means if your charger does not have output contactors, you should actually
+                      avoid bleeding output capacitors at this point, and ignore the lowering request.
+                    - When entering <<Advantics_Controller_Status.State>> == __Closing_Communication__
+                      if output voltage is above 20 V. It could happen after a welding detection
+                      process from the vehicle in case there are no output contactors and output
+                      capacitors are still charged (or got recharged during welding detection). This
+                      lowering request is for safety, in order to avoid exposing high voltages on
+                      the pistol contacts once it gets unplugged from the vehicle.
+                ]]></Notes>
+                <LabelSet>
+                    <Label name="No_Lowering" value="0" />
+                    <Label name="Lowering" value="1" />
+                </LabelSet>
+            </Signal>
+        </Message>
+
+        <Message id="0x6B004" length="1" name="Charge_Session_Finished" format="extended">
+            <Notes>Charging is over and the vehicle should unplug soon.</Notes>
+
+            <Producer>
+                <NodeRef id="0"/>
+            </Producer>
+
+            <Signal name="State" offset="0" length="8">
+                <Notes>Was the session terminated cleanly or not.</Notes>
+                <LabelSet>
+                    <Label name="Clean_Stop" value="0" />
+                    <Label name="Rushed_Stop" value="1" />
+                </LabelSet>
+            </Signal>
+        </Message>
+
+        <Message id="0x6B005" length="1" name="Emergency_Stop" interval="100" format="extended">
+            <Notes><![CDATA[
+                Sent from the moment an emergency stop has been triggered.
+
+                Emergency_Stop are not explicitly rearmable. You either power cycle the whole setup.
+                Or the emergency condition disappear, and the message will stop being sent once the
+                controller pass in a state where it reevaluates emergency conditions.
+            ]]></Notes>
+
+            <Producer>
+                <NodeRef id="0"/>
+            </Producer>
+
+            <Signal name="Origin" offset="0" length="8">
+                <Notes>From which side the emergency stop came from.</Notes>
+                <LabelSet>
+                    <Label name="EVSE" value="1" />
+                    <Label name="PEV" value="3" />
+                </LabelSet>
+            </Signal>
+        </Message>
+
+        <Message id="0x6B100" length="3" name="EV_Information_Battery" format="extended">
+            <Notes><![CDATA[
+                Vehicle battery information.
+
+                Sent at least once after first <<New_Charge_Session>> message. As well as every time
+                vehicle changes these information.
+            ]]></Notes>
+
+            <Producer>
+                <NodeRef id="0"/>
+            </Producer>
+
+            <Signal name="Battery_Capacity" offset="0" length="16">
+                <Notes>Total battery capacity (if provided).</Notes>
+                <Value type="unsigned" slope="1" unit="kWh" />
+            </Signal>
+
+            <Signal name="Present_State_of_Charge" offset="16" length="8">
+                <Notes>Battery SoC in percent (informative, do not rely on it).</Notes>
+                <Value type="unsigned" slope="1" unit="%" min="0" max="100" />
+            </Signal>
+        </Message>
+
+        <Message id="0x6B101" length="4" name="EV_Information_Voltages" format="extended">
+            <Notes><![CDATA[
+                Vehicle voltages information.
+
+                Sent at least once after first <<New_Charge_Session>> message. As well as every time
+                vehicle changes these information.
+            ]]></Notes>
+
+            <Producer>
+                <NodeRef id="0"/>
+            </Producer>
+
+            <Signal name="EV_Minimum_Voltage" offset="0" length="16">
+                <Notes>Minimum vehicle voltage (if provided).</Notes>
+                <Value type="unsigned" slope="0.1" unit="Volts" />
+            </Signal>
+
+            <Signal name="EV_Maximum_Voltage" offset="16" length="16">
+                <Notes>Maximum vehicle voltage (if provided).</Notes>
+                <Value type="unsigned" slope="0.1" unit="Volts" />
+            </Signal>
+        </Message>
+
+        <Message id="0x6B102" length="8" name="EV_Information_Charge_Limits" format="extended">
+            <Notes><![CDATA[
+                Vehicle information for current and power limits during charging.
+
+                Sent at least once after first <<New_Charge_Session>> message. As well as every time
+                vehicle changes these information.
+            ]]></Notes>
+
+            <Producer>
+                <NodeRef id="0"/>
+            </Producer>
+
+            <Signal name="EV_Minimum_Charge_Current" offset="0" length="16">
+                <Notes>Minimum vehicle charge current (if provided).</Notes>
+                <Value type="unsigned" slope="0.1" unit="Amps" />
+            </Signal>
+
+            <Signal name="EV_Maximum_Charge_Current" offset="16" length="16">
+                <Notes>Maximum vehicle charge current (if provided).</Notes>
+                <Value type="unsigned" slope="0.1" unit="Amps" />
+            </Signal>
+
+            <Signal name="EV_Minimum_Charge_Power" offset="32" length="16">
+                <Notes>Minimum vehicle charge power (if provided).</Notes>
+                <Value type="unsigned" slope="1" unit="kW" />
+            </Signal>
+
+            <Signal name="EV_Maximum_Charge_Power" offset="48" length="16">
+                <Notes>Maximum vehicle charge power (if provided).</Notes>
+                <Value type="unsigned" slope="1" unit="kW" />
+            </Signal>
+        </Message>
+
+        <Message id="0x6B103" length="8" name="EV_Information_Discharge_Limits" format="extended">
+            <Notes><![CDATA[
+                Vehicle information for current and power limits during discharging.
+
+                Sent at least once after first <<New_Charge_Session>> message. As well as every time
+                vehicle changes these information.
+            ]]></Notes>
+
+            <Producer>
+                <NodeRef id="0"/>
+            </Producer>
+
+            <Signal name="EV_Minimum_Discharge_Current" offset="0" length="16">
+                <Notes>Minimum vehicle discharge current (if provided).</Notes>
+                <Value type="unsigned" slope="0.1" unit="Amps" />
+            </Signal>
+
+            <Signal name="EV_Maximum_Discharge_Current" offset="16" length="16">
+                <Notes>Maximum vehicle discharge current (if provided).</Notes>
+                <Value type="unsigned" slope="0.1" unit="Amps" />
+            </Signal>
+
+            <Signal name="EV_Minimum_Discharge_Power" offset="32" length="16">
+                <Notes>Minimum vehicle discharge power (if provided).</Notes>
+                <Value type="unsigned" slope="1" unit="kW" />
+            </Signal>
+
+            <Signal name="EV_Maximum_Discharge_Power" offset="48" length="16">
+                <Notes>Maximum vehicle discharge power (if provided).</Notes>
+                <Value type="unsigned" slope="1" unit="kW" />
+            </Signal>
+        </Message>
+
+        <Message id="0x6B200" length="8" name="ADM_CO_CUI1_Inputs" interval="1000" format="extended">
+            <Notes>
+                Controller (ADM-CO-CUI1 hardware variant, ie. "generic/mobile") is reporting various
+                information about its inputs. It is sent every seconds (for temperature channels).
+                Or on change for other digital inputs.
+            </Notes>
+
+            <Producer>
+                <NodeRef id="0"/>
+            </Producer>
+
+            <Signal name="SWITCH0" offset="0" length="1">
+                <Notes>
+                    Reports the logical state of SWITCH0 (J7, position 1).
+                    Needs to be declared as monitored in `/srv/config.cfg`:
+
+                        [hardware]
+                        switch0 = Monitor
+                </Notes>
+                <Value type="unsigned" slope="1" min="0" max="1" />
+            </Signal>
+
+            <Signal name="SWITCH1" offset="1" length="1">
+                <Notes>
+                    Reports the logical state of SWITCH1 (J7, position 2).
+                    Needs to be declared as monitored in `/srv/config.cfg`:
+
+                        [hardware]
+                        switch1 = Monitor
+                </Notes>
+                <Value type="unsigned" slope="1" min="0" max="1" />
+            </Signal>
+
+            <Signal name="SWITCH2" offset="2" length="1">
+                <Notes>
+                    Reports the logical state of SWITCH2 (J7, position 3).
+                    Needs to be declared as monitored in `/srv/config.cfg`:
+
+                        [hardware]
+                        switch2 = Monitor
+                </Notes>
+                <Value type="unsigned" slope="1" min="0" max="1" />
+            </Signal>
+
+            <Signal name="SWITCH3" offset="3" length="1">
+                <Notes>
+                    Reports the logical state of SWITCH3 (J7, position 4).
+                    Needs to be declared as monitored in `/srv/config.cfg`:
+
+                        [hardware]
+                        switch3 = Monitor
+                </Notes>
+                <Value type="unsigned" slope="1" min="0" max="1" />
+            </Signal>
+
+            <Signal name="SWITCH4" offset="4" length="1">
+                <Notes>
+                    Reports the logical state of SWITCH4 (J7, position 5).
+                    Needs to be declared as monitored in `/srv/config.cfg`:
+
+                        [hardware]
+                        switch4 = Monitor
+                </Notes>
+                <Value type="unsigned" slope="1" min="0" max="1" />
+            </Signal>
+
+            <Signal name="SWITCH5" offset="5" length="1">
+                <Notes>
+                    Reports the logical state of SWITCH5 (J7, position 6).
+                    Needs to be declared as monitored in `/srv/config.cfg`:
+
+                        [hardware]
+                        switch5 = Monitor
+                </Notes>
+                <Value type="unsigned" slope="1" min="0" max="1" />
+            </Signal>
+
+            <Signal name="Reserved" offset="6" length="26">
+                <Notes>Reserved bits for future uses.</Notes>
+            </Signal>
+
+            <Signal name="Colibri_Temperature" offset="32" length="8">
+                <Notes>Temperature measured on the Colibri SoM board of the charge controller.</Notes>
+                <Value type="unsigned" slope="1" intercept="-40" min="-40" max="215" unit="°C"/>
+            </Signal>
+
+            <Signal name="CPU_Temperature" offset="40" length="8">
+                <Notes>Temperature reported by the CPU chip of the charge controller.</Notes>
+                <Value type="unsigned" slope="1" intercept="-40" min="-40" max="215" unit="°C"/>
+            </Signal>
+
+            <Signal name="Pistol_PTC1" offset="48" length="8">
+                <Notes>Measured temperature sensor on first PTC channel associated to this pistol.</Notes>
+                <Value type="unsigned" slope="1" intercept="-40" min="-40" max="215" unit="°C"/>
+            </Signal>
+
+            <Signal name="Pistol_PTC2" offset="56" length="8">
+                <Notes>Measured temperature sensor on second PTC channel associated to this pistol.</Notes>
+                <Value type="unsigned" slope="1" intercept="-40" min="-40" max="215" unit="°C"/>
+            </Signal>
+        </Message>
+
+        <Message id="0x6B201" length="8" name="ADM_CS_SECC_Inputs" interval="1000" format="extended">
+            <Notes>
+                Controller (ADM-CS-SECC hardware variant, ie. "DIN rail") is reporting various
+                information about its inputs. It is sent every seconds (for temperature channels).
+                Or on change for other digital inputs.
+            </Notes>
+
+            <Producer>
+                <NodeRef id="0"/>
+            </Producer>
+
+            <Signal name="Digital_Input1" offset="0" length="1">
+                <Notes>
+                    Reports the logical state of DIG_IN1 (CONN6, position 1).
+                    Needs to be declared as monitored in `/srv/config.cfg`:
+
+                        [hardware]
+                        dig_in1 = Monitor
+                </Notes>
+                <Value type="unsigned" slope="1" min="0" max="1" />
+            </Signal>
+
+            <Signal name="Digital_Input2" offset="1" length="1">
+                <Notes>
+                    Reports the logical state of DIG_IN2 (CONN6, position 2).
+                    Needs to be declared as monitored in `/srv/config.cfg`:
+
+                        [hardware]
+                        dig_in2 = Monitor
+                </Notes>
+                <Value type="unsigned" slope="1" min="0" max="1" />
+            </Signal>
+
+            <Signal name="Digital_Input3" offset="2" length="1">
+                <Notes>
+                    Reports the logical state of DIG_IN3 (CONN6, position 3).
+                    Needs to be declared as monitored in `/srv/config.cfg`:
+
+                        [hardware]
+                        dig_in3 = Monitor
+                </Notes>
+                <Value type="unsigned" slope="1" min="0" max="1" />
+            </Signal>
+
+            <Signal name="Digital_Input4" offset="3" length="1">
+                <Notes>
+                    Reports the logical state of DIG_IN4 (CONN6, position 4).
+                    Needs to be declared as monitored in `/srv/config.cfg`:
+
+                        [hardware]
+                        dig_in4 = Monitor
+                </Notes>
+                <Value type="unsigned" slope="1" min="0" max="1" />
+            </Signal>
+
+            <Signal name="Reserved" offset="4" length="36">
+                <Notes>Reserved bits for future uses.</Notes>
+            </Signal>
+
+            <Signal name="CPU_Temperature" offset="40" length="8">
+                <Notes>Temperature reported by the CPU chip of the charge controller.</Notes>
+                <Value type="unsigned" slope="1" intercept="-40" min="-40" max="215" unit="°C"/>
+            </Signal>
+
+            <Signal name="Pistol_PTC1" offset="48" length="8">
+                <Notes>Measured temperature sensor on first PTC channel associated to this pistol.</Notes>
+                <Value type="unsigned" slope="1" intercept="-40" min="-40" max="215" unit="°C"/>
+            </Signal>
+
+            <Signal name="Pistol_PTC2" offset="56" length="8">
+                <Notes>Measured temperature sensor on second PTC channel associated to this pistol.</Notes>
+                <Value type="unsigned" slope="1" intercept="-40" min="-40" max="215" unit="°C"/>
+            </Signal>
+        </Message>
+
+        <Message id="0x63000" length="8" name="Power_Modules_Status" interval="100" format="extended">
+            <Notes><![CDATA[
+                Periodic message reporting the current status of power modules. This message should
+                be sent all the time when power modules are running.
+
+                [IMPORTANT]
+                ====
+                Controller implements a timeout on the reception of this message. It is used as a
+                source of interlock condition. As such, this interlock source is evaluated only in
+                states where power modules should be alive.
+
+                Therefore, it is NOT evaluated when waiting for a PEV to plug-in, or when
+                negotiating the connection with the PEV.
+
+                Power modules should be alive from the moment <<New_Charge_Session>> is sent, until
+                <<Charge_Session_Finished>> is sent. At any other time, power modules are allowed to
+                sleep and not send this message.
+                ====
+            ]]></Notes>
+
+            <Producer>
+                <NodeRef id="6"/>
+            </Producer>
+
+            <Signal name="Present_Voltage" offset="0" length="16">
+                <Notes>Voltage measurement at the output of the charger</Notes>
+                <Value type="unsigned" slope="0.1" unit="Volts" />
+            </Signal>
+
+            <Signal name="Present_Current" offset="16" length="16">
+                <Notes>Current measurement at the output of the charger</Notes>
+                <Value type="signed" slope="0.1" unit="Amps" />
+            </Signal>
+
+            <Signal name="Power_Modules_Temperature" offset="32" length="8">
+                <Notes>Top temperature sensed in power modules.</Notes>
+                <Value type="unsigned" slope="1" intercept="-40" min="-40" max="215" unit="°C"/>
+            </Signal>
+
+            <Signal name="Enclosure_Temperature" offset="40" length="8">
+                <Notes>Top temperature sensed in the enclosure.</Notes>
+                <Value type="unsigned" slope="1" intercept="-40" min="-40" max="215" unit="°C"/>
+            </Signal>
+
+            <Signal name="System_Enable" offset="48" length="8">
+                <Notes><![CDATA[
+                        Tells if charging is allowed.
+
+                        When <<New_Charge_Session>> is sent, the controller waits for this signal
+                        to be 1 to continue the charge sequence.
+
+                        If 0 is emitted between <<New_Charge_Session>> and before the charging loop
+                        starts, the charge controller tells the vehicle the charging service is
+                        unavailable.
+
+                        If 0 is emitted during the charging loop, this is interpreted as an
+                        emergency shutdown requested by power modules.
+                ]]></Notes>
+                <LabelSet>
+                    <Label name="Not_Allowed" value="0" />
+                    <Label name="Allowed" value="1" />
+                </LabelSet>
+            </Signal>
+
+            <Signal name="Insulation_Resistance" offset="56" length="8">
+                <Notes>
+                    Reports the current insulation resistance, in multiple of 2 kOhms.
+
+                    TIP: If the RCD sensor only gives a boolean value, then 255 correspond to a __Valid__
+                    insulation, and 0 to an __Invalid__ insulation.
+
+                    IMPORTANT: Whenever a power function is used after the insulation test, if this
+                    signal reports an insulation resistance below the limit of 100 Ohms/V, then this
+                    is considered as an interlock condition and an emergency stop is carried out.
+                </Notes>
+                <Value type="unsigned" slope="2" unit="kOhms" />
+            </Signal>
+        </Message>
+
+        <Message id="0x63001" length="8" name="DC_Power_Parameters" format="extended">
+            <Notes><![CDATA[
+                Message to dynamically set parameters of power transfer (limits, forced setpoints).
+                This message can be sent as often as needed (but not faster than 100ms).
+            ]]></Notes>
+
+            <Producer>
+                <NodeRef id="6"/>
+            </Producer>
+
+            <Signal name="Maximum_Voltage" offset="0" length="16">
+                <Notes>
+                    Maximum output voltage of the charger, reported to the vehicle.
+
+                    Value is capped by limit statically defined in config file.
+                    If set to 0, then it means to use default `max_charger_voltage` from config file.
+                </Notes>
+                <Value type="unsigned" slope="0.1" unit="Volts" />
+            </Signal>
+
+            <Signal name="Maximum_Charge_Current" offset="16" length="16">
+                <Notes>
+                    Maximum charge current of the charger, reported to the vehicle.
+
+                    Value is capped by limit statically defined in config file.
+                    If set to 0, then it means to use default `max_charger_current` from config file.
+                </Notes>
+                <Value type="unsigned" slope="0.1" unit="Amps" />
+            </Signal>
+
+            <Signal name="Maximum_Discharge_Current" offset="32" length="16">
+                <Notes>
+                    Maximum discharge current of the charger, reported to the vehicle.
+
+                    Value is capped by limit statically defined in config file.
+                    If set to 0, then it means to use default `max_charger_discharge_current` from
+                    config file.
+                </Notes>
+                <Value type="unsigned" slope="0.1" unit="Amps" />
+            </Signal>
+
+            <Signal name="Range_Target_Current" offset="48" length="16">
+                <Notes><![CDATA[
+                    This signal is useful only for chargers using one of the supported power module
+                    interface (ie. we directly control power modules), plus the generic interface
+                    as a mean of external control.
+
+                    When <<DC_Power_Control.Setpoints_Mode>> == __Range_Mode__, and power modules
+                    are of a kind that cannot decide of the load current by themselves, by default
+                    the maximum of the range will be used.
+
+                    With this signal, you can set a different target setpoint that will be send to
+                    power modules. Direction of power transfers is chosen with the sign of this
+                    signal. When the sign changes, a switch over will happen.
+
+                    Values are always capped to the allowed range given in <<DC_Power_Control>>.
+                    Provided values will also be ramped up or down, using ramp slopes defined by
+                    config file entries `current_ramp_up_rate` and `current_ramp_down_rate`.
+
+                    Note that the actual setpoint sent to power modules is not reflected in
+                    <<DC_Power_Control>> message, as values in this message need to keep
+                    reflecting the full allowed range. Ie. <<DC_Power_Control>> will not emulate
+                    a __Target_Mode__, and it will still show the normal __Range_Mode__.
+
+                    Note also that while the same functionality could be achieved by changing
+                    <<Power_Transfer_Parameters.Maximum_Charge_Current>>, this Range_Target_Current
+                    signal is actually entirely internal, and the value is never directly reported
+                    to the vehicle. Which mean Maximum_Charge_Current can still reflect the true
+                    maximum charge current advertised to the vehicle.
+
+                    This signal does nothing in the following situations:
+                    - <<DC_Power_Control.Setpoints_Mode>> == __Target_Mode__.
+                    - Or you only use the generic interface, and manage power modules yourself.
+                ]]></Notes>
+                <Value type="signed" slope="0.1" unit="Amps" />
+            </Signal>
+        </Message>
+
+        <Message id="0x63002" length="3" name="Sequence_Control" format="extended">
+            <Notes><![CDATA[
+                This message has most flags controlling the charge sequence (apart from System_Enable).
+
+                The first byte is for flags having effect before a charge session starts.
+                The second byte is for flags having effect during parameters negotiation.
+                The third byte is for flags having effect during power stages (insulation test,
+                precharge and charging).
+
+                The controller config file should have the entry "use_sequence_flags = true" in the
+                "[charger]" section in order to take them into account.
+
+                To make sure the controller is taking a first message as initialisation of these
+                flags, send this first message after Advantics_Controller_Status message reports a
+                State of Waiting_For_PEV (value 1).
+
+                All signals default to value 0. Bits that are not used in this version should remain
+                at 0 to avoid incompatibility with future versions.
+            ]]></Notes>
+
+            <Producer>
+                <NodeRef id="6"/>
+            </Producer>
+
+            <Signal name="Start_Charge_Authorisation" offset="0" length="1">
+                <Notes><![CDATA[
+                    Indicate if the controller should even attempt to start a charge session.
+                    Suitable for external authorisation permit that happens before user is allowed
+                    to plug or start a charge.
+
+                    Set to 0 to disallow charging, and 1 to allow.
+
+                    In CCS, it will keep CP PWM to 100%, even when detecting State B (9V).
+                    In CHAdeMO, it will simply ignore the start button.
+                    But in both case, it will register the user intent as wanting to charge. As soon
+                    as this flag allows charging, it will then start the charge session.
+                ]]></Notes>
+                <LabelSet>
+                    <Label name="Not_Allowed" value="0" />
+                    <Label name="Allowed" value="1" />
+                </LabelSet>
+            </Signal>
+
+            <Signal name="CHAdeMO_Start_Button" offset="1" length="1">
+                <Notes>Simulate a press on the CHAdeMO start button. Only acts on change (so you need to cycle it back to 0).</Notes>
+                <LabelSet>
+                    <Label name="Not_Pressed" value="0" />
+                    <Label name="Pressed" value="1" />
+                </LabelSet>
+            </Signal>
+
+            <Signal name="CCS_Authorisation_Done" offset="8" length="1">
+                <Notes>Tells if authorisation of vehicle is finished (CCS only)</Notes>
+                <LabelSet>
+                    <Label name="Not_Done" value="0" />
+                    <Label name="Done" value="1" />
+                </LabelSet>
+            </Signal>
+
+            <Signal name="CCS_Authorisation_Valid" offset="9" length="1">
+                <Notes>Tells if authorisation of vehicle is valid (CCS only). Only meaningful when CCS_Authorisation_Done is 1.</Notes>
+                <LabelSet>
+                    <Label name="Invalid" value="0" />
+                    <Label name="Valid" value="1" />
+                </LabelSet>
+            </Signal>
+
+            <Signal name="Charge_Parameters_Done" offset="10" length="1">
+                <Notes>Tells when fields in Power_Transfer_Parameters message can be considered stable and sent to the vehicle.</Notes>
+                <LabelSet>
+                    <Label name="Not_Done" value="0" />
+                    <Label name="Done" value="1" />
+                </LabelSet>
+            </Signal>
+
+            <Signal name="User_Stop_Button" offset="16" length="1">
+                <Notes>Simulate a press on the user stop button (for normal charge termination). Only acts on change (so you need to cycle it back to 0).</Notes>
+                <LabelSet>
+                    <Label name="Not_Pressed" value="0" />
+                    <Label name="Pressed" value="1" />
+                </LabelSet>
+            </Signal>
+        </Message>
+
+        <Message id="0x63201" length="8" name="ADM_CS_SECC_Outputs" interval="1000" format="extended">
+            <Notes>
+                Controller (ADM-CS-SECC hardware variant, ie. "DIN rail") has various outputs that
+                can be controlled through this message.
+            </Notes>
+
+            <Producer>
+                <NodeRef id="6"/>
+            </Producer>
+
+            <Signal name="Digital_Output1" offset="0" length="1">
+                <Notes>
+                    Sets the logical state of DIG_OUT1 (CONN5, position 1).
+                    Needs to be declared as monitored in `/srv/config.cfg`:
+
+                        [hardware]
+                        dig_out1 = CAN_Controlled
+                </Notes>
+                <Value type="unsigned" slope="1" min="0" max="1" />
+            </Signal>
+
+            <Signal name="Digital_Output2" offset="1" length="1">
+                <Notes>
+                    Reports the logical state of DIG_OUT2 (CONN5, position 2).
+                    Needs to be declared as monitored in `/srv/config.cfg`:
+
+                        [hardware]
+                        dig_out2 = CAN_Controlled
+                </Notes>
+                <Value type="unsigned" slope="1" min="0" max="1" />
+            </Signal>
+
+            <Signal name="Digital_Output3" offset="2" length="1">
+                <Notes>
+                    Reports the logical state of DIG_OUT3 (CONN5, position 3).
+                    Needs to be declared as monitored in `/srv/config.cfg`:
+
+                        [hardware]
+                        dig_out3 = CAN_Controlled
+                </Notes>
+                <Value type="unsigned" slope="1" min="0" max="1" />
+            </Signal>
+
+            <Signal name="Digital_Output4" offset="3" length="1">
+                <Notes>
+                    Reports the logical state of DIG_OUT4 (CONN5, position 4).
+                    Needs to be declared as monitored in `/srv/config.cfg`:
+
+                        [hardware]
+                        dig_out4 = CAN_Controlled
+                </Notes>
+                <Value type="unsigned" slope="1" min="0" max="1" />
+            </Signal>
+
+            <Signal name="Reserved" offset="4" length="60">
+                <Notes>Reserved bits for future uses.</Notes>
+            </Signal>
+        </Message>
+    </Bus>
+
+</NetworkDefinition>
