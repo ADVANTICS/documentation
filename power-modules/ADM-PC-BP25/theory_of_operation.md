@@ -325,3 +325,33 @@ For an example case of 2 modules (A and B), the process to enable parallel opera
 
 ![power envelope va08](images/diagrams-parallel_boost_buck_v2.svg ':size=90%')
 <figcaption style="text-align: center">Example connection of 2 modules working in parallel Boost operation (voltage regulation) and 2 modules in parallel Buck (current regulation, group ID not needed)</figcaption>
+
+## Overload handling in AC inverter modes
+
+Starting from firmware version 2023.1.18, the overload (high current) condition is improved and made more flexible with the introduction of a virtual impedance.
+
+>[!WARNING] These overload conditions must always be short in time, and steady state current should always be equal or below the nominal current of the converter (**30/33 Amps RMS per phase** for VA01/VA08 respectively)
+
+When the current is above the current reference defined by the user, the AC voltage waveform amplitude will drop proportionally to the excess of current, effectively behaving as a series resistor at the output of the converter, but that only actuates above a certain threshold. 
+
+>[!NOTE] For Inverter 3-phase mode, if one phase is more loaded than the other (unbalanced case), the voltage will drop equally in all phases based on the most loaded phase.
+
+The V-I (voltage-current) curve of the converter then looks like the following picture:
+
+![V-I curve](images/inverter_curve.svg ':size=50%')
+<figcaption style="text-align: center">V-I curve in inverter modes showing virtual impedance slope and maximum instantaneous current.</figcaption>
+
+The slope (virtual resistance) of the curve is equal to Vref/22. This means that for Vref = 230V, the virtual resistance is ~10.5 Ohm. Although this slope is constant, the user can adjust the threshold when it starts acting by changing the current reference.
+
+On top of the virtual impedance, and to prevent interlock trips when capacitive loads, or other very high loads are connected, there is another **faster** mechanism that will use analog window comparators to do peak current control at a fixed high current value of around ~52 Amps RMS. This mechanism will however introduce high frequency distortion in the current and voltage waveform. 
+
+The user can then play and adjust the current reference (the threshold at which the virtual impedance will start acting), in order to find a good balance between high current availability and low distortion of the waveform.
+
+For example, if the user is only interested in having the highest current availability, then an unrealisticly high current reference can be used (for example, 200 Amps), so that the virtual impedance never starts acting, and only the fast window comparators will actuate. Obviously, this is only to allow starting high loads (such as motors), but the steady state current should still be equal or below the nominal current of the converter (30/33 Amps RMS depending on the variant).
+
+On the other hand, if the user is more interested in having less high frequency distortion, the user can lower the current reference, so that the virtual impedance will start acting before, and the voltage amplitude will drop, preventing the current to grow too much without introducing high frequency distortion.
+
+>[!TIP] We recommend to start by setting Iref = 30 Amps (90 Amps in the case of Inverter 1-phase + SYNC mode), then checking the behaviour and adjust this value as needed.
+
+
+
