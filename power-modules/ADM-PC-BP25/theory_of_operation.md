@@ -241,7 +241,7 @@ Voltage setpoint corresponds to the output RMS voltage reference. Current setpoi
 
 
 ### Inverter 1-phase distributed mode
-In this mode, the module generates a 'floating' AC voltage sine-wave in open loop on L1 and L2. This control mode is usually used with others module that will generate other phases. L3 of the different modules will generates the neutral. The master module (in stack position one) will generate over can the synchronization signal for the specified sine-wave frequency.
+In this mode, the module generates a 'floating' AC voltage sine-wave in open loop on L1 and L2. This control mode is usually used with others module that will generate other phases. L3 of the different modules will generates the neutral. The master module (in stack position zero) will generate over CAN,  the synchronization signal for the specified sine-wave frequency.
 
 Voltage source is connected to the DC link. Input side is defined to be the DC link
 
