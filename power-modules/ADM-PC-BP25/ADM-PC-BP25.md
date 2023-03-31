@@ -53,6 +53,7 @@ Copyright ADVANTICS 2017
 | [_AFE_Calibration_Adc_Gain](#_AFE_Calibration_Adc_Gain) | 0x78054 | 4 | IN | 1000 |
 | [AFE_Keep_Alive](#AFE_Keep_Alive) | 0x70060 | 1 | OUT | None |
 | [AFE_Rectifier_Setpoint_Control](#AFE_Rectifier_Setpoint_Control) | 0x70070 | 8 | OUT | 100 |
+| [AFE_Interlock_Faults](#AFE_Interlock_Faults) | 0x78056 | 2 | OUT | 1000 |
 
 </div>
 
@@ -1521,29 +1522,36 @@ Status bitfield
 
 <div class="small-table compact-table">
 
-| Signal | Length (bits) | Type |
-|--------|---------------|------|
-| Running | 1 | Single bit |
-| PWM | 1 | Single bit |
-| Current_dc_loop_mode | 1 | Single bit |
-| Current_ac_loop_mode | 1 | Single bit |
-| Buck | 1 | Single bit |
-| Boost | 1 | Single bit |
-| Precharge_dc_buck_mode | 1 | Single bit |
-| Precharge_dc_boost_mode | 1 | Single bit |
-| Rectifier_3ph | 1 | Single bit |
-| Stack_mode | 1 | Single bit |
-| Master | 1 | Single bit |
-| Slave | 1 | Single bit |
-| Inverter_1ph | 1 | Single bit |
-| Boost_Neutral | 1 | Single bit |
-| Rectifier_1ph | 1 | Single bit |
-| Inverter_3ph | 1 | Single bit |
-| Ready | 1 | Single bit |
-| Inverter_1ph_Sync | 1 | Single bit |
-| Neutral | 1 | Single bit |
-| Rectifier_1ph_Buck | 1 | Single bit |
-| Inverter_1ph_Boost | 1 | Single bit |
+| Offset | Signal | Length (bits) | Type |
+|----|--------|---------------|------|
+|0| Running | 1 | Single bit |
+|1| PWM | 1 | Single bit |
+|2| Current_dc_loop_mode | 1 | Single bit |
+|3| Current_ac_loop_mode | 1 | Single bit |
+|4| N/A | 1 | Single bit |
+|5| Buck | 1 | Single bit |
+|6| Boost | 1 | Single bit |
+|7| Precharge_dc_buck_mode | 1 | Single bit |
+|8| Precharge_dc_boost_mode | 1 | Single bit |
+|9| Rectifier_3ph | 1 | Single bit |
+|10| Stack_mode | 1 | Single bit |
+|11| Master | 1 | Single bit |
+|12| Slave | 1 | Single bit |
+|13| Inverter_1ph | 1 | Single bit |
+|14| Boost_Neutral | 1 | Single bit |
+|15| Rectifier_1ph | 1 | Single bit |
+|16| Inverter_3ph | 1 | Single bit |
+|17| Ready | 1 | Single bit |
+|18| Inverter_1ph_Sync | 1 | Single bit |
+|19| Neutral | 1 | Single bit |
+|20| Rectifier_1ph_Buck | 1 | Single bit |
+|21| Inverter_1ph_Boost | 1 | Single bit |
+|22| Rectifier_distributed | 1 | Single bit |
+|23| MPPT_buck | 1 | Single bit |
+|24| MPPT_boost | 1 | Single bit |
+|25| Buck_2p_float | 1 | Single bit |
+|26| Inverter_1ph_Distributed | 1 | Single bit |
+
 
 </div>
 
@@ -3161,25 +3169,31 @@ Operation Mode control: sets the converter operation mode
 
 <div class="small-table compact-table">
 
-| Signal | Length (bits) | Type |
-|--------|---------------|------|
-| Converter_ON | 1 | Single bit |
-| PWM_ON | 1 | Single bit |
-| DC_Current_feedback_ON | 1 | Single bit |
-| AC_Current_feedback_ON | 1 | Single bit |
-| Buck_ON | 1 | Single bit |
-| Boost_ON | 1 | Single bit |
-| Rectifier_3ph_ON | 1 | Single bit |
-| Inverter_1ph_ON | 1 | Single bit |
-| Rectifier_1ph_ON | 1 | Single bit |
-| Boost_Neutral_ON | 1 | Single bit |
-| Inverter_3ph_ON | 1 | Single bit |
-| Inverter_1ph_Sync_ON | 1 | Single bit |
-| Neutral_ON | 1 | Single bit |
-| Rectifier_1ph_Buck_ON | 1 | Single bit |
-| Inverter_1ph_Boost_ON | 1 | Single bit |
-
-</div>
+| Offset | Signal | Length (bits) | Type |
+|---|--------|---------------|------|
+|0| Converter_ON | 1 | Single bit |
+|1| PWM_ON | 1 | Single bit |
+|2| DC_Current_feedback_ON | 1 | Single bit |
+|3| AC_Current_feedback_ON | 1 | Single bit |
+|4| N/A | 1 | Single bit |
+|5| Buck_ON | 1 | Single bit |
+|6| Boost_ON | 1 | Single bit |
+|7| N/A | 1 | Single bit |
+|8| N/A | 1 | Single bit |
+|9| Rectifier_3ph_ON | 1 | Single bit |
+|10| Inverter_1ph_ON | 1 | Single bit |
+|11| Rectifier_1ph_ON | 1 | Single bit |
+|12| Boost_Neutral_ON | 1 | Single bit |
+|13| Inverter_3ph_ON | 1 | Single bit |
+|14| Inverter_1ph_Sync_ON | 1 | Single bit |
+|15| Neutral_ON | 1 | Single bit |
+|16| Rectifier_1ph_Buck_ON | 1 | Single bit |
+|17| Inverter_1ph_Boost_ON | 1 | Single bit |
+|18| Rectifier_Distributed_ON | 1 | Single bit |
+|19| MPPT_buck_ON | 1 | Single bit |
+|20| MPPT_boost_ON | 1 | Single bit |
+|21| Buck_2p_float_ON | 1 | Single bit |
+|22| Inverter_1ph_Distributed_ON | 1 | Single bit |
 
 
 ### Payload description
@@ -4373,10 +4387,11 @@ Fault Control: actions to clear faults and reset the system
 
 <div class="small-table compact-table">
 
-| Signal | Length (bits) | Type |
-|--------|---------------|------|
-| Clear_Interlock | 1 | Single bit |
-| Reset_Processor | 1 | Single bit |
+|Offset | Signal | Length (bits) | Type |
+|----|--------|---------------|------|
+|0| Clear_Interlock | 1 | Single bit |
+|1| Reset_Processor | 1 | Single bit |
+|2| Trip_Interlock | 1 | Single bit |
 
 </div>
 
@@ -5043,4 +5058,143 @@ Additional voltage and current setpoints in single-phase rectifier and inverter 
 
 </div>
 
+
+## AFE_Interlock_Faults
+
+<div class="noheader-table small-table compact-table">
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x78056 |
+| **Length [Bytes]** | 2 |
+| **Periodicity [ms]** | 1000 |
+| **Direction** | OUT |
+
+</div>
+
+### Description
+
+Probable cause of an interlock
+
+
+### Payload
+
+
+<div class="small-table compact-table">
+
+| Offset | Signal | Length (bits) | Type |
+|---|--------|---------------|------|
+|0| Current_U_High | 1 | error |
+|1| Current_U_Low | 1 | error |
+|2| Current_V_High | 1 | error |
+|3| Current_V_Low | 1 | error |
+|4| Current_W_High | 1 | error |
+|5| Current_W_Low | 1 | error |
+|6| Voltage_DC | 1 | error |
+|7| Reboot | 1 | error |
+|8| Unknown | 1 | error |
+
+
+</div>
+
+
+### Payload description
+#### Current_U_High :id=AFE_Interlock_Faults-Current_U_High
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 1 | Single bit  | Single bit  |    | 0 | 0 | 1 |
+
+</div>
+
+
+#### Current_U_Low :id=AFE_Interlock_Faults-Current_U_Low
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 1 | 1 | Single bit  | Single bit  |    | 0 | 0 | 1 |
+
+</div>
+
+
+#### Current_V_High :id=AFE_Interlock_Faults-Current_V_High
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 2 | 1 | Single bit  | Single bit  |    | 0 | 0 | 1 |
+
+</div>
+
+
+#### Current_V_Low :id=AFE_Interlock_Faults-Current_V_High
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 3 | 1 | Single bit  | Single bit  |    | 0 | 0 | 1 |
+
+</div>
+
+
+#### Current_W_High :id=AFE_Interlock_Faults-Current_W_High
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 4 | 1 | Single bit  | Single bit  |    | 0 | 0 | 1 |
+
+</div>
+
+
+#### Current_W_Low :id=AFE_Interlock_Faults-Current_W_Low
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 5 | 1 | Single bit  | Single bit  |    | 0 | 0 | 1 |
+
+</div>
+
+
+#### Voltage_DC :id=AFE_Interlock_Faults-Voltage_DC
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 6 | 1 | Single bit  | Single bit  |    | 0 | 0 | 1 |
+
+</div>
+
+
+#### Reboot :id=AFE_Interlock_Faults-Reboot
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 7 | 1 | Single bit  | Single bit  |    | 0 | 0 | 1 |
+
+</div>
+
+
+
+#### Unknown :id=AFE_Interlock_Faults-Unknown
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 8 | 1 | Single bit  | Single bit  |    | 0 | 0 | 1 |
+
+</div>
 
