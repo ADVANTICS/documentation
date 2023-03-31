@@ -238,6 +238,21 @@ Voltage setpoint corresponds to the output RMS voltage reference. Current setpoi
 ![power envelope va08](images/AFE_inverter_3ph-AFE_inverter_3ph.svg ':size=50%')
 <figcaption style="text-align: center">Example connection of ADM-PC-BP25 in inverter 3-phase mode </figcaption>
 
+
+
+### Inverter 1-phase distributed mode
+In this mode, the module generates a 'floating' AC voltage sine-wave in open loop on L1 and L2. This control mode is usually used with others module that will generate other phases. L3 of the different modules will generates the neutral. The master module (in stack position zero) will generate over CAN,  the synchronization signal for the specified sine-wave frequency.
+
+Voltage source is connected to the DC link. Input side is defined to be the DC link
+
+Voltage setpoint corresponds to the output RMS voltage reference. Current setpoint corresponds to the output (per-phase) RMS current limit and must be greater than zero. Frequency setpoint corresponds to the sine-wave frequency.
+
+>[!NOTE] The frequency setpoint must be set BEFORE the mode is enabled.
+
+![power envelope va08](images/AFE_inverter_1-ph_distributed.svg ':size=50%')
+<figcaption style="text-align: center">Example connection of ADM-PC-BP25 in 1-phase distributed mode </figcaption>
+
+
 ## Setpoint selection
 For the module to work as it should, the current and voltage setpoints need to be selected properly depending on the application.
 
