@@ -13,7 +13,7 @@
 |**Current range**|DC/DC: 111 A (37 A per phase)  <br /> AC/DC: 111 A<sub>rms</sub> (37 A<sub>rms</sub> per phase)<br />Derating depends on heatsink design, cooling and ambient conditions|DC/DC: 100 A (33 A per phase)  <br /> AC/DC: 90 A<sub>rms</sub> (30 A<sub>rms</sub> per phase) <br />Derating depends on heatsink design, cooling and ambient conditions|
 |**Power**|DC/DC: 50 kW max  <br /> AC/DC: 25 kW max|DC/DC: 50 kW max  <br /> AC/DC: 25 kW max|
 |**Efficiency**|>99% peak|>99% peak|
-|**Power factor**|3-phase mode: >0.995 @ 20 kW, >0.99 @ 4.5 kW  <br />1-phase mode: 0.999 @ 8 kW, >0.99 @ 600 W|3-phase mode: >0.995 @ 20 kW, >0.99 @ 4.5 kW  <br />1-phase mode: 0.999 @ 8 kW, >0.99 @ 600 W|
+|**Power factor**|3-phase mode: >0.995 @ 20 kW, >0.99 @ 9 kW  <br />1-phase mode: 0.997 @ 8 kW, >0.99 @ 2500 W|3-phase mode: >0.995 @ 20 kW, >0.99 @ 9 kW  <br />1-phase mode: 0.997 @ 8 kW, >0.99 @ 2500 W|
 |**Power flow**|Bidirectional|Bidirectional|
 |**Power conversion modes**|Step-down (Buck)<br />Step-up (Boost)<br />Grid attached (Rectification) <br /> AC generation (Inverter) <br />|Step-down (Buck)<br />Step-up (Boost)<br />Grid attached (Rectification) <br /> AC generation (Inverter) <br />|
 |**AC mains frequency**|45 - 65 Hz|45 - 65 Hz|
