@@ -79,13 +79,18 @@ residual current, then repeat tightening OF ALL screws.)
 
 ## 3-port connection
 
-In DC/DC modes, the ADM-PC-BP25 should be connected as a 3-port device. This means that only one of the two "DC-" terminals should be used, even though for readability both are used in schematics througout the user manual.
+In DC/DC modes, the ADM-PC-BP25 should be connected as a 3-port device. This means that only one of the two "DC-" terminals should be used, even though for readability both are used in schematics througout the user manual. The user can choose to use either of the DC-, tipically, the one that allows a better wiring or mechanical placement for a given application.
 
 A proper connection would be as in the picture below:
 
-
 ![protection](images/AFE_3_port-AFE_3_port.svg ':size=60%')
 <figcaption style="text-align: center">Example of 3-port connection</figcaption>
+
+Why do you need to use only one DC- terminal? Just an example:
+
+Imagine you are using the module as DC/DC boost. You have 600V and 100A in the low voltage side, and 800V in the highvoltage side. That means that in the high voltage side you will have around 75 A. The DC- port will carry the difference of these currents, that is, 25 A, out of the converter.
+
+If you use both DC- terminals, the sum of the currents is still 25 A, however, you will have 100 A circulating in one DC- out of the converter, and 75 A circulating on the other DC- terminal towards the converter (the sum is still 25 A out of the converter). Therefore, you will need to use higher rating (thicker, more expensive) cables, and also, it puts a lot more thermal stress on the PCB due to the higher currents that would be flowing thorugh the DC- plane.
 
 
 ## Protection hardware
