@@ -35,6 +35,11 @@ Intermediate container releases can be generated to make so-called [patch update
 These are "partial releases" that are internally tagged (and hence follow reproducible build). They
 are a bit more tested than snapshots. But not as much as for major releases.
 
+> [!NOTE]
+> This table is purged when a new major release is published.
+>
+> The following updates are to be applied **on top of major release 2.0.0rc3.post1**.
+
 <div class="small-table compact-table">
 
 | Date | Comment | pev-controller | ccs-evcc | slac-pev |
@@ -42,9 +47,6 @@ are a bit more tested than snapshots. But not as much as for major releases.
 | 2023-01-05 | Fixes constant unlocking attempt when in AC_Ending_Charge for a long time | [2.0.6](https://www.dropbox.com/s/jhoe7qy2nwlcfky/pev-controller-2.0.6.tar?dl=1) | - | - |
 
 </div>
-
-> [!NOTE]
-> This table is purged when a new major release is published.
 
 ### Snapshots
 
