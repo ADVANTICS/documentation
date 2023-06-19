@@ -31,7 +31,7 @@ The messages that you should add are:
 
 
 > [!NOTE]
-> For the signals 'Maximum Pack CCL' and 'Pack Current' you should change the 'field length' to 2 bytes.
+> For the signals 'Pack CCL' and 'Pack Current' you should change 'field length' to 2 bytes and 'Byte Order' to Little Endian.
 
 ## Provide Signals not supported by the BMS
 
