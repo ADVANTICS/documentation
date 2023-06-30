@@ -21,7 +21,7 @@ This interface can be also used to control only one AFE as a Buck.
 
 <div class="bigger-300">
 
-![BOOST-BUCK charger](images/ADM-CS-SECC_boost_buck.svg "BOOST-BUCK charger")
+![BOOST-BUCK charger](ADM-CS-SECC/images/ADM-CS-SECC_boost_buck.svg "BOOST-BUCK charger")
 </div>
 <figcaption style="text-align: center">Figure 1: BOOST-BUCK charger</figcaption>
 
@@ -62,7 +62,7 @@ The charge controller can be configured to control a set of Boost-Buck chargers 
 
 This interface applies to Maxwell power modules from MXR Series.
 
-> If you need to modify the CAN bus bitrate, you can refer to [CAN bus Bitrate](charge-controllers/sys3_user/developing.md)
+> If you need to modify the CAN bus bitrate, you can refer to [CAN bus Bitrate](sys3_user/developing.md)
 
 ### Controller configuration
 
@@ -74,7 +74,7 @@ charger_type: The charger type should be set as "Maxwell_MXR".
 The power module frame identifier is composed of the following parameters:
 <div class="bigger-300">
 
-![MXR Frame Identifier](images/MXR_frame_id.svg "MXR Frame Identifier")
+![MXR Frame Identifier](ADM-CS-SECC/images/MXR_frame_id.svg "MXR Frame Identifier")
 </div>
 <figcaption style="text-align: center">Figure 1: MXR Frame Identifier</figcaption>
 
