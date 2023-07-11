@@ -11,6 +11,36 @@ The ADVANTICS charge controller supports parallel stacking of power modules, ena
 
 All charger interfaces should be configured in the section corresponding to the enabled pistol being configured (example [pistol:CCS DC]).
 
+## ADVANTICS AC/DC charger Interface
+
+ADVANTICS charge controller offers a complete AC/DC charger interface.
+
+The BPUD interface is designed for the [3-phase unidirectional charger](../power-modules/ADM-PC-BP25/application_examples.md#3-phase-unidirectional-charger). It incorporates the ADM-PC-LF45 (filter stage and inrush limiter), the ADM-PC-BP25 as a Power Factor Correction (PFC) stage, and ADM-PC-LL25 (unidirectional isolated DC/DC converter).
+
+<div class="bigger-300">
+
+![BPUD charger](../power-modules/ADM-PC-BP25/images/app_3phase_charger.svg ':size=200%')
+</div>
+<figcaption style="text-align: center">BPUD charger</figcaption>
+
+### power modules configuration
+
+Configure the power modules stack position numbers to be the same for each stack.
+You can do that by Using ADVANTICS engineering toolkit
+ETKA or by manually sending the CAN messages to configure the stack position to the AFE.
+
+### Controller configuration
+
+The config entries available for this charger interface are the following:
+
+```
+charger_type: The charger type should be "Advantics_ADS_PC_BPUD".
+```
+
+```
+stack_pos: the stack position number configured for all 3 power modules. In case multiple BPUD chargers are stacked in parallel, provide the stack position number of all the stacks comma or space separated.
+```
+
 ## ADVANTICS BIDIRECTIONAL BOOST-BUCK Interface
 
 Step-up, followed by a Step-down DC/DC. Removes the limitation of a simple Bidirectional Buck, as now the
@@ -23,7 +53,7 @@ This interface can be also used to control only one AFE as a Buck.
 
 ![BOOST-BUCK charger](ADM-CS-SECC/images/ADM-CS-SECC_boost_buck.svg "BOOST-BUCK charger")
 </div>
-<figcaption style="text-align: center">Figure 1: BOOST-BUCK charger</figcaption>
+<figcaption style="text-align: center">BOOST-BUCK charger</figcaption>
 
 ### AFEs configuration
 
@@ -37,7 +67,7 @@ ETKA or by manually sending the CAN messages to configure the stack position to 
 The config entries available for this charger interface are the following:
 
 ```
-charger_type: The charger type should be set as "Advantics_ADM_PC_BP25_BoostBuck".
+charger_type: The charger type should be "Advantics_ADM_PC_BP25_BoostBuck".
 ```
 ```
 boost_buck_mode: This boolean parameter can be used to select between Boost-Buck mode or Buck-only mode. The default value is false.
@@ -62,13 +92,13 @@ The charge controller can be configured to control a set of Boost-Buck chargers 
 
 This interface applies to Maxwell power modules from MXR Series.
 
-> If you need to modify the CAN bus bitrate, you can refer to [CAN bus Bitrate](sys3_user/developing.md)
+> If you need to modify the CAN bus bitrate, you can refer to [CAN bus Bitrate](sys3_user/developing.md#can-bus-bitrate)
 
 ### Controller configuration
 
 The config entries available for this charger interface are the following:
 ```
-charger_type: The charger type should be set as "Maxwell_MXR".
+charger_type: The charger type should be "Maxwell_MXR".
 ```
 
 The power module frame identifier is composed of the following parameters:
