@@ -17,10 +17,8 @@ ADVANTICS charge controller offers a complete AC/DC charger interface.
 
 The BPUD interface is designed for the [3-phase unidirectional charger](../power-modules/ADM-PC-BP25/application_examples.md#3-phase-unidirectional-charger). It incorporates the ADM-PC-LF45 (filter stage and inrush limiter), the ADM-PC-BP25 as a Power Factor Correction (PFC) stage, and ADM-PC-LL25 (unidirectional isolated DC/DC converter).
 
-<figure>
-    <img src="../power-modules/ADM-PC-BP25/images/app_3phase_charger.svg" alt="BPUD charger" style="width: 1000px;">
-    <figcaption style="text-align: center">BPUD charger</figcaption>
-</figure>
+![BPUD charger](../power-modules/ADM-PC-BP25/images/app_3phase_charger.svg ':size=200%')
+<figcaption style="text-align: center">BPUD charger</figcaption>
 
 ### power modules configuration
 
@@ -48,10 +46,10 @@ voltage is stepped down to provide the Voltage and Current regulation.
 
 This interface can be also used to control only one AFE as a Buck.
 
-<figure>
-    <img src="ADM-CS-SECC/images/ADM-CS-SECC_boost_buck.svg" alt="BOOST-BUCK charger" style="width: 1000px;">
-    <figcaption style="text-align: center">BOOST-BUCK charger</figcaption>
-</figure>
+
+![BOOST-BUCK charger](ADM-CS-SECC/images/ADM-CS-SECC_boost_buck.svg ':size=200%')
+<figcaption style="text-align: center">BOOST-BUCK charger</figcaption>
+
 
 ### AFEs configuration
 
@@ -101,10 +99,8 @@ charger_type: The charger type should be "Maxwell_MXR".
 
 The power module frame identifier is composed of the following parameters:
 
-<figure>
-    <img src="ADM-CS-SECC/images/MXR_frame_id.svg" alt="MXR Frame Identifier" style="width: 1000px;">
-    <figcaption style="text-align: center">MXR Frame Identifier</figcaption>
-</figure>
+![MXR Frame Identifier](ADM-CS-SECC/images/MXR_frame_id.svg ':size=200%')
+<figcaption style="text-align: center">MXR Frame Identifier</figcaption>
 
 ```
 protocol: corresponds to PROTNO.
