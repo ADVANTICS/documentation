@@ -20,6 +20,7 @@
         - [IOs on CAN](charge-controllers/secc_can_ios.md)
         <!-- - [OCPP](charge-controllers/secc_ocpp.md) -->
         - [Parallel charging](charge-controllers/secc_parallel_charging.md)
+        - [Charger interfaces](charge-controllers/charger_interfaces.md)
         <!-- - [Special](charge-controllers/secc_special.md)
             - [Flashing Advantics power modules](charge-controllers/secc_afpu.md) -->
 
