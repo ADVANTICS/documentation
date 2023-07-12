@@ -171,3 +171,9 @@ Main Relay:
 The main relay, which operates in parallel with the precharge relay and precharge resistance, is driven by the CHAdeMO relay on the controller (Relay 3 on the controller). This main relay serves the purpose of controlling the primary current flow within the bidirectional setup.
 
 It is important to consider that the digital outputs, used for relay control are limited to 100mA.
+
+The controller can be configured to use this precharge stage as described above by adding the following config entry to the CHAdeMO section in the config file:
+
+```
+chademo_precharge = true
+```
