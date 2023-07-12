@@ -142,3 +142,32 @@ If you already migrated from v2 to v3, here are the changes between v3 and v3.1:
         - `EV_Minimum_Discharge_Power`
         - `EV_Maximum_Discharge_Power`
     - Side note: expect a future iteration to cover energy and time info as well
+
+## CHAdeMO V2G
+
+ADVANTICS charge controller supports CHAdeMO vehicle to grid appliction following the CHAdeMO V2G guidelines. The controller needs to be configured as described in the section [Relevant config entries](#Relevant-config-entries).
+### Operating Modes
+
+The CHAdeMO Bidirectional application is designed to be compatible with all CHAdeMO protocol versions, including non-bidirectional ones. In cases where a vehicle does not support bidirectionality, the application seamlessly operates in target mode. However, for vehicles that do support bidirectional functionality, the application operates in range mode, allowing customers to select the desired setpoint based on their specific requirements.
+
+### Replacing CHAdeMO Diode with Precharge Stage
+
+In a CHAdeMO bidirectional setup, it is necessary to replace the CHAdeMO diode with a precharge stage in order to allow current to flow in the opposite direction (discharge) while also protecting the contactors. The CHAdeMO protocol does not provide a specific standardized solution for this scenario, so you have the flexibility to either create your own precharge stage or utilize the proposed solution.
+
+To implement this, you will need two relays and one precharge resistance:
+
+![CHAdeMO V2G Precharge Stage](../ADM-CS-SECC/images/chademo_precharge.jpg ':size=200%')
+<figcaption style="text-align: center">CHAdeMO V2G Precharge Stage</figcaption>
+
+
+Precharge Relay and Resistance:
+&nbsp;
+
+The precharge relay, controlled by the Digital_OUT1 signal from the CHAdeMO application, is connected in series with the precharge resistance. When the precharge relay is activated, it allows current to pass through the precharge resistance. This stage gradually charges the output capacitors before closing the vehicle contactors.
+
+Main Relay:
+&nbsp;
+
+The main relay, which operates in parallel with the precharge relay and precharge resistance, is driven by the CHAdeMO relay on the controller (Relay 3 on the controller). This main relay serves the purpose of controlling the primary current flow within the bidirectional setup.
+
+It is important to consider that the digital outputs, used for relay control are limited to 100mA.
