@@ -71,7 +71,7 @@ The maximum power at given low side (phase) voltage and low side (phase) current
 
 #### Thermal limit
 
-There are two temperature sensors installed in the module. The inductor temperature sensor, and the bridge temperature sensor (also call as transistor bar sensor). Both sensors report the current temperature over the CAN bus (in degrees Celsius). The shutdown temperature of the transistor bar sensor is **90 °C**. The shutdown temperature of the inductor temperature sensor is **130 °C**.
+There are two temperature sensors installed in the module. The inductor temperature sensor, and the bridge temperature sensor (also call as transistor bar sensor). Both sensors report the current temperature over the CAN bus (in degrees Celsius). The bridge temperature in the module should be maintained at maximum of 70 degrees Celsius for normal operation for long periods. However, it can reach a maximum of 90 degrees Celsius.It is important to note that continuous operation at this maximum temperature can result in damaging the device and reducing the lifetime of the unit. The shutdown temperature of the transistor bar sensor is **90 °C**. The shutdown temperature of the inductor temperature sensor is **130 °C**.
 
 Upon reaching the overheating condition, the converter will stop operating (still reachable via CAN communication) but without tripping the interlock line. This means that other modules chained in the same bus will still continue normal operation.
 
