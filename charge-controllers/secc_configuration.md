@@ -69,10 +69,9 @@ For each pistol enabled, you should configure the correspondent pistol
 section to use the right charger configuration.
 &nbsp;
 
-The following is an
-example for \[pistol:CCS DC\]
+**The following is an example for \[pistol:CCS DC\]**
 
-### `index`
+`index`
 
 Pistol index. Must be a non-zero positive integer unique with respect to
 other pistols. Used to offset CAN addressing as well.
@@ -81,7 +80,7 @@ Example:
 
     index = 1
 
-### `charger_type`
+`charger_type`
 
 This entry should indicate the type of charger interface to be used. It can be either a [**Generic Interface**](secc_generic/overview.md#General-operation) or a specific [**Charger Interface**](charger_interfaces.md)
 
@@ -92,7 +91,7 @@ Example:
 
 The [**Advantics\_ADS\_PC\_BPUD**](charger_interfaces.md#advantics-acdc-charger-interface) is a charger interface for an ADVANTICS charger composed of 3 Advantics power modules: Filter + AFE + LLC.
 
-### `stack_pos`
+`stack_pos`
 
 Entry for Advantics power module chargers only.
 
@@ -106,7 +105,7 @@ parallel. The stack position numbers of each level should be specified :
 
     stack_pos = 0, 1
 
-### `min_voltage`
+`min_voltage`
 
 
 Minimum output voltage supported by the charger.
@@ -115,7 +114,7 @@ Example:
 
     min_voltage = 0
 
-### `max_voltage`
+`max_voltage`
 
 
 Maximum output voltage supported by the charger.
@@ -124,7 +123,7 @@ Example:
 
     max_voltage = 500
 
-### `min_current`
+`min_current`
 
 
 Minimum output current supported by the charger.
@@ -133,7 +132,7 @@ Example:
 
     min_current = 0
 
-### `max_current`
+`max_current`
 
 
 Maximum output current supported by the charger.
@@ -142,7 +141,7 @@ Example:
 
     max_current = 60
 
-### `max_power`
+`max_power`
 
 
 Maximum output power supported by the charger.
@@ -151,7 +150,7 @@ Example:
 
     max_power = 25000
 
-### `use_sequence_flags`
+`use_sequence_flags`
 
 Tells if flags in Sequence\_Control message of the Generic CAN interface
 should be used.
@@ -160,14 +159,14 @@ Example:
 
     use_sequence_flags = true
 
-### `evse_id`
+`evse_id`
 Customize your EVSE ID with this entry.
 
 Example:
 
     evse_id = 33A51A0001
 
-### `enable_din`
+`enable_din`
 
 enabled by default.
 
@@ -175,7 +174,7 @@ Example:
 
     enable_din = true
 
-### `enable_iso_ed1`
+`enable_iso_ed1`
 
 enabled by default.
 
@@ -183,7 +182,7 @@ Example:
 
     enable_iso_ed1 = true
 
-### `free_service`
+`free_service`
 
 If the charging station is for free. If not, see with Advantics about
 how to integrate a payment method.
@@ -192,7 +191,7 @@ Example:
 
     free_service = true
 
-### `energy_transfer_type`
+`energy_transfer_type`
 
 Defines how the DC power is transmitted to the vehicle among:
 
@@ -205,7 +204,7 @@ Example:
 
     energy_transfer_type = DC_extended
 
-### `current_ripple`
+`current_ripple`
 
 Peak-to-peak magnitude of the current ripple at the output of the
 charger.
@@ -214,7 +213,7 @@ Example:
 
     current_ripple = 1
 
-### `skip_cable_check`
+`skip_cable_check`
 
 With this entry you can configure the charger to skip cable check.
 
@@ -222,7 +221,7 @@ Example:
 
     skip_cable_check = true
 
-### `protocol_priority_order`
+`protocol_priority_order`
 
 Which priority order to use for choosing a protocol.
 
@@ -242,7 +241,7 @@ Example:
 
     protocol_priority_order = standard
 
-### `slac_app_version`
+`slac_app_version`
 
 With this entry you can select the slack app version.
 
@@ -250,7 +249,7 @@ Example:
 
     slac_app_version = 2
 
-### `C_EV_match_MNBC`
+`C_EV_match_MNBC`
 
 Number of M-Sounds for the SLAC. Min 1, max 255.
 
@@ -258,7 +257,7 @@ Example:
 
     C_EV_match_MNBC = 10
 
-### `TT_EVSE_SLAC_init`
+`TT_EVSE_SLAC_init`
 
 Timeout between detecting CP state B and receiving first valid
 CM\_SLAC\_PARAM.REQ. In seconds, min 20, max 50.
@@ -267,7 +266,7 @@ Example:
 
     TT_EVSE_SLAC_init = 20
 
-### `Attn_bias`
+`Attn_bias`
 
 Fixed bias value added to the average of each carrier group we send to
 the vehicle.
