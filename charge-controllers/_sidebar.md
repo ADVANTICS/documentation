@@ -24,6 +24,7 @@
         - [Charger interfaces](charge-controllers/charger_interfaces.md)
         <!-- - [Special](charge-controllers/secc_special.md)
             - [Flashing Advantics power modules](charge-controllers/secc_afpu.md) -->
+    - [OCPP](charge-controllers/ocpp16j.md)
 
 - **EVCC**
     <!-- - [Specifications](charge-controllers/ADM-CS-EVCC/specifications.md) -->

@@ -1,6 +1,8 @@
+> [!UPDATE] {docsify-updated}
+
 # SECC configuration
 
-This document provides comprehensive details about the config file sections and entries for ADVANTICS SECC releases 4.x.
+This document provides comprehensive details about the config file sections and entries for ADVANTICS SECC **releases 4.x**.
 &nbsp;
 
 **For customers using versions 3.x, please consult the actual config file, as it contains all the necessary information on each section.**
@@ -276,7 +278,7 @@ Example:
 
 ## OCPP Configuration
 
-Advantics charge controllers can provide OCPP functionality. Please refer to the [**OCPP documentation**]() for more details on the application.
+Advantics charge controllers can provide OCPP functionality. Please refer to the [**OCPP documentation**](ocpp16j.md) for more details on the application.
 &nbsp;
 
 By default, OCPP is disabled. To enable it, you need to at least set the `enabled`
