@@ -13,7 +13,7 @@
         - [Appendix A](charge-controllers/secc_generic/appendix-a.md)
         - [Changelog](charge-controllers/secc_generic/changelog.md)
     <!-- - [Migration from 3.x to 4.x](charge-controllers/secc_migration_3_to_4.md) -->
-    - [SECC Configuration](secc_configuration.md)
+    - [SECC Configuration](charge-controllers/secc_configuration.md)
     - [Features](charge-controllers/secc_features.md)
         - [AC charging](charge-controllers/secc_ac_charging.md)
         - [Bidirectional](charge-controllers/secc_generic/secc_bidirectional.md)
