@@ -1,5 +1,15 @@
 # SECC configuration
 
+This document provides comprehensive details about the config file sections and entries for ADVANTICS SECC releases 4.x.
+&nbsp;
+
+**For customers using versions 3.x, please consult the actual config file, as it contains all the necessary information on each section.**
+
+> **Note**
+>
+> Depending on the application the customer can add configuration entries relevant to the specific use case.
+
+
 In Advantics controller the configuration file is accessible at this path: `/srv/config.cfg`. To edit the file, `nano` and `vi` editors are already installed on the system.
 
 > **Note**
@@ -12,9 +22,6 @@ In Advantics controller the configuration file is accessible at this path: `/srv
 >
 > - Any line starting with the "#" sign will be treated as a commented line and will not be taken into account during execution.
 
-
-This document details the default config file sections and entries. 
-> It's impotant to note that depending on the application the customer can add configuration entries relevant to the specific use case.
 
 ## Applications
 
