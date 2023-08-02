@@ -355,7 +355,7 @@ DEALER/ROUTER](https://zguide.zeromq.org/docs/chapter3/#Request-Reply-Combinatio
 for details). Both sides of the RPC Channel have their own pair of
 sockets. Their respective roles are
 
-DEALER Socket  
+### DEALER Socket  
 Sends out RPC requests, receives replies: It handles **calling**
 functions.  
 The DEALER socket is used on demand, when a remote function needs to be
@@ -364,7 +364,7 @@ The Charge Point Vendor Application should connect its DEALER socket to
 the ROUTER socket of the OCPP Application (port 60500). Doing so also
 connects the reverse direction.
 
-ROUTER Socket  
+### ROUTER Socket  
 Receives RPC requests, sends out replies: It handles **receiving and
 replying** to calls.  
 The ROUTER socket must be continously monitored for incoming RPC
@@ -390,7 +390,7 @@ This document may refer to RPC calls also as requests.
 On top of the ZeroMQ layer, the RPC calls and replies use JSON-encoded
 data. The respective formats are
 
-RPC Request/Call  
+### RPC Request/Call  
 A JSON object containing the requested function name (as field
 `request`) and the necessary arguments (as field `params`). It is sent
 out by the ROUTER socket of the application requesting the RPC and
@@ -398,7 +398,7 @@ received on the DEALER socket of the remote application. Example:
 
     {"request": "a_remote_function", "params": ["arg_1", 2, {"and": 3}]}
 
-RPC Reply  
+### RPC Reply  
 A JSON object containing the result of the RPC in the field `reply`. It
 is sent out by the DEALER socket of the remote application (after it
 received and executed a repsective RPC) and received on the ROUTER
