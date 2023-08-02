@@ -6,9 +6,11 @@
 
 ## Inputs
 
-Digital Inputs can be configured such that their current value is reported over CAN, in message [0x6800B].
+Digital Inputs can be configured such that their current value is reported over CAN, in message [ADM_CS_SECC_Inputs](secc_generic/can#adm_cs_secc_inputs).
 
 ## Outputs
+
+Digital Outputs can be configured to be controller via the can bus message [ADM_CS_SECC_Outputs](secc_generic/can#adm_cs_secc_outputs).
 
 - Only for controllers having general purposes IO: `ADM-CS-SECC`
 - They can be controlled through generic CAN interface (≥ v2.2)
