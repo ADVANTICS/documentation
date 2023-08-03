@@ -26,7 +26,7 @@ Please see the specs sheet for ADM-CS-SECC for details.
 
 ## Software development guide
 
-Please see the Software Development Guide document for ADM-CS-SECC for details.
+Please see the Software [Development Guide document](../sys3_user/README.md) for ADM-CS-SECC for details.
 
 ## Typical use case
 

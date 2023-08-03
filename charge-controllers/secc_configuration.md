@@ -2,7 +2,7 @@
 
 # SECC configuration
 
-This document provides comprehensive details about the config file sections and entries for ADVANTICS SECC **releases 4.x**.
+This document provides details about the config file sections and entries for ADVANTICS SECC **releases 4.x**.
 &nbsp;
 
 **For customers using versions 3.x, please consult the actual config file, as it contains all the necessary information on each section.**

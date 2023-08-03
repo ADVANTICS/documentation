@@ -7,7 +7,7 @@ interface as well as other controller behaviours reside in the `[vehicle]` secti
 > [!NOTE]
 > When modifying the `/srv/config.cfg` file, always remember that Advantics charge controllers
 > works in __fake read-writable mode__ by default. Ie. changes are only written in RAM, and not
-> persisted to the actual read-only partition. See our Developer Guide to learn how to temporarily or
+> persisted to the actual read-only partition. See our [Developer Guide](../sys3_user/README.md) to learn how to temporarily or
 > permanently switch to real writable mode.
 
 </br>
