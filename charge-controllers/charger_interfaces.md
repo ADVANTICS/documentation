@@ -88,7 +88,7 @@ The charge controller can be configured to control a set of Boost-Buck chargers 
 
 This interface applies to Maxwell power modules from MXR Series.
 
-> If you need to modify the CAN bus bitrate, you can refer to [CAN bus Bitrate](sys3_user/developing.md#can-bus-bitrate)
+> If you need to modify the CAN bus bitrate, you can refer to [CAN bus Bitrate](charge-controllers/sys3_user/developing.md#can-bus-bitrate)
 
 ### Controller configuration
 

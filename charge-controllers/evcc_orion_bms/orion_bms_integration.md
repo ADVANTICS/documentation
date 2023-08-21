@@ -9,7 +9,7 @@ Integrating the Orion BMS with ADVANTICS EVCC is possible using the CAN Bus PEV 
 
 To make the communication possible, you only need to configure the BMS to send the messages needed by the PEV CAN Bus Generic interface using the CANBUS settings of the BMS.
 
-2 messages need to be configured. Please refer to [Generic PEV CAN interface](charge-controllers/evcc_can_generic.md) for detailed information:
+2 messages need to be configured. Please refer to [Generic PEV CAN interface](charge-controllers/evcc_generic/README.md) for detailed information:
 
 - EV_INFORMATION
 - DC_STATUS1
