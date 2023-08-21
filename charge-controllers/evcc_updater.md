@@ -104,6 +104,15 @@ Options:
 * MacOs is *not* supported.
 * The script has been tested on Ubuntu 20.04 LTS, Windows 10 and Windows 11
 
+> [!WARNING]
+> If you have an IPV6 network, access the controller and use the command ifconfig then under eth0 you’ll find the controller’s ipv6.
+> Copy it then add the option --ip when you execute the updater script via a cmd:
+> ```
+> /path/to/updater_script.exe -o --ip ipv6_of_the_controller
+> ```
+> Don’t forget to change the path, name of the updater script, and the ipv6 in the command above.
+
+
 
 # Appendix: re-enabling dumps
 To re-enable dumps, follow the procedure in the developer guide to switch the system to writable mode, then open `/srv/run-dumps.sh` on the controller filesystem and remove the line `exit 0` from the file.
