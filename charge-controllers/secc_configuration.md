@@ -19,7 +19,7 @@ In Advantics controller the configuration file is accessible at this path: `/srv
 > - When modifying the `/srv/config.cfg` file, always remember that
 > Advantics charge controllers works in *fake read-writable mode* by
 > default. Ie. changes are only written in RAM, and not persisted to the
-> actual read-only partition. See section [**Read-only file system**](./sys3_user/read-only.md) to
+> actual read-only partition. See section [**Read-only file system**](../charge-controllers/sys3_user/read-only.md) to
 > learn how to temporarily or permanently switch to real writable mode.
 >
 > - Any line starting with the "#" sign will be treated as a commented line and will not be taken into account during execution.
@@ -38,7 +38,7 @@ In this section, you can configure the controller version as well as the
 digital inputs and outputs.
 > **Note**
 >
-> Digital inputs and outputs can be interfaced via the generic interface. check section [**Controller IOs on CAN**](./secc_can_ios.md#controllers-ios-on-can)
+> Digital inputs and outputs can be interfaced via the generic interface. check section [**Controller IOs on CAN**](../charge-controllers/secc_can_ios.md#controllers-ios-on-can)
 
 The following is an example:
 
@@ -82,14 +82,14 @@ Example:
 
 `charger_type`
 
-This entry should indicate the type of charger interface to be used. It can be either a [**Generic Interface**](./secc_generic/overview.md#general-operation) or a specific [**Charger Interface**](./charger_interfaces.md)
+This entry should indicate the type of charger interface to be used. It can be either a [**Generic Interface**](../charge-controllers/secc_generic/overview.md#general-operation) or a specific [**Charger Interface**](../charge-controllers/charger_interfaces.md)
 
 
 Example:
 
     charger_type = Advantics_ADS_PC_BPUD
 
-The [**Advantics\_ADS\_PC\_BPUD**](./charger_interfaces.md#advantics-acdc-charger-interface) is a charger interface for an ADVANTICS charger composed of 3 Advantics power modules: Filter + AFE + LLC.
+The [**Advantics\_ADS\_PC\_BPUD**](../charge-controllers/charger_interfaces.md#advantics-acdc-charger-interface) is a charger interface for an ADVANTICS charger composed of 3 Advantics power modules: Filter + AFE + LLC.
 
 `stack_pos`
 
@@ -277,7 +277,7 @@ Example:
 
 ## OCPP Configuration
 
-Advantics charge controllers can provide OCPP functionality. Please refer to the [**OCPP documentation**](ocpp16j.md) for more details on the application.
+Advantics charge controllers can provide OCPP functionality. Please refer to the [**OCPP documentation**](../charge-controllers/ocpp16j.md) for more details on the application.
 &nbsp;
 
 By default, OCPP is disabled. To enable it, you need to at least set the `enabled`
