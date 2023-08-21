@@ -16,7 +16,9 @@ Options related to the generic interface as well as other controller behaviors r
 > Depending on the application the customer can add configuration entries relevant to the specific use case.
 
 > [!WARNING]
-> Any line starting with the "#" sign will be treated as a commented line and will not be taken into account during execution.
+>  - Any line starting with the "#" sign will be treated as a commented line and will not be taken into account during execution.
+> - Remove the “#” at the beginning of every parameter you modify.
+> - Leave no white space at the beginning of the line.
 
 
 </br>

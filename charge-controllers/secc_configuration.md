@@ -21,8 +21,11 @@ In Advantics controller the configuration file is accessible at this path: `/srv
 > default. Ie. changes are only written in RAM, and not persisted to the
 > actual read-only partition. See section [**Read-only file system**](charge-controllers/sys3_user/read-only.md) to
 > learn how to temporarily or permanently switch to real writable mode.
->
-> - Any line starting with the "#" sign will be treated as a commented line and will not be taken into account during execution.
+
+> [!WARNING]
+>  - Any line starting with the "#" sign will be treated as a commented line and will not be taken into account during execution.
+> - Remove the “#” at the beginning of every parameter you modify.
+> - Leave no white space at the beginning of the line.
 
 
 ## Applications
