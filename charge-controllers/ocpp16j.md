@@ -83,7 +83,7 @@ You can enable the list and set its maximum length with the OCPP
 configuration keys `LocalAuthListEnabled`, `LocalAuthListMaxLength` and
 `SendLocalListMaxLength`. You can use OCPP ChangeConfiguration requests
 from your central system to change the following options. Alternatively,
-add them to the ADVANTICS [**configuration file**](secc_configuration.md#ocpp-configuration) under the
+add them to the ADVANTICS [**configuration file**](charge-controllers/secc_configuration.md#ocpp-configuration) under the
 `ocpp:1.6_local_auth` section.
 
     [ocpp:1.6_local_auth]
