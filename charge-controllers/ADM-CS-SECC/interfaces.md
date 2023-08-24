@@ -72,7 +72,8 @@ The CAN bus runs at speed of 500kbaud by default. There is no 120 Ohm terminatio
 
 ## Digital inputs and outputs
 
-There are four digital inputs and four digital outputs on the charge controller. Consult the specs sheet for levels. The outputs are 24V level logic, with push-pull stage. Inputs are 24V tolerant, but can be used also with 12V logic.
+There are four digital inputs and four digital outputs on the charge controller. The inputs are 24V tolerant, but are also compatible with
+12V or 5V logic levels, and have a weak 10 kOhm pulldown. The outputs are 24V level logic, with push-pull stage. Inputs are 24V tolerant, but can be used also with 12V logic.
 The digital inputs and outputs are fully user-configurable and controllable.
 
 <div class="bigger-300">
