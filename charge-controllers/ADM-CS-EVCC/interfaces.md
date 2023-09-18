@@ -19,7 +19,7 @@ The reference of the pin is composed of 3 characters:
 - The second character is a letter indicating the column 
 - The third character indicates the connector: "1" is the small connector (on the left in figure 2 above) and 2 indicates the big one (the one on the right)
 
-| Name | <img src="images/PEV_connector1.png" alt="connector 1" width="230"/> | <img src="images/PEV_connector2.png" alt="connector 2" width="300"/> |
+| Name | ![connector 1](images/PEV_connector1.png "connector 1") | ![connector 2](images/PEV_connector2.png "connector 2") |
 |------|----|--------|
 | [SWITCHED_POWER](#Power_input) | <center> - | <center> 2C2 |
 | [PERMANENT_POWER](#Power_input) | <center> - | <center> 3C2 |
