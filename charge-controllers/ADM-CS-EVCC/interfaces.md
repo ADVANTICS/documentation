@@ -198,10 +198,7 @@ It is also possible to terminate the charge over the CAN bus.
 
 ## Digital inputs and outputs
 
-There are two digital inputs and three digital outputs on the charge controller. The outputs are push-pull capable, supplied from the input power of
-the controller (so are either 12V or 24V). The inputs are 24V tolerant, but are also compatible with
-12V or 5V logic levels, and have a weak 10 kOhm pulldown.
-
+There are two digital inputs and three digital outputs on the charge controller.
 The digital inputs and outputs are fully user-configurable and controllable (provided the user
 writes an application for their control).
 
@@ -211,6 +208,12 @@ writes an application for their control).
 </div>
 <figcaption style="text-align: center">Figure 10: Digital IO</figcaption>
 
+### Digital Outputs
+The outputs are push-pull capable, supplied from the input power of the controller (so are either 12V or 24V).
+
+### Digital Inputs
+The inputs are 24V tolerant but are also compatible with 12V logic level, the maximum voltage on this pin is about 30V, and have a weak 10 kOhm pulldown.
+Transition to ‘1' from 9V sets the input to ON. It will then hold '1’ until the voltage drops under 3V.
 ## LED outputs
 
 LED outputs are powered from CCS lock power (so they share the same voltage level). A high side
