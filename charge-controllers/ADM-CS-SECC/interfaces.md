@@ -101,6 +101,8 @@ Currently, these outputs are user configurable and controllable. We are in proce
 
 The RS-485 serial interface comes with built-in 120 Ohm termination. The interface is fully user configurable and controllable, including speed and master/slave configuration. A typical application could be a point-to-point connection to a card-reader inside the charger cabinet.
 
+On the Linux system, the serial port is exposed on `/dev/ttymxc1`. The kernel has been configured to apply the right settings for it from the start (ie. polarity and the RTS flag).
+
 ## Interlock
 
 The interlock line is an open-collector output, with a 4.7 kOhm pull-up to 24V. This signal is bidirectional, allowing sampling as well as assertion from within the controller. It can be used by power modules to signalize failure, or by a door sensor to cause shutdown in case of open door. User systems can assert the interlock by grounding the interlock line.
