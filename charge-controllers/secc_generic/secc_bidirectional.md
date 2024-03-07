@@ -37,10 +37,10 @@ See [all messages page](charge-controllers/secc_generic/can_v3).
 
 Download CAN DBs:
 
-- [Advantics Generic EVSE protocol v3.1 (Kayak format)](charge-controllers/secc_generic/Advantics_Generic_EVSE_protocol_v3.1.kcd ':ignore')
-- [Advantics Generic EVSE protocol v3.1 (DBC format)](charge-controllers/secc_generic/Advantics_Generic_EVSE_protocol_v3.1.dbc ':ignore')
+- [Advantics Generic EVSE protocol v3.2 (Kayak format)](charge-controllers/secc_generic/Advantics_Generic_EVSE_protocol_v3.2.kcd ':ignore')
+- [Advantics Generic EVSE protocol v3.2 (DBC format)](charge-controllers/secc_generic/Advantics_Generic_EVSE_protocol_v3.2.dbc ':ignore')
 
-### Migration from v2 to v3.1
+### Migration from v2 to v3.2
 
 There are two important concepts introduced with v3:
 
@@ -96,7 +96,7 @@ from `Maximum_Current` to `Maximum_Charge_Current` for consistency with the thir
 only when we control the power modules directly, and the generic interface is used as a way to
 externally control some parameters of the charge.
 
-### Migration from v3 to v3.1
+### Migration from v3 to v3.2
 
 If you already migrated from v2 to v3, here are the changes between v3 and v3.1:
 
@@ -141,6 +141,8 @@ If you already migrated from v2 to v3, here are the changes between v3 and v3.1:
         - `EV_Maximum_Discharge_Current`
         - `EV_Minimum_Discharge_Power`
         - `EV_Maximum_Discharge_Power`
+    - [0x6B300] `OCPP_Control` with signals:
+        - `Dynamic_Target_Current`
     - Side note: expect a future iteration to cover energy and time info as well
 
 ## CHAdeMO V2G
