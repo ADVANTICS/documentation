@@ -17,7 +17,7 @@ are talking to each other.
 
 Afterwards, if the controller is configured to use the sequence flags, it will report a state of
 *Not_Available*. This state is meant for pre-start external charge authorization. Once your
-controller/HMI as validated the user, it sends a [Sequence_Control](charge-controllers/secc_generic/can.md#Sequence_Controls) message with signal
+controller/HMI has validated the user, it sends a [Sequence_Control](charge-controllers/secc_generic/can.md#Sequence_Controls) message with signal
 [Start_Charge_Authorisation](charge-controllers/secc_generic/can.md#Sequence_Control-Start_Charge_Authorisation) set to `Allowed` (value 1).
 
 Afterwards, or if the controller is configured to not use the sequence flags, it reports a state of
