@@ -278,7 +278,7 @@ Application. In the other direction, the OCPP Application can ask about
 data from the additional hardware (e.g. energy meter values needed at
 the start and end of transactions).
 
-OCPP-J 1.6 Communication  
+### OCPP-J 1.6 Communication  
 Between the ADVANTICS OCPP Application and the Central System.  
 This contains all OCPP messages and is defined by the OCPP
 specification. Note that the OCPP Application is solely responsible for
@@ -293,7 +293,7 @@ Vendor Application invokes a RPC on the OCPP Application, it may result
 in certain OCPP messages to be triggered (see examples in
 [Interfacing with the ADVANTICS OCPP Application](#interfacing-with-the-advantics-ocpp-application)).
 
-EV Charging Communication  
+### EV Charging Communication  
 Between the EV and the ADVANTICS Charge Controller.  
 The charging process itself is handled by the rest of the ADVANTICS
 Charge Controller. The OCPP Application will modify the charging process
