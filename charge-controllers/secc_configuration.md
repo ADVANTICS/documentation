@@ -83,6 +83,12 @@ Example:
 
     index = 1
 
+The CAN ID index field serves as an identifier for each pistol (charging connector) in the charger. It acts as an offset to the CAN IDs, allowing independent addressing of each pistol via the generic CAN bus interface as an individual charger.
+
+Users must include the index value configured for each pistol in the CAN message identifier. The index field in the CAN identifier is represented by bits [28:24].
+
+Please refer to [**CAN ID index field**](charge-controllers/secc_generic/databases.md#CAN_ID_index_field) for more information.
+
 `charger_type`
 
 This entry should indicate the type of charger interface to be used. It can be either a [**Generic Interface**](charge-controllers/secc_generic/overview.md#general-operation) or a specific [**Charger Interface**](charge-controllers/charger_interfaces.md)
