@@ -111,7 +111,7 @@ parallel. The stack position numbers of each level should be specified :
 `min_voltage`
 
 
-Minimum output voltage supported by the charger.
+Minimum output voltage (V) supported by the charger in.
 
 Example:
 
@@ -120,7 +120,7 @@ Example:
 `max_voltage`
 
 
-Maximum output voltage supported by the charger.
+Maximum output voltage (V) supported by the charger.
 
 Example:
 
@@ -129,7 +129,7 @@ Example:
 `min_current`
 
 
-Minimum output current supported by the charger.
+Minimum output current (A) supported by the charger.
 
 Example:
 
@@ -138,7 +138,7 @@ Example:
 `max_current`
 
 
-Maximum output current supported by the charger.
+Maximum output current (A) supported by the charger.
 
 Example:
 
@@ -147,7 +147,7 @@ Example:
 `max_power`
 
 
-Maximum output power supported by the charger.
+Maximum output power (W) supported by the charger.
 
 Example:
 
@@ -209,7 +209,7 @@ Example:
 
 `current_ripple`
 
-Peak-to-peak magnitude of the current ripple at the output of the
+Peak-to-peak magnitude of the current ripple (A) at the output of the
 charger.
 
 Example:
