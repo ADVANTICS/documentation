@@ -209,7 +209,9 @@ writes an application for their control).
 <figcaption style="text-align: center">Figure 10: Digital IO</figcaption>
 
 ### Digital Outputs
-The outputs are push-pull capable, supplied from the input power of the controller (so are either 12V or 24V).
+The outputs are push-pull capable, supplied from the input power of the controller (so are either 12V or 24V). Can be used to drive loads up to 100mA.
+
+For GPIO control, please refer to sections [**Manual GPIO control**](charge-controllers/sys3_user/gpios.md#manual_gpio_control) and [**GPIO control in your application**](charge-controllers/sys3_user/gpios.md#gpio_control_in_your_application)
 
 ### Digital Inputs
 The inputs are 24V tolerant but are also compatible with 12V logic level, the maximum voltage on this pin is about 30V, and have a weak 10 kOhm pulldown.

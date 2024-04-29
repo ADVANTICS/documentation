@@ -75,6 +75,9 @@ The CAN bus runs at speed of 500kbaud by default. There is no 120 Ohm terminatio
 There are four digital inputs and four digital outputs on the charge controller.
 The digital inputs and outputs are fully user-configurable and controllable.
 
+Por GPIO control, please refer to sections [**Manual GPIO control**](charge-controllers/sys3_user/gpios.md#manual_gpio_control) and [**GPIO control in your application**](charge-controllers/sys3_user/gpios.md#gpio_control_in_your_application)
+
+
 <div class="bigger-300">
 
 ![Digital input/output pinout and fans](images/ADM-CS-SECC_multipart_dig_IO.svg "Digital input/output pinout and fans")

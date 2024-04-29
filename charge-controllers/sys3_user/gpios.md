@@ -54,3 +54,13 @@ Usage:
 ```bash
 $ /srv/gpio.sh watch IO_NAME [REFRESH_DELAY]
 ```
+
+## GPIO control in your application
+
+The GPIO hardware is exposed in the file system under /sys/class/gpio
+
+The following documentation can help: [**GPIO Sysfs Interface for Userspace**](https://www.kernel.org/doc/Documentation/gpio/sysfs.txt)
+
+Note that the GPIO IDs are available in the file `/srv/io.map`
+
+You can use `Path` from `pathlib` package in Python to access the files.
