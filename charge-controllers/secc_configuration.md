@@ -3,6 +3,9 @@
 # SECC configuration
 
 This document provides details about the config file sections and entries for ADVANTICS SECC **releases 4.x**.
+
+> Version 4.x of the SW as well as update instructions are available here: [development branch](https://www.notion.so/EVSE-Migration-from-3-x-to-4-x-7526d289f055493db054452cbbfeb98f).
+
 &nbsp;
 
 **For customers using versions 3.x, please consult the actual config file, as it contains all the necessary information on each section.**
