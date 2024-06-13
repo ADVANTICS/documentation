@@ -10,6 +10,6 @@ The Wiring of the NACS cable is the same as CCS. The following is a wiring examp
 
 <div class="bigger-1000">
 
-![NACS Wiring](charge-controllers/ADM-CS-SECC/images/SECC_25kW_Wallbox-SECC_25kW_Wallbox.svg "NACS Wiring")
+![NACS Wiring](ADM-CS-SECC/images/SECC_25kW_Wallbox-SECC_25kW_Wallbox.svg "NACS Wiring")
 </div>
 <figcaption style="text-align: center">NACS Wiring</figcaption>
