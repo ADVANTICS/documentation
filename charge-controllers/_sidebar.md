@@ -15,6 +15,7 @@
     <!-- - [Migration from 3.x to 4.x](charge-controllers/secc_migration_3_to_4.md) -->
     - [Configuration](charge-controllers/secc_configuration.md)
     - [Features](charge-controllers/secc_features.md)
+        - [NACS](charge-controllers/secc_nacs.md)
         - [AC charging](charge-controllers/secc_ac_charging.md)
         - [Bidirectional](charge-controllers/secc_generic/secc_bidirectional.md)
         - [Climate control](charge-controllers/secc_climate_control.md)
