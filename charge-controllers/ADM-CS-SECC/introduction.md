@@ -1,7 +1,7 @@
 > [!UPDATE] {docsify-updated}
 # Introduction
 
-## Summary
+## Characteristics
 
 The ADM-CS-SECC is a charge controller for electric vehicle charging stations. The main features include:
 - Linux system, running on iMX7 ARM platform
