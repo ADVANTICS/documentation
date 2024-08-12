@@ -32,6 +32,7 @@ Manufacturers of stationary and portable charging stations, integrators, researc
 | **Power input**             | **Input voltage min / max**                      | 20 V / 28 V                                       |
 |                             | **Recommended nominal**                          | 24 V                                              |
 |                             | **Typical / Peak consumption**                   | 5 W / 20W                                         |
+| **Temperature**             | **Temprature range**                             | -20° to 85° C                                     |
 | **Interfaces (user side)**  | **CAN bus**                                      | CAN 2.0B, extended addresses                      |
 |                             | **Interlock**                                    | 20mA current loop, 24V                            |
 |                             | **Ventilator PWM**                               | 2 independent PWM channels                        |
