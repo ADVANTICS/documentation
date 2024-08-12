@@ -23,6 +23,47 @@ The ADM-CS-SECC is a charge controller for electric vehicle charging stations. T
 
 Manufacturers of stationary and portable charging stations, integrators, research laboratories, new EV applications like rescue vehicles, charging emulation during vehicle development.
 
+## Electrical and Mechanical specifications
+|       |                                            |                         |
+|-----------------------------|-------------------------------------------------|----------------------------------------------------|
+| **Charging Standards**      | **AC**                                           | ISO 15118-2, ISO 15118-20, SAE J1772, IEC 61851-1 |
+|                             | **CHAdeMO**                                      | 1.x, with V2G extention                           |
+|                             | **CCS (Combo 1,2)**                              | DIN SPEC 70121, ISO 15118-2, ISO 15118-20         |
+| **Power input**             | **Input voltage min / max**                      | 20 V / 28 V                                       |
+|                             | **Recommended nominal**                          | 24 V                                              |
+|                             | **Typical / Peak consumption**                   | 5 W / 20W                                         |
+| **Interfaces (user side)**  | **CAN bus**                                      | CAN 2.0B, extended addresses                      |
+|                             | **Interlock**                                    | 20mA current loop, 24V                            |
+|                             | **Ventilator PWM**                               | 2 independent PWM channels                        |
+|                             | **Digital Outputs**                              | 4 outputs, 24V, can be used with 12V logic        |
+|                             | **Digital Inputs**                               | 4 inputs, 24V and 12V compatible, Max voltage 30V |
+|                             | **LEDs**                                         | 3 LED outputs, 12V, overcurrent protected         |
+|                             | **RS-485**                                       | Modbus-RTU stack available                        |
+|                             | **Ethernet**                                     | 100Mbps RJ45. Modbus TCP available                |
+|                             | **SD memory card**                               | 16 GB card standard                               |
+|                             | **4G network connectivity**                      | Mini PCIE slot, populated with 4G modem           |
+|                             | **4G regions (per user request)**                | EMEA/Korea/Thailand, NA, Australia, Japan         |
+|                             | **SIM slot**                                     | Micro SIM, user supplied                          |
+| **AC interface**            | **Communication wires**                          | CP (Control Pilot), PP (Proximity Pilot)          |
+|                             | **Temperature measurements**                     | 2 PT1000 inputs                                   |
+|                             | **Locking mechanism**                            | Standard AC inlet locking interface               |
+|                             | **Output contactor driver**                      | 1 relay for driving output AC contactors          |
+|                             | **Protection**                                   | HW interlocked relay (CP state monitor)           |
+| **CCS interface**           | **Communication wires**                          | CP (Control Pilot), PP (Proximity Pilot)          |
+|                             | **Temperature measurements**                     | 2 PT1000 inputs                                   |
+|                             | **PLC (Powerline Communication)**                | MStar/MediaTek GreenPHY                           |
+|                             | **Output contactor driver**                      | 1 relay for driving output DC contactors          |
+|                             | **Protection**                                   | HW interlocked relay (CP state monitor)           |
+| **CHAdeMO interface**       | **Communication wires**                          | SEQ1, SEQ2, PROX, PERM, CANH, CANL                |
+|                             | **Temperature measurements**                     | 1 PT1000 input                                    |
+|                             | **Locking mechanism**                            | Solenoid driver                                   |
+|                             | **Output contactor driver**                      | 1 relay for driving output DC contactors          |
+|                             | **Protection**                                   | HW interlocked relay (PERM state monitor)         |
+| **Mechanical**              | **Module dimensions**                            | 212 x 90 x 58 mm                                  |
+|                             | **Connections**                                  | Screw wire terminals                              |
+|                             | **Weight**                                       | 350 g                                             |
+
+
 ## Software development guide
 
 Please see the Software [Development Guide document](charge-controllers/sys3_user/README.md) for ADM-CS-SECC for details.
