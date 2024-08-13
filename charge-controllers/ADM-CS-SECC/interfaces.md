@@ -51,6 +51,8 @@ Just like the CCS interface, CHAdeMO is under full control of the communication 
 
 The charge controller has three independent relays, with normally open and common contacts available. Each relay is hard-wired to one interface respectively – AC, CCS and CHAdeMO. These relays provide an additional layer of HW safety – they can only be energized when certain conditions are fulfilled (for example CP state, or PERMIT signals). What the conditions are, depends on the standard.
 
+The relays' specifications: 5A / 30V max
+
 These relays cannot be repurposed for other application – their sole purpose is to control output DC (or AC) contactors. In case this functionality is not required, they do not have to be used.
 
 The customer can also use the output of these relays, and add an additional protection layer by wiring it through relays controlled by for example the power modules or other controllers (to potentially prevent the controller from successfully closing the output contactors). But such measures are not necessary, only optional. It’s much better to use the provided interlock line (see below).
@@ -88,7 +90,7 @@ Por GPIO control, please refer to sections [**Manual GPIO control**](charge-cont
 The inputs are 24V tolerant but are also compatible with 12V logic level, the maximum voltage on this pin is about 30V, and have a weak 10 kOhm pulldown.
 Transition to ‘1' from 9V sets the input to ON. It will then hold '1’ until the voltage drops under 3V.
 ### Digital Outputs
-The outputs are 24V level logic, with push-pull stage. Inputs are 24V tolerant, but can be used also with 12V logic.
+The outputs are 24V level logic, with push-pull stage, max. 100 mA (sink or source).
 
 ## LED outputs
 

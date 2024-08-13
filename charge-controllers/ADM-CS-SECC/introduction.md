@@ -36,7 +36,7 @@ Manufacturers of stationary and portable charging stations, integrators, researc
 | **Interfaces (user side)**  | **CAN bus**                                      | CAN 2.0B, extended addresses                      |
 |                             | **Interlock**                                    | 20mA current loop, 24V                            |
 |                             | **Ventilator PWM**                               | 2 independent PWM channels                        |
-|                             | **Digital Outputs**                              | 4 outputs, 24V, can be used with 12V logic        |
+|                             | **Digital Outputs**                              | 4 outputs, 24V, push-pull, max. 100 mA (sink or source)|
 |                             | **Digital Inputs**                               | 4 inputs, 24V and 12V compatible, Max voltage 30V |
 |                             | **LEDs**                                         | 3 LED outputs, 12V, overcurrent protected         |
 |                             | **RS-485**                                       | Modbus-RTU stack available                        |
@@ -48,17 +48,17 @@ Manufacturers of stationary and portable charging stations, integrators, researc
 | **AC interface**            | **Communication wires**                          | CP (Control Pilot), PP (Proximity Pilot)          |
 |                             | **Temperature measurements**                     | 2 PT1000 inputs                                   |
 |                             | **Locking mechanism**                            | Standard AC inlet locking interface               |
-|                             | **Output contactor driver**                      | 1 relay for driving output AC contactors          |
+|                             | **Output contactor driver**                      | 1 relay for driving output contactors 5A / 30V max|
 |                             | **Protection**                                   | HW interlocked relay (CP state monitor)           |
 | **CCS interface**           | **Communication wires**                          | CP (Control Pilot), PP (Proximity Pilot)          |
 |                             | **Temperature measurements**                     | 2 PT1000 inputs                                   |
 |                             | **PLC (Powerline Communication)**                | MStar/MediaTek GreenPHY                           |
-|                             | **Output contactor driver**                      | 1 relay for driving output DC contactors          |
+|                             | **Output contactor driver**                      | 1 relay for driving output contactors 5A / 30V max|
 |                             | **Protection**                                   | HW interlocked relay (CP state monitor)           |
 | **CHAdeMO interface**       | **Communication wires**                          | SEQ1, SEQ2, PROX, PERM, CANH, CANL                |
 |                             | **Temperature measurements**                     | 1 PT1000 input                                    |
 |                             | **Locking mechanism**                            | Solenoid driver                                   |
-|                             | **Output contactor driver**                      | 1 relay for driving output DC contactors          |
+|                             | **Output contactor driver**                      | 1 relay for driving output contactors 5A / 30V max|
 |                             | **Protection**                                   | HW interlocked relay (PERM state monitor)         |
 | **Mechanical**              | **Module dimensions**                            | 212 x 90 x 58 mm                                  |
 |                             | **Connections**                                  | Screw wire terminals                              |
