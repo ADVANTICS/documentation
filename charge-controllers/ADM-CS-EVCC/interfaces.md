@@ -194,6 +194,8 @@ terminations on the CAN bus – ideally on both end-points of the CAN chain.
 The charge stop input allows users to terminate the charging in a clean way – by using a (user
 operated) push button for example. It behaves as if the charger side was requesting a normal stop.
 
+The Charge stop input should be pulled up to trigger a stop request
+
 It is also possible to terminate the charge over the CAN bus.
 
 ## Digital inputs and outputs
