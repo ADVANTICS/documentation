@@ -50,7 +50,7 @@ The following signals should be provided by the sensor even though the BMS can p
 
 __*End of Charge:*__
 
-Use the 12V input (R-3F) on the ADM-CS-EVCC unit to indicate the end of charge.
+Use the input "Charge Stop" (3F2) on the ADM-CS-EVCC unit to indicate the end of charge.
 
 __*Contactors with feedback:*__
 
