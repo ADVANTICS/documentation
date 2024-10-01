@@ -9,7 +9,7 @@
 
 |Field|ADM-PC-BP25 (VA08)|ADM-PC-BP25 (VA01)|ADM-PC-BP25 (VA04)|
 |-----|------------------|------------------|------------------|
-|**Voltage range**|800 V<sub>DC</sub> bus max |1000 V<sub>DC</sub> bus max|1000 V<sub>DC</sub> bus max|
+|**Voltage range**|800 V<sub>DC</sub> bus max |950 V<sub>DC</sub> bus max|950 V<sub>DC</sub> bus max|
 |**Current range**|DC/DC: 111 A (37 A per phase)  <br /> AC/DC: 111 A<sub>rms</sub> (37 A<sub>rms</sub> per phase)<br />Derating depends on heatsink design, cooling and ambient conditions|DC/DC: 100 A (33 A per phase)  <br /> AC/DC: 90 A<sub>rms</sub> (30 A<sub>rms</sub> per phase) <br />Derating depends on heatsink design, cooling and ambient conditions|DC/DC: 111 A (37 A per phase)  <br /> AC/DC: 111 A<sub>rms</sub> (37 A<sub>rms</sub> per phase)<br />Derating depends on heatsink design, cooling and ambient conditions|
 |**Power**|DC/DC: 50 kW max  <br /> AC/DC: 25 kW max|DC/DC: 50 kW max  <br /> AC/DC: 25 kW max|DC/DC: 50 kW max  <br /> AC/DC: 25 kW max|
 |**Efficiency**|>99% peak|>99% peak|>99% peak|
