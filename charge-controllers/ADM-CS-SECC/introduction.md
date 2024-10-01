@@ -26,7 +26,7 @@ Manufacturers of stationary and portable charging stations, integrators, researc
 ## Electrical and Mechanical specifications
 |       |                                            |                         |
 |-----------------------------|-------------------------------------------------|----------------------------------------------------|
-| **Charging Standards**      | **AC**                                           | ISO 15118-2/-20, SAE J1772, IEC 61851-1/-23       |
+| **Charging Standards**      | **AC**                                           | SAE J1772, IEC 61851-1/-23                        |
 |                             | **CCS**                                          | DIN SPEC 70121, ISO 15118-2/-20, NACS SAE J3400, SAE J1772, IEC 61851-1/-23|
 |                             | **CHAdeMO**                                      | 1.x, with V2G extention                           |
 | **Power input**             | **Input voltage min / max**                      | 20 V / 28 V                                       |
