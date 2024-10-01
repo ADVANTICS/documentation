@@ -30,7 +30,7 @@ new EV applications like rescue vehicles, and charge emulation for development p
 ## Electrical and Mechanical specifications
 |       |                                            |                         |
 |-----------------------------|-------------------------------------------------|----------------------------------------------------|
-| **Charging Standards**      | **AC**                                           | ISO 15118-2/-20, SAE J1772, IEC 61851-1/-23       |
+| **Charging Standards**      | **AC**                                           | SAE J1772, IEC 61851-1/-23                        |
 |                             | **CCS (Combo 1,2)**                              | DIN SPEC 70121, ISO 15118-2/-20, NACS SAE J3400, SAE J1772, IEC 61851-1/-23|
 | **Power input**             | **Input voltage**                                | 12 V or 24 V                                      |
 |                             | **Nominal power consumption without peripherals**| 2 W                                               |
