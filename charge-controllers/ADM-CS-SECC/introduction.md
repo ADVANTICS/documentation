@@ -56,7 +56,7 @@ Manufacturers of stationary and portable charging stations, integrators, researc
 |                             | **Output contactor driver**                      | 1 relay for driving output contactors 5A / 30V max|
 |                             | **Protection**                                   | HW interlocked relay (CP state monitor)           |
 | **CHAdeMO interface**       | **Communication wires**                          | SEQ1, SEQ2, PROX, PERM, CANH, CANL                |
-|                             | **Temperature measurements**                     | 5 PT1000 inputs: 2 for AC, 2 for CCS DC and 1 for CHAdeMO|
+|                             | **Temperature measurements**                     | 1 PT1000 input                                    |
 |                             | **Locking mechanism**                            | Solenoid driver                                   |
 |                             | **Output contactor driver**                      | 1 relay for driving output contactors 5A / 30V max|
 |                             | **Protection**                                   | HW interlocked relay (PERM state monitor)         |
