@@ -277,7 +277,7 @@ When the voltage at the output of the module is not defined by a battery or any 
 >[!NOTE] In DC/DC modes, the current setpoint is referred always to the total phase current, so make sure that the estimated current draw (and the selected current setpoint) is converted to low-voltage side (phase side) current draw by multiplying by the voltage ratio. For example, if we are boosting from 400V to 800V, and the expected current draw in the high-voltage bus is 40A, then, the setpoint has to be actually 80A + margin in the low voltage side.
 
 
-## Parallel operation in DC/DC and AC/DC for voltage regulation
+## Parallel operation in DC/DC modes and AC/DC rectifier mode for voltage regulation
 
 When in a application we need to increase the power, we may need to parallel several modules. 
 
@@ -369,4 +369,151 @@ On the other hand, if the user is more interested in having less high frequency 
 >[!TIP] We recommend to start by setting Iref = 30 Amps (90 Amps in the case of Inverter 1-phase + SYNC mode), then checking the behaviour and adjust this value as needed.
 
 
+## Parallel operation in DC/AC 3-phase Inverter mode  (grid forming)
 
+Starting from firmware 2024.9.25, a new set of features were introduced in the 3-phase inverter mode to allow paralleling of modules for grid forming.
+
+The goal of this set of features is:
+- Allow modules to share the load when connected in parallel
+- Allow new modules to be connected in parallel while loads are still being suppled (hot plugging)
+- Allow transfer of power between modules via power setpoints
+- Allow modifying the load sharing via power setpoints
+- Allow connection to the grid and exchange power with it via power setpoints
+- Allow connection in parallel with other inverters
+
+>[!TIP] Modules should also be able to be paralleled with diesel generators, but experience with this is extremely limited, also due to the big differences between diesel generator specifications (both steady state and transient performance)
+
+To understand how to operate modules in this mode, please read through the following sections of the document.
+
+### Basic operation of 2 or more AFEs in parallel as grid forming
+With the new firmware, AFEs can be connected in parallel in AC modes, but only in 3-phase inverter mode. This means that every AFE will generate the 3 phase voltages, and the phases of other AFEs can be paralleled.
+
+To enable a single AFE in ¨Inverter 3-phase¨ mode, set bit number 13 (starting from 0) in the ¨AFE_Mode_Control¨ message (see CAN database for more info).
+
+To start operating, do the following:
+1. Select voltage, current and frequency setpoints for all AFEs to be working as voltage sources. All of them have to have the same setpoints. (There are also power setpoints but set them as 0 at start). 
+Typical values:
+- Voltage setpoint: 120V/230V (RMS phase-to-neutral voltage)
+- Current setpoint: 40A 
+- Frequency: 50/60 Hz
+
+2. Enable one AFE as NEUTRAL mode (or generate the Neutral from another AFE in Boost+Neutral)
+
+3. Enable one AFE as ¨Inverter 3-phase¨ mode. Step 2 and 3 may be done in any order.
+
+4. Once the voltage has stabilized (may take around 0.5 to 1 second from the moment that the CAN message is sent), then the other 2 AFEs can be enabled as well. At this point, they will be in parallel generating an AC waveform. 
+
+>[!NOTE]When no load is connected, there will be some circulating current, mostly reactive. This is unavoidable, but this small reactive current does not take much of the current budget, as it adds in quadrature to active current. When loads are connected, the AFEs will tend to share the load more or less equally.
+
+### Understanding voltage and frequency droop
+In order to enable parallel operation in AC grid forming modes, a droop in voltage and frequency has been implemented. The droop equations are different depending on the impedance of the microgrid. As is usually the case for compatibility with the grid and diesel generators, we have 
+assumed a mainly inductive impedance, and with this in mind, the droop equations are as follow:
+
+ΔV = m⋅(Qset−Q)
+
+Δω = n⋅(Pset−P)
+
+Where Pset and Qset are the active and reactive power setpoints,respectively, P and Q are the measured active and reactive powers, and m and n are the voltage and frequency droop gains, respectively.
+
+Let’s start with the simplest case scenario: Pset and Qset are 0 (as this will usually be the case in microgrid operation). When applying the equations above, active power affects the frequency, and reactive power affects the voltage (in reality there is always some coupling). When the active power is increased (due to the connection of a load, for example), the frequency will be reduced, and when reactive power is increased, voltage will be reduced. The amount of reduction depends on the 'm' and 'n' constants. 
+
+Now we can complicate things a bit more: we can play with the Pset and Qset. When they are modified, the modules will try to modify their voltage/frequency to reach a new equilibrium in which they no longer share equally the load. This can be used, for example, to flow energy from one battery to another through the AC microgrid. This is better explained in next section.
+
+### Default droop gains
+Upon startup, and if the user does not modify them via CAN, the module will use the following default gains:
+
+**Frequency droop gain:** 40 Hz/MW
+
+**Voltage droop gain:** 630 V/MVAr
+
+### Power sharing
+There are several aspects that need to be discussed regarding power delivery and sharing.
+
+First of all, because the modules in grid-forming behave as voltage sources, the delivered current (and therefore, power) is the subproduct of the AC voltage and the load. Therefore, there is no meaning on talking about active/reactive power control of a single AFE because they will only depend on the load.
+
+However, when more than one AFE are connected together (or when they are connected in parallel to the grid or to other inverters), we can modify the power transfet and sharing between the modules. This is done via the Active and Reactive power setpoints. To explain how they work, let's put an example.
+
+Let's say that we have 2 AFEs in grid-forming mode. Their power setpoints (both, active and reactive) should be zero initially. Having a zero power setpoint does NOT mean that the module will not produce power (remember, power just depends on voltage and load). In this condition, the 2 AFEs will reach an equilibrium in which they will share the load, meaning that they both contribute almost the same amount and therefore each AFE will provide roughly half of the total power consumed by the load. Power sharing will never be perfect due to real life uncertainties, impedance mismatch, etc.
+
+In this scenario, modifying the power setpoints refers to modifying the equilibrium point. Therefore, if in this scenario we send an active power setpoint of 2 KW to one of the AFEs, that AFE will try to do 2 more KW than the other AFE, but total amount of power provided to the load will still be the same. 
+
+Some things to point out:
+- Having a setpoint of (for example) 2KW in one AFE and a setpoint of 0 KW in the other AFE will produce the same power flow as having a setpoint of 1 KW in one AFE and -1 KW in the other AFE. However, the equilibrium frequency/voltage will be slightly different.
+
+- For the previous reason, we suggest to set the power setpoints in the AFEs such that their sum is always zero (I.e: 1 +(-1) = 0). 
+
+- If a setpoint of +2KW is given to both AFEs, the power sharing will remain the same. But their frequency or voltage will increase according to the droop formulas described in previous section.
+
+### CAN messages for operation
+When operating in inverter 3p mode, these are the related CAN messages (for more information, refer directly to the CAN database):
+
+- **ID =** 0x78011, **Message name:** “AFE_AC_Power”, **Description:** contains the measured active and reactive powers (per phase).
+
+- **ID =** 0x70039, **Message name:** “AFE_Power_Setpoint_Control”, **Description:** use this message to send power setpoints to the module.
+
+- **ID =** 0x70051, **Message name:** “AFE_Inverter_Droop_Control”, **Description:** use this message to modify advanced parameters for operation (explained in following section).
+
+### Advanced parameters configuration
+When working in Inverter 3-phase mode, there are some extra configuration parameters that the user can modify. (For more information, please check the provided CAN database)
+
+>[!WARNING]**Important:** the modification of these parameters has serious implications on the behavior and stability of the module. If you need assistance, ask Advantics.
+
+
+The list of (most important) parameters that can be changed over CAN is the following:
+- **Frequency droop:** this is the droop slope/gain for the Frequency in Hz/MegaWatt. 
+Important: the default value for this gain (40 Hz/MW) is already quite high, and increasing 
+it degrades stability. Therefore, we do not recommend increasing it. 
+- **Voltage droop:** sets the droop gain/slope for the Voltage in V/MegaWatt. We do not 
+recommend increasing or decreasing this gain. Its default value is 630 V/MW.
+- **Virtual impedance:** sets the inductive virtual impedance in microhenries (uH). By default 
+(i.e: after power cycle), this value is 8000 uH. Important: lowering this value too much will
+lead to instability in the power loop. We do not recommend increasing this value.
+- **“Disable Harmonic Compensation”:** you can set this flag when harmonic compensation 
+needs to be disabled (i.e, when the module is connected in parallel to the utility grid or to a 
+diesel generator). Harmonic compensation is enabled by default on startup.
+- **“Enable integral action”:** this integral action refers to the Power loop controllers. Enable 
+this only if connected to the utility grid or any other 'stiff' AC source. If you go off-grid, this bit must be immediately 
+cleared. This is disabled by default on startup. Check the ‘Integral action: operate as 
+constant power/current source/sink’ section for more details on when to enable this setting
+
+### Tradeoff between droop grains, virtual impedance, transient performance and stability
+In previous section we can see that almost every parameter has serious implications on the stability of the system. In this section, we try to explain a bit more this relationship, and possible combinations of parameters depending on the application.
+
+Let’s start with virtual impedance(inductance). This virtual inductance is needed to make the system behave inductively (remember from previous sections that an inductive behavior was assumed), and also to stabilize the dynamics. **In general, the higher the Frequency droop gain is, the higher virtual impedance is needed.** By default, both frequency and virtual impedance are relatively high, so technically, you could divide them both by a factor of 4 (for example) to maintain stability.
+
+Let’s continue with the frequency droop: in order to improve power sharing between AFEs, the frequency droop gain needs to increase. Therefore, if you decrease the frequency droop gain, power sharing will be slightly worse, but this will allow you to have less virtual inductance, which has a benefit explained next.
+
+A high virtual impedance will worsen the transient performance of the voltage when loads are 
+connected/disconnected. To improve transient performance, you will want to lower virtual 
+impedance.
+
+Therefore, these 3 aspects are related to each other, and it is not possible to have a high droop gain, low output impedance and good stability and transient performance at the same time. One has to 
+choose depending on the application. 
+
+Here we present 2 case scenarios:
+
+**Case scenario 1: AFEs are used only to generate a microgrid**
+
+In this case scenario, the default gains and virtual impedance will work just fine, although transient performance might not be the best. You can decide to operate with default parameters, or you can 
+decide to improve transient performance by decreasing both frequency droop and virtual impedance by a factor of 2 or 4, for example. Although power sharing will be slightly worse, but still good enough.
+
+**Case scenario 2: AFEs are used as current sources against the utility grid**
+
+In this case, transient performance is less important as the modules behave as current sources. Therefore the default values can be used without any problem
+
+### Integral action: operate as constant power/current source/sink
+In order to behave as a current/power source, you can enable integral action. Integral action adds infinite gain at DC in the power loop, which means that the AFE will increase/decrease its frequency or voltage until its power matches the user selected power setpoints and is perfectly tracked (within the sensors accuracy), therefore behaving as a current/power source.
+
+>[!WARNING]**Important:**  bear in mind that to be able to enable integral action there needs to be at least one or more devices that act as ‘master’ generators, meaning that they do not have integral action or that 
+their frequency/voltage is stable, otherwise the whole system would drift in frequency/voltage. For example, it is ok to enable integral action when connected to a diesel generator, or to the utility grid.
+But if you only have one AFE generating 3-phase, then you should NOT enable integral action.
+
+>[!WARNING] If the integral action is activated because the AFE is operating in parallel to the utility grid (for example), bbut suddenly the utility grid is disconnected, then the integral action must be deactivated as soon as possible to prevent frequency/voltage drift.
+
+### Overload conditions
+The overload capabilities of the AFE is inherently small because its peak current rating is very close to its nominal one. 
+
+While the AFE is loaded above the selected current setpoint (which should be more or less equal to the nominal current), but below ~1.35 times the nominal current, the AFE will heavily lower the output voltage (as explained in section "Overload handling in AC inverter modes"). But also, when the load reaches ~1.35 times the nominal current, the AFE will start 
+clipping the current and therefore heavily distorting the voltage waveform to protect itself. This is intentional.
+
+Therefore, the load should not overcome ~1.35 times the nominal current by more than a few milliseconds. If high frequency content appears in the voltage waveform, it means that the peak current protection mechanism is being triggered. This is unavoidable to prevent damage in the AFE without completely stopping operation.
