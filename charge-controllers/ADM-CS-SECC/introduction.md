@@ -69,6 +69,12 @@ Manufacturers of stationary and portable charging stations, integrators, researc
 
 Please see the Software [Development Guide document](charge-controllers/sys3_user/README.md) for ADM-CS-SECC for details.
 
+## Pinout
+
+![Pinout](images/charge-station-controller-pinout.jpg "Pinout")
+</div>
+<figcaption style="text-align: center">Pinout</figcaption>
+
 ## Typical use case
 
 - [EV DC and AC charging stations](https://advantics.fr/applications/ev-charging/charge-station-controller/)
@@ -88,4 +94,4 @@ Each EV charging station design is different – requiring a different set of in
 
 ![Functionality overview](images/functionalities.jpg "Functionality overview")
 </div>
-<figcaption style="text-align: center">Figure 1: Functionality overview</figcaption>
+<figcaption style="text-align: center">Functionality overview</figcaption>
