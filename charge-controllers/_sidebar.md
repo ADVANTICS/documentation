@@ -54,7 +54,7 @@
         - [Changelog](charge-controllers/evcc_generic/changelog.md)
     - [Features](charge-controllers/evcc_features.md)
         - [No code mode](charge-controllers/evcc_no_code_mode.md)
-        <!-- - [Temperature control](charge-controllers/evcc_temperature_control.md) -->
+        - [Temperature control](charge-controllers/evcc_temperature_control.md)
         - [Sleep functions](charge-controllers/evcc_sleep.md)
         - [Lock safety](charge-controllers/evcc_lock_safety.md)
         - [Bidirectional](charge-controllers/evcc_bidirectional.md)
