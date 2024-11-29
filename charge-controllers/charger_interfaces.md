@@ -56,6 +56,8 @@ This interface can be also used to control only one AFE as a Buck.
 
 ### AFEs configuration
 
+> This interface can control Boost-Buck or Buck only stacks of ADM-PC-BP25 power modules.
+
 Configure the boost and buck stack position numbers to be consecutive such as the boost stack
 position number = buck stack position number + 1.
 You can do that by Using ADVANTICS engineering toolkit
@@ -69,7 +71,7 @@ The config entries available for this charger interface are the following:
 charger_type: The charger type should be "Advantics_ADM_PC_BP25_BoostBuck".
 ```
 ```
-boost_buck_mode: This boolean parameter can be used to select between Boost-Buck mode or Buck-only mode. The default value is false.
+boost_buck_mode: This boolean parameter can be used to select between Boost-Buck mode or Buck-only mode.
 ```
 ```
 boost_buck_max_current: This float parameter can be used to set the maximum current for Boost-Buck mode. The default value is 110 Amps.
@@ -86,6 +88,10 @@ stack_pos: stack position of the Buck. The controller assumes that the stack pos
 ### Parallel Stacking
 
 The charge controller can be configured to control a set of Boost-Buck chargers stacked in parallel. The stack position number of the Boost-Buck sets can be provided to the controller using the "stack_pos" config entry comma or space separated.
+
+If the system is configured in Buck-only mode (```boost_buck_mode``` is set to ```false```), ```stack_pos``` config entry should be the stack position of the Bucks comma or space separated.
+
+The power modules stack with the stack position number ```0``` should correspond to the stack connected directly to the output of the charger.
 
 ## MAXWELL MXR SERIES
 
