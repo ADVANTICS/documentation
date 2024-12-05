@@ -16,7 +16,7 @@ Version 3 of the interface provides improvements that made it easier to integrat
 
 - In the pistol section
   - `charger_type`: Use `Advantics_Generic_DC_v3`
-  - `is_bidirectional`: Default to `false`. Set it to `true` to enable bidirectionaily.
+  - `is_bidirectional`: Default to `false`. Set it to `true` to enable bidirectionality.
   - `supports_range_mode` (since dev11): Default to `true`. Set it to `false` if your power modules are not in compatible with range mode.
   - `min_charger_voltage`: Default to 0.
   - `max_charger_voltage`: Default to 500. Will be used as the default value in case signal [DC_Power_Parameters.Maximum_Voltage](charge-controllers/secc_generic/can_v3#DC_Power_Parameters-Maximum_Voltage) is 0.
@@ -62,18 +62,18 @@ The `State_of_Charge` signal was removed. And new signals have been added to giv
 function, setpoint mode, and output voltage lowering and contactors opening commands.
 
 The new power function signal covers these cases: Off, Standby, Insulation test, Precharge and Power
-transfer. Note that the "quircky" behaviour of v2 to use `Charging_Loop` with 0 V and 0 A targets to
+transfer. Note that the "quirky" behaviour of v2 to use `Charging_Loop` with 0 V and 0 A targets to
 mean standby after insulation tests and precharge has been streamlined into a proper `Standby` power
 function. For compatibility, the 0 V and 0 A setpoints while in standby have also been kept. And as
-now there is a single "power-related" message, it becomes sementically more appropriate to emit it
-outside of the charging part of the session.
+now there is a single "power-related" message, it becomes semantically more appropriate to emit it
+outside the charging part of the session.
 
 You will however no longer receive the `Insulation_Test` and `Precharge` messages anymore have they
 have been entirely removed.
 
 The `Lower_Output_Voltage` and `Output_Contactors` command signals have been added to signal
 explicitly when the charger should actively stop presenting an output voltage using one way or
-another. You should definitly read [their](DC_Power_Control-Output_Contactors)
+another. You should definitely read [their](DC_Power_Control-Output_Contactors)
 [documentations](charge-controllers/secc_generic/can_v3#DC_Power_Control-Lower_Output_Voltage)
 as it can be a bit tricky to use correctly.
 
@@ -147,7 +147,7 @@ If you already migrated from v2 to v3, here are the changes between v3 and v3.1:
 
 ## CHAdeMO V2G
 
-ADVANTICS charge controller supports CHAdeMO vehicle to grid appliction following the CHAdeMO V2G guidelines. The controller needs to be configured as described in the section [Relevant config entries](#Relevant-config-entries).
+ADVANTICS charge controller supports CHAdeMO vehicle to grid application following the CHAdeMO V2G guidelines. The controller needs to be configured as described in the section [Relevant config entries](#Relevant-config-entries).
 ### Operating Modes
 
 The CHAdeMO Bidirectional application is designed to be compatible with all CHAdeMO protocol versions, including non-bidirectional ones. In cases where a vehicle does not support bidirectionality, the application seamlessly operates in target mode. However, for vehicles that do support bidirectional functionality, the application operates in range mode, allowing customers to select the desired setpoint based on their specific requirements.
