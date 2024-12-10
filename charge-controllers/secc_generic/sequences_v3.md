@@ -2,6 +2,9 @@
 
 # Sequences of actions (EVSE Generic Interface v3)
 
+> [!NOTE]
+> The EVSE Generic interface version 3 supports all the charging standards, both unidirectional and bidirectional (DIN SPEC 70121 and ISO 15118-2/-20 (CCS and MCS), NACS and CHAdeMO).
+
 Before describing the CAN communication, let's take a detailed look at the sequences of actions,
 and what each actor in the charge process does.
 
@@ -141,16 +144,16 @@ end loop
 |||
 
 |||
-== [CCS only] External authorisation ==
+== [only for CCS & MCS] External authorisation ==
 |||
 
-PEV -> EVSE: [CCS only] Authorised?
+PEV -> EVSE: [only for CCS & MCS] Authorised?
 EVSE -> Charger: [0x6B000] Advantics_Controller_Status.State == CCS_Authorisation_Process
 activate Charger
 ...
 Charger -> EVSE: [0x63002] Sequence_Control.CCS_Authorisation_Valid == Valid
 Charger -> EVSE: [0x63002] Sequence_Control.CCS_Authorisation_Done == Done
-EVSE --> PEV: [CCS only] User is valid
+EVSE --> PEV: [only for CCS & MCS] User is valid
 deactivate Charger
 
 |||
@@ -181,7 +184,7 @@ safety hazard for the user. It consists in the charger applying a test voltage (
 maximum and riskier voltage that the charger would be applying across a whole charge, typically
 500 V). It then measures the output current and deduce the insulation resistance.
 
-By electrical safety standards, the insulation resistance should be of at least 100 kΩ (125 kΩ for MCS).
+The insulation resistance should be of at least 100 kΩ for CCS according to IEC 61851-23:2023, and at least 125 kΩ according to IEC 61851-23-3 for MCS.
 
 At first, the lock of the plug or inlet should be activated by now. Then the vehicle gives its
 permit to the charger to apply power. At this point, the Advantics controller has a mechanism to
@@ -211,7 +214,8 @@ with [System_Enable](charge-controllers/secc_generic/can_v3.md#Power_Modules_Sta
 > [DC_Power_Control](charge-controllers/secc_generic/can_v3.md#DC_Power_Control)
 > message with [Target_Voltage](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Target_Voltage) == 0 V,
 > [Current_Range_Max](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Current_Range_Max) == 0 A,
-> [Power_Function](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Power_Function) == Standby.
+> [Current_Range_Min](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Current_Range_Min) == 0 A,
+> [Power_Function](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Power_Function) == `Standby`.
 > This signifies a request for a "Standby", it will be used for this purpose across the charging session.
 > When emitted, it's expected from the power electronics to be ready for any future request while not processing any
 > power.
@@ -224,22 +228,17 @@ and [Power_Function](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-
 Customer controller should be returning a meaningful value
 in [Insulation_Resistance](charge-controllers/secc_generic/can_v3.md#Power_Modules_Status-Insulation_Resistance)
 of [Power_Modules_Status](charge-controllers/secc_generic/can_v3.md#Power_Modules_Status) message. The controller will
-wait for the present voltage to be at least
-90% of the requested test voltage. It then waits for the insulation resistance to be above the
-100 Ohms/V limit for at least 10 iterations of
-the [DC_Power_Control](charge-controllers/secc_generic/can_v3.md#DC_Power_Control) message. This number of 10 is
+wait for the present voltage to be at least 90% of the requested test voltage. It then waits for the insulation resistance to be above the valid insulation resistance threshold (100 kΩ for CCS and 125 kΩ for MCS) for at least 10 iterations of the [DC_Power_Control](charge-controllers/secc_generic/can_v3.md#DC_Power_Control) message. This number of 10 is
 an arbitrary choice from us, which we might change in the future if necessary.
 
-In case this criterion is not met (i.e. there is an electrical defect somewhere), the insulation test state will time
-out after 30 seconds. The malfunction is reported to the vehicle, and the charging process stops.
+In case this criterion is not met (i.e. there is an electrical defect somewhere), the insulation test fails and the session will be terminated. The malfunction is reported to the vehicle.
 
-When terminating the insulation test sequence, the controller will emit standby
+After successful insulation test and the sequence can proceed to the next stage, the controller will emit standby
 messages ([DC_Power_Control](charge-controllers/secc_generic/can_v3.md#DC_Power_Control)
 message with [Target_Voltage](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Target_Voltage) == 0 V,
 [Current_Range_Max](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Current_Range_Max) == 0 A,
 [Power_Function](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Power_Function) == Standby) as long as the
-present voltage reported by power
-modules is above 20 V. It then reports to the vehicle the insulation test is finished and the
+present voltage reported by power modules is above 20 V. It then reports to the vehicle the insulation test is finished and the
 charging process can continue to the next step.
 
 In case of CHAdeMO, the vehicle contactors are closed right after a successful insulation test.
@@ -263,7 +262,7 @@ group CHAdeMO only
   |||
 end group
 
-group CCS only
+group only for CCS & MCS
   |||
   PEV -> PEV: Lock connector
   |||
@@ -287,7 +286,7 @@ end loop
 ...
 Charger -> EVSE: [0x63000] Power_Modules_Status.System_Enable == Allowed
 deactivate Charger
-EVSE -> Charger: [0x6B003] DC_Power_Control (0 V, 0 A, Standby)
+EVSE -> Charger: [0x6B003] DC_Power_Control (0 V, 0 A, 0 A, Standby)
 
 |||
 == Ready for power ==
@@ -297,11 +296,11 @@ EVSE->Charger: [0x6B000] Advantics_Controller_Status.State == Insulation_Test
 |||
 loop Waiting for Power_Modules_Status.Insulation_Resistance >= 100 kΩ (125 kΩ for MCS) over 50 iterations
   |||
-  PEV -> EVSE: [CCS only] Insulation test continue
+  PEV -> EVSE: [only for CCS & MCS] Insulation test continue
   EVSE -> Charger: [0x6B003] DC_Power_Control (XXX V, 0 A, Insulation_Test)
   activate Charger
   Charger -> EVSE: [0x63000] Power_Modules_Status.Insulation_Resistance == XXX
-  EVSE --> PEV: [CCS only] Insulation test ongoing
+  EVSE --> PEV: [only for CCS & MCS] Insulation test ongoing
   |||
 end loop
 ...
@@ -309,11 +308,11 @@ end loop
 
 loop Waiting for Power_Modules_Status.Present_Voltage <= 20 V
   |||
-  PEV -> EVSE: [CCS only] Insulation test continue
-  EVSE -> Charger: [0x6B003] DC_Power_Control (0 V, 0 A, Standby)
+  PEV -> EVSE: [only for CCS & MCS] Insulation test continue
+  EVSE -> Charger: [0x6B003] DC_Power_Control (0 V, 0 A, 0 A, Standby)
   Charger -> EVSE: [0x63000] Power_Modules_Status.Present_Voltage == XXX
   deactivate Charger
-  EVSE --> PEV: [CCS only] Insulation test ongoing
+  EVSE --> PEV: [only for CCS & MCS] Insulation test ongoing
   |||
 end loop
 ...
@@ -332,7 +331,7 @@ end group
 |||
 ```
 
-### Precharge (CCS only)
+### Precharge (only for CCS & MCS)
 
 When the vehicle closes its contactors, the battery voltage is applied up to the charger power
 electronics output (or charger's own output contactors if it uses some) which could be at a
@@ -343,7 +342,7 @@ To handle this situation, CHAdeMO chose to require chargers to have an output di
 adopted the precharge process, which consists in having the charger match the battery voltage to
 about 20 V prior to the vehicle closing its contactors.
 
-With CCS, the controller will start
+With CCS and MCS, the controller will start
 emitting [DC_Power_Control](charge-controllers/secc_generic/can_v3.md#DC_Power_Control)
 messages with [Target_Voltage](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Target_Voltage) == XXX V
 (battery voltage), [Current_Range_Max](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Current_Range_Max) ==
@@ -354,7 +353,7 @@ tells it to. These messages contain the target voltage corresponding to the pres
 maximum current limit to comply with (bear in mind some capacitors are still being charged in the process).
 
 Once the vehicle decide the voltage is right (which it should do by its own measurements before closing its contactors),
-it closes its contactors and continue with the charging sequence. While CCS does not explicitly tell when the vehicle is
+it closes its contactors and continue with the charging sequence. While CCS and MCS does not explicitly tell when the vehicle is
 ending the precharge process, the controller is using the fact that the vehicle starts sending requests other than
 precharge to determine the end of precharge. At that point, the controller
 emits [DC_Power_Control](charge-controllers/secc_generic/can_v3.md#DC_Power_Control) standby message
@@ -386,7 +385,7 @@ EVSE -> Charger: [0x6B000] Advantics_Controller_Status.State == Precharge
 loop Waiting for abs(Plug voltage - Battery voltage) <= 20 V
   |||
   PEV -> EVSE: Precharge continue
-  EVSE -> Charger: [0x6B003] DC_Power_Control (XXX V, X A, Precharge)
+  EVSE -> Charger: [0x6B003] DC_Power_Control (XXX V, X A, 0 A, Precharge)
   activate Charger
   EVSE --> PEV: Present voltage
   Charger -> EVSE: [0x63000] Power_Modules_Status.Present_Voltage == XXX
@@ -400,7 +399,7 @@ PEV -> PEV: Close contactors
 
 PEV -> EVSE: Other request than precharge
 deactivate PEV
-EVSE -> Charger: [0x6B003] DC_Power_Control (0 V, 0 A, Standby)
+EVSE -> Charger: [0x6B003] DC_Power_Control (0 V, 0 A, 0 A, Standby)
 deactivate Charger
 deactivate EVSE
 |||
@@ -409,10 +408,10 @@ deactivate EVSE
 ### Start of charge
 
 The start of charge state is here to signal the charge is *about* to start. This is to accommodate
-for the *Power Delivery* request in CCS which requires the charger to be ready to charge, while the
+for the *Power Delivery* request in CCS and MCS which requires the charger to be ready to charge, while the
 actual charge might be starting in several hours. It happens if the user of the vehicle configured a
 delayed charge or if there have been a negotiation of the charging schedule between the vehicle, the
-charger and the electricity provider (only in complex scenario of CCS ISO).
+charger and the electricity provider (only in complex scenario of ISO).
 
 The [Charge_Status_Change](charge-controllers/secc_generic/can_v3.md#Charge_Status_Changes)
 and [DC_Power_Control](charge-controllers/secc_generic/can_v3.md#DC_Power_Control) messages are sent only once.
@@ -434,7 +433,7 @@ PEV -> EVSE: About to start charge
 activate PEV
 EVSE -> Charger: [0x6B000] Advantics_Controller_Status.State == Waiting_For_Charge
 EVSE -> Charger: [0x6B002] Charge_Status_Change.Vehicle_Ready_for_Charging == Charge_Started
-EVSE -> Charger: [0x6B003] DC_Power_Control (0 V, 0 A, Standby)
+EVSE -> Charger: [0x6B003] DC_Power_Control (0 V, 0 A, 0 A, Standby)
 
 |||
 ...
@@ -445,20 +444,19 @@ end note
 |||
 ```
 
-### Power Transfer
+## Power Transfer
 
-This happens as soon as the vehicle and the charger enter the actual charging loop. The process is
-very simple: the vehicle send its voltage and current requests to the controller, the controller
-forward them to the customer controller, which forward them to power modules. The power modules
-should follow and not deviate from the vehicle requests, otherwise the vehicle could stop the charge
-abruptly.
+This happens as soon as the vehicle and the charger enter the actual power transfer phase. The process is
+very simple: the vehicle send its requests and limits to the controller, the controller
+forwards them to the customer controller, which can then send voltage and current setpoint to the power modules depending on
+ the [Setpoints_Mode](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Setpoints_Mode) and power transfer direction specified by the car or the charger (determining the power transfer direction is explained later in this document).
 
 While the vehicle can use its own voltage and current measurements, it is also required that the
 charger reports its own readings. Therefore, customer controller should update frequently the
 readings in [Power_Modules_Status](charge-controllers/secc_generic/can_v3.md#Power_Modules_Statuss) message.
 
 However, the communication protocols are very demanding in terms of charger performances during this
-charging loop (CHAdeMO: 100 ms, CCS: 25 ms). In order to comply with these requirements (which
+power transfer (CHAdeMO: 100 ms, ISO15118: 25 ms). In order to comply with these requirements (which
 otherwise could trigger a premature end of charge), the controller is not waiting on the power
 modules to get the most recent readings. It will use the last ones it has at this moment instead. As
 the loops are short, it should not create much lag anyway.
@@ -466,7 +464,7 @@ the loops are short, it should not create much lag anyway.
 > [!NOTE]
 > A note about the periodicity at which
 > the [DC_Power_Control](charge-controllers/secc_generic/can_v3.md#DC_Power_Control)
-> messages are emitted. In CHAdeMO they should be sent about every 100 ms. However, in CCS, the vehicle sets the pace,
+> messages are emitted. In CHAdeMO they should be sent about every 100 ms. However, in CCS and MCS, the vehicle sets the pace,
 > and the standards allows for periodicity of up to 60 s (afterwards it is considered a timeout and the charge stops).
 
 About the behaviour of voltage and current changes, this is mostly unspecified (or specified too
@@ -486,6 +484,15 @@ Some vehicle might decide to stop the charge early (for instance, when bulk char
 Some might decide to squeeze as much juice as possible until any of the limits is reached (max.
 voltage, min. current or min. power).
 
+### Power Transfer with Target Mode
+
+> [!NOTE]
+> Used for Unidirectional charging and some cases of Bidirectional power transfer.
+
+This can be the normal EV charging process where the EV owner is only interested in charging the vehile or if the charger or the vehicle do not support bidirectional power transfer (ISO 15118-20 or CHAdeMO V2G).
+
+This mode covers as well the scenario when the power transfer session is following a pre-negociated schedule where the charger and the vehicle agreed to charge and discharge at specific power rates on specific time frames during the session if supported by both parties. The target voltage and current are predefined and known in this case.
+
 ```plantuml
 hide footbox
 skinparam ParticipantPadding 20
@@ -496,7 +503,7 @@ participant "Vehicle" as PEV
 participant "Advantics Controller" as EVSE
 participant "Customer Controller" as Charger
 
-== Unidirectional Power Transfer ==
+== Target Mode & Unidirectional charging ==
 
 |||
 loop Waiting for any stop conditions
@@ -504,7 +511,7 @@ loop Waiting for any stop conditions
   PEV -> EVSE: Current request
   activate EVSE
   EVSE -> Charger: [0x6B000] Advantics_Controller_Status.State == Charging
-  EVSE -> Charger: [0x6B003] DC_Power_Control (XXX V, XX A, Power_Transfer, __**Target_Mode**__)
+  EVSE -> Charger: [0x6B003] DC_Power_Control (XXX V, XX A, XX A, Power_Transfer, __**Target_Mode**__)
   activate Charger
   EVSE -> Charger: [0x6B100] EV_Information_Battery
   EVSE --> PEV: Present voltage and current
@@ -518,31 +525,24 @@ end loop
 |||
 ```
 
+In this case, the voltage and current setpoints are defined by the vehicle, they are then sent to the charge controller which forwards them to the customer controller (taking into account the charger and cable limits), which sends them to power modules. The power modules should follow and not deviate from these requests, otherwise the vehicle could stop the charge abruptly.
+
+In this scenario, the controller sets [Setpoints_Mode](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Setpoints_Mode) to `Target_Mode` in the message [DC_Power_Control](charge-controllers/secc_generic/can_v3.md#DC_Power_Control) and provides the voltage and current setpoints. Both [Current_Range_Max](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Current_Range_Max) and [Current_Range_Min](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Current_Range_Min) signals will have the same value in `Target_Mode`
+
+### Power Transfer with Range Mode
+
+This mode is used when the vehicle doesn't specify target power requests to the charger, instead, the charger receives a target energy request the vehicle wants to leave with at a departure time with charge/discharge current limits that should be respected during the session.
+
+The charger in this scenario has the liberty to cycle between charging and discharging the vehicle's battery within the provided limits depending on the application, as long as the target energy request of the vehicle is reached by the departure time. The power transfer direction and the power setpoints are determined by a third-party system, such as a Central System Management System (CSMS) via OCPP or a local control system on the charger. This decision-making process considers factors like real-time electricity pricing and grid requirements.
+
+In this scenario, the controller sets [Setpoints_Mode](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Setpoints_Mode) to Range_Mode in the message [DC_Power_Control](charge-controllers/secc_generic/can_v3.md#DC_Power_Control) and provides the voltage and current limits.
+
+The OCPP CSMS can define the power transfer direction and the charge/discharge current to be used within the limits of the current range.
+If this information is provided by the OCPP CSMS to the charge station, the generic interface forwards you this information over CAN bus via the signal [OCPP_Control](charge-controllers/secc_generic/can_v3.md#OCPP_Control-Dynamic_Target_Current) to be used as a current setpoint for the power modules.
+
 > [!NOTE]
-> About Range_Mode/Target_Mode
-> for [Setpoints_Mode](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Setpoints_Mode)  
-> These are two DC power control setpoint modes set by the ADVANTICS controller to define the expected behavior
-> of the power modules. The Target_Mode can be defined as the mode that has been in use for the previous generic EVSE
-> interface versions, there is a voltage-current setpoint and the charge controller expects the power modules to match
-> these values. The Range_Mode however introduces more possibilities with the ISO15118-20 and CHAdeMO V2G bidirectional
-> charging standards. _
-_**If the [DC_Power_Control.Setpoints_Mode](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Setpoints_Mode)
-> indicates "Range_Mode"**__, the power modules are free to move within the limits provided in
-> the [DC_Power_Control](charge-controllers/secc_generic/can_v3.md#DC_Power_Control) message. In this case, i the
-> Current_Range_Min is below zero, the power modules can discharge the vehicle battery.  
-> There are two approaches to implement such behavior:
-> - **Central control by using OCPP**: It's possible to set a target current (positive or negative if the range allows)
-    by sending a command from central OCPP system through an OCPP-enabled ADVANTICS charge controller. The charge
-    controller will emit an OCPP_Control message with a Dynamic_Target_Current signal. In this case, the customer
-    controller should be controlling the power modules according to this current setpoint. This can happen only when the
-    [Setpoints_Mode](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Setpoints_Mode) is Range_Mode,
-    otherwise (in Target_Mode) it must be ignored regardless of the limits.
-> - **Local control by using another interface/mechanism**: The customer controller can implement any communication
-    interface/control mechanism to decide the target current while the
-    [Setpoints_Mode](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Setpoints_Mode) is
-    Range_Mode. Charge/discharge behavior of the power modules will be accepted as valid for the ADVANTICS controller as
-    far as the limits are respected.
->
+> A normal unidirectional power transfer process can be implemented in range mode by using the upper limit of the current range as a target current setpoint.
+
 > [More information about bidirectionality on EVSE](charge-controllers/secc_generic/secc_bidirectional)  
 > [More information about the Setpoints_Mode signal in DC_Power_Control](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Setpoints_Mode)
 
@@ -556,7 +556,7 @@ participant "Vehicle" as PEV
 participant "Advantics Controller" as EVSE
 participant "Customer Controller" as Charger
 
-== Bidirectional Power Transfer ==
+== Power Transfer with Range Mode ==
 
 |||
 loop Waiting for any stop conditions
@@ -564,7 +564,7 @@ loop Waiting for any stop conditions
   PEV -> EVSE: Current request
   activate EVSE
   EVSE -> Charger: [0x6B000] Advantics_Controller_Status.State == Charging
-  EVSE -> Charger: [0x6B003] DC_Power_Control (XXX V, XX A, Power_Transfer, __**Range_Mode**__)
+  EVSE -> Charger: [0x6B003] DC_Power_Control (XXX V, XX A, X A, Power_Transfer, __**Range_Mode**__)
   activate Charger
   EVSE -> Charger: [0x6B100] EV_Information_Battery
   EVSE --> PEV: Present voltage and current
@@ -587,6 +587,9 @@ loop Waiting for any stop conditions
 end loop
 |||
 ```
+
+In this scenario, the controller sets [Setpoints_Mode](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Setpoints_Mode) to `Range_Mode` in the message [DC_Power_Control](charge-controllers/secc_generic/can_v3.md#DC_Power_Control) and provides the voltage and current limits in the signals [Current_Range_Max](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Current_Range_Max) and [Current_Range_Min](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Current_Range_Min).
+
 
 ### End of charge
 
@@ -616,9 +619,9 @@ PEV -> EVSE: Stopping charge
 deactivate PEV
 EVSE -> Charger: [0x6B000] Advantics_Controller_Status.State == Ending_Charge
 EVSE -> Charger: [0x6B002] Charge_Status_Change.Vehicle_Ready_for_Charging == Charge_Stopped
-EVSE -> Charger: [0x6B003] DC_Power_Control (0 V, 0 A, Standby, Contactors Close, No_Lowering)
-EVSE -> Charger: [0x6B003] DC_Power_Control (0 V, 0 A, Standby, Contactors Open, No_Lowering)
-EVSE -> Charger: [0x6B003] DC_Power_Control (0 V, 0 A, Standby, Contactors Open, Lowering)
+EVSE -> Charger: [0x6B003] DC_Power_Control (0 V, 0 A, 0 A, Standby, Contactors Close, No_Lowering)
+EVSE -> Charger: [0x6B003] DC_Power_Control (0 V, 0 A, 0 A, Standby, Contactors Open, No_Lowering)
+EVSE -> Charger: [0x6B003] DC_Power_Control (0 V, 0 A, 0 A, Standby, Contactors Open, Lowering)
 deactivate EVSE
 deactivate Charger
 |||
@@ -715,7 +718,7 @@ group CHAdeMO only
   |||
 end group
 |||
-group CCS only
+group only for CCS & MCS
   |||
   PEV -> PEV: Wait for low voltage
   PEV -> PEV: Unlock connector
