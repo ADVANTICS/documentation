@@ -591,7 +591,7 @@ end loop
 In this scenario, the controller sets [Setpoints_Mode](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Setpoints_Mode) to `Range_Mode` in the message [DC_Power_Control](charge-controllers/secc_generic/can_v3.md#DC_Power_Control) and provides the voltage and current limits in the signals [Current_Range_Max](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Current_Range_Max) and [Current_Range_Min](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Current_Range_Min).
 
 
-### End of charge
+## End of charge
 
 This sequence comes at the end of a charge, when the charge has not been aborted irregularly. The
 [Charge_Status_Change](charge-controllers/secc_generic/can_v3.md#Charge_Status_Change) message is sent only once.
@@ -635,7 +635,7 @@ end loop
 |||
 ```
 
-### Contactors welding detection (optional)
+## Contactors welding detection (optional)
 
 Depending on the communication protocol used, as well as on the vehicle willingness to do it, there
 might be an optional step of contactor welding detection. The vehicle will open and close its
@@ -677,7 +677,7 @@ end loop
 |||
 ```
 
-### Terminating charge session
+## Terminating charge session
 
 When the charge session is over, the vehicle opens its contactors. Then, whoever owns the lock of plug/inlet waits for
 the voltage to lower to a safe level before unlocking the connector.
