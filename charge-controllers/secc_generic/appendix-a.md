@@ -1,5 +1,5 @@
 > [!UPDATE] {docsify-updated}
-# Appendix A
+# Charge Sequence Diagram
 
 ```plantuml
 hide footbox
