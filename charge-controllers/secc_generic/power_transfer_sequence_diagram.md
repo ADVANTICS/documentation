@@ -58,16 +58,16 @@ end loop
 |||
 
 |||
-== [CCS only] External authorisation ==
+== [only for CCS & MCS] External authorisation ==
 |||
 
-PEV -> EVSE: [CCS only] Authorised?
+PEV -> EVSE: [only for CCS & MCS] Authorised?
 EVSE -> Charger: [0x6B000] Advantics_Controller_Status.State == CCS_Authorisation_Process
 activate Charger
 ...
 Charger -> EVSE: [0x63002] Sequence_Control.CCS_Authorisation_Valid == Valid
 Charger -> EVSE: [0x63002] Sequence_Control.CCS_Authorisation_Done == Done
-EVSE --> PEV: [CCS only] User is valid
+EVSE --> PEV: [only for CCS & MCS] User is valid
 deactivate Charger
 
 |||
@@ -111,7 +111,7 @@ group CHAdeMO only
   |||
 end group
 
-group CCS only
+group only for CCS & MCS
   |||
   PEV -> PEV: Lock connector
   |||
@@ -135,7 +135,7 @@ end loop
 ...
 Charger -> EVSE: [0x63000] Power_Modules_Status.System_Enable == Allowed
 deactivate Charger
-EVSE -> Charger: [0x6B003] DC_Power_Control (0 V, 0 A, Standby)
+EVSE -> Charger: [0x6B003] DC_Power_Control (0 V, 0 A, 0 A, Standby)
 
 |||
 == Ready for power ==
@@ -145,11 +145,11 @@ EVSE->Charger: [0x6B000] Advantics_Controller_Status.State == Insulation_Test
 |||
 loop Waiting for Power_Modules_Status.Insulation_Resistance >= 100 kΩ (125 kΩ for MCS) over 50 iterations
   |||
-  PEV -> EVSE: [CCS only] Insulation test continue
+  PEV -> EVSE: [only for CCS & MCS] Insulation test continue
   EVSE -> Charger: [0x6B003] DC_Power_Control (XXX V, 0 A, Insulation_Test)
   activate Charger
   Charger -> EVSE: [0x63000] Power_Modules_Status.Insulation_Resistance == XXX
-  EVSE --> PEV: [CCS only] Insulation test ongoing
+  EVSE --> PEV: [only for CCS & MCS] Insulation test ongoing
   |||
 end loop
 ...
@@ -157,11 +157,11 @@ end loop
 
 loop Waiting for Power_Modules_Status.Present_Voltage <= 20 V
   |||
-  PEV -> EVSE: [CCS only] Insulation test continue
-  EVSE -> Charger: [0x6B003] DC_Power_Control (0 V, 0 A, Standby)
+  PEV -> EVSE: [only for CCS & MCS] Insulation test continue
+  EVSE -> Charger: [0x6B003] DC_Power_Control (0 V, 0 A, 0 A, Standby)
   Charger -> EVSE: [0x63000] Power_Modules_Status.Present_Voltage == XXX
   deactivate Charger
-  EVSE --> PEV: [CCS only] Insulation test ongoing
+  EVSE --> PEV: [only for CCS & MCS] Insulation test ongoing
   |||
 end loop
 ...
@@ -190,7 +190,7 @@ EVSE -> Charger: [0x6B000] Advantics_Controller_Status.State == Precharge
 loop Waiting for abs(Plug voltage - Battery voltage) <= 20 V
   |||
   PEV -> EVSE: Precharge continue
-  EVSE -> Charger: [0x6B003] DC_Power_Control (XXX V, X A, Precharge)
+  EVSE -> Charger: [0x6B003] DC_Power_Control (XXX V, X A, 0 A, Precharge)
   activate Charger
   EVSE --> PEV: Present voltage
   Charger -> EVSE: [0x63000] Power_Modules_Status.Present_Voltage == XXX
@@ -204,7 +204,7 @@ PEV -> PEV: Close contactors
 
 PEV -> EVSE: Other request than precharge
 deactivate PEV
-EVSE -> Charger: [0x6B003] DC_Power_Control (0 V, 0 A, Standby)
+EVSE -> Charger: [0x6B003] DC_Power_Control (0 V, 0 A, 0 A, Standby)
 deactivate Charger
 deactivate EVSE
 |||
@@ -227,7 +227,7 @@ PEV -> EVSE: About to start charge
 activate PEV
 EVSE -> Charger: [0x6B000] Advantics_Controller_Status.State == Waiting_For_Charge
 EVSE -> Charger: [0x6B002] Charge_Status_Change.Vehicle_Ready_for_Charging == Charge_Started
-EVSE -> Charger: [0x6B003] DC_Power_Control (0 V, 0 A, Standby)
+EVSE -> Charger: [0x6B003] DC_Power_Control (0 V, 0 A, 0 A, Standby)
 
 |||
 ...
@@ -248,7 +248,7 @@ participant "Vehicle" as PEV
 participant "Advantics Controller" as EVSE
 participant "Customer Controller" as Charger
 
-== Unidirectional Power Transfer ==
+== Target Mode & Unidirectional charging ==
 
 |||
 loop Waiting for any stop conditions
@@ -256,7 +256,7 @@ loop Waiting for any stop conditions
   PEV -> EVSE: Current request
   activate EVSE
   EVSE -> Charger: [0x6B000] Advantics_Controller_Status.State == Charging
-  EVSE -> Charger: [0x6B003] DC_Power_Control (XXX V, XX A, Power_Transfer, __**Target_Mode**__)
+  EVSE -> Charger: [0x6B003] DC_Power_Control (XXX V, XX A, XX A, Power_Transfer, __**Target_Mode**__)
   activate Charger
   EVSE -> Charger: [0x6B100] EV_Information_Battery
   EVSE --> PEV: Present voltage and current
@@ -280,7 +280,7 @@ participant "Vehicle" as PEV
 participant "Advantics Controller" as EVSE
 participant "Customer Controller" as Charger
 
-== Bidirectional Power Transfer ==
+== Power Transfer with Range Mode ==
 
 |||
 loop Waiting for any stop conditions
@@ -288,7 +288,7 @@ loop Waiting for any stop conditions
   PEV -> EVSE: Current request
   activate EVSE
   EVSE -> Charger: [0x6B000] Advantics_Controller_Status.State == Charging
-  EVSE -> Charger: [0x6B003] DC_Power_Control (XXX V, XX A, Power_Transfer, __**Range_Mode**__)
+  EVSE -> Charger: [0x6B003] DC_Power_Control (XXX V, XX A, X A, Power_Transfer, __**Range_Mode**__)
   activate Charger
   EVSE -> Charger: [0x6B100] EV_Information_Battery
   EVSE --> PEV: Present voltage and current
@@ -330,9 +330,9 @@ PEV -> EVSE: Stopping charge
 deactivate PEV
 EVSE -> Charger: [0x6B000] Advantics_Controller_Status.State == Ending_Charge
 EVSE -> Charger: [0x6B002] Charge_Status_Change.Vehicle_Ready_for_Charging == Charge_Stopped
-EVSE -> Charger: [0x6B003] DC_Power_Control (0 V, 0 A, Standby, Contactors Close, No_Lowering)
-EVSE -> Charger: [0x6B003] DC_Power_Control (0 V, 0 A, Standby, Contactors Open, No_Lowering)
-EVSE -> Charger: [0x6B003] DC_Power_Control (0 V, 0 A, Standby, Contactors Open, Lowering)
+EVSE -> Charger: [0x6B003] DC_Power_Control (0 V, 0 A, 0 A, Standby, Contactors Close, No_Lowering)
+EVSE -> Charger: [0x6B003] DC_Power_Control (0 V, 0 A, 0 A, Standby, Contactors Open, No_Lowering)
+EVSE -> Charger: [0x6B003] DC_Power_Control (0 V, 0 A, 0 A, Standby, Contactors Open, Lowering)
 deactivate EVSE
 deactivate Charger
 |||
@@ -383,7 +383,7 @@ group CHAdeMO only
   |||
 end group
 |||
-group CCS only
+group only for CCS & MCS
   |||
   PEV -> PEV: Wait for low voltage
   PEV -> PEV: Unlock connector
