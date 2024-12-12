@@ -8,7 +8,7 @@
 Before describing the CAN communication, let's take a detailed look at the sequences of actions,
 and what each actor in the charge process does.
 
-See [Appendix A](charge-controllers/secc_generic/appendix-a.md) for the full sequence diagram. Extracts of it will be
+See the [Power transfer sequence diagram](charge-controllers/secc_generic/power_transfer_sequence_diagram.md) for the full sequence. Extracts of it will be
 given here.
 
 ## Controller starts-up
