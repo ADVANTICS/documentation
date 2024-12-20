@@ -9,3 +9,4 @@
 1. [Read-only file system](charge-controllers/sys3_user/read-only.md)
 1. [Developing with the controller](charge-controllers/sys3_user/developing.md)
 1. [Developing in Python](charge-controllers/sys3_user/python.md)
+1. [CSM Web UI](charge-controllers/sys3_user/csm-web-ui.md)
