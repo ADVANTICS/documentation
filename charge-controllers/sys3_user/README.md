@@ -1,4 +1,5 @@
 > [!UPDATE] {docsify-updated}
+
 # User guide for Advantics Linux system version 3.x
 
 1. [Platforms](charge-controllers/sys3_user/platforms.md)

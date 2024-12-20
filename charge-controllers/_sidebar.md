@@ -104,4 +104,7 @@
             - [Read-only file system](charge-controllers/sys3_user/read-only.md)
             - [Developing with the controller](charge-controllers/sys3_user/developing.md)
             - [Developing in Python](charge-controllers/sys3_user/python.md)
+    - [ADVANTICS OS](charge-controllers/advantics_os/README.md)
+        - [Accessing the controller](charge-controllers/advantics_os/connecting.md)
+        - [CSM Web UI](charge-controllers/advantics_os/csm-web-ui.md)
     <!-- - [4.x branch](charge-controllers/systems_branch4.m) -->
