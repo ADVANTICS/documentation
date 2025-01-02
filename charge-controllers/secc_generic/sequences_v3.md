@@ -531,7 +531,8 @@ In this scenario, the controller sets [Setpoints_Mode](charge-controllers/secc_g
 
 ### Power Transfer with Range Mode
 
-This mode is used when the vehicle doesn't specify target power requests to the charger, instead, the charger receives a target energy request the vehicle wants to leave with at a departure time with charge/discharge current limits that should be respected during the session.
+In this mode, the vehicle exposes its battery to the charger during the power transfer stage. The charger can then draw or push power within the limits negotiated with the vehicle (these limits can be dynamically updated).
+This power transfer mode is used when the vehicle does not specify target power requests to the charger. Instead, the charger receives a target energy request that the vehicle aims to achieve by its departure time, along with charge/discharge current limits that must be respected throughout the session.
 
 The charger in this scenario has the liberty to cycle between charging and discharging the vehicle's battery within the provided limits depending on the application, as long as the target energy request of the vehicle is reached by the departure time. The power transfer direction and the power setpoints are determined by a third-party system, such as a Central System Management System (CSMS) via OCPP or a local control system on the charger. This decision-making process considers factors like real-time electricity pricing and grid requirements.
 
