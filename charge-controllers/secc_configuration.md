@@ -97,7 +97,13 @@ Please refer to [**CAN ID index field**](charge-controllers/secc_generic/databas
 This entry should indicate the type of charger interface to be used. It can be either a [**Generic Interface**](charge-controllers/secc_generic/overview.md#general-operation) or a specific [**Charger Interface**](charge-controllers/charger_interfaces.md)
 
 
-Example:
+Example 1:
+
+    charger_type = Advantics_Generic_DC_v3
+
+Check the following section for the Generic Interface V3 documentation:  [**Generic Interface V3**](charge-controllers/secc_generic/README_v3.md)
+
+Example 2:
 
     charger_type = Advantics_ADS_PC_BPUD
 
