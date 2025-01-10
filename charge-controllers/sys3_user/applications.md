@@ -72,6 +72,32 @@ They all takes the same _COMMAND_ parameter:
 | logs | Print out the logs and keep following them. Do _CTRL+C_ to exit the log. |
 | exportlogs | Takes one exta parameter to give the file name where the logs will be exported to. |
 
+
+### Export and copy Logs
+
+After exporting the logs of an application with exportlogs command as shown in the following example :
+
+```bash
+$ /srv/run-evse-controller.sh exportlogs evse_controller_logs.log
+$ /srv/run-ccs-secc.sh exportlogs ccs_secc_logs.log
+$ /srv/run-slac-evse.sh exportlogs slac_evse_logs.log
+```
+
+You can download the logs to your system:
+
+- __Using the command line interface:__
+
+```bash
+$ scp root@<controllerIPAddress>:<LogsPath> <DestinationPath>
+```
+You should replace <controllerIPAddress> with the IP address of the controller, <LogsPath> with the logs path on the controller, and <DestinationPath> with the destination folder on your system. The following is an example:
+```bash
+$ scp root@192.168.1.51:/root/evse_controller_logs.log .
+```
+
+- __Or using the WINDOWS tool [**WinSCP**](https://winscp.net/eng/download.php) (more convenient for WINDOWS users)__
+
+
 ## PEV applications
 
 ### Start and stop all
@@ -130,15 +156,21 @@ They all takes the same _COMMAND_ parameter:
 After exporting the logs of an application with exportlogs command as shown in the following example :
 
 ```bash
-$ /srv/run-evse-controller.sh exportlogs evselogsname
+$ /srv/run-pev-controller.sh exportlogs pev_controller_logs.log
+$ /srv/run-ccs-evcc.sh exportlogs ccs_evcc_logs.log
+$ /srv/run-slac-pev.sh exportlogs slac_pev_logs.log
 ```
 
-You can download the logs to your system by doing:
+You can download the logs to your system:
+
+- __Using the command line interface:__
 
 ```bash
 $ scp root@<controllerIPAddress>:<LogsPath> <DestinationPath>
 ```
 You should replace <controllerIPAddress> with the IP address of the controller, <LogsPath> with the logs path on the controller, and <DestinationPath> with the destination folder on your system. The following is an example:
 ```bash
-$ scp root@192.168.1.51:/root/evselogsname .
+$ scp root@192.168.1.51:/root/pev_controller_logs.log .
 ```
+
+- __Or using the WINDOWS tool [**WinSCP**](https://winscp.net/eng/download.php) (more convenient for WINDOWS users)__
