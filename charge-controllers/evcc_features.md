@@ -5,4 +5,4 @@
 <!-- 1m [Temperature control](charge-controllers/evcc_temperature_control.md) -->
 1. [Sleep functions](charge-controllers/evcc_sleep.md)
 1. [Lock safety](charge-controllers/evcc_lock_safety.md)
-1. [Bidirectional](charge-controllers/evcc_bidirectional.md)
+1. [MCS & BPT (ISO15118-20)](charge-controllers/evcc_bidirectional.md)
