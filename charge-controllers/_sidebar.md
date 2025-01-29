@@ -64,8 +64,6 @@
             - [Sequences of action](charge-controllers/evcc_generic/sequences_v2.md)
             - [CAN databases](charge-controllers/evcc_generic/databases_v2.md)
             - [CAN messages](charge-controllers/evcc_generic/can_v2.md)
-            <!-- - [Appendix A](charge-controllers/evcc_generic/power_transfer_sequence_diagram.md)
-            - [Changelog](charge-controllers/evcc_generic/changelog_v2.md) -->
     - [Features](charge-controllers/evcc_features.md)
         - [No code mode](charge-controllers/evcc_no_code_mode.md)
         - [Temperature control](charge-controllers/evcc_temperature_control.md)
