@@ -22,6 +22,7 @@ In addition, the vehicle will be able to specify the time of departure which can
 - `[vehicle]` section
   - [type](charge-controllers/evcc_configuration/generalities.md#type): Use `Advantics_Generic_v2`
   - [is_bidirectional](charge-controllers/evcc_configuration/generalities.md#is_bidirectional): Set to `true`
+  - [dynamic_current_limit](charge-controllers/evcc_configuration/generalities.md#dynamic_current_limit): Set to `true`
   - [energy_capacity](charge-controllers/evcc_configuration/generalities.md#energy_capacity): Becomes required
   - [max_discharge_current](charge-controllers/evcc_configuration/generalities.md#max_discharge_current)
   - [min_discharge_power](charge-controllers/evcc_configuration/generalities.md#min_discharge_power)

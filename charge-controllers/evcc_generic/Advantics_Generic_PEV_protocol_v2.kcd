@@ -212,20 +212,27 @@
             </Signal>
         </Message>
 
-        <Message id="0x612" length="4" name="DC_Status1" interval="100">
+        <Message id="0x612" length="8" name="DC_Status1" interval="100">
             <Notes>DC charging specific status (from BMS to charge controller), message 1.</Notes>
 
             <Producer>
                 <NodeRef id="1"/>
             </Producer>
 
-            <Signal name="Current_Request" offset="0" length="16" endianess="little">
+            <Signal name="Max_Charge_Current" offset="0" length="16" endianess="little">
                 <Notes><![CDATA[
-                    Current target sent to EVSE.
+                    Used as the target current sent to EVSE except for power transfer
+                    This signal can be used to dynamically update the EV Maximum charge current
+                    when the config entry "use_dynamic_current_limits" is set to true
+                    Otherwise the static configured "max_current" is used.
+
+                        [vehicle]
+                        use_dynamic_current_limits = true
+
                     Will be capped by maximum current from config file and from EVSE data.
 
-                    Alternatively, use max_current in `/srv/config.cfg` when in <<No BMS mode>>.
-                    When doing so, you should set a safe `max_charge_voltage` to terminate the
+                    When in <<No BMS mode>>, the target current will be set to the config file
+                    entry "max_current". When doing so, you should set a safe `max_charge_voltage` to terminate the
                     charge earlier than at full pack (ie. bulk charging):
 
                         [vehicle]
@@ -260,6 +267,22 @@
                     implementations.
                 ]]></Notes>
                 <Value type="signed" slope="0.1" unit="Amps" min="-3276" max="3276"/>
+            </Signal>
+
+            <Signal name="Max_Discharge_Current" offset="32" length="16" endianess="little">
+                <Notes><![CDATA[
+                    Only taken into account in CCS ISO15118-20 Dynamic mode.
+                    This signal can be used to dynamically update the EV Maximum Discharge current
+                    when the config entry "use_dynamic_current_limits" is set to true
+                    Otherwise the static configured "max_discharge_current" is used.
+
+                        [vehicle]
+                        use_dynamic_current_limits = true
+
+                    Note that negative values will be disregarded.
+                    Will be capped by max_discharge_current from config file.
+                ]]></Notes>
+                <Value type="unsigned" slope="0.1" unit="Amps" min="0" max="6553"/>
             </Signal>
         </Message>
 
@@ -302,7 +325,19 @@
                 </LabelSet>
             </Signal>
 
-            <Signal name="Reserved_Flags" offset="2" length="6">
+            <Signal name="Emergency_Stop" offset="2" length="1">
+                <Notes>
+                    Vehicle request an emergency charge termination
+                    Only acts on change (so you need to cycle it back to 0).
+                </Notes>
+                <LabelSet>
+                    <Label name="No_Request" value="0" />
+                    <Label name="Emergency_Stop_Requested" value="1" />
+                </LabelSet>
+            </Signal>
+
+
+            <Signal name="Reserved_Flags" offset="3" length="5">
                 <Notes>Reserved bits for future uses.</Notes>
             </Signal>
 
@@ -360,14 +395,6 @@
                 <Value type="unsigned" slope="0.01" unit="kWh" min="0" max="655"/>
             </Signal>
 
-            <Signal name="Minimum_Energy_Request" offset="32" length="16">
-                <Notes>
-                The energy of the EV corresponding to the minimum SOC.
-                In case this message is not sent we default to the config file entry `min_energy_request`.
-                </Notes>
-                <Value type="unsigned" slope="0.01" unit="kWh" min="0" max="655"/>
-            </Signal>
-
             <Signal name="Maximum_Energy_Request" offset="16" length="16">
                 <Notes>
                 The energy of the EV corresponding the to maximum SOC.
@@ -375,6 +402,14 @@
                 In case this message is not sent we default to the config file entry `max_energy_request`.
 
                 Will be capped by Energy_Capacity.
+                </Notes>
+                <Value type="unsigned" slope="0.01" unit="kWh" min="0" max="655"/>
+            </Signal>
+
+            <Signal name="Minimum_Energy_Request" offset="32" length="16">
+                <Notes>
+                The energy of the EV corresponding to the minimum SOC.
+                In case this message is not sent we default to the config file entry `min_energy_request`.
                 </Notes>
                 <Value type="unsigned" slope="0.01" unit="kWh" min="0" max="655"/>
             </Signal>
@@ -438,7 +473,7 @@
 
             <Signal name="CP_Top_Voltage" offset="16" length="8">
                 <Notes>Measured PWM top voltage on the CP line.</Notes>
-                <Value type="unsigned" slope="0.1" min="0" max="25" unit="Volts"/>
+                <Value slope="0.1" unit="Volts"/>
             </Signal>
 
             <Signal name="CP_State" offset="24" length="8">

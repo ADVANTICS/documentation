@@ -194,6 +194,17 @@ To allow bidirectionality, set to `true`.
 
 Default to false.
 
+## dynamic_current_limit
+
+<figcaption>Example</figcaption>
+
+    dynamic_current_limit = true
+
+Allows the use of DC_Status1.Max_Charge_Current and DC_Status1.Max_Discharge_Current CAN bus signals
+to dynamically update the EV Maximum charge current and EV Maximum Discharge current when the config
+ entry "use_dynamic_current_limits" is set to true. Otherwise the static config values "max_current"
+ and "max_discharge_current" are used.
+
 ## inhibit_precharge_unmatch_t
 
 <figcaption>Example</figcaption>

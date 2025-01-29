@@ -55,8 +55,7 @@ Snapshots are made when we commit particular changes (eg. bug fix, new function)
 release.
 
 > [!WARNING]
-> These are not automatic nightly releases. Yet, they are also far from being well tested. Use at
-> your own risk.
+> These are development releases
 
 <div class="small-table compact-table">
 
@@ -64,6 +63,7 @@ release.
 |--------|------|---------------------|----------|
 | Stable | 2022-11-03 | Prefigure rc3 | [Snapshot](https://www.dropbox.com/s/oiw76a7lfky3ygu/pev-snapshot-stable--2022-11-02.tar?st=mxnc610w&dl=1) |
 | [Bidirectional](charge-controllers/evcc_bidirectional.md) | 2022-11-17 | ISO 15118-20<br/>Generic CAN interface v2 | [Snapshot](https://www.dropbox.com/s/vbex2k6u9mszfut/pev-bidir--2022-11-17.tar?st=mkffbqdx&dl=1) |
+| [Bidirectional 2024-10-15](charge-controllers/evcc_bidirectional.md) | 2024-10-15 | ISO15118-20 BPT: Use CAN message to dynamically update current limits | [pev-bidir--2024-10-15.tar](https://drive.google.com/uc?export=download&id=1c0XZHXs2LfjTYAYSp9HNQ0ugLRP0Qmlb) |
 
 
 </div>

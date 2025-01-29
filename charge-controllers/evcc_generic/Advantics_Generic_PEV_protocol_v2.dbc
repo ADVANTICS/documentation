@@ -32,21 +32,23 @@ BO_ 1538 DC_Control: 1 Advantics_Charge_Controller
  SG_ Close_Contactors : 0|1@1+ (1,0) [0|1] "" Vector__XXX
  SG_ Reserved_Flags : 1|7@1+ (1,0) [0|127] "" Vector__XXX
 
-BO_ 1554 DC_Status1: 4 Vehicle
- SG_ Current_Request : 0|16@1- (0.1,0) [-3276|3276] "Amps" Vector__XXX
+BO_ 1554 DC_Status1: 8 Vehicle
+ SG_ Max_Charge_Current : 0|16@1- (0.1,0) [-3276|3276] "Amps" Vector__XXX
  SG_ Present_Current : 16|16@1- (0.1,0) [-3276|3276] "Amps" Vector__XXX
+ SG_ Max_Discharge_Current : 32|16@1+ (0.1,0) [0|6553] "Amps" Vector__XXX
 
 BO_ 1555 DC_Status2: 5 Vehicle
  SG_ Contactors_Closed : 0|1@1+ (1,0) [0|1] "" Vector__XXX
  SG_ Normal_End_of_Charge : 1|1@1+ (1,0) [0|1] "" Vector__XXX
- SG_ Reserved_Flags : 2|6@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Emergency_Stop : 2|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Reserved_Flags : 3|5@1+ (1,0) [0|31] "" Vector__XXX
  SG_ Battery_Voltage : 8|16@1+ (0.1,0) [0|6553] "Volts" Vector__XXX
  SG_ Inlet_Voltage : 24|16@1+ (0.1,0) [0|6553] "Volts" Vector__XXX
 
 BO_ 1556 EV_Energy_Request: 6 Vehicle
  SG_ Target_Energy_Request : 0|16@1+ (0.01,0) [0|655] "kWh" Vector__XXX
- SG_ Minimum_Energy_Request : 32|16@1+ (0.01,0) [0|655] "kWh" Vector__XXX
  SG_ Maximum_Energy_Request : 16|16@1+ (0.01,0) [0|655] "kWh" Vector__XXX
+ SG_ Minimum_Energy_Request : 32|16@1+ (0.01,0) [0|655] "kWh" Vector__XXX
 
 BO_ 1557 EV_V2X_Energy_Request: 4 Vehicle
  SG_ Minimum_V2X_Energy_Request : 0|16@1+ (0.01,0) [0|655] "kWh" Vector__XXX
@@ -57,7 +59,7 @@ BO_ 1558 EV_Extra_BPT_Information: 4 Vehicle
 
 BO_ 1539 CCS_Extra_Information: 6 Advantics_Charge_Controller
  SG_ CP_Duty_Cycle : 0|16@1+ (0.1,0) [0|100] "%" Vector__XXX
- SG_ CP_Top_Voltage : 16|8@1+ (0.1,0) [0|25] "Volts" Vector__XXX
+ SG_ CP_Top_Voltage : 16|8@1+ (0.1,0) [0|25.5] "Volts" Vector__XXX
  SG_ CP_State : 24|8@1+ (1,0) [0|255] "" Vector__XXX
  SG_ PP_Resistance : 32|8@1+ (10,0) [0|2550] "Ohms" Vector__XXX
  SG_ Inlet_Lock_State : 40|2@1+ (1,0) [0|3] "" Vector__XXX
@@ -184,12 +186,19 @@ CM_ SG_ 1538 Close_Contactors "
                         dc_contactors_use_ios = true
                 ";
 CM_ SG_ 1538 Reserved_Flags "Reserved bits for future uses.";
-CM_ SG_ 1554 Current_Request "
-                    Current target sent to EVSE.
+CM_ SG_ 1554 Max_Charge_Current "
+                    Used as the target current sent to EVSE except for power transfer
+                    This signal can be used to dynamically update the EV Maximum charge current
+                    when the config entry \"use_dynamic_current_limits\" is set to true
+                    Otherwise the static configured \"max_current\" is used.
+
+                        [vehicle]
+                        use_dynamic_current_limits = true
+
                     Will be capped by maximum current from config file and from EVSE data.
 
-                    Alternatively, use max_current in `/srv/config.cfg` when in <<No BMS mode>>.
-                    When doing so, you should set a safe `max_charge_voltage` to terminate the
+                    When in <<No BMS mode>>, the target current will be set to the config file
+                    entry \"max_current\". When doing so, you should set a safe `max_charge_voltage` to terminate the
                     charge earlier than at full pack (ie. bulk charging):
 
                         [vehicle]
@@ -219,6 +228,18 @@ CM_ SG_ 1554 Present_Current "
                     NOTE: Signal is of signed data type for compatibility with future bidirectional
                     implementations.
                 ";
+CM_ SG_ 1554 Max_Discharge_Current "
+                    Only taken into account in CCS ISO15118-20 Dynamic mode.
+                    This signal can be used to dynamically update the EV Maximum Discharge current
+                    when the config entry \"use_dynamic_current_limits\" is set to true
+                    Otherwise the static configured \"max_discharge_current\" is used.
+
+                        [vehicle]
+                        use_dynamic_current_limits = true
+
+                    Note that negative values will be disregarded.
+                    Will be capped by max_discharge_current from config file.
+                ";
 CM_ SG_ 1555 Contactors_Closed "
                     Report states of contactors.
 
@@ -236,6 +257,10 @@ CM_ SG_ 1555 Normal_End_of_Charge "
                     Only acts on change (so you need to cycle it back to 0).
 
                     Alternatively, you can also use the 12V input (R-3F) on ADM-CS-EVCC unit.
+                ";
+CM_ SG_ 1555 Emergency_Stop "
+                    Vehicle request an emergency charge termination
+                    Only acts on change (so you need to cycle it back to 0).
                 ";
 CM_ SG_ 1555 Reserved_Flags "Reserved bits for future uses.";
 CM_ SG_ 1555 Battery_Voltage "
@@ -265,16 +290,16 @@ CM_ SG_ 1555 Inlet_Voltage "
 CM_ SG_ 1556 Target_Energy_Request "
                 The energy of the EV corresponding to the target SOC.
                 ";
-CM_ SG_ 1556 Minimum_Energy_Request "
-                The energy of the EV corresponding to the minimum SOC.
-                In case this message is not sent we default to the config file entry `min_energy_request`.
-                ";
 CM_ SG_ 1556 Maximum_Energy_Request "
                 The energy of the EV corresponding the to maximum SOC.
 
                 In case this message is not sent we default to the config file entry `max_energy_request`.
 
                 Will be capped by Energy_Capacity.
+                ";
+CM_ SG_ 1556 Minimum_Energy_Request "
+                The energy of the EV corresponding to the minimum SOC.
+                In case this message is not sent we default to the config file entry `min_energy_request`.
                 ";
 CM_ SG_ 1557 Minimum_V2X_Energy_Request "The minimum energy level for the bidirectional cycling activity range.";
 CM_ SG_ 1557 Maximum_V2X_Energy_Request "The maximum energy level for the bidirectional cycling activity range.";
@@ -315,15 +340,9 @@ CM_ SG_ 1540 CPU_Temperature "Temperature reported by the CPU chip of the charge
 CM_ SG_ 1540 CAN_Sensor_Temperature "If using a CAN sensor, and it has a temperature channel.";
 
 
-BA_DEF_ SG_ "GenSigStartValue" FLOAT 0 100000000000;
 
 
 
-BA_ "GenSigStartValue" SG_ 1540 PTC0 40;
-BA_ "GenSigStartValue" SG_ 1540 PTC1 40;
-BA_ "GenSigStartValue" SG_ 1540 PTC2 40;
-BA_ "GenSigStartValue" SG_ 1540 CPU_Temperature 40;
-BA_ "GenSigStartValue" SG_ 1540 CAN_Sensor_Temperature 40;
 
 VAL_ 1536 Communication_Stage 0 "Initialising" 1 "Waiting_For_EVSE" 2 "Negotiating_Connection" 3 "Connected_With_Full_Info" 4 "Insulation_Test" 5 "Precharge" 6 "Waiting_For_Charge" 7 "Charging" 8 "Ending_Charge" 9 "Welding_Detection" 10 "Closing_Communication";
 VAL_ 1536 Protocol 0 "" 1 "CCS_PWM" 2 "CCS_DIN_70121_2012_v2" 3 "CCS_ISO_15118_2013_v2" 4 "CCS_ISO_15118_2022";
@@ -334,6 +353,7 @@ VAL_ 1553 Ready_To_Charge 0 "Not_Ready" 1 "Ready";
 VAL_ 1538 Close_Contactors 0 "Open" 1 "Close";
 VAL_ 1555 Contactors_Closed 0 "Open" 1 "Close";
 VAL_ 1555 Normal_End_of_Charge 0 "No_Request" 1 "Stop_Requested";
+VAL_ 1555 Emergency_Stop 0 "No_Request" 1 "Emergency_Stop_Requested";
 VAL_ 1539 CP_State 0 "E_or_F" 3 "D" 6 "C" 9 "B" 12 "A";
 VAL_ 1539 Inlet_Lock_State 0 "Unlocked" 1 "Locked" 2 "Fault";
 VAL_ 1540 DC_Contactor_Positive_Feedback 0 "Open" 1 "Close";
