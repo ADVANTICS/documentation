@@ -2,8 +2,7 @@
 # Generic EVCC CAN interface
 
 > [!NOTE]
-> This section only cover v1 of the interface. For v2 and bidirectionality, refer to the
-> [dedicated documentation](charge-controllers/evcc_bidirectional.md) for now.
+> To migrate from generic interface V1 to V2, check the following section: [dedicated documentation](charge-controllers/evcc_bidirectional.md).
 
 1. [Sequences of action](charge-controllers/evcc_generic/sequences_v2.md)
 1. [CAN databases](charge-controllers/evcc_generic/databases_v2.md)
