@@ -24,7 +24,7 @@
     - [Features](charge-controllers/secc_features.md)
         - [NACS](charge-controllers/secc_nacs.md)
         - [AC charging](charge-controllers/secc_ac_charging.md)
-        - [Bidirectional](charge-controllers/secc_generic/secc_bidirectional.md)
+        - [MCS & BPT (ISO15118-20)](charge-controllers/secc_generic/secc_bidirectional.md)
         - [Climate control](charge-controllers/secc_climate_control.md)
         - [IOs on CAN](charge-controllers/secc_can_ios.md)
         <!-- - [OCPP](charge-controllers/secc_ocpp.md) -->
@@ -69,7 +69,7 @@
         - [Temperature control](charge-controllers/evcc_temperature_control.md)
         - [Sleep functions](charge-controllers/evcc_sleep.md)
         - [Lock safety](charge-controllers/evcc_lock_safety.md)
-        - [Bidirectional](charge-controllers/evcc_bidirectional.md)
+        - [MCS & BPT (ISO15118-20)](charge-controllers/evcc_bidirectional.md)
     - [Special](charge-controllers/evcc_special.md)
         - [Orion BMS setup](charge-controllers/evcc_orion_bms/orion_bms_integration.md)
         - [Updater tool](charge-controllers/evcc_updater.md)

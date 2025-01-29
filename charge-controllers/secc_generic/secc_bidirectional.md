@@ -1,9 +1,9 @@
 > [!UPDATE] {docsify-updated}
-# SECC Bidirectionality
+# MCS & BPT (ISO15118-20)
 
 ## Introduction
 
-The third version of ADVANTICS generic interface for SECC introduces an even more generic way of handling power transfer. This extended API provides new features more in line with bidirectional enabled standards, ISO15118-20 and CHAdeMO V2G in particular.
+The third version of ADVANTICS generic interface for our charge station controllers (SECC and SPCC) a generic way of handling power transfer fine-tuned for MCS and BPT applications. This API provides new features more in line with bidirectional enabled standards, ISO15118-20 and CHAdeMO V2G in particular.
 
 Based on charger configuration and vehicle parameters, the interface will select the operational mode and provide current limits to meet power transfer requirements.
 Version 3 of the interface provides improvements that made it easier to integrate, and are more user-friendly.

@@ -1,16 +1,19 @@
 > [!UPDATE] {docsify-updated}
-# EVCC Bidirectionality
+# MCS & BPT (ISO15118-20)
 
 ## Introduction
 
-The second version of ADVANTICS generic interface for EVCC extends the available CAN bus based API by introducing bidirectionality to the controller.
+The second version of ADVANTICS generic interface for EVCC extends the available CAN bus based API by introducing MCS support and bidirectionality to the controller.
 
-With the support of ISO 15118-20, bidirectional power transfer became possible through 2 control modes defined by the protocol.
+With the support of ISO 15118-20, MCS and bidirectional power transfer became possible through 2 control modes defined by the protocol.
 In Dynamic control mode, besides the static power transfer parameters, vehicle provides the Energy requests and the range for bidirectional cycling (V2X energy requests).
 
 It is possible to specify the absolute energy requests including the range for bidirectional cycling (V2X energy requests) within the battery capacity limit. Based on these parameters and the state of charge of the battery we will then dynamically calculate relative energy requests and V2X cycling range limits and forward them to the charger.
 
 In addition, the vehicle will be able to specify the time of departure which can be used in dynamic mode.
+
+> [!NOTE]
+> [Generic interface v2](charge-controllers/evcc_generic/README_v2.md) should be used for MCS and BPT applications
 
 > [!NOTE]
 > Bidirectionality is only available on a special development branch. You need update the containers
