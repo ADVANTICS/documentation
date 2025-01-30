@@ -4,6 +4,7 @@
         - [Interfaces](charge-controllers/ADM-CS-SECC/interfaces.md)
         - [Charge station overview](charge-controllers/ADM-CS-SECC/evse_overview.md)
         - [Examples of use](charge-controllers/ADM-CS-SECC/examples.md)
+    - [Versions](charge-controllers/secc_versions.md)
     - [Generic CAN interface](charge-controllers/secc_generic/README.md)
         - [Introduction](charge-controllers/secc_generic/introduction.md)
         - [Overview](charge-controllers/secc_generic/overview.md)
