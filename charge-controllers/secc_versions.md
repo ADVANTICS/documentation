@@ -1,5 +1,5 @@
 > [!UPDATE] {docsify-updated}
-# EVCC Versions
+# Charge Station Controller Versions
 
 ## Hardware
 
