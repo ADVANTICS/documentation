@@ -33,6 +33,7 @@ new EV applications like rescue vehicles, and charge emulation for development p
 | **Charging Standards**      | **AC**                                           | SAE J1772, IEC 61851-1/-23                        |
 |                             | **CCS (Combo 1,2)**                              | DIN SPEC 70121, ISO 15118-2/-20, NACS SAE J3400, SAE J1772, IEC 61851-1/-23|
 | **Power input**             | **Input voltage**                                | 12 V or 24 V                                      |
+|                             | **Input Voltage Range**                          | 11 V to 32 V                                      |
 |                             | **Nominal power consumption without peripherals**| 2 W                                               |
 | **Interfaces (user side)**  | **CAN bus**                                      | 2x ISO-11898 CAN bus, configurable bitrate (500kbps default)|
 |                             | **Digital Outputs**                              | 3 outputs, 24V, push-pull, max. 100 mA (sink or source)|
