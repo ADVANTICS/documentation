@@ -29,7 +29,7 @@ new EV applications like rescue vehicles, and charge emulation for development p
 ## Electrical and Mechanical specifications
 |       |                                            |                         |
 |-----------------------------|-------------------------------------------------|----------------------------------------------------|
-| **Charging Standards**      || **MCS**                                         | ISO 15118-20, IEC 61851-23-3|
+| **Charging Standards**      | **MCS**                                          | ISO 15118-20, IEC 61851-23-3                      |
 | **Power input**             | **Input voltage**                                | 12 V or 24 V                                      |
 |                             | **Input Voltage Range**                          | 11 V to 32 V                                      |
 |                             | **Nominal power consumption without peripherals**| 2 W                                               |

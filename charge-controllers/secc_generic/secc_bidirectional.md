@@ -1,5 +1,5 @@
 > [!UPDATE] {docsify-updated}
-# MCS & BPT (ISO15118-20)
+# ISO15118-20 & CHAdeMO V2G
 
 ## Introduction
 
