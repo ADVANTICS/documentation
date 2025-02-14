@@ -27,15 +27,6 @@ The CCS and AC interface consists of CP, PP lines, inlet lock and temperature se
 > [!TIP]
 > There are many different CCS and AC inlets and cables. Suitable cables are manufactured by typical suppliers such as Phoenix Contact, and are available in a wide price-range. However, beware of potential wiring differences. Consult your choice of cable with ADVANTICS.
 
-<div class="bigger-300">
-
-![CCS A interface - DC charging](images/ADM-CS-SECC_multipart_CCS_A.svg "CCS A interface - DC charging")
-<figcaption style="text-align: center">Figure 3: CCS A interface - DC charging</figcaption>
-
-![CCS B interface - AC charging only](images/ADM-CS-SECC_multipart_CCS_B.svg "CCS B interface - AC charging only")
-</div>
-<figcaption style="text-align: center">Figure 4: CCS B interface - AC charging only</figcaption>
-
 ## Inlet locking of AC interface
 
 The only real difference between wiring DC CCS and AC charging is in the use of the inlet locking mechanism. The AC locking mechanism consists of a small DC motor, driving a pin in and out of the inlet. This motor prevents removal of the AC cable while charging is in progress. DC CCS always comes with cable built-in the station.
