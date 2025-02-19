@@ -4,7 +4,7 @@
 These configuration entries are all under the `[vehicle]` section.
 
 > [!NOTE]
-> See also section [Features/Lock safety](charge-controllers/evcc_lock_safety.md).
+> See also section [Features/Lock safety](charge-controllers/evcc_safety_functions.md#Lock_safety).
 
 ## locking_pulse_ms
 

@@ -1,5 +1,14 @@
 > [!UPDATE] {docsify-updated}
-# Lock safety
+# Charge Signal Disconnect Safety
+
+To ensure safety and compliance with industry standards, both CCS and MCS charge controllers incorporate a hardware-level safety mechanism that immediately disconnects the vehicle's contactors upon the loss of critical charge signals, such as CP (Control Pilot) for CCS or CE (Charge Enable) for MCS.
+
+This rapid response, designed to meet strict timing requirements outlined in standards like IEC 61851-23, prevents potential hazards associated with uncontrolled power flow during charging.
+
+By directly triggering a hardware-based disconnect, the EVCC guarantees a fast and reliable emergency shutdown, safeguarding the user, the vehicle and the charging infrastructure from possible damage or electrical incidents.
+
+
+# Lock safety (Avoid inlet disconnection on load)
 
 The lock of the inlet is here to prevent exposing users to dangerous electrical potentials.
 
