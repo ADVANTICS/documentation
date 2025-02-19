@@ -63,7 +63,7 @@ All of the following must be met:
 
 - No interlock line trip.
 - CLOOP_OUT connected to CLOOP_IN.
-- No overtemperature detected (PT1KS_C and PT1KS_D either: Connected to GND when not in use, or Temperature is below 110°C.)
+- No overtemperature detected (`PT1KS_C` and `PT1KS_D` either: Connected to GND when not in use, or Temperature is below 110°C.)
 
 ## User system CAN bus
 
@@ -89,6 +89,12 @@ Transition to ‘1' from 9V sets the input to ON. It will then hold '1’ until 
 
 ### Digital Outputs
 The outputs are 24V level logic, with push-pull stage, max. 100 mA (sink or source).
+
+### Temperature Sensors Inputs
+The SPCC is equipped with 4 PT1000 inputs. Both the `PT1KS_C` and `PT1KS_D` temperature sensor inputs incorporate a hardware-level safety mechanism that immediately triggers an emergency shutdown when measured temperatures exceed 110°C.
+
+> [!WARNING] The `PT1KS_C` and `PT1KS_D` temperature inputs should be connected to GND when not in use.
+
 
 ## LED outputs
 LED outputs have 12V output drive, high side driver, with 100mA current limit per channel. They are fully user configurable and controllable, and can also be used to drive other loads besides driving LEDs (as long as limits are not exceeded).

@@ -5,33 +5,32 @@
 
 The ADM-CS-SPCC is a charge controller for electric vehicle charging stations. The main features include:
 
-| Feature                      | Specification |
-|------------------------------|--------------|
-| **MCS (Megawatt Charging System)** | Yes, 10baseT1S |
-| **CCS** | DIN SPEC 70121, ISO 15118-2/-20, NACS SAE J3400, SAE J1772, IEC 61851-1/-23 |
-| **CHAdeMO** | 1.x, with V2G extension |
-| **AC** | SAE J1772, IEC 61851-1/-23 |
-| **OCPP** | 1.6J (2.0.1 coming soon) |
-| **Plug 'n' Charge** | Coming Soon |
-| **Input Voltage Min / Max** | 15 V / 30 V |
-| **Recommended Nominal Voltage** | 24 V |
-| **Typical / Peak Consumption** | 5 W / 20 W |
-| **Temperature Range** | -40° to 85° C |
-| **CAN Bus** | CAN 2.0B, extended addresses |
-| **Interlock** | 20mA current loop, 24V |
-| **Display Serial Interface** | IPI DSI + I<sup>2</sup>C for TP |
-| **HDMI** | Via External Conversion From MIPI DSI |
-| **Digital Outputs** | 2 outputs, 24V, push-pull, max. 1 A (sink or source), Hi-Z capability |
-| **Digital Inputs** | 4 inputs, 24V and 12V compatible, Max voltage 30V |
-| **LEDs** | 3 LED outputs, 12V, overcurrent protected |
-| **RS-485 + 5V** | Modbus-RTU stack available, 5 V max. 2 A max |
-| **Ethernet** | 100Mbps RJ45, Modbus TCP available |
-| **Wireless** | Dual-Band 2.4/5 GHz 1x1 Wi-Fi 4 (802.11n), Bluetooth 5.2 |
-| **USB-C** | USB 3.1 Gen 1 |
-| **Temperature Measurements** | 2 PT1000 inputs (HW protected to prevent overheating)|
-| **Output Contactor Driver** | Contactor enable signal provided, open collector, max 200 mA, max 30V |
-| **PLC (Powerline Communication)** | Vertexcom |
-| **Mounting Options** | DIN rail, LCD back, Heavy duty enclosure |
+- **MCS (Megawatt Charging System)**: Yes, 10baseT1S
+- **CCS**: DIN SPEC 70121, ISO 15118-2/-20, NACS SAE J3400, SAE J1772, IEC 61851-1/-23
+- **CHAdeMO**: 1.x, with V2G extension
+- **AC**: SAE J1772, IEC 61851-1/-23
+- **OCPP**: 1.6J (2.0.1 coming soon)
+- **Plug 'n' Charge**: Coming Soon
+- **Input Voltage Min / Max**: 15 V / 30 V
+- **Recommended Nominal Voltage**: 24 V
+- **Typical / Peak Consumption**: 5 W / 20 W
+- **Temperature Range**: -40° to 85° C
+- **CAN Bus**: CAN 2.0B, extended addresses
+- **Interlock**: 20mA current loop, 24V
+- **Display Serial Interface**: IPI DSI + I²C for TP
+- **HDMI**: Via External Conversion From MIPI DSI
+- **Digital Outputs**: 2 outputs, 24V, push-pull, max. 1 A (sink or source), Hi-Z capability
+- **Digital Inputs**: 4 inputs, 24V and 12V compatible, Max voltage 30V
+- **LEDs**: 3 LED outputs, 12V, overcurrent protected
+- **RS-485 + 5V**: Modbus-RTU stack available, 5 V max. 2 A max
+- **Ethernet**: 100Mbps RJ45, Modbus TCP available
+- **Wireless**: Dual-Band 2.4/5 GHz 1x1 Wi-Fi 4 (802.11n), Bluetooth 5.2
+- **USB-C**: USB 3.1 Gen 1
+- **Temperature Measurements**: 4 PT1000 inputs ( 2 of them are HW protected to prevent overheating)
+- **Output Contactor Driver**: Contactor enable signal provided, open collector, max 200 mA, max 30V
+- **PLC (Powerline Communication)**: Vertexcom
+- **Mounting Options**: DIN rail, LCD back, Heavy duty enclosure
+
 
 
 ## Who is this product for?
@@ -73,7 +72,7 @@ Manufacturers of MCS charge stations, stationary and portable charging stations,
 |                             | **Locking mechanism**                            | Solenoid driver                                   |
 |                             | **Output contactor driver**                      | Contactor enable signal to control output contactors |
 |                             | **Protection**                                   | HW interlocked relay (PERM state monitor)         |
-| **Temperature Monitoring**  | **Temperature measurements**                     | 4 PT1000 inputs                                   |
+| **Temperature Monitoring**  | **Temperature measurements**                     | 4 PT1000 inputs (2 of them HW protected)                            |
 | **Mechanical**              | **Module dimensions**                            | 212 x 90 x 58 mm                                  |
 |                             | **Connections**                                  | Screw wire terminals                              |
 |                             | **Weight**                                       | 350 g                                             |
