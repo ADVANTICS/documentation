@@ -83,7 +83,7 @@ Please see the Software [Development Guide document](charge-controllers/sys3_use
 
 ## Pinout
 
-![Pinout](images/SPCC_pinout2.png "Pinout")
+![Pinout](images/SPCC_pinout3.png "Pinout")
 </div>
 <figcaption style="text-align: center">Pinout</figcaption>
 
