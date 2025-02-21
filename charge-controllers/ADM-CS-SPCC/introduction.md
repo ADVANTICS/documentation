@@ -87,6 +87,19 @@ Please see the Software [Development Guide document](charge-controllers/sys3_use
 </div>
 <figcaption style="text-align: center">Pinout</figcaption>
 
+## SPCC Connectors
+
+| Connector | Reference Number          |
+|-----------|---------------------------|
+| CON 104   | Phoenix Contact 1786882   |
+| CON 101   | Phoenix Contact 1786866   |
+| CON 102   | Phoenix Contact 1786853   |
+| CON 103   | Phoenix Contact 1786895   |
+| CON 105   | Phoenix Contact 1786879   |
+| CON 106   | Phoenix Contact 1786837   |
+| CON 107   | Phoenix Contact 1757475   |
+
+
 ## Typical use case
 
 - [Megawatt charging system](https://advantics.fr/applications/ev-charging/mw-charging-system/)
