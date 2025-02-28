@@ -1,19 +1,19 @@
 - **Charge Station Controllers**
     - **SECC**
-        - [Introduction](charge-controllers/ADM-CS-SECC/introduction.md)
-        - [SECC Hardware manual](charge-controllers/ADM-CS-SECC/README.md)
-            - [Interfaces](charge-controllers/ADM-CS-SECC/interfaces.md)
-            - [Charge station overview](charge-controllers/ADM-CS-SECC/evse_overview.md)
-            - [Examples of use](charge-controllers/ADM-CS-SECC/examples.md)
+        - [Technical Data](charge-controllers/ADM-CS-SECC/introduction.md)
+        <!-- - [SECC Hardware manual](charge-controllers/ADM-CS-SECC/README.md) -->
+        - [Interfaces](charge-controllers/ADM-CS-SECC/interfaces.md)
+        - [Charge station overview](charge-controllers/ADM-CS-SECC/evse_overview.md)
+        - [Examples of use](charge-controllers/ADM-CS-SECC/examples.md)
         - [Versions](charge-controllers/secc_versions.md)
         - [Configuration](charge-controllers/secc_configuration.md)
         <!-- - [Migration from 3.x to 4.x](charge-controllers/secc_migration_3_to_4.md) -->
     - **SPCC**
-        - [Introduction](charge-controllers/ADM-CS-SPCC/introduction.md)
-        - [SPCC Hardware manual](charge-controllers/ADM-CS-SPCC/README.md)
-            - [Interfaces](charge-controllers/ADM-CS-SPCC/interfaces.md)
-            <!-- - [Charge station overview](charge-controllers/ADM-CS-SPCC/evse_overview.md) -->
-            <!-- - [Examples of use](charge-controllers/ADM-CS-SPCC/examples.md) -->
+        - [Technical Data](charge-controllers/ADM-CS-SPCC/introduction.md)
+        <!-- - [SPCC Hardware manual](charge-controllers/ADM-CS-SPCC/README.md) -->
+        - [Interfaces](charge-controllers/ADM-CS-SPCC/interfaces.md)
+        <!-- - [Charge station overview](charge-controllers/ADM-CS-SPCC/evse_overview.md) -->
+        <!-- - [Examples of use](charge-controllers/ADM-CS-SPCC/examples.md) -->
         - [Versions](charge-controllers/spcc_versions.md)
         - [Configuration](charge-controllers/spcc_configuration.md)
     - **Features**
@@ -50,21 +50,21 @@
 - **Vehicle Controllers**
     <!-- - [Specifications](charge-controllers/ADM-CS-EVCC/specifications.md) -->
     - **EVCC**
-        - [Introduction](charge-controllers/ADM-CS-EVCC/introduction.md)
-        - [Hardware manual](charge-controllers/ADM-CS-EVCC/README.md)
-            - [Interfaces](charge-controllers/ADM-CS-EVCC/interfaces.md)
-            - [Electric vehicle overview](charge-controllers/ADM-CS-EVCC/ev_overview.md)
-            - [Examples of use](charge-controllers/ADM-CS-EVCC/examples.md)
-            - [Troubleshooting](charge-controllers/ADM-CS-EVCC/troubleshooting.md)
+        - [Technical Data](charge-controllers/ADM-CS-EVCC/introduction.md)
+        <!-- - [Hardware manual](charge-controllers/ADM-CS-EVCC/README.md) -->
+        - [Interfaces](charge-controllers/ADM-CS-EVCC/interfaces.md)
+        - [Electric vehicle overview](charge-controllers/ADM-CS-EVCC/ev_overview.md)
+        - [Examples of use](charge-controllers/ADM-CS-EVCC/examples.md)
+        - [Troubleshooting](charge-controllers/ADM-CS-EVCC/troubleshooting.md)
         - [Versions](charge-controllers/evcc_versions.md)
         - [Configuration (2.x)](charge-controllers/evcc_configuration/README.md)
     - **MEVC (MCS EVCC)**
-        - [Introduction](charge-controllers/ADM-CS-MEVC/introduction.md)
-        - [Hardware manual](charge-controllers/ADM-CS-MEVC/README.md)
-            - [Interfaces](charge-controllers/ADM-CS-MEVC/interfaces.md)
-            <!-- - [Electric vehicle overview](charge-controllers/ADM-CS-EVCC/ev_overview.md) -->
-            <!-- - [Examples of use](charge-controllers/ADM-CS-EVCC/examples.md) -->
-            <!-- - [Troubleshooting](charge-controllers/ADM-CS-EVCC/troubleshooting.md) -->
+        - [Technical Data](charge-controllers/ADM-CS-MEVC/introduction.md)
+        <!-- - [Hardware manual](charge-controllers/ADM-CS-MEVC/README.md) -->
+        - [Interfaces](charge-controllers/ADM-CS-MEVC/interfaces.md)
+        <!-- - [Electric vehicle overview](charge-controllers/ADM-CS-EVCC/ev_overview.md) -->
+        <!-- - [Examples of use](charge-controllers/ADM-CS-EVCC/examples.md) -->
+        <!-- - [Troubleshooting](charge-controllers/ADM-CS-EVCC/troubleshooting.md) -->
         - [Versions](charge-controllers/mevc_versions.md)
         - [Configuration](charge-controllers/mevc_configuration/README.md)
     - **Features**
