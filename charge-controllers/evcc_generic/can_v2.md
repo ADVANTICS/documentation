@@ -943,7 +943,7 @@ Reserved bits for future uses.
 | * | * |
 |---|---|
 | **Frame ID** | 0x612 |
-| **Length [Bytes]** | 4 |
+| **Length [Bytes]** | 8 |
 | **Periodicity [ms]** | 100 |
 | **Direction** | IN |
 
