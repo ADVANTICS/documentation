@@ -63,7 +63,7 @@
         <!-- - [Hardware manual](charge-controllers/ADM-CS-MEVC/README.md) -->
         - [Interfaces](charge-controllers/ADM-CS-MEVC/interfaces.md)
         <!-- - [Electric vehicle overview](charge-controllers/ADM-CS-EVCC/ev_overview.md) -->
-        - [Examples of use](charge-controllers/ADM-CS-EVCC/examples.md)
+        - [Examples of use](charge-controllers/ADM-CS-MEVC/examples.md)
         <!-- - [Troubleshooting](charge-controllers/ADM-CS-EVCC/troubleshooting.md) -->
         - [Versions](charge-controllers/mevc_versions.md)
         - [Configuration](charge-controllers/mevc_configuration/README.md)
