@@ -12,57 +12,6 @@ required from the vehicle to get the system up and running.
 </div>
 <figcaption style="text-align: center">Figure 2: CINCH ModICE connectors</figcaption>
 
-## Pinout Table
-The reference of the pin is composed of 3 characters:
-
-- The first character is the row number on the connector
-- The second character is a letter indicating the column 
-- The third character indicates the connector: "1" is the small connector (on the left in figure 2 above) and 2 indicates the big one (the one on the right)
-
-| Name | ![connector 1](images/PEV_connector1.png "connector 1") | ![connector 2](images/PEV_connector2.png "connector 2") |
-|------|----|--------|
-| [SWITCHED_POWER](#Power_input) | <center> - | <center> 2C2 |
-| [PERMANENT_POWER](#Power_input) | <center> - | <center> 3C2 |
-| [POWER_GND](#Power_input) | <center> - | <center> 1D2 |
-| [CP](#CCS_and_AC_interfaces) | <center> - | <center> 1A2 |
-| [pp](#CCS_and_AC_interfaces) | <center> - | <center> 2A2 |
-| [CCS_GND](#CCS_and_AC_interfaces) | <center> - | <center> 3A2 |
-| [CCS_LOCK_POWER](#CCS_and_AC_interfaces) | <center> - | <center> 3B2 |
-| [CCS_LOCK+](#CCS_and_AC_interfaces) | <center> - | <center> 1B2 |
-| [CCS_LOCK-](#CCS_and_AC_interfaces) | <center> - | <center> 2B2 |
-| [CCS_LOCK_FB](#CCS_and_AC_interfaces) | <center> - | <center> 2J2 |
-| [PTC0](#Temperature_monitoring) | <center>  2D1 | <center> - |
-| [PTC1](#Temperature_monitoring) | <center>  1E1 | <center> - |
-| [PTC2](#Temperature_monitoring) | <center>  3E1 | <center> - |
-| [PTC_GND](#Temperature_monitoring) | <center>  3D1 | <center> - |
-| [PTC_GND](#Temperature_monitoring) | <center>  2E1 | <center> - |
-| [SEQ1](#CHAdeMO_interface–NOT_USED) | <center> - | <center> 3G2 |
-| [SEQ2](#CHAdeMO_interface–NOT_USED) | <center> - | <center> 1H2 |
-| [PERM](#CHAdeMO_interface–NOT_USED) | <center> - | <center> 2H2 |
-| [PROXI](#CHAdeMO_interface–NOT_USED) | <center> - | <center> 3H2 |
-| [CHADEMO_GND](#CHAdeMO_interface–NOT_USED) | <center> - | <center> 1J2 |
-| [CAN_H_CHADEMO](#CHAdeMO_interface–NOT_USED) | <center>  1B1 | <center> - |
-| [CAN_L_CHADEMO](#CHAdeMO_interface–NOT_USED) | <center>  2B1 | <center> - |
-| [CAN_CHADEMO_GND](#CHAdeMO_interface–NOT_USED) | <center>  3B1 | <center> - |
-| [CONTACTOR_POWER](#DC_fast_charge_contactors_control) | <center> - | <center> 2D2 |
-| [CONT_DC+_POS](#DC_fast_charge_contactors_control) | <center> - | <center> 3D2 |
-| [CONT_DC+_NEG](#DC_fast_charge_contactors_control) | <center> - | <center> 1E2 |
-| [CONT_DC+_FB](#DC_fast_charge_contactors_control) | <center> - | <center> 2E2 |
-| [CONT_DC-_POS](#DC_fast_charge_contactors_control) | <center> - | <center> 3E2 |
-| [CONT_DC-_NEG](#DC_fast_charge_contactors_control) | <center> - | <center> 1F2 |
-| [CONT_DC-_FB](#DC_fast_charge_contactors_control) | <center> - | <center> 2F2 |
-| [CHARGE_STOP](#Vehicle_CAN_bus) | <center> - | <center> 3F2 |
-| [CAN_H_CONTROL](#Vehicle_CAN_bus) | <center>  1A1 | <center> - |
-| [CAN_L_CONTROL](#Vehicle_CAN_bus) | <center>  2A1 | <center> - |
-| [CAN_CONTROL_GND](#Vehicle_CAN_bus) | <center>  3A1 | <center> - |
-| [UNUSED_GND](#Vehicle_CAN_bus) | <center> - | <center> 1C2 |
-| [ETHERNET_RJ45](#Vehicle_CAN_bus) | <center>  ETH | <center> ETH |
-| [DIGITAL_IN1](#Digital_inputs_and_outputs) | <center> - | <center> 1G2 |
-| [DIGITAL_IN2](#Digital_inputs_and_outputs) | <center> - | <center> 2G2 |
-| [DIGITAL_OUT1](#Digital_inputs_and_outputs) | <center> - | <center> 1K2 |
-| [DIGITAL_OUT2](#Digital_inputs_and_outputs) | <center> - | <center> 2K2 |
-| [DIGITAL_OUT3](#Digital_inputs_and_outputs) | <center> - | <center> 3K2 |
-| [DIGITAL_GND](#Digital_inputs_and_outputs) | <center> - | <center> 3J2 |
 ## Power input
 
 The controller expects 12V or 24V power. It is designed to handle the typical environment of
