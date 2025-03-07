@@ -44,7 +44,7 @@ new EV applications like rescue vehicles, and charge emulation for development p
 |                             | **Max Current**                                  | Drive up to 5A                                    |
 |                             | **Contactors Feedback Inputs**                   | 2 Contactor Feedback inputs                       |
 | **MCS interface**           | **Communication wires**                          | PHY1/PHY2 (10BaseT1S), CE (Charge Enable), ID (Insertion Detection)          |
-|                             | **Temperature measurements**                     | 3 PT1000 inputs, and 1 dedicated CAN bus          |
+|                             | **Temperature measurements**                     | 2 PT1000 inputs, and 1 dedicated CAN bus          |
 |                             | **Inlet locking**                                | Inlet lock motor control                          |
 | **Automotive Housing specifications**| **Operating Temperature**               | -40°C to +125°C                                   |
 |                             | **Sealing**                                      | IP69K                                             |
@@ -76,10 +76,9 @@ The reference of the pin is composed of 3 characters:
 | [MCS_LOCK_POWER](#MCS_Interface) | <center> - | <center> 3B2 |
 | [MCS_LOCK+](#MCS_Interface) | <center> - | <center> 1B2 |
 | [MCS_LOCK-](#MCS_Interface) | <center> - | <center> 2B2 |
-| [MCS_LOCK_FB](#MCS_Interface) | <center> - | <center> 2J2 |
+| [MCS_LOCK_FB](#MCS_Interface) | <center> 3E1 | <center> - |
 | [PTC0](#Temperature_monitoring) | <center>  2D1 | <center> - |
 | [PTC1](#Temperature_monitoring) | <center>  1E1 | <center> - |
-| [PTC2](#Temperature_monitoring) | <center>  3E1 | <center> - |
 | [PTC_GND](#Temperature_monitoring) | <center>  3D1 | <center> - |
 | [PTC_GND](#Temperature_monitoring) | <center>  2E1 | <center> - |
 | [PTC_GND](#Temperature_monitoring) | <center>  1F1 | <center> - |
