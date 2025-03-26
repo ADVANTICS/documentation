@@ -975,11 +975,11 @@ DC charging specific status (from BMS to charge controller), message 1.
 
 Used as the target current sent to EVSE except for power transfer
 This signal can be used to dynamically update the EV Maximum charge current
-when the config entry "use_dynamic_current_limits" is set to true
+when the config entry "dynamic_current_limit" is set to true
 Otherwise the static configured "max_current" is used.
 
     [vehicle]
-    use_dynamic_current_limits = true
+    dynamic_current_limit = true
 
 Will be capped by maximum current from config file and from EVSE data.
 
@@ -1037,11 +1037,11 @@ Refer to [CAN sensor](charge-controllers/evcc_configuration/can_sensor.md) docum
 
 Only taken into account in CCS ISO15118-20 Dynamic mode.
 This signal can be used to dynamically update the EV Maximum Discharge current
-when the config entry "use_dynamic_current_limits" is set to true
+when the config entry "dynamic_current_limit" is set to true
 Otherwise the static configured "max_discharge_current" is used.
 
     [vehicle]
-    use_dynamic_current_limits = true
+    dynamic_current_limit = true
 
 Note that negative values will be disregarded.
 Will be capped by max_discharge_current from config file.
