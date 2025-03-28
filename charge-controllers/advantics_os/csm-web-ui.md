@@ -26,7 +26,7 @@ The main content shows:
 - Controller Status: Shows the state of the applications as well as the uptime.
 - Pistol Status: Shows the **enabled** pistols and their voltage, current and power limits that are currently set, as well as the point in the charging sequence that the pistol that is currently charging is in.
 
-![CSM Web UI landing page](./images/csm-ui-index.png ":size=80%")
+![CSM Web UI landing page](./images/csm-ui-index-annotated.png ":size=80%")
 
 <figcaption style="text-align: center">CSM Web UI landing page</figcaption>
 
