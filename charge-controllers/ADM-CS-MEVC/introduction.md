@@ -52,9 +52,9 @@ new EV applications like rescue vehicles, and charge emulation for development p
 |                             | **Dimensions**                                   | 11.43 x 11.68 cm                                  |
 |                             | **RoHS Compliant**                               | Yes                                               |
 
-## Software development guide
+## Accessing the controller
 
-Please see the Software [Development Guide document](charge-controllers/sys3_user/README.md) for details.
+Please see the [Accessing and interacting with the controller](charge-controllers/advantics_os/connecting.md) section for details.
 
 ## Pinout Table
 The reference of the pin is composed of 3 characters:

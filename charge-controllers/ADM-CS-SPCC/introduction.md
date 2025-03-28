@@ -77,9 +77,9 @@ Manufacturers of MCS charge stations, stationary and portable charging stations,
 |                             | **Connections**                                  | Screw wire terminals                              |
 |                             | **Weight**                                       | 350 g                                             |
 
-## Software development guide
+## Accessing the controller
 
-Please see the Software [Development Guide document](charge-controllers/sys3_user/README.md) for ADM-CS-SPCC for details.
+Please see the [Accessing and interacting with the controller](charge-controllers/advantics_os/connecting.md) section for details.
 
 ## Pinout
 
