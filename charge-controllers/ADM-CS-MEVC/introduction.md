@@ -3,7 +3,7 @@
 
 ## Characteristics
 
-The ADM-CS-EVCC is an EV charge controller for onboard vehicle charging. The main features include:
+The ADM-CS-MEVC is an EV charge controller for onboard vehicle charging. The main features include:
 - Linux system, running on iMX7 ARM platform
 - MCS charging IEC 61851-23-3 and ISO 15118-20
 - Bidirectional Power Transfer (BPT) Capable
