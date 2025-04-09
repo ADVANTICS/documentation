@@ -7,7 +7,7 @@ A basic single power module DC charge station, with one CCS pistol. Only the ess
 
 <div class="bigger-1000">
 
-![Simple CCS DC charge station](images/simple-charge-station.svg.svg "Simple CCS DC charge station")
+![Simple CCS DC charge station](images/simple-charge-station.svg "Simple CCS DC charge station")
 </div>
 <figcaption style="text-align: center">Figure 10: Simple CCS DC charge station</figcaption>
 
