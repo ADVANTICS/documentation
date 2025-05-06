@@ -18,6 +18,7 @@ Copyright ADVANTICS 2017
 | [DC_Control](#DC_Control) | 0x602 | 1 | OUT | 100 |
 | [CCS_Extra_Information](#CCS_Extra_Information) | 0x603 | 6 | OUT | 100 |
 | [ADM_CS_EVCC_Inputs](#ADM_CS_EVCC_Inputs) | 0x604 | 6 | OUT | 1000 |
+| [ADM_CS_EVCC_MEVC_Outputs](#ADM_CS_EVCC_MEVC_Outputs) | 0x617 | 8 | IN | 100 |
 | [EV_Information](#EV_Information) | 0x610 | 1 | IN | 100 |
 | [AC_Status](#AC_Status) | 0x611 | 1 | IN | 100 |
 | [DC_Status1](#DC_Status1) | 0x612 | 4 | IN | 100 |
