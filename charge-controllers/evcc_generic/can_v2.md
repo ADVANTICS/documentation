@@ -558,6 +558,114 @@ Reserved bits for future uses.
 </div>
 
 
+## ADM_CS_EVCC_MEVC_Outputs
+
+<div class="noheader-table small-table compact-table">
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x617 |
+| **Length [Bytes]** | 8 |
+| **Periodicity [ms]** | 100 |
+| **Direction** | IN |
+
+</div>
+
+### Description
+
+Controller (ADM-CS-EVCC and ADM-CS-MEVC hardware variant) has various outputs that
+can be controlled through this message.
+
+### Payload
+
+
+<div class="small-table compact-table">
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Digital_Output1 | 1 | Single bit |
+| Digital_Output2 | 1 | Single bit |
+| Digital_Output3 | 1 | Label set |
+| Reserved | 61 | Unsigned |
+
+</div>
+
+
+### Payload description
+
+#### Digital_Output1 :id=ADM_CS_EVCC_MEVC_Outputs-Digital_Output1
+
+
+Sets the logical state of DIG_OUT1.
+Needs to be declared as monitored in `/srv/config.cfg`:
+
+    [hardware]
+    dig_out1 = CAN_Controlled
+
+
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | Single bit | Single bit |   | 1 | 0 | 0 | 1 |
+
+</div>
+
+#### Digital_Output2 :id=ADM_CS_EVCC_MEVC_Outputs-Digital_Output2
+
+
+Reports the logical state of DIG_OUT2.
+Needs to be declared as monitored in `/srv/config.cfg`:
+
+    [hardware]
+    dig_out2 = CAN_Controlled
+
+
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 1 | Single bit | Single bit |   | 1 | 0 | 0 | 1 |
+
+</div>
+
+#### Digital_Output3 :id=ADM_CS_EVCC_MEVC_Outputs-Digital_Output3
+
+
+Reports the logical state of DIG_OUT3.
+Needs to be declared as monitored in `/srv/config.cfg`:
+
+    [hardware]
+    dig_out3 = CAN_Controlled
+
+
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 2 | Single bit | Single bit |   | 1 | 0 | 0 | 1 |
+
+</div>
+
+
+#### Reserved :id=ADM_CS_EVCC_MEVC_Outputs-Reserved
+
+Reserved bits for future uses.
+
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 3 | 61 | Unsigned |   | 1 | 0 |   |   |
+
+</div>
+
+
+
 
 
 ## ADM_CS_EVCC_Inputs
@@ -973,13 +1081,11 @@ DC charging specific status (from BMS to charge controller), message 1.
 
 #### Max_Charge_Current :id=DC_Status1-Max_Charge_Current
 
-Used as the target current sent to EVSE except for power transfer
-This signal can be used to dynamically update the EV Maximum charge current
-when the config entry "dynamic_current_limit" is set to true
-Otherwise the static configured "max_current" is used.
+Used as the target current sent to EVSE except for power transfer with CCS ISO15118-20 Dynamic mode,
+this signal will be used as the EV Maximum charge current. Note that negative values will be
+disregarded in CCS ISO 15118-20 Dynamic mode.
 
-    [vehicle]
-    dynamic_current_limit = true
+This signal can be dynamically updated by the BMS to limit the charge current
 
 Will be capped by maximum current from config file and from EVSE data.
 
@@ -1004,7 +1110,7 @@ In no BMS mode, this signal will be ignored.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 16 | Signed | Amps | 0.1 | 0 | -3276 | 3276 |
+| 0 | 16 | Signed | Amps | 1 | 0 | -32768 | 32767 |
 
 </div>
 
@@ -1029,19 +1135,16 @@ Refer to [CAN sensor](charge-controllers/evcc_configuration/can_sensor.md) docum
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 16 | 16 | Signed | Amps | 0.1 | 0 | -3276 | 3276 |
+| 16 | 16 | Signed | Amps | 1 | 0 | -32768 | 32767 |
 
 </div>
 
 #### Max_Discharge_Current :id=DC_Status1-Max_Discharge_Current
 
 Only taken into account in CCS ISO15118-20 Dynamic mode.
-This signal can be used to dynamically update the EV Maximum Discharge current
-when the config entry "dynamic_current_limit" is set to true
-Otherwise the static configured "max_discharge_current" is used.
+This signal can be used to dynamically update the EV Maximum Discharge current.
 
-    [vehicle]
-    dynamic_current_limit = true
+This signal can be dynamically updated by the BMS to limit the discharge current
 
 Note that negative values will be disregarded.
 Will be capped by max_discharge_current from config file.
@@ -1050,7 +1153,7 @@ Will be capped by max_discharge_current from config file.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 32 | 16 | Unsigned | Amps | 0.1 | 0 | 0 | 6553 |
+| 32 | 16 | Unsigned | Amps | 1 | 0 | 0 | 65535 |
 
 </div>
 

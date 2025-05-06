@@ -71,6 +71,7 @@
                     <Label name="CCS_AC_Three_Phase_Core" value="3" />
                     <Label name="CCS_DC_Core" value="4" />
                     <Label name="CCS_DC_Extended" value="5" />
+                    <Label name="MCS" value="6" />
                 </LabelSet>
             </Signal>
 
@@ -83,7 +84,7 @@
 
                     In DC it corresponds to HLC data.
                 </Notes>
-                <Value type="signed" slope="0.1" min="-3276" max="3276" unit="Amps"/>
+                <Value type="signed" slope="1" min="-32768" max="32767" unit="Amps"/>
             </Signal>
 
             <Signal name="RCD_Status" offset="40" length="1">
@@ -221,13 +222,11 @@
 
             <Signal name="Max_Charge_Current" offset="0" length="16" endianess="little">
                 <Notes><![CDATA[
-                    Used as the target current sent to EVSE except for power transfer
-                    This signal can be used to dynamically update the EV Maximum charge current
-                    when the config entry "use_dynamic_current_limits" is set to true
-                    Otherwise the static configured "max_current" is used.
+                    Used as the target current sent to EVSE except for power transfer with CCS ISO15118-20 Dynamic mode,
+                    this signal will be used as the EV Maximum charge current. Note that negative values will be
+                    disregarded in CCS ISO 15118-20 Dynamic mode.
 
-                        [vehicle]
-                        use_dynamic_current_limits = true
+                    This signal can be dynamically updated by the BMS to limit the charge current
 
                     Will be capped by maximum current from config file and from EVSE data.
 
@@ -247,7 +246,7 @@
                     NOTE: Signal is of signed data type for compatibility with future bidirectional
                     implementations.
                 ]]></Notes>
-                <Value type="signed" slope="0.1" unit="Amps" min="-3276" max="3276"/>
+                <Value type="signed" slope="1" min="-32768" max="32767" unit="Amps"/>
             </Signal>
 
             <Signal name="Present_Current" offset="16" length="16" endianess="little">
@@ -266,23 +265,20 @@
                     NOTE: Signal is of signed data type for compatibility with future bidirectional
                     implementations.
                 ]]></Notes>
-                <Value type="signed" slope="0.1" unit="Amps" min="-3276" max="3276"/>
+                <Value type="signed" slope="1" unit="Amps" min="-32768" max="32767"/>
             </Signal>
 
             <Signal name="Max_Discharge_Current" offset="32" length="16" endianess="little">
                 <Notes><![CDATA[
                     Only taken into account in CCS ISO15118-20 Dynamic mode.
-                    This signal can be used to dynamically update the EV Maximum Discharge current
-                    when the config entry "use_dynamic_current_limits" is set to true
-                    Otherwise the static configured "max_discharge_current" is used.
+                    This signal can be used to dynamically update the EV Maximum Discharge current.
 
-                        [vehicle]
-                        use_dynamic_current_limits = true
+                    This signal can be dynamically updated by the BMS to limit the discharge current
 
                     Note that negative values will be disregarded.
                     Will be capped by max_discharge_current from config file.
                 ]]></Notes>
-                <Value type="unsigned" slope="0.1" unit="Amps" min="0" max="6553"/>
+                <Value type="unsigned" slope="1" unit="Amps" min="0" max="65535"/>
             </Signal>
         </Message>
 
@@ -502,6 +498,54 @@
             </Signal>
 
             <Signal name="Reserved_Flags" offset="42" length="6">
+                <Notes>Reserved bits for future uses.</Notes>
+            </Signal>
+        </Message>
+
+        <Message id="0x617" length="8" name="ADM_CS_EVCC_MEVC_Outputs" interval="1000">
+            <Notes>
+                Controller (ADM-CS-EVCC and ADM-CS-MEVC hardware variant) has various outputs that
+                can be controlled through this message.
+            </Notes>
+
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+
+            <Signal name="Digital_Output1" offset="0" length="1">
+                <Notes>
+                    Sets the logical state of DIG_OUT1.
+                    Needs to be declared as monitored in `/srv/config.cfg`:
+
+                        [hardware]
+                        dig_out1 = CAN_Controlled
+                </Notes>
+                <Value type="unsigned" slope="1" min="0" max="1" />
+            </Signal>
+
+            <Signal name="Digital_Output2" offset="1" length="1">
+                <Notes>
+                    Reports the logical state of DIG_OUT2.
+                    Needs to be declared as monitored in `/srv/config.cfg`:
+
+                        [hardware]
+                        dig_out2 = CAN_Controlled
+                </Notes>
+                <Value type="unsigned" slope="1" min="0" max="1" />
+            </Signal>
+
+            <Signal name="Digital_Output3" offset="2" length="1">
+                <Notes>
+                    Reports the logical state of DIG_OUT3.
+                    Needs to be declared as monitored in `/srv/config.cfg`:
+
+                        [hardware]
+                        dig_out3 = CAN_Controlled
+                </Notes>
+                <Value type="unsigned" slope="1" min="0" max="1" />
+            </Signal>
+
+            <Signal name="Reserved" offset="3" length="61">
                 <Notes>Reserved bits for future uses.</Notes>
             </Signal>
         </Message>

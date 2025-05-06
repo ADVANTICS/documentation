@@ -12,7 +12,7 @@ BO_ 1536 EVSE_Information: 6 Advantics_Charge_Controller
  SG_ Communication_Stage : 0|8@1+ (1,0) [0|255] "" Vector__XXX
  SG_ Protocol : 8|8@1+ (1,0) [0|255] "" Vector__XXX
  SG_ Pins : 16|8@1+ (1,0) [0|255] "" Vector__XXX
- SG_ Max_Current : 24|16@1- (0.1,0) [-3276|3276] "Amps" Vector__XXX
+ SG_ Max_Current : 24|16@1- (1,0) [-32768|32767] "Amps" Vector__XXX
  SG_ RCD_Status : 40|1@1+ (1,0) [0|1] "" Vector__XXX
  SG_ Reserved_Flags : 41|7@1+ (1,0) [0|127] "" Vector__XXX
 
@@ -33,9 +33,9 @@ BO_ 1538 DC_Control: 1 Advantics_Charge_Controller
  SG_ Reserved_Flags : 1|7@1+ (1,0) [0|127] "" Vector__XXX
 
 BO_ 1554 DC_Status1: 8 Vehicle
- SG_ Max_Charge_Current : 0|16@1- (0.1,0) [-3276|3276] "Amps" Vector__XXX
- SG_ Present_Current : 16|16@1- (0.1,0) [-3276|3276] "Amps" Vector__XXX
- SG_ Max_Discharge_Current : 32|16@1+ (0.1,0) [0|6553] "Amps" Vector__XXX
+ SG_ Max_Charge_Current : 0|16@1- (1,0) [-32768|32767] "Amps" Vector__XXX
+ SG_ Present_Current : 16|16@1- (1,0) [-32768|32767] "Amps" Vector__XXX
+ SG_ Max_Discharge_Current : 32|16@1+ (1,0) [0|65535] "Amps" Vector__XXX
 
 BO_ 1555 DC_Status2: 5 Vehicle
  SG_ Contactors_Closed : 0|1@1+ (1,0) [0|1] "" Vector__XXX
@@ -64,6 +64,12 @@ BO_ 1539 CCS_Extra_Information: 6 Advantics_Charge_Controller
  SG_ PP_Resistance : 32|8@1+ (10,0) [0|2550] "Ohms" Vector__XXX
  SG_ Inlet_Lock_State : 40|2@1+ (1,0) [0|3] "" Vector__XXX
  SG_ Reserved_Flags : 42|6@1+ (1,0) [0|63] "" Vector__XXX
+
+BO_ 1559 ADM_CS_EVCC_MEVC_Outputs: 8 Vehicle
+ SG_ Digital_Output1 : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Digital_Output2 : 1|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Digital_Output3 : 2|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Reserved : 3|60@1+ (1,0) [0|1152921504606846975] "" Vector__XXX
 
 BO_ 1540 ADM_CS_EVCC_Inputs: 6 Advantics_Charge_Controller
  SG_ DC_Contactor_Positive_Feedback : 0|1@1+ (1,0) [0|1] "" Vector__XXX
@@ -106,6 +112,10 @@ CM_ BO_ 1558  "
             EV extra bidirectional power transfer information.
             ";
 CM_ BO_ 1539  "Extra information from CCS (for information only).";
+CM_ BO_ 1559  "
+                Controller (ADM-CS-EVCC and ADM-CS-MEVC hardware variant, ie. \"DIN rail\") has various outputs that
+                can be controlled through this message.
+            ";
 CM_ BO_ 1540  "
                 Controller (ADM-CS-EVCC hardware variant) is reporting various information
                 about its inputs. It is sent every seconds (for temperature channels).
@@ -187,13 +197,11 @@ CM_ SG_ 1538 Close_Contactors "
                 ";
 CM_ SG_ 1538 Reserved_Flags "Reserved bits for future uses.";
 CM_ SG_ 1554 Max_Charge_Current "
-                    Used as the target current sent to EVSE except for power transfer
-                    This signal can be used to dynamically update the EV Maximum charge current
-                    when the config entry \"use_dynamic_current_limits\" is set to true
-                    Otherwise the static configured \"max_current\" is used.
+                    Used as the target current sent to EVSE except for power transfer with CCS ISO15118-20 Dynamic mode,
+                    this signal will be used as the EV Maximum charge current. Note that negative values will be
+                    disregarded in CCS ISO 15118-20 Dynamic mode.
 
-                        [vehicle]
-                        use_dynamic_current_limits = true
+                    This signal can be dynamically updated by the BMS to limit the charge current
 
                     Will be capped by maximum current from config file and from EVSE data.
 
@@ -230,12 +238,9 @@ CM_ SG_ 1554 Present_Current "
                 ";
 CM_ SG_ 1554 Max_Discharge_Current "
                     Only taken into account in CCS ISO15118-20 Dynamic mode.
-                    This signal can be used to dynamically update the EV Maximum Discharge current
-                    when the config entry \"use_dynamic_current_limits\" is set to true
-                    Otherwise the static configured \"max_discharge_current\" is used.
+                    This signal can be used to dynamically update the EV Maximum Discharge current.
 
-                        [vehicle]
-                        use_dynamic_current_limits = true
+                    This signal can be dynamically updated by the BMS to limit the discharge current
 
                     Note that negative values will be disregarded.
                     Will be capped by max_discharge_current from config file.
@@ -313,6 +318,28 @@ CM_ SG_ 1539 CP_State "Measured CP state.";
 CM_ SG_ 1539 PP_Resistance "Measured resistance from PP. 2550 Ohms means disconnected.";
 CM_ SG_ 1539 Inlet_Lock_State "CCS Inlet lock state.";
 CM_ SG_ 1539 Reserved_Flags "Reserved bits for future uses.";
+CM_ SG_ 1559 Digital_Output1 "
+                    Sets the logical state of DIG_OUT1 (CONN5, position 1).
+                    Needs to be declared as monitored in `/srv/config.cfg`:
+
+                        [hardware]
+                        dig_out1 = CAN_Controlled
+                ";
+CM_ SG_ 1559 Digital_Output2 "
+                    Reports the logical state of DIG_OUT2 (CONN5, position 2).
+                    Needs to be declared as monitored in `/srv/config.cfg`:
+
+                        [hardware]
+                        dig_out2 = CAN_Controlled
+                ";
+CM_ SG_ 1559 Digital_Output3 "
+                    Reports the logical state of DIG_OUT3 (CONN5, position 3).
+                    Needs to be declared as monitored in `/srv/config.cfg`:
+
+                        [hardware]
+                        dig_out3 = CAN_Controlled
+                ";
+CM_ SG_ 1559 Reserved "Reserved bits for future uses.";
 CM_ SG_ 1540 DC_Contactor_Positive_Feedback "Reports the logical state of R-2E.";
 CM_ SG_ 1540 DC_Contactor_Negative_Feedback "Reports the logical state of R-2F.";
 CM_ SG_ 1540 Digital_Input1 "
@@ -340,13 +367,14 @@ CM_ SG_ 1540 CPU_Temperature "Temperature reported by the CPU chip of the charge
 CM_ SG_ 1540 CAN_Sensor_Temperature "If using a CAN sensor, and it has a temperature channel.";
 
 
+BA_DEF_ SG_ "GenSigStartValue" FLOAT 0 100000000000;
 
 
 
 
 VAL_ 1536 Communication_Stage 0 "Initialising" 1 "Waiting_For_EVSE" 2 "Negotiating_Connection" 3 "Connected_With_Full_Info" 4 "Insulation_Test" 5 "Precharge" 6 "Waiting_For_Charge" 7 "Charging" 8 "Ending_Charge" 9 "Welding_Detection" 10 "Closing_Communication";
 VAL_ 1536 Protocol 0 "" 1 "CCS_PWM" 2 "CCS_DIN_70121_2012_v2" 3 "CCS_ISO_15118_2013_v2" 4 "CCS_ISO_15118_2022";
-VAL_ 1536 Pins 0 "" 1 "CCS_AC" 2 "CCS_AC_Single_Phase_Core" 3 "CCS_AC_Three_Phase_Core" 4 "CCS_DC_Core" 5 "CCS_DC_Extended";
+VAL_ 1536 Pins 0 "" 1 "CCS_AC" 2 "CCS_AC_Single_Phase_Core" 3 "CCS_AC_Three_Phase_Core" 4 "CCS_DC_Core" 5 "CCS_DC_Extended" 6 "MCS";
 VAL_ 1536 RCD_Status 0 "No_Error" 1 "Error";
 VAL_ 1537 Ready_To_Deliver_Power 0 "Not_Ready" 1 "Ready";
 VAL_ 1553 Ready_To_Charge 0 "Not_Ready" 1 "Ready";
