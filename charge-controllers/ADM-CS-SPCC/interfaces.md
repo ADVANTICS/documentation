@@ -41,7 +41,7 @@ Just like the CCS interface, CHAdeMO is under full control of the communication 
 
 ## Output contactor control
 
-CONTACTOR_ENABLE will be set to logic level 1 on SPCC when the following requirements are met for each pistol:
+CONTACTOR_ENABLE will be set to logic level 0 on SPCC when the following requirements are met for each pistol:
 
 **For MCS Charging**
 - CE_OK: Vehicle sets CE state C (power is allowed)
