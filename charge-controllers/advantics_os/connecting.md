@@ -4,7 +4,7 @@
 
 ## About the Web Interface
 
-The default way to access the controller in the new Advantics OS is through its web interface. Once the controller is powered on and connected to the same network as your computer, you can open a web browser on your computer and navigate to the hostname that is printed in the box . Don't forget to add the `http://`!. ie: `http://adm-cs-spcc-12345678.local`.
+The default way to access controllers running the new Advantics OS is through their web interface. Once the controller is powered on and connected to the same network as your computer, you can open a web browser on your computer and navigate to the hostname that is printed in the box . Don't forget to add the `http://`!. ie: `http://adm-cs-spcc-12345678.local`.
 
 > [!NOTE]
 > The hostname is composed by the controller type and its serial number in the format: `adm-cs-<controller-type>-<serial-number>.local`.
