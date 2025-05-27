@@ -1,9 +1,10 @@
-# Charger communication simulation
+# PEV Simulation
 
-> [!DANGER]
-> This feature **is not included in the normal software stack and has to be purchased apart.** Please contact [sales](mailto:sales@advantics.fr) for more information
+<div style="background-color: teal; color: white; font-weight: bold; padding: 10px; text-align: center;">
+    🚨 IMPORTANT: This feature is not included in the standard software stack and has to be purchased separately. Please contact <a href="mailto:sales@advantics.fr">sales</a> for more information🚨
+</div>
 
-The primary objective of this software is to emulate a battery and BMS on the vehicle side, allowing users to observe and interact with the system without requiring an actual vehicle.
+The primary objective of this software is to simulate a battery and BMS on the EV charge controller, allowing users to observe and interact with the system without requiring an actual vehicle.
 
 <!-- This feature is designed to simulate EV behavior in a controlled environment, making it possible to test various scenarios and vehicle responses during a charging session. -->
 
@@ -11,7 +12,7 @@ The primary objective of this software is to emulate a battery and BMS on the ve
 
 Simulation is primarily managed and controlled by the [CSM Web UI](charge-controllers/advantics_os/csm-web-ui.md). [Connect to your controller](charge-controllers/advantics_os/connecting) dashboard and head to `/dashboard/simulation`.
 
-The interface allows real-time enabling the simulator and editing and control of parameters during a simulated session. It is divided into three main sections: **Parameters**, **Control**, and **Command**.
+The interface allows enabling and disabling the simulator in real-time and editing parameters during a simulated charge session. It is divided into three main sections: **Parameters**, **Control**, and **Command**.
 
 ![UI](./vehicle-simulator.png)
 
@@ -21,20 +22,19 @@ This switch enables or disables the simulation feature.
 
 ![Enabling the simulation feature](./enable-simulators.png)
 
-This user interface allows live editing and control of vehicle-side parameters in a simulated charging session. It consists of three main sections: **Parameters**, **Control**, and **Command**.
-
 ## Live Editable parameters
 
 ### **Parameters (Left Section)**
 
-This section is a **form** where the user can input and adjust various vehicle-related values. These include:
+This section is a **form** where the user can adjust and observe various vehicle-related parameters. These include:
 
-- **Contactors Delay**
-- **Departure Time**
-- **Charge Speed Multiplier**
+- **Contactors Delay**: The reaction time of the contactors for close/open commands.
+- **Departure Time**: The departure time reported by the EV to the charger
+- **Charge Speed Multiplier**: This parameter allows user to run the simulated charge session faster than real time. If this value set to 100, the simulated battery will charge 100 times faster. The elapsed time for the simulated session is indicated in the same page. When the charge speed multiplier is high, the charger can overshoot for discharge SoC because the time is faster for the battery and charger might not be able to reach that fast.
 - **Energy Requests**: Maximum, Target, Minimum (including V2X-specific)
-- **EV Energy Capacity**
-- **EV DC Max Charge Current**
+- **EV Energy Capacity**: The capacity of the simulated battery in kWh.
+- **EV DC Max Charge Current**: Maximum allowed current for charging the battery.
+- **EV DC Max Discharge Current**: Maximum allowed current for discharging the battery.
 
 Each parameter has:
 
@@ -47,14 +47,14 @@ Changes are only applied after the user clicks the **“Send”** button at the 
 
 ### **Control (Middle Section)**
 
-This section contains toggle switches that let the user **enable or disable the sending of specific information** from the simulated vehicle:
+This section provides toggle switches to **enable or disable sending of specific CAN messages** sent by the simulated BMS. These toggles can be used to test partial PEV Generic Interface v2 implementations by disabling the corresponding and giving control to the software under development. Each toggle controls sending of a specific message as listed below.
 
-- **EV Information**
-- **DC Status1**
-- **DC Status2**
-- **EV Energy Request**
-- **EV V2X Energy Request**
-- **EV Extra BPT Information**
+- **EV Information**: [EV_Information](https://advantics.github.io/documentation/#/charge-controllers/evcc_generic/can_v2?id=ev_information)
+- **DC Status1**: [DC_Status1](https://advantics.github.io/documentation/#/charge-controllers/evcc_generic/can_v2?id=dc_status1)
+- **DC Status2**: [DC_Status2](https://advantics.github.io/documentation/#/charge-controllers/evcc_generic/can_v2?id=dc_status2)
+- **EV Energy Request** [EV_Energy_Request](https://advantics.github.io/documentation/#/charge-controllers/evcc_generic/can_v2?id=ev_energy_request)
+- **EV V2X Energy Request** [EV_V2X_Energy_Request](https://advantics.github.io/documentation/#/charge-controllers/evcc_generic/can_v2?id=ev_v2x_energy_request)
+- **EV Extra BPT Information** [EV_Extra_BPT_Information](https://advantics.github.io/documentation/#/charge-controllers/evcc_generic/can_v2?id=ev_extra_bpt_information)
 
 These toggles apply immediately when switched and determine which data types the simulator sends to the system.
 
@@ -73,17 +73,20 @@ Each action is performed by clicking the corresponding **“Stop”** button.
 
 ## Simulating a bidirectional MCS charge session (ISO151180-20) with simulated charger and vehicle, using ADM-CS-SPCC, ADM-CS-MEVC and simulator software stack
 
-1. Enable the [charge station simulator](charge-controllers/charger-simulation#enabling-the-simulator).
-2. Enable the [vehicle simulator](charge-controllers/vehicle-simulation#enabling-the-simulator).
-3. Make sure ADVANTICS vehicle controller configuration option [No BMS mode](charge-controllers/evcc_configuration/no_bms) is **disabled** (set to false).
-4. Set the [relevant configuration entries in the vehicle controller](charge-controllers/evcc_bidirectional?id=relevant-config-entries) and [charge station controller](charge-controllers/secc_generic/secc_bidirectional?id=relevant-config-entries) for ISO151180-20.
-5. Enable sending [`DC_Power_Parameters`](charge-controllers/charger-simulation?id=enable_dc_power_parameters-bool), [`Power_Modules_Status`](charge-controllers/charger-simulation?id=enable_power_module_status-bool) and [`Sequence_Flags`](charge-controllers/charger-simulation?id=enable_sequence_flags-bool) in the [ charge controller simulator UI ](charge-controllers/charger-simulation#UI)
-6. Enable sending [`EV_Information`](charge-controllers/vehicle-simulation?id=enable_ev_information-bool), [`DC_Status_1`](charge-controllers/vehicle-simulation?id=enable_dc_status_1-bool),[`DC_Status_2`](charge-controllers/vehicle-simulation?id=enable_dc_status_2-bool), [`EV_Energy_Request`](charge-controllers/vehicle-simulation?id=enable_ev_energy_request-bool), [`EV_V2X_Energy_Request`](charge-controllers/vehicle-simulation?id=enable_ev_v2x_energy_request-bool) and [`EV_Extra_BPT_Info`](charge-controllers/vehicle-simulation?id=enable_ev_extra_bpt_info-bool) in the [vehicle simulator UI](charge-controllers/vehicle-simulation#UI).
-7. Connect the plug.
-8. Head to `dashboard/monitoring` and follow the charge session.
+1. Update the charge controller configuration for bidirectional power transfer. [Relevant Config Entries](https://advantics.github.io/documentation/#/charge-controllers/secc_generic/secc_bidirectional?id=relevant-config-entries)
+2. Enable the [EVSE simulator](charge-controllers/charger-simulation#enabling-the-simulator) with sending all CAN messages enabled. The default simulation configuration can be used.
+3. Enable the [PEV simulator](charge-controllers/vehicle-simulation#enabling-the-simulator) with sending all CAN messages enabled.
+4. Make sure ADVANTICS vehicle controller configuration option [No BMS mode](charge-controllers/evcc_configuration/no_bms) is **disabled** (set to false).
+5. Set the [relevant configuration entries in the vehicle controller](charge-controllers/evcc_bidirectional?id=relevant-config-entries) and [charge station controller](charge-controllers/secc_generic/secc_bidirectional?id=relevant-config-entries) for ISO151180-20.
+6. Connect the plug.
+7. Head to `dashboard/monitoring` and follow the charge session.
 
 > [!NOTE]
 > Please wait at least 30 seconds between sessions
+
+> [!NOTE]
+> In order to run a simulated charge session by using an ADVANTICS charge controller with simulator **on one side**, please make sure the controller on other side is configured to run a charge session without any real power delivered. 
+
 
 # Simulated EV Configuration Options
 
@@ -131,11 +134,8 @@ These configuration options control how the simulated EV interacts with the char
 
 ## `charging_speed_multiplier` (float)
 
-- **Description:** Multiplier for the simulated battery charging time, used to accelerate or slow down the simulation for observability.
+- **Description:** Multiplier for the simulated battery charging time, used to accelerate or slow down the simulation for observability. This parameter allows user to run the simulated charge session faster than real time. If this value set to 100, the simulated battery will charge 100 times faster. The elapsed time for the simulated session is indicated in the same page. When the charge speed multiplier is high, the charger can overshoot for discharge SoC because the time is faster for the battery and charger might not be able to reach that fast.
 - **Default:** `1`
-
-  > [!NOTE]
-  > When the simulation time multiplier is high, the charger can overshoot for discharge SoC (because time is warped): the solution is to set slopes on EVSE side more agressively so the EVSE can keep up with the faster time multiplier
 
 ## `ev_battery_soc` (float)
 
