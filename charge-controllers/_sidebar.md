@@ -29,6 +29,7 @@
         - [Flashing Advantics power modules](charge-controllers/secc_afpu.md) -->
     - [OCPP 1.6J](charge-controllers/ocpp16j.md)
     - [OCPP 2.0.1](charge-controllers/ocpp201.md)
+    - [ EVSE Simulation ](charge-controllers/charger-simulation.md)
   - **Charger CAN bus Interfaces**
     - [Generic CAN interface](charge-controllers/secc_generic/README.md)
     - [Introduction](charge-controllers/secc_generic/introduction.md)
@@ -47,8 +48,6 @@
       - [Changelog](charge-controllers/secc_generic/changelog_v3.md)
     - [V2G](charge-controllers/secc_generic/secc_bidirectional.md)
     - [AC charging](charge-controllers/secc_ac_charging.md)
-  - [ **EVSE Simulation** ](charge-controllers/charger-simulation.md)
-  - [ **PEV Simulation** ](charge-controllers/vehicle-simulation.md)
 
 - **Vehicle Controllers**
     <!-- - [Specifications](charge-controllers/ADM-CS-EVCC/specifications.md) -->
@@ -81,6 +80,7 @@
     - [Special](charge-controllers/evcc_special.md)
       - [Orion BMS setup](charge-controllers/evcc_orion_bms/orion_bms_integration.md)
       - [Updater tool](charge-controllers/evcc_updater.md)
+    - [ PEV Simulation ](charge-controllers/vehicle-simulation.md)
   - **Vehicle CAN bus Interfaces**
     - [Generic CAN interface](charge-controllers/evcc_generic/README.md)
     - [Introduction](charge-controllers/evcc_generic/introduction.md)
