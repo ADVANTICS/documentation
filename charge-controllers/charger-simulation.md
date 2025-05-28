@@ -73,14 +73,14 @@ This section allows the user to issue manual commands. Each command has its **ow
 7. Head to `dashboard/monitoring` and follow the charge session.
 
 > [!NOTE]
-> Please wait at least 30 seconds between sessions
+> In case of charge session termination, please wait until the charge controllers go back to idle state before plugging in again.
 
 > [!NOTE]
 > In order to run a simulated charge session by using an ADVANTICS charge controller with simulator **on one side**, please make sure the controller on other side is ready to run a charge session without any real power delivered. 
 
 # Simulated Charger Configuration Options
 
-This section describes the configuration options available for the simulated charger. The configuration can be modified in ithe `simulation_config.cfg` or using the web interface at `/dashboard/simulation/config`
+This section describes the configuration options available for the simulated charger. The configuration can be modified by using the web interface at `/dashboard/simulation/config`
 
 > [!NOTE]
 > The configuration entries and most of the live parameters correspond to each other. The configuration value defines the **default** value to be used then the controller restarts. Any configuration change requires the charge controller applications to restart. The live parameters can be updated at any time, typically between charge sessions to test different behaviors without making permanent changes.

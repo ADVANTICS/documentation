@@ -82,7 +82,7 @@ Each action is performed by clicking the corresponding **“Stop”** button.
 7. Head to `dashboard/monitoring` and follow the charge session.
 
 > [!NOTE]
-> Please wait at least 30 seconds between sessions
+> In case of charge session termination, please wait until the charge controllers go back to idle state before plugging in again.
 
 > [!NOTE]
 > In order to run a simulated charge session by using an ADVANTICS charge controller with simulator **on one side**, please make sure the controller on other side is configured to run a charge session without any real power delivered. 
