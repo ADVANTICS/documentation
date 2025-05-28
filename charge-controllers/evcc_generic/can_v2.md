@@ -23,6 +23,9 @@ Copyright ADVANTICS 2017
 | [AC_Status](#AC_Status) | 0x611 | 1 | IN | 100 |
 | [DC_Status1](#DC_Status1) | 0x612 | 4 | IN | 100 |
 | [DC_Status2](#DC_Status2) | 0x613 | 5 | IN | 100 |
+| [EV_Energy_Request](#EV_Energy_Request) | 0x614 | 6 | IN | 100 |
+| [EV_V2X_Energy_Request](#EV_V2X_Energy_Request) | 0x615 | 4 | IN | 100 |
+| [EV_Extra_BPT_Information](#EV_Extra_BPT_Information) | 0x616 | 4 | IN | 100 |
 
 </div>
 
