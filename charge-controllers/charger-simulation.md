@@ -72,6 +72,8 @@ This section allows the user to issue manual commands. Each command has its **ow
 6. Connect the plug.
 7. Head to `dashboard/monitoring` and follow the charge session.
 
+![EVSE Monitoring Page](./charger-monitor.png)
+
 > [!NOTE]
 > In case of charge session termination, please wait until the charge controllers go back to idle state before plugging in again.
 

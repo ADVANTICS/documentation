@@ -81,6 +81,9 @@ Each action is performed by clicking the corresponding **“Stop”** button.
 6. Connect the plug.
 7. Head to `dashboard/monitoring` and follow the charge session.
 
+![PEV Monitoring Page](./vehicle-monitor.png)
+
+
 > [!NOTE]
 > In case of charge session termination, please wait until the charge controllers go back to idle state before plugging in again.
 
