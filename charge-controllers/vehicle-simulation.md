@@ -91,6 +91,44 @@ Each action is performed by clicking the corresponding **“Stop”** button.
 > In order to run a simulated charge session by using an ADVANTICS charge controller with simulator **on one side**, please make sure the controller on other side is configured to run a charge session without any real power delivered. 
 
 
+# Hardware Wiring
+If you prefer to wire a different hardware to one side of the simulator box, you can follow the connection table below:
+
+### Power Connector
+<div class="small-table compact-table">
+
+| Number | Label | Color |  
+|--------|-------|-------|
+| 1 | 24V | Red |
+| 2 | GND | Black |
+
+</div>
+
+### CAN Bus Connector
+<div class="small-table compact-table">
+
+| Number | Label | Color |  
+|--------|-------|-------|
+| 1 | CAN H | Brown |
+| 2 | CAN L | Blue |
+| 3 | CAN GND | Black |
+
+</div>
+
+### MCS Connector
+<div class="small-table compact-table">
+
+| Number | Label | Color |  
+|--------|-------|-------|
+| 1 | CE | Orange |
+| 2 | ID | White |
+| 3 | PHY1 | Purple |
+| 4 | PHY2 | Green |
+| 5 | PE | Yellow/Green |
+
+</div>
+
+
 # Simulated EV Configuration Options
 
 These configuration options control how the simulated EV interacts with the charger.
