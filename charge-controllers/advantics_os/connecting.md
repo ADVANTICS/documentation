@@ -2,12 +2,12 @@
 
 # Accessing and interacting with the controller
 
-## About the Web Interface
-
-The default way to access controllers running the new Advantics OS is through their web interface. Once the controller is powered on and connected to the same network as your computer, you can open a web browser on your computer and navigate to the hostname that is printed in the box . Don't forget to add the `http://`!. ie: `http://adm-cs-spcc-12345678.local`.
+## Introduction
 
 > [!NOTE]
-> The hostname is composed by the controller type and its serial number in the format: `adm-cs-<controller-type>-<serial-number>.local`.
+> The hostname is composed by the controller type and its serial number in the format: `adm-cs-<controller-type>-<serial-number>.local`. You should be able to find it in a sticker in the packaging of the controller.
+
+The default way to access controllers running the new AdvOS is through their web interface. Once the controller is powered on and connected to the same network as your computer, you can open a web browser on your computer and navigate to the hostname that is printed in the box . Don't forget to add the `http://`!. ie: `http://adm-cs-spcc-12345678.local`.
 
 Then in your browser you should see something like this:
 
@@ -15,7 +15,7 @@ Then in your browser you should see something like this:
 
 You can find documentation on how to use the UI under [CSM Web UI](charge-controllers/advantics_os/csm-web-ui.md).
 
-To make sure both your computer and the controller are connected to the same network see below.
+Sections below explain typical network configurations for accessing the controller.
 
 ## Accessing the controller in a local Network with a DHCP Server
 
