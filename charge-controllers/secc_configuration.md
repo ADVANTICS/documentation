@@ -293,6 +293,81 @@ Example:
 
     Attn_bias = 0
 
+`insulation_monitor_type`
+Whether you are using one of our supported insulation monitors and which one
+
+Available:
+
+- **BenderISOCHA425HV**: Bender isoCHA425HV
+- **Not_Used**: No insulation monitor
+
+Example:
+
+    insulation_monitor_type = BenderISOCHA425HV
+
+or
+
+    insulation_monitor_type = Not_Used
+
+`insulation_monitor_stopbits`
+Number of stop bits for the RS485 serial communication with the insulation monitor. The required number of stop bits depends on the selected parity. Check [ our documentation ](charge-controllers/supported-devices.md#Bender-isoCHA425HV) and the insulation monitor’s documentation for valid combinations.
+
+Available:
+
+- **1**
+- **2**
+
+Example:
+
+```
+insulation_monitor_stopbits = 1
+```
+
+---
+
+`insulation_monitor_parity`
+Parity setting for the RS485 serial communication with the insulation monitor.
+
+Available:
+
+- **N**: None
+- **E**: Even
+- **O**: Odd
+
+Example:
+
+```
+insulation_monitor_parity = E
+```
+
+---
+
+`insulation_monitor_baudrate`
+Baud rate for the RS485 serial communication with the insulation monitor.
+
+Available:
+
+- [ Bender isoCHA425HV allowed baudrates ](charge-controllers/supported-devices.md#Bender-isoCHA425HV)
+
+Example:
+
+```
+insulation_monitor_baudrate = 9600
+```
+
+---
+
+`insulation_monitor_address`
+RS485 address ID of the insulation monitor.
+
+- [ Bender isoCHA425HV allowed addresses ](charge-controllers/supported-devices.md#Bender-isoCHA425HV)
+
+Example:
+
+```
+insulation_monitor_address = 3
+```
+
 ## OCPP Configuration
 
 Advantics charge controllers can provide OCPP functionality. Please refer to the [**OCPP documentation**](charge-controllers/ocpp16j.md) for more details on the application.
