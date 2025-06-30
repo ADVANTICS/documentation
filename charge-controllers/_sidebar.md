@@ -30,6 +30,7 @@
     - [OCPP 1.6J](charge-controllers/ocpp16j.md)
     - [OCPP 2.0.1](charge-controllers/ocpp201.md)
     - [EVSE Simulation](charge-controllers/charger-simulation.md)
+    - [Supported Insulation Monitors](charge-controllers/evse-supported-insulation-monitors.md)
   - **Charger CAN bus Interfaces**
     - [Generic CAN interface](charge-controllers/secc_generic/README.md)
     - [Introduction](charge-controllers/secc_generic/introduction.md)
@@ -81,6 +82,7 @@
       - [Orion BMS setup](charge-controllers/evcc_orion_bms/orion_bms_integration.md)
       - [Updater tool](charge-controllers/evcc_updater.md)
     - [PEV Simulation](charge-controllers/vehicle-simulation.md)
+    - [Supported sensors](charge-controllers/pev-supported-sensors.md)
   - **Vehicle CAN bus Interfaces**
     - [Generic CAN interface](charge-controllers/evcc_generic/README.md)
     - [Introduction](charge-controllers/evcc_generic/introduction.md)
