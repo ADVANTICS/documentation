@@ -13,8 +13,8 @@ In the present version, controllers are configured by default for a static IPv4 
 
 | Variant | Static IP | Submask | Gateway |
 |---|---|---|---|
-| **EVSE** | 192.168.1.51 | 255.255.255.0 | 192.168.1.1
-| **PEV** | 192.168.1.49 | 255.255.255.0 | 192.168.1.1
+| **ADM-CS-SECC** | 192.168.1.51 | 255.255.255.0 | 192.168.1.1
+| **ADM-CS-EVCC** | 192.168.1.49 | 255.255.255.0 | 192.168.1.1
 
 </div>
 
