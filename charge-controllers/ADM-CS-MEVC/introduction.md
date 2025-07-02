@@ -122,4 +122,4 @@ The reference of the pin is composed of 3 characters:
 
 ## Mechanical housing
 
-The automotive housing is based on the CINCH ModICE platform. In particular the SE variant. The front-facing connectors mate with CINCH P/N:581 01 18 023 (18-way) and 581 01 30 029 (30-way). The terminals for different wire gauge are 425 00 00 872 and 425 00 00 873. Consult the [ModICE brochure](https://www.belfuse.com/product/part-details?partn=5810130043) for the details.
+The automotive housing is based on the CINCH ModICE platform. In particular the SE variant. The front-facing connectors mate with [CINCH P/N:581 01 18 023](https://www.cinch.com/products/enclosures/connectors/5810118023) (18-way) and [581 01 30 029](https://www.cinch.com/products/enclosures/connectors/5810130029) (30-way). The terminals for different wire gauge are 425 00 00 872 and 425 00 00 873. Consult the [ModICE brochure](https://www.cinch.com/products/enclosures/enclosures/5810130043) for the details.
