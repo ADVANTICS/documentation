@@ -37,3 +37,27 @@ For controllers meant for series production, the following hardening methods are
 > For series production, you will have to choose at least one of these methods. ADVANTICS will
 > refuse to provide series production orders with system having simple, always the same, default
 > password. Even if you don't plan to have the module connected to Internet.
+
+
+## Copying files to the controller using SCP
+Using the Command Line (Linux, macOS, or Windows with WSL/PowerShell).
+
+- Open a terminal (or Command Prompt / PowerShell on Windows if you have scp available).
+
+- Navigate to the folder where your file is located. For example: `cd /path/to/your/file`
+
+- Run the scp command to copy the file:
+
+    `scp <filename> <username>@<hostname>:<destination-path>`
+
+    Replace:
+
+    `<filename>` – with the name of the file you want to copy
+
+    `<username>` – with the login user on the remote device **(use `advantics`)**
+
+    `<hostname>` – Grab the hostname of the controller as documented in [Accessing and interacting with the controller](charge-controllers/advantics_os/connecting.md).
+
+    `<destination-path>` – with the target directory on the device **(use `/home/advantics`)**
+
+    Example: `scp myupdate.tar advantics@adm-cs-spcc-12345678:/home/advantics`
