@@ -39,7 +39,7 @@ For controllers meant for series production, the following hardening methods are
 > password. Even if you don't plan to have the module connected to Internet.
 
 
-## Copying files to the controller using SCP
+# Copying files to the controller using SCP
 Using the Command Line (Linux, macOS, or Windows with WSL/PowerShell).
 
 - Open a terminal (or Command Prompt / PowerShell on Windows if you have scp available).
@@ -48,7 +48,9 @@ Using the Command Line (Linux, macOS, or Windows with WSL/PowerShell).
 
 - Run the scp command to copy the file:
 
-    `scp <filename> <username>@<hostname>:<destination-path>`
+     ```bash
+    scp <filename> <username>@<hostname>:<destination-path>
+    ```
 
     Replace:
 
@@ -63,3 +65,44 @@ Using the Command Line (Linux, macOS, or Windows with WSL/PowerShell).
     Example: `scp myupdate.tar advantics@adm-cs-spcc-12345678:/home/advantics`
 
 - Enter the password for the device when prompted. (the default is _dev-only_)
+
+# Full release update
+
+## Loading the update
+
+### Option 1 (requires internet): Pulling the update from Docker Hub
+
+In case the controller is connected to the internet, you can easily load the new images using the command: 
+```bash
+/etc/advantics/compose.sh default pull
+```
+Please note that here we're using the default profile (`default`), more steps might be needed if you're using a different profile or have modified the default one.
+
+***Then jump to [Common steps](#common-steps)***
+
+### Option 2 (does not requires internet): Loading the images from a .tar file
+
+This is for updating one or several of the application containers. Advantics provide you a _.tar_
+file. The process is to:
+
+1. Copy the update file to the controller following the guide here: [Copying files to the controller using SCP](#copying-files-to-the-controller-using-scp)
+
+2. [Login to the controller](#ssh-access)
+
+3. Load the new images from the .tar file using this command:
+```bash
+docker load -i /path/to/update.tar
+```
+(Replace `/path/to/update.tar` by the actual path and name of the .tar file)
+
+### Common steps
+- After updating the applications, use the following command to recreate and start new containers:
+```bash
+/etc/advantics/compose.sh default up -d
+```
+Please note that here we're using the default profile (`default`), more steps might be needed if you're using a different profile or have modified the default one.
+
+- Then, to clean up and delete the old images, you can use:
+```bash
+docker image prune
+```
