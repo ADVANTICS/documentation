@@ -59,7 +59,7 @@ They are slow paced because the release process is substantial.
         <ul>
           <li>Initial SPCC Engineering Units release</li>
           <li>MCS support</li>
-          <li>Includes <a href="/home/amin/Documents/ADVANTICS/charge-controllers-workspace/Applications/documentation/charge-controllers/advantics_os/csm-web-ui.md">Advantics Controller System Manager</a></li>
+          <li>Includes <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/csm-web-ui?id=advantics-csm-web-ui">Advantics Controller System Manager</a></li>
         </ul>
       </td>
       <td>-</td>
@@ -104,8 +104,8 @@ They are slow paced because the release process is substantial.
       </td>
       <td>
         <ul>
-          <li><strong>Option 1:</strong> Pull from Docker Hub - <a href="charge-controllers/advantics_os/ssh.md#option-1-requires-internet-pulling-the-update-from-docker-hub">Guide</a></li>
-          <li><strong>Option 2:</strong> <a href="https://drive.google.com/uc?export=download&id=1BKGBPBxun3zyU2DG1n7415U_D_fKvjNz">Download .tar</a> + <a href="charge-controllers/advantics_os/ssh.md#full-release-update">Update instructions</a></li>
+          <li><strong>Option 1:</strong> Pull from Docker Hub - <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=option-1-requires-internet-pulling-the-update-from-docker-hub">Guide</a></li>
+          <li><strong>Option 2:</strong> <a href="https://drive.google.com/uc?export=download&id=1BKGBPBxun3zyU2DG1n7415U_D_fKvjNz">Download .tar</a> + <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=full-release-update">Update instructions</a></li>
         </ul>
       </td>
       <td>

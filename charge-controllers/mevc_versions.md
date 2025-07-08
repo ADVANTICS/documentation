@@ -54,7 +54,7 @@ Currently supported hardware are for `ADM-CS-MEVC`.
         <ul>
           <li>Initial MEVC Engineering Units release</li>
           <li>MCS support</li>
-          <li>Includes <a href="/home/amin/Documents/ADVANTICS/charge-controllers-workspace/Applications/documentation/charge-controllers/advantics_os/csm-web-ui.md">Advantics Controller System Manager</a></li>
+          <li>Includes <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/csm-web-ui?id=advantics-csm-web-ui">Advantics Controller System Manager</a></li>
         </ul>
       </td>
       <td>-</td>
@@ -94,8 +94,8 @@ Currently supported hardware are for `ADM-CS-MEVC`.
       </td>
       <td>
         <ul>
-          <li><strong>Option 1:</strong> Pull from Docker hub — <a href="charge-controllers/advantics_os/ssh.md#option-1-requires-internet-pulling-the-update-from-docker-hub">Guide</a></li>
-          <li><strong>Option 2:</strong> <a href="https://drive.google.com/uc?export=download&id=1UbFszaAsMXQeq533L6Q20KhT6ewDkbOw">Download .tar (Release 2.0)</a> — <a href="charge-controllers/advantics_os/ssh.md#full-release-update">Update Instructions</a></li>
+          <li><strong>Option 1:</strong> Pull from Docker hub — <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=option-1-requires-internet-pulling-the-update-from-docker-hub">Guide</a></li>
+          <li><strong>Option 2:</strong> <a href="https://drive.google.com/uc?export=download&id=1UbFszaAsMXQeq533L6Q20KhT6ewDkbOw">Download .tar (Release 2.0)</a> — <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=full-release-update">Update Instructions</a></li>
         </ul>
       </td>
       <td>
