@@ -61,3 +61,5 @@ Using the Command Line (Linux, macOS, or Windows with WSL/PowerShell).
     `<destination-path>` – with the target directory on the device **(use `/home/advantics`)**
 
     Example: `scp myupdate.tar advantics@adm-cs-spcc-12345678:/home/advantics`
+
+- Enter the password for the device when prompted. (the default is _dev-only_)
