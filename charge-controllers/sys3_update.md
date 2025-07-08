@@ -144,12 +144,13 @@ file. The process is to:
 
 - Open a terminal (or Command Prompt / PowerShell on Windows).
 
-- Navigate to the folder where your .tar file is located. For example: `cd /path/to/your/myupdate.tar` (Replace `/path/to/your/myupdate.tar` with the actual path to the file on your system.)
+- Navigate to the folder where your .tar file is located. For example: `cd /path/to/your/update.tar` (Replace `/path/to/your/update.tar` with the actual path to the file on your system.)
 
 - Run the scp command to copy the file:
 
-    `scp <filename> <username>@<ip-address>:<destination-path>`
-
+    ```bash
+    scp <filename> <username>@<ip-address>:<destination-path>
+    ```
     Replace:
 
     `<filename>` – with the name of the .tar file you want to copy
@@ -160,7 +161,7 @@ file. The process is to:
 
     `<destination-path>` – with the target directory on the device **(example: `/root`)**
 
-    Example with the default IP of the SECC: `scp myupdate.tar root@192.168.1.51:/root`
+    Example with the default IP of the SECC: `scp update.tar root@192.168.1.51:/root`
 
 - Enter the password for the device when prompted. (the default is _dev-only_)
 
@@ -176,7 +177,7 @@ For EVCC version, uses _S80vehicle_ instead of _S80charger_.
 
 4. Apply patch update
 ```bash
-$ docker load -i /path/to/your/myupdate.tar
+$ docker load -i /path/to/your/update.tar
 $ docker image prune -f
 ```
 
@@ -185,6 +186,53 @@ $ docker image prune -f
 $ /etc/init.d/S80charger start
 ```
 For EVCC version, uses _S80vehicle_ instead of _S80charger_.
+
+
+### Full release update
+
+This is for updating one or several of the application containers. Advantics provide you a _.zip_
+file. The process is to:
+<br/><br/>
+
+1. Using the Command Line (Linux, macOS, or Windows with WSL/PowerShell).
+
+- Open a terminal (or Command Prompt / PowerShell on Windows).
+
+- Navigate to the folder where your .zip file is located. For example: `cd /path/to/your/release.zip` (Replace `/path/to/your/release.zip` with the actual path to the file on your system.)
+
+- Run the scp command to copy the file:
+
+    ```bash
+    scp <filename> <username>@<ip-address>:<destination-path>
+    ```
+    Replace:
+
+    `<filename>` – with the name of the .zip file you want to copy
+
+    `<username>` – with the login user on the remote device **(use `root`)**
+
+    `<ip-address>` – Grab the IP address of the controller as documented in [SSH](charge-controllers/sys3_user/access.md#SSH).
+
+    `<destination-path>` – with the target directory on the device **(example: `/root`)**
+
+    Example with the default IP of the SECC: `scp release.zip root@192.168.1.51:/root`
+
+- Enter the password for the device when prompted. (the default is _dev-only_)
+
+2. [Login to the controller](charge-controllers/sys3_user/access.md)
+
+3. unzip the the file using: (Replace `/path/to/your/release.zip` with the actual path to the file on your controller.)
+
+```bash
+$ unzip /path/to/your/release.zip
+```
+
+4. Apply the update using the update script `update-controller.sh` (the name of the update script can vary, you can use `ls` command on the directory where you unzipped the release to list the files and identify the update script)
+```bash
+$ ./update-controller.sh
+```
+
+5. After the update is done, power cycle the controller
 
 
 ## Updater tool
