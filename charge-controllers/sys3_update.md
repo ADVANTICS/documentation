@@ -92,7 +92,7 @@ Patch updates are a way to partially update a controller, mostly for bug fixes a
 developments. This should only be done when Advantics tells you to do so, and provide you the right
 files.
 
-### Application container patch update
+### Application container patch update using SD card
 
 This is for updating one or several of the application containers. Advantics provide you a _.tar_
 file. The process is to:
@@ -133,6 +133,59 @@ For EVCC version, uses _S80vehicle_ instead of _S80charger_.
 ```bash
 $ umount /mnt/sd
 ```
+
+### Application container patch update using SCP
+
+This is for updating one or several of the application containers. Advantics provide you a _.tar_
+file. The process is to:
+<br/><br/>
+
+1. Using the Command Line (Linux, macOS, or Windows with WSL/PowerShell).
+
+- Open a terminal (or Command Prompt / PowerShell on Windows).
+
+- Navigate to the folder where your .tar file is located. For example: `cd /path/to/your/myupdate.tar` (Replace `/path/to/your/myupdate.tar` with the actual path to the file on your system.)
+
+- Run the scp command to copy the file:
+
+    `scp <filename> <username>@<ip-address>:<destination-path>`
+
+    Replace:
+
+    `<filename>` – with the name of the .tar file you want to copy
+
+    `<username>` – with the login user on the remote device **(use `root`)**
+
+    `<ip-address>` – Grab the IP address of the controller as documented in [SSH](charge-controllers/sys3_user/access.md#SSH).
+
+    `<destination-path>` – with the target directory on the device **(example: `/root`)**
+
+    Example with the default IP of the SECC: `scp myupdate.tar root@192.168.1.51:/root`
+
+- Enter the password for the device when prompted. (the default is _dev-only_)
+
+2. [Login to the controller](charge-controllers/sys3_user/access.md)
+
+3. Stop and clean all applications
+```bash
+$ /etc/init.d/S80charger stop
+$ /etc/init.d/S80charger clean
+```
+For EVCC version, uses _S80vehicle_ instead of _S80charger_.
+
+
+4. Apply patch update
+```bash
+$ docker load -i /path/to/your/myupdate.tar
+$ docker image prune -f
+```
+
+5. Restart all applications
+```bash
+$ /etc/init.d/S80charger start
+```
+For EVCC version, uses _S80vehicle_ instead of _S80charger_.
+
 
 ## Updater tool
 
