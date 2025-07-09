@@ -1,5 +1,5 @@
 > [!UPDATE] {docsify-updated}
-# EVCC Versions
+# MEVC Versions
 
 ## Hardware
 

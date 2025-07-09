@@ -1,5 +1,5 @@
 > [!UPDATE] {docsify-updated}
-# Charge Station Controller Versions
+# SPCC Versions
 
 ## Hardware
 
