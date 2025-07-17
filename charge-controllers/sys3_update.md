@@ -159,9 +159,9 @@ file. The process is to:
 
     `<ip-address>` – Grab the IP address of the controller as documented in [SSH](charge-controllers/sys3_user/access.md#SSH).
 
-    `<destination-path>` – with the target directory on the device **(example: `/root`)**
+    `<destination-path>` – with the target directory on the device **(example: `/tmp`)**
 
-    Example with the default IP of the SECC: `scp update.tar root@192.168.1.51:/root`
+    Example with the default IP of the SECC: `scp update.tar root@192.168.1.51:/tmp`
 
 - Enter the password for the device when prompted. (the default is _dev-only_)
 
@@ -180,6 +180,7 @@ For EVCC version, uses _S80vehicle_ instead of _S80charger_.
 $ docker load -i /path/to/your/update.tar
 $ docker image prune -f
 ```
+(Replace `/path/to/your/update.tar` with the actual path to the file on your controller. In the example above, we used `/tmp`)
 
 5. Restart all applications
 ```bash
@@ -213,23 +214,25 @@ file. The process is to:
 
     `<ip-address>` – Grab the IP address of the controller as documented in [SSH](charge-controllers/sys3_user/access.md#SSH).
 
-    `<destination-path>` – with the target directory on the device **(example: `/root`)**
+    `<destination-path>` – with the target directory on the device **(example: `/tmp`)**
 
-    Example with the default IP of the SECC: `scp release.zip root@192.168.1.51:/root`
+    Example with the default IP of the SECC: `scp release.zip root@192.168.1.51:/tmp`
 
 - Enter the password for the device when prompted. (the default is _dev-only_)
 
 2. [Login to the controller](charge-controllers/sys3_user/access.md)
 
-3. unzip the the file using: (Replace `/path/to/your/release.zip` with the actual path to the file on your controller.)
+3. unzip the the file using:
 
 ```bash
 $ unzip /path/to/your/release.zip
 ```
+ (Replace `/path/to/your/release.zip` with the actual path to the file on your controller. In the example above, we used `/tmp`)
 
 4. Apply the update using the update script `update-controller.sh` (the name of the update script can vary, you can use `ls` command on the directory where you unzipped the release to list the files and identify the update script)
+
 ```bash
-$ ./update-controller.sh
+$ ./path/to/your/update-controller.sh
 ```
 
 5. After the update is done, power cycle the controller
