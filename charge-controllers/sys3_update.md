@@ -195,7 +195,11 @@ This is for updating one or several of the application containers. Advantics pro
 file. The process is to:
 <br/><br/>
 
-1. Using the Command Line (Linux, macOS, or Windows with WSL/PowerShell).
+1. Copy this file to the SD card
+**WARNING:** As with the full system update, pay attention to correctly write all data to the SD card. See note above.
+<br/><br/>
+
+<!-- 1. Using the Command Line (Linux, macOS, or Windows with WSL/PowerShell).
 
 - Open a terminal (or Command Prompt / PowerShell on Windows).
 
@@ -218,24 +222,35 @@ file. The process is to:
 
     Example with the default IP of the SECC: `scp release.zip root@192.168.1.51:/tmp`
 
-- Enter the password for the device when prompted. (the default is _dev-only_)
+- Enter the password for the device when prompted. (the default is _dev-only_) -->
 
 2. [Login to the controller](charge-controllers/sys3_user/access.md)
 
-3. unzip the the file using:
-
+3. Mount the SD card
 ```bash
+$ mkdir /mnt/sd
+$ mount -t auto /dev/mmcblk0p1 /mnt/sd
+```
+
+4. unzip the the file using:
+
+<!-- ```bash
 $ unzip /path/to/your/release.zip
 ```
- (Replace `/path/to/your/release.zip` with the actual path to the file on your controller. In the example above, we used `/tmp`)
-
-4. Apply the update using the update script `update-controller.sh` (the name of the update script can vary, you can use `ls` command on the directory where you unzipped the release to list the files and identify the update script)
+ (Replace `/path/to/your/release.zip` with the actual path to the file on your controller. In the example above, we used `/tmp`) -->
 
 ```bash
-$ ./path/to/your/update-controller.sh
+$ unzip /mnt/sd/release.zip
 ```
 
-5. After the update is done, power cycle the controller
+5. Apply the update using the update script `update-controller.sh` (the name of the update script can vary, you can use `ls` command on the directory where you unzipped the release to list the files and identify the update script)
+
+```bash
+$ ./mnt/sd/path/to/your/update-controller.sh
+```
+ (Replace `/path/to/your` with the actual path to the file under `/mnt/sd`.)
+
+6. After the update is done, power cycle the controller
 
 
 ## Updater tool
