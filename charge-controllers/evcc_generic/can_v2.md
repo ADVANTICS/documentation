@@ -1093,7 +1093,7 @@ This signal can be dynamically updated by the BMS to limit the charge current
 
 Will be capped by maximum current from config file and from EVSE data.
 
-When in <<No BMS mode>>, the target current will be set to the config file
+When in [No BMS mode](charge-controllers/evcc_configuration/no_bms.md), the target current will be set to the config file
 entry "max_current". When doing so, you should set a safe `max_charge_voltage` to terminate the
 charge earlier than at full pack (ie. bulk charging):
 
