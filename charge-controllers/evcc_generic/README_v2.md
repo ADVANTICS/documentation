@@ -1,5 +1,5 @@
 > [!UPDATE] {docsify-updated}
-# Generic EVCC CAN interface
+# Generic EVCC CAN interface V2
 
 > [!NOTE]
 > To migrate from generic interface V1 to V2, check the following section: [dedicated documentation](charge-controllers/evcc_bidirectional.md).

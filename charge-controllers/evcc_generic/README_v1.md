@@ -1,5 +1,5 @@
 > [!UPDATE] {docsify-updated}
-# Generic EVCC CAN interface
+# Generic EVCC CAN interface V1
 
 > [!NOTE]
 > This section only cover v1 of the interface. For v2 and bidirectionality, refer to the
