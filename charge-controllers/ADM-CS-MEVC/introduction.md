@@ -76,9 +76,10 @@ The reference of the pin is composed of 3 characters:
 | [MCS_LOCK_POWER](#MCS_Interface) | <center> - | <center> 3B2 |
 | [MCS_LOCK+](#MCS_Interface) | <center> - | <center> 1B2 |
 | [MCS_LOCK-](#MCS_Interface) | <center> - | <center> 2B2 |
-| [MCS_LOCK_FB](#MCS_Interface) | <center> 3E1 | <center> - |
+| [MCS_LOCK_FB](#MCS_Interface) | <center> was 3E1 only on ADM-CS-MEVC-PB01-R0A Engineering Units | <center> 2J2 (starting from ADM-CS-MEVC-PB01-R0B) |
 | [PTC0](#Temperature_monitoring) | <center>  2D1 | <center> - |
 | [PTC1](#Temperature_monitoring) | <center>  1E1 | <center> - |
+| [PTC2](#Temperature_monitoring) | <center>  3E1 (starting from ADM-CS-MEVC-PB01-R0B) | <center> - |
 | [PTC_GND](#Temperature_monitoring) | <center>  3D1 | <center> - |
 | [PTC_GND](#Temperature_monitoring) | <center>  2E1 | <center> - |
 | [PTC_GND](#Temperature_monitoring) | <center>  1F1 | <center> - |
