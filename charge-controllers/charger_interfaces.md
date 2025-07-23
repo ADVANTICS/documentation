@@ -93,9 +93,9 @@ If the system is configured in Buck-only mode (```boost_buck_mode``` is set to `
 
 The power modules stack with the stack position number ```0``` should correspond to the stack connected directly to the output of the charger.
 
-## MAXWELL MXR AC/DC MXR100040
+## MAXWELL MXR MXR100040
 
-This interface applies to Maxwell power AC/DC MXR100040 modules from MXR Series.
+This interface applies to Maxwell power MXR100040 modules from MXR Series.
 
 > If you need to modify the CAN bus bitrate, you can refer to [CAN bus Bitrate](charge-controllers/sys3_user/developing.md#can-bus-bitrate)
 

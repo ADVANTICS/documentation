@@ -5,10 +5,6 @@
 
 Currently supported hardware are for `ADM-CS-SECC` (using Vertexcom PLC chipset and Toradex Colibri iMX7 SoM).
 
-Past hardware variants (no longer supported) were based firstly on the versatile `ADM-CO-CUI1` unit,
-then on the first version of the `ADM-CO-EVCC` unit, both being "Gen2" variants (ie. using Qualcomm
-PLC chipset and Toradex Colibri iMX6 SoM).
-
 ## Software
 
 ### Major releases
