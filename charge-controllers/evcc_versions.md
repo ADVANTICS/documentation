@@ -66,10 +66,12 @@ release.
 | 2.0.0rc1 | 2021-02-04 | [Changelog](https://www.dropbox.com/s/gj1pk8s2xjegw09/CHANGELOG-PEV-2.0.0rc1.txt?st=ugwr816z&dl=0) | [ADM-CS-EVCC (Gen3)](https://www.dropbox.com/s/g44jyzotooxmq05/adm-cs-evcc-2.0.0rc1.zip?st=3pq3u0kp&dl=1) |
 | 2.0.0rc2 | 2021-06-11 | [Changelog](https://www.dropbox.com/s/jg4o47qyvsu7nf9/CHANGELOG-PEV-2.0.0rc2.txt?st=0vgzjw8c&dl=0) | [ADM-CS-EVCC (Gen3)](https://www.dropbox.com/s/z87kacxmtcos32o/adm-cs-evcc-2.0.0rc2.zip?st=vk9b38yq&dl=1) |
 | 2.0.0rc3 | 2022-11-03 | Prefigure rc3 | [Snapshot](https://www.dropbox.com/s/oiw76a7lfky3ygu/pev-snapshot-stable--2022-11-02.tar?st=mxnc610w&dl=1) |
-| Stable release 1.0 | 2022-11-25 | [Changelog](https://www.dropbox.com/s/mc65mf3cbnhzuth/CHANGELOG-PEV-2.0.0rc3.txt?st=wyn8zfm8&dl=0) | - |
+| release 1.0 | 2022-11-25 | [Changelog](https://www.dropbox.com/s/mc65mf3cbnhzuth/CHANGELOG-PEV-2.0.0rc3.txt?st=wyn8zfm8&dl=0) | - |
 | [Bidirectional dev](charge-controllers/evcc_bidirectional.md) | 2022-11-17 | ISO 15118-20<br/>Generic CAN interface v2 | [Snapshot](https://www.dropbox.com/s/vbex2k6u9mszfut/pev-bidir--2022-11-17.tar?st=mkffbqdx&dl=1) |
 | [Release 2024-10-15](charge-controllers/evcc_bidirectional.md) | 2024-10-15 | ISO15118-20 BPT: Use CAN message to dynamically update current limits | [pev-2024-10-15.tar](https://drive.google.com/uc?export=download&id=1c0XZHXs2LfjTYAYSp9HNQ0ugLRP0Qmlb) |
-| Stable release 2.0 | 2025-07-07 | Changelog in the bandle. | Download link: [pev-release-2.0.zip](https://drive.google.com/uc?export=download&id=1If2EobawN2vKWnXWWLHdxtfgXnbMNKB7)<br/>Update instructions: ([Full release update](charge-controllers/sys3_update.md#full-release-update))|
+| release 2.0 | 2025-07-07 | Changelog in the bandle. | Download link: [pev-release-2.0.zip](https://drive.google.com/uc?export=download&id=1If2EobawN2vKWnXWWLHdxtfgXnbMNKB7)<br/>Update instructions: ([Full release update](charge-controllers/sys3_update.md#full-release-update))|
+| release 2.1 | 2025-07-07 | Changelog in the bandle. | Download link: [evcc-23-07-2025.zip](https://drive.google.com/uc?export=download&id=136dllcmk9AMYky_Nao0IaCV1NHmFTTpm)<br/>Update instructions: ([Full release update](charge-controllers/sys3_update.md#full-release-update))|
+
 
 
 
