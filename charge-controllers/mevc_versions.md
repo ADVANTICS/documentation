@@ -106,5 +106,38 @@ Currently supported hardware are for `ADM-CS-MEVC`.
         </ul>
       </td>
     </tr>
+    <tr>
+      <td class="branch-col">Release 2.1</td>
+      <td class="date-col">2025-07-23</td>
+      <td>
+        <ul>
+          <li><strong>pev-controller 2.2.3</strong>
+            <ul>
+              <li>fix PEV temperature: add support for temperature monitoring</li>
+              <li>allow LED control via CAN bus interface</li>
+            </ul>
+          </li>
+          <li><strong>advantics-csm 1.4.2</strong>
+            <ul>
+              <li>UI/UX improvements</li>
+              <li>extend config interface</li>
+              <li>fix bug in SW update process on management interface</li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><strong>Option 1:</strong> Pull from Docker hub — <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=option-1-requires-internet-pulling-the-update-from-docker-hub">Guide</a></li>
+          <li><strong>Option 2:</strong> <a href="https://drive.google.com/uc?export=download&id=1shXzEAFT5bmT5w6k3TfWvUC5RuYSX3C4">Download .tar (Release 2.1)</a> — <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=full-release-update">Update Instructions</a></li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><a href="https://hub.docker.com/r/advantics/pev-controller/tags">advantics/pev-controller:2.2.3</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/advantics-csm/tags">advantics/advantics-csm:1.4.2</a></li>
+        </ul>
+      </td>
+    </tr>
   </tbody>
 </table>
