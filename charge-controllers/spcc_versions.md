@@ -113,8 +113,42 @@ They are slow paced because the release process is substantial.
           <li><a href="https://hub.docker.com/r/advantics/evse-controller/tags">advantics/evse-controller:3.3.3</a></li>
           <li><a href="https://hub.docker.com/r/advantics/ccs-secc/tags">advantics/ccs-secc:2.3.3</a></li>
           <li><a href="https://hub.docker.com/r/advantics/slac-evse/tags">advantics/slac-evse:2.3.2</a></li>
-          <li><a href="https://hub.docker.com/r/advantics/chademo-secc/tags">advantics/chademo-secc:1.5.0</a></li>
-          <li><a href="https://hub.docker.com/r/advantics/advantics-csm/tags">advantics/advantics-csm:1.0.0.dev1</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/advantics-csm/tags">advantics/advantics-csm:1.3.6</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/ocpp-charge-point/tags">advantics/ocpp-charge-point:1.5.1</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="branch-col">Release 4.1.1</td>
+      <td class="date-col">2025-07-23</td>
+      <td>
+        <ul>
+          <li><strong>evse-controller 3.3.4</strong>
+            <ul>
+              <li>Add SPCC ADM_CS_SPCC_Inputs message to generic v2 and v3</li>
+            </ul>
+          </li>
+          <li><strong>advantics-csm 1.4.2</strong>
+            <ul>
+              <li>UI/UX improvements</li>
+              <li>extend config interface</li>
+              <li>fix bug in SW update process on management interface</li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><strong>Option 1:</strong> Pull from Docker Hub - <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=option-1-requires-internet-pulling-the-update-from-docker-hub">Guide</a></li>
+          <li><strong>Option 2:</strong> <a href="https://drive.google.com/uc?export=download&id=181-lwnTX-a7RBmUjBx6UnJWfxi2aslbR">Download .tar</a> + <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=full-release-update">Update instructions</a></li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><a href="https://hub.docker.com/r/advantics/evse-controller/tags">advantics/evse-controller:3.3.4</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/ccs-secc/tags">advantics/ccs-secc:2.3.3</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/slac-evse/tags">advantics/slac-evse:2.3.2</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/advantics-csm/tags">advantics/advantics-csm:1.4.2</a></li>
           <li><a href="https://hub.docker.com/r/advantics/ocpp-charge-point/tags">advantics/ocpp-charge-point:1.5.1</a></li>
         </ul>
       </td>
