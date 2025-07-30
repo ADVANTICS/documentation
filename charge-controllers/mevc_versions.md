@@ -114,6 +114,7 @@ Currently supported hardware are for `ADM-CS-MEVC`.
           <li><strong>pev-controller 2.2.3</strong>
             <ul>
               <li>fix PEV temperature: add support for temperature monitoring</li>
+              <li>allow contactor feedback via CAN bus while contactor control is done via IOs</li>
               <li>allow LED control via CAN bus interface</li>
             </ul>
           </li>
