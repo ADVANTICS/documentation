@@ -71,8 +71,5 @@ release.
 | [Release 2024-10-15](charge-controllers/evcc_bidirectional.md) | 2024-10-15 | ISO15118-20 BPT: Use CAN message to dynamically update current limits | [pev-2024-10-15.tar](https://drive.google.com/uc?export=download&id=1c0XZHXs2LfjTYAYSp9HNQ0ugLRP0Qmlb) |
 | release 2.0 | 2025-07-07 | Changelog in the bundle. | Download link: [pev-release-2.0.zip](https://drive.google.com/uc?export=download&id=1If2EobawN2vKWnXWWLHdxtfgXnbMNKB7)<br/>Update instructions: ([Full release update](charge-controllers/sys3_update.md#full-release-update))|
 | release 2.1 | 2025-07-23 | Changelog in the bundle. | Download link: [evcc-23-07-2025.zip](https://drive.google.com/uc?export=download&id=136dllcmk9AMYky_Nao0IaCV1NHmFTTpm)<br/>Update instructions: ([Full release update](charge-controllers/sys3_update.md#full-release-update))|
-
-
-
-
+| release 2.2 | 2025-08-04 | Changelog in the bundle. | Download link: [evcc-04-08-2025.zip](https://drive.google.com/uc?export=download&id=1eYflFXaEiRZVk_2vr8iMdnCfZEByECmK)<br/>Update instructions: ([Full release update](charge-controllers/sys3_update.md#full-release-update))|
 </div>
