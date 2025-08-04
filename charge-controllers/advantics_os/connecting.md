@@ -1,8 +1,8 @@
 > [!UPDATE] {docsify-updated}
 
-<div style="background-color: teal; color: white; font-weight: bold; padding: 10px; text-align: center;">
+<!-- <div style="background-color: teal; color: white; font-weight: bold; padding: 10px; text-align: center;">
     🚨 IMPORTANT: This interface is currently supported only for ADM-CS-SPCC and ADM-CS-MEVC 🚨
-</div>
+</div> -->
 
 # Accessing and interacting with the controller
 

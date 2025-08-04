@@ -41,7 +41,7 @@ interact with them in any way. They simply need to be wired properly to the inle
 
 <div class="bigger-300">
 
-![MCS Inlet](images/MCS_inlet.svg "MCS Inlet")
+![MCS Inlet](images/MCS_inlet.png "MCS Inlet")
 </div>
 <figcaption style="text-align: center">Figure 4: MCS Inlet</figcaption>
 

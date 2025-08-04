@@ -1,5 +1,5 @@
 > [!UPDATE] {docsify-updated}
-# CCS
+# CCS/MCS
 
 These configuration entries are all under the `[ccs]` section.
 
