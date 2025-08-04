@@ -3,10 +3,11 @@
 
 <div class="small-table compact-table">
 
-| Since protocol version | Message | Comment |
+| date | Message | Comment |
 |:----------------------:|---------|---------|
-| 1.2 | [EVSE_Information.Max_Current](charge-controllers/evcc_generic/can.md#EVSE_Information-Max_Current)<br/>[DC_Status1.Current_Request](charge-controllers/evcc_generic/can.md#DC_Status1-Current_Request)<br/>[DC_Status1.Present_Current](charge-controllers/evcc_generic/can.md#DC_Status1-Present_Current)<br/>[DC_Status2.Battery_Voltage](charge-controllers/evcc_generic/can.md#DC_Status2-Battery_Voltage)<br/>[DC_Status2.Inlet_Voltage](charge-controllers/evcc_generic/can.md#DC_Status2-Inlet_Voltage)<br/>[CCS_Extra_Information.CP_Top_Voltage](charge-controllers/evcc_generic/can.md#CCS_Extra_Information-CP_Top_Voltage) | 2022-10-28: Removing standards min/max limits. |
-| 1.1 | [EVSE_Information.Protocol](charge-controllers/evcc_generic/can.md#EVSE_Information-Protocol) | 2022-06-27: Add ISO-20 protocol enum value. |
-| 1 | All | 2021-01-21: Initial version. |
+| 2025-08-04 | [EV_Status](charge-controllers/evcc_generic/can_v2.md#EV-Status)<br/>[EV_Information](charge-controllers/evcc_generic/can_v2.md#EV-Information)<br/>[EV_Energy_Request](charge-controllers/evcc_generic/can_v2.md#EV-Energy-Request)<br/>[EV_V2X_Energy_Request](charge-controllers/evcc_generic/can_v2.md#EV-V2X-Energy-Request) | - Allow the vehicle to delay the transition to powered states (starting from the insulation test) until the HV system is ready.<br/>- Expand energy limits and revise signal slopes accordingly. |
+|  2025-07-23 | [ADM_CS_EVCC_MEVC_Outputs](charge-controllers/evcc_generic/can_v2.md#ADM-CS-EVCC-MEVC_Outputs) | allow LEDs' brightness control via CAN bus interface |
+|  2024-10-15 | [DC_Status1](charge-controllers/evcc_generic/can_v2.md#DC-Status1) | ISO15118-20 BPT: Use CAN message to dynamically update current limits |
+|  2022-11-25 | All | Initial version. |
 
 </div>

@@ -67,3 +67,11 @@ chargers can actually fail it from time to time. Heavy noise conditions can also
 trigger spuriously. Hence, we rather default to 2 seconds instead of 250 ms.
 
 Default to 2000 ms.
+
+## wait_hv_ready_timeout_ms
+
+<figcaption>Example</figcaption>
+
+    wait_hv_ready_timeout_ms = 40000
+
+Timeout (milliseconds) for waiting for high-voltage system readiness. If exceeded, the session will abort.

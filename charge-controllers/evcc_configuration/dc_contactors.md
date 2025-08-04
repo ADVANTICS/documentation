@@ -27,7 +27,6 @@ Default to false.
     dc_contactors_ios_has_feedback = true
 
 Some contactors don't have any feedback wireable on Advantics controller dedicated digital input
-(it has to contact to ground when closed). In such case, set this option to false. Only matters if
-`dc_contactors_use_ios` is true.
+(it has to contact to ground when closed).
 
 Default to true.

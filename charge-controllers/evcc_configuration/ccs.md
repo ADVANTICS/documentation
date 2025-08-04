@@ -175,6 +175,16 @@ Default to `B2`.
 > Never connect any other detection circuitry on PP. It will disturb the resistance values the
 > controller is actively sensing.
 
+
+## wait_hv_ready_timeout_ms
+
+<figcaption>Example</figcaption>
+
+    wait_hv_ready_timeout_ms = 40000
+
+Timeout (milliseconds) for waiting for high-voltage system readiness. If exceeded, the session will abort.
+
+
 ## current_demand_timeout_ms
 
 <figcaption>Example</figcaption>
@@ -200,8 +210,6 @@ can understand them.
     slac_nb_msound_threshold = 1
 
     # Process timeouts, in seconds
-    communication_setup_timeout_s = 20
-    cable_check_process_timeout_s = 40
     precharge_process_timeout_s = 7
 
     # Message timeouts

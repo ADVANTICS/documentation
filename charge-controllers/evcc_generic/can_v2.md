@@ -23,6 +23,7 @@ Copyright ADVANTICS 2017
 | [AC_Status](#AC_Status) | 0x611 | 1 | IN | 100 |
 | [DC_Status1](#DC_Status1) | 0x612 | 4 | IN | 100 |
 | [DC_Status2](#DC_Status2) | 0x613 | 5 | IN | 100 |
+| [EV_Status](#EV_Status) | 0x618 | 8 | IN | 100 |
 | [EV_Energy_Request](#EV_Energy_Request) | 0x614 | 6 | IN | 100 |
 | [EV_V2X_Energy_Request](#EV_V2X_Energy_Request) | 0x615 | 4 | IN | 100 |
 | [EV_Extra_BPT_Information](#EV_Extra_BPT_Information) | 0x616 | 4 | IN | 100 |
@@ -590,7 +591,10 @@ can be controlled through this message.
 | Digital_Output1 | 1 | Single bit |
 | Digital_Output2 | 1 | Single bit |
 | Digital_Output3 | 1 | Label set |
-| Reserved | 61 | Unsigned |
+| Led1 | 8 | Unsigned |
+| Led2 | 8 | Unsigned |
+| Led3 | 8 | Unsigned |
+| Reserved | 43 | Unsigned |
 
 </div>
 
@@ -654,6 +658,47 @@ Needs to be declared as monitored in `/srv/config.cfg`:
 
 </div>
 
+#### Led1 :id=ADM_CS_EVCC_MEVC_Outputs-Led1
+
+Sets the brightness of LED1 (3C1) in a scale from 1 to 100. Greater values than 100 will be treated as max brightness.
+Needs to be declared as monitored in `/srv/config.cfg`:
+
+    [hardware]
+    led1 = CAN_Controlled
+
+<div class="small-table compact-table">
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 40 | 8 | Unsigned | | 1 | 0 | 0 | 255 |
+</div>
+
+#### Led2 :id=ADM_CS_EVCC_MEVC_Outputs-Led2
+
+Sets the brightness of LED2 (3C2) in a scale from 1 to 100. Greater values than 100 will be treated as max brightness.
+Needs to be declared as monitored in `/srv/config.cfg`:
+
+    [hardware]
+    led2 = CAN_Controlled
+
+<div class="small-table compact-table">
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 48 | 8 | Unsigned | | 1 | 0 | 0 | 255 |
+</div>
+
+#### Led3 :id=ADM_CS_EVCC_MEVC_Outputs-Led3
+
+Sets the brightness of LED3 (3C3) in a scale from 1 to 100. Greater values than 100 will be treated as max brightness.
+Needs to be declared as monitored in `/srv/config.cfg`:
+
+    [hardware]
+    led3 = CAN_Controlled
+
+<div class="small-table compact-table">
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 56 | 8 | Unsigned | | 1 | 0 | 0 | 255 |
+</div>
 
 #### Reserved :id=ADM_CS_EVCC_MEVC_Outputs-Reserved
 
@@ -964,7 +1009,7 @@ Pleaase note that providing the energy capacity of the battery is mandatory if I
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 8 | 16 | Unsigned | kWh | 0.01 | 0 | 0 | 655 |
+| 8 | 16 | Unsigned | kWh | 0.1 | 0 | 0 | 6553 |
 
 </div>
 
@@ -1344,6 +1389,79 @@ Refer to [CAN sensor](charge-controllers/evcc_configuration/can_sensor.md) docum
 
 </div>
 
+## EV_Status
+
+<div class="noheader-table small-table compact-table">
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x618 |
+| **Length [Bytes]** | 8 |
+| **Periodicity [ms]** | 100 |
+| **Direction** | IN |
+
+</div>
+
+### Description
+
+Used to report the status of the EV (from BMS to charge controller)
+
+### Payload
+
+<div class="small-table compact-table">
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| HV_Preparing_Hold_Off | 1 | Single bit |
+| Reserved_Flags | 63 | Unsigned |
+
+</div>
+
+### Payload description
+
+#### HV_Preparing_Hold_Off :id=EV_Status-HV_Preparing_Hold_Off
+
+Allows the vehicle to delay the transition to powered states (starting from the insulation test) until the HV system is ready.
+Can be used to wait while preparing the HV system for power. When the vehicle is ready for power, this signal should be set to 0.
+When the charger is plugged-in and this signal is set to 1, the session will block at Communication_Stage.Connected_With_Full_Info state until
+this signal is set to 0 (and the inlet is locked).
+
+0=False (Hold off Not Requested), 1=True (Hold off)
+
+> [!NOTE]
+> Limited by wait_hv_ready_timeout_ms config entry. Default is 40 seconds (defined by the standards):
+> [ccs]
+> wait_hv_ready_timeout_ms = 40000
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | Single bit | Single bit |   | 1 | 0 |   |   |
+
+</div>
+
+
+<div class="small-table compact-table">
+
+| Label name | Value |
+|------------|-------|
+| Hold_Off_Not_Requested | 0 |
+| Hold_Off | 1 |
+
+</div>
+
+#### Reserved_Flags :id=EV_Status-Reserved_Flags
+
+Reserved bits for future uses.
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 1 | 63 | Unsigned |   | 1 | 0 |   |   |
+
+</div>
 
 ## EV_Energy_Request
 
@@ -1395,7 +1513,7 @@ This represents a discharge request. More details available in the ISO15118-20 d
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 16 | Unsigned | kWh | 0.01 | 0 | 0 | 655 |
+| 0 | 16 | Unsigned | kWh | 0.1 | 0 | 0 | 6553 |
 
 </div>
 
@@ -1409,7 +1527,7 @@ In case this message is not sent we default to the config file entry `min_energy
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 16 | 16 | Unsigned | kWh | 0.01 | 0 | 0 | 655 |
+| 16 | 16 | Unsigned | kWh | 0.1 | 0 | 0 | 6553 |
 
 </div>
 
@@ -1424,7 +1542,7 @@ This value will be capped by Energy_Capacity.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 16 | 16 | Unsigned | kWh | 0.01 | 0 | 0 | 655 |
+| 16 | 16 | Unsigned | kWh | 0.1 | 0 | 0 | 6553 |
 
 </div>
 
@@ -1453,7 +1571,6 @@ Maximum_V2X_Energy_Request ≤ Maximum_Energy_Request
 
 ### Payload
 
-
 <div class="small-table compact-table">
 
 | Signal | Length (bits) | Type |
@@ -1463,10 +1580,9 @@ Maximum_V2X_Energy_Request ≤ Maximum_Energy_Request
 
 </div>
 
-
 ### Payload description
 
-#### Minimum_V2X_Energy_Request :id=EV_Energy_Request-Minimum_V2X_Energy_Request
+#### Minimum_V2X_Energy_Request :id=EV_V2X_Energy_Request-Minimum_V2X_Energy_Request
 
 The minimum energy level for the bidirectional cycling activity range.
 
@@ -1474,11 +1590,11 @@ The minimum energy level for the bidirectional cycling activity range.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 16 | Unsigned | kWh | 0.01 | 0 | 0 | 655 |
+| 0 | 16 | Unsigned | kWh | 0.1 | 0 | 0 | 6553 |
 
 </div>
 
-#### Maximum_Energy_Request :id=EV_Energy_Request-Maximum_Energy_Request
+#### Maximum_V2X_Energy_Request :id=EV_V2X_Energy_Request-Maximum_V2X_Energy_Request
 
 The maximum energy level for the bidirectional cycling activity range.
 
@@ -1486,7 +1602,7 @@ The maximum energy level for the bidirectional cycling activity range.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 16 | 16 | Unsigned | kWh | 0.01 | 0 | 0 | 655 |
+| 16 | 16 | Unsigned | kWh | 0.1 | 0 | 0 | 6553 |
 
 </div>
 

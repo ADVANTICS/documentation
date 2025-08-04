@@ -22,6 +22,7 @@ Copyright ADVANTICS 2017
 | [AC_Status](#AC_Status) | 0x611 | 1 | IN | 100 |
 | [DC_Status1](#DC_Status1) | 0x612 | 4 | IN | 100 |
 | [DC_Status2](#DC_Status2) | 0x613 | 5 | IN | 100 |
+| [ADM_CS_EVCC_MEVC_Outputs](#ADM_CS_EVCC_MEVC_Outputs) | 0x617 | 8 | IN | 1000 |
 
 </div>
 
@@ -1179,6 +1180,132 @@ Refer to [CAN sensor](charge-controllers/evcc_configuration/can_sensor.md) docum
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 24 | 16 | Unsigned | Volts | 0.1 | 0 | 0 | 6553 |
 
+</div>
+
+
+## ADM_CS_EVCC_MEVC_Outputs
+
+<div class="noheader-table small-table compact-table">
+| * | * |
+|---|---|
+| **Frame ID** | 0x617 |
+| **Length [Bytes]** | 8 |
+| **Periodicity [ms]** | 1000 |
+| **Direction** | IN |
+</div>
+
+### Description
+
+Controller (ADM-CS-EVCC and ADM-CS-MEVC hardware variant) has various outputs that can be controlled through this message.
+
+### Payload
+
+<div class="small-table compact-table">
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Digital_Output1 | 1 | Single bit |
+| Digital_Output2 | 1 | Single bit |
+| Digital_Output3 | 1 | Single bit |
+| Reserved | 37 | Unsigned |
+| Led1 | 8 | Unsigned |
+| Led2 | 8 | Unsigned |
+| Led3 | 8 | Unsigned |
+</div>
+
+### Payload description
+
+#### Digital_Output1 :id=ADM_CS_EVCC_MEVC_Outputs-Digital_Output1
+
+Sets the logical state of DIG_OUT1.
+Needs to be declared as monitored in `/srv/config.cfg`:
+
+    [hardware]
+    dig_out1 = CAN_Controlled
+
+<div class="small-table compact-table">
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | Single bit | Single bit |   | 1 | 0 | 0 | 1 |
+</div>
+
+#### Digital_Output2 :id=ADM_CS_EVCC_MEVC_Outputs-Digital_Output2
+
+Reports the logical state of DIG_OUT2.
+Needs to be declared as monitored in `/srv/config.cfg`:
+
+    [hardware]
+    dig_out2 = CAN_Controlled
+
+<div class="small-table compact-table">
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 1 | Single bit | Single bit |   | 1 | 0 | 0 | 1 |
+</div>
+
+#### Digital_Output3 :id=ADM_CS_EVCC_MEVC_Outputs-Digital_Output3
+
+Reports the logical state of DIG_OUT3.
+Needs to be declared as monitored in `/srv/config.cfg`:
+
+    [hardware]
+    dig_out3 = CAN_Controlled
+
+<div class="small-table compact-table">
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 2 | Single bit | Single bit |   | 1 | 0 | 0 | 1 |
+</div>
+
+#### Reserved :id=ADM_CS_EVCC_MEVC_Outputs-Reserved
+
+Padding bits between digital outputs and leds.
+
+<div class="small-table compact-table">
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 3 | 37 | Unsigned |   | 1 | 0 |   |   |
+</div>
+
+#### Led1 :id=ADM_CS_EVCC_MEVC_Outputs-Led1
+
+Sets the brightness of LED1 (3C1) in a scale from 1 to 100. Greater values than 100 will be treated as max brightness.
+Needs to be declared as monitored in `/srv/config.cfg`:
+
+    [hardware]
+    led1 = CAN_Controlled
+
+<div class="small-table compact-table">
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 40 | 8 | Unsigned |   | 1 | 0 | 0 | 255 |
+</div>
+
+#### Led2 :id=ADM_CS_EVCC_MEVC_Outputs-Led2
+
+Sets the brightness of LED2 (3C2) in a scale from 1 to 100. Greater values than 100 will be treated as max brightness.
+Needs to be declared as monitored in `/srv/config.cfg`:
+
+    [hardware]
+    led2 = CAN_Controlled
+
+<div class="small-table compact-table">
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 48 | 8 | Unsigned |   | 1 | 0 | 0 | 255 |
+</div>
+
+#### Led3 :id=ADM_CS_EVCC_MEVC_Outputs-Led3
+
+Sets the brightness of LED3 (3C3) in a scale from 1 to 100. Greater values than 100 will be treated as max brightness.
+Needs to be declared as monitored in `/srv/config.cfg`:
+
+    [hardware]
+    led3 = CAN_Controlled
+
+<div class="small-table compact-table">
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 56 | 8 | Unsigned |   | 1 | 0 | 0 | 255 |
 </div>
 
 

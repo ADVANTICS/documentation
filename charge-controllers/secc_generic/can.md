@@ -1123,6 +1123,188 @@ Measured temperature sensor on second PTC channel associated to this pistol.
 </div>
 
 
+## ADM_CS_SPCC_Inputs
+
+<div class="noheader-table small-table compact-table">
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x6800D |
+| **Length [Bytes]** | 8 |
+| **Periodicity [ms]** | 1000 |
+| **Direction** | IN |
+
+</div>
+
+### Description
+
+Controller (ADM-CS-SPCC hardware variant) is reporting various information about its inputs. It is sent every second (for temperature channels) or on change for other digital inputs.
+
+### Payload
+
+<div class="small-table compact-table">
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Digital_Input1 | 1 | Single bit |
+| Digital_Input2 | 1 | Single bit |
+| Digital_Input3 | 1 | Single bit |
+| Digital_Input4 | 1 | Single bit |
+| Reserved | 4 | Unsigned |
+| CPU_Temperature0 | 8 | Unsigned |
+| CPU_Temperature1 | 8 | Unsigned |
+| PT1K_A | 8 | Unsigned |
+| PT1K_B | 8 | Unsigned |
+| PT1KS_C | 8 | Unsigned |
+| PT1KS_D | 8 | Unsigned |
+
+</div>
+
+### Payload description
+
+#### Digital_Input1 :id=ADM_CS_SPCC_Inputs-Digital_Input1
+
+Reports the logical state of DIG_IN1 (CONN6, position 1). Needs to be declared as monitored in `/srv/config.cfg`:
+
+    [hardware]
+    dig_in1 = Monitor
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 1 | Single bit |   | 1 | 0 | 0 | 1 |
+
+</div>
+
+#### Digital_Input2 :id=ADM_CS_SPCC_Inputs-Digital_Input2
+
+Reports the logical state of DIG_IN2 (CONN6, position 2). Needs to be declared as monitored in `/srv/config.cfg`:
+
+    [hardware]
+    dig_in2 = Monitor
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 1 | 1 | Single bit |   | 1 | 0 | 0 | 1 |
+
+</div>
+
+#### Digital_Input3 :id=ADM_CS_SPCC_Inputs-Digital_Input3
+
+Reports the logical state of DIG_IN3 (CONN6, position 3). Needs to be declared as monitored in `/srv/config.cfg`:
+
+    [hardware]
+    dig_in3 = Monitor
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 2 | 1 | Single bit |   | 1 | 0 | 0 | 1 |
+
+</div>
+
+#### Digital_Input4 :id=ADM_CS_SPCC_Inputs-Digital_Input4
+
+Reports the logical state of DIG_IN4 (CONN6, position 4). Needs to be declared as monitored in `/srv/config.cfg`:
+
+    [hardware]
+    dig_in4 = Monitor
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 3 | 1 | Single bit |   | 1 | 0 | 0 | 1 |
+
+</div>
+
+#### Reserved :id=ADM_CS_SPCC_Inputs-Reserved
+
+Reserved bits for future uses.
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 4 | 4 | Unsigned |   | 1 | 0 |   |   |
+
+</div>
+
+#### CPU_Temperature0 :id=ADM_CS_SPCC_Inputs-CPU_Temperature0
+
+Temperature reported by the CPU chip of the charge controller.
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 8 | 8 | Unsigned | °C | 1 | -40 | -40 | 215 |
+
+</div>
+
+#### CPU_Temperature1 :id=ADM_CS_SPCC_Inputs-CPU_Temperature1
+
+Temperature reported by the CPU chip of the charge controller.
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 8 | Unsigned | °C | 1 | -40 | -40 | 215 |
+
+</div>
+
+#### PT1K_A :id=ADM_CS_SPCC_Inputs-PT1K_A
+
+This input is used as CHAdeMO pistol solenoid input when the controller is configured for CHAdeMO. When the controller is configured for MCS, CCS DC or AC, this input can be used as a temperature sensor.
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 24 | 8 | Unsigned | °C | 1 | -40 | -40 | 215 |
+
+</div>
+
+#### PT1K_B :id=ADM_CS_SPCC_Inputs-PT1K_B
+
+Measured temperature sensor on PT1K_B input.
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 32 | 8 | Unsigned | °C | 1 | -40 | -40 | 215 |
+
+</div>
+
+#### PT1KS_C :id=ADM_CS_SPCC_Inputs-PT1KS_C
+
+Measured temperature sensor on PT1KS_C input.
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 48 | 8 | Unsigned | °C | 1 | -40 | -40 | 215 |
+
+</div>
+
+#### PT1KS_D :id=ADM_CS_SPCC_Inputs-PT1KS_D
+
+Measured temperature sensor on PT1KS_D input.
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 56 | 8 | Unsigned | °C | 1 | -40 | -40 | 215 |
+
+</div>
 
 
 ## Power_Modules_Status
