@@ -95,6 +95,7 @@
       - [Sequences of action](charge-controllers/evcc_generic/sequences_v2.md)
       - [CAN databases](charge-controllers/evcc_generic/databases_v2.md)
       - [CAN messages](charge-controllers/evcc_generic/can_v2.md)
+      - [Changelog](charge-controllers/evcc_generic/changelog_v2.md)
 
 - **Linux systems**
   - [3.x branch](charge-controllers/systems_branch3.md)
