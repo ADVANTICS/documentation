@@ -380,9 +380,14 @@
             <Signal name="HV_Preparing_Hold_Off" offset="0" length="1">
                 <Notes>
                 Allows the vehicle to delay the transition to powered states (starting from the insulation test) until the HV system is ready.
-                Can be used to wait while preparing the HV system for power. When the vehicle is ready for power, This signal should be set to 0.
-                When the charger is plugged-in and this signal is set to 1, the session will block at Communication_Stage.Connected_With_Full_Info state until
-                this signal is set to 0 (and the inlet is locked).
+
+                Use cases:
+                - Make sure the vehicle IMD is disabled before sending cablecheck request.
+                - Wait while preparing the HV system for power.
+
+                This signal should be set to 0 if the vehicle is ready for power.
+                When the charger is plugged-in and this signal is set to 1, the session will block at Communication_Stage.Connected_With_Full_Info state until this signal is set to 0 (and the inlet is locked).
+
                 0=False (Hold off Not Requested), 1=True (Hold off)
 
                 Note: limited by wait_hv_ready_timeout_ms config entry. Default is 40 seconds (defined by the standards):

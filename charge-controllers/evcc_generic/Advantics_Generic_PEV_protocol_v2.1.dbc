@@ -85,11 +85,11 @@ BO_ 1540 ADM_CS_EVCC_Inputs: 6 Advantics_Charge_Controller
  SG_ Digital_Input2 : 3|1@1+ (1,0) [0|1] "" Vector__XXX
  SG_ Stop_Charge : 4|1@1+ (1,0) [0|1] "" Vector__XXX
  SG_ Reserved_Flags : 5|3@1+ (1,0) [0|7] "" Vector__XXX
- SG_ PTC0 : 8|8@1+ (1,-40) [-40|215] "°C" Vector__XXX
- SG_ PTC1 : 16|8@1+ (1,-40) [-40|215] "°C" Vector__XXX
- SG_ PTC2 : 24|8@1+ (1,-40) [-40|215] "°C" Vector__XXX
- SG_ CPU_Temperature : 32|8@1+ (1,-40) [-40|215] "°C" Vector__XXX
- SG_ CAN_Sensor_Temperature : 40|8@1+ (1,-40) [-40|215] "°C" Vector__XXX
+ SG_ PTC0 : 8|8@1+ (1,-40) [-40|215] "ï¿½C" Vector__XXX
+ SG_ PTC1 : 16|8@1+ (1,-40) [-40|215] "ï¿½C" Vector__XXX
+ SG_ PTC2 : 24|8@1+ (1,-40) [-40|215] "ï¿½C" Vector__XXX
+ SG_ CPU_Temperature : 32|8@1+ (1,-40) [-40|215] "ï¿½C" Vector__XXX
+ SG_ CAN_Sensor_Temperature : 40|8@1+ (1,-40) [-40|215] "ï¿½C" Vector__XXX
 
 
 CM_ BO_ 1536  "Information about the EVSE (AC or DC source), when available.";
@@ -302,9 +302,14 @@ CM_ SG_ 1555 Inlet_Voltage "
                 ";
 CM_ SG_ 1560 HV_Preparing_Hold_Off "
                 Allows the vehicle to delay the transition to powered states (starting from the insulation test) until the HV system is ready.
-                Can be used to wait while preparing the HV system for power. When the vehicle is ready for power, This signal should be set to 0.
-                When the charger is plugged-in and this signal is set to 1, the session will block at Communication_Stage.Connected_With_Full_Info state until
-                this signal is set to 0 (and the inlet is locked).
+
+                Use cases:
+                - Make sure the vehicle IMD is disabled before sending cablecheck request.
+                - Wait while preparing the HV system for power.
+
+                This signal should be set to 0 if the vehicle is ready for power.
+                When the charger is plugged-in and this signal is set to 1, the session will block at Communication_Stage.Connected_With_Full_Info state until this signal is set to 0 (and the inlet is locked).
+
                 0=False (Hold off Not Requested), 1=True (Hold off)
 
                 Note: limited by wait_hv_ready_timeout_ms config entry. Default is 40 seconds (defined by the standards):
