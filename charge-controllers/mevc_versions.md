@@ -140,5 +140,35 @@ Currently supported hardware are for `ADM-CS-MEVC`.
         </ul>
       </td>
     </tr>
+    <td class="branch-col">Release 2.2</td>
+      <td class="date-col">2025-08-04</td>
+      <td>
+        <ul>
+          <li><strong>pev-controller 2.2.4</strong>
+            <ul>
+              <li>New CAN bus signal "EV_Status.HV_Preparing_Hold_Off": Allow the vehicle to delay the transition to powered states (starting from the insulation test) until the HV system is ready.</li>
+              <li>Advantics_Generic_PEV_protocol_v2: Expand energy limits and revise signal slopes accordingly.</li>
+            </ul>
+          </li>
+          <li><strong>ccs-evcc 2.3.3</strong>
+            <ul>
+              <li>Allow the vehicle to delay the transition to powered states (starting from the insulation test) until the HV system is ready.</li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><strong>Option 1:</strong> Pull from Docker hub — <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=option-1-requires-internet-pulling-the-update-from-docker-hub">Guide</a></li>
+          <li><strong>Option 2:</strong> <a href="https://drive.google.com/uc?export=download&id=1M8wKx9gKATT6yE24uvH0dJy6aU3MLd5g">Download .tar (Release 2.2)</a> — <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=full-release-update">Update Instructions</a></li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><a href="https://hub.docker.com/r/advantics/pev-controller/tags">advantics/pev-controller:2.2.4</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/advantics-csm/tags">advantics/ccs-evcc:2.3.3</a></li>
+        </ul>
+      </td>
+    </tr>
   </tbody>
 </table>
