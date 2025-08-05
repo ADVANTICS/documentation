@@ -8,4 +8,4 @@
 1. [CAN databases](charge-controllers/evcc_generic/databases_v2.md)
 1. [CAN messages](charge-controllers/evcc_generic/can_v2.md)
 <!-- 1. [Appendix A](charge-controllers/evcc_generic/power_transfer_sequence_diagram.md) -->
-<!-- 1. [Changelog](charge-controllers/evcc_generic/changelog_v2.md) -->
+1. [Changelog](charge-controllers/evcc_generic/changelog_v2.md)
