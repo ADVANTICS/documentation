@@ -667,9 +667,11 @@ Needs to be declared as monitored in `/srv/config.cfg`:
     led1 = CAN_Controlled
 
 <div class="small-table compact-table">
+
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 40 | 8 | Unsigned | | 1 | 0 | 0 | 255 |
+| 40        |             8 |  Unsigned | | 1     |      0 |   0 | 255 |
+
 </div>
 
 #### Led2 :id=ADM_CS_EVCC_MEVC_Outputs-Led2
@@ -681,9 +683,11 @@ Needs to be declared as monitored in `/srv/config.cfg`:
     led2 = CAN_Controlled
 
 <div class="small-table compact-table">
+
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 48 | 8 | Unsigned | | 1 | 0 | 0 | 255 |
+
 </div>
 
 #### Led3 :id=ADM_CS_EVCC_MEVC_Outputs-Led3
@@ -695,9 +699,11 @@ Needs to be declared as monitored in `/srv/config.cfg`:
     led3 = CAN_Controlled
 
 <div class="small-table compact-table">
+
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 56 | 8 | Unsigned | | 1 | 0 | 0 | 255 |
+
 </div>
 
 #### Reserved :id=ADM_CS_EVCC_MEVC_Outputs-Reserved
