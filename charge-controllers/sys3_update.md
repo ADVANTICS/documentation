@@ -240,15 +240,17 @@ $ unzip /path/to/your/release.zip
  (Replace `/path/to/your/release.zip` with the actual path to the file on your controller. In the example above, we used `/tmp`) -->
 
 ```bash
-$ unzip /mnt/sd/release.zip
+$ unzip /mnt/sd/release.zip -d /path/to/your/release
 ```
+
+(Replace `/path/to/your/release` with the actual path where you want to unzip the file on your controller. You can use the SD card `/mnt/sd`)
 
 5. Apply the update using the update script `update-controller.sh` (the name of the update script can vary, you can use `ls` command on the directory where you unzipped the release to list the files and identify the update script)
 
 ```bash
-$ ./mnt/sd/path/to/your/update-controller.sh
+$ ./path/to/your/release/update-controller.sh
 ```
- (Replace `/path/to/your` with the actual path to the file under `/mnt/sd`.)
+ (Replace `/path/to/your/release` with the actual path to the release on your controller.)
 
 6. After the update is done, power cycle the controller
 
