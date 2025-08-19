@@ -10,3 +10,4 @@
 1. [Read-only file system](charge-controllers/sys3_user/read-only.md)
 1. [Developing with the controller](charge-controllers/sys3_user/developing.md)
 1. [Developing in Python](charge-controllers/sys3_user/python.md)
+1. [Must do before deploy](charge-controllers/sys3_user/must-do-before-deploy.md)

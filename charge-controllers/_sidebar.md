@@ -111,6 +111,7 @@
       - [Read-only file system](charge-controllers/sys3_user/read-only.md)
       - [Developing with the controller](charge-controllers/sys3_user/developing.md)
       - [Developing in Python](charge-controllers/sys3_user/python.md)
+      - [Must do before deploy](charge-controllers/sys3_user/must-do-before-deploy.md)
   - [AdvOS](charge-controllers/advantics_os/README.md)
     - [Accessing the controller](charge-controllers/advantics_os/connecting.md)
     - [SSH](charge-controllers/advantics_os/ssh.md)
