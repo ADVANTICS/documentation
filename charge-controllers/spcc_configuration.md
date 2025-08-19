@@ -4,6 +4,8 @@
 
 The SPCC is configurable via the Web UI. More information can be found [**here**](charge-controllers/advantics_os/csm-web-ui.md)
 
+Alternatively, the configuration can be found in `/etc/advantics/default/config.cfg` file when accessing the controller via [ SSH ](charge-controllers/advantics_os/ssh.md).
+
 ## `Pistols` (default: MCS)
 As the name suggests, on the single pistol charge controller (the SPCC), only one pistol can be enabled at a time.
 
