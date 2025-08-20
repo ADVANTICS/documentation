@@ -1,5 +1,4 @@
 - **Charge Station Controllers**
-
   - **SECC**
     - [Technical Data](charge-controllers/ADM-CS-SECC/introduction.md)
     <!-- - [SECC Hardware manual](charge-controllers/ADM-CS-SECC/README.md) -->
@@ -52,7 +51,6 @@
 
 - **Vehicle Controllers**
     <!-- - [Specifications](charge-controllers/ADM-CS-EVCC/specifications.md) -->
-
   - **EVCC**
     - [Technical Data](charge-controllers/ADM-CS-EVCC/introduction.md)
     <!-- - [Hardware manual](charge-controllers/ADM-CS-EVCC/README.md) -->
