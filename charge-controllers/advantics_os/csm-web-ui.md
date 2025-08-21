@@ -106,6 +106,6 @@ Refresh the page if the logs are not loading properly.
 
 Export the logs will generate a zip file with the logs of the controller and a copy of the config file.
 
-![CSM Logging](./images/csm-ui-logging.png ":size=50%")
+![CSM Logging](./images/csm-ui-logging.png ":size=80%")
 
 <figcaption style="text-align: center">CSM Logging page of a vehicle controller</figcaption>
