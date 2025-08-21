@@ -95,6 +95,31 @@ The two images below depict the differences between a supply equipment controlle
 
 ![Configuration submission prompting to restart](./images/csm-ui-configuration-restart.png ":size=50%")
 
+## Management page `/dashboard/management`
+
+The **Management** page provides tools for maintaining and updating the system’s containers and controller.
+
+![Management section of the CSM web UI](./images/csm-ui-management.png ":size=80%")
+
+<figcaption style="text-align: center">Management section of the CSM web UI</figcaption>
+
+### Update Containers
+
+- **From Internet**: Enter a URL to a `.tar` bundle containing application artifacts.
+- **From Computer**: Upload a `.tar` bundle directly from your local machine.
+
+### Manage Containers
+
+- **Pull images**: Fetches the latest container images for the selected profile without restarting or updating running containers.
+- **Recreate containers**: Stops, removes, recreates, and restarts containers. The UI may become temporarily unresponsive until the CSM container is back online.
+
+### Manage the Controller
+
+- **Reboot Controller**: Restarts the controller system.
+- **Update AdvOS**: Updates the underlying **AdvOS** Linux system using `ostree`.
+
+This interface centralizes system updates and container lifecycle management in one place.
+
 ## Logging page `/dashboard/logs`
 
 Real-time logs of the docker applications. The user can filter which applications to display, enable/disable auto-scroll and showing all logs in the same widget.
