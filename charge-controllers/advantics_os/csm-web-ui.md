@@ -53,7 +53,7 @@ plot the user can select which data to display and freeze the plot. Once the plo
 
 ![CSM Live Charts Monitoring](./images/csm-ui-monitoring-chart.png "width=100%")
 
-<figcaption style="text-align: center">CSM System update in Dasboard/management</figcaption>
+<figcaption style="text-align: center">CSM Live Charts</figcaption>
 
 ### Meters
 
