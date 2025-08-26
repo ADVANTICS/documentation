@@ -112,6 +112,7 @@
       - [Must do before deploy](charge-controllers/sys3_user/must-do-before-deploy.md)
   - [AdvOS](charge-controllers/advantics_os/README.md)
     - [Accessing the controller](charge-controllers/advantics_os/connecting.md)
+    - [Set static IP](charge-controllers/advantics_os/static-ip.md)
     - [SSH](charge-controllers/advantics_os/ssh.md)
     - [CSM Web UI](charge-controllers/advantics_os/csm-web-ui.md)
     <!-- - [4.x branch](charge-controllers/systems_branch4.m) -->
