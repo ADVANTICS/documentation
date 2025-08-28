@@ -2,4 +2,14 @@
 
 Main documentation site, build out of this repository:
 
-**https://advantics.github.io/documentation/**
+**https://documentation.advantics.fr**
+
+## Local execution
+
+```
+pip install hatch
+
+hatch run doc:serve
+```
+
+Then, goto http://localhost:8000/documentation/

@@ -1,0 +1,61 @@
+/* Admonitions (docstring sections) Since, Modified, Deprecated, Removed */
+
+.md-typeset .admonition.since,
+.md-typeset details.since {
+  border-color: rgb(43, 155, 70);
+}
+.md-typeset .since > .admonition-title,
+.md-typeset .since > summary  {
+  background-color: rgba(43, 155, 70, 0.1);
+}
+.md-typeset .since > .admonition-title::before,
+.md-typeset .since > summary::before {
+  background-color: rgb(43, 155, 70);
+  -webkit-mask-image: var(--md-admonition-icon--since);
+          mask-image: var(--md-admonition-icon--since);
+}
+
+.md-typeset .admonition.modified,
+.md-typeset details.modified {
+  border-color: #00b8d4;
+}
+.md-typeset .modified > .admonition-title,
+.md-typeset .modified > summary  {
+  background-color: #00b8d41a;
+}
+.md-typeset .modified > .admonition-title::before,
+.md-typeset .modified > summary::before {
+  background-color: #00b8d4;
+  -webkit-mask-image: var(--md-admonition-icon--modified);
+          mask-image: var(--md-admonition-icon--modified);
+}
+
+.md-typeset .admonition.deprecated,
+.md-typeset details.deprecated {
+  border-color: #ff9100;
+}
+.md-typeset .deprecated > .admonition-title,
+.md-typeset .deprecated > summary  {
+  background-color: #ff91001a;
+}
+.md-typeset .deprecated > .admonition-title::before,
+.md-typeset .deprecated > summary::before {
+  background-color: #ff9100;
+  -webkit-mask-image: var(--md-admonition-icon--deprecated);
+          mask-image: var(--md-admonition-icon--deprecated);
+}
+
+.md-typeset .admonition.removed,
+.md-typeset details.removed {
+  border-color: #ff1744;
+}
+.md-typeset .removed > .admonition-title,
+.md-typeset .removed > summary  {
+  background-color: #ff17441a;
+}
+.md-typeset .removed > .admonition-title::before,
+.md-typeset .removed > summary::before {
+  background-color: #ff1744;
+  -webkit-mask-image: var(--md-admonition-icon--removed);
+          mask-image: var(--md-admonition-icon--removed);
+}

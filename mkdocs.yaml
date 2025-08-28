@@ -1,0 +1,165 @@
+site_name: ADVANTICS Documentation
+site_url: https://documentation.advantics.fr
+# repo_url: https://github.com/ADVANTICS/documentation
+repo_name: gh:ADVANTICS/documentation
+edit_uri: edit/main/docs/
+site_description: Documentation for ADVANTICS products
+site_author: ADVANTICS SAS
+copyright: Copyright &copy; 2017-2025 ADVANTICS SAS
+
+# spell-checker: disable
+
+watch:
+  - '.'
+
+theme:
+  icon:
+    # logo: ...
+    admonition:
+      since: material/tag-plus
+      modified: material/tag-text
+      deprecated: material/tag-minus
+      removed: material/tag-off
+
+  language: en
+
+  name: material
+  custom_dir: overrides
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
+    - media: "(prefers-color-scheme: light)"
+      scheme: default  # Light mode
+      toggle:
+        icon: material/brightness-5
+        name: Switch to dark mode
+      primary: teal
+      accent: deep orange
+
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate  # Dark mode
+      toggle:
+        icon: material/brightness-2
+        name: Switch to auto mode
+      primary: indigo
+      accent: deep purple
+
+  font:
+    # text: Ubuntu
+    code: Ubuntu Mono
+
+  features:
+    - navigation.instant  # No reload between pages, use XHR
+    - navigation.instant.progress  # Show progress-bar if longer than 400ms
+    # - navigation.tracking  # Update URL with scroll
+    - navigation.tabs  # Top-level nav as tabs in header
+    # - navigation.tabs.sticky  # Header tabs don't dissapear when scrolling down
+    - navigation.top  # Back-to-top button
+    # - navigation.sections  # Group sections in the sidebar
+    # - navigation.expand  # Expand all collapsible navigation sub-sections
+    - navigation.path  # Breadcrumb
+    - navigation.indexes  # Intermediate section levels can have their own pages
+    - navigation.footer  # Prev/Next links at the bottom
+    - toc.follow  # TOC sidebar follows scroll
+    # - toc.integrate  # Merge TOC into navigation sidebar
+    - search.suggest  # Suggest search completion
+    - search.highlight  # Highlight search results in the page
+    - search.share  # Can create/copy share link for searched
+    - header.autohide  # Collapse header entirely as scrolling down
+    # - content.action.edit  # Top-right (middle column) edit icon
+    # - content.action.view  # Top-right (middle column) view raw icon
+    - content.code.copy  # Enable copy button site-wise
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight:
+      linenums_style: pymdownx-inline
+  - pymdownx.keys
+  - pymdownx.mark
+  - pymdownx.snippets:
+      check_paths: true
+      auto_append:
+        - docs/_glossary.md
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+  - sane_lists
+  - smarty:
+      smart_angled_quotes: True
+  - toc:
+      permalink: True
+  - wikilinks
+
+plugins:
+  - search
+  # - gen-files:
+  #     scripts:
+  #       - docs/gen_ref_pages.py
+  - git-revision-date-localized:
+      # enabled: !ENV [ENABLE_PROD, True]
+      type: date
+      # enable_creation_date: true
+  - literate-nav:
+      nav_file: nav.md
+      implicit_index: true
+  - section-index
+  - social:
+      cards: !ENV [ENABLE_PROD, True]
+  - tags:
+      tags_file: tags.md
+  # - mkdocstrings:
+  #     custom_templates: doc_templates
+  #     handlers:
+  #       python:
+  #         import:
+  #           - url: https://docs.python.org/3/objects.inv
+  #             domains:
+  #               - py
+  #               - std
+  #         options:
+  #           # show_root_heading: true
+  #           show_root_toc_entry: false
+  #           show_category_heading: true
+  #           # show_if_no_docstring: true
+  #           # show_signature_annotations: true
+  #           separate_signature: true
+  #           # show_source: false
+
+extra:
+  # version:
+  #   provider: mike
+  #   default:
+  #     - latest
+  #     - dev
+  social:
+    - icon: fontawesome/solid/house
+      link: https://advantics.fr
+      name: ADVANTICS Main Website
+    - icon: fontawesome/solid/circle-question
+      link: https://advantics.atlassian.net/servicedesk/customer/portal/1
+      name: Create a support ticket
+    - icon: fontawesome/solid/cart-shopping
+      link: https://store.advantics.fr/
+      name: ADVANTICS Store
+
+extra_css:
+  - stylesheets/extra.css
+  - stylesheets/custom.css

@@ -1,0 +1,22 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.envs.doc]
+detached = true
+dependencies = [
+  "mkdocs",
+  "mkdocs-material",
+  "mkdocstrings[python]",
+  "mkdocs-gen-files",
+  "mkdocs-literate-nav",
+  "mkdocs-section-index",
+  "pillow",
+  "cairosvg",
+  "mike",
+  "mkdocs-git-revision-date-localized-plugin",
+]
+
+[tool.hatch.envs.doc.scripts]
+build = "mkdocs build --clean --strict"
+serve = "ENABLE_PROD=False mkdocs serve --dev-addr localhost:8000"
