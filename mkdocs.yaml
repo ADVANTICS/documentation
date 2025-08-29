@@ -1,8 +1,8 @@
 site_name: ADVANTICS Documentation
 site_url: https://documentation.advantics.fr
-# repo_url: https://github.com/ADVANTICS/documentation
+repo_url: https://github.com/ADVANTICS/documentation
 repo_name: gh:ADVANTICS/documentation
-edit_uri: edit/main/docs/
+edit_uri: edit/material/docs/
 site_description: Documentation for ADVANTICS products
 site_author: ADVANTICS SAS
 copyright: Copyright &copy; 2017-2025 ADVANTICS SAS
