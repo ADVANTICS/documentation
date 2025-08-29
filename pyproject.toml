@@ -1,9 +1,21 @@
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = []
 
 [tool.hatch.envs.doc]
 detached = true
+
+
+[project]
+name = "adv-docs"
+dynamic = ["version"]
+description = "Advantics Documentation Management"
+readme = "README.md"
+requires-python = ">=3.12"
+authors = [
+  { name = "Axel Voitier", email = "axel.voitier@advantics.fr" },
+  { name = "Salva Ferradas", email = "salva.ferradas@advantics.fr" },
+]
+
 dependencies = [
   "mkdocs",
   "mkdocs-material",
