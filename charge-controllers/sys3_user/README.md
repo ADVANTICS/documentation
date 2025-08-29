@@ -4,6 +4,7 @@
 
 1. [Platforms](charge-controllers/sys3_user/platforms.md)
 1. [Accessing the controller](charge-controllers/sys3_user/access.md)
+1. [Modify network config](charge-controllers/sys3_user/set-different-ip.md)
 1. [Managing charging applications](charge-controllers/sys3_user/applications.md)
 1. [Manual GPIO control](charge-controllers/sys3_user/gpios.md)
 1. [Debugging](charge-controllers/sys3_user/debugging.md)

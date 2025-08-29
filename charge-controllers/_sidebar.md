@@ -103,6 +103,7 @@
     - [User guide](charge-controllers/sys3_user/README.md)
       - [Platforms](charge-controllers/sys3_user/platforms.md)
       - [Accessing the controller](charge-controllers/sys3_user/access.md)
+      - [Modify network config](charge-controllers/sys3_user/set-different-ip.md)
       - [Managing charging applications](charge-controllers/sys3_user/applications.md)
       - [Manual GPIO control](charge-controllers/sys3_user/gpios.md)
       - [Debugging](charge-controllers/sys3_user/debugging.md)
