@@ -15,6 +15,9 @@ Example:
 
 `ssh advantics@adm-cs-<controller-type>-<serial-number>.local` ie. `ssh advantics@adm-cs-spcc-12345678.local`
 
+> [!TIP]
+> You can also use [ Putty ](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) or any SSH client of your choice.
+
 The root login is disabled and the default user is `advantics`. The default password is `dev-only`.
 
 Please change the default password as soon as you log in. Remember that if you need to run privileged commands, you can use `sudo`.
