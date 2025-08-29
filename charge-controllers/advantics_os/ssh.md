@@ -38,8 +38,8 @@ For controllers meant for series production, the following hardening methods are
 > refuse to provide series production orders with system having simple, always the same, default
 > password. Even if you don't plan to have the module connected to Internet.
 
-
 # Copying files to the controller using SCP
+
 Using the Command Line (Linux, macOS, or Windows with WSL/PowerShell).
 
 - Open a terminal (or Command Prompt / PowerShell on Windows if you have scp available).
@@ -48,23 +48,34 @@ Using the Command Line (Linux, macOS, or Windows with WSL/PowerShell).
 
 - Run the scp command to copy the file:
 
-     ```bash
-    scp <filename> <username>@<hostname>:<destination-path>
-    ```
+  ```bash
+  scp <filename> <username>@<hostname>:<destination-path>
+  ```
 
-    Replace:
+  Replace:
 
-    `<filename>` – with the name of the file you want to copy
+  `<filename>` – with the name of the file you want to copy
 
-    `<username>` – with the login user on the remote device **(use `advantics`)**
+  `<username>` – with the login user on the remote device **(use `advantics`)**
 
-    `<hostname>` – Grab the hostname of the controller as documented in [Accessing and interacting with the controller](charge-controllers/advantics_os/connecting.md).
+  `<hostname>` – Grab the hostname of the controller as documented in [Accessing and interacting with the controller](charge-controllers/advantics_os/connecting.md).
 
-    `<destination-path>` – with the target directory on the device **(use `/home/advantics`)**
+  `<destination-path>` – with the target directory on the device **(use `/home/advantics`)**
 
-    Example: `scp myupdate.tar advantics@adm-cs-spcc-12345678:/home/advantics`
+  Example: `scp myupdate.tar advantics@adm-cs-spcc-12345678:/home/advantics`
 
 - Enter the password for the device when prompted. (the default is _dev-only_)
+
+# System update
+
+1. Make sure this is the content of /etc/ostree/remotes/advos.conf
+
+```
+[remote "advos"]
+url=https://ostree.advos.advantics.com
+```
+
+2. Run: `sudo ostree admin upgrade`
 
 # Full release update
 
@@ -72,13 +83,15 @@ Using the Command Line (Linux, macOS, or Windows with WSL/PowerShell).
 
 ### Option 1 (requires internet): Pulling the update from Docker Hub
 
-In case the controller is connected to the internet, you can easily load the new images using the command: 
+In case the controller is connected to the internet, you can easily load the new images using the command:
+
 ```bash
 /etc/advantics/compose.sh default pull
 ```
+
 Please note that here we're using the default profile (`default`), more steps might be needed if you're using a different profile or have modified the default one.
 
-***Then jump to [Common steps](#common-steps)***
+**_Then jump to [Common steps](#common-steps)_**
 
 ### Option 2 (does not requires internet): Loading the images from a .tar file
 
@@ -90,19 +103,25 @@ file. The process is to:
 2. [Login to the controller](#ssh-access)
 
 3. Load the new images from the .tar file using this command:
+
 ```bash
 docker load -i /path/to/update.tar
 ```
+
 (Replace `/path/to/update.tar` by the actual path and name of the .tar file)
 
 ### Common steps
+
 - After updating the applications, use the following command to recreate and start new containers:
+
 ```bash
 /etc/advantics/compose.sh default up -d
 ```
+
 Please note that here we're using the default profile (`default`), more steps might be needed if you're using a different profile or have modified the default one.
 
 - Then, to clean up and delete the old images, you can use:
+
 ```bash
 docker image prune
 ```
