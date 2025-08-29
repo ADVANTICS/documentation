@@ -123,8 +123,8 @@ plugins:
   - section-index
   - social:
       cards: !ENV [ENABLE_PROD, True]
-  - tags:
-      tags_file: tags.md
+  # - tags:
+  #     tags_file: tags.md
   # - mkdocstrings:
   #     custom_templates: doc_templates
   #     handlers:
