@@ -1,0 +1,42 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - material
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        node-version: [22]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: "Set up Python"
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: "pyproject.toml"
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Install deps
+        run: uv sync --locked --no-install-project
+
+      - name: Build the docs website for production
+        if: github.ref == 'refs/heads/material'
+        run: mkdocs build --clean --strict
+
+      - name: Upload to FTP server
+        if: github.ref == 'refs/heads/material'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_DOCS_USERNAME }}
+          password: ${{ secrets.FTP_DOCS_PASSWORD }}
+          protocol: ftps
+          local-dir: site/
+          server-dir: public_html/
