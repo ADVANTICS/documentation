@@ -1,7 +1,9 @@
 > [!UPDATE] {docsify-updated}
+
 # MCS
 
 These configuration entries are all under the `[ccs]` section.
+MCS requires using [Generic EVCC CAN Interface 2](charge-controllers/evcc_generic/README_v2) in [vehicle type](charge-controllers/evcc_configuration/generalities).
 
 ## full_soc
 
