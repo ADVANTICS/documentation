@@ -102,6 +102,7 @@
       - [CAN databases](charge-controllers/evcc_generic/databases_v2.md)
       - [CAN messages](charge-controllers/evcc_generic/can_v2.md)
       - [Changelog](charge-controllers/evcc_generic/changelog_v2.md)
+    - [J1939](charge-controllers/evcc_generic/j1939.md)
 
 - **Linux systems**
   - [3.x branch](charge-controllers/systems_branch3.md)
@@ -121,6 +122,6 @@
     - [Accessing the controller](charge-controllers/advantics_os/connecting.md)
     - [Set static IP](charge-controllers/advantics_os/static-ip.md)
     - [SSH](charge-controllers/advantics_os/ssh.md)
-    - [ Updating ](charge-controllers/advantics_os/updating.md)
+    - [Updating](charge-controllers/advantics_os/updating.md)
     - [CSM Web UI](charge-controllers/advantics_os/csm-web-ui.md)
     <!-- - [4.x branch](charge-controllers/systems_branch4.m) -->
