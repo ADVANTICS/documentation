@@ -28,6 +28,9 @@
         - [Flashing Advantics power modules](charge-controllers/secc_afpu.md) -->
     - [OCPP 1.6J](charge-controllers/ocpp16j.md)
     - [OCPP 2.0.1](charge-controllers/ocpp201.md)
+    - [Plug'n'Charge](charge-controllers/tls_pnc/introduction.md)
+      - [Plug'n'Charge overview](charge-controllers/tls_pnc/pnc_primer.md)
+      - [TLS & Plug'n'Charge configuration](charge-controllers/tls_pnc/tls_pnc_config.md)
     - [EVSE Simulation](charge-controllers/charger-simulation.md)
     - [Supported Insulation Monitors](charge-controllers/evse-supported-insulation-monitors.md)
   - **Charger CAN bus Interfaces**
@@ -79,6 +82,9 @@
     - [Special](charge-controllers/evcc_special.md)
       - [Orion BMS setup](charge-controllers/evcc_orion_bms/orion_bms_integration.md)
       - [Updater tool](charge-controllers/evcc_updater.md)
+    - [Plug'n'Charge](charge-controllers/tls_pnc/introduction.md)
+      - [Plug'n'Charge overview](charge-controllers/tls_pnc/pnc_primer.md)
+      - [TLS & Plug'n'Charge configuration](charge-controllers/tls_pnc/tls_pnc_config.md)
     - [PEV Simulation](charge-controllers/vehicle-simulation.md)
     - [Supported sensors](charge-controllers/pev-supported-sensors.md)
   - **Vehicle CAN bus Interfaces**
