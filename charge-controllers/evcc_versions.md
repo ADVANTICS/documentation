@@ -72,4 +72,5 @@ release.
 | release 2.0 | 2025-07-07 | Changelog in the bundle. | Download link: [pev-release-2.0.zip](https://drive.google.com/uc?export=download&id=1If2EobawN2vKWnXWWLHdxtfgXnbMNKB7)<br/>Update instructions: ([Full release update](charge-controllers/sys3_update.md#full-release-update))|
 | release 2.1 | 2025-07-23 | Changelog in the bundle. | Download link: [evcc-23-07-2025.zip](https://drive.google.com/uc?export=download&id=136dllcmk9AMYky_Nao0IaCV1NHmFTTpm)<br/>Update instructions: ([Full release update](charge-controllers/sys3_update.md#full-release-update))|
 | release 2.2 | 2025-08-04 | Changelog in the bundle. | Download link: [evcc-04-08-2025.zip](https://drive.google.com/uc?export=download&id=1eYflFXaEiRZVk_2vr8iMdnCfZEByECmK)<br/>Update instructions: ([Full release update](charge-controllers/sys3_update.md#full-release-update))|
+| release 2.3 | 2025-09-15 | Changelog in the bundle. | Download link: [evcc-15-09-2025.zip](https://drive.google.com/uc?export=download&id=1kNEDyp6DiZuyDF6GrnHkSmdSWe2g0shR)<br/>Update instructions: ([Full release update](charge-controllers/sys3_update.md#full-release-update))|
 </div>

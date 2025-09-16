@@ -166,7 +166,49 @@ Currently supported hardware are for `ADM-CS-MEVC`.
       <td>
         <ul>
           <li><a href="https://hub.docker.com/r/advantics/pev-controller/tags">advantics/pev-controller:2.2.4</a></li>
-          <li><a href="https://hub.docker.com/r/advantics/advantics-csm/tags">advantics/ccs-evcc:2.3.3</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/ccs-evcc/tags">advantics/ccs-evcc:2.3.3</a></li>
+        </ul>
+      </td>
+    </tr>
+    <td class="branch-col">Release 2.3</td>
+      <td class="date-col">2025-09-15</td>
+      <td>
+        <ul>
+          <li><strong>pev-controller 2.2.5</strong>
+            <ul>
+              <li>New CAN bus message <a href="https://advantics.github.io/documentation/#/charge-controllers/evcc_generic/can_v2?id=evcc-mevc-diagnostic-status">EVCC_MEVC_Diagnostic_Status</a><br/> Diagnostic status of the charge controller:<br/> - Shows active faults and errors detected by the charge controller.<br/>- Status signals received from the charger over High-Level Communication (HLC).</li>
+            </ul>
+          </li>
+          <li><strong>ccs-evcc 2.3.5</strong>
+            <ul>
+              <li>Send HLC error codes and forward charger status signals received over High-Level Communication (HLC).</li>
+              <li>Fix minor bug in ServiceDiscovery in handling extra services</li>
+            </ul>
+          </li>
+          <li><strong>advantics-csm 1.5.4</strong>
+            <ul>
+              <li>Fix log exporting issue Improve logging page experience (docker socket starvation, app status in colors)</li>
+              <li>Add export config file in config page</li>
+              <li>Add j1939 capabilities</li>
+              <li>QOL improvements for J1939 logging</li>
+              <li>Fix management page for EVCC (official support of EVCC)</li>
+              <li>Add error stack to monitoring page</li>
+              <li>Fix UI typos and descriptions</li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><strong>Option 1:</strong> Pull from Docker hub — <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=option-1-requires-internet-pulling-the-update-from-docker-hub">Guide</a></li>
+          <li><strong>Option 2:</strong> <a href="https://drive.google.com/uc?export=download&id=1h_j2vAV_YS2KRCoGGge2JCJGN-YNTATR">Download .tar (Release 2.3)</a> — <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=full-release-update">Update Instructions</a></li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><a href="https://hub.docker.com/r/advantics/pev-controller/tags">advantics/pev-controller:2.2.5</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/ccs-evcc/tags">advantics/ccs-evcc:2.3.5</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/advantics-csm/tags">advantics/advantics-csm:1.5.4</a></li>
         </ul>
       </td>
     </tr>
