@@ -1,8 +1,16 @@
 ![Advantics logo](_media/ADVANTICS_logo.png)
 
-# Documentations
+# Get started here
+
+We need ssome text heresome text heresome text heresome text heresome text heresome text heresome text heresome text heresome text heresome text heresome text hereome text here
 
 [Charge Controllers](charge-controllers/)
 [Power modules](power-modules/)
+
+<div>
+
+We need ssome text heresome text heresome text heresome text heresome text heresome text heresome text heresome text heresome text heresome text heresome text hereome text here [Charge Controllers](charge-controllers/)
+
+</div>
 
 ![](_media/background.jpeg)
