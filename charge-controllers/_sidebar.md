@@ -28,6 +28,9 @@
         - [Flashing Advantics power modules](charge-controllers/secc_afpu.md) -->
     - [OCPP 1.6J](charge-controllers/ocpp16j.md)
     - [OCPP 2.0.1](charge-controllers/ocpp201.md)
+    - [Plug'n'Charge](charge-controllers/tls_pnc/introduction.md)
+      - [Plug'n'Charge overview](charge-controllers/tls_pnc/pnc_primer.md)
+      - [TLS & Plug'n'Charge configuration](charge-controllers/tls_pnc/tls_pnc_config.md)
     - [EVSE Simulation](charge-controllers/charger-simulation.md)
     - [Supported Insulation Monitors](charge-controllers/evse-supported-insulation-monitors.md)
   - **Charger CAN bus Interfaces**
@@ -79,6 +82,9 @@
     - [Special](charge-controllers/evcc_special.md)
       - [Orion BMS setup](charge-controllers/evcc_orion_bms/orion_bms_integration.md)
       - [Updater tool](charge-controllers/evcc_updater.md)
+    - [Plug'n'Charge](charge-controllers/tls_pnc/introduction.md)
+      - [Plug'n'Charge overview](charge-controllers/tls_pnc/pnc_primer.md)
+      - [TLS & Plug'n'Charge configuration](charge-controllers/tls_pnc/tls_pnc_config.md)
     - [PEV Simulation](charge-controllers/vehicle-simulation.md)
     - [Supported sensors](charge-controllers/pev-supported-sensors.md)
   - **Vehicle CAN bus Interfaces**
@@ -96,6 +102,7 @@
       - [CAN databases](charge-controllers/evcc_generic/databases_v2.md)
       - [CAN messages](charge-controllers/evcc_generic/can_v2.md)
       - [Changelog](charge-controllers/evcc_generic/changelog_v2.md)
+    - [J1939](charge-controllers/evcc_generic/j1939.md)
 
 - **Linux systems**
   - [3.x branch](charge-controllers/systems_branch3.md)
@@ -115,6 +122,6 @@
     - [Accessing the controller](charge-controllers/advantics_os/connecting.md)
     - [Set static IP](charge-controllers/advantics_os/static-ip.md)
     - [SSH](charge-controllers/advantics_os/ssh.md)
-    - [ Updating ](charge-controllers/advantics_os/updating.md)
+    - [Updating](charge-controllers/advantics_os/updating.md)
     - [CSM Web UI](charge-controllers/advantics_os/csm-web-ui.md)
     <!-- - [4.x branch](charge-controllers/systems_branch4.m) -->

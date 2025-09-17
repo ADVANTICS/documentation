@@ -18,6 +18,7 @@ Copyright ADVANTICS 2017
 | [DC_Control](#DC_Control) | 0x602 | 1 | OUT | 100 |
 | [CCS_Extra_Information](#CCS_Extra_Information) | 0x603 | 6 | OUT | 100 |
 | [ADM_CS_EVCC_Inputs](#ADM_CS_EVCC_Inputs) | 0x604 | 6 | OUT | 1000 |
+| [EVCC_MEVC_Diagnostic_Status](#EVCC_MEVC_Diagnostic_Status) | 0x605 | 8 | OUT | 100 |
 | [ADM_CS_EVCC_MEVC_Outputs](#ADM_CS_EVCC_MEVC_Outputs) | 0x617 | 8 | IN | 100 |
 | [EV_Information](#EV_Information) | 0x610 | 1 | IN | 100 |
 | [AC_Status](#AC_Status) | 0x611 | 1 | IN | 100 |
@@ -1656,6 +1657,245 @@ Represents the offset in seconds from the point in time of sending this message.
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 0 | 32 | Unsigned | Seconds | 1 | 0 | 0 | 4294967296 |
+
+</div>
+
+## EVCC_MEVC_Diagnostic_Status
+
+<div class="noheader-table small-table compact-table">
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x605 |
+| **Length [Bytes]** | 8 |
+| **Periodicity [ms]** | 100 |
+| **Direction** | OUT |
+
+</div>
+
+### Description
+
+Diagnostic status of the charge controller. This message is reset to default values when the controller state cycles back to Communication_Stage.Waiting_For_EVSE.
+
+### Payload
+
+<div class="small-table compact-table">
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| LockFailure | 1 | Single bit |
+| UnlockDeclinedInletEnergized | 1 | Single bit |
+| HighTemperature | 1 | Single bit |
+| ContactorFault | 1 | Single bit |
+| VoltageDeviation | 1 | Single bit |
+| CurrentDeviation | 1 | Single bit |
+| PrechargeTimeout | 1 | Single bit |
+| ProximityPilotNotDetected | 1 | Single bit |
+| InsertionDetectionNotDetected | 1 | Single bit |
+| ControlPilotFault | 1 | Single bit |
+| ChargeEnableFault | 1 | Single bit |
+| ControlPilotDutyCycleUnexpected | 1 | Single bit |
+| ControlPilotStateUnexpected | 1 | Single bit |
+| ChargeEnableStateUnexpected | 1 | Single bit |
+| ControlPilotStateNotSupported | 1 | Single bit |
+| PLCFault | 1 | Single bit |
+| V2GTPTLSError | 1 | Single bit |
+| V2GTPAuthorizationFailure | 1 | Single bit |
+| V2GTPServiceSelectionFailure | 1 | Single bit |
+| V2GTPProtocolVersionInvalid | 1 | Single bit |
+| V2GTPSessionIDUnexpected | 1 | Single bit |
+| V2GTPPayloadInvalid | 1 | Single bit |
+| V2GTPEnergyTransferModeNotSupported | 1 | Single bit |
+| V2GTPSequenceError | 1 | Single bit |
+| V2GTPSequenceTimeout | 1 | Single bit |
+| SDPError | 1 | Single bit |
+| Reserved_Flags | 22 | Unsigned |
+| HLC_ResponseCode | 8 | Label set |
+| EVSE_StatusCode | 4 | Label set |
+| EVSE_Isolation_Level | 4 | Label set |
+
+</div>
+
+### Payload description
+
+#### LockFailure :id=EVCC_MEVC_Diagnostic_Status-LockFailure
+Indicates a failure in locking the connector.
+
+#### UnlockDeclinedInletEnergized :id=EVCC_MEVC_Diagnostic_Status-UnlockDeclinedInletEnergized
+Unlock request declined due to voltage/current measured at the inlet.
+
+#### HighTemperature :id=EVCC_MEVC_Diagnostic_Status-HighTemperature
+Error due to high temperature detected.
+
+#### ContactorFault :id=EVCC_MEVC_Diagnostic_Status-ContactorFault
+Indicates a contactor fault. Can also be caused by wrong wiring or configuration of contactor feedbacks.
+
+#### VoltageDeviation :id=EVCC_MEVC_Diagnostic_Status-VoltageDeviation
+Voltage deviation detected beyond allowed limits.
+
+#### CurrentDeviation :id=EVCC_MEVC_Diagnostic_Status-CurrentDeviation
+Current deviation detected beyond allowed limits.
+
+#### PrechargeTimeout :id=EVCC_MEVC_Diagnostic_Status-PrechargeTimeout
+Precharge process did not complete within the expected time.
+
+#### ProximityPilotNotDetected :id=EVCC_MEVC_Diagnostic_Status-ProximityPilotNotDetected
+CCS PP signal not detected.
+
+#### InsertionDetectionNotDetected :id=EVCC_MEVC_Diagnostic_Status-InsertionDetectionNotDetected
+MCS ID signal not detected.
+
+#### ControlPilotFault :id=EVCC_MEVC_Diagnostic_Status-ControlPilotFault
+Fault detected on the CCS CP line.
+
+#### ChargeEnableFault :id=EVCC_MEVC_Diagnostic_Status-ChargeEnableFault
+Fault detected in MCS CE line.
+
+#### ControlPilotDutyCycleUnexpected :id=EVCC_MEVC_Diagnostic_Status-ControlPilotDutyCycleUnexpected
+Unexpected duty cycle detected on CCS CP line.
+
+#### ControlPilotStateUnexpected :id=EVCC_MEVC_Diagnostic_Status-ControlPilotStateUnexpected
+Unexpected state detected on CCS CP line.
+
+#### ChargeEnableStateUnexpected :id=EVCC_MEVC_Diagnostic_Status-ChargeEnableStateUnexpected
+Unexpected state detected in MCS CE line.
+
+#### ControlPilotStateNotSupported :id=EVCC_MEVC_Diagnostic_Status-ControlPilotStateNotSupported
+CCS CP state not supported by the system.
+
+#### PLCFault :id=EVCC_MEVC_Diagnostic_Status-PLCFault
+Power Line Communication (PLC) fault detected. See V2GTP flags for protocol-level errors.
+
+#### V2GTPTLSError :id=EVCC_MEVC_Diagnostic_Status-V2GTPTLSError
+V2GTP TLS error occurred during communication.
+
+#### V2GTPAuthorizationFailure :id=EVCC_MEVC_Diagnostic_Status-V2GTPAuthorizationFailure
+V2GTP authorization process failed.
+
+#### V2GTPServiceSelectionFailure :id=EVCC_MEVC_Diagnostic_Status-V2GTPServiceSelectionFailure
+V2GTP service selection failed.
+
+#### V2GTPProtocolVersionInvalid :id=EVCC_MEVC_Diagnostic_Status-V2GTPProtocolVersionInvalid
+Invalid V2GTP protocol version detected.
+
+#### V2GTPSessionIDUnexpected :id=EVCC_MEVC_Diagnostic_Status-V2GTPSessionIDUnexpected
+Unexpected V2GTP session ID encountered.
+
+#### V2GTPPayloadInvalid :id=EVCC_MEVC_Diagnostic_Status-V2GTPPayloadInvalid
+Invalid payload detected in V2GTP communication.
+
+#### V2GTPEnergyTransferModeNotSupported :id=EVCC_MEVC_Diagnostic_Status-V2GTPEnergyTransferModeNotSupported
+V2GTP energy transfer mode not supported.
+
+#### V2GTPSequenceError :id=EVCC_MEVC_Diagnostic_Status-V2GTPSequenceError
+Sequence error detected in V2GTP communication.
+
+#### V2GTPSequenceTimeout :id=EVCC_MEVC_Diagnostic_Status-V2GTPSequenceTimeout
+Timeout occurred in V2GTP sequence.
+
+#### SDPError :id=EVCC_MEVC_Diagnostic_Status-SDPError
+Service Discovery Protocol (SDP) error detected.
+
+#### Reserved_Flags :id=EVCC_MEVC_Diagnostic_Status-Reserved_Flags
+Reserved bits for future uses.
+
+#### HLC_ResponseCode :id=EVCC_MEVC_Diagnostic_Status-HLC_ResponseCode
+High-Level Communication (HLC) response codes for EVSE communication protocols.
+
+<div class="small-table compact-table">
+
+| Label name | Value |
+|------------|-------|
+| Undefined | 0 |
+| OK | 1 |
+| OK_CertificateExpiresSoon | 2 |
+| OK_NewSessionEstablished | 3 |
+| OK_OldSessionJoined | 4 |
+| OK_PowerToleranceConfirmed | 5 |
+| WARNING_AuthorizationSelectionInvalid | 6 |
+| WARNING_CertificateExpired | 7 |
+| WARNING_CertificateNotYetValid | 8 |
+| WARNING_CertificateRevoked | 9 |
+| WARNING_CertificateValidationError | 10 |
+| WARNING_ChallengeInvalid | 11 |
+| WARNING_EIMAuthorizationFailure | 12 |
+| WARNING_eMSPUnknown | 13 |
+| WARNING_EVPowerProfileViolation | 14 |
+| WARNING_GeneralPnCAuthorizationError | 15 |
+| WARNING_NoCertificateAvailable | 16 |
+| WARNING_NoContractMatchingPCIDFound | 17 |
+| WARNING_PowerToleranceNotConfirmed | 18 |
+| WARNING_ScheduleRenegotiationFailed | 19 |
+| WARNING_StandbyNotAllowed | 20 |
+| WARNING_WPT | 21 |
+| FAILED | 22 |
+| FAILED_AssociationError | 23 |
+| FAILED_ContactorError | 24 |
+| FAILED_EVPowerProfileInvalid | 25 |
+| FAILED_EVPowerProfileViolation | 26 |
+| FAILED_MeteringSignatureNotValid | 27 |
+| FAILED_NoEnergyTransferServiceSelected | 28 |
+| FAILED_NoServiceRenegotiationSupported | 29 |
+| FAILED_PauseNotAllowed | 30 |
+| FAILED_PowerDeliveryNotApplied | 31 |
+| FAILED_PowerToleranceNotConfirmed | 32 |
+| FAILED_ScheduleRenegotiation | 33 |
+| FAILED_ScheduleSelectionInvalid | 34 |
+| FAILED_SequenceError | 35 |
+| FAILED_ServiceIDInvalid | 36 |
+| FAILED_ServiceSelectionInvalid | 37 |
+| FAILED_SignatureError | 38 |
+| FAILED_UnknownSession | 39 |
+| FAILED_WrongChargeParameter | 40 |
+| FAILED_PaymentSelectionInvalid | 41 |
+| FAILED_CertificateExpired | 42 |
+| FAILED_CertChainError | 43 |
+| FAILED_ChallengeInvalid | 44 |
+| FAILED_ContractCanceled | 45 |
+| FAILED_TariffSelectionInvalid | 46 |
+| FAILED_ChargingProfileInvalid | 47 |
+| FAILED_NoChargeServiceSelected | 48 |
+| FAILED_WrongEnergyTransferMode | 49 |
+| FAILED_CertificateNotAllowedAtThisEVSE | 50 |
+| FAILED_CertificateRevoked | 51 |
+| FAILED_EVSEPresentVoltageToLow | 52 |
+| FAILED_WrongEnergyTransferType | 53 |
+| FAILED_CertificateNotAllowedAtThisEVSE | 54 |
+
+</div>
+
+#### EVSE_StatusCode :id=EVCC_MEVC_Diagnostic_Status-EVSE_StatusCode
+Only relevant for DIN SPEC 70121 and ISO 15118-2 protocols (removed in ISO 15118-20).
+
+<div class="small-table compact-table">
+
+| Label name | Value |
+|------------|-------|
+| Undefined | 0 |
+| EVSE_NotReady | 1 |
+| EVSE_Ready | 2 |
+| EVSE_Shutdown | 3 |
+| EVSE_UtilityInterruptEvent | 4 |
+| EVSE_IsolationMonitoringActive | 5 |
+| EVSE_EmergencyShutdown | 6 |
+| EVSE_Malfunction | 7 |
+| Invalid | 8 |
+
+</div>
+
+#### EVSE_Isolation_Level :id=EVCC_MEVC_Diagnostic_Status-EVSE_Isolation_Level
+Only relevant for DIN SPEC 70121 and ISO 15118-2 protocols (removed in ISO 15118-20).
+
+<div class="small-table compact-table">
+
+| Label name | Value |
+|------------|-------|
+| Undefined | 0 |
+| Invalid | 1 |
+| Valid | 2 |
+| Warning | 3 |
+| Fault | 4 |
+| No_IMD | 5 |
 
 </div>
 
