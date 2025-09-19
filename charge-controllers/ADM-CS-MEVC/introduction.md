@@ -108,6 +108,9 @@ The reference of the pin is composed of 3 characters:
 | [DIGITAL_OUT2](#Digital_inputs_and_outputs) | <center> - | <center> 2K2 |
 | [DIGITAL_OUT3](#Digital_inputs_and_outputs) | <center> - | <center> 3K2 |
 | [DIGITAL_GND](#Digital_inputs_and_outputs) | <center> - | <center> 3J2 |
+| [LED1](charge-controllers/ADM-CS-EVCC/interfaces?id=led-outputs) | <center> 1C1 | <center> - |
+| [LED2](charge-controllers/ADM-CS-EVCC/interfaces?id=led-outputs) | <center> 2C1 | <center> - |
+| [LED3](charge-controllers/ADM-CS-EVCC/interfaces?id=led-outputs) | <center> 3C1 | <center> - |
 
 ## Typical use case
 
