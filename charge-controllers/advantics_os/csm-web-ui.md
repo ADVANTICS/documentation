@@ -2,15 +2,17 @@
 
 # ADVANTICS CSM Web UI
 
-<!-- <div style="background-color: teal; color: white; font-weight: bold; padding: 10px; text-align: center;">
-    🚨 IMPORTANT: This interface is currently supported only for ADM-CS-SPCC and ADM-CS-MEVC 🚨
-</div> -->
+<div style="background-color: teal; color: white; font-weight: bold; padding: 10px; text-align: center;">
+    🚨 IMPORTANT: This interface is available on ADM-CS-SPCC, ADM-CS-MEVC, and ADM-CS-EVCC (starting from release 2.1) 🚨
+</div>
 
 Advantics CSM, short for Advantics Controller System Manager, handles all system-level operations. It provides a web interface for monitoring and configuring the system, aiming to minimize the need for manual config file edits and command-line interactions. Users can access logs, manage applications, and perform system updates directly through the interface.
 
 ## Connecting to the CSM Web UI
 
-The CSM Web UI is available at the IP address/hostname of the controller on port 80. Check [how to connect to the controller](charge-controllers/advantics_os/connecting.md).
+The CSM Web UI is available at the IP address/hostname of the controller on port 80.
+
+<!-- The CSM Web UI is available at the IP address/hostname of the controller on port 80. Check [how to connect to the controller](charge-controllers/advantics_os/connecting.md). -->
 
 > [!ATTENTION]
 > The CSM Web UI is designed for development purposes and should be disabled in production when deploying the controller. Even in development, access should be restricted to a secure private network, as there is no authentication mechanism.

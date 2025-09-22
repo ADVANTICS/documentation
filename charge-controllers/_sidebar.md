@@ -123,5 +123,5 @@
     - [Set static IP](charge-controllers/advantics_os/static-ip.md)
     - [SSH](charge-controllers/advantics_os/ssh.md)
     - [Updating](charge-controllers/advantics_os/updating.md)
-    - [CSM Web UI](charge-controllers/advantics_os/csm-web-ui.md)
+  - [Web UI](charge-controllers/advantics_os/csm-web-ui.md)
     <!-- - [4.x branch](charge-controllers/systems_branch4.m) -->
