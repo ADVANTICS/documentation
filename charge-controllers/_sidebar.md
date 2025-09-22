@@ -104,7 +104,7 @@
       - [Changelog](charge-controllers/evcc_generic/changelog_v2.md)
     - [J1939](charge-controllers/evcc_generic/j1939.md)
 
-- **Linux systems**
+- **System**
   - [3.x branch](charge-controllers/systems_branch3.md)
     - [Update guide](charge-controllers/sys3_update.md)
     - [User guide](charge-controllers/sys3_user/README.md)
