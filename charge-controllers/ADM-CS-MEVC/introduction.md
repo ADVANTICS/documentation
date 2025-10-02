@@ -7,7 +7,7 @@ The ADM-CS-MEVC is an EV charge controller for onboard vehicle charging. The mai
 - Linux system, running on iMX7 ARM platform
 - MCS charging IEC 61851-23-3 and ISO 15118-20
 - Bidirectional Power Transfer (BPT) Capable
-- Plug and Charge (PnC) coming soon
+- Plug and Charge (PnC)
 - Automatic deep sleep and wake-up for energy saving
 - No code integration with supported BMS
 - Compatible with different BMS

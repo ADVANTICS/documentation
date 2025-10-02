@@ -8,7 +8,7 @@ The ADM-CS-SECC is a charge controller for electric vehicle charging stations. T
 - CCS (Combined Charging System) – DIN SPEC 70121 and ISO 15118-2/-20,  NACS and CHAdeMO (V2G).
 - AC charging interface (IEC 61851-1, J1772)
 - Bidirectional Power Transfer (BPT) Capable.
-- Plug and Charge (PnC) coming soon.
+- Plug and Charge (PnC).
 - OCPP 1.6 Compatibility (OCPP 2.0.1 coming soon).
 - Over-the-air (OTA) Updates capability ensures staying ahead of the market.
 - CAN bus 2.0B, RS485, Ethernet (RJ45) interfaces, and control for DC and AC contactors.

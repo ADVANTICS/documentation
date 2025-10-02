@@ -8,7 +8,7 @@ The ADM-CS-EVCC is an EV charge controller for onboard vehicle charging. The mai
 - CCS (Combined Charging System) – DIN SPEC 70121 and ISO 15118-2/-20, and NACS
 - AC charging interface (IEC 61851-1, J1772)
 - Bidirectional Power Transfer (BPT) Capable
-- Plug and Charge (PnC) coming soon
+- Plug and Charge (PnC)
 - Automatic deep sleep and wake-up for energy saving
 - No code integration with supported BMS
 - Compatible with different BMS

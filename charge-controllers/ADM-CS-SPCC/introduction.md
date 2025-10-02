@@ -10,7 +10,7 @@ The ADM-CS-SPCC is a charge controller for electric vehicle charging stations. T
 - **CHAdeMO**: 1.x, with V2G extension
 - **AC**: SAE J1772, IEC 61851-1/-23
 - **OCPP**: 1.6J (2.0.1 coming soon)
-- **Plug 'n' Charge**: Coming Soon
+- **Plug 'n' Charge**: Yes
 - **Input Voltage Min / Max**: 15 V / 30 V
 - **Recommended Nominal Voltage**: 24 V
 - **Typical / Peak Consumption**: 5 W / 20 W
