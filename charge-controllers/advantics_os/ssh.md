@@ -71,7 +71,7 @@ Using the Command Line (Linux, macOS, or Windows with WSL/PowerShell).
 
 # System update
 
-1. Make sure this is the content of /etc/ostree/remotes/advos.conf
+1. Make sure this is the content of /etc/ostree/remotes.d/advos.conf
 
 ```
 [remote "advos"]
