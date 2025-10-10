@@ -1128,6 +1128,7 @@ DC charging specific status (from BMS to charge controller), message 1.
 | Max_Charge_Current | 16 | Signed |
 | Present_Current | 16 | Signed |
 | Max_Discharge_Current | 16 | Unsigned |
+| Target_Voltage | 16 | Unsigned |
 
 
 </div>
@@ -1210,6 +1211,26 @@ Will be capped by max_discharge_current from config file.
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 32 | 16 | Unsigned | Amps | 1 | 0 | 0 | 65535 |
+
+</div>
+
+#### Target_Voltage :id=DC_Status1-Target_Voltage
+
+Allows dynamic target voltage updates.
+Will be capped by maximum voltage from config file and from EVSE data.
+Only taken into account when the config entry dynamic_target_voltage is set to true.
+Declare it as such in `/srv/config.cfg`:
+```
+[vehicle]
+dynamic_target_voltage = True
+```
+Note: This signal will be ignored if the config entry dynamic_target_voltage is set to false.
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 48 | 16 | Unsigned | Volts | 1 | 0 | 0 | 65535 |
 
 </div>
 
@@ -1436,6 +1457,7 @@ Use cases:
 
 This signal should be set to 0 if the vehicle is ready for power.
 When the charger is plugged-in and this signal is set to 1, the session will block at Communication_Stage.Connected_With_Full_Info state until this signal is set to 0 (and the inlet is locked).
+This signal should be set before the Communication_Stage.Connected_With_Full_Info stage.
 
 0=False (Hold off Not Requested), 1=True (Hold off)
 
