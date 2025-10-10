@@ -1457,6 +1457,7 @@ Use cases:
 
 This signal should be set to 0 if the vehicle is ready for power.
 When the charger is plugged-in and this signal is set to 1, the session will block at Communication_Stage.Connected_With_Full_Info state until this signal is set to 0 (and the inlet is locked).
+This signal should be set before the Communication_Stage.Connected_With_Full_Info stage.
 
 0=False (Hold off Not Requested), 1=True (Hold off)
 
