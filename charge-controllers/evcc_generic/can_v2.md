@@ -1214,6 +1214,26 @@ Will be capped by max_discharge_current from config file.
 
 </div>
 
+#### Target_Voltage :id=DC_Status1-Target_Voltage
+
+Allows dynamic target voltage updates.
+Will be capped by maximum voltage from config file and from EVSE data.
+Only taken into account when the config entry dynamic_target_voltage is set to true.
+Declare it as such in `/srv/config.cfg`:
+```
+[vehicle]
+dynamic_target_voltage = True
+```
+Note: This signal will be ignored if the config entry dynamic_target_voltage is set to false.
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 48 | 16 | Unsigned | Volts | 1 | 0 | 0 | 65535 |
+
+</div>
+
 ## DC_Status2
 
 <div class="noheader-table small-table compact-table">
