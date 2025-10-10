@@ -1128,6 +1128,7 @@ DC charging specific status (from BMS to charge controller), message 1.
 | Max_Charge_Current | 16 | Signed |
 | Present_Current | 16 | Signed |
 | Max_Discharge_Current | 16 | Unsigned |
+| Target_Voltage | 16 | Unsigned |
 
 
 </div>

@@ -9,7 +9,8 @@ format, and our software and firmware use it directly.
 
 <!-- - [Advantics Generic PEV protocol v2 (Kayak format)](charge-controllers/evcc_generic/Advantics_Generic_PEV_protocol_v2.kcd ':ignore') -->
 <!-- - [Advantics Generic PEV protocol v2.1 (Kayak format)](charge-controllers/evcc_generic/Advantics_Generic_PEV_protocol_v2.1.kcd ':ignore') -->
-- [Advantics Generic PEV protocol v2.2 (Kayak format)](charge-controllers/evcc_generic/Advantics_Generic_PEV_protocol_v2.2.kcd ':ignore')
+<!-- - [Advantics Generic PEV protocol v2.2 (Kayak format)](charge-controllers/evcc_generic/Advantics_Generic_PEV_protocol_v2.2.kcd ':ignore') -->
+- [Advantics Generic PEV protocol v2.3 (Kayak format)](charge-controllers/evcc_generic/Advantics_Generic_PEV_protocol_v2.3.kcd ':ignore')
 
 
 ## DBC format
@@ -19,4 +20,5 @@ converted from the Kayak ones. Therefore, they are not the reference DBs.
 
 <!-- - [Advantics Generic PEV protocol v2 (DBC format)](charge-controllers/evcc_generic/Advantics_Generic_PEV_protocol_v2.dbc ':ignore') -->
 <!-- - [Advantics Generic PEV protocol v2.1 (DBC format)](charge-controllers/evcc_generic/Advantics_Generic_PEV_protocol_v2.1.dbc ':ignore') -->
-- [Advantics Generic PEV protocol v2.2 (DBC format)](charge-controllers/evcc_generic/Advantics_Generic_PEV_protocol_v2.2.dbc ':ignore')
+<!-- - [Advantics Generic PEV protocol v2.2 (DBC format)](charge-controllers/evcc_generic/Advantics_Generic_PEV_protocol_v2.2.dbc ':ignore') -->
+- [Advantics Generic PEV protocol v2.3 (DBC format)](charge-controllers/evcc_generic/Advantics_Generic_PEV_protocol_v2.3.dbc ':ignore')
