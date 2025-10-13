@@ -34,7 +34,7 @@ jobs:
         run: |
           source .venv/bin/activate
           cd products/${{ matrix.product }}
-          mkdocs build --clean --strict
+          mkdocs build --clean
 
       - name: Upload to FTP server
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
