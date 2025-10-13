@@ -21,4 +21,4 @@ You can choose which product you want to work on and spin up the dev server, for
 cd products/ADB-PC-DC01 && ENABLE_PROD=False mkdocs serve --dev-addr localhost:8000
 ```
 
-Then, goto http://localhost:8000/ADB-PC-DC01
+Then, goto http://localhost:8000/adb-pc-dc01
