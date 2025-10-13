@@ -27,6 +27,12 @@ dependencies = [
   "cairosvg",
   "mike",
   "mkdocs-git-revision-date-localized-plugin",
+  "mkdocs-with-pdf",
+  "mkdocs-mermaid2-plugin",
+  "pymdown-extensions",
+  "beautifulsoup4",
+  "libsass",
+  "lxml",
 ]
 
 [tool.hatch.envs.doc.scripts]
