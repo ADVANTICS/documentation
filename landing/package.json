@@ -13,6 +13,7 @@
     "@tailwindcss/vite": "^4.1.14",
     "astro": "^5.14.4",
     "astro-icon": "^1.1.5",
+    "sharp": "^0.34.4",
     "tailwindcss": "^4.1.14"
   },
   "packageManager": "pnpm@10.18.3+sha512.bbd16e6d7286fd7e01f6b3c0b3c932cda2965c06a908328f74663f10a9aea51f1129eea615134bf992831b009eabe167ecb7008b597f40ff9bc75946aadfb08d",
