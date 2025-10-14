@@ -4,64 +4,118 @@
 
 ### Input Characteristics
 
-| **Parameter** | **Value** | **Conditions** |
-|---------------|-----------|----------------|
-| **Voltage Range** | 750 - 950 V DC | Nominal input from source |
-| **Current Range** | ±120 A | Bidirectional, power envelope limited |
-| **Maximum Power** | 100 kW | Continuous operation |
-| **Current Measurement Accuracy** | ±1% of full-scale | Over temperature range |
-| **Voltage Measurement Accuracy** | ±1% of full-scale | Over temperature range |
+| **Parameter** | **Value** | **Notes** |
+|---------------|-----------|-----------|
+| **Voltage** | 750 - 950 V | - |
+| **Current** | ±120 A | - |
+| **Max Power** | 100 kW | - |
+| **Current Measurement Accuracy** | ±1 % | Of full-scale |
+| **Voltage Measurement Accuracy** | ±1 % | Of full-scale |
+| **Wiring** | DC+, DC- | - |
+| **DC Link Capacitance** | 160 uF | - |
+| **DC Link Precharge** | No | Must be precharged externally |
+| **DC Bus to PE Separation** | Basic Isolation | - |
+| **Protection** | Overvoltage, Undervoltage, Overcurrent, Overtemperature | - |
+| **Fusing** | On the positive line | UL/IEC rated |
+| **Overvoltage Category** | OVC2 | - |
+| **Connectors** | 2x RADSOK Size 8mm Amphenol SurLock Plus (SLP-HIR-B) | - |
 
-### DC Configuration
 
-!!! info "DC Bus to PE Separation"
-    The DC bus side (Port A) features basic isolation to Protective Earth (PE). Ensure proper system grounding and safety measures are implemented.
+### Maximum Power vs Input Voltage
 
-### Protection Features
+The following graph illustrates the relationship between the maximum achievable power output and the input voltage on the DC Bus Side (Port A). The maximum power is capped at 100 kW, with optimal performance within the specified voltage range of 750-950 V DC. Variations outside this range may result in derating to ensure safe and efficient operation.
 
-| **Protection Type** | **Description** | **Response** |
-|-------------------|----------------|--------------|
-| **Overvoltage Protection** | Monitors input voltage levels | Automatic shutdown |
-| **Undervoltage Protection** | Prevents operation below minimum voltage | Automatic shutdown |
-| **Overcurrent Protection** | Current limiting and protection | Automatic current limit |
-| **Overtemperature Protection** | Thermal monitoring | Graceful power reduction |
+![Maximum Power vs Input Voltage](assets/max_power_vs_input_voltage.png)
 
-### Startup Characteristics
-
-- **DC Link Capacitance**: 160 uF
-- **DC Link Precharge**: No, must be precharged externally
-- **Overvoltage Category**: OVC2 (Overvoltage Category 2)
-
-## DC Output Side (Port B) Specifications
+## DC output side (Port B) Specifications
 
 ### Output Characteristics
 
-| **Parameter** | **Value** | **Conditions** |
-|---------------|-----------|----------------|
-| **Voltage Range** | 200 - 1500 V DC | Wide output range, MCS compliant |
-| **Current Range** | ±220 A | Bidirectional, limited by power envelope |
-| **Maximum Power** | 100 kW | Continuous operation |
-| **Current Measurement Accuracy** | ±1% of full-scale | Over temperature range |
-| **Voltage Measurement Accuracy** | ±1% of full-scale | Over temperature range |
+## DC output side (Port B) Specifications
 
-### DC Configuration
+### Output Characteristics
 
-!!! warning "Reinforced Isolation"
-    The ADB-PC-DC01 features reinforced galvanic isolation between Port A (input) and Port B (output). This ensures high safety and prevents ground loops.
+| **Parameter** | **Value** | **Notes** |
+|---------------|-----------|-----------|
+| **Voltage Range** | 200 - 1500 V | - |
+| **Current** | ±220 A | Bi-directional, limited by power envelope |
+| **Max Power** | 100 kW | - |
+| **Current Measurement Accuracy** | ±1 % | Of full-scale |
+| **Voltage Measurement Accuracy** | ±1 % | Of full-scale |
+| **Wiring** | DC+, DC- | - |
+| **DC Link Capacitance** | 80 uF | - |
+| **Primary-Secondary Separation** | Reinforced Isolation | - |
+| **Ripple Voltage/Current** | Fulfills IEC 61851-23-3 | - |
+| **Overvoltage Category** | OVC2 | - |
+| **Output Contactors** | No | - |
+| **Protection** | Overvoltage, Undervoltage, Overcurrent, Overtemperature | - |
+| **Connectors DC** | 2x RADSOK Size 10.3mm Amphenol SurLock Plus (SLP-HIR-C) | - |
 
-### DC Protection
+### Maximum Power vs Output Voltage
 
-- **Overvoltage Protection**: Active monitoring and shutdown
-- **Undervoltage Protection**: Prevents deep discharge
-- **Overcurrent Protection**: Current limiting and fusing
-- **Overtemperature Protection**: Thermal management system
+The following graph illustrates the relationship between the maximum achievable power output and the output voltage on the DC Output Side (Port B). The maximum power is capped at 100 kW, with optimal performance within the specified voltage range of 200-1500 V DC. Variations outside this range may result in derating to ensure safe and efficient operation.
 
-### Fusing and Contactors
+![Maximum Power vs Output Voltage](assets/max_power_vs_output_voltage.png)
 
-- **DC Fusing**: Integrated on the positive line, UL/IEC rated
-- **Output Contactors**: Not integrated (external contactors required)
-- **Protection Coordination**: Designed for selective protection
-- **Ripple Voltage/Current**: Fulfills IEC 61851-23-3
+
+## Safe Operating Area
+
+The Safe Operating Area (SOA) graph provides a V-I plot illustrating the maximum allowable current versus voltage for the 100 kW power envelope. This boundary ensures safe operation without exceeding thermal or electrical limits.
+
+![Safe Operating Area](assets/soa_outputs.png)
+
+## Efficiency Characteristics
+
+### Efficiency Performance
+
+- **Peak Efficiency**: 98% at optimal operating point
+- **Full Load Efficiency**: >97% across wide operating range
+- **Partial Load Efficiency**: Maintained high efficiency down to 20% load
+
+
+**Efficiency Curve**
+
+The following graph shows the efficiency curve of the ADB-PC-DC01 across various load conditions. It demonstrates the high efficiency maintained from 20% to 100% load, peaking at 98% at the optimal point.
+
+![Efficiency Curve](assets/efficiency_curve.png)
+
+
+## Transient Response
+
+### Load Step Response
+
+The ADB-PC-DC01 converter demonstrates robust transient response to load steps, maintaining output voltage stability during rapid load changes. This ensures reliable operation in dynamic environments.
+
+![Output Voltage Transient Response Load Step](assets/output_voltage_transient_response_load_step.png)
+
+The graph depicts the output voltage behavior during a load step, highlighting low overshoot and fast recovery to steady-state conditions.
+
+
+### Output Ripple and Noise
+
+The ADB-PC-DC01 converter maintains low output voltage ripple and noise to ensure stable and clean DC power delivery across the full operating range. Ripple is measured as the peak-to-peak variation in output voltage under steady-state conditions.
+
+| **Parameter** | **Value** | **Notes** |
+|---------------|-----------|-----------|
+| **Output Voltage Ripple (Peak-to-Peak)** | < 1% of nominal voltage | At full load (100 kW), 1500 V output |
+| **Output Noise (RMS)** | < 0.1% of nominal voltage | Broadband noise up to 1 MHz |
+| **Measurement Conditions** | 1500 V output at 100 kW load | Steady-state, no load transients |
+
+The following graph shows the FFT spectrum of the output voltage ripple for the 1500 V output at 100 kW load, illustrating the low harmonic content and noise levels.
+
+![Output Voltage Ripple FFT Spectrum](assets/voltage_ripple_fft_spectrum.png)
+
+## Paralleling Specifications
+
+### Parallel Operation Capability
+
+The parallel configuration offers several key benefits, including redundancy where the system continues operation even with failed modules, scalability by increasing power through adding modules, efficiency with optimized operation across wide load ranges, and maintenance through hot-swappable capability for service.
+
+- **Maximum Units**: Up to 120 modules in parallel
+- **Load Sharing**: Intelligent droop technology for automatic load sharing
+- **Communication**: Isolated CAN bus for inter-module communication
+- **Scalability**: Linear power scaling with additional modules, up to 6MW
+
 
 ## Control and Communication Specifications
 
@@ -96,30 +150,6 @@ graph LR
 - **Primary-Secondary Isolation**: Reinforced isolation between Port A and Port B
 - **Safety Isolation**: Basic isolation towards PE
 
-## Paralleling Specifications
-
-### Parallel Operation Capability
-
-- **Maximum Units**: Up to 120 modules in parallel
-- **Load Sharing**: Intelligent droop technology for automatic load sharing
-- **Communication**: Isolated CAN bus for inter-module communication
-- **Scalability**: Linear power scaling with additional modules, up to 6MW
-
-### Parallel Configuration
-
-!!! info "Parallel Operation Benefits"
-    - **Redundancy**: System continues operation with failed modules
-    - **Scalability**: Power can be increased by adding modules
-    - **Efficiency**: Optimized operation across wide load ranges
-    - **Maintenance**: Hot-swappable capability for service
-
-## Efficiency Characteristics
-
-### Efficiency Performance
-
-- **Peak Efficiency**: 98% at optimal operating point
-- **Full Load Efficiency**: >97% across wide operating range
-- **Partial Load Efficiency**: Maintained high efficiency down to 20% load
 
 ### Loss Distribution
 
