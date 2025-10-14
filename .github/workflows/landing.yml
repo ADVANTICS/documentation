@@ -1,0 +1,48 @@
+name: Build landing
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - material
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    defaults:
+      run:
+        working-directory: landing
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build the landing
+        run: pnpm run build
+
+      - name: Upload to FTP server
+        if: github.ref == 'refs/heads/master'
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          local-dir: landing/dist/
+          server-dir: public_html/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/products/**
