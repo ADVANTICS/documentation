@@ -1428,14 +1428,15 @@ Used to report the status of the EV (from BMS to charge controller)
 
 #### HV_Preparing_Hold_Off :id=EV_Status-HV_Preparing_Hold_Off
 
-Allows the vehicle to delay the transition to powered states (starting from the insulation test) until the HV system is ready.
+Allows the vehicle to delay the transition to powered states (powered states start from the insulation test) until the HV system is ready.  
+Can be set at any time before `Communication_Stage.Connected_With_Full_Info` state.
 
 Use cases:
 - Make sure the vehicle IMD is disabled before sending cablecheck request.
 - Wait while preparing the HV system for power.
 
-This signal should be set to 0 if the vehicle is ready for power.
-When the charger is plugged-in and this signal is set to 1, the session will block at Communication_Stage.Connected_With_Full_Info state until this signal is set to 0 (and the inlet is locked).
+This signal should be set to 0 if the vehicle is ready for power.  
+When the charger is plugged-in and this signal is set to 1, the session will block at `Communication_Stage.Connected_With_Full_Info` state until this signal is set to 0 (and the inlet is locked).
 
 0=False (Hold off Not Requested), 1=True (Hold off)
 

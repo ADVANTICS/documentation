@@ -1183,16 +1183,96 @@ Refer to [CAN sensor](charge-controllers/evcc_configuration/can_sensor.md) docum
 
 </div>
 
+## EV_Status
+
+<div class="noheader-table small-table compact-table">
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x618 |
+| **Length [Bytes]** | 8 |
+| **Periodicity [ms]** | 100 |
+| **Direction** | IN |
+
+</div>
+
+### Description
+
+Used to report the status of the EV (from BMS to charge controller)
+
+### Payload
+
+<div class="small-table compact-table">
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| HV_Preparing_Hold_Off | 1 | Single bit |
+| Reserved_Flags | 63 | Unsigned |
+
+</div>
+
+### Payload description
+
+#### HV_Preparing_Hold_Off :id=EV_Status-HV_Preparing_Hold_Off
+
+Allows the vehicle to delay the transition to powered states (powered states start from the insulation test) until the HV system is ready.  
+Can be set at any time before `Communication_Stage.Connected_With_Full_Info` state.
+
+Use cases:
+- Make sure the vehicle IMD is disabled before sending cablecheck request.
+- Wait while preparing the HV system for power.
+
+This signal should be set to 0 if the vehicle is ready for power.  
+When the charger is plugged-in and this signal is set to 1, the session will block at `Communication_Stage.Connected_With_Full_Info` state until this signal is set to 0 (and the inlet is locked).
+
+0=False (Hold off Not Requested), 1=True (Hold off)
+
+> [!NOTE]
+> Limited by wait_hv_ready_timeout_ms config entry. Default is 40 seconds (defined by the standards):
+> [ccs]
+> wait_hv_ready_timeout_ms = 40000
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | Single bit | Single bit |   | 1 | 0 |   |   |
+
+</div>
+
+
+<div class="small-table compact-table">
+
+| Label name | Value |
+|------------|-------|
+| Hold_Off_Not_Requested | 0 |
+| Hold_Off | 1 |
+
+</div>
+
+#### Reserved_Flags :id=EV_Status-Reserved_Flags
+
+Reserved bits for future uses.
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 1 | 63 | Unsigned |   | 1 | 0 |   |   |
+
+</div>
 
 ## ADM_CS_EVCC_MEVC_Outputs
 
 <div class="noheader-table small-table compact-table">
+
 | * | * |
 |---|---|
 | **Frame ID** | 0x617 |
 | **Length [Bytes]** | 8 |
 | **Periodicity [ms]** | 1000 |
 | **Direction** | IN |
+
 </div>
 
 ### Description
@@ -1202,6 +1282,7 @@ Controller (ADM-CS-EVCC and ADM-CS-MEVC hardware variant) has various outputs th
 ### Payload
 
 <div class="small-table compact-table">
+
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
 | Digital_Output1 | 1 | Single bit |
@@ -1211,6 +1292,7 @@ Controller (ADM-CS-EVCC and ADM-CS-MEVC hardware variant) has various outputs th
 | Led1 | 8 | Unsigned |
 | Led2 | 8 | Unsigned |
 | Led3 | 8 | Unsigned |
+
 </div>
 
 ### Payload description
@@ -1224,9 +1306,11 @@ Needs to be declared as monitored in `/srv/config.cfg`:
     dig_out1 = CAN_Controlled
 
 <div class="small-table compact-table">
+
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 0 | Single bit | Single bit |   | 1 | 0 | 0 | 1 |
+
 </div>
 
 #### Digital_Output2 :id=ADM_CS_EVCC_MEVC_Outputs-Digital_Output2
@@ -1238,9 +1322,11 @@ Needs to be declared as monitored in `/srv/config.cfg`:
     dig_out2 = CAN_Controlled
 
 <div class="small-table compact-table">
+
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 1 | Single bit | Single bit |   | 1 | 0 | 0 | 1 |
+
 </div>
 
 #### Digital_Output3 :id=ADM_CS_EVCC_MEVC_Outputs-Digital_Output3
@@ -1252,9 +1338,11 @@ Needs to be declared as monitored in `/srv/config.cfg`:
     dig_out3 = CAN_Controlled
 
 <div class="small-table compact-table">
+
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 2 | Single bit | Single bit |   | 1 | 0 | 0 | 1 |
+
 </div>
 
 #### Reserved :id=ADM_CS_EVCC_MEVC_Outputs-Reserved
@@ -1262,9 +1350,11 @@ Needs to be declared as monitored in `/srv/config.cfg`:
 Padding bits between digital outputs and leds.
 
 <div class="small-table compact-table">
+
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 3 | 37 | Unsigned |   | 1 | 0 |   |   |
+
 </div>
 
 #### Led1 :id=ADM_CS_EVCC_MEVC_Outputs-Led1
@@ -1276,9 +1366,11 @@ Needs to be declared as monitored in `/srv/config.cfg`:
     led1 = CAN_Controlled
 
 <div class="small-table compact-table">
+
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 40 | 8 | Unsigned |   | 1 | 0 | 0 | 255 |
+
 </div>
 
 #### Led2 :id=ADM_CS_EVCC_MEVC_Outputs-Led2
@@ -1290,9 +1382,11 @@ Needs to be declared as monitored in `/srv/config.cfg`:
     led2 = CAN_Controlled
 
 <div class="small-table compact-table">
+
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 48 | 8 | Unsigned |   | 1 | 0 | 0 | 255 |
+
 </div>
 
 #### Led3 :id=ADM_CS_EVCC_MEVC_Outputs-Led3
@@ -1304,9 +1398,11 @@ Needs to be declared as monitored in `/srv/config.cfg`:
     led3 = CAN_Controlled
 
 <div class="small-table compact-table">
+
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 56 | 8 | Unsigned |   | 1 | 0 | 0 | 255 |
+
 </div>
 
 ## EVCC_MEVC_Diagnostic_Status
