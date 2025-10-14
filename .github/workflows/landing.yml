@@ -46,7 +46,7 @@ jobs:
       - name: Upload to FTP server
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_DOCS_SERVER }}
+          server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_DOCS_USERNAME }}
           password: ${{ secrets.FTP_DOCS_PASSWORD }}
           protocol: ftps
