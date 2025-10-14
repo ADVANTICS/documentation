@@ -44,7 +44,6 @@ jobs:
         run: pnpm run build
 
       - name: Upload to FTP server
-        if: github.ref == 'refs/heads/master'
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
