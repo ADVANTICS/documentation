@@ -1,0 +1,169 @@
+{
+  "keywords": "SECC, Supply Equipment Communication Controller, CCS Charge Controller, charger charge controller, DC charge controller, DC fast charging, DC fast charger, High power charging, CCS, V2G, CCS V2G, V2G charge controller, V2X, V2H, V2L, Bidirectional Charging, Bidirectional Power Transfer BPT, NACS, North American Charging System, Plug’n’Charge, plug and charge, CHAdeMO, IEC61851-1, IEC61851-23, ISO15118-3, DIN SPEC 70121, ISO 15118-2, ISO 15118-20, SLAC, Combo 1, CCS1, Combo 2, CCS2, PLC to CAN gateway, Power line communication",
+  "sortNumber": 1,
+  "storeHref": "https://store.advantics.fr/charge-controllers/23-charge-station-controller.html",
+  "docsHref": "https://advantics.github.io/documentation/#/charge-controllers/ADM-CS-SECC/",
+  "codename": "ADM-CS-SECC",
+  "OGimg": "/src/assets/img/products/secc-og.png",
+  "card": {
+    "name": "Supply Equipment Charge Controller",
+    "img": "/src/assets/img/products/secc-1.png",
+    "alt": "Charge station controller sub-assembly in a DIN rail configuration",
+    "description": "Electric Vehicle charging station communication controller for DC and AC charging standards. High versatility, thanks to support of user-written applications and industrial interfaces."
+  },
+  "header": {
+    "name": "ADM-CS-SECC",
+    "title": "Supply Equipment Charge Controller",
+    "description": "Charging station multi-pistol SECC for DC and AC charging standards. High versatility, thanks to the support of user-written applications and industrial interfaces",
+    "img": "/src/assets/img/products/secc-1.png",
+    "alt": "Charge station controller sub-assembly in a DIN rail configuration"
+  },
+  "hardwareDescription": [
+    "### **Fast Charging Stations**",
+    "ADVANTICS SECC is designed to handle both AC and DC fast charging, making it an excellent fit for high-demand charging stations. With its support for protocols like CHAdeMO, CCS, and NACS, it ensures compatibility with the latest vehicle charging standards. Its capability for bidirectional power transfer (BPT) and Plug & Charge functionality allows for seamless user experiences, while its compatibility with OCPP 1.6 (and 2.0.1 soon) enables effortless control and monitoring from a centralized platform.",
+    "### **Bidirectional Power Transfer (BPT) and V2G Applications**",
+    "**ADVANTICS SECC** is designed for **bidirectional power transfer**, making it ideal for **Vehicle-to-Grid (V2G)** applications. This capability allows EVs to not only draw power from the grid but also return energy when needed, enhancing grid stability and supporting energy management strategies. With its **V2G** support for **CHAdeMO** and **CCS ISO15118-20**, ADVANTICS Multipistol charge controller provides a robust solution for **smart grid** integration, allowing energy to flow both ways, making it essential for the future of sustainable energy ecosystems.",
+    "### Versatility and Easy Integration",
+    "**ADVANTICS SECC** offers exceptional versatility, allowing users to deploy **custom-written applications** in addition to the embedded charge controller software. Its high **configurabilit**y ensures it can adapt to a wide range of charging needs and environments. With easy integration via a generic CAN bus interface and **ready-to-use interfaces**, the SECC is compatible with a broad range of **off-the-shelf power modules**, making it a highly flexible solution for various charging applications.",
+    "### **OCPP and Over-the-Air (OTA) Updates for Remote Management**",
+    "Fully compatible with **OCPP 1.6** (with **OCPP 2.0.1** coming soon), the SECC allows for remote control and monitoring of charging stations via centralized platforms. Its **Over-the-Air (OTA)** update capability ensures the controller stays current with the latest features and improvements, reducing downtime and enhancing operational efficiency."
+  ],
+  "techData": {
+    "VA01": [
+      {
+        "value": "DIN SPEC 70121, ISO 15118-2/-20, NACS SAE J3400, SAE J1772, IEC 61851-1/-23",
+        "name": "CCS"
+      },
+      {
+        "value": "1.x, with V2G extention",
+        "name": "CHAdeMO"
+      },
+      {
+        "value": "SAE J1772, IEC 61851-1/-23",
+        "name": "AC"
+      },
+      {
+        "value": "1.6J (2.0.1 coming soon)",
+        "name": "OCPP"
+      },
+      {
+        "value": "Yes",
+        "name": "Plug 'n' Charge"
+      },
+      {
+        "value": "20 V / 28 V",
+        "name": "Input voltage min / max"
+      },
+      {
+        "value": "24 V",
+        "name": "Recommended nominal"
+      },
+      {
+        "value": "5 W / 20W",
+        "name": "Typical / Peak consumption"
+      },
+      {
+        "value": "-20° to 85° C",
+        "name": "Temperature range"
+      },
+      {
+        "value": "CAN 2.0B, extended addresses",
+        "name": "CAN bus"
+      },
+      {
+        "value": "20mA current loop, 24V",
+        "name": "Interlock"
+      },
+      {
+        "value": "2 independent PWM channels",
+        "name": "Ventilator PWM"
+      },
+      {
+        "value": "4 outputs, 24V, push-pull, max. 100 mA (sink or source)",
+        "name": "Digital Outputs"
+      },
+      {
+        "value": "4 inputs, 24V and 12V compatible, Max voltage 30V",
+        "name": "Digital Inputs"
+      },
+      {
+        "value": "3 LED outputs, 12V, overcurrent protected",
+        "name": "LEDs"
+      },
+      {
+        "value": "Modbus-RTU stack available",
+        "name": "RS-485"
+      },
+      {
+        "value": "100Mbps RJ45. Modbus TCP available",
+        "name": "Ethernet"
+      },
+      {
+        "value": "16 GB card standard",
+        "name": "SD memory card"
+      },
+      {
+        "value": "Mini PCIE slot, populated with 4G modem",
+        "name": "4G network connectivity"
+      },
+      {
+        "value": "EMEA/Korea/Thailand, NA, Australia, Japan",
+        "name": "4G regions (per user request)"
+      },
+      {
+        "value": "Micro SIM, user supplied",
+        "name": "SIM slot"
+      },
+      {
+        "value": "5 PT1000 inputs: 2 for AC, 2 for CCS DC and 1 for CHAdeMO",
+        "name": "Temperature measurements"
+      },
+      {
+        "value": "Solenoid driver",
+        "name": "Locking mechanism"
+      },
+      {
+        "value": "1 relay for driving output contactors 5A / 30V max",
+        "name": "Output contactor driver"
+      },
+      {
+        "value": "HW interlocked relay (PERM state monitor)",
+        "name": "Protection"
+      },
+      {
+        "value": "Vertexcom",
+        "name": "PLC (Powerline Communication)"
+      },
+      {
+        "value": "212 x 90 x 58 mm",
+        "name": "Module dimensions"
+      },
+      {
+        "value": "Screw wire terminals",
+        "name": "Connections"
+      },
+      {
+        "value": "350 g",
+        "name": "Weight"
+      }
+    ]
+  },
+  "carousel": [
+    {
+      "path": "/src/assets/img/products/secc-1.png",
+      "alt": "ADVANTICS Supply Station Charge Controller sub-assembly"
+    },
+    {
+      "path": "/src/assets/img/products/secc-2.jpg",
+      "alt": "ADVANTICS Supply Station Charge Controller connectivity"
+    },
+    {
+      "path": "/src/assets/img/products/secc-3.png",
+      "alt": "ADVANTICS Supply Station Charge Controller top view"
+    },
+    {
+      "path": "/src/assets/img/products/secc-reverse.jpg",
+      "alt": "ADVANTICS Supply Station Charge Controller bottom view"
+    }
+  ]
+}

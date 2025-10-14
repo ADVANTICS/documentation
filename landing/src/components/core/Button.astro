@@ -1,0 +1,44 @@
+---
+import type { HTMLTag, Polymorphic } from "astro/types";
+
+const flavors = {
+  content: [
+    "text-content",
+    "bg-bkg",
+    "hover:bg-stone-300",
+    "hover:text-content-alt/100",
+  ],
+  alt: [
+    "text-content-alt",
+    "bg-stone-300",
+    "hover:bg-stone-600",
+    "hover:text-content",
+  ],
+  soft: [
+    "text-content",
+    "bg-accent/90",
+    "hover:bg-stone-300",
+    "hover:text-content-alt/100",
+  ],
+  none: [""],
+} as const;
+type Flavor = keyof typeof flavors;
+type Props<Tag extends HTMLTag = HTMLTag> = Polymorphic<{
+  as: Tag;
+  flavor?: Flavor;
+  class?: string;
+}>;
+
+const {
+  flavor,
+  as: Tag = "button",
+  class: propClasses,
+  ...props
+} = Astro.props;
+
+const flavorClasses = flavor ? flavors[flavor] : [];
+---
+
+<Tag class:list={["leading-6", propClasses, flavorClasses]} {...props}>
+  <slot />
+</Tag>

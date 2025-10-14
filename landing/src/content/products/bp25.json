@@ -1,0 +1,359 @@
+{
+  "keywords": "AC/DC, ACDC, AC to DC, AC-to-DC, DC/AC, DCAC, DC to AC, DC-to-AC, DC/DC, DCDC, DC-to-DC, Inverter, Converter, bi-directional, bidirectional, active front end, rectifier step up, boost, boost converter, step down, buck, buck converter, step down converter, step up, boost, boost converter, step up converter, active neutral, non-isolated, hybrid, hybrid genset, hybrid generator, hybrid generator inverter, grid-tie, off-grid, pass thru, ac pass thru, ac coupling, paralleling, inverter-charger, inverter/charger, inverter charger, transformerless, transformer less, 3 phase, split phase, single phase, frequency control, phase shift, high voltage, hv, high voltage dc, hvdc, ev, electric vehicle, ev battery, CAN, UL, CE, Certified, high efficiency, 24V, 100V, 200V, 300V, 400V, 500V, 600V, 700V, 800V, 900V, 1000V, 1kV, SiC, Silicon Carbide, ev charge station, fast charger",
+  "storeHref": "https://store.advantics.fr/power-conversion/22-1-mcp-25-bidirectional-afe-boostbuckpfc-1000v.html#/31-afe_variants-select_variant",
+  "sortNumber": 1,
+  "OGimg": "/src/assets/img/products/afe-og.png",
+  "docsHref": "https://advantics.github.io/documentation/#/power-modules/ADM-PC-BP25/",
+  "codename": "ADM-PC-BP25",
+  "card": {
+    "imgScale": "90%",
+    "name": "Bidirectional AC/DC Inverter or DC/DC Converter",
+    "img": "/src/assets/img/products/afe-1.png",
+    "alt": "Active front end sub-assembly",
+    "description": "This power module fits any application where you need bidirectional AC/DC rectification, DC/DC conversion or DC/AC generation, with up to 99% efficiency in a wide operating range.",
+    "keyPoints": {
+      "VA03": {
+        "Max DC Voltage": "950 V",
+        "Max Current per phase": "45 A"
+      },
+      "VA04": {
+        "Max DC Voltage": "950 V",
+        "Max Current per phase": "37 A"
+      },
+      "VA01": {
+        "Max DC Voltage": "950 V",
+        "Max Current per phase": "33 A"
+      },
+      "VA08": {
+        "Max DC Voltage": "800 V",
+        "Max Current per phase": "37 A"
+      }
+    }
+  },
+  "header": {
+    "title": "Bidirectional AC/DC Inverter or DC/DC Converter",
+    "name": "ADM-PC-BP25",
+    "description": "This power module fits any application where you need bidirectional AC/DC rectification, DC/DC conversion or DC/AC generation, while keeping an efficiency of up to 99% in a wide operating range.",
+    "img": "/src/assets/img/products/afe-1.png",
+    "alt": "Active front end sub-assembly"
+  },
+  "hardwareDescription": [
+    "### **Active Front End Rectifier (AC/DC)**",
+    "User defines output DC voltage and current limit. Regeneration to AC source will occur if the DC link voltage is above the target dc voltage setpoint.",
+    "### **Boost Converter** **(DC/DC)**",
+    "User defines high side DC output voltage and current limit. The converter will control amplitude and polarity of current to regulate the voltage setpoint.",
+    "### **Buck Converter** **(DC/DC)**",
+    "User defines low side DC output voltage and current limit. The converter will control amplitude and polarity of current to regulate the voltage setpoint.",
+    "### **Inverter (DC/AC)**",
+    "- Support single, split, and 3-phase operating modes.\n- Grid-Forming Mode: User defined desired voltage, frequency, current limit, and phase angle offset.\n- Paralleling Mode: User defined nominal voltage, frequency, and current limit. The inverter will regulate to the nominal AC bus voltage and track shifts in frequency. Units in parallel share the load equally if no additional power setpoint command is given.",
+    "To push or pull power from the grid, the inverter can increase/decrease its voltage setpoint based on a desired power level and or lead/lag the nominal microgrid frequency.",
+    "### **Active Neutral (DC/DC)**",
+    "The converter output will be ½ of the input voltage. This is used to generate a mid-point reference voltage needed in many AC systems. The neutral line is used as a return in single phase AC systems and to return any unbalanced current in multi-phase systems. It can also be used in electric vehicles where they need a mixed 800V and 400V high voltage rails during fast charging. The converter will control amplitude and polarity of current to regulate the voltage setpoint."
+  ],
+  "variantClarification": {
+    "VA03": "Highest power and highest overload capabilities. Genset optimized. Fit with inductor cooling plate.",
+    "VA04": "Balance between voltage and power. Fit with inductor cooling plate.",
+    "VA01": "Low cost, high voltage.",
+    "VA08": "Low cost, high current and lower voltage."
+  },
+  "techData": {
+    "VA03": [
+      {
+        "value": "950 V<sub>DC</sub> bus max",
+        "name": "Voltage range"
+      },
+      {
+        "value": "135 A max",
+        "name": "Current range DC/DC"
+      },
+      {
+        "value": "max 135 A<sub>rms</sub> (45 A<sub>rms</sub> per phase)",
+        "name": "Current range AC/DC"
+      },
+      {
+        "value": ">99% peak",
+        "name": "Efficiency"
+      },
+      {
+        "value": ">0.995 @ 20 kW, >0.99 @ 9 kW",
+        "name": "Power factor 3-phase"
+      },
+      {
+        "value": "Bidirectional",
+        "name": "Power flow"
+      },
+      {
+        "value": "Buck, Boost, Rectification, Inverter",
+        "name": "Power conversion modes"
+      },
+      {
+        "value": "45 - 65 Hz",
+        "name": "AC mains frequency"
+      },
+      {
+        "value": "208 V<sub>AC</sub> to 480 V<sub>AC</sub>",
+        "name": "AC 3-phase grid support"
+      },
+      {
+        "value": "110 V<sub>AC</sub> to 480 V<sub>AC</sub>",
+        "name": "AC 1-phase grid support"
+      },
+      {
+        "value": "Overcurrent, overvoltage, overtemperature and hardware interlock",
+        "name": "Protection features"
+      },
+      {
+        "value": "+/-2% (+/-1% typical)",
+        "name": "Voltage and current accuracy"
+      },
+      {
+        "value": "CAN bus 2.0B",
+        "name": "Communication protocol"
+      },
+      {
+        "value": "Up to 32 devices of the same type",
+        "name": "Communication chaining"
+      },
+      {
+        "value": "8 pin JST CPT automotive series",
+        "name": "Logic interface"
+      },
+      {
+        "value": "max 10 W",
+        "name": "Logic power"
+      },
+      {
+        "value": "Open collector, hardware interlock",
+        "name": "Interlock"
+      }
+    ],
+    "VA01": [
+      {
+        "value": "950 V<sub>DC</sub> bus max",
+        "name": "Voltage range"
+      },
+      {
+        "value": "100 A max",
+        "name": "Current range DC/DC"
+      },
+      {
+        "value": "max 100 A<sub>rms</sub> (33 A<sub>rms</sub> per phase)",
+        "name": "Current range AC/DC"
+      },
+      {
+        "value": ">99% peak",
+        "name": "Efficiency"
+      },
+      {
+        "value": " >0.99 @ 9+ kW",
+        "name": "Power factor 3-phase"
+      },
+      {
+        "value": "Bidirectional",
+        "name": "Power flow"
+      },
+      {
+        "value": "Buck, Boost, Rectification, Inverter",
+        "name": "Power conversion modes"
+      },
+      {
+        "value": "45 - 65 Hz",
+        "name": "AC mains frequency"
+      },
+      {
+        "value": "208 V<sub>AC</sub> to 480 V<sub>AC</sub>",
+        "name": "AC 3-phase grid support"
+      },
+      {
+        "value": "110 V<sub>AC</sub> to 480 V<sub>AC</sub>",
+        "name": "AC 1-phase grid support"
+      },
+      {
+        "value": "Overcurrent, overvoltage, overtemperature and hardware interlock",
+        "name": "Protection features"
+      },
+      {
+        "value": "+/-2% (+/-1% typical)",
+        "name": "Voltage and current accuracy"
+      },
+      {
+        "value": "CAN bus 2.0B",
+        "name": "Communication protocol"
+      },
+      {
+        "value": "Up to 32 devices of the same type",
+        "name": "Communication chaining"
+      },
+      {
+        "value": "8 pin JST CPT automotive series",
+        "name": "Logic interface"
+      },
+      {
+        "value": "max 10 W",
+        "name": "Logic power"
+      },
+      {
+        "value": "Open collector, hardware interlock",
+        "name": "Interlock"
+      }
+    ],
+    "VA04": [
+      {
+        "value": "950 V<sub>DC</sub> bus max",
+        "name": "Voltage range"
+      },
+      {
+        "value": "111 A max",
+        "name": "Current range DC/DC"
+      },
+      {
+        "value": "max 111 A<sub>rms</sub> (37 A<sub>rms</sub> per phase)",
+        "name": "Current range AC/DC"
+      },
+      {
+        "value": ">99% peak",
+        "name": "Efficiency"
+      },
+      {
+        "value": ">0.995 @ 20 kW, >0.99 @ 9 kW",
+        "name": "Power factor 3-phase"
+      },
+      {
+        "value": "Bidirectional",
+        "name": "Power flow"
+      },
+      {
+        "value": "Buck, Boost, Rectification, Inverter",
+        "name": "Power conversion modes"
+      },
+      {
+        "value": "45 - 65 Hz",
+        "name": "AC mains frequency"
+      },
+      {
+        "value": "208 V<sub>AC</sub> to 480 V<sub>AC</sub>",
+        "name": "AC 3-phase grid support"
+      },
+      {
+        "value": "110 V<sub>AC</sub> to 480 V<sub>AC</sub>",
+        "name": "AC 1-phase grid support"
+      },
+      {
+        "value": "Overcurrent, overvoltage, overtemperature and hardware interlock",
+        "name": "Protection features"
+      },
+      {
+        "value": "+/-2% (+/-1% typical)",
+        "name": "Voltage and current accuracy"
+      },
+      {
+        "value": "CAN bus 2.0B",
+        "name": "Communication protocol"
+      },
+      {
+        "value": "Up to 32 devices of the same type",
+        "name": "Communication chaining"
+      },
+      {
+        "value": "8 pin JST CPT automotive series",
+        "name": "Logic interface"
+      },
+      {
+        "value": "max 10 W",
+        "name": "Logic power"
+      },
+      {
+        "value": "Open collector, hardware interlock",
+        "name": "Interlock"
+      }
+    ],
+    "VA08": [
+      {
+        "value": "800 V<sub>DC</sub> bus max",
+        "name": "Voltage range"
+      },
+      {
+        "value": "111 A max",
+        "name": "Current range DC/DC"
+      },
+      {
+        "value": "max 111 A<sub>rms</sub>  (37 A<sub>rms</sub> per phase)",
+        "name": "Current range AC/DC"
+      },
+      {
+        "value": ">99% peak",
+        "name": "Efficiency"
+      },
+      {
+        "value": ">0.995 @ 20 kW, >0.99 @ 9 kW",
+        "name": "Power factor 3-phase"
+      },
+      {
+        "value": "Bidirectional",
+        "name": "Power flow"
+      },
+      {
+        "value": "Buck, Boost, Rectification, Inverter",
+        "name": "Power conversion modes"
+      },
+      {
+        "value": "45 - 65 Hz",
+        "name": "AC mains frequency"
+      },
+      {
+        "value": "208 V<sub>AC</sub> to 400 V<sub>AC</sub>",
+        "name": "AC 3-phase grid support"
+      },
+      {
+        "value": "110 V<sub>AC</sub> to 480 V<sub>AC</sub>",
+        "name": "AC 1-phase grid support"
+      },
+      {
+        "value": "Overcurrent, overvoltage, overtemperature and hardware interlock",
+        "name": "Protection features"
+      },
+      {
+        "value": "+/-2% (+/-1% typical)",
+        "name": "Voltage and current accuracy"
+      },
+      {
+        "value": "CAN bus 2.0B",
+        "name": "Communication protocol"
+      },
+      {
+        "value": "Up to 32 devices of the same type",
+        "name": "Communication chaining"
+      },
+      {
+        "value": "8 pin JST CPT automotive series",
+        "name": "Logic interface"
+      },
+      {
+        "value": "max 10 W",
+        "name": "Logic power"
+      },
+      {
+        "value": "Open collector, hardware interlock",
+        "name": "Interlock"
+      }
+    ]
+  },
+  "carousel": [
+    {
+      "path": "/src/assets/img/products/afe-1.png",
+      "alt": "Active front end sub-assembly"
+    },
+    {
+      "path": "/src/assets/img/products/afe-2.jpg",
+      "alt": "Active front end sub-assembly"
+    },
+    {
+      "path": "/src/assets/img/products/afe-3.jpg",
+      "alt": "Active front end sub-assembly"
+    },
+    {
+      "path": "/src/assets/img/products/afe-4.jpg",
+      "alt": "Active front end sub-assembly"
+    }
+  ]
+}

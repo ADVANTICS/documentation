@@ -1,0 +1,143 @@
+{
+  "keywords": "EVCC, MCS charge controller, Megawatt Charging System, MCS EVCC, Megawatt Charging System EVCC, Electric Vehicle Charge Controller, EV Charge Controller, vehicle charge controller, DC charge controller, DC fast charging, CCS, PLC to CAN gateway, Onboard charger, Bidirectional Charging, Bidirectional Power Transfer BPT, V2G, CCS V2G, V2G charge controller, V2X, V2H, V2L, NACS, North American Charging System, Plug’n’Charge, plug and charge, IEC61851-1, IEC61851-23, ISO15118-3, DIN SPEC 70121, ISO 15118-2, ISO 15118-20, SLAC, Orion BMS, Combo 1, CCS1, Combo 2, CCS2, CCS1 controller, CCS2 controller",
+  "sortNumber": 4,
+  "OGimg": "/src/assets/img/products/evcc-og.png",
+  "codename": "ADM-CS-MEVC",
+  "card": {
+    "name": "MCS Charge Controller EVCC",
+    "img": "/src/assets/img/products/mcs-evcc.png",
+    "alt": "EV charge controller sub assembly ready to install in the car",
+    "description": "The First MCS ready EVCC. Supports the Megawatt Charging System protocols with bidirectional power transfer (BPT) capability. Equipped for Harsh environments with a heavy-duty certified enclosure. "
+  },
+  "header": {
+    "name": "ADM-CS-MEVC",
+    "title": "MCS Charge Controller EVCC",
+    "img": "/src/assets/img/products/evcc-1.webp",
+    "alt": "EV charge controller sub assembly ready to install in the car",
+    "description": "The First MCS ready EVCC for heavy-duty and marine applications. With bidirectional charging (BPT) capability and equipped for harsh environments."
+  },
+  "hardwareDescription": [
+    "Fully prepared for the future of high-power charging, offering built-in support for the latest **MegaWatt Charging System (MCS)** standard. Optimized for heavy-duty and marine applications, the MCS EVCC enables **rapid charging** for large electric vehicles and vessels. With its robust design and advanced features, it facilitates energy transfer at **megawatt levels**, significantly **reducing charging times** for commercial and industrial electric vehicles. ",
+    "The controller includes a **CAN bus** interface, offering seamless integration into your system or with various off the shelf Battery Management Systems (BMS), including the Orion BMS. It also supports common commercial sensors like **Isabellenhutte** **IVT-S** and **Sendyne**.",
+    "Key features include:",
+    "- **MCS charging** according to **IEC 61851-23-3 and ISO 15118-20.**\n- **Bidirectional Power Transfer (BPT)** capability.\n- **Heavy-duty certified** enclosure.\n- **Lock and Contactor Control** (optional), ensuring secure charging sessions.\n- **Thermal Management** with progressive derating and emergency stop features.\n- **Industrial-grade GPIO**, providing configurable functions for flexible control.\n- **Wake-up and Sleep Modes**, activated by CE state changes or general-purpose outputs.\n- Support of user-written applications\n- **No Code Mode** for quick and easy protyping."
+  ],
+  "techData": {
+    "VA01": [
+      {
+        "value": "IEC 61851-23-3 and ISO 15118-20 (bidirectional capability BPT)",
+        "name": "MCS Compliance"
+      },
+      {
+        "value": "12 V or 24 V",
+        "name": "Input voltage"
+      },
+      {
+        "value": "Abstracted in ADVANTICS Generic CAN bus interface",
+        "name": "BMS Interface"
+      },
+      {
+        "value": "Emulated BMS for fast prototyping",
+        "name": "No Code Mode"
+      },
+      {
+        "value": "IVT-S, Sendyne",
+        "name": "Sensors"
+      },
+      {
+        "value": "2x ISO-11898 CAN bus, configurable bitrate (500kbps default)",
+        "name": "CAN bus"
+      },
+      {
+        "value": "3 outputs, 24V, push-pull, max. 100 mA (sink or source)",
+        "name": "Digital Outputs"
+      },
+      {
+        "value": "2 inputs, 24V and 12V compatible, Max voltage 30V",
+        "name": "Digital Inputs"
+      },
+      {
+        "value": "3 LED outputs, 12V, overcurrent protected",
+        "name": "LEDs"
+      },
+      {
+        "value": "100Mbps RJ45.",
+        "name": "Ethernet"
+      },
+      {
+        "value": "Sleep and wake-up based on CE state change or general purpose output",
+        "name": "Energy saving"
+      },
+      {
+        "value": "2 W",
+        "name": "Nominal power consumption without peripherals"
+      },
+      {
+        "value": "16 GB card standard",
+        "name": "SD memory card"
+      },
+      {
+        "value": "2 Independent outputs",
+        "name": "Contactors Outputs"
+      },
+      {
+        "value": "Drive up to 5A",
+        "name": "Max Current"
+      },
+      {
+        "value": "2 Contactor Feedback inputs",
+        "name": "Contactors Feedback Inputs"
+      },
+      {
+        "value": "CP (Control Pilot), PP (Proximity Pilot)",
+        "name": "Communication wires"
+      },
+      {
+        "value": "Vertexcom",
+        "name": "PLC (Powerline Communication)"
+      },
+      {
+        "value": "3 PT1000 inputs: Active derating and Emergency stop",
+        "name": "Temperature measurements"
+      },
+      {
+        "value": "Inlet lock motor control",
+        "name": "Inlet locking"
+      },
+      {
+        "value": "-20°C to +85°C",
+        "name": "Operating Temperature"
+      },
+      {
+        "value": "Heavy-duty Cinch 5810130043",
+        "name": "Enclosure"
+      },
+      {
+        "value": "IP69K",
+        "name": "Enclosure Rating"
+      },
+      {
+        "value": "50 g’s – 20 pulses",
+        "name": "Enclosure Shock Rating"
+      },
+      {
+        "value": "11.43 x 11.68 cm",
+        "name": "Enclosure Dimensions"
+      },
+      {
+        "value": "Yes",
+        "name": "RoHS Compliant"
+      }
+    ]
+  },
+  "carousel": [
+    {
+      "path": "/src/assets/img/products/mcs-evcc.png",
+      "alt": "ADVANTICS MCS Electric Vehicle Charge Controller sub-assembly"
+    },
+    {
+      "path": "/src/assets/img/products/mcs-evcc-case.png",
+      "alt": "ADVANTICS MCS Electric Vehicle Charge Controller sub-assembly with enclosure"
+    }
+  ]
+}

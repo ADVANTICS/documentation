@@ -1,0 +1,160 @@
+{
+  "keywords": "isolated dc/dc, isolated dcdc, isolated dc-to-dc, isolated dc/dc converter, isolated dcdc converter, isolated dc-to-dc converter, high voltage, high voltage dc, hv, hvdc, high efficiency, can, ul, ce, high power, certified, 24V, 100V, 200V, 300V, 400V, 500V, 600V, 700V, 800V, 900V, 1000V, 1kV, bi-directional, bidirectional, SiC, Silicon Carbide",
+  "releaseStatus": "newRelease",
+  "codename": "ADM-PC-BI25",
+  "sortNumber": 4,
+  "OGimg": "/src/assets/img/products/bi25-og.png",
+  "card": {
+    "name": "Bidirectional Isolated DC/DC converter",
+    "img": "/src/assets/img/products/bi25_header.png",
+    "alt": "Resonant LLC DC/DC converter sub assembly",
+    "description": "This bidirectional DC/DC transformer operates at very high frequencies allowing it to reach an impressively high power density. It is perfect to add isolation to your application, or even as a transparent add-on in preexisting topologies, while keeping bidirectionality and high efficiency.",
+    "keyPoints": {
+      "VA01": {
+        "Voltage conversion ratio": "1:1"
+      }
+    }
+  },
+  "header": {
+    "title": "Bidirectional Isolated DC/DC converter",
+    "name": "ADM-PC-BI25",
+    "img": "/src/assets/img/products/bi25_header.png",
+    "imgClasses": "scale-125",
+    "alt": "Resonant LLC DC/DC converter sub assembly",
+    "description": "Made with modern silicon carbide technology, ADM-PC-BI25 provides galvanic isolation without requiring a large mains frequency transformer, and delivers up to 50kW power with 98% peak efficiency."
+  },
+  "hardwareDescription": [
+    "ADM-PC-BI25 (or known as BI25) is an advanced DC/DC power converter that provides reinforced galvanic isolation between its two ports without the need for a large mains frequency transformer. The converter is fully bidirectional and isolated able to operate at up to 50 kW power and 1000 V with 98% peak efficiency.",
+
+    "The thermal system of this converter is specially built to allow BI25 to rely entirely on conductive heat transfer, enabling the system to be installed in a sealed enclosure. The integrated control system features overvoltage, overcurrent and overtemperature protection systems to enhance operational safety. The unit is controlled via an industry standard CAN v2.0B bus. All its control signals are published via KCD/DBC files allowing easy integration into a supervisory control system.",
+
+    "In combination with our [**bidirectional power converter ADM-PC-BP25**](https://advantics.fr/products/bp25/), the BI25 can be built in parallel in DC/DC mode to achieve power delivery at megawatt scales.",
+
+    "Thanks to its compact, robust and a simplified design system, BI25 can operate in extreme environments including high altitudes up to 3000 metres — helping you implement the Megawatt Charging System (MCS) wherever you need.",
+
+    "Looking to deploy MCS charging stations or simply charge a battery from the grid? We’ve got you covered.",
+
+    "**<span class='text-accent'>ADVANTICS power converters exemplify European innovation, addressing global energy needs in demanding applications such as megawatt charging. Fully designed and developed in-house, these Made in EU converters use advanced silicon carbide technology. Our engineering team is located in France and manufacturing facilities in the Czech Republic.</span>**"
+  ],
+  "techData": {
+    "VA01": [
+      {
+        "value": "1000 V",
+        "name": "Max Input Voltage"
+      },
+      {
+        "value": "1:1",
+        "name": "Voltage conversion ratio"
+      },
+      {
+        "value": "IEC 62477-1 and IEC 61851-23",
+        "name": "Creepage and Clearance"
+      },
+      {
+        "value": "±60 A",
+        "name": "Current range"
+      },
+      {
+        "value": "50 kW",
+        "name": "Power"
+      },
+      {
+        "value": "Bidirectional",
+        "name": "Power flow"
+      },
+      {
+        "value": "Ratiometric",
+        "name": "Power conversion modes"
+      },
+      {
+        "value": "Silicon Carbide",
+        "name": "Technology"
+      },
+      {
+        "value": "98% peak",
+        "name": "Efficiency"
+      },
+      {
+        "value": "Soft switching",
+        "name": "Switching technique"
+      },
+      {
+        "value": "High frequency resonant ",
+        "name": "Topology"
+      },
+      {
+        "value": "Completely flat plate for easy integration",
+        "name": "Assembly"
+      },
+      {
+        "value": "Overcurrent, overvoltage, overtemperature and hardware interlock",
+        "name": "Protection features"
+      },
+      {
+        "value": "±2% (±1% typical)",
+        "name": "Voltage and current accuracy"
+      },
+      {
+        "value": "Air and liquid available",
+        "name": "Cooling"
+      },
+      {
+        "value": "CAN bus 2.0B",
+        "name": "Communication protocol"
+      },
+      {
+        "value": "Up to 32 devices of the same type",
+        "name": "Communication chaining"
+      },
+      {
+        "value": "8 pin JST CPT automotive series",
+        "name": "Logic interface"
+      },
+      {
+        "value": "max 15 W",
+        "name": "Logic power"
+      },
+      {
+        "value": "Open collector, hardware interlock",
+        "name": "Interlock"
+      },
+      {
+        "value": "Made in EU",
+        "name": "Design and fabrication"
+      }
+    ]
+  },
+  "carousel": [
+    {
+      "path": "/src/assets/img/products/bi25_header.png",
+      "alt": "Top view of ADM-PC-BI25",
+      "caption": "Top view of ADM-PC-BI25"
+    },
+    {
+      "path": "/src/assets/img/products/bi25.png",
+      "alt": "Top view of ADM-PC-BI25",
+      "caption": "Top view of ADM-PC-BI25"
+    },
+    {
+      "path": "/src/assets/img/products/bi25_3.jpg",
+      "alt": "First shipped sample of ADM-PC-BI25 from its early development stage.",
+      "caption": "First shipped sample of ADM-PC-BI25 from its early development stage."
+    },
+    {
+      "path": "/src/assets/img/products/bi25_5.jpg",
+      "alt": "Observing resonant waveforms under oscilloscope monitoring to confirm soft-switching operation and efficiency targets. ADM-PC-BI25 operates at up to 50 kW power and 1000 V with 98% peak efficiency.",
+      "caption": "Observing resonant waveforms under oscilloscope monitoring to confirm soft-switching operation and efficiency targets. ADM-PC-BI25 operates at up to 50 kW power and 1000 V with 98% peak efficiency."
+    },
+
+    {
+      "path": "/src/assets/img/products/bi25_6.jpg",
+      "alt": "Thermal validation using infrared diagnostics to monitoring the temperature of critical components during power conversion. In combination with our bidirectional power converter ADM-PC-BP25, the BI25 can be built in parallel in DC/DC mode to achieve power delivery at megawatt scales.",
+      "caption": "Thermal validation using infrared diagnostics to monitoring the temperature of critical components during power conversion. In combination with our bidirectional power converter ADM-PC-BP25, the BI25 can be built in parallel in DC/DC mode to achieve power delivery at megawatt scales."
+    },
+    {
+      "path": "/src/assets/img/products/bi25_7.jpg",
+      "alt": "ADVANTICS power electronics engineer next to the first sample of ADM-PC-BI25 in its early development stage.",
+      "caption": "ADVANTICS power electronics engineer next to the first sample of ADM-PC-BI25 in its early development stage."
+    }
+  ]
+}

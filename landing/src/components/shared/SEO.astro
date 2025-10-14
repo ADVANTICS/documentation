@@ -1,0 +1,61 @@
+---
+interface Props {
+  title: string;
+  description?: string;
+  canonicalPath?: string;
+  image?: string;
+  keywords?: string;
+  openGraphImage?: string;
+}
+
+const {
+  title,
+  description = "ADVANTICS is a high-tech R&D company, focusing on development and production of innovative products in the field of high efficiency power conversion and electric mobility",
+  canonicalPath,
+  openGraphImage = "https://advantics.fr/og_image_250624.png",
+  keywords = "SiC Power Electronics, Control Systems, Electric Mobility, Vehicle Charging, Supply Equipment Charge Controller (SECC), Electric Vehicle Charge Controller (EVCC), Active Front End, Inverter, DC/DC, Rectifier, isolated DC/DC, interconnection, AC/DC, DC/AC, inverter charger, dc wall box, residential ESS, hybrid generator, mobile power, high efficiency",
+} = Astro.props as Props;
+
+const determineCanonicalURL = () => {
+  return canonicalPath || Astro.url.pathname;
+};
+
+const canonicalURL = new URL(determineCanonicalURL(), Astro.site);
+---
+
+<title>{title}</title>
+
+<meta charset="UTF-8" />
+<meta name="description" content={description} />
+
+<link rel="sitemap" href="/sitemap-index.xml" />
+<link rel="canonical" href={canonicalURL} />
+<meta name="viewport" content="width=device-width" />
+<meta name="theme-color" content="#00A99D" />
+
+<meta name="keywords" content={keywords} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:url" content={Astro.site} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={new URL(openGraphImage, Astro.url)} />
+
+<meta name="og:image" content={new URL(openGraphImage, Astro.url)} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="627" />
+<meta name="og:title" content={title} />
+<meta name="og:description" content={description} />
+<meta name="og:url" content={Astro.url} />
+<meta name="og:site_name" content="ADVANTICS" />
+<meta name="og:type" content="website" />
+<meta name="og:locale" content="en_US" />
+
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+<link rel="manifest" href="/manifest.webmanifest" />
+<!-- <RichResults /> -->

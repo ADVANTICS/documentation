@@ -1,0 +1,67 @@
+{
+  "keywords": "line filter, ac line filter, high voltage, 3 phase, 1 phase, split phase, pre-charge, precharge, CAN, 24v, ul, ce, certified, high volage, high voltage dc, hv, hvdc, soft-start, soft start, soft starter, soft-starter, grid filter",
+  "storeHref": "https://store.advantics.fr/filters/34-mcp-25-45a-input-filter.html",
+  "sortNumber": 3,
+  "docsHref": "https://advantics.github.io/documentation/#/power-modules/ADM-PC-LF45/",
+  "codename": "ADM-PC-LF46",
+  "card": {
+    "name": "3-Phase Filter with precharge",
+    "img": "/src/assets/img/products/lf46-top.png",
+    "alt": "Three pase input line filter",
+    "description": "MCP-25 is a series of high efficiency power converters based on the SiC (Silicon Carbide) technology. By combining different (or identical) modules, it is possible to solve most power transfer needs (AC, DC, isolation), up to 500 kW conversion power."
+  },
+  "header": {
+    "title": "3-Phase Filter with precharge",
+    "name": "ADM-PC-LF46",
+    "img": "/src/assets/img/products/lf46-top.png",
+    "imgClasses": "scale-125",
+    "alt": "Resonant LLC DC/DC converter sub assembly",
+    "description": "LF46 is a 3-phase AC line filter with precharge, handling 45A/phase, offering voltage, frequency, phase, and temp feedback, with CAN Bus control and safety interlock."
+  },
+  "hardwareDescription": [
+    "This 3-phase filter and precharge module is prepared to allow connecting an active front end to the utility grid. It contains the needed EMC filters and the precharge and main connection relays needed for utility grid connection (400VAC or 480VAC).",
+    " Its integrated DSP control performs all the needed tasks to ensure that the downstream equipment is properly precharged and protected before the mains relay is closed, and therefore, the customer needs minimal effort to integrate it."
+  ],
+  "techData": {
+    "VA01": [
+      {
+        "value": "230VAC or 400VAC",
+        "name": "AC input"
+      },
+      {
+        "value": "0-45 A<sub>rms</sub>",
+        "name": "Current range"
+      },
+      {
+        "value": "Phase loss detection,Smart precharge",
+        "name": "Features"
+      },
+      {
+        "value": "22 Ohm",
+        "name": "Precharge resistance"
+      },
+      {
+        "value": "CAN bus 2.0B",
+        "name": "Communication protocol"
+      },
+      {
+        "value": "Up to 32 devices of the same type",
+        "name": "Communication chaning"
+      },
+      {
+        "value": "24V",
+        "name": "Logic power"
+      }
+    ]
+  },
+  "carousel": [
+    {
+      "path": "/src/assets/img/products/lf46-top.png",
+      "alt": "ADVANTICS LF46 top view"
+    },
+    {
+      "path": "/src/assets/img/products/lf46-reverse.jpg",
+      "alt": "ADVANTICS LF46 bottom view"
+    }
+  ]
+}

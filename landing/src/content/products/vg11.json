@@ -1,0 +1,101 @@
+{
+  "keywords": "AC/DC, ACDC, AC to DC, AC-to-DC, DC/AC, DCAC, DC to AC, DC-to-AC, Inverter, Inverter Charger, Inverter/Charger, bi-directional, bidirectional, isolated, grid-tie, off-grid, ac pass thru, ac coupling, paralleling, inverter-charger, transformerless, transformer less, 3 phase, split phase, single phase, high voltage, hv, high voltage dc, hvdc, ev, electric vehicle, ev battery, CAN, UL, CE, Certified, high efficiency, 24V, 100V, 200V, 300V, 400V, 500V, 600V, 700V, 800V, 900V, 1000V, 1kV, SiC, Silicon Carbide, v2g, v2h, v2x, wallbox, dc wallbox, home ess, home battery, residential ess, residential battery",
+  "releaseStatus": "comingSoon",
+  "sortNumber": 5,
+  "codename": "ADM-PC-VG11",
+  "OGimg": "/src/assets/img/products/vg11-og.png",
+  "card": {
+    "name": "Grid-Tie Inverter Charger",
+    "img": "/src/assets/img/products/vg11.png",
+    "alt": "Active front end sub-assembly",
+    "description": "This module handles all power stages for single-phase bidirectional AC/DC battery charging (filtering, precharge, PFC, transformer, and step down). Ideal for domestic wallbox chargers, it supports vehicle-to-grid and works as a generic AC/DC isolated supply with premium efficiency.",
+    "keyPoints": {
+      "VA01": {
+        "Power": "Up to 11 kW "
+      }
+    }
+  },
+  "header": {
+    "title": "Grid-Tie Inverter Charger",
+    "name": "ADM-PC-VG11",
+    "imgClasses": "scale-150",
+    "description": "Connecting the electric grid to a high voltage battery pack. It's ideal for vehicle-to-grid DC chargers or residential energy storage. It integrates an active front-end rectifier, isolated DC/DC, and DC/DC converter in one compact unit.",
+    "img": "/src/assets/img/products/vg11.png",
+    "alt": "Active front end sub-assembly"
+  },
+  "hardwareDescription": [
+    "The VG11 power module is a highly versatile bidirectional 11kW AC/DC converter designed for a wide range of applications, offering a **bidirectional power flow** for seamless energy transfer. With an **output voltage range of 0 to 920V** and **current range of 0 to 30A**, the VG11 is capable of delivering high power while maintaining a **peak efficiency of over 96%**, making it ideal for energy-efficient systems.",
+    "Its **input voltage range of 100-240VAC** and ability to handle up to **48A input current** provide flexibility for different power grids, while its broad **AC mains frequency range of 45-65 Hz** ensures compatibility across regions. The VG11 is built with robust **protection features**, including overcurrent, overvoltage, overtemperature, and hardware interlock, ensuring safe and reliable operation in demanding environments.",
+    "The VG11 power module is an ideal solution for **bidirectional wallboxes.** With its wide **voltage range (0-920V)** covering all the CCS range, it natively supports both **400V and 800V EVs**. Its **bidirectional power flow** makes it ideal for **Vehicle-to-Grid (V2G)** applications, providing reliable, efficient energy transfer for modern EVs."
+  ],
+  "techData": {
+    "VA01": [
+      {
+        "value": "0 - 920 V",
+        "name": "Output Voltage range"
+      },
+      {
+        "value": "0 - 30 A",
+        "name": "Output Current range"
+      },
+      {
+        "value": "100 - 240 V<sub>AC</sub>",
+        "name": "Input Voltage range"
+      },
+      {
+        "value": "48 A",
+        "name": "Max Input Current"
+      },
+      {
+        "value": "11 kW",
+        "name": "Power"
+      },
+      {
+        "value": ">96% peak",
+        "name": "Efficiency"
+      },
+      {
+        "value": "Bidirectional",
+        "name": "Power flow"
+      },
+      {
+        "value": "45 - 65 Hz",
+        "name": "AC mains frequency"
+      },
+      {
+        "value": "Overcurrent, overvoltage, overtemperature and hardware interlock",
+        "name": "Protection features"
+      },
+      {
+        "value": "+/-2% (+/-1% typical)",
+        "name": "Voltage and current accuracy"
+      },
+      {
+        "value": "CAN bus 2.0B",
+        "name": "Communication protocol"
+      },
+      {
+        "value": "Up to 32 devices of the same type",
+        "name": "Communication chaining"
+      },
+      {
+        "value": "8 pin JST CPT automotive series",
+        "name": "Logic interface"
+      },
+      {
+        "value": "max 15 W",
+        "name": "Logic power"
+      },
+      {
+        "value": "Open collector, hardware interlock",
+        "name": "Interlock"
+      }
+    ]
+  },
+  "carousel": [
+    {
+      "path": "/src/assets/img/products/vg11.png",
+      "alt": "VG11 pcb sub-assembly"
+    }
+  ]
+}

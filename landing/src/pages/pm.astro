@@ -1,0 +1,33 @@
+---
+import ProductCard from "@/components/features/products/FancyCard.astro";
+
+import { getCollection } from "astro:content";
+
+const products = await getCollection("products");
+
+const powerModules = products.filter((p) =>
+  p.data.codename.slice(3, 6).includes("PC"),
+);
+import Layout from "@/layouts/layout.astro";
+---
+
+<Layout title="ADVANTICS - Home">
+  {
+    powerModules
+      .toSorted(
+        (
+          { data: { sortNumber: snA = -1 } },
+          { data: { sortNumber: snB = -1 } },
+        ) => {
+          return snA - snB;
+        },
+      )
+      .map((product) => {
+        return (
+          <li>
+            <ProductCard {product} />
+          </li>
+        );
+      })
+  }
+</Layout>

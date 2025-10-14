@@ -1,0 +1,286 @@
+{
+  "keywords": "AC/DC, ACDC, AC to DC, AC-to-DC, DC/AC, DCAC, DC to AC, DC-to-AC, DC/DC, DCDC, DC-to-DC, Inverter, Converter, bi-directional, bidirectional, active front end, rectifier step up, boost, boost converter, step down, buck, buck converter, step down converter, step up, boost, boost converter, step up converter, active neutral, non-isolated, hybrid, hybrid genset, hybrid generator, hybrid generator inverter, grid-tie, off-grid, pass thru, ac pass thru, ac coupling, paralleling, inverter-charger, inverter/charger, inverter charger, transformerless, transformer less, 3 phase, split phase, single phase, frequency control, phase shift, high voltage, hv, high voltage dc, hvdc, ev, electric vehicle, ev battery, CAN, UL, CE, Certified, high efficiency, 24V, 100V, 200V, 300V, 400V, 500V, 600V, 700V, 800V, 900V, 1000V, 1kV, SiC, Silicon Carbide, ev charge station, fast charger",
+  "codename": "ADB-PC-CH01",
+  "sortNumber": 6,
+  "OGimg": "/src/assets/img/products/ADB-PC-CH01-og.png",
+  "releaseStatus": "comingSoon",
+  "card": {
+    "imgScale": "90%",
+    "imgRotation": "-3deg",
+    "name": "50kW AC/DC Power Converter V2G",
+    "img": "/src/assets/img/products/ADB-PC-CH01.png",
+    "alt": "Active front end sub-assembly",
+    "description": "This module is suitable for any application that requires a bidirectional AC/DC converter with isolation and wide output (0 - 950V) range."
+  },
+  "header": {
+    "title": "50kW AC/DC Power Converter V2G",
+    "name": "ADB-PC-CH01",
+    "description": "This module is suitable for any application that requires a bidirectional AC/DC converter with isolation and wide output (0 - 950V) range.",
+    "img": "/src/assets/img/products/ADB-PC-CH01.png",
+    "imgClasses": "scale-125",
+    "alt": "Active front end sub-assembly"
+  },
+  "hardwareDescription": [
+    "The new ADVANTICS ADB Series is a system of stackable power modules for DC Fast Charge stations supporting CCS, NACS, and MCS charging standards, as well as various energy storage system applications and industrial power systems. Its no-compromises design is fully sealed and liquid cooled to ensure the highest levels of reliability in any operating environment. From corrosive coastal regions, to the humid tropics, to scorching hot deserts, to the frigid arctic, it can handle them all.",
+    "In order to streamline product development, the ADB series contains integrated features such as AC mains management and grid code integration. It features an extremely wide output voltage/current range, reactive power control, and dual output switch gear to enable power shuffling or multiple dispensers.",
+    "The integrated gateway allows for easy firmware update, isolated CAN bus interface, parallel stack management and cybersecurity.",
+    "As a vertically integrated company, we don’t rely on 3rd party black boxes and are therefore able to give our customers full control of their system.",
+    "All of ADVANTICS products are proudly designed and manufactured in the European Union. 🇪🇺"
+  ],
+  "characteristics": [
+    "Bidirectional AC/DC power module",
+    "SiC technology",
+    "Reinforced isolation",
+    "97% peak efficiency, wide power range",
+    "Universal AC input 400/480VAC, 50/60Hz",
+    "Wide output range, 0 - 950V, ±140A",
+    "Watercooling, no air circulation needed",
+    "IP67 sealed design",
+    "CAN bus control, HW interlock",
+    "Can be easily paralleled to MW levels",
+    "Integrated input and output fusing",
+    "Integrated relays and output contactors",
+    "Intelligent dual DC output for 2-pistol systems"
+  ],
+  "applications": [
+    "Electric Vehicle DC chargers",
+    "CCS1, CCS2, NACS, CHAdeMO compliant",
+    "Energy Storage Systems",
+    "V2G (Vehicle 2 Grid) systems",
+    "AC and DC microgrids",
+    "Onboard charging for off-highway and heavy duty machinery",
+    "EV and charge simulators",
+    "Laboratory bi-directional power suppliers",
+    "Harsh environments (marine, coastal areas, mining)"
+  ],
+  "techData": {
+    "VA01": [
+      {
+        "name": "AC side (mains)",
+        "value": null
+      },
+      {
+        "name": "Rated AC voltage (L-L)",
+        "value": "380 - 480 V<sub>rms</sub>"
+      },
+      {
+        "name": "Rated AC frequency",
+        "value": "50 / 60 Hz"
+      },
+      {
+        "name": "Maximum AC current",
+        "value": "±75 A<sub>rms</sub>, per phase"
+      },
+      {
+        "name": "Power factor (PF)",
+        "value": "≥0.99"
+      },
+      {
+        "name": "Total Harmonic Distortion THDi",
+        "value": "≤5 %, for loads above 20%"
+      },
+      {
+        "name": "Reactive Power Control",
+        "value": "±0.9 inductive-capacitive"
+      },
+      {
+        "name": "Wiring",
+        "value": "L1, L2, L3, (no Neutral)"
+      },
+      {
+        "name": "Startup",
+        "value": "Internal soft start"
+      },
+      {
+        "name": "Inrush current",
+        "value": "Less than nominal current"
+      },
+      {
+        "name": "Phase to PE separation",
+        "value": "Basic isolation"
+      },
+      {
+        "name": "Protection",
+        "value": "Overvoltage, undervoltage, overcurrent, overtemperature"
+      },
+      {
+        "name": "Fusing",
+        "value": "Yes, UL/IEC rated"
+      },
+      {
+        "name": "Overvoltage category",
+        "value": "OVC2"
+      },
+      {
+        "name": "Grid generation",
+        "value": "Forming, following, microgrid"
+      },
+      {
+        "name": "Connectors AC",
+        "value": "3x (L1,L2,L3)  RADSOK Size 5.7mm Amphenol SurLock Plus (SLP-HIR-A)"
+      },
+      {
+        "name": "DC side (output - bidirectional)",
+        "value": null
+      },
+      {
+        "name": "Voltage range",
+        "value": "0 - 950 V"
+      },
+      {
+        "name": "Current",
+        "value": "±140 (bi-directional) A, limited by power envelope"
+      },
+      {
+        "name": "Max power",
+        "value": "50 kW"
+      },
+      {
+        "name": "Current measurement accuracy",
+        "value": "±1 % of full-scale"
+      },
+      {
+        "name": "Voltage measurement accuracy",
+        "value": "±1 % of full-scale"
+      },
+      {
+        "name": "Primary-Secondary separation",
+        "value": "Reinforced isolation"
+      },
+      {
+        "name": "Ripple voltage/current",
+        "value": "Fulfills IEC 61851-23"
+      },
+      {
+        "name": "Fusing",
+        "value": "Yes, on positive line, UL/IEC rated"
+      },
+      {
+        "name": "Output contactors",
+        "value": "Yes"
+      },
+      {
+        "name": "Dual pistol support",
+        "value": "Yes, 4 contactors built-in"
+      },
+      {
+        "name": "Protection",
+        "value": "Overvoltage, undervoltage, overcurrent, overtemperature"
+      },
+      {
+        "name": "Connectors DC",
+        "value": "2x port A, 2x port B,  RADSOK Size 8mm Amphenol SurLock Plus (SLP-HIR-B)"
+      },
+      {
+        "name": "Low voltage and communication",
+        "value": null
+      },
+      {
+        "name": "Communication interface",
+        "value": "CAN 2.0B"
+      },
+      {
+        "name": "External control power supply voltage",
+        "value": "24 nominal (20 - 28) V"
+      },
+      {
+        "name": "Control power consumption",
+        "value": "50 W"
+      },
+      {
+        "name": "Standby power consumption",
+        "value": "5 W"
+      },
+      {
+        "name": "Isolation concept",
+        "value": "CAN and 24V isolated from PE CAN bus isolated from 24V Basic isolation, reinforced towards HV"
+      },
+      {
+        "name": "Connectors",
+        "value": "2x for CAN, 1x for power"
+      },
+      {
+        "name": "Paralleling of converters",
+        "value": "Up to 120 units in parallel"
+      },
+      {
+        "name": "Mechanical",
+        "value": null
+      },
+      {
+        "name": "Dimensions",
+        "value": "700 x 440 x 165 mm"
+      },
+      {
+        "name": "Weight",
+        "value": "30 kg"
+      },
+      {
+        "name": "Cooling",
+        "value": "50/50 Water Ethylene Glycol Mix"
+      },
+      {
+        "name": "Noise",
+        "value": "no fan noise, watercooled"
+      },
+      {
+        "name": "Mounting",
+        "value": "4U rack, or custom brackets"
+      },
+      {
+        "name": "Environment",
+        "value": null
+      },
+      {
+        "name": "Operating temperature range",
+        "value": "-40 to 70 °C, derating applies"
+      },
+      {
+        "name": "Ingress protection code",
+        "value": "IP67"
+      },
+      {
+        "name": "Allowed pollution degree",
+        "value": "3 external environment"
+      },
+      {
+        "name": "Altitude",
+        "value": "3000 m"
+      },
+      {
+        "name": "Shock",
+        "value": "Pending"
+      },
+      {
+        "name": "Vibrations",
+        "value": "Designed for harsh environments Pending"
+      },
+      {
+        "name": "Standards",
+        "value": null
+      },
+      {
+        "name": "Designed to following standards",
+        "value": "IEC 61851-1, 61851-23 ED2, IEC 62477-1, UL2202, UL1741"
+      },
+      {
+        "name": "Grid code support",
+        "value": "EN50549-1, IEEE 1547, VDE-AR-N 4100, UK G99, AS 4777.2"
+      },
+      {
+        "name": "Electromagnetics compatibility",
+        "value": "EMC class B with an external filter"
+      }
+    ]
+  },
+  "carousel": [
+    {
+      "path": "/src/assets/img/products/ADB-PC-CH01.png",
+      "alt": "Isometric view of the converter box"
+    },
+    {
+      "path": "/src/assets/img/products/ADB-PC-CH01-front.png",
+      "alt": "Front view of the converter box"
+    }
+  ]
+}

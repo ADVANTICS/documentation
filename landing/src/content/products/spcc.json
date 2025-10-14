@@ -1,0 +1,139 @@
+{
+  "keywords": "SECC, Supply Equipment Communication Controller, CCS Charge Controller, MCS charge controller, Megawatt Charging System, charger charge controller, DC charge controller, DC fast charging, DC fast charger, DC wallbox, bidirectional wallbox, wallbox charger, wall box, High power charging, Single Pistol Charge Controller, CCS, V2G, CCS V2G, V2G charge controller, V2X, V2H, V2L, Bidirectional Charging, Bidirectional Power Transfer BPT, NACS, North American Charging System, OCPP1.6, OCPP2.0.1, Plug’n’Charge, plug and charge, CHAdeMO, 10baseT1S, IEC61851-1, IEC61851-23,  IEC61851-23-3, ISO15118-3, DIN SPEC 70121, ISO 15118-2, ISO 15118-20, SLAC, Combo 1, CCS1, Combo 2, CCS2, PLC to CAN gateway, Power line communication",
+  "sortNumber": 3,
+  "codename": "ADM-CS-SPCC",
+  "card": {
+    "imgScale": "0.7",
+    "name": "Single Pistol Charge Controller",
+    "img": "/src/assets/img/products/spcc-4.png",
+    "alt": "Charge station controller sub-assembly in a DIN rail configuration",
+    "description": "Compact and versatile Single Pistol Charge Controller that supports EV charging protocols like MCS, CCS AC/DC, DIN SPEC 70121, ISO15118-2/-20, NACS, and CHAdeMO. With bidirectional power transfer, Plug and Charge (coming soon), OCPP support, OTA updates, and its flexible mounting options, the SPCC is ideal for charging stations and wallboxes."
+  },
+  "header": {
+    "name": "ADM-CS-SPCC",
+    "title": "Single Pistol Charge Controller",
+    "description": "The Single Pistol Charge Controller is a versatile, compact charge station charge controller that supports a wide range of applications beyond those handled by our SECC.",
+    "img": "/src/assets/img/products/spcc-4.png",
+    "alt": "Charge station controller sub-assembly in a DIN rail configuration"
+  },
+  "hardwareDescription": [
+    "### **Fast Charging Stations**",
+    "The SPCC (Single Pistol Charge Controller) is designed to handle both **AC and DC fast charging**, making it an excellent fit for high-demand charging stations. With its support for protocols like **CHAdeMO, CCS, MCS, and NACS,** this SECC ensures compatibility with the latest vehicle charging standards. Its capability for **bidirectional power transfer (BPT)** and **Plug & Charge** functionality (coming soon) allows for seamless user experiences, while its compatibility with **OCPP 1.6 and 2.0.1** enables effortless control and monitoring from a centralized platform.",
+    "### **MegaWatt Charging Systems (MCS) Capable SECC**",
+    "The SPCC is fully prepared for the future of high-power charging, offering built-in support for the latest **MegaWatt Charging System (MCS)** standard. Its ability to interface with and control power modules natively in different combinations allows for the swift development of M**egaWatt-level chargers** while significantly **reducing time to market**.",
+    "### **SECC for Wallboxes**",
+    "For wall-mounted chargers, the SPCC excels with its **compact design** and **flexible mounting** options. It can be easily installed on a **DIN rail** or **behind an LCD display** (optionally provided with it), fitting seamlessly into various setups. Its support for **bidirectional standards** and **native compatibility** with bidirectional power modules—such as the **VG11**—enables rapid development of compact, **bidirectional DC wallboxes**. ",
+    "### **Rugged and Versatile SECC**",
+    "Built for demanding environments, the SPCC can be housed in a **certified heavy-duty enclosure**, making it a reliable option for **harsh conditions**. Its robust design ensures longevity and consistent performance, even in extreme scenarios, making it an excellent choice for **outdoor charging stations** as well as for exotic applications like **battery powered genset and rescue vehicles**."
+  ],
+  "techData": {
+    "VA01": [
+      {
+        "value": "Yes, 10baseT1S",
+        "name": "MCS (Megawatt Charging System)"
+      },
+      {
+        "value": "DIN SPEC 70121, ISO 15118-2/-20, NACS SAE J3400, SAE J1772, IEC 61851-1/-23 ",
+        "name": "CCS"
+      },
+      {
+        "value": "1.x, with V2G extention",
+        "name": "CHAdeMO"
+      },
+      {
+        "value": "SAE J1772, IEC 61851-1/-23",
+        "name": "AC"
+      },
+      {
+        "value": "1.6J (2.0.1 coming soon)",
+        "name": "OCPP"
+      },
+      {
+        "value": "Coming Soon",
+        "name": "Plug 'n' Charge"
+      },
+      {
+        "value": "15 V / 30 V",
+        "name": "Input voltage min / max"
+      },
+      {
+        "value": "24 V",
+        "name": "Recommended nominal"
+      },
+      {
+        "value": "5 W / 20W",
+        "name": "Typical / Peak consumption"
+      },
+      {
+        "value": "-40° to 85° C",
+        "name": "Temperature range"
+      },
+      {
+        "value": "CAN 2.0B, extended addresses",
+        "name": "CAN bus"
+      },
+      {
+        "value": "20mA current loop, 24V",
+        "name": "Interlock"
+      },
+      {
+        "value": "IPI DSI + I<sup>2</sup>C for TP",
+        "name": "Display Serial Interface"
+      },
+      {
+        "value": "Via External Conversion From MIPI DSI",
+        "name": "HDMI"
+      },
+      {
+        "value": "2 outputs, 24V, push-pull, max. 1 A (sink or source), Hi-Z capability",
+        "name": "Digital Outputs"
+      },
+      {
+        "value": "4 inputs, 24V and 12V compatible, Max voltage 30V",
+        "name": "Digital Inputs"
+      },
+      {
+        "value": "3 LED outputs, 12V, overcurrent protected",
+        "name": "LEDs"
+      },
+      {
+        "value": "Modbus-RTU stack available, 5 V max. 2 A max",
+        "name": "RS-485 + 5V"
+      },
+      {
+        "value": "100Mbps RJ45. Modbus TCP available",
+        "name": "Ethernet"
+      },
+      {
+        "value": "Dual-Band 2.4/5 GHz 1x1 Wi-Fi 4 (802.11n), Bluetooth 5.2",
+        "name": "Wireless"
+      },
+      {
+        "value": "USB 3.1 Gen 1",
+        "name": "USB-C"
+      },
+      {
+        "value": "2 PT1000 input",
+        "name": "Temperature measurements"
+      },
+      {
+        "value": "Contactor enable signal provided, open collector, max 200 mA, max 30V",
+        "name": "Output contactor driver"
+      },
+      {
+        "value": "Vertexcom",
+        "name": "PLC (Powerline Communication)"
+      },
+      {
+        "value": "DIN rail, LCD back, Heavy duty enclosure",
+        "name": "Mounting Options:"
+      }
+    ]
+  },
+  "carousel": [
+    {
+      "path": "/src/assets/img/products/spcc-4.png",
+      "alt": "ADVANTICS SPCC charge controller"
+    }
+  ]
+}

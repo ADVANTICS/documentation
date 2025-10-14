@@ -1,0 +1,252 @@
+{
+  "keywords": "isolated dc/dc, isolated dcdc, isolated dc-to-dc, isolated dc/dc converter, isolated dcdc converter, isolated dc-to-dc converter, high voltage, high voltage dc, hv, hvdc, high efficiency, can, ul, ce, high power, certified, 24V, 100V, 200V, 300V, 400V, 500V, 600V, 700V, 800V, 900V, 1000V, 1kV, uni-directional, unidirectional, SiC, Silicon Carbide",
+  "storeHref": "https://store.advantics.fr/power-conversion/25-mcp-25-isolated-dcdc-400v-nominal-variant.html",
+  "docsHref": "https://advantics.github.io/documentation/#/power-modules/ADM-PC-LL25/",
+  "codename": "ADM-PC-LL25",
+  "sortNumber": 2,
+  "OGimg": "/src/assets/img/products/llc-og.png",
+  "card": {
+    "name": "Uni-directional Isolated DC/DC converter",
+    "img": "/src/assets/img/products/llc-1.png",
+    "imgScale": "0.9",
+    "alt": "Resonant LLC DC/DC converter sub assembly",
+    "description": "Optimized to be the last power conversion stage for battery charging, it includes galvanic isolation, insulation fault measurement and fast output discharge circuit. With a maximum efficiency of 98%.",
+    "keyPoints": {
+      "VA02": {
+        "Max Input Voltage": "950 V",
+        "Output Voltage Range": "200 - 500 V",
+        "Max Current": "70 A"
+      },
+      "VA03": {
+        "Max Input Voltage": "950 V",
+        "Output Voltage Range": "500 - 950 V",
+        "Max Current": "35 A"
+      },
+      "VA04": {
+        "Max Input Voltage": "800 V",
+        "Output Voltage Range": "200 - 500 V",
+        "Max Current": "70 A"
+      }
+    }
+  },
+  "header": {
+    "title": "Uni-directional Isolated DC/DC converter",
+    "name": "ADM-PC-LL25",
+    "img": "/src/assets/img/products/llc-1.png",
+    "alt": "Resonant LLC DC/DC converter sub assembly",
+    "description": "Galvanic isolation without the noise and fragility of a large transformer. The ADM-PC-LL25 Uni-direction Isolated DC/DC Converter  delivers up to 25kW at 98% efficiency, and only allowing one-way current flow."
+  },
+  "variantClarification": {
+    "VA02": "Compatible with US and EU mains. Intended for 400 V<sub>DC</sub> nominal applications",
+    "VA03": "Intended for 800 V<sub>DC</sub> nominal applications",
+    "VA04": "EU mains only. Intended for 400 V<sub>DC</sub> nominal applications"
+  },
+  "hardwareDescription": [
+    "If you need to charge a battery from the grid, this module will have you covered. The module is an isolated resonant DC/DC converter with silicon carbide technology, reaching up to 98% efficiency, and able to do up to 30 KW of power at an output voltage of 200 to 450V, or a maximum of 70A.",
+    "If the application demands it, modules can be put in series to reach a voltage range of 200 to 920V, and also in parallel to increase total output current. Even a mix of series+parallel is possible.",
+    "The module also includes a fast output discharge circuit, a ground isolation measurement system, and fast overvoltage/overcurrent/overtempearture protection.",
+    "When used with a ADM-PC-BP25 as an AC/DC active front end, the efficieny of the system is improved, as they will work in tandem and performing calculations to work in an optimum point"
+  ],
+  "techData": {
+    "VA02": [
+      {
+        "value": "950 V",
+        "name": "Max Input Voltage"
+      },
+      {
+        "value": "200 - 500 V",
+        "name": "Voltage Ouput range"
+      },
+      {
+        "value": "0-70 A max",
+        "name": "Current range"
+      },
+      {
+        "value": "25 kW max",
+        "name": "Power"
+      },
+      {
+        "value": "98% peak",
+        "name": "Efficiency"
+      },
+      {
+        "value": "Unidirectional",
+        "name": "Power flow"
+      },
+      {
+        "value": "Current source, voltage source",
+        "name": "Power conversion modes"
+      },
+      {
+        "value": "Overcurrent, overvoltage, overtemperature and hardware interlock",
+        "name": "Protection features"
+      },
+      {
+        "value": "Common interlock line, output bleeding circuit",
+        "name": "Protection features (cont)"
+      },
+      {
+        "value": "+/-2% (+/-1% typical)",
+        "name": "Voltage and current accuracy"
+      },
+      {
+        "value": "CAN bus 2.0B",
+        "name": "Communication protocol"
+      },
+      {
+        "value": "Up to 32 devices of the same type",
+        "name": "Communication chaining"
+      },
+      {
+        "value": "8 pin JST CPT automotive series",
+        "name": "Logic interface"
+      },
+      {
+        "value": "max 15 W",
+        "name": "Logic power"
+      },
+      {
+        "value": "Open collector, hardware interlock",
+        "name": "Interlock"
+      }
+    ],
+    "VA03": [
+      {
+        "value": "950 V",
+        "name": "Max Input Voltage"
+      },
+      {
+        "value": "500 - 920 V",
+        "name": "Voltage Ouput range"
+      },
+      {
+        "value": "0-35 A max",
+        "name": "Current range"
+      },
+      {
+        "value": "25 kW max",
+        "name": "Power"
+      },
+      {
+        "value": "98% peak",
+        "name": "Efficiency"
+      },
+      {
+        "value": "Unidirectional",
+        "name": "Power flow"
+      },
+      {
+        "value": "Current source, voltage source",
+        "name": "Power conversion modes"
+      },
+      {
+        "value": "Overcurrent, overvoltage, overtemperature and hardware interlock",
+        "name": "Protection features"
+      },
+      {
+        "value": "Common interlock line, output bleeding circuit",
+        "name": "Protection features (cont)"
+      },
+      {
+        "value": "+/-2% (+/-1% typical)",
+        "name": "Voltage and current accuracy"
+      },
+      {
+        "value": "CAN bus 2.0B",
+        "name": "Communication protocol"
+      },
+      {
+        "value": "Up to 32 devices of the same type",
+        "name": "Communication chaining"
+      },
+      {
+        "value": "8 pin JST CPT automotive series",
+        "name": "Logic interface"
+      },
+      {
+        "value": "max 15 W",
+        "name": "Logic power"
+      },
+      {
+        "value": "Open collector, hardware interlock",
+        "name": "Interlock"
+      }
+    ],
+    "VA04": [
+      {
+        "value": "800 V",
+        "name": "Max Input Voltage"
+      },
+      {
+        "value": "200 - 500 V",
+        "name": "Voltage Ouput range"
+      },
+      {
+        "value": "0-70 A max",
+        "name": "Current range"
+      },
+      {
+        "value": "25 kW max",
+        "name": "Power"
+      },
+      {
+        "value": "98% peak",
+        "name": "Efficiency"
+      },
+      {
+        "value": "Unidirectional",
+        "name": "Power flow"
+      },
+      {
+        "value": "Current source, voltage source",
+        "name": "Power conversion modes"
+      },
+      {
+        "value": "Overcurrent, overvoltage, overtemperature and hardware interlock",
+        "name": "Protection features"
+      },
+      {
+        "value": "Common interlock line, output bleeding circuit",
+        "name": "Protection features (cont)"
+      },
+      {
+        "value": "+/-2% (+/-1% typical)",
+        "name": "Voltage and current accuracy"
+      },
+      {
+        "value": "CAN bus 2.0B",
+        "name": "Communication protocol"
+      },
+      {
+        "value": "Up to 32 devices of the same type",
+        "name": "Communication chaining"
+      },
+      {
+        "value": "8 pin JST CPT automotive series",
+        "name": "Logic interface"
+      },
+      {
+        "value": "max 15 W",
+        "name": "Logic power"
+      },
+      {
+        "value": "Open collector, hardware interlock",
+        "name": "Interlock"
+      }
+    ]
+  },
+  "carousel": [
+    {
+      "path": "/src/assets/img/products/llc-1.png",
+      "alt": "Active front end sub-assembly"
+    },
+    {
+      "path": "/src/assets/img/products/llc-2.jpg",
+      "alt": "Active front end sub-assembly"
+    },
+    {
+      "path": "/src/assets/img/products/llc-3.jpg",
+      "alt": "Active front end sub-assembly"
+    }
+  ]
+}

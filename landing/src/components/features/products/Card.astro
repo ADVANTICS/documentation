@@ -1,0 +1,76 @@
+---
+import Button from "../../core/Button.astro";
+import Typography from "../../core/Typography.astro";
+import type { CollectionEntry } from "astro:content";
+type Product = CollectionEntry<"products">;
+
+import type { ImageMetadata } from "astro";
+import { Image } from "astro:assets";
+interface Props {
+  product: Product;
+}
+const {
+  product: {
+    id,
+    data: {
+      storeHref,
+      card: { alt, name, img, description },
+    },
+  },
+} = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/img/products/*.{webp,jpeg,jpg,png}",
+);
+
+// Will throw if there is an error in the process I think this is what we want
+if (!images[img])
+  throw new Error(
+    `"${img}" does not exist in glob: "src/assets/img/products/*.{webp,jpeg,jpg,png}"`,
+  );
+
+// If the product has variants, we link to the first variant in the list in a product card
+---
+
+<article
+  class="border-accent/40 bg-accent/10 grid h-full grid-rows-[auto_auto_1fr_auto] rounded-xl border border-solid p-4 drop-shadow-xl"
+>
+  <a
+    href={`/products/${id}`}
+    target="_self"
+    class="border-accent/70 h-52 overflow-hidden border border-solid bg-neutral-100/20"
+  >
+    <!-- When an image is the only content of a link, the text alternative for the image describes the unique function of the link. -->
+    <Image
+      src={images[img]()}
+      width={400}
+      alt={alt}
+      class="h-52 w-full rounded-md object-cover transition-transform hover:scale-110"
+    />
+  </a>
+  <Typography as="h3" class="text-content mx-auto my-4 h-fit" set:html={name} />
+  <Typography class="text-pretty" as="p" variant="xl">
+    {description}
+  </Typography>
+  <div class="mt-6 mb-2 place-self-center self-end">
+    <Button
+      as="a"
+      href={`/products/${id}`}
+      flavor="alt"
+      class="rounded-md px-6 py-3 tracking-wide">Details</Button
+    >
+    {
+      storeHref && (
+        <Button
+          as="a"
+          href={storeHref}
+          target="_blank"
+          flavor="soft"
+          class="ml-4 rounded-md px-6 py-3 font-bold tracking-wide drop-shadow-sm"
+        >
+          Go to Store
+        </Button>
+      )
+    }
+  </div>
+</article>

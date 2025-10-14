@@ -1,0 +1,138 @@
+{
+  "keywords": "EVCC, Electric Vehicle Charge Controller, EV Charge Controller, vehicle charge controller, DC charge controller, DC fast charging, CCS, PLC to CAN gateway, Onboard charger, Bidirectional Charging, Bidirectional Power Transfer BPT, V2G, CCS V2G, V2G charge controller, V2X, V2H, V2L, NACS, North American Charging System, Plug’n’Charge, plug and charge, IEC61851-1, IEC61851-23, ISO15118-3, DIN SPEC 70121, ISO 15118-2, ISO 15118-20, SLAC, Orion BMS, Combo 1, CCS1, Combo 2, CCS2",
+  "sortNumber": 2,
+  "storeHref": "https://store.advantics.fr/charge-controllers/24-ev-charge-controller-ccs.html",
+  "docsHref": "https://advantics.github.io/documentation/#/charge-controllers/ADM-CS-EVCC/",
+  "codename": "ADM-CS-EVCC",
+  "OGimg": "/src/assets/img/products/evcc-og.png",
+  "card": {
+    "name": "Vehicle-side Charge Controller",
+    "img": "/src/assets/img/products/evcc-1.webp",
+    "alt": "EV charge controller sub assembly ready to install in the car",
+    "description": "Electric Vehicle onboard charge controller for DC and AC charging standards. Aimed to be embedded in any kind of electric vehicle using conductive charging. Enables advanced features such as bidirectional charging using latest standards and Plug’n’Charge."
+  },
+  "header": {
+    "name": "ADM-CS-EVCC",
+    "title": "Vehicle-side Charge Controller",
+    "img": "/src/assets/img/products/evcc-1.webp",
+    "alt": "EV charge controller sub assembly ready to install in the car",
+    "description": "Aimed to be embedded in any kind of electric vehicle using conductive charging. Enables advanced features such as bidirectional charging using latest standards, Plug’n’Charge and more."
+  },
+  "hardwareDescription": [
+    "Our EVCC (EV Charge Controller) integrates all essential I/O and software stacks required for AC and DC charging protocols. The system features comprehensive handling of CP (Control Pilot) and PP (Proximity Pilot) signals, a built-in PLC modem, and compliance with key industry standards:",
+    "- **IEC 61851-1, -23**: Including AC over Base Signaling (PWM).\n- **ISO 15118-3 (SLAC)** and **DIN SPEC 70121**: Enabling efficient DC charging.\n- **ISO 15118-2 and 15118-20**: Supporting DC, and bidirectional charging (BPT) with Plug and Charge (PnC) capabilities.",
+    "The controller includes a **CAN bus** interface, offering seamless integration into your system or with various off the shelf Battery Management Systems (BMS), including the Orion BMS.  It also supports common commercial sensors like **Isabellenhutte** **IVT-S** and **Sendyne**.",
+    "Key features include:",
+    "- **Lock and Contactor Control** (optional), ensuring secure charging sessions.\n- **Thermal Management** with progressive derating and emergency stop features.\n- **No Code Mode** for quick and easy setup.\n- **Industrial-grade GPIO**, providing configurable functions for flexible control.\n- **Wake-up and Sleep Modes**, activated by CP state changes or general-purpose outputs.\n- **Firmware Updates** via PLC on the CP line or Ethernet, with **SSH access** for advanced configuration, logs, and updates.\nThis charge controller is engineered for demanding applications today and future-proofed for tomorrow, making it an ideal solution for and modern EV."
+  ],
+  "techData": {
+    "VA01": [
+      {
+        "value": "DIN SPEC 70121, ISO 15118-2, ISO 15118-20",
+        "name": "CCS (Combo 1,2)"
+      },
+      {
+        "value": "SAE J1772, IEC 61851-1",
+        "name": "AC"
+      },
+      {
+        "value": "Yes",
+        "name": "Plug 'n' Charge"
+      },
+      {
+        "value": "12 V or 24 V",
+        "name": "Input voltage"
+      },
+      {
+        "value": "2 W",
+        "name": "Nominal power consumption without peripherals"
+      },
+      {
+        "value": "2x ISO-11898 CAN bus, configurable bitrate (500kbps default)",
+        "name": "CAN bus"
+      },
+      {
+        "value": "3 outputs, 24V, push-pull, max. 100 mA (sink or source)",
+        "name": "Digital Outputs"
+      },
+      {
+        "value": "2 inputs, 24V and 12V compatible, Max voltage 30V",
+        "name": "Digital Inputs"
+      },
+      {
+        "value": "3 LED outputs, 12V, overcurrent protected",
+        "name": "LEDs"
+      },
+      {
+        "value": "100Mbps RJ45.",
+        "name": "Ethernet"
+      },
+      {
+        "value": "16 GB card standard",
+        "name": "SD memory card"
+      },
+      {
+        "value": "2 Independent outputs",
+        "name": "Contactors Outputs"
+      },
+      {
+        "value": "Drive up to 5A",
+        "name": "Max Current"
+      },
+      {
+        "value": "2 Contactor Feedback inputs",
+        "name": "Contactors Feedback Inputs"
+      },
+      {
+        "value": "CP (Control Pilot), PP (Proximity Pilot)",
+        "name": "Communication wires"
+      },
+      {
+        "value": "3 PT1000 inputs",
+        "name": "Temperature measurements"
+      },
+      {
+        "value": "Inlet lock motor control",
+        "name": "Inlet locking"
+      },
+      {
+        "value": "Vertexcom",
+        "name": "PLC (Powerline Communication)"
+      },
+      {
+        "value": "Heavy-duty Cinch 5810130043",
+        "name": "Enclosure"
+      },
+      {
+        "value": "-20° to 85° C",
+        "name": "Temperature range"
+      },
+      {
+        "value": "IP69K",
+        "name": "Enclosure Rating"
+      },
+      {
+        "value": "50 g’s – 20 pulses",
+        "name": "Enclosure Shock Rating"
+      },
+      {
+        "value": "11.43 x 11.68 cm",
+        "name": "Enclosure Dimensions"
+      },
+      {
+        "value": "Yes",
+        "name": "RoHS Compliant"
+      }
+    ]
+  },
+  "carousel": [
+    {
+      "path": "/src/assets/img/products/evcc-1.webp",
+      "alt": "ADVANTICS Electric Vehicle Charge Controller sub-assembly"
+    },
+    {
+      "path": "/src/assets/img/products/evcc-2.jpg",
+      "alt": "ADVANTICS Electric Vehicle Charge Controller sub-assembly with case"
+    }
+  ]
+}

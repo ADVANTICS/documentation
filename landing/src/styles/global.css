@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@source "/home/sft/dev/advantics-astro-components/src";
+
+@theme {
+  --breakpoint-nominal: 96.125rem;
+  /* --breakpoint-1.5xl: 82.5 rem; cannot have dot */
+  --breakpoint-3xl: 107.5rem;
+  --breakpoint-4xl: 120rem;
+  --breakpoint-8xl: 1420px;
+  --breakpoint-9xl: 1600px;
+
+  --spacing-8xl: 1420px;
+  --spacing-9xl: 1610px;
+  --spacing-10xl: 1920px;
+
+  --font-inter: "Inter", "ui-sans-serif", "system-ui";
+  --font-poppins: "Poppins", "ui-sans-serif", "system-ui";
+
+  --container-nominal: 96.125rem;
+  --container-screen-3xl: 107.5rem;
+  --container-screen-4xl: 120rem;
+}
+
+:root {
+  --light-blue: hsl(201deg 94% 86%);
+  /* Must check all hsl(--color) usage because it will end up in hsl(hsl) */
+
+  --dark-bkg: hsl(217deg 32.6% 10%);
+  --dark-accent: hsl(176deg 100% 33%);
+  --dark-bkg-alt: hsl(210deg 40% 98%);
+  --dark-content: hsl(210deg 40% 98%);
+  --dark-content-alt: hsl(217deg 32.6% 10%);
+
+  --light-bkg: hsl(210deg 40% 98%);
+  --light-accent: hsl(217deg 32.6% 17.5%);
+  --light-bkgAlt: hsl(217deg 32.6% 5%);
+  --light-content: hsl(217deg 32.6% 17.5%);
+  --light-contentAlt: hsl(288deg 95.8% 90.6%);
+
+  --bkg: var(--dark-bkg);
+  --bkg-alt: var(--dark-bkg-alt);
+  --accent: var(--dark-accent);
+  --accent-dark: hsl(176deg 100% 20%);
+  --content: var(--dark-content);
+  --content-alt: var(--dark-content-alt);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bkg: var(--dark-bkg);
+    --bkg-alt: var(--dark-bkg-alt);
+    --accent: var(--dark-accent);
+    --content: var(--dark-content);
+    --content-alt: var(--dark-content-alt);
+  }
+}
+:root[data-theme="dark"] {
+  --bkg: var(--dark-bkg);
+  --bkg-alt: var(--dark-bkg-alt);
+  --accent: var(--dark-accent);
+  --content: var(--dark-content);
+  --content-alt: var(--dark-content-alt);
+}
+.prose-invert-adv {
+  --tw-prose-invert-bold: var(--color-accent);
+  --tw-prose-invert-lead: --alpha(var(--color-accent) / 0.9);
+}
+
+@theme inline {
+  --color-bkg: var(--bkg);
+  --color-bkg-alt: var(--bkg-alt);
+  --color-accent: var(--accent);
+  --color-accent-dark: var(--accent-dark);
+  --color-content: var(--content);
+  --color-content-alt: var(--content-alt);
+}

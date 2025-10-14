@@ -1,0 +1,328 @@
+---
+import {
+  contactText,
+  releaseStates,
+  releaseStatusMap,
+} from "@/assets/consts/products";
+import Button from "@/components/core/Button.astro";
+import Ribbon from "@/components/features/products/FoldedRibbon.astro";
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+
+import type { ImageMetadata } from "astro";
+interface Props {
+  product: CollectionEntry<"products">;
+}
+
+const {
+  product: {
+    id,
+    data: {
+      releaseStatus,
+      storeHref,
+      codename,
+      techData,
+      card: {
+        keyPoints,
+        alt,
+        imgScale = "1",
+        imgRotation = "-10deg",
+        name,
+        img,
+        description,
+      },
+    },
+  },
+} = Astro.props;
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/img/products/*.{webp,jpeg,jpg,png}",
+);
+
+const hasVariants = Object.keys(techData).length > 1;
+---
+
+<article class="card">
+  <div class="imgBx">
+    {
+      releaseStatus && (
+        <>
+          <Ribbon text={releaseStatusMap[releaseStatus].ribbon} />
+          <div class="h-12 w-full xl:hidden" />
+        </>
+      )
+    }
+
+    <a href={`/products/${id}`}>
+      <Image src={images[img]()} {alt} />
+    </a>
+  </div>
+  <div class="details">
+    <header>
+      <a href={`/products/${id}`}>
+        <h2 set:html={name} class="hover:underline" />
+      </a>
+      <span class="codename">{codename}</span>
+    </header>
+    <main class="content">
+      <!-- <p> -->
+      <!-- 	{description} -->
+      <!-- </p> -->
+      <!-- { -->
+      <!-- 	hasVariants && ( -->
+      <!-- 		<div class="mt-6 flex justify-between"> -->
+      <!-- 			<span>Variants:</span> -->
+      <!-- 			<div class="product-variants"> -->
+      <!-- 				{keyPoints && -->
+      <!-- 					Object.keys(keyPoints).map((variant) => { -->
+      <!-- 						return ( -->
+      <!-- 							<span aria-describedby="variant-info"> -->
+      <!-- 								<span>{variant}</span> -->
+      <!-- 								<div role="tooltip" id={`variant-info-${variant}`}> -->
+      <!-- 									<p>{variant} key parameters:</p> -->
+      <!-- 									<ul> -->
+      <!-- 										{Object.keys(keyPoints[variant]).map((k: string) => ( -->
+      <!-- 											<li> -->
+      <!-- 												{k}: {keyPoints[variant][k]} -->
+      <!-- 											</li> -->
+      <!-- 										))} -->
+      <!-- 									</ul> -->
+      <!-- 								</div> -->
+      <!-- 							</span> -->
+      <!-- 						) -->
+      <!-- 					})} -->
+      <!-- 			</div> -->
+      <!-- 		</div> -->
+      <!-- 	) -->
+      <!-- } -->
+    </main>
+    <footer
+      class:list={[
+        storeHref ? "" : "w-full",
+        "mt-6 mb-2 place-self-center self-end",
+      ]}
+    >
+      <Button
+        as="a"
+        href={`/products/${id}`}
+        flavor="content"
+        class:list={[
+          storeHref === "#" ? "justify-self-start" : "",
+          "rounded-md px-6 py-3 font-bold tracking-wide drop-shadow-md",
+        ]}>Details</Button
+      >
+      <!-- { -->
+      <!-- 	storeHref && ( -->
+      <!-- 		<Button -->
+      <!-- 			as="a" -->
+      <!-- 			href={storeHref} -->
+      <!-- 			target="_blank" -->
+      <!-- 			flavor="soft" -->
+      <!-- 			class="text-content hover:bg-bkg-alt hover:text-content-alt ml-4 rounded-md px-6 py-3 font-bold tracking-wide drop-shadow-sm" -->
+      <!-- 		> -->
+      <!-- 			Go to Store -->
+      <!-- 		</Button> -->
+      <!-- 	) -->
+      <!-- } -->
+      <!-- { -->
+      <!-- 	!storeHref && releaseStatus === releaseStates.availableForOrder && ( -->
+      <!-- 		<Button -->
+      <!-- 			as="a" -->
+      <!-- 			href={`/contact?text=${contactText({ name, subject: "ORDER" }).text}`} -->
+      <!-- 			target="_self" -->
+      <!-- 			flavor="soft" -->
+      <!-- 			class="text-content hover:bg-bkg-alt hover:text-content-alt ml-4 rounded-md px-6 py-3 font-bold tracking-wide drop-shadow-sm" -->
+      <!-- 		> -->
+      <!-- 			Order -->
+      <!-- 		</Button> -->
+      <!-- 	) -->
+      <!-- } -->
+    </footer>
+  </div>
+</article>
+
+<style define:vars={{ imgScale, imgRotation }}>
+  @import url("https://fonts.googleapis.com/css?family=Poppins:400,500,600,800&display=swap");
+
+  .card {
+    position: relative;
+    display: flex;
+    /* flex-wrap: wrap; */
+    justify-content: space-between;
+    max-width: 600px;
+    height: 250px;
+    background: #fff;
+    /* margin: 20px; */
+  }
+
+  .card .imgBx {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 100%;
+    /* background: #212121; */
+    background: var(--color-accent-dark);
+    transition: 0.3s linear;
+  }
+
+  .card .imgBx:before {
+    /* content: "ADV"; */
+    position: absolute;
+    top: 0px;
+    left: 24px;
+    color: --alpha(var(--color-accent) / 1);
+    opacity: 0.2;
+    font-size: 8rem;
+    font-weight: 800;
+  }
+
+  .card .imgBx img {
+    position: relative;
+    /* width: 700px; */
+    max-width: 200px;
+    transform: rotate(var(--imgRotation)) scale(var(--imgScale));
+    left: -50px;
+    top: 50px;
+    transition: 0.9s linear;
+  }
+
+  .card .details {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding-block: 20px;
+    padding-inline: 40px;
+    @media screen and (width>= 1280px) {
+      width: 60%;
+    }
+  }
+
+  .card .details h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 1.6rem;
+    line-height: 1.5rem;
+    color: #444;
+  }
+
+  .card .details header {
+    width: 100%;
+    span {
+      font-size: 0.96rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #999;
+    }
+    span.codename {
+      display: block;
+      margin-block: 1rem;
+    }
+  }
+  .card .details .content {
+    margin-bottom: auto;
+  }
+  .card .product-variants {
+    text-align: right;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1rem;
+    row-gap: 0.5rem;
+    span span {
+      text-align: left;
+      font-size: 0.96rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #999;
+      margin-block: 16px;
+    }
+    [role="tooltip"] {
+      text-align: left;
+    }
+    ul {
+      list-style-type: disc;
+      margin-left: 1rem;
+    }
+  }
+
+  .card .details h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 2.5em;
+    color: #a2a2a2;
+    float: left;
+  }
+  .card .details button {
+    background: #000;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 15px 20px;
+    margin-top: 5px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 600;
+    border-radius: 40px;
+    float: right;
+  }
+
+  /* responsive */
+  @media screen and (width< 1280px) {
+    .card {
+      height: auto;
+      max-width: 100%;
+
+      flex-direction: column;
+      .details {
+        /* width: fit-content; */
+        width: 100%;
+        height: auto;
+        padding: 20px;
+      }
+    }
+    .card .imgBx {
+      padding: 40px;
+      width: 100% !important;
+      height: auto;
+      text-align: center;
+      overflow: hidden;
+    }
+    .card .imgBx img {
+      top: 0;
+      left: initial;
+      max-width: 100%;
+      transform: rotate(0deg);
+    }
+    .card .details p {
+      margin-left: 0;
+      max-width: 100%;
+    }
+  }
+
+  [role="tooltip"],
+  .hidetooltip.hidetooltip.hidetooltip + [role="tooltip"] {
+    visibility: hidden;
+    position: absolute;
+    bottom: 2rem;
+    left: -7rem;
+    width: max-content;
+    padding: 1rem;
+    background: black;
+    color: white;
+    list-style: square inside !important;
+  }
+  [aria-describedby]:hover,
+  [aria-describedby]:focus {
+    position: relative;
+  }
+  [aria-describedby]:hover [role="tooltip"],
+  [aria-describedby]:focus [role="tooltip"] {
+    visibility: visible;
+  }
+</style>

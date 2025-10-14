@@ -1,0 +1,67 @@
+---
+import Layout from "@/layouts/layout.astro";
+
+const left = {
+  href: "/pm",
+  img: "/images/left.jpg",
+  alt: "Left Image",
+};
+
+const right = {
+  href: "/cc",
+  img: "/images/right.jpg",
+  alt: "Right Image",
+};
+---
+
+<Layout title="ADVANTICS - Home" />
+
+<div class="split-container max-w-9xl mx-auto">
+  <a
+    class="side left text-content hover:text-accent"
+    href={left.href}
+    style={`background-image: url(${left.img});`}
+    aria-label={left.alt}>PM</a
+  >
+  <a
+    class="side right text-content hover:text-accent relative text-right"
+    href={right.href}
+    style={`background-image: url(${right.img});`}
+    aria-label={right.alt}><span class="absolute right-0 bottom-0">CC</span></a
+  >
+</div>
+
+<style>
+  .split-container {
+    position: relative;
+    width: 100%;
+
+    aspect-ratio: 25 / 9;
+    overflow: hidden;
+    cursor: pointer;
+    background-image:;
+  }
+
+  .side {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(1);
+    transition: filter 0.4s ease;
+    /* clip-path: polygon(0 0, 100% 0, 0 100%); */
+  }
+
+  .side.right {
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    background: green;
+  }
+  .side.left {
+    clip-path: polygon(100% 0, 0 100%, 0 0);
+    background: red;
+  }
+
+  .side:hover {
+    filter: grayscale(0);
+  }
+</style>
