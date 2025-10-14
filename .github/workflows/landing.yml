@@ -15,9 +15,12 @@ jobs:
     defaults:
       run:
         working-directory: landing
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: print pwd
+        run: echo $PWD
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
