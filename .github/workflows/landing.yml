@@ -5,9 +5,9 @@ on:
   push:
     branches:
       - material
-  paths:
-    - "landing/**"
-    - ".github/workflows/landing.yml"
+    paths:
+      - "landing/**"
+      - ".github/workflows/landing.yml"
 
 jobs:
   build:
