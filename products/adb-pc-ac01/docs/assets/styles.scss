@@ -10,8 +10,8 @@ $advantics-teal: #00A99D;
    ------------------------------------------------------- */
 @page {
   size: A4;
-  margin: 30mm 20mm 30mm 20mm; /* top, right, bottom, left */
-  
+  margin: 3cm 2cm 3cm 2cm !important; /* top, right, bottom, left */
+
   /* Footer page number */
   @bottom-right {
     content: counter(page);
@@ -22,10 +22,6 @@ $advantics-teal: #00A99D;
   }
 }
 
-/* First page (cover or intro) */
-@page:first {
-  margin-top: 30mm;
-}
 
 /* -------------------------------------------------------
    GLOBAL RESET
