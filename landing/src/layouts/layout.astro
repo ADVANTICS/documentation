@@ -24,7 +24,7 @@ const { title, openGraphImage, canonicalPath, description, keywords } =
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
-    <SEO {title} />
+    <SEO {title} {openGraphImage} {canonicalPath} {description} {keywords} />
   </head>
   <body class:list={["bg-bkg relative min-h-screen"]}>
     <Glow />
