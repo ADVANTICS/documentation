@@ -1,4 +1,5 @@
 ---
+import Layout from "@/layouts/layout.astro";
 import ProductCard from "@/components/features/products/FancyCard.astro";
 
 import { getCollection } from "astro:content";
@@ -8,8 +9,6 @@ const products = await getCollection("products");
 const controllers = products.filter(
   (p) => !p.data.codename.slice(3, 6).includes("PC"),
 );
-
-import Layout from "@/layouts/layout.astro";
 ---
 
 <Layout title="ADVANTICS - Home">
