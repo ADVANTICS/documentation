@@ -49,7 +49,7 @@ jobs:
             **/.git*
             **/.git*/**
             **/node_modules/**
-            **/pdf/
+            **/pdf/*.pdf
       - name: Find and list PDF files
         run: |
           echo "Found the following PDF files:"
