@@ -34,7 +34,7 @@ jobs:
         run: |
           source .venv/bin/activate
           cd products/${{ matrix.product }}
-          mkdocs build --clean
+          PDF_EXPORT=1 mkdocs build --clean
 
       - name: Upload to FTP server
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
@@ -45,3 +45,19 @@ jobs:
           protocol: ftps
           local-dir: products/${{ matrix.product }}/site/
           server-dir: public_html/${{ matrix.product }}/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/node_modules/**
+            **/pdf/
+      - name: Find and list PDF files
+        run: |
+          echo "Found the following PDF files:"
+          find products -type f -path "*/pdf/*.pdf" -print
+
+      # - name: Upload PDFs as artifact
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: product-pdfs
+      #     path: |
+      #       products/**/pdf/*.pdf
