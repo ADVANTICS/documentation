@@ -53,7 +53,7 @@ const hasVariants = Object.keys(techData).length > 1;
       )
     }
 
-    <a href={`/products/${id}`}>
+    <a href={`/${id.toLowerCase()}`}>
       <Image src={images[img]()} {alt} />
     </a>
   </div>
