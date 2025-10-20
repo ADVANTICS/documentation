@@ -170,7 +170,7 @@ $ scp root@<controllerIPAddress>:<LogsPath> <DestinationPath>
 ```
 You should replace <controllerIPAddress> with the IP address of the controller, <LogsPath> with the logs path on the controller, and <DestinationPath> with the destination folder on your system. The following is an example:
 ```bash
-$ scp root@192.168.1.51:/root/pev_controller_logs.log .
+$ scp root@192.168.1.49:/root/pev_controller_logs.log .
 ```
 
 - __Or using the WINDOWS tool [**WinSCP**](https://winscp.net/eng/download.php) (more convenient for WINDOWS users)__
