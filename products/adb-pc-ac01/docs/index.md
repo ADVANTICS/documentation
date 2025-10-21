@@ -55,7 +55,7 @@ All other trademarks mentioned in this document are the property of their respec
 
 ## Get in Touch
 
-- Product page: https://advantics.fr/products/spcc/  
+- Product page: https://advantics.fr/products/ADB-PC-AC01/  
 - Discover our portfolio: https://advantics.fr/products/  
 - Sales: sales@advantics.fr  
 - Technical Support: [Support Desk](https://advantics.atlassian.net/servicedesk/customer/portal/1)
