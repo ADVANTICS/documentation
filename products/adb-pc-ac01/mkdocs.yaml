@@ -20,14 +20,16 @@ theme:
   logo: assets/logo.png
   favicon: assets/logo.png
 
-  # Color scheme
   palette:
-    - scheme: black
+    # Light theme
+    - scheme: default
       primary: black
       accent: black
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
+
+    # Dark theme
     - scheme: slate
       primary: black
       accent: black
@@ -42,19 +44,44 @@ theme:
 
   # Features
   features:
-    - navigation.tabs
-    - navigation.sections
-    - navigation.expand
-    - navigation.top
-    - search.suggest
-    - search.highlight
-    - content.code.copy
+    - navigation.instant  # No reload between pages, use XHR
+    - navigation.instant.progress  # Show progress-bar if longer than 400ms
+    # - navigation.tracking  # Update URL with scroll
+    # - navigation.tabs  # Top-level nav as tabs in header
+    - navigation.tabs.sticky  # Header tabs don't dissapear when scrolling down
+    - navigation.top  # Back-to-top button
+    # - navigation.sections  # Group sections in the sidebar
+    # - navigation.expand  # Expand all collapsible navigation sub-sections
+    # - navigation.prune  # all sections collapsed by default
+    - navigation.path  # Breadcrumb
+    - navigation.indexes  # Intermediate section levels can have their own pages
+    - navigation.footer  # Prev/Next links at the bottom
+    - toc.follow  # TOC sidebar follows scroll
+    # - toc.integrate  # Merge TOC into navigation sidebar
+    - search.suggest  # Suggest search completion
+    - search.highlight  # Highlight search results in the page
+    - search.share  # Can create/copy share link for searched
+    - header.autohide  # Collapse header entirely as scrolling down
+    # - content.action.edit  # Top-right (middle column) edit icon
+    # - content.action.view  # Top-right (middle column) view raw icon
+    - content.code.copy  # Enable copy button site-wise
     - content.tabs.link
 
 # Plugins
 plugins:
   - search
   - mermaid2
+  - plantuml:
+      render: "server"
+      puml_url: "https://www.plantuml.com/plantuml"
+      output_format: "svg"
+      theme_enabled: false
+      retries: 5
+      delay: 2
+      # theme:
+      #     url: _puml  # Path to custom themes, must contain advantics-theme-light.puml and advantics-theme-dark.puml
+      #     light: advantics-theme-light
+      #     dark: advantics-theme-dark
   - with-pdf:
       enabled_if_env: PDF_EXPORT
       output_path: pdf/adb-pc-ac01-manual.pdf
@@ -114,3 +141,7 @@ extra_css:
 # Extra JavaScript for Mermaid
 extra_javascript:
   - https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js
+
+# extra_files:
+#   - _puml/advantics-theme-dark.puml
+#   - _puml/advantics-theme-light.puml

@@ -1,4 +1,3 @@
-
 # Operation
 
 ## Operating Modes
@@ -12,9 +11,9 @@ In rectifier mode, the module converts AC input power to regulated DC output pow
 
 ```mermaid
 graph LR
-    A[AC Grid 208-480V] -->|3-Phase AC| B[ADB-PC-AC01]
+    A["AC Grid 208-480V"] -->|3-Phase AC| B["ADB-PC-AC01"]
     B -->|PFC Control| C[Power Factor Correction]
-    C -->|DC Output| D[650-950V DC Bus]
+    C -->|DC Output| D["650-950V DC Bus"]
     B -->|CAN Control| E[System Controller]
     
     F[Grid Monitoring] -->|Voltage/Current| C
@@ -33,9 +32,9 @@ In inverter mode, the module converts DC input power to AC output power:
 
 ```mermaid
 graph LR
-    A[DC Source 650-950V] -->|DC Input| B[ADB-PC-AC01]
+    A["DC Source 650-950V"] -->|DC Input| B["ADB-PC-AC01"]
     B -->|Inverter Control| C[Grid Synchronization]
-    C -->|AC Output| D[208-480V AC Grid]
+    C -->|AC Output| D["208-480V AC Grid"]
     B -->|CAN Control| E[System Controller]
     
     F[Grid Monitoring] -->|Sync Data| C

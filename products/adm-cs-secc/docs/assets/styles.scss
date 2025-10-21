@@ -1,0 +1,232 @@
+/* Brand color */
+$advantics-teal: #00A99D;
+
+/* -------------------------------------------------------
+   PAGE BOX AND MARGINS
+   ------------------------------------------------------- */
+@page {
+  size: A4;
+  margin-top: 35mm;
+  margin-bottom: 30mm;
+  margin-left: 20mm;
+  margin-right: 20mm;
+  
+  /* Footer page number */
+  @bottom-right {
+    content: counter(page);
+    font-size: 9pt;
+    color: #666;
+    margin-right: 1cm;
+    margin-bottom: 2cm;
+  }
+}
+
+/* First page (cover or intro) */
+@page:first {
+  margin-top: 30mm;
+}
+
+/* -------------------------------------------------------
+   GLOBAL RESET
+   ------------------------------------------------------- */
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
+  height: auto !important;
+  overflow: visible !important;
+  line-height: 1.6;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #000;
+  background: #fff;
+  margin-bottom: 15mm;
+}
+
+/* Spacer pseudo-elements prevent text clipping at top/bottom */
+@media print {
+  body::before {
+    content: "";
+    display: block;
+    height: 30mm; /* match top margin */
+  }
+  body::after {
+    content: "";
+    display: block;
+    height: 30mm; /* match bottom margin */
+  }
+
+  .md-content,
+  .md-typeset {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+
+  /* Avoid page breaks inside important elements */
+  h1, h2, h3, h4, h5, h6,
+  table, pre, img, blockquote {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Avoid orphan headings */
+  h1, h2, h3 {
+    page-break-after: avoid;
+  }
+}
+
+/* -------------------------------------------------------
+   HEADINGS
+   ------------------------------------------------------- */
+h1 {
+  color: $advantics-teal !important;
+  border-bottom: 3px solid #000 !important;
+  padding-bottom: 0.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-size: 1.8em;
+}
+
+h2 {
+  border-bottom: 2px solid #000 !important;
+  padding-bottom: 0.3rem;
+  margin-top: 1.2rem;
+  margin-bottom: 0.8rem;
+  color: #111;
+  font-size: 1.4em;
+}
+
+h3 {
+  margin-top: 1rem;
+  margin-bottom: 0.6rem;
+  color: #333;
+  font-size: 1.2em;
+}
+
+/* Cover page */
+.cover-page h1 {
+  border-bottom: 6px solid $advantics-teal !important;
+  color: $advantics-teal !important;
+}
+
+/* -------------------------------------------------------
+   TEXT AND PARAGRAPHS
+   ------------------------------------------------------- */
+p {
+  margin-bottom: 0.8rem;
+  line-height: 1.6;
+}
+
+ul, ol {
+  margin-left: 2rem;
+  margin-bottom: 0.8rem;
+  padding-left: 0;
+}
+
+li {
+  margin-bottom: 0.3rem;
+  line-height: 1.5;
+}
+
+/* -------------------------------------------------------
+   TABLES
+   ------------------------------------------------------- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+  page-break-inside: avoid;
+}
+
+thead th {
+  background-color: $advantics-teal !important;
+  color: #000 !important;
+  padding: 0.6rem;
+  text-align: left;
+}
+
+tbody td {
+  padding: 0.5rem;
+  border-bottom: 1px solid #ddd;
+}
+
+/* -------------------------------------------------------
+   CODE BLOCKS
+   ------------------------------------------------------- */
+pre {
+  background-color: #f8f9fa !important;
+  border: 1px solid #e1e4e8 !important;
+  border-radius: 4px;
+  padding: 1rem !important;
+  margin: 1rem 0 !important;
+  page-break-inside: avoid;
+  overflow: visible !important;
+}
+
+pre code {
+  background-color: transparent !important;
+  border: none !important;
+  color: #24292e !important;
+  font-size: 9pt;
+  line-height: 1.5;
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+  display: block;
+}
+
+code {
+  background-color: #f6f8fa !important;
+  border: 1px solid #e1e4e8 !important;
+  border-radius: 3px;
+  padding: 0.2em 0.4em;
+  font-size: 90%;
+  color: #24292e !important;
+}
+
+/* -------------------------------------------------------
+   LINKS
+   ------------------------------------------------------- */
+a {
+  color: $advantics-teal !important;
+  text-decoration: none;
+}
+
+/* -------------------------------------------------------
+   ADMONITIONS
+   ------------------------------------------------------- */
+.admonition {
+  border-left: 4px solid $advantics-teal !important;
+  background-color: #f0fffe !important;
+  padding: 0.8rem 1rem;
+  margin: 1rem 0;
+  page-break-inside: avoid;
+}
+
+.admonition.warning {
+  border-left-color: #f59e0b !important;
+  background-color: #fffbeb !important;
+}
+
+.admonition.danger {
+  border-left-color: #dc2626 !important;
+  background-color: #fef2f2 !important;
+}
+
+/* -------------------------------------------------------
+   IMAGES & BLOCKQUOTES
+   ------------------------------------------------------- */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+  page-break-inside: avoid;
+}
+
+blockquote {
+  border-left: 4px solid #ddd;
+  padding-left: 1rem;
+  margin: 1rem 0;
+  color: #666;
+  font-style: italic;
+}

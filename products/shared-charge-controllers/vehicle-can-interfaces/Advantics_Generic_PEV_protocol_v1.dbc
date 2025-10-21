@@ -1,0 +1,285 @@
+VERSION "created by canmatrix"
+
+
+NS_ :
+
+BS_:
+
+BU_: Advantics_Charge_Controller Vehicle 
+
+
+BO_ 1536 EVSE_Information: 6 Advantics_Charge_Controller
+ SG_ Communication_Stage : 0|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ Protocol : 8|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ Pins : 16|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ Max_Current : 24|16@1- (0.1,0) [-3276|3276] "Amps" Vector__XXX
+ SG_ RCD_Status : 40|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Reserved_Flags : 41|7@1+ (1,0) [0|127] "" Vector__XXX
+
+BO_ 1552 EV_Information: 1 Vehicle
+ SG_ State_of_Charge : 0|8@1+ (1,0) [0|100] "%" Vector__XXX
+
+BO_ 1537 AC_Control: 1 Advantics_Charge_Controller
+ SG_ Ready_To_Deliver_Power : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Reserved_Flags : 1|7@1+ (1,0) [0|127] "" Vector__XXX
+
+BO_ 1553 AC_Status: 1 Vehicle
+ SG_ Ready_To_Charge : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Reserved_Flags : 1|7@1+ (1,0) [0|127] "" Vector__XXX
+
+BO_ 1538 DC_Control: 1 Advantics_Charge_Controller
+ SG_ Close_Contactors : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Reserved_Flags : 1|7@1+ (1,0) [0|127] "" Vector__XXX
+
+BO_ 1554 DC_Status1: 4 Vehicle
+ SG_ Current_Request : 0|16@1- (0.1,0) [-3276|3276] "Amps" Vector__XXX
+ SG_ Present_Current : 16|16@1- (0.1,0) [-3276|3276] "Amps" Vector__XXX
+
+BO_ 1555 DC_Status2: 5 Vehicle
+ SG_ Contactors_Closed : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Normal_End_of_Charge : 1|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Reserved_Flags : 2|6@1+ (1,0) [0|63] "" Vector__XXX
+ SG_ Battery_Voltage : 8|16@1+ (0.1,0) [0|6553] "Volts" Vector__XXX
+ SG_ Inlet_Voltage : 24|16@1+ (0.1,0) [0|6553] "Volts" Vector__XXX
+
+BO_ 1539 CCS_Extra_Information: 6 Advantics_Charge_Controller
+ SG_ CP_Duty_Cycle : 0|16@1+ (0.1,0) [0|100] "%" Vector__XXX
+ SG_ CP_Top_Voltage : 16|8@1+ (0.1,0) [0|25] "Volts" Vector__XXX
+ SG_ CP_State : 24|8@1+ (1,0) [0|255] "" Vector__XXX
+ SG_ PP_Resistance : 32|8@1+ (10,0) [0|2550] "Ohms" Vector__XXX
+ SG_ Inlet_Lock_State : 40|2@1+ (1,0) [0|3] "" Vector__XXX
+ SG_ Reserved_Flags : 42|6@1+ (1,0) [0|63] "" Vector__XXX
+
+BO_ 1540 ADM_CS_EVCC_Inputs: 6 Advantics_Charge_Controller
+ SG_ DC_Contactor_Positive_Feedback : 0|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ DC_Contactor_Negative_Feedback : 1|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Digital_Input1 : 2|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Digital_Input2 : 3|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Stop_Charge : 4|1@1+ (1,0) [0|1] "" Vector__XXX
+ SG_ Reserved_Flags : 5|3@1+ (1,0) [0|7] "" Vector__XXX
+ SG_ PTC0 : 8|8@1+ (1,-40) [-40|215] "°C" Vector__XXX
+ SG_ PTC1 : 16|8@1+ (1,-40) [-40|215] "°C" Vector__XXX
+ SG_ PTC2 : 24|8@1+ (1,-40) [-40|215] "°C" Vector__XXX
+ SG_ CPU_Temperature : 32|8@1+ (1,-40) [-40|215] "°C" Vector__XXX
+ SG_ CAN_Sensor_Temperature : 40|8@1+ (1,-40) [-40|215] "°C" Vector__XXX
+
+
+CM_ BO_ 1536  "Information about the EVSE (AC or DC source), when available.";
+CM_ BO_ 1552  "Information provided by the vehicle.";
+CM_ BO_ 1537  "AC charging specific control (from charge controller to on-board charger).";
+CM_ BO_ 1553  "AC charging specific status (from on-board charger to charge controller).";
+CM_ BO_ 1538  "DC charging specific control (from charge controller to BMS).";
+CM_ BO_ 1554  "DC charging specific status (from BMS to charge controller), message 1.";
+CM_ BO_ 1555  "DC charging specific status (from BMS to charge controller), message 2.";
+CM_ BO_ 1539  "Extra information from CCS (for information only).";
+CM_ BO_ 1540  "
+                Controller (ADM-CS-EVCC hardware variant) is reporting various information
+                about its inputs. It is sent every seconds (for temperature channels).
+                Or on change for other digital inputs.
+            ";
+
+CM_ SG_ 1536 Communication_Stage "
+                    Current internal state of the charge controller, reflecting communication stage.
+
+                    Initialising:: Controller's applications are starting up.
+                    Waiting_For_EVSE:: Controller is idle and ready for a plug-in.
+                    Negotiating_Connection:: Controller is plugged to a charger and the connection is
+                        being initialised. Important charge information are exchanged.
+                    Connected_With_Full_Info:: All charge information from the EVSE were retrieved
+                        and a charge session can be considered to be properly started.
+                    Insulation_Test:: Insulation of charge cable is being tested by charger.
+                    Precharge:: Charger is matching its output voltage to present voltage of the
+                        battery.
+                    Waiting_For_Charge:: PEV is about to begin the actual charge.
+                    Charging:: Main charging loop going on.
+                    Ending_Charge:: A normal charge stop condition happened and the PEV is exiting
+                        the charging loop.
+                    Welding_Detection:: PEV is testing if its contactors are welded.
+                    Closing_Communication:: PEV can unplug and we are reinitialising in order to
+                        then go back to __Waiting_For_EVSE__.
+                ";
+CM_ SG_ 1536 Protocol "The charging protocol EVSE is using.";
+CM_ SG_ 1536 Pins "Pins on which current is supplied. __CCS_AC__ corresponds to any AC pins.";
+CM_ SG_ 1536 Max_Current "
+                    Maximum current the on-board charger (AC) or BMS (DC) is allowed to draw.
+
+                    In AC, it is defined as the minimum between EVSE max current
+                    (ie. CP PWM duty cycle) and cable max current (ie. PP resistance).
+
+                    In DC it corresponds to HLC data.
+                ";
+CM_ SG_ 1536 RCD_Status "
+                    Status of EVSE Residual Current Device (only available in HLC mode, 0 otherwise).
+                    For information only.
+                ";
+CM_ SG_ 1536 Reserved_Flags "Reserved bits for future uses.";
+CM_ SG_ 1552 State_of_Charge "Battery SoC in percent (only used in HLC mode).";
+CM_ SG_ 1537 Ready_To_Deliver_Power "
+                    EVSE is in position of delivering power.
+
+                    WARNING: Does not mean that power is currently being delivered!
+
+                    When going to __Ready__, the on-board charger should set its
+                    <<AC_Status.Ready_To_Charge>> flag, and THEN start to draw current.
+
+                    When going to __Not_Ready__ it means the AC source request a normal stop.
+                    On-board charger should stop drawing current and THEN set its
+                    <<AC_Status.Ready_To_Charge>> flag to 0.
+                ";
+CM_ SG_ 1537 Reserved_Flags "Reserved bits for future uses.";
+CM_ SG_ 1553 Ready_To_Charge "
+                    On-board charger is ready to charge (corresponds to asserting CP state C/D).
+                    You should set it to 1 before starting to draw current.
+                    And set it to 0 after current draw stops.
+
+                    Only exception is in case of emergency stop, where you can set it to 0 without
+                    waiting for the current draw to stop beforehand.
+                ";
+CM_ SG_ 1553 Reserved_Flags "Reserved bits for future uses.";
+CM_ SG_ 1538 Close_Contactors "
+                    Request for closing contactors. Close contactors when 1. Open them when 0.
+                    If the message does not come after 1s timeout, consider it to be an emergency
+                    situation and open contactors.
+
+                    Alternatively, ADM-CS-EVCC unit has DC contactor drivers. To use them directly
+                    instead of this CAN signal, enable them in the `/srv/config.cfg` file:
+
+                        [vehicle]
+                        dc_contactors_use_ios = true
+                ";
+CM_ SG_ 1538 Reserved_Flags "Reserved bits for future uses.";
+CM_ SG_ 1554 Current_Request "
+                    Current target sent to EVSE.
+                    Will be capped by maximum current from config file and from EVSE data.
+
+                    Alternatively, use max_current in `/srv/config.cfg` when in <<No BMS mode>>.
+                    When doing so, you should set a safe `max_charge_voltage` to terminate the
+                    charge earlier than at full pack (ie. bulk charging):
+
+                        [vehicle]
+                        no_bms = true
+                        max_current = 20
+                        max_charge_voltage = 380
+                        target_voltage = 410
+                        max_voltage = 450
+
+                    In no BMS mode, this signal will be ignored.
+
+                    NOTE: Signal is of signed data type for compatibility with future bidirectional
+                    implementations.
+                ";
+CM_ SG_ 1554 Present_Current "
+                    Measurement of current flowing in or out of the battery.
+
+                    Alternatively, this information can be obtained by using a supported CAN sensor.
+                    Declare it as such in `/srv/config.cfg`:
+
+                        [vehicle]
+                        use_can_sensor = Isabellenhutte IVT-S
+
+                    In such case, this signal will be ignored.
+                    Refer to <<CAN sensor>> documentation to know how the sensor should be wired.
+
+                    NOTE: Signal is of signed data type for compatibility with future bidirectional
+                    implementations.
+                ";
+CM_ SG_ 1555 Contactors_Closed "
+                    Report states of contactors.
+
+                    Alternatively, ADM-CS-EVCC unit has DC contactors feedback inputs.
+                    To use them directly instead of this CAN signal, enable them in
+                    the `/srv/config.cfg` file:
+
+                        [vehicle]
+                        dc_contactors_use_ios = true
+                ";
+CM_ SG_ 1555 Normal_End_of_Charge "
+                    Vehicle request a normal charge termination
+                    (user request, or soft battery voltage limit reached (eg. bulk charging)).
+
+                    Only acts on change (so you need to cycle it back to 0).
+
+                    Alternatively, you can also use the 12V input (R-3F) on ADM-CS-EVCC unit.
+                ";
+CM_ SG_ 1555 Reserved_Flags "Reserved bits for future uses.";
+CM_ SG_ 1555 Battery_Voltage "
+                    Measurement of battery pack voltage.
+
+                    Alternatively, this information can be obtained by using a supported CAN sensor.
+                    Declare it as such in `/srv/config.cfg`:
+
+                        [vehicle]
+                        use_can_sensor = Isabellenhutte IVT-S
+
+                    In such case, this signal will be ignored.
+                    Refer to <<CAN sensor>> documentation to know how the sensor should be wired.
+                ";
+CM_ SG_ 1555 Inlet_Voltage "
+                    Measurement of inlet voltage (ie. before contactors).
+
+                    Alternatively, this information can be obtained by using a supported CAN sensor.
+                    Declare it as such in `/srv/config.cfg`:
+
+                        [vehicle]
+                        use_can_sensor = Isabellenhutte IVT-S
+
+                    In such case, this signal will be ignored.
+                    Refer to <<CAN sensor>> documentation to know how the sensor should be wired.
+                ";
+CM_ SG_ 1539 CP_Duty_Cycle "Measured PWM duty cycle on the CP line.";
+CM_ SG_ 1539 CP_Top_Voltage "Measured PWM top voltage on the CP line.";
+CM_ SG_ 1539 CP_State "Measured CP state.";
+CM_ SG_ 1539 PP_Resistance "Measured resistance from PP. 2550 Ohms means disconnected.";
+CM_ SG_ 1539 Inlet_Lock_State "CCS Inlet lock state.";
+CM_ SG_ 1539 Reserved_Flags "Reserved bits for future uses.";
+CM_ SG_ 1540 DC_Contactor_Positive_Feedback "Reports the logical state of R-2E.";
+CM_ SG_ 1540 DC_Contactor_Negative_Feedback "Reports the logical state of R-2F.";
+CM_ SG_ 1540 Digital_Input1 "
+                    Reports the logical state of R-1G.
+                    Needs to be declared as monitored in `/srv/config.cfg`:
+
+                        [hardware]
+                        dig_in1 = Monitor
+                ";
+CM_ SG_ 1540 Digital_Input2 "
+                    Reports the logical state of R-2G.
+                    Needs to be declared as monitored in `/srv/config.cfg`:
+
+                        [hardware]
+                        dig_in2 = Monitor
+                ";
+CM_ SG_ 1540 Stop_Charge "
+                    Reports the logical state of R-3F (or any other input declared as Stop function).
+                ";
+CM_ SG_ 1540 Reserved_Flags "Reserved bits for future uses.";
+CM_ SG_ 1540 PTC0 "Measured temperature sensor on L-2D.";
+CM_ SG_ 1540 PTC1 "Measured temperature sensor on L-1E.";
+CM_ SG_ 1540 PTC2 "Measured temperature sensor on L-3E.";
+CM_ SG_ 1540 CPU_Temperature "Temperature reported by the CPU chip of the charge controller.";
+CM_ SG_ 1540 CAN_Sensor_Temperature "If using a CAN sensor, and it has a temperature channel.";
+
+
+BA_DEF_ SG_ "GenSigStartValue" FLOAT 0 100000000000;
+
+
+
+BA_ "GenSigStartValue" SG_ 1540 PTC0 40;
+BA_ "GenSigStartValue" SG_ 1540 PTC1 40;
+BA_ "GenSigStartValue" SG_ 1540 PTC2 40;
+BA_ "GenSigStartValue" SG_ 1540 CPU_Temperature 40;
+BA_ "GenSigStartValue" SG_ 1540 CAN_Sensor_Temperature 40;
+
+VAL_ 1536 Communication_Stage 0 "Initialising" 1 "Waiting_For_EVSE" 2 "Negotiating_Connection" 3 "Connected_With_Full_Info" 4 "Insulation_Test" 5 "Precharge" 6 "Waiting_For_Charge" 7 "Charging" 8 "Ending_Charge" 9 "Welding_Detection" 10 "Closing_Communication";
+VAL_ 1536 Protocol 0 "" 1 "CCS_PWM" 2 "CCS_DIN_70121_2012_v2" 3 "CCS_ISO_15118_2013_v2" 4 "CCS_ISO_15118_2022";
+VAL_ 1536 Pins 0 "" 1 "CCS_AC" 2 "CCS_AC_Single_Phase_Core" 3 "CCS_AC_Three_Phase_Core" 4 "CCS_DC_Core" 5 "CCS_DC_Extended";
+VAL_ 1536 RCD_Status 0 "No_Error" 1 "Error";
+VAL_ 1537 Ready_To_Deliver_Power 0 "Not_Ready" 1 "Ready";
+VAL_ 1553 Ready_To_Charge 0 "Not_Ready" 1 "Ready";
+VAL_ 1538 Close_Contactors 0 "Open" 1 "Close";
+VAL_ 1555 Contactors_Closed 0 "Open" 1 "Close";
+VAL_ 1555 Normal_End_of_Charge 0 "No_Request" 1 "Stop_Requested";
+VAL_ 1539 CP_State 0 "E_or_F" 3 "D" 6 "C" 9 "B" 12 "A";
+VAL_ 1539 Inlet_Lock_State 0 "Unlocked" 1 "Locked" 2 "Fault";
+VAL_ 1540 DC_Contactor_Positive_Feedback 0 "Open" 1 "Close";
+VAL_ 1540 DC_Contactor_Negative_Feedback 0 "Open" 1 "Close";
+VAL_ 1540 Stop_Charge 0 "No_Request" 1 "Stop_Requested";

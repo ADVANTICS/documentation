@@ -10,8 +10,8 @@ In this mode, the module converts DC power from Port A (input) to a regulated DC
 
 ```mermaid
 graph LR
-    A[DC Source (Port A) 750-950V] -->|DC Power| B[ADB-PC-DC01]
-    B -->|Isolated DC/DC Conversion| C[DC Load (Port B) 200-1500V]
+    A["DC Source (Port A) 750-950V"] -->|DC Power| B["ADB-PC-DC01"]
+    B -->|Isolated DC/DC Conversion| C["DC Load (Port B) 200-1500V"]
     B -->|CAN Control| D[System Controller]
     
     E[Voltage Monitoring] -->|Voltage Data| B
@@ -30,8 +30,8 @@ In this mode, the module converts DC power from Port B (input) to a regulated DC
 
 ```mermaid
 graph LR
-    A[DC Source (Port B) 200-1500V] -->|DC Power| B[ADB-PC-DC01]
-    B -->|Isolated DC/DC Conversion| C[DC Load (Port A) 750-950V]
+    A["DC Source (Port B) 200-1500V"] -->|DC Power| B["ADB-PC-DC01"]
+    B -->|Isolated DC/DC Conversion| C["DC Load (Port A) 750-950V"]
     B -->|CAN Control| D[System Controller]
     
     E[Voltage Monitoring] -->|Voltage Data| B

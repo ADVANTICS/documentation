@@ -1,4 +1,3 @@
-
 # Connectors and Interfaces
 
 ## AC Connectors
@@ -37,7 +36,7 @@ graph TD
     E[Grid L3] -->|Phase 3| F[AC Connector 3]
     G[PE Ground] -->|Safety Ground| H[PE Terminal]
     
-    B --> I[AC/DC Converter]
+    B --> I["AC/DC Converter"]
     D --> I
     F --> I
     H --> I
@@ -111,7 +110,7 @@ The module includes redundant CAN bus connections for robust communication:
 ```mermaid
 graph TB
     A[Module Front Panel] --> B[AC Connectors L1,L2,L3]
-    A --> C[DC Connectors +,-]
+    A --> C["DC Connectors +,-"]
     A --> D[CAN Bus 1]
     A --> E[CAN Bus 2]
     A --> F[24V Control Power]
@@ -173,11 +172,11 @@ graph TD
     F -->|L1,L2,L3| C
     F -->|L1,L2,L3| D
     
-    B -->|DC+| G[Common DC Bus+]
+    B -->|DC+| G["Common DC Bus+"]
     C -->|DC+| G
     D -->|DC+| G
     
-    B -->|DC-| H[Common DC Bus-]
+    B -->|DC-| H["Common DC Bus-"]
     C -->|DC-| H
     D -->|DC-| H
 ```

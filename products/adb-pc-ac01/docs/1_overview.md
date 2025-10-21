@@ -1,4 +1,3 @@
-
 # Overview
 
 ## Product Description
@@ -60,11 +59,11 @@ The ADB-PC-AC01 is designed as part of the modular ADB Series system, allowing f
 
 ```mermaid
 graph TB
-    A[AC Grid] -->|3-Phase AC| B[ADB-PC-AC01]
+    A[AC Grid] -->|"3-Phase AC"| B["ADB-PC-AC01"]
     B -->|DC Link| C[DC Bus]
     B -->|CAN Bus| D[Controller]
     B -->|Parallel| E[Additional Modules]
-    C -->|DC Output| F[Load/Charger]
+    C -->|DC Output| F["Load/Charger"]
     D -->|Control| B
     D -->|Control| E
 ```

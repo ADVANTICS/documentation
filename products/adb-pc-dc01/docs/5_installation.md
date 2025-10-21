@@ -101,7 +101,7 @@ graph TD
 graph TD
     A[Cooling Pump] -->|Pressurized Flow| B[Heat Exchanger]
     B -->|Cooled Fluid| C[Module Inlet]
-    C -->|Absorb Heat| D[ADB-PC-DC01]
+    C -->|Absorb Heat| D["ADB-PC-DC01"]
     D -->|Heated Fluid| E[Module Outlet]
     E -->|Return| F[Heat Exchanger]
     

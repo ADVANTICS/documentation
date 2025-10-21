@@ -28,11 +28,11 @@ The ADB-PC-DC01 features high-current DC connectors for the input side (Port A),
 
 ```mermaid
 graph TD
-    A[DC Source +] -->|DC+| B[DC Connector 1 (Port A+)]
-    C[DC Source -] -->|DC-| D[DC Connector 2 (Port A-)]
-    G[PE Ground] -->|Safety Ground| H[PE Terminal]
+    A["DC Source +"] -->|DC+| B["DC Connector 1 (Port A+)"]
+    C["DC Source -"] -->|DC-| D["DC Connector 2 (Port A-)"]
+    G["PE Ground"] -->|Safety Ground| H["PE Terminal"]
     
-    B --> I[DC/DC Converter Port A]
+    B --> I["DC/DC Converter Port A"]
     D --> I
     H --> I
 ```
@@ -59,11 +59,11 @@ The DC output side (Port B) features robust bidirectional connectors for the hig
 
 ```mermaid
 graph LR
-    A[DC Load +] -->|Port B+| B[DC Connector 1 (Port B+)]
-    C[DC Load -] -->|Port B-| D[DC Connector 2 (Port B-)]
+    A[DC Load +] -->|Port B+| B["DC Connector 1 (Port B+)"]
+    C["DC Load -"] -->|Port B-| D["DC Connector 2 (Port B-)"]
     
-    B --> E[DC/DC Converter Port B+]
-    D --> F[DC/DC Converter Port B-]
+    B --> E["DC/DC Converter Port B+"]
+    D --> F["DC/DC Converter Port B-"]
     
     G[Integrated Fuse] -->|Positive Line| B
 ```
@@ -94,15 +94,15 @@ The module includes redundant CAN bus connections for robust communication:
 
 ```mermaid
 graph TB
-    A[Module Front Panel] --> B[DC Connectors Port A (+,-)]
-    A --> C[DC Connectors Port B (+,-)]
+    A[Module Front Panel] --> B["DC Connectors Port A (+,-)"]
+    A --> C["DC Connectors Port B (+,-)"]
     A --> D[CAN Bus 1]
     A --> E[CAN Bus 2]
     A --> F[24V Control Power]
     A --> G[Hardware Interlock]
     
-    H[Connection Diagram] --> I[DC Input: 2x SurLock SLP-HIR-B]
-    H --> J[DC Output: 2x SurLock SLP-HIR-C]
+    H[Connection Diagram] --> I["DC Input: 2x SurLock SLP-HIR-B"]
+    H --> J["DC Output: 2x SurLock SLP-HIR-C"]
     H --> K[Control: 2x CAN + 1x Power]
 ```
 
@@ -148,8 +148,8 @@ graph TD
     B -->|Parallel Bus| C
     C -->|Parallel Bus| D
     
-    E[DC Source] -->|DC+| F[DC Distribution +]
-    E -->|DC-| G[DC Distribution -]
+    E[DC Source] -->|DC+| F["DC Distribution +"]
+    E -->|DC-| G["DC Distribution -"]
     
     F -->|DC+| B
     F -->|DC+| C
@@ -159,8 +159,8 @@ graph TD
     G -->|DC-| C
     G -->|DC-| D
     
-    H[DC Load] -->|DC+| I[Common DC Bus +]
-    H -->|DC-| J[Common DC Bus -]
+    H[DC Load] -->|DC+| I["Common DC Bus +"]
+    H -->|DC-| J["Common DC Bus -"]
     
     B -->|DC+| I
     C -->|DC+| I

@@ -53,24 +53,29 @@ All other trademarks mentioned in this document are the property of their respec
 
 ---
 
-## Contact Information
+## Get in Touch
 
-**Advantics SAS**  
-[https://advantics.fr](https://advantics.fr)
-Email: sales@advantics.fr
-Phone: +33 7 87 14 09 19
-
-**Technical Support**  
-
-For technical support is accessible [here](https://advantics.github.io/documentation/#/).
+- Product page: https://advantics.fr/products/spcc/  
+- Discover our portfolio: https://advantics.fr/products/  
+- Sales: sales@advantics.fr  
+- Technical Support: [Support Desk](https://advantics.atlassian.net/servicedesk/customer/portal/1)
 
 ---
 
-<div style="text-align: center; margin-top: 4rem;">
-    <p style="font-size: 0.9rem; color: #888;">
-        This document contains proprietary information of Advantics SAS.<br>
-        No part of this document may be reproduced or transmitted in any form without written permission.
-    </p>
+## Contact & Legal
+
+**Advantics SAS**  
+https://advantics.fr  
+Email: sales@advantics.fr  
+Phone: +33 7 87 14 09 19
+
+---
+
+<div style="text-align: center; margin-top: 2rem;">
+  <p style="font-size: 0.9rem; color: #888;">
+    This document contains proprietary information of Advantics SAS.<br>
+    No part of this document may be reproduced or transmitted in any form without written permission.
+  </p>
 </div>
 
 ---

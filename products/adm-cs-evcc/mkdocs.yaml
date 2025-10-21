@@ -1,0 +1,116 @@
+site_name: ADB-PC-DC01 Documentation
+site_description: Technical documentation for Advantics ADB-PC-DC01 100kW AC/DC Active Frontend
+site_url: https://documentation.advantics.fr/adb-pc-dc01
+repo_url: https://github.com/ADVANTICS/documentation
+repo_name: gh:ADVANTICS/documentation
+edit_uri: edit/material/docs/
+site_author: ADVANTICS SAS
+copyright: Copyright &copy; 2017-2025 ADVANTICS SAS
+
+# spell-checker: disable
+
+watch:
+  - "."
+use_directory_urls: false
+
+# Theme configuration
+theme:
+  name: material
+  language: en
+  logo: assets/logo.png
+  favicon: assets/logo.png
+
+  # Color scheme
+  palette:
+    - scheme: black
+      primary: black
+      accent: black
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: black
+      accent: black
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+  # Font
+  font:
+    text: Roboto
+    code: Roboto Mono
+
+  # Features
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+
+# Plugins
+plugins:
+  - search
+  - mermaid2
+  - with-pdf:
+      enabled_if_env: PDF_EXPORT
+      output_path: pdf/adb-pc-dc01-manual.pdf
+      cover_title: ADB-PC-DC01 User Manual
+      cover_subtitle: 100kW 1500V DC/DC Isolated
+      author: ADVANTICS SAS
+      custom_template_path: docs/assets
+
+# Markdown extensions
+markdown_extensions:
+  - admonition
+  # - codehilite
+  - pymdownx.highlight
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed
+  - pymdownx.details
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.arithmatex
+  - toc:
+      permalink: false
+      baselevel: 1
+  - tables
+  - attr_list
+
+# Navigation structure
+nav:
+  - "Document Information": "index.md"
+  - "Overview": "1_overview.md"
+  - "Electrical Specifications": "2_electrical_specs.md"
+  - "Connectors and Interfaces": "3_connectors_and_interfaces.md"
+  - "Operation": "4_operation.md"
+  - "Installation": "5_installation.md"
+  - "Safety and Warnings": "6_safety_and_warnings.md"
+  - "Appendix": "7_appendix.md"
+
+# Extra configurations
+extra:
+  social:
+    - icon: fontawesome/solid/house
+      link: https://advantics.fr
+    - icon: fontawesome/solid/envelope
+      link: mailto:contact@advantics.fr
+    - icon: fontawesome/solid/phone
+      link: tel:+33123456789
+
+# Custom CSS
+extra_css:
+  - css/custom.css
+
+# Extra JavaScript for Mermaid
+extra_javascript:
+  - https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js

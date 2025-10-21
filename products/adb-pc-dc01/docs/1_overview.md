@@ -61,13 +61,13 @@ The ADB-PC-DC01 is designed as part of the modular ADB Series system, allowing f
 
 ```mermaid
 graph TB
-A[DC Bus A (750-950V)] -->|DC Power| B[ADB-PC-DC01]
-B -->|Isolated DC Link| C[DC Bus B (200-1500V)]
-B -->|CAN Bus| D[Controller]
-B -->|Parallel| E[Additional Modules]
+A["DC Bus A (750–950V)"] -->|DC Power| B["ADB-PC-DC01"]
+B -->|Isolated DC Link| C["DC Bus B (200–1500V)"]
+B -->|CAN Bus| D["Controller"]
+B -->|Parallel| E["Additional Modules"]
 D -->|Control| B
 D -->|Control| E
-C -->|DC Output| F[Load/Charger]
+C -->|DC Output| F["Load/Charger"]
 ```
 
 ### Key Architectural Features:

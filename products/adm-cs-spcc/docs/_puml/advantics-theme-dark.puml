@@ -1,0 +1,64 @@
+' Advantics PlantUML Dark Theme
+' Save as: docs/_puml/advantics-theme-dark.puml
+
+!define ADVANTICS_GREEN #00A99D
+!define ADVANTICS_DARK_BLUE #1a365d
+!define ADVANTICS_LIGHT_BLUE #2d5aa0
+!define ADVANTICS_GRAY #a0aec0
+!define ADVANTICS_LIGHT_GRAY #2d3748
+
+' General diagram style
+skinparam backgroundColor #1a1a1a
+skinparam shadowing false
+skinparam handwritten false
+
+' Fonts
+skinparam defaultFontName Roboto
+skinparam defaultFontSize 13
+skinparam defaultTextAlignment center
+
+' Lines and borders
+skinparam ArrowColor ADVANTICS_GREEN
+skinparam ArrowThickness 2
+
+' Participants, classes, and boxes
+skinparam participant {
+  BackgroundColor #2d3748
+  BorderColor ADVANTICS_GREEN
+  FontColor #ffffff
+}
+
+skinparam sequence {
+  LifeLineBorderColor ADVANTICS_GREEN
+  LifeLineBackgroundColor #1a1a1a
+  ParticipantBorderThickness 1
+  BoxLineColor ADVANTICS_GREEN
+}
+
+' Notes
+skinparam note {
+  BackgroundColor #2d3748
+  BorderColor ADVANTICS_LIGHT_BLUE
+  FontColor #e2e8f0
+}
+
+' Titles and headers
+skinparam title {
+  FontColor ADVANTICS_GREEN
+  FontSize 16
+  FontStyle bold
+}
+
+' Groups and frames
+skinparam package {
+  BackgroundColor #2d3748
+  BorderColor ADVANTICS_LIGHT_BLUE
+  FontColor #ffffff
+}
+
+' Legends and text
+skinparam legend {
+  BackgroundColor #2d3748
+  BorderColor ADVANTICS_LIGHT_BLUE
+  FontColor #cbd5e0
+}

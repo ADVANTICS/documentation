@@ -1,0 +1,714 @@
+<?xml version="1.0" ?>
+<NetworkDefinition xmlns="http://kayak.2codeornot2code.org/1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="KCD_Definition.xsd">
+    <Document name="Advantics Generic PEV" version="2.0" author="[...]" company="Advantics" date="2022-11-17"/>
+
+    <Node id="0" name="Advantics_Charge_Controller"/>
+    <Node id="1" name="Vehicle"/>
+
+    <Bus name="AG_PEV" baudrate="500000">
+        <Message id="0x600" length="6" name="EVSE_Information" interval="100">
+            <Notes>Information about the EVSE (AC or DC source), when available.</Notes>
+
+            <Producer>
+                <NodeRef id="0"/>
+            </Producer>
+
+            <Signal name="Communication_Stage" offset="0" length="8">
+                <Notes>
+                    Current internal state of the charge controller, reflecting communication stage.
+
+                    Initialising:: Controller's applications are starting up.
+                    Waiting_For_EVSE:: Controller is idle and ready for a plug-in.
+                    Negotiating_Connection:: Controller is plugged to a charger and the connection is
+                        being initialised. Important charge information are exchanged.
+                    Connected_With_Full_Info:: All charge information from the EVSE were retrieved
+                        and a charge session can be considered to be properly started.
+                    Insulation_Test:: Insulation of charge cable is being tested by charger.
+                    Precharge:: Charger is matching its output voltage to present voltage of the
+                        battery.
+                    Waiting_For_Charge:: PEV is about to begin the actual charge.
+                    Charging:: Main charging loop going on.
+                    Ending_Charge:: A normal charge stop condition happened and the PEV is exiting
+                        the charging loop.
+                    Welding_Detection:: PEV is testing if its contactors are welded.
+                    Closing_Communication:: PEV can unplug and we are reinitialising in order to
+                        then go back to __Waiting_For_EVSE__.
+                </Notes>
+                <LabelSet>
+                    <Label name="Initialising" value="0" />
+                    <Label name="Waiting_For_EVSE" value="1" />
+                    <Label name="Negotiating_Connection" value="2" />
+                    <Label name="Connected_With_Full_Info" value="3" />
+                    <Label name="Insulation_Test" value="4" />
+                    <Label name="Precharge" value="5" />
+                    <Label name="Waiting_For_Charge" value="6" />
+                    <Label name="Charging" value="7" />
+                    <Label name="Ending_Charge" value="8" />
+                    <Label name="Welding_Detection" value="9" />
+                    <Label name="Closing_Communication" value="10" />
+                </LabelSet>
+            </Signal>
+
+            <Signal name="Protocol" offset="8" length="8">
+                <Notes>The charging protocol EVSE is using.</Notes>
+                <LabelSet>
+                    <Label name="" value="0" />
+                    <Label name="CCS_PWM" value="1" />
+                    <Label name="CCS_DIN_70121_2012_v2" value="2" />
+                    <Label name="CCS_ISO_15118_2013_v2" value="3" />
+                    <Label name="CCS_ISO_15118_2022" value="4" />
+                </LabelSet>
+            </Signal>
+
+            <Signal name="Pins" offset="16" length="8">
+                <Notes>Pins on which current is supplied. __CCS_AC__ corresponds to any AC pins.</Notes>
+                <LabelSet>
+                    <Label name="" value="0" />
+                    <Label name="CCS_AC" value="1" />
+                    <Label name="CCS_AC_Single_Phase_Core" value="2" />
+                    <Label name="CCS_AC_Three_Phase_Core" value="3" />
+                    <Label name="CCS_DC_Core" value="4" />
+                    <Label name="CCS_DC_Extended" value="5" />
+                    <Label name="MCS" value="6" />
+                </LabelSet>
+            </Signal>
+
+            <Signal name="Max_Current" offset="24" length="16" endianess="little">
+                <Notes>
+                    Maximum current the on-board charger (AC) or BMS (DC) is allowed to draw.
+
+                    In AC, it is defined as the minimum between EVSE max current
+                    (ie. CP PWM duty cycle) and cable max current (ie. PP resistance).
+
+                    In DC it corresponds to HLC data.
+                </Notes>
+                <Value type="signed" slope="1" min="-32768" max="32767" unit="Amps"/>
+            </Signal>
+
+            <Signal name="RCD_Status" offset="40" length="1">
+                <Notes>
+                    Status of EVSE Residual Current Device (only available in HLC mode, 0 otherwise).
+                    For information only.
+                </Notes>
+                <LabelSet>
+                    <Label name="No_Error" value="0" />
+                    <Label name="Error" value="1" />
+                </LabelSet>
+            </Signal>
+
+            <Signal name="Reserved_Flags" offset="41" length="7">
+                <Notes>Reserved bits for future uses.</Notes>
+            </Signal>
+        </Message>
+
+        <Message id="0x610" length="3" name="EV_Information" interval="100">
+            <Notes>Information provided by the vehicle.</Notes>
+
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+
+            <Signal name="State_of_Charge" offset="0" length="8">
+                <Notes>Battery SoC in percent (only used in HLC mode).</Notes>
+                <Value type="unsigned" slope="1" unit="%" min="0" max="100" />
+            </Signal>
+
+            <Signal name="Energy_Capacity" offset="8" length="16">
+                <Notes>
+                The energy capacity of the EV battery.
+                In case this value is 0 we default to the config file entry `energy_capacity`.
+                </Notes>
+                <Value type="unsigned" slope="0.1" unit="kWh" min="0" max="6553"/>
+            </Signal>
+
+        </Message>
+
+        <Message id="0x601" length="1" name="AC_Control" interval="100">
+            <Notes>AC charging specific control (from charge controller to on-board charger).</Notes>
+
+            <Producer>
+                <NodeRef id="0"/>
+            </Producer>
+
+            <Signal name="Ready_To_Deliver_Power" offset="0" length="1">
+                <Notes><![CDATA[
+                    EVSE is in position of delivering power.
+
+                    WARNING: Does not mean that power is currently being delivered!
+
+                    When going to __Ready__, the on-board charger should set its
+                    <<AC_Status.Ready_To_Charge>> flag, and THEN start to draw current.
+
+                    When going to __Not_Ready__ it means the AC source request a normal stop.
+                    On-board charger should stop drawing current and THEN set its
+                    <<AC_Status.Ready_To_Charge>> flag to 0.
+                ]]></Notes>
+                <LabelSet>
+                    <Label name="Not_Ready" value="0" />
+                    <Label name="Ready" value="1" />
+                </LabelSet>
+            </Signal>
+
+            <Signal name="Reserved_Flags" offset="1" length="7">
+                <Notes>Reserved bits for future uses.</Notes>
+            </Signal>
+        </Message>
+
+        <Message id="0x611" length="1" name="AC_Status" interval="100">
+            <Notes>AC charging specific status (from on-board charger to charge controller).</Notes>
+
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+
+            <Signal name="Ready_To_Charge" offset="0" length="1">
+                <Notes>
+                    On-board charger is ready to charge (corresponds to asserting CP state C/D).
+                    You should set it to 1 before starting to draw current.
+                    And set it to 0 after current draw stops.
+
+                    Only exception is in case of emergency stop, where you can set it to 0 without
+                    waiting for the current draw to stop beforehand.
+                </Notes>
+                <LabelSet>
+                    <Label name="Not_Ready" value="0" />
+                    <Label name="Ready" value="1" />
+                </LabelSet>
+            </Signal>
+
+            <Signal name="Reserved_Flags" offset="1" length="7">
+                <Notes>Reserved bits for future uses.</Notes>
+            </Signal>
+        </Message>
+
+        <Message id="0x602" length="1" name="DC_Control" interval="100">
+            <Notes>DC charging specific control (from charge controller to BMS).</Notes>
+
+            <Producer>
+                <NodeRef id="0"/>
+            </Producer>
+
+            <Signal name="Close_Contactors" offset="0" length="1">
+                <Notes>
+                    Request for closing contactors. Close contactors when 1. Open them when 0.
+                    If the message does not come after 1s timeout, consider it to be an emergency
+                    situation and open contactors.
+
+                    Alternatively, ADM-CS-EVCC unit has DC contactor drivers. To use them directly
+                    instead of this CAN signal, enable them in the `/srv/config.cfg` file:
+
+                        [vehicle]
+                        dc_contactors_use_ios = true
+                </Notes>
+                <LabelSet>
+                    <Label name="Open" value="0" />
+                    <Label name="Close" value="1" />
+                </LabelSet>
+            </Signal>
+
+            <Signal name="Reserved_Flags" offset="1" length="7">
+                <Notes>Reserved bits for future uses.</Notes>
+            </Signal>
+        </Message>
+
+        <Message id="0x612" length="8" name="DC_Status1" interval="100">
+            <Notes>DC charging specific status (from BMS to charge controller), message 1.</Notes>
+
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+
+            <Signal name="Max_Charge_Current" offset="0" length="16" endianess="little">
+                <Notes><![CDATA[
+                    Used as the target current sent to EVSE except for power transfer with CCS ISO15118-20 Dynamic mode,
+                    this signal will be used as the EV Maximum charge current. Note that negative values will be
+                    disregarded in CCS ISO 15118-20 Dynamic mode.
+
+                    This signal can be dynamically updated by the BMS to limit the charge current
+
+                    Will be capped by maximum current from config file and from EVSE data.
+
+                    When in <<No BMS mode>>, the target current will be set to the config file
+                    entry "max_current". When doing so, you should set a safe `max_charge_voltage` to terminate the
+                    charge earlier than at full pack (ie. bulk charging):
+
+                        [vehicle]
+                        no_bms = true
+                        max_current = 20
+                        max_charge_voltage = 380
+                        target_voltage = 410
+                        max_voltage = 450
+
+                    In no BMS mode, this signal will be ignored.
+
+                    NOTE: Signal is of signed data type for compatibility with future bidirectional
+                    implementations.
+                ]]></Notes>
+                <Value type="signed" slope="1" min="-32768" max="32767" unit="Amps"/>
+            </Signal>
+
+            <Signal name="Present_Current" offset="16" length="16" endianess="little">
+                <Notes><![CDATA[
+                    Measurement of current flowing in or out of the battery.
+
+                    Alternatively, this information can be obtained by using a supported CAN sensor.
+                    Declare it as such in `/srv/config.cfg`:
+
+                        [vehicle]
+                        use_can_sensor = Isabellenhutte IVT-S
+
+                    In such case, this signal will be ignored.
+                    Refer to <<CAN sensor>> documentation to know how the sensor should be wired.
+
+                    NOTE: Signal is of signed data type for compatibility with future bidirectional
+                    implementations.
+                ]]></Notes>
+                <Value type="signed" slope="1" unit="Amps" min="-32768" max="32767"/>
+            </Signal>
+
+            <Signal name="Max_Discharge_Current" offset="32" length="16" endianess="little">
+                <Notes><![CDATA[
+                    Only taken into account in CCS ISO15118-20 Dynamic mode.
+                    This signal can be used to dynamically update the EV Maximum Discharge current.
+
+                    This signal can be dynamically updated by the BMS to limit the discharge current
+
+                    Note that negative values will be disregarded.
+                    Will be capped by max_discharge_current from config file.
+                ]]></Notes>
+                <Value type="unsigned" slope="1" unit="Amps" min="0" max="65535"/>
+            </Signal>
+        </Message>
+
+        <Message id="0x613" length="5" name="DC_Status2" interval="100">
+            <Notes>DC charging specific status (from BMS to charge controller), message 2.</Notes>
+
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+
+            <Signal name="Contactors_Closed" offset="0" length="1">
+                <Notes>
+                    Report states of contactors.
+
+                    Alternatively, ADM-CS-EVCC unit has DC contactors feedback inputs.
+                    To use them directly instead of this CAN signal, enable them in
+                    the `/srv/config.cfg` file:
+
+                        [vehicle]
+                        dc_contactors_use_ios = true
+                </Notes>
+                <LabelSet>
+                    <Label name="Open" value="0" />
+                    <Label name="Close" value="1" />
+                </LabelSet>
+            </Signal>
+
+            <Signal name="Normal_End_of_Charge" offset="1" length="1">
+                <Notes>
+                    Vehicle request a normal charge termination
+                    (user request, or soft battery voltage limit reached (eg. bulk charging)).
+
+                    Only acts on change (so you need to cycle it back to 0).
+
+                    Alternatively, you can also use the 12V input (R-3F) on ADM-CS-EVCC unit.
+                </Notes>
+                <LabelSet>
+                    <Label name="No_Request" value="0" />
+                    <Label name="Stop_Requested" value="1" />
+                </LabelSet>
+            </Signal>
+
+            <Signal name="Emergency_Stop" offset="2" length="1">
+                <Notes>
+                    Vehicle request an emergency charge termination
+                    Only acts on change (so you need to cycle it back to 0).
+                </Notes>
+                <LabelSet>
+                    <Label name="No_Request" value="0" />
+                    <Label name="Emergency_Stop_Requested" value="1" />
+                </LabelSet>
+            </Signal>
+
+
+            <Signal name="Reserved_Flags" offset="3" length="5">
+                <Notes>Reserved bits for future uses.</Notes>
+            </Signal>
+
+            <Signal name="Battery_Voltage" offset="8" length="16" endianess="little">
+                <Notes><![CDATA[
+                    Measurement of battery pack voltage.
+
+                    Alternatively, this information can be obtained by using a supported CAN sensor.
+                    Declare it as such in `/srv/config.cfg`:
+
+                        [vehicle]
+                        use_can_sensor = Isabellenhutte IVT-S
+
+                    In such case, this signal will be ignored.
+                    Refer to <<CAN sensor>> documentation to know how the sensor should be wired.
+                ]]></Notes>
+                <Value type="unsigned" slope="0.1" unit="Volts" min="0" max="6553"/>
+            </Signal>
+
+            <Signal name="Inlet_Voltage" offset="24" length="16" endianess="little">
+                <Notes><![CDATA[
+                    Measurement of inlet voltage (ie. before contactors).
+
+                    Alternatively, this information can be obtained by using a supported CAN sensor.
+                    Declare it as such in `/srv/config.cfg`:
+
+                        [vehicle]
+                        use_can_sensor = Isabellenhutte IVT-S
+
+                    In such case, this signal will be ignored.
+                    Refer to <<CAN sensor>> documentation to know how the sensor should be wired.
+                ]]></Notes>
+                <Value type="unsigned" slope="0.1" unit="Volts" min="0" max="6553"/>
+            </Signal>
+        </Message>
+
+        <Message id="0x618" length="8" name="EV_Status" interval="100">
+            <Notes>Used to report the status of the EV (from BMS to charge controller)</Notes>
+
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+
+            <Signal name="HV_Preparing_Hold_Off" offset="0" length="1">
+                <Notes>
+                Allows the vehicle to delay the transition to powered states (starting from the insulation test) until the HV system is ready.
+
+                Use cases:
+                - Make sure the vehicle IMD is disabled before sending cablecheck request.
+                - Wait while preparing the HV system for power.
+
+                This signal should be set to 0 if the vehicle is ready for power.
+                When the charger is plugged-in and this signal is set to 1, the session will block at Communication_Stage.Connected_With_Full_Info state until this signal is set to 0 (and the inlet is locked).
+
+                0=False (Hold off Not Requested), 1=True (Hold off)
+
+                Note: limited by wait_hv_ready_timeout_ms config entry. Default is 40 seconds (defined by the standards):
+                    [ccs]
+                    wait_hv_ready_timeout_ms = 40000
+
+                </Notes>
+                <LabelSet>
+                    <Label name="Hold_Off_Not_Requested" value="0" />
+                    <Label name="Hold_Off" value="1" />
+                </LabelSet>
+            </Signal>
+
+            <Signal name="Reserved_Flags" offset="1" length="63">
+                <Notes>Reserved bits for future uses.</Notes>
+            </Signal>
+        </Message>
+
+        <Message id="0x614" length="6" name="EV_Energy_Request" interval="100">
+            <Notes>
+            ISO 15118-20 specific message.
+            The energy of the EV corresponding to the SOC specified by the owner.
+            The energy request is represented by an energy range including a target energy request.
+
+            Energy requests should satisfy the following relationship:
+            Minimum_Energy_Request ≤ Target_Energy_Request ≤ Maximum_Energy_Request
+            </Notes>
+
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+
+            <Signal name="Target_Energy_Request" offset="0" length="16">
+                <Notes>
+                The energy of the EV corresponding to the target SOC.
+                </Notes>
+                <Value type="unsigned" slope="0.1" unit="kWh" min="0" max="6553"/>
+            </Signal>
+
+            <Signal name="Maximum_Energy_Request" offset="16" length="16">
+                <Notes>
+                The energy of the EV corresponding the to maximum SOC.
+
+                In case this message is not sent we default to the config file entry `max_energy_request`.
+
+                Will be capped by Energy_Capacity.
+                </Notes>
+                <Value type="unsigned" slope="0.1" unit="kWh" min="0" max="6553"/>
+            </Signal>
+
+            <Signal name="Minimum_Energy_Request" offset="32" length="16">
+                <Notes>
+                The energy of the EV corresponding to the minimum SOC.
+                In case this message is not sent we default to the config file entry `min_energy_request`.
+                </Notes>
+                <Value type="unsigned" slope="0.1" unit="kWh" min="0" max="6553"/>
+            </Signal>
+        </Message>
+
+        <Message id="0x615" length="4" name="EV_V2X_Energy_Request" interval="100">
+            <Notes>
+            ISO 15118-20 specific message. (Optional)
+            Indicates a preferred operational V2X range for bidirectional cycling.
+            V2X energy requests should satisfy the following relationships:
+                Minimum_Energy_Request ≤ Minimum_V2X_Energy_Request
+                Maximum_V2X_Energy_Request ≤ Maximum_Energy_Request
+            </Notes>
+
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+
+            <Signal name="Minimum_V2X_Energy_Request" offset="0" length="16">
+                <Notes>The minimum energy level for the bidirectional cycling activity range.</Notes>
+                <Value type="unsigned" slope="0.1" unit="kWh" min="0" max="6553"/>
+            </Signal>
+
+            <Signal name="Maximum_V2X_Energy_Request" offset="16" length="16">
+                <Notes>The maximum energy level for the bidirectional cycling activity range.</Notes>
+                <Value type="unsigned" slope="0.1" unit="kWh" min="0" max="6553"/>
+            </Signal>
+        </Message>
+
+        <Message id="0x616" length="4" name="EV_Extra_BPT_Information" interval="100">
+            <Notes>
+            ISO 15118-20 specific message.
+            EV extra bidirectional power transfer information.
+            </Notes>
+
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+
+            <Signal name="Departure_Time" offset="0" length="32">
+                <Notes>
+                Indicate when the EV intends to finish the charging process
+                The offset in seconds from the point in time of sending this message.
+                </Notes>
+                <Value type="unsigned" unit="Seconds" min="0" max="4294967296"/>
+            </Signal>
+
+        </Message>
+
+        <Message id="0x603" length="6" name="CCS_Extra_Information" interval="100">
+            <Notes>Extra information from CCS (for information only).</Notes>
+
+            <Producer>
+                <NodeRef id="0"/>
+            </Producer>
+
+            <Signal name="CP_Duty_Cycle" offset="0" length="16" endianess="little">
+                <Notes>Measured PWM duty cycle on the CP line.</Notes>
+                <Value type="unsigned" slope="0.1" min="0" max="100" unit="%"/>
+            </Signal>
+
+            <Signal name="CP_Top_Voltage" offset="16" length="8">
+                <Notes>Measured PWM top voltage on the CP line.</Notes>
+                <Value slope="0.1" unit="Volts"/>
+            </Signal>
+
+            <Signal name="CP_State" offset="24" length="8">
+                <Notes>Measured CP state.</Notes>
+                <LabelSet>
+                    <Label name="E_or_F" value="0" />
+                    <Label name="D" value="3" />
+                    <Label name="C" value="6" />
+                    <Label name="B" value="9" />
+                    <Label name="A" value="12" />
+                </LabelSet>
+            </Signal>
+
+            <Signal name="PP_Resistance" offset="32" length="8">
+                <Notes>Measured resistance from PP. 2550 Ohms means disconnected.</Notes>
+                <Value type="unsigned" slope="10" min="0" max="2550" unit="Ohms"/>
+            </Signal>
+
+            <Signal name="Inlet_Lock_State" offset="40" length="2">
+                <Notes>CCS Inlet lock state.</Notes>
+                <LabelSet>
+                    <Label name="Unlocked" value="0" />
+                    <Label name="Locked" value="1" />
+                    <Label name="Fault" value="2" />
+                </LabelSet>
+            </Signal>
+
+            <Signal name="Reserved_Flags" offset="42" length="6">
+                <Notes>Reserved bits for future uses.</Notes>
+            </Signal>
+        </Message>
+
+        <Message id="0x617" length="8" name="ADM_CS_EVCC_MEVC_Outputs" interval="1000">
+            <Notes>
+                Controller (ADM-CS-EVCC and ADM-CS-MEVC hardware variant) has various outputs that
+                can be controlled through this message.
+            </Notes>
+
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+
+            <Signal name="Digital_Output1" offset="0" length="1">
+                <Notes>
+                    Sets the logical state of DIG_OUT1.
+                    Needs to be declared as monitored in `/srv/config.cfg`:
+
+                        [hardware]
+                        dig_out1 = CAN_Controlled
+                </Notes>
+                <Value type="unsigned" slope="1" min="0" max="1" />
+            </Signal>
+
+            <Signal name="Digital_Output2" offset="1" length="1">
+                <Notes>
+                    Reports the logical state of DIG_OUT2.
+                    Needs to be declared as monitored in `/srv/config.cfg`:
+
+                        [hardware]
+                        dig_out2 = CAN_Controlled
+                </Notes>
+                <Value type="unsigned" slope="1" min="0" max="1" />
+            </Signal>
+
+            <Signal name="Digital_Output3" offset="2" length="1">
+                <Notes>
+                    Reports the logical state of DIG_OUT3.
+                    Needs to be declared as monitored in `/srv/config.cfg`:
+
+                        [hardware]
+                        dig_out3 = CAN_Controlled
+                </Notes>
+                <Value type="unsigned" slope="1" min="0" max="1" />
+            </Signal>
+
+            <Signal name="Reserved" offset="3" length="37">
+                <Notes>Padding bits between digital outputs and leds.</Notes>
+            </Signal>
+
+            <Signal name="Led1" offset="40" length="8">
+                <Notes>
+                    Sets the brightness of LED1 (3C1) in a scale from 1 to 100. 
+                    Greater values than 100 will be treated as max brigthness.
+                    Needs to be declared as monitored in `/srv/config.cfg`:
+
+                    [hardware]
+                    led1 = CAN_Controlled
+                </Notes>
+                <Value type="unsigned" slope="1" min="0" max="255"/>
+            </Signal>
+
+            <Signal name="Led2" offset="48" length="8">
+                <Notes>
+                    Sets the brightness of LED2 (3C2) in a scale from 1 to 100.
+                    Greater values than 100 will be treated as max brigthness.
+                    Needs to be declared as monitored in `/srv/config.cfg`:
+
+                    [hardware]
+                    led2 = CAN_Controlled
+                </Notes>
+                <Value type="unsigned" slope="1" min="0" max="255"/>
+            </Signal>
+
+            <Signal name="Led3" offset="56" length="8">
+                <Notes>
+                    Sets the brightness of LED3 (3C3) in a scale from 1 to 100.
+                    Greater values than 100 will be treated as max brigthness.
+                    Needs to be declared as monitored in `/srv/config.cfg`:
+
+                    [hardware]
+                    led3 = CAN_Controlled
+                </Notes>
+                <Value type="unsigned" slope="1" min="0" max="255"/>
+            </Signal>
+        </Message>
+
+        <Message id="0x604" length="6" name="ADM_CS_EVCC_Inputs" interval="1000">
+            <Notes>
+                Controller (ADM-CS-EVCC hardware variant) is reporting various information
+                about its inputs. It is sent every seconds (for temperature channels).
+                Or on change for other digital inputs.
+            </Notes>
+
+            <Producer>
+                <NodeRef id="0"/>
+            </Producer>
+
+            <Signal name="DC_Contactor_Positive_Feedback" offset="0" length="1">
+                <Notes>Reports the logical state of R-2E.</Notes>
+                <LabelSet>
+                    <Label name="Open" value="0" />
+                    <Label name="Close" value="1" />
+                </LabelSet>
+            </Signal>
+
+            <Signal name="DC_Contactor_Negative_Feedback" offset="1" length="1">
+                <Notes>Reports the logical state of R-2F.</Notes>
+                <LabelSet>
+                    <Label name="Open" value="0" />
+                    <Label name="Close" value="1" />
+                </LabelSet>
+            </Signal>
+
+            <Signal name="Digital_Input1" offset="2" length="1">
+                <Notes>
+                    Reports the logical state of R-1G.
+                    Needs to be declared as monitored in `/srv/config.cfg`:
+
+                        [hardware]
+                        dig_in1 = Monitor
+                </Notes>
+                <Value type="unsigned" slope="1" min="0" max="1" />
+            </Signal>
+
+            <Signal name="Digital_Input2" offset="3" length="1">
+                <Notes>
+                    Reports the logical state of R-2G.
+                    Needs to be declared as monitored in `/srv/config.cfg`:
+
+                        [hardware]
+                        dig_in2 = Monitor
+                </Notes>
+                <Value type="unsigned" slope="1" min="0" max="1" />
+            </Signal>
+
+            <Signal name="Stop_Charge" offset="4" length="1">
+                <Notes>
+                    Reports the logical state of R-3F (or any other input declared as Stop function).
+                </Notes>
+                <LabelSet>
+                    <Label name="No_Request" value="0" />
+                    <Label name="Stop_Requested" value="1" />
+                </LabelSet>
+            </Signal>
+
+            <Signal name="Reserved_Flags" offset="5" length="3">
+                <Notes>Reserved bits for future uses.</Notes>
+            </Signal>
+
+            <Signal name="PTC0" offset="8" length="8">
+                <Notes>Measured temperature sensor on L-2D.</Notes>
+                <Value type="unsigned" slope="1" intercept="-40" min="-40" max="215" unit="°C"/>
+            </Signal>
+
+            <Signal name="PTC1" offset="16" length="8">
+                <Notes>Measured temperature sensor on L-1E.</Notes>
+                <Value type="unsigned" slope="1" intercept="-40" min="-40" max="215" unit="°C"/>
+            </Signal>
+
+            <Signal name="PTC2" offset="24" length="8">
+                <Notes>Measured temperature sensor on L-3E.</Notes>
+                <Value type="unsigned" slope="1" intercept="-40" min="-40" max="215" unit="°C"/>
+            </Signal>
+
+            <Signal name="CPU_Temperature" offset="32" length="8">
+                <Notes>Temperature reported by the CPU chip of the charge controller.</Notes>
+                <Value type="unsigned" slope="1" intercept="-40" min="-40" max="215" unit="°C"/>
+            </Signal>
+
+            <Signal name="CAN_Sensor_Temperature" offset="40" length="8">
+                <Notes>If using a CAN sensor, and it has a temperature channel.</Notes>
+                <Value type="unsigned" slope="1" intercept="-40" min="-40" max="215" unit="°C"/>
+            </Signal>
+        </Message>
+    </Bus>
+</NetworkDefinition>
