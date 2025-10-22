@@ -116,13 +116,16 @@ markdown_extensions:
 # Navigation structure
 nav:
   - "Document Information": "index.md"
-  - "Overview": "1_overview.md"
-  - "Electrical Specifications": "2_electrical_specs.md"
-  - "Connectors and Interfaces": "3_connectors_and_interfaces.md"
-  - "Operation": "4_operation.md"
-  - "Installation": "5_installation.md"
-  - "Safety and Warnings": "6_safety_and_warnings.md"
-  - "Appendix": "7_appendix.md"
+  - "Overview": "overview.md"
+  - "Electrical Specifications": "electrical_specs.md"
+  - "Mechanical Specifications": "mechanical_specs.md"
+  - "CAN Bus Interface": "can_bus_interface.md"
+  - "Operating Modes": "operation.md"
+  - "Installation Guides": "installation.md"
+  - "Maintenance and Troubleshooting": "maintenance_and_troubleshooting.md"
+  - "Safety Considerations": "safety.md"
+  - "Tutorials": "tutorials.md"
+  - "Appendix": "appendix.md"
 
 # Extra configurations
 extra:

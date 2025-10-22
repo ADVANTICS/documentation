@@ -73,58 +73,7 @@
 | **1** | +24V | 20-28V DC | Up to 3A |
 | **2** | GND | 0V | Return |
 
-## CAN Bus Message Specification
 
-### Control Messages
-
-#### Power Control Message (ID: 0x100)
-```
-Byte 0-1: Active Power Setpoint (W)
-Byte 2-3: Reactive Power Setpoint (VAR) - Not applicable for DC/DC, set to 0
-Byte 4: Control Flags
-    Bit 0: Enable/Disable
-    Bit 1: Power Flow Direction (0=Port A to B, 1=Port B to A)
-    Bit 2: Reserved
-    Bit 3: Emergency Stop
-Byte 5-7: Reserved
-```
-
-#### Mode Control Message (ID: 0x101)
-```
-Byte 0: Operating Mode
-    0x00: Standby
-    0x01: Port A to B Conversion
-    0x02: Port B to A Conversion
-    0x03: Bidirectional Mode
-    0x04: Fault
-    0x05: Maintenance
-Byte 1-7: Reserved
-```
-
-### Status Messages
-
-#### Operational Status (ID: 0x200)
-```
-Byte 0: Operating State
-    0x00: Off
-    0x01: Initialized
-    0x02: Ready
-    0x03: Operating
-    0x04: Fault
-    0x05: Maintenance
-Byte 1: Fault Flags
-Byte 2: Warning Flags
-Byte 3: Control Flags
-Byte 4-7: Reserved
-```
-
-#### Electrical Data (ID: 0x201)
-```
-Byte 0-1: DC Voltage Port A (0.1V resolution)
-Byte 2-3: DC Current Port A (0.1A resolution)
-Byte 4-5: DC Voltage Port B (0.1V resolution)
-Byte 6-7: DC Current Port B (0.1A resolution)
-```
 
 ## Fault Codes
 
@@ -157,61 +106,6 @@ Byte 6-7: DC Current Port B (0.1A resolution)
 | **0x0202** | Current Limiting | Overcurrent condition | Current limit |
 | **0x0203** | Low Efficiency | Efficiency below normal | Power limiting |
 
-## Maintenance Schedule
-
-### Routine Maintenance Tasks
-
-| **Frequency** | **Task** | **Procedure** | **Tools Required** |
-|---------------|----------|---------------|-------------------|
-| **Daily** | Visual Inspection | Check indicators and displays | None |
-| **Weekly** | Fault Check | Review fault logs and alarms | CAN interface |
-| **Monthly** | Connection Check | Verify torque on connections | Torque wrench |
-| **Quarterly** | Performance Check | Test efficiency and operation | Power analyzer |
-| **Annually** | Complete Inspection | Comprehensive system check | Full test kit |
-
-### Maintenance Records
-
-Maintain records of:
-- Maintenance activities performed
-- Test results and measurements
-- Parts replaced or repaired
-- Observations and recommendations
-- Technician signature and date
-
-## Troubleshooting Guide
-
-### Common Issues
-
-#### Module Will Not Start
-
-| **Symptom** | **Possible Cause** | **Solution** |
-|-------------|-------------------|--------------|
-| No power indication | No control power | Check 24V supply |
-| Fault LED on | Critical fault present | Check fault codes |
-| Communication error | CAN bus problem | Check CAN connections |
-
-#### Poor Performance
-
-| **Symptom** | **Possible Cause** | **Solution** |
-|-------------|-------------------|--------------|
-| Low efficiency | High temperature | Check cooling system |
-| Power limiting | Temperature derating | Improve cooling |
-
-### Diagnostic Procedures
-
-1. **Check Fault Codes**
-   - Read fault status via CAN bus
-   - Clear non-critical faults
-   - Investigate root cause
-
-2. **Verify Electrical Parameters**
-   - Measure DC voltages on both Port A and Port B
-   - Verify current measurements on both Port A and Port B
-
-3. **Check Environmental Conditions**
-   - Verify temperature readings
-   - Check cooling system operation
-   - Verify airflow and clearances
 
 ## Spare Parts List
 
@@ -232,27 +126,6 @@ Maintain records of:
 | **ADB-FILTER** | Cooling System Filter | Annual |
 | **ADB-SEAL-KIT** | Connector Seal Kit | As needed |
 
-## Technical Support
-
-### Contact Information
-
-**Advantics Technical Support**  
-Email: support@advantics.fr  
-Phone: +33 1 23 45 67 90  
-Emergency: +33 1 23 45 67 91
-
-**Hours of Operation**  
-Monday - Friday: 8:00 AM - 6:00 PM CET  
-Emergency Support: 24/7
-
-### Support Services
-
-- Technical consultation
-- Troubleshooting assistance
-- Remote diagnostics
-- On-site service
-- Training programs
-- Software updates
 
 ## Warranty Information
 

@@ -1,13 +1,9 @@
-# Safety and Warnings
-
-## General Safety Information
-
-### Safety First
+# Safety Considerations
 
 !!! danger "Critical Safety Notice"
     This equipment operates with dangerous voltages and currents. Improper installation, operation, or maintenance can result in serious injury or death. Only qualified personnel should install, operate, or service this equipment.
 
-### Qualified Personnel
+## Qualified Personnel
 
 Installation, operation, and maintenance of the ADB-PC-DC01 must be performed by personnel who:
 
@@ -17,18 +13,9 @@ Installation, operation, and maintenance of the ADB-PC-DC01 must be performed by
 - Have appropriate personal protective equipment (PPE).
 - Understand lockout/tagout procedures.
 
-### Safety Standards
-
-This equipment is designed to comply with:
-- IEC 61851-1 (Electric vehicle conductive charging system)
-- IEC 62477-1 (Safety requirements for power electronic converter systems)
-- UL 2202 (Electric vehicle charging system equipment)
-- NFPA 70 (National Electrical Code)
-- Local electrical codes and regulations
-
 ## Electrical Safety
 
-### High Voltage Hazards
+#### High Voltage Hazards
 
 !!! warning "Extreme High Voltage Danger"
     The ADB-PC-DC01 operates with DC voltages up to 1500V. These voltages can cause severe electrical shock, burns, or death.
@@ -62,30 +49,30 @@ This equipment is designed to comply with:
    - Use proper test equipment.
    - Maintain safe working distances.
 
-### Arc Flash Hazards
+#### Arc Flash Hazards
 
 !!! danger "Arc Flash Risk"
     High fault currents can create arc flash hazards with temperatures exceeding 19,000°C. Proper arc flash analysis and PPE are required.
 
-#### Arc Flash Prevention
+**Arc Flash Prevention**
 
 - Never work on energized equipment.
 - Use proper switching procedures.
 - Maintain equipment in good condition.
 - Follow all safety procedures.
 
-### Grounding and Bonding
+#### Grounding and Bonding
 
 Proper grounding is essential for safety:
 
-#### Grounding Requirements
+**Grounding Requirements**
 
 - Equipment grounding conductor required.
 - System grounding per local codes.
 - Bonding of all metallic parts.
 - Ground fault protection.
 
-#### Grounding Verification
+**Grounding Verification**
 
 ```mermaid
 graph TD
@@ -100,7 +87,7 @@ graph TD
 
 ## Thermal Safety
 
-### Hot Surfaces
+#### Hot Surfaces
 
 !!! warning "Burn Hazard"
     Surfaces may become hot during operation. Allow adequate cooling time before handling.
@@ -112,18 +99,18 @@ graph TD
 - Cooling system components.
 - Electrical connection points.
 
-### Cooling System Safety
+#### Cooling System Safety
 
 The liquid cooling system operates under pressure and with hot fluids:
 
-#### Cooling System Hazards
+**Cooling System Hazards**
 
 - Pressurized fluid up to 4 bar.
 - Hot coolant (up to 125°C).
 - Chemical exposure (ethylene glycol).
 - Slip hazards from leaks.
 
-#### Cooling System Safety Procedures
+**Cooling System Safety Procedures**
 
 1. **Pressure Safety**
    - Depressurize before service.
@@ -139,19 +126,19 @@ The liquid cooling system operates under pressure and with hot fluids:
 
 ## Mechanical Safety
 
-### Heavy Equipment
+#### Heavy Equipment
 
 !!! warning "Lifting Hazard"
     The ADB-PC-DC01 weighs 30kg. Use proper lifting techniques and equipment.
 
-#### Lifting Safety
+**Lifting Safety**
 
 - Use mechanical lifting equipment.
 - Follow proper lifting procedures.
 - Ensure adequate personnel.
 - Check equipment condition.
 
-### Sharp Edges
+#### Sharp Edges
 
 Sheet metal components may have sharp edges:
 - Wear appropriate gloves.
@@ -161,67 +148,28 @@ Sheet metal components may have sharp edges:
 
 ## Environmental Safety
 
-### Chemical Exposure
+#### Chemical Exposure
 
 !!! warning "Chemical Hazard"
     Cooling system contains ethylene glycol. Avoid exposure and follow environmental regulations.
 
-#### Chemical Safety
+**Chemical Safety**
 
 - Use appropriate PPE.
 - Provide adequate ventilation.
 - Store chemicals properly.
 - Follow disposal regulations.
 
-### Noise Exposure
+#### Noise Exposure
 
 While the ADB-PC-DC01 is liquid-cooled and quiet, associated equipment may produce noise:
 - Monitor noise levels.
 - Use hearing protection if required.
 - Follow occupational noise limits.
 
-## Fire Safety
-
-### Fire Prevention
-
-!!! danger "Fire Hazard"
-    Electrical faults can cause fires. Maintain equipment properly and have appropriate fire suppression.
-
-#### Fire Prevention Measures
-
-- Maintain proper clearances.
-- Keep equipment clean.
-- Check for overheating.
-- Use appropriate overcurrent protection.
-
-### Fire Response
-
-In case of fire:
-1. De-energize equipment if safely possible.
-2. Use appropriate fire extinguisher (Class C).
-3. Evacuate area if necessary.
-4. Contact emergency services.
-
 ## Emergency Procedures
 
-### Electrical Emergency
-
-```mermaid
-graph TD
-    A[Electrical Emergency] -->|Personnel Injury| B[Medical Emergency]
-    A -->|Equipment Damage| C[Fire Emergency]
-    A -->|Arc Flash| D[Evacuation]
-    
-    B -->|Call 911| E[Medical Response]
-    B -->|First Aid| F[Trained Personnel]
-    
-    C -->|Fire Extinguisher| G[Class C Only]
-    C -->|Evacuate| H[Safety Area]
-    
-    D -->|Account for Personnel| I[All Clear]
-```
-
-### Emergency Response Steps
+#### Emergency Response Steps
 
 1. **Immediate Actions**
    - Ensure personal safety.
@@ -243,7 +191,7 @@ graph TD
 
 ## Warning Labels and Signs
 
-### Equipment Labels
+#### Equipment Labels
 
 The ADB-PC-DC01 includes permanent warning labels for:
 - High voltage hazards.
@@ -251,7 +199,7 @@ The ADB-PC-DC01 includes permanent warning labels for:
 - Thermal hazards.
 - Chemical hazards.
 
-### Required Site Signage
+#### Required Site Signage
 
 Install appropriate warning signs:
 - Electrical hazard warnings.
@@ -261,12 +209,12 @@ Install appropriate warning signs:
 
 ## Safety During Maintenance
 
-### Maintenance Safety Procedures
+#### Maintenance Safety Procedures
 
 !!! warning "Maintenance Safety"
     Never perform maintenance on energized equipment. Always follow proper safety procedures.
 
-#### Pre-Maintenance Safety
+**Pre-Maintenance Safety**
 
 1. **Planning**
    - Review maintenance procedures.
@@ -286,7 +234,7 @@ Install appropriate warning signs:
    - Monitor for hazards.
    - Work with qualified partner.
 
-### Post-Maintenance Safety
+**Post-Maintenance Safety**
 
 1. **Testing**
    - Verify proper reassembly.
@@ -302,7 +250,7 @@ Install appropriate warning signs:
 
 ## Training and Competency
 
-### Required Training
+#### Required Training
 
 All personnel working with this equipment must have:
 - Electrical safety training.
@@ -310,36 +258,16 @@ All personnel working with this equipment must have:
 - Emergency response training.
 - Regular refresher training.
 
-### Competency Verification
+#### Competency Verification
 
 - Document training completion.
 - Regular competency assessments.
 - Safety performance monitoring.
 - Continuous improvement programs.
 
-## Safety Documentation
-
-### Required Documentation
-
-Maintain current copies of:
-- Safety data sheets (SDS).
-- Emergency contact lists.
-- Safety procedures.
-- Training records.
-- Incident reports.
-
-### Safety Records
-
-Keep records of:
-- Safety inspections.
-- Incident investigations.
-- Training activities.
-- Safety meetings.
-- Corrective actions.
-
 ## Regulatory Compliance
 
-### Applicable Regulations
+#### Applicable Regulations
 
 Comply with all applicable regulations:
 - OSHA electrical safety standards.
@@ -347,13 +275,13 @@ Comply with all applicable regulations:
 - Environmental regulations.
 - Fire codes and standards.
 
-### Compliance Verification
+#### Compliance Verification
 
 - Regular safety audits.
 - Regulatory inspections.
 - Documentation reviews.
 - Corrective action tracking.
 
----
-
 **Remember: Safety is everyone's responsibility. When in doubt, stop work and seek guidance from qualified personnel.**
+
+
