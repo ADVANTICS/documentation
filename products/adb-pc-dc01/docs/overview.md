@@ -59,16 +59,9 @@ The ADB-PC-DC01 is suitable for a wide range of applications requiring isolated 
 
 The ADB-PC-DC01 is designed as part of the modular ADB Series system, allowing for flexible configuration and scaling for MW-level power systems.
 
-```mermaid
-graph TB
-A["DC Bus A (750–950V)"] -->|DC Power| B["ADB-PC-DC01"]
-B -->|Isolated DC Link| C["DC Bus B (200–1500V)"]
-B -->|CAN Bus| D["Controller"]
-B -->|Parallel| E["Additional Modules"]
-D -->|Control| B
-D -->|Control| E
-C -->|DC Output| F["Load/Charger"]
-```
+<div style="text-align: center; margin: 4rem 0;">
+    <img src="assets/dc01_system_architecture.svg" alt="System Architecture" style="width: auto; height: auto;">
+</div>
 
 ### Key Architectural Features:
 
