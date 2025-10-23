@@ -114,37 +114,9 @@ When operating multiple modules in parallel, additional connections are required
 
 ### Parallel Configuration Example
 
-```mermaid
-graph TD
-    A[Master Controller] -->|CAN Bus| B[Module 1]
-    A -->|CAN Bus| C[Module 2]
-    A -->|CAN Bus| D[Module 3]
-    
-    B -->|Parallel Bus| C
-    C -->|Parallel Bus| D
-    
-    E[DC Source] -->|DC+| F["DC Distribution +"]
-    E -->|DC-| G["DC Distribution -"]
-    
-    F -->|DC+| B
-    F -->|DC+| C
-    F -->|DC+| D
-    
-    G -->|DC-| B
-    G -->|DC-| C
-    G -->|DC-| D
-    
-    H[DC Load] -->|DC+| I["Common DC Bus +"]
-    H -->|DC-| J["Common DC Bus -"]
-    
-    B -->|DC+| I
-    C -->|DC+| I
-    D -->|DC+| I
-    
-    B -->|DC-| J
-    C -->|DC-| J
-    D -->|DC-| J
-```
+<div style="text-align: center; margin: 4rem 0;">
+    <img src="assets/dc01_system_architecture.svg" alt="System Architecture" style="width: auto; height: auto;">
+</div>
 
 This guide covers the steps to connect and configure multiple units for parallel operation.
 

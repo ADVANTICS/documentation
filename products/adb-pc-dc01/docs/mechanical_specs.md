@@ -12,9 +12,16 @@
 
 ## Connectors
 
-### DC Connectors (Port A - Input)
+### DC Connector Features
 
-#### DC Input Connectors
+!!! info "SurLock Plus Benefits"
+    - **Positive Locking**: Prevents accidental disconnection
+    - **High Current Capacity**: RADSOK technology for low contact resistance
+    - **Environmental Sealing**: IP67 rating when mated
+    - **Touch Safe**: Finger-safe design per UL standards
+    - **Keying**: Polarized to prevent incorrect connection
+
+### DC Connectors (Port A)
 
 The ADB-PC-DC01 features high-current DC connectors for the input side (Port A), designed for reliable operation with various DC sources:
 
@@ -27,31 +34,8 @@ The ADB-PC-DC01 features high-current DC connectors for the input side (Port A),
 | **Current Rating** | ±120 A | Bidirectional operation |
 | **Voltage Rating** | 1000 V | Suitable for 950V DC operation |
 
-#### DC Connector Features
 
-!!! info "SurLock Plus Benefits"
-    - **Positive Locking**: Prevents accidental disconnection
-    - **High Current Capacity**: RADSOK technology for low contact resistance
-    - **Environmental Sealing**: IP67 rating when mated
-    - **Touch Safe**: Finger-safe design per UL standards
-    - **Keying**: Polarized to prevent incorrect connection
-
-#### DC Wiring Configuration (Port A)
-
-```mermaid
-graph TD
-    A["DC Source +"] -->|DC+| B["DC Connector 1 (Port A+)"]
-    C["DC Source -"] -->|DC-| D["DC Connector 2 (Port A-)"]
-    G["PE Ground"] -->|Safety Ground| H["PE Terminal"]
-    
-    B --> I["DC/DC Converter Port A"]
-    D --> I
-    H --> I
-```
-
-### DC Connectors (Port B - Output)
-
-#### DC Output Connectors
+### DC Connectors (Port B )
 
 The DC output side (Port B) features robust bidirectional connectors for the high-voltage DC link:
 
@@ -64,38 +48,35 @@ The DC output side (Port B) features robust bidirectional connectors for the hig
 | **Current Rating** | ±220 A | Bidirectional operation |
 | **Voltage Rating** | 1500 V | Suitable for 1500V DC operation |
 
-#### DC Connector Configuration (Port B)
-
-!!! warning "DC Polarity"
-    Proper polarity must be observed when connecting DC cables. Reverse polarity connection will result in fault conditions and potential equipment damage.
-
-to be filled
-
 ### Control and Communication Connectors
 
-#### CAN Bus Connectors
+#### CAN Bus & Interlock line Connectors
 
-The module includes redundant CAN bus connections:
+The module includes redundant CAN bus & interlock line connections:
 
 | **Specification** | **Value** | **Notes** |
 |-------------------|-----------|-----------|
-| **Connector Type** | Automotive-grade | Locking connector |
-| **Quantity** | 2x CAN connectors | Redundant connections |
-| **Protocol** | CAN 2.0B | 29-bit identifier support |
+| **Connector Type** | M12-P5A | Locking connector |
+| **Quantity** | 2 | Redundant connections |
 | **Isolation** | Isolated interface | Safety isolation |
 
-#### Control Power Connector
+**Pinout**
+
+<!-- TODO -->
+
+#### 24V Connector
 
 | **Specification** | **Value** | **Notes** |
 |-------------------|-----------|-----------|
-| **Function** | 24V Control Power | Module control supply |
-| **Connector Type** | Automotive-grade | Reliable connection |
+| **Function** | 24V Power | Module control supply |
+| **Connector Type** | M12-P2T | Locking connector |
 | **Voltage Range** | 20-28 V DC | Nominal 24V |
-| **Current Draw** | Up to 3A | Peak during startup |
+| **Current Draw** | Up to 12A | Peak during startup |
+| **Isolation** | Isolated interface | Safety isolation |
 
-#### Connector Layout
+**Pinout**
 
-to be filled
+<!-- TODO -->
 
 ### Connector Environmental Ratings
 
@@ -105,7 +86,7 @@ to be filled
 |-------------------|---------------|-------------------------|------------------------|
 | **DC Connectors (Port A)** | IP67 (mated) | -40°C to +125°C | Salt spray resistant |
 | **DC Connectors (Port B)** | IP67 (mated) | -40°C to +125°C | Salt spray resistant |
-| **Control Connectors** | IP65 (mated) | -40°C to +105°C | Industrial grade |
+| **Control and power Connectors** | IP65 (mated) | -40°C to +105°C | Industrial grade |
 
 #### Chemical Resistance
 
