@@ -23,6 +23,7 @@ Copyright ADVANTICS 2017
 | [AC_Status](#AC_Status) | 0x611 | 1 | IN | 100 |
 | [DC_Status1](#DC_Status1) | 0x612 | 4 | IN | 100 |
 | [DC_Status2](#DC_Status2) | 0x613 | 5 | IN | 100 |
+| [EV_Status](#EV_Status) | 0x618 | 8 | IN | 100 |
 | [ADM_CS_EVCC_MEVC_Outputs](#ADM_CS_EVCC_MEVC_Outputs) | 0x617 | 8 | IN | 1000 |
 
 </div>

@@ -20,7 +20,7 @@ Copyright ADVANTICS 2017
 | [ADM_CS_EVCC_Inputs](#ADM_CS_EVCC_Inputs) | 0x604 | 6 | OUT | 1000 |
 | [EVCC_MEVC_Diagnostic_Status](#EVCC_MEVC_Diagnostic_Status) | 0x605 | 8 | OUT | 100 |
 | [ADM_CS_EVCC_MEVC_Outputs](#ADM_CS_EVCC_MEVC_Outputs) | 0x617 | 8 | IN | 100 |
-| [EV_Information](#EV_Information) | 0x610 | 1 | IN | 100 |
+| [EV_Information](#EV_Information) | 0x610 | 3 | IN | 100 |
 | [AC_Status](#AC_Status) | 0x611 | 1 | IN | 100 |
 | [DC_Status1](#DC_Status1) | 0x612 | 4 | IN | 100 |
 | [DC_Status2](#DC_Status2) | 0x613 | 5 | IN | 100 |
@@ -211,7 +211,7 @@ In DC it corresponds to HLC data.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 24 | 16 | Signed | Amps | 0.1 | 0 | -3276 | 3276 |
+| 24 | 16 | Signed | Amps | 1 | 0 | -32768 | 32767 |
 
 </div>
 
