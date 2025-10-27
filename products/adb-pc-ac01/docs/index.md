@@ -74,7 +74,7 @@ Phone: +33 7 87 14 09 19
 <div style="text-align: center; margin-top: 2rem;">
   <p style="font-size: 0.9rem; color: #888;">
     This document contains proprietary information of Advantics SAS.<br>
-    No part of this document may be reproduced or transmitted in any form without written permission.
+    No part of this document may be reproduced in any form without written permission.
   </p>
 </div>
 
