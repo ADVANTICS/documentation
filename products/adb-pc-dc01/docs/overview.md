@@ -74,9 +74,10 @@ The ADB-PC-DC01 is designed as part of the modular ADB Series system, allowing f
 
 The modular design of ADVANTICS's ADB power modules series allows creating creating megawatt level systems using 1 MW building blocks in 100kW steps.  
 **These 1MW building block can be duplicated as much as needed to reach the targeted power level.**  
-In our example here, the MCS charger is built using:
-- 1MW AC/DC PFC Building block based on the ADB-PC-AC01 power module.
-- 1MW DC/DC isolated Building block based on the ADB-PC-DC01 power module.
+In our example here, the MCS charger is built using:  
+
+- 1MW AC/DC PFC Building block based on the ADB-PC-AC01 power module.  
+- 1MW DC/DC isolated Building block based on the ADB-PC-DC01 power module.  
 
 <div style="text-align: center; margin: 4rem 0;">
     <img src="assets/ac01_dc01_mcs_example.png" alt="System Architecture" style="width: auto; height: auto;">
