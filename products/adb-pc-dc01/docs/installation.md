@@ -115,7 +115,7 @@ When operating multiple modules in parallel, additional connections are required
 ### Parallel Configuration Example
 
 <div style="text-align: center; margin: 4rem 0;">
-    <img src="assets/dc01_system_architecture.svg" alt="System Architecture" style="width: auto; height: auto;">
+    <img src="assets/dc01_system_architecture.webp" alt="System Architecture" style="width: auto; height: auto;">
 </div>
 
 This guide covers the steps to connect and configure multiple units for parallel operation.

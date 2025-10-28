@@ -119,13 +119,15 @@ nav:
   - "Overview": "overview.md"
   - "Electrical Specifications": "electrical_specs.md"
   - "Mechanical Specifications": "mechanical_specs.md"
-  - "CAN Bus Interface": "can_bus_interface.md"
-  - "Operating Modes": "operation.md"
-  - "Installation Guides": "installation.md"
-  - "Maintenance and Troubleshooting": "maintenance_and_troubleshooting.md"
-  - "Safety Considerations": "safety.md"
-  - "Tutorials": "tutorials.md"
-  - "Appendix": "appendix.md"
+  - "Theory of Operation": "operation.md"
+  - "Guides":
+    - "First-Time Commissioning": "first_time_commissioning.md"
+    - "Installation Guides": "installation.md"
+  - "References":
+    - "CAN Bus Interface": "can_bus_interface.md"
+    - "Maintenance and Troubleshooting": "maintenance_and_troubleshooting.md"
+    - "Safety Considerations": "safety.md"
+    - "Appendix": "appendix.md"
 
 # Extra configurations
 extra:

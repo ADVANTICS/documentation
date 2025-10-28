@@ -1,8 +1,4 @@
-# Tutorials
-
-This section provides learning-oriented guides to help you get started with the ADB-PC-DC01.
-
-## First-Time Commissioning
+# First-Time Commissioning
 
 ### **Introduction**
 

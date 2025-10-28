@@ -1,4 +1,4 @@
-# Operating Modes
+# Theory of Operation
 
 The ADB-PC-DC01 module operates in **four primary modes** controlled through CAN bus commands or digital control inputs.
 Each mode defines the internal power-conversion state and external power-flow behavior.
