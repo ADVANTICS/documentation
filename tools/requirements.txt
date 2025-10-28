@@ -1,0 +1,5 @@
+# Shared Python dependencies for all scripts in Applications/documentation/tools
+# If you introduce a new script with extra deps, add them here once for everyone.
+
+# CAN database parsing for kcd_to_md.py
+cantools>=38.0
