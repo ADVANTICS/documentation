@@ -15,7 +15,7 @@ description: Single Pistol Charge Controller (SPCC) — product overview and tec
 </div>
 
 <div style="text-align: center; margin: 2rem 0;">
-  <img src="assets/logo.png" alt="Advantics Logo" style="max-width: 180px; height: auto;">
+  <img src="assets/logo.webp" alt="Advantics Logo" style="max-width: 180px; height: auto;">
 </div>
 
 ---

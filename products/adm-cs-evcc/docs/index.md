@@ -15,7 +15,7 @@ description: Vehicle-side CCS Charge Controller — product overview and technic
 </div>
 
 <div style="text-align: center; margin: 2rem 0;">
-  <img src="assets/logo.png" alt="Advantics Logo" style="max-width: 180px; height: auto;">
+  <img src="assets/logo.webp" alt="Advantics Logo" style="max-width: 180px; height: auto;">
 </div>
 
 ---

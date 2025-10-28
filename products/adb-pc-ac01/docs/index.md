@@ -13,7 +13,7 @@ description: 100kW AC/DC Active Frontend (PFC) - User Documentation
 </div>
 
 <div style="text-align: center; margin: 4rem 0;">
-    <img src="assets/logo.png" alt="Advantics Logo" style="max-width: 200px; height: auto;">
+    <img src="assets/logo.webp" alt="Advantics Logo" style="max-width: 200px; height: auto;">
 </div>
 
 ---

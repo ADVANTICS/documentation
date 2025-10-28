@@ -17,8 +17,8 @@ use_directory_urls: false
 theme:
   name: material
   language: en
-  logo: assets/logo.png
-  favicon: assets/logo.png
+  logo: assets/logo.webp
+  favicon: assets/logo.webp
 
   palette:
     # Light theme

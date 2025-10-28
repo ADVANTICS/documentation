@@ -8,12 +8,12 @@ description: 100kW 1500V DC/DC Isolated Power Converter - User Documentation
     <h2 style="color: #1a1a1a; font-size: 1.8rem; margin-bottom: 0.5rem;">100kW 1500V DC/DC Isolated Power Converter</h2>
     <p style="font-size: 1.2rem; color: #666;">Technical Documentation & User Manual</p>
     <div style="margin-top: 1.5rem;">
-        <img src="assets/DC01.png" alt="ADB-PC-DC01" style="max-width: 600px; width: 100%; height: 50%;">
+        <img src="assets/DC01.webp" alt="ADB-PC-DC01" style="max-width: 600px; width: 100%; height: 50%;">
     </div>
 </div>
 
 <div style="text-align: center; margin: 4rem 0;">
-    <img src="assets/logo.png" alt="Advantics Logo" style="max-width: 200px; height: auto;">
+    <img src="assets/logo.webp" alt="Advantics Logo" style="max-width: 200px; height: auto;">
 </div>
 
 ---
