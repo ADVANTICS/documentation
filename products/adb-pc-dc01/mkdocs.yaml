@@ -123,6 +123,7 @@ nav:
   - "Guides":
     - "First-Time Commissioning": "first_time_commissioning.md"
     - "Installation Guides": "installation.md"
+    - "Rack Design" : "rack_design.md"
   - "References":
     - "CAN Bus Interface": "can_bus_interface.md"
     - "Maintenance and Troubleshooting": "maintenance_and_troubleshooting.md"
