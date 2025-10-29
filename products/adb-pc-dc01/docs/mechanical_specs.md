@@ -90,7 +90,9 @@ The module includes redundant CAN bus & interlock line connections:
 
 #### Chemical Resistance
 
-All connectors are designed to resist:
+All connectors and enclosures are designed to resist:
+
+- Liquids, including salts (coastal areas)
 - Industrial chemicals and solvents
 - UV radiation exposure
 - Ozone and atmospheric contaminants
@@ -100,76 +102,55 @@ All connectors are designed to resist:
 
 The ADB-PC-XXXX are watercooled power converters.
 
-Each box has 4 ports - two for top plate, two for bottom plate.
+Each unit has 4 ports - two for top plate, two for bottom plate. To simplify the integration, the units come with the left-side top+bottom ports interconnected from the factory.
 
 The recommended flow of water would look like this. Color indicates the temperature rise, arrows indicate flow direction
 
-![image.png](assets/liquid_cooling_images/image.png)
+![image.png](assets/ADB-PC-XXXX_liquid_flow.png)
 
-The render is illustrative - all four fittings are forward facing, but in reality would be oriented differently.
+### Heat dissipation
+
+Thermal dissipation of each unit depends on operational conditions - voltage, current, power level. Typical head load can be calculated by multiplying the processed power by the efficiency figure at that operation point.
+
+A typical loss would be: 100 kW * 0.98 = 2 kW
+When sizing for the worst case scenario, calculate with 97% efficiency. 100 kW * 0.97 = 3 kW
+
+The system has a very high inertia, thanks to the aluminium heatsink and the liquid loop. That means it can take a long time (20 minutes in some cases) before you see a significant heat buildup.
+This can be used to improve noise profile - the heat exchanger (radiator) doesn't need to run at all times. However, **never switch off the coolant flow (pump) during operation.** You don't need to run the pump system if there is no power flowing.
+
+!!! tip
+
+    It is ok to run power converters on a testbench without any cooling at all, for prototyping or (supervised) testing scenarios.
+    However monitor the temperatures and don't push the system to it's limits if no cooling is present.
+
 
 ### Flow and temperature rise
 
-The cooling medium is 50/50 water-glycol mix. Probably can be lighter on glycol. This depends on expected environmental conditions.
+The cooling medium is a water-glycol mix. The ratio depends on the environmental conditions (freeze prevention).
 
-Glycol also acts as a corrosion protection agent - perhaps we should also consider some drops against bacterial growth. There is some risk of galvanic corrosion. Heatsinks are aluminium, fittings are nickel plated brass. Radiator is probably aluminium. Glycol should ‘save’ us.
+Glycol lowers the freezing temperature and acts as a corrosion protection agent, in case of mixed-metal cooling loops. Additional additives could include organic growth inhibitors.
 
-Required flow is around 5 liters per minute. (5 l/min). This, together with expected 2kW of heat generation per box, would result in 6.3 degC temperature rise (inlet to outlet). Bigger delta we allow, the smaller the radiator can be.
+Required flow rate is 5 liters per minute (5 l/min). The flow can be increased, to extend full power operation region in hot climates. Do not exceed 15 l/min.
 
-The reason why the water flows through top plate first and then the bottom, is an attempt to equalize the thermal difference between heatsinks. Heat rises, so the top one should (theoretically) be exposed to higher heat load than the bottom one. 
+!!! Example
 
-Another thing to consider is the maximum flow rate. Since these packaged converters are to be used in a parallel loop (cold water pushing into all the boxes at the same time through a manifold), there has to be enough water pressure to spread equally between all converters. If the flow is not restrictive enough per heatsink (or water inlets), we risk that there won’t be enough pressure to feed all units equally.
+    With 2kW of heat generation per box, would result in 6.5 &deg;C temperature rise (inlet to outlet).
 
-This goes with pump design - 100 boxes would require 5l/min * 100 = 500 l/min. Already quite a challenging volume of liquid. 
+    Calculating for worst-case scenario, 3 kW, the heat rise would be 9.7 &deg;C (both at 5 l/min).
+
+Since the units are designed to be used in a parallel loop (cold water pushing into all the boxes at the same time through a manifold), there has to be enough water pressure to spread equally between all converters. If the flow is not restrictive enough per heatsink (or water inlets), we risk that there won’t be enough pressure to feed all units equally (especially considering the vertical stacking in a rack).
+
+This goes with pump design - 100 units would require 5 l/min * 100 = 500 l/min. Already quite a challenging flow rate.
 
 ### Port adapter
 
-Each port is coming out of a CNC machined adapter piece - currently the adapter has 3/8” threads, to be used with G3/8 fittings. The adapter has three holes - front, side, top. **The next iteration will use G1/4 thread instead.**
+Each port (inlet and outlet) uses G1/4 thread (British Standard Pipe). Unless specified separately by the customer, each unit comes with barbed fittings installed on all ports.
+These barbed fittings accept a hose with 3/8" (10 mm) internal tube wall.
 
-![image.png](assets/liquid_cooling_images/image%201.png)
+![image.png](assets/barbed_fitting.png)
 
-Michal is suggesting to remove one of the three ports on the adapter. Only keep the forward and upward ones, not the side one. As there boxes go into racks, these holes don’t make that much sense.
 
-### Connector selection
+### No-drip alternatives
 
-G 1/4” fittings are very common. It’s the go-to standard for PC watercooling, as well as other liquid cooled industries.
-
-![63306_1BGhUnb3cLXA2i_400x400..webp](assets/liquid_cooling_images/63306_1BGhUnb3cLXA2i_400x400..webp)
-
-![1011181_1WajNPTUnGMcWw_400x400..webp](assets/liquid_cooling_images/1011181_1WajNPTUnGMcWw_400x400..webp)
-
-Fitting features an o-ring, which when compressed, provides the seal. Fitting like this provides barbed hose connection, for 3/8” hose (inner diameter of hose 10mm). Unused ports can be capped with plugs.
-
-There also exists G1/4 fittings that attach to the hose using screw-in sleeve, and then bolts directly into the watercooling plate. Both straight and 90deg (including rotating) fittings are available.
-
-![1011165_10umTEVfU9Gzr1_400x400..webp](assets/liquid_cooling_images/1011165_10umTEVfU9Gzr1_400x400..webp)
-
-![1022525_01_400x400..webp](assets/liquid_cooling_images/1022525_01_400x400..webp)
-
-These straight fittings could be perfect for top-bottom heatsink interconnect hose. Alternatively, simply using barbed hose connection with a clamp is also perfectly fine.
-
-Some sample materials for prototyping were ordered at [alphacool.com](http://alphacool.com/)
-
-### No-drop alternatives
-
-For more demanding customers, we could offer CPC EVERIS LQ4 quick disconnect couplings, with no drip disconnect under pressure. These are a lot more expensive, so definitely not something we should offer as default or for free.
-
-![image.png](assets/liquid_cooling_images/image%202.png)
-
-### Cooling channel design optimizations
-
-As the flow rate changed significantly from the initial concept (we were expecting 10-20 l/min), it’s worth reviewing the original flow path and heatsink design.
-
-![image.png](assets/liquid_cooling_images/image%203.png)
-
-The prototype channel might have a few areas of potential improvements:
-
-- Mix of wide and short liquid paths - with only 5l/min, is this still the correct strategy?
-- Given the direction of the flow (shown at the top of this page), is the path split functional?
-- The heat is concentrated in bars (hard to cool, as screws go through the center of them) and inductors/transformers (easy to cool, no screws above them). How’s the heat moving from the bar?
-- Would a longer coolant path perform better? Or a more shallow one?
-- Weight concern. The current heatsinks are very heavy. Can we mill them more aggressively? Perhaps also from the ‘inside’ side (module mounting side).
-- Channel can’t be direction-sensitive, as what’s an inlet of the top one, becomes the outlet of the bottom one.
-- Can we remove some screw holes? At least on the AFE, there are the front screws for the plastic spacers that we don’t use anymore.
-
-![image.png](assets/liquid_cooling_images/262f09a9-54b3-4729-ba6b-ff7a3fba4a54.png)
+There are a number of no-drip fittings that can be installed instead of the straight barbed fitting.
+However, given that the hose connects to the manifold (distributor), it makes more sense to place the no-drip fittings there (so the disconnection happens on the manifold side, not on the unit side).
