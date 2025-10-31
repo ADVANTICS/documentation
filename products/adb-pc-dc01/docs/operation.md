@@ -1,7 +1,63 @@
 # Theory of Operation
 
-The ADB-PC-DC01 module operates in **four primary modes** controlled through CAN bus commands or digital control inputs.
-Each mode defines the internal power-conversion state and external power-flow behavior.
+The ADB-PC-DC01 is a DC/DC converter that provides reinforced isolation.
+It can be used together with other DC power supplies to drive Loads in the
+megawatt range by providing user configurable drooping capability.
+
+The module is able to operate over a very wide range of output voltages, reaching up to double the input voltage.
+this is acheived using a novel interconnection strategy that utilizes the isolation to boost the output voltage
+above the intput voltage, thus reaching the voltages required for MCS charging applications.
+
+## Applications
+The ADB-PC-DC01 has many use cases, as both Isolation and fully bidirectional capability make it very versatile.
+One of the main applications for which it was designed is as a component of an MCS charging system.
+This application requires a very wide voltage range on the vehicle side to allow all kind of vehicle types to be connected,
+while expecting a relatively constant source on the other side.
+Thus even though the module is fully bidirectional, port A and port B are not symmetrical. Port B can be reconfigured internally to
+expand the voltage range of that port, while port A cannot be reconfigured. When used in an MCS charging system, port A would thus be
+connected toward the grid, while port B may be directly connected to the chaging pistol. When deploying the DC01, this asymmetry
+should be kept in mind.
+
+## Module architecture
+To reach the wide output voltage range required by MCS, the ADB-PC-DC01 utilizes two power conversion subsystems that reconfigure
+depending on the voltage present at port A and port B. These subsystems are then connected either in a 'quasi parallel' or in a
+'quasi series' connection. The particular configuration has an impact on the voltages and currents at port B. In the 'quasi parallel'
+connection, port B is able to provide double the current as in the 'quasi series' connection. Furthermore the two connection types have
+separate voltage regimes, the 'quasi parallel' connection is used from 0V up to the voltage present on port A (Va), while the
+'quasi series' connection is used when 2Va > Vb > Va. To prevent the system switching back and forth between 'quasi-parallel'
+and 'quasi-series' connections when Va = Vb, the switchover algorithm implements Hysteresis. This reconfiguration is done automatically
+and without requiring any external intervention.
+
+## Operational Modes
+The ADB-PC-DC01 has a single operational mode (other than 'Idle') which is 'Port B control'. This means that when the converter is
+operating the output of Port B is actively controlled depending on the setpoints of the converter and the characteristics of the load
+connected to port B. Port A is left uncontrolled, meaning that Va * Ia + Pl = Vb * Ib, where Pl being the losses in the converter
+itself. Thus an external system is needed to control the voltage on port A while being able to provide the current needed to satisfy
+the previous equation at all times.
+
+Port B itself is controlled using a CV/CC algothim.
+This means that the main regulation target for the converter is the voltage at Port B, while the current is within
+the limits specified by the user. While within the current limits, the converter will maintain the voltage at port B.
+If the output current limit is reached, the current of port B is controlled, with the voltage then dependent on the load.
+
+### Port B reconfiguration
+During operation the DC01 may configure its output from 'quasi-series' to 'quasi-parallel' or vice-versa.
+The switchover from 'quasi-parallel' to 'quasi-series' is done when the port B voltage approaches the top of the voltage range of the converter in this configuration.
+In the parallel configuration, the maximum voltage is the Input voltage + 5%, while the minimum voltage in series configuration is V_in - 5%.
+Hysteresis prevents the converter from switching between the output configurations.
+During startup, an initial port b configuration is chosen based on either the voltage present at port B, or if no voltage can be measured at port B, or on the voltage setpoint.
+
+```mermaid
+flowchart TD
+    A[Check Port B voltage] --> B[V_B > V_A]
+    B --> C[Series]
+    B --> D[Parallel]
+    A --> E[Setpoint V_B > V_A]
+    E --> C
+    E --> D
+```
+
+## Booting procedure
 
 ## OFF Mode
 
