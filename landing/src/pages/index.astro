@@ -9,8 +9,10 @@ import Typography from "@/components/core/Typography.astro";
     Get Started Here
   </h1>
   <section class="mx-auto mt-20 flex w-full max-w-7xl flex-col xl:flex-row">
-    <div class="xl:side-l mt-4 flex-1 text-left grayscale hover:grayscale-0">
-      <a href="/cc">
+    <div
+      class="xl:side-l relative mt-10 flex-1 text-left grayscale hover:grayscale-0"
+    >
+      <a href="/cc" class="absolute inset-0">
         <h2 class="font-goodtimes text-accent text-3xl">
           <span>CHARGE </span>
           <span>CONTROLLERS</span>
@@ -23,8 +25,10 @@ import Typography from "@/components/core/Typography.astro";
     <div class="ml-[-300px] hidden w-0 xl:block">
       <Diagonal />
     </div>
-    <div class="xl:side-r mt-4 flex-1 text-right grayscale hover:grayscale-0">
-      <a href="/pm">
+    <div
+      class="xl:side-r relative mt-10 flex-1 text-right grayscale hover:grayscale-0"
+    >
+      <a href="/pm" class="absolute inset-0">
         <h2 class="font-goodtimes text-accent text-3xl">
           <span>POWER</span>
           <span>MODULES</span>
