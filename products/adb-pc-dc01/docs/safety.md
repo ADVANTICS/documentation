@@ -22,11 +22,11 @@ Installation, operation, and maintenance of the ADB-PC-DC01 must be performed by
 
 #### Voltage Levels Present
 
-| **Circuit Type** | **Voltage Range** | **Hazard Level** |
-|------------------|-------------------|------------------|
-| **DC Input (Port A)** | 750-950V DC | Extra High Voltage |
-| **DC Output (Port B)** | 200-1500V DC | Extreme High Voltage |
-| **Control Power** | 24V DC | Low Voltage |
+| **Circuit Type** | **Voltage Range** |
+|------------------|-------------------|
+| **DC Input (Port A)** | 750-950V DC |
+| **DC Output (Port B)** | 200-1500V DC |
+| **Control Power** | 24V DC |
 
 #### Electrical Safety Requirements
 

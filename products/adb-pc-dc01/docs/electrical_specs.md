@@ -137,13 +137,6 @@ The parallel configuration offers several key benefits, including redundancy whe
 
 ### Isolation Concept
 
-```mermaid
-graph LR
-    A[CAN Bus] -->|Isolated| B[Power Electronics]
-    C[24V Control] -->|Isolated| B
-    D[PE Ground] -->|Basic Isolation| B
-    E[HV Section Port A] -->|Reinforced Isolation| F[HV Section Port B]
-```
 
 - **CAN Bus Isolation**: Isolated from power electronics and 24V supply
 - **Control Power Isolation**: 24V control isolated from power section
@@ -181,9 +174,9 @@ graph LR
 
 ### Integrated Measurements
 
-- **DC Voltage (Port A)**: High voltage DC bus measurement
+- **DC Voltage (Port A)**: DC bus measurement
 - **DC Current (Port A)**: Bidirectional current measurement
-- **DC Voltage (Port B)**: High voltage DC bus measurement
+- **DC Voltage (Port B)**: DC bus measurement
 - **DC Current (Port B)**: Bidirectional current measurement
 - **Temperature**: Multiple temperature monitoring points
 

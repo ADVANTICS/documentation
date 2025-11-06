@@ -6,7 +6,7 @@ The **ADB-PC-DC01** is a high-performance 100kW 1500V DC/DC Isolated Power Conve
 
 !!! info "Key Features"
     - **Bidirectional DC/DC**: Supports power flow in both directions between two DC buses.
-    - **High Voltage Output**: Wide output range from 200V to 1500V, compatible with MCS (Megawatt Charging System) requirements.
+    - **Voltage Output**: Wide output range from 200V to 1500V, compatible with MCS (Megawatt Charging System) requirements.
     - **High Efficiency**: Peak efficiency of 98% across a wide power range, minimizing energy losses.
     - **SiC Technology**: Utilizes advanced Silicon Carbide technology for superior performance and efficiency.
     - **Integrated Isolation**: Reinforced galvanic isolation between input and output for enhanced safety.
@@ -20,11 +20,10 @@ The **ADB-PC-DC01** is a high-performance 100kW 1500V DC/DC Isolated Power Conve
 The ADB-PC-DC01 is suitable for a wide range of applications requiring isolated bidirectional DC/DC conversion:
 
 ### Electric Vehicle Charging
-- DC Fast Charge stations supporting CCS1, CCS2, NACS, MCS, and CHAdeMO standards.
+- DC Fast Charge stations supporting MCS, R-MCS (up to 6MW), CCS, NACS and CHAdeMO standards.
 - Battery-assisted charging systems.
 - Vehicle-to-Grid (V2G) systems.
 - Onboard charging for off-highway and heavy-duty machinery.
-- EV and charge simulators.
 
 ### Energy Storage Systems
 - Grid-tied and off-grid energy storage systems.

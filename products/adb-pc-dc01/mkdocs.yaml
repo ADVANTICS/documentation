@@ -122,7 +122,7 @@ nav:
   - "Theory of Operation": "operation.md"
   - "Guides":
     - "First-Time Commissioning": "first_time_commissioning.md"
-    - "Installation Guides": "installation.md"
+    - "Installation Guide": "installation.md"
     - "Rack Design" : "rack_design.md"
   - "References":
     - "CAN Bus Interface": "can_bus_interface.md"

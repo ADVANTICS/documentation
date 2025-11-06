@@ -1,4 +1,4 @@
-# Installation Guides
+# Installation Guide
 
 ## Connector Installation Guidelines
 
@@ -12,7 +12,6 @@
 2. **Cable Requirements**
    - Use cables rated for 1500V DC operation for Port B and 1000V DC for Port A.
    - Appropriate current rating for ±120A (Port A) and ±220A (Port B) operation.
-   - Consider voltage drop in long cable runs.
    - Use appropriate cable gauge for continuous current.
    - Strip insulation to manufacturer specifications.
    - Use proper crimping tools for contact termination.
@@ -33,7 +32,6 @@
 2. **Control Power Wiring**
    - Use adequate wire gauge for 3A current.
    - Include overcurrent protection in 24V supply.
-   - Consider voltage drop in long cable runs.
 
 ## Install the Converter (Mechanical)
 
@@ -101,24 +99,13 @@ This guide covers the procedure for connecting the liquid cooling loop.
 
 ## Set Up a Parallel System
 
-### Paralleling Interface
-
-When operating multiple modules in parallel, additional connections are required:
-
-| **Connection Type** | **Purpose** | **Interface** |
-|-------------------|-------------|---------------|
-| **Current Sharing** | Load balancing | Internal CAN bus |
-| **Synchronization** | Phase locking | Distributed control |
-| **Fault Sharing** | System protection | Inter-module communication |
-| **Status Sharing** | System monitoring | Redundant communication |
-
 ### Parallel Configuration Example
+
+This procedure describes how to interconnect and configure multiple ADB-PC-DC01 units for parallel operation.
 
 <div style="text-align: center; margin: 4rem 0;">
     <img src="assets/dc01_system_architecture.webp" alt="System Architecture" style="width: auto; height: auto;">
 </div>
-
-This guide covers the steps to connect and configure multiple units for parallel operation.
 
 **Prerequisites:**
 * All units are fully installed (mechanically, electrically, and cooling).
@@ -129,7 +116,3 @@ This guide covers the steps to connect and configure multiple units for parallel
 2.  **Assign Unique IDs:** Set a unique ID for each unit using ETKA tool.
 3.  **Configure the Group ID:** Configure a group ID using the ETKA tool.
 4.  **Power On:** Power on all units in the group using the standard `Power On` procedure.
-
-
-***See Also:***
-* [Connectors and Interfaces](docs/3_connectors_and_interfaces.md#connectors-and-interfaces) (for the parallel bus connector)

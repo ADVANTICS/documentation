@@ -74,7 +74,6 @@
 | **2** | GND | 0V | Return |
 
 
-
 ## Fault Codes
 
 ### Critical Faults (Level 1)
@@ -160,9 +159,3 @@
 - UL Listing (where applicable)
 - CSA Certification (where applicable)
 - Other regional certifications as required
-
----
-
-**Document Version**: 1.0  
-**Last Updated**: October 2025  
-**Next Review**: October 2026
