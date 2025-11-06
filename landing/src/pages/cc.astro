@@ -12,22 +12,26 @@ const controllers = products.filter(
 ---
 
 <Layout title="ADVANTICS - Home">
-  {
-    controllers
-      .toSorted(
-        (
-          { data: { sortNumber: snA = -1 } },
-          { data: { sortNumber: snB = -1 } },
-        ) => {
-          return snA - snB;
-        },
-      )
-      .map((product) => {
-        return (
-          <li>
-            <ProductCard {product} />
-          </li>
-        );
-      })
-  }
+  <section
+    class="xl:9xl:grid-cols-3 9xl:max-w-9xl mx-auto mt-10 grid max-w-fit gap-x-22 gap-y-4 xl:grid-cols-2"
+  >
+    {
+      controllers
+        .toSorted(
+          (
+            { data: { sortNumber: snA = -1 } },
+            { data: { sortNumber: snB = -1 } },
+          ) => {
+            return snA - snB;
+          },
+        )
+        .map((product) => {
+          return (
+            <li>
+              <ProductCard {product} />
+            </li>
+          );
+        })
+    }
+  </section>
 </Layout>
