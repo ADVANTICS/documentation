@@ -52,22 +52,11 @@ The ADB-PC-AC01 is suitable for a wide range of applications requiring bidirecti
 
 ## System Architecture
 
-The ADB-PC-AC01 is designed as part of the modular ADB Series system, allowing for flexible configuration and scaling:
+The ADB-PC-AC01 is designed as part of the modular ADB Series system, allowing for flexible configuration and scaling for MW-level power systems.
 
-
-**Connection Diagram:**
-
-```mermaid
-graph TB
-    A[AC Grid] -->|"3-Phase AC"| B["ADB-PC-AC01"]
-    B -->|DC Link| C[DC Bus]
-    B -->|CAN Bus| D[Controller]
-    B -->|Parallel| E[Additional Modules]
-    C -->|DC Output| F["Load/Charger"]
-    D -->|Control| B
-    D -->|Control| E
-```
-
+<div style="text-align: center; margin: 4rem 0;">
+    <img src="assets/ac01_system_architecture.webp" alt="System Architecture" style="width: auto; height: auto;">
+</div>
 
 ### Key Architectural Features:
 
@@ -75,6 +64,19 @@ graph TB
 - **Common DC Bus**: Shared DC link for distributed DC-coupled systems
 - **Integrated Gateway**: Enables firmware updates and cybersecurity features
 - **Intelligent Droop Technology**: Automatic load sharing in parallel configurations
+
+### Application example: MCS (Megawatt Charging System)
+
+The modular design of ADVANTICS's ADB power modules series allows creating creating megawatt level systems using 1 MW building blocks in 100kW steps.  
+**These 1MW building block can be duplicated as much as needed to reach the targeted power level.**  
+In our example here, the MCS charger is built using:  
+
+- 1MW AC/DC PFC Building block based on the ADB-PC-AC01 power module.  
+- 1MW DC/DC isolated Building block based on the ADB-PC-DC01 power module.  
+
+<div style="text-align: center; margin: 4rem 0;">
+    <img src="assets/ac01_dc01_mcs_example.webp" alt="System Architecture" style="width: auto; height: auto;">
+</div>
 
 ## Compliance and Standards
 

@@ -71,6 +71,7 @@ theme:
 plugins:
   - search
   - mermaid2
+  - autorefs
   - plantuml:
       render: "server"
       puml_url: "https://www.plantuml.com/plantuml"
@@ -116,13 +117,19 @@ markdown_extensions:
 # Navigation structure
 nav:
   - "Document Information": "index.md"
-  - "Overview": "1_overview.md"
-  - "Electrical Specifications": "2_electrical_specs.md"
-  - "Connectors and Interfaces": "3_connectors_and_interfaces.md"
-  - "Operation": "4_operation.md"
-  - "Installation": "5_installation.md"
-  - "Safety and Warnings": "6_safety_and_warnings.md"
-  - "Appendix": "7_appendix.md"
+  - "Overview": "overview.md"
+  - "Electrical Specifications": "electrical_specs.md"
+  - "Mechanical Specifications": "mechanical_specs.md"
+  - "Theory of Operation": "operation.md"
+  - "Guides":
+    - "First-Time Commissioning": "first_time_commissioning.md"
+    - "Installation Guide": "installation.md"
+    - "Rack Design" : "rack_design.md"
+  - "References":
+    - "CAN Bus Interface": "can_bus_interface.md"
+    - "Maintenance and Troubleshooting": "maintenance_and_troubleshooting.md"
+    - "Safety Considerations": "safety.md"
+    - "Appendix": "appendix.md"
 
 # Extra configurations
 extra:

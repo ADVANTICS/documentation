@@ -1,0 +1,109 @@
+# First-Time Commissioning
+
+### **Introduction**
+
+Welcome to the ADB-PC-AC01! This tutorial is for first-time users, engineers, or technicians.
+
+**Our goal:** To guide you safely from unboxing your new converter to a successful first power-on. This guide provides a simple, direct path to verify that your unit is installed correctly and is operational.
+
+This guide simplifies the process. For detailed technical data and advanced procedures, it will link you to the main **Guides** section.
+
+### **Prerequisites**
+
+Before you begin, make sure you have the following:
+
+**Knowledge & Safety:**
+* You must be a qualified electrical engineer or certified technician.
+* You must be familiar with high-voltage and high-current AC/DC systems.
+* You have read and understood the conceptual safety warnings.
+    * ***See Also:*** [General Safety Information](docs/safety.md)
+
+**Tools & Equipment:**
+* Standard mechanics toolset (socket wrench, torque wrench, etc.)
+* Digital Multimeter (DMM)
+* Personal Protective Equipment (PPE) (high-voltage insulated gloves, safety glasses, etc.)
+* Lifting equipment (the unit is heavy)
+* A CAN bus monitoring tool (e.g., a CAN-to-USB adapter and ETKA software)
+* A 3 phase AC connection and a controllable DC load
+
+
+### **Step 1: Pre-Installation Safety Check**
+
+Safety is the most critical step. Do not proceed until you have verified the following.
+
+1.  **Inspect for Shipping Damage:** Visually inspect the crate and the converter for any signs of damage, such as dents, cracked insulators, or loose components.
+2.  **Clear the Workspace:** Ensure the installation area is clean, dry, and free of obstructions.
+3.  **Verify Power is OFF:** Confirm that all external AC and DC power sources and loads are completely de-energized, disconnected, and locked out (LOTO).
+4.  **Check Environment:** Ensure the ambient temperature and humidity are within the unit's operating range.
+
+### **Step 2: Basic Mechanical & Electrical Installation**
+
+This step covers the essential connections to get the unit running.
+
+1.  **Mount the Unit:**
+    * Lift the converter using the designated lifting points.
+    * Securely mount it to your rack or chassis using the correct bolt size and type.
+    ***See Also:*** [Install the Converter (Mechanical)](docs/installation.md#how-to-install-the-converter-mechanical)
+
+2.  **Connect Protective Earth (Ground):**
+    * **This is the most important connection.** Connect your facility's Protective Earth (PE) ground to the main grounding stud on the converter chassis.
+    * Use the specified cable gauge and torque the connection correctly.
+
+3.  **Connect the Cooling System:**
+    * Connect the coolant inlet and outlet hoses to the manifold.
+    * Ensure there are no leaks.
+    ***See Also:*** [Connect the Cooling System](docs/installation.md#connect-the-cooling-system)
+    ***See Also:*** [Liquid Cooling](docs/mechanical_specs.md#liquid-cooling)
+
+4.  **Connect AC and DC connectors:**
+    * **WARNING:** Ensure all sources remain locked out.
+    * Connect the 3 phase AC input to the AC side connectors.
+    * Use your DMM to verify the polarity (+ and -) of your busbars.
+    * Connect the DC busbar to the DC converter terminals. Ensure correct polarity.
+    * Torque the bolts to the specified value.
+    * **See Also:** [Install the Converter (Electrical)](docs/installation.md#how-to-install-the-converter-electrical)
+    * **See Also:** [Connectors and Interfaces](docs/mechanical_specs.md#connectors)
+
+5.  **Connect the Low-Voltage Control Connector:**
+    * Connect the main control harness. This includes the connector for CAN bus and the Interlock line.
+    * Connect the converter's auxiliary power supply harness.
+
+### **Step 3: Power-On Sequence**
+
+1.  **Start the Cooling System:** Turn on your external cooling/chiller system. Verify that coolant is flowing at the correct rate and temperature.
+2.  **Apply Auxiliary Power:** Energize the converter's auxiliary power supply.
+3.  **Energize AC side** Apply the 3-phase AC voltage input.
+4.   **Energize DC Bus:** Remove the lock-out and energize the DC load/source (DC side) so that voltage is present at the terminals.
+
+
+### **Step 4: Establish CAN Communication ("Hello World")**
+
+Now, let's verify the converter is "awake" and communicating.
+
+1.  **Connect Your Monitor:** Connect your CAN bus monitoring tool to the CAN bus lines.
+2.  **Set Baud Rate:** Ensure your monitor is set to the correct baud rate (e.g., 500 kbit/s).
+    * ***See Also:*** [CAN Bus Communication](docs/can_bus_interface.md)
+3.  **Look for a Heartbeat:** Open ETKA tool. You should see information about your power module. This indicates the unit is alive and in a `STANDBY` state.
+
+Your control system should be successfully connected at this stage.
+
+
+### **Step 5: Run a Simple Power Test**
+
+Let's confirm the unit can pass power.
+
+1.  **Set to `STANDBY`:** Use ETKA tool to send the command to place the unit in `STANDBY` mode.
+2.  **Set Target Voltage/Current:** Send a simple command, for example, to regulate the DC side at a nominal voltage with a minimal current limit.
+3.  **Enable Operation:** Send the CAN command to move from `STANDBY` to `OPERATE`.
+4.  **Apply a Small Load:** Using your external DC load, draw a small amount of current (e.g., 10% of the unit's rating).
+5.  **Verify Output:** On ETKA tool and your external DMM, confirm that the voltage and current at DC side match your setpoints and that no faults are present.
+
+### **Next Steps**
+
+**Congratulations! Your ADB-PC-AC01 is installed, communicating, and operational.**
+
+You have successfully completed the first-time commissioning. You are now ready to move on to more advanced configuration and integration.
+
+* To perform specific tasks like firmware updates or fault diagnosis, see our **Guides**.
+* To understand the theory behind the operating modes or safety systems, see the [**Explanation**](docs/operation.md) section.
+* For a complete list of all CAN commands, fault codes, and technical specifications, see the [**CAN Bus Communication**](docs/can_bus_interface.md) section.
