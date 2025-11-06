@@ -78,14 +78,14 @@
   --color-content-alt: var(--content-alt);
 }
 @utility side-l {
-  clip-path: polygon(0 0, 100% 0, 63% 100%, 0% 100%);
+  clip-path: polygon(0 0, 95% 0, 63% 100%, 0% 100%);
   /* &:hover { */
   /*   background-color: var(--color-accent); */
   /* } */
 }
 
 @utility side-r {
-  clip-path: polygon(38% 0, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(33% 0, 100% 0, 100% 100%, 0 100%);
   /* &:hover { */
   /*   background-color: var(--color-accent); */
   /* } */
