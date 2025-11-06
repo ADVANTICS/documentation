@@ -1,67 +1,53 @@
 ---
 import Layout from "@/layouts/layout.astro";
-
-const left = {
-  href: "/pm",
-  img: "/images/left.jpg",
-  alt: "Left Image",
-};
-
-const right = {
-  href: "/cc",
-  img: "/images/right.jpg",
-  alt: "Right Image",
-};
+import Diagonal from "@/components/deco/Diagonal.astro";
+import Typography from "@/components/core/Typography.astro";
 ---
 
-<Layout title="ADVANTICS - Home" />
+<Layout title="ADVANTICS - Home">
+  <h1 class="font-poppins mx-auto my-20 w-fit text-6xl text-gray-200">
+    Get Started Here
+  </h1>
+  <section class="mx-auto mt-20 flex w-full max-w-7xl flex-col xl:flex-row">
+    <div class="xl:side-l mt-4 flex-1 text-left grayscale hover:grayscale-0">
+      <a href="/cc">
+        <h2 class="font-goodtimes text-accent text-3xl">
+          <span>CHARGE </span>
+          <span>CONTROLLERS</span>
+        </h2>
+        <p class="font-poppins mt-4 text-lg text-slate-300">
+          Precision energy management for all systems
+        </p>
+      </a>
+    </div>
+    <div class="ml-[-300px] hidden w-0 xl:block">
+      <Diagonal />
+    </div>
+    <div class="xl:side-r mt-4 flex-1 text-right grayscale hover:grayscale-0">
+      <a href="/pm">
+        <h2 class="font-goodtimes text-accent text-3xl">
+          <span>POWER</span>
+          <span>MODULES</span>
+        </h2>
+        <p class="font-poppins mt-4 text-lg text-slate-300">
+          High-efficiency conversion and control
+        </p>
+      </a>
+    </div>
+  </section>
 
-<div class="split-container max-w-9xl mx-auto">
-  <a
-    class="side left text-content hover:text-accent"
-    href={left.href}
-    style={`background-image: url(${left.img});`}
-    aria-label={left.alt}>PM</a
-  >
-  <a
-    class="side right text-content hover:text-accent relative text-right"
-    href={right.href}
-    style={`background-image: url(${right.img});`}
-    aria-label={right.alt}><span class="absolute right-0 bottom-0">CC</span></a
-  >
-</div>
-
-<style>
-  .split-container {
-    position: relative;
-    width: 100%;
-
-    aspect-ratio: 25 / 9;
-    overflow: hidden;
-    cursor: pointer;
-    background-image:;
-  }
-
-  .side {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    filter: grayscale(1);
-    transition: filter 0.4s ease;
-    /* clip-path: polygon(0 0, 100% 0, 0 100%); */
-  }
-
-  .side.right {
-    clip-path: polygon(100% 0, 100% 100%, 0 100%);
-    background: green;
-  }
-  .side.left {
-    clip-path: polygon(100% 0, 0 100%, 0 0);
-    background: red;
-  }
-
-  .side:hover {
-    filter: grayscale(0);
-  }
-</style>
+  <section class="max-w-9xl mx-auto mt-20">
+    <Typography
+      as="p"
+      variant="body-xl"
+      class="font-poppins mx-auto max-w-[60ch] text-gray-300"
+    >
+      For further assistance to reach our engineering team, please create a
+      support ticket on <a
+        href="https://advantics.atlassian.net/servicedesk/customer/portal/1/user/login?destination=portal%2F1"
+        class="text-accent underline hover:no-underline">ADVANTICS Helpdesk</a
+      >. We appreciate your trust in ADVANTICS and look forward to supporting
+      your success.
+    </Typography>
+  </section>
+</Layout>

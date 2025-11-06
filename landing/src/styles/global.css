@@ -16,6 +16,7 @@
 
   --font-inter: "Inter", "ui-sans-serif", "system-ui";
   --font-poppins: "Poppins", "ui-sans-serif", "system-ui";
+  --font-goodtimes: "Good Times", "ui-sans-serif", "system-ui";
 
   --container-nominal: 96.125rem;
   --container-screen-3xl: 107.5rem;
@@ -62,6 +63,7 @@
   --content: var(--dark-content);
   --content-alt: var(--dark-content-alt);
 }
+
 .prose-invert-adv {
   --tw-prose-invert-bold: var(--color-accent);
   --tw-prose-invert-lead: --alpha(var(--color-accent) / 0.9);
@@ -74,4 +76,17 @@
   --color-accent-dark: var(--accent-dark);
   --color-content: var(--content);
   --color-content-alt: var(--content-alt);
+}
+@utility side-l {
+  clip-path: polygon(0 0, 100% 0, 63% 100%, 0% 100%);
+  /* &:hover { */
+  /*   background-color: var(--color-accent); */
+  /* } */
+}
+
+@utility side-r {
+  clip-path: polygon(38% 0, 100% 0, 100% 100%, 0 100%);
+  /* &:hover { */
+  /*   background-color: var(--color-accent); */
+  /* } */
 }
