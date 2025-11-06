@@ -53,13 +53,13 @@ const hasVariants = Object.keys(techData).length > 1;
       )
     }
 
-    <a href={`/${id.toLowerCase()}`}>
+    <a href={`/${codename.toLowerCase()}`}>
       <Image src={images[img]()} {alt} />
     </a>
   </div>
   <div class="details">
     <header>
-      <a href={`/products/${id}`}>
+      <a href={`/${codename.toLowerCase()}`}>
         <h2 set:html={name} class="hover:underline" />
       </a>
       <span class="codename">{codename}</span>
@@ -104,7 +104,7 @@ const hasVariants = Object.keys(techData).length > 1;
     >
       <Button
         as="a"
-        href={`/${id.toLowerCase()}`}
+        href={`/${codename.toLowerCase()}`}
         flavor="content"
         class:list={[
           // storeHref === "#" ? "justify-self-start" : "",
