@@ -1,0 +1,36 @@
+---
+import Button from "@/components/core/Button.astro";
+import Layout from "@/layouts/layout.astro";
+---
+
+<Layout
+  title="ADVANTICS - 404 Page not found"
+  class="grid grid-rows-[auto_1fr_auto]"
+>
+  <main class="grid min-h-full place-items-center px-6 py-24 sm:py-32 lg:px-8">
+    <div class="text-center">
+      <p class="text-content text-base font-semibold">404</p>
+      <h1
+        class="text-content mt-4 text-3xl font-bold tracking-tight sm:text-5xl"
+      >
+        Page not found
+      </h1>
+      <p class="text-content mt-6 text-base leading-7">
+        Sorry, we couldn’t find the page you’re looking for.
+      </p>
+      <div class="mt-10 flex items-center justify-center gap-x-6">
+        <Button
+          as="a"
+          href="/"
+          class="bg-accent text-content-alt rounded-xs px-3.5 py-2.5 text-sm font-semibold shadow-xs hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+          >Go back home</Button
+        >
+        <a
+          href="mailto:webmaster@advantics.fr"
+          class="text-content text-sm font-semibold"
+          >Contact support <span aria-hidden="true">&rarr;</span></a
+        >
+      </div>
+    </div>
+  </main>
+</Layout>
