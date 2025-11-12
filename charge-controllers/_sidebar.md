@@ -63,6 +63,13 @@
     - [Troubleshooting](charge-controllers/ADM-CS-EVCC/troubleshooting.md)
     - [Versions](charge-controllers/evcc_versions.md)
     - [Configuration (2.x)](charge-controllers/evcc_configuration/README.md)
+      - [Generalities](charge-controllers/evcc_configuration/generalities.md)
+      - [Current deviation](charge-controllers/evcc_configuration/current_deviation.md)
+      - [Inlet lock](charge-controllers/evcc_configuration/inlet_lock.md)
+      - [DC contactors](charge-controllers/evcc_configuration/dc_contactors.md)
+      - [CAN sensor](charge-controllers/evcc_configuration/can_sensor.md)
+      - [No BMS mode](charge-controllers/evcc_configuration/no_bms.md)
+      - [CCS](charge-controllers/evcc_configuration/ccs.md)
   - **MEVC (MCS EVCC)**
     - [Technical Data](charge-controllers/ADM-CS-MEVC/introduction.md)
     <!-- - [Hardware manual](charge-controllers/ADM-CS-MEVC/README.md) -->
@@ -72,6 +79,13 @@
     <!-- - [Troubleshooting](charge-controllers/ADM-CS-EVCC/troubleshooting.md) -->
     - [Versions](charge-controllers/mevc_versions.md)
     - [Configuration](charge-controllers/mevc_configuration/README.md)
+      - [Generalities](charge-controllers/mevc_configuration/generalities.md)
+      - [MCS](charge-controllers/mevc_configuration/mcs.md)
+      - [Current deviation](charge-controllers/mevc_configuration/current_deviation.md)
+      - [Inlet lock](charge-controllers/mevc_configuration/inlet_lock.md)
+      - [DC contactors](charge-controllers/mevc_configuration/dc_contactors.md)
+      - [CAN sensor](charge-controllers/mevc_configuration/can_sensor.md)
+      - [No BMS mode](charge-controllers/mevc_configuration/no_bms.md)
   - **Features**
       <!-- - [Features](charge-controllers/evcc_features.md) -->
     - [No code mode](charge-controllers/evcc_no_code_mode.md)
