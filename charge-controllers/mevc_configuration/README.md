@@ -23,10 +23,10 @@ Options related to the generic interface as well as other controller behaviors r
 
 </br>
 
-1. [Generalities](charge-controllers/evcc_configuration/generalities.md)
-1. [Current deviation](charge-controllers/evcc_configuration/current_deviation.md)
-1. [Inlet lock](charge-controllers/evcc_configuration/inlet_lock.md)
-1. [DC contactors](charge-controllers/evcc_configuration/dc_contactors.md)
-1. [CAN sensor](charge-controllers/evcc_configuration/can_sensor.md)
-1. [No BMS mode](charge-controllers/evcc_configuration/no_bms.md)
-1. [CCS](charge-controllers/evcc_configuration/ccs.md)
+1. [Generalities](charge-controllers/mevc_configuration/generalities.md)
+1. [MCS](charge-controllers/mevc_configuration/mcs.md)
+1. [Current deviation](charge-controllers/mevc_configuration/current_deviation.md)
+1. [Inlet lock](charge-controllers/mevc_configuration/inlet_lock.md)
+1. [DC contactors](charge-controllers/mevc_configuration/dc_contactors.md)
+1. [CAN sensor](charge-controllers/mevc_configuration/can_sensor.md)
+1. [No BMS mode](charge-controllers/mevc_configuration/no_bms.md)
