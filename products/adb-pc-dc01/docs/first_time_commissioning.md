@@ -15,8 +15,9 @@ Before you begin, make sure you have the following:
 **Knowledge & Safety:**
 * You must be a qualified electrical engineer or certified technician.
 * You must be familiar with high-voltage and high-current DC systems.
-* You have read and understood the conceptual safety warnings.
-    * ***See Also:*** [General Safety Information](docs/safety.md)
+* You have read and understood the conceptual safety warnings.  
+  
+***See Also:*** <a href="../safety">General Safety Information</a>
 
 **Tools & Equipment:**
 * Standard mechanics toolset (socket wrench, torque wrench, etc.)
@@ -42,8 +43,9 @@ This step covers the essential connections to get the unit running.
 
 1.  **Mount the Unit:**
     * Lift the converter using the designated lifting points.
-    * Securely mount it to your rack or chassis using the correct bolt size and type.
-    ***See Also:*** [Install the Converter (Mechanical)](docs/installation.md#how-to-install-the-converter-mechanical)
+    * Securely mount it to your rack or chassis using the correct bolt size and type.  
+  
+    ***See Also:*** [Install the Converter (Mechanical)](../installation#install-the-converter-mechanical)
 
 2.  **Connect Protective Earth (Ground):**
     * **This is the most important connection.** Connect your facility's Protective Earth (PE) ground to the main grounding stud on the converter chassis.
@@ -51,17 +53,19 @@ This step covers the essential connections to get the unit running.
 
 3.  **Connect the Cooling System:**
     * Connect the coolant inlet and outlet hoses to the manifold.
-    * Ensure there are no leaks.
-    ***See Also:*** [Connect the Cooling System](docs/installation.md#connect-the-cooling-system)
-    ***See Also:*** [Liquid Cooling](docs/mechanical_specs.md#liquid-cooling)
+    * Ensure there are no leaks.  
+  
+    ***See Also:*** [Connect the Cooling System](../installation#connect-the-cooling-system)  
+    ***See Also:*** [Liquid Cooling](../mechanical_specs#liquid-cooling)
 
 4.  **Connect DC Power (Port A & Port B):**
     * **WARNING:** Ensure all sources remain locked out.
     * Use your DMM to verify the polarity (+ and -) of your incoming and outgoing busbars.
     * Connect the DC busbars (Port A and Port B) to the converter terminals. Ensure correct polarity.
-    * Torque the bolts to the specified value.
-    * **See Also:** [Install the Converter (Electrical)](docs/installation.md#how-to-install-the-converter-electrical)
-    * **See Also:** [Connectors and Interfaces](docs/mechanical_specs.md#connectors)
+    * Torque the bolts to the specified value.  
+  
+    ***See Also:*** [Install the Converter (Electrical)](../installation#how-to-install-the-converter-electrical)  
+    ***See Also:*** [Connectors and Interfaces](../mechanical_specs#connectors)
 
 5.  **Connect the Low-Voltage Control Connector:**
     * Connect the main control harness. This includes the connector for CAN bus and the Interlock line.
@@ -79,8 +83,10 @@ This step covers the essential connections to get the unit running.
 Now, let's verify the converter is "awake" and communicating.
 
 1.  **Connect Your Monitor:** Connect your CAN bus monitoring tool to the CAN bus lines.
-2.  **Set Baud Rate:** Ensure your monitor is set to the correct baud rate (e.g., 500 kbit/s).
-    * ***See Also:*** [CAN Bus Communication](docs/can_bus_interface.md)
+2.  **Set Baud Rate:** Ensure your monitor is set to the correct baud rate (e.g., 500 kbit/s).  
+  
+ ***See Also:*** [CAN Bus Communication](../can_bus_interface)
+   
 3.  **Look for a Heartbeat:** Open ETKA tool. You should see information about your power module. This indicates the unit is alive and in a `STANDBY` state.
 
 Your control system should be successfully connected at this stage.
@@ -103,5 +109,5 @@ Let's confirm the unit can pass power.
 You have successfully completed the first-time commissioning. You are now ready to move on to more advanced configuration and integration.
 
 * To perform specific tasks like firmware updates or fault diagnosis, see our **Guides**.
-* To understand the theory behind the operating modes or safety systems, see the [**Explanation**](docs/operation.md) section.
-* For a complete list of all CAN commands, fault codes, and technical specifications, see the [**CAN Bus Communication**](docs/can_bus_interface.md) section.
+* To understand the theory behind the operating modes or safety systems, see the [**Explanation**](../operation) section.
+* For a complete list of all CAN commands, fault codes, and technical specifications, see the [**CAN Bus Communication**](../can_bus_interface) section.

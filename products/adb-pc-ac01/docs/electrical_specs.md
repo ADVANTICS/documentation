@@ -98,14 +98,6 @@ The ADB-PC-AC01 supports multiple grid operation modes:
 
 **Connection Diagram:**
 
-```mermaid
-graph LR
-    A[CAN Bus] -->|Isolated| B[Power Electronics]
-    C[24V Control] -->|Isolated| B
-    D[PE Ground] -->|Basic Isolation| B
-    E[HV Section] -->|Reinforced Isolation| B
-```
-
 - **CAN Bus Isolation**: Isolated from power electronics and 24V supply
 - **Control Power Isolation**: 24V control isolated from power section
 - **Safety Isolation**: Basic isolation towards PE, reinforced towards HV

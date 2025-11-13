@@ -11,7 +11,7 @@ copyright: Copyright &copy; 2017-2025 ADVANTICS SAS
 
 watch:
   - "."
-use_directory_urls: false
+use_directory_urls: true
 
 # Theme configuration
 theme:

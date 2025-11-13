@@ -22,7 +22,6 @@ graph LR
 | -------------------- | ---------------------------------------- |
 | Power Stage          | Disabled                                 |
 | HV Contactors        | Open                                     |
-| Isolation Monitoring | Active                                   |
 | CAN Communication    | Active                                   |
 | Fault Handling       | Reports active faults only               |
 | Typical Use          | Safe idle, maintenance, or standby state |
@@ -61,7 +60,7 @@ graph LR
     A("DC Source (Input Port)") --> B("ADB-PC-DC01")
     B -->|Regulated Vout| C("Load (Output Port)")
     D("Controller") -->|Set Vout command| B
-    B -->|Feedback (V/I)| D
+    B -->|Feedback| D
 ```
 
 **Characteristics**
@@ -89,7 +88,7 @@ graph LR
     A["DC Source (Input Port)"] --> B["ADB-PC-DC01"]
     B -->|Regulated Iout| C["Load (Output Port)"]
     D["Controller"] -->|Set Iout command| B
-    B -->|Feedback (V/I)| D
+    B -->|Feedback| D
 ```
 
 **Characteristics**

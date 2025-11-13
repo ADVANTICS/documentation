@@ -85,7 +85,6 @@
 | **0x0003** | Overcurrent (Port B) | Current exceeds limit on Port B | Immediate shutdown |
 | **0x0004** | Overtemperature | Temperature exceeds limit | Immediate shutdown |
 | **0x0005** | Hardware Interlock | Safety interlock activated | Immediate shutdown |
-| **0x0006** | Isolation Fault | Loss of reinforced isolation | Immediate shutdown |
 
 ### Serious Faults (Level 2)
 
