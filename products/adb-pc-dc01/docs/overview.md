@@ -58,9 +58,7 @@ The ADB-PC-DC01 is suitable for a wide range of applications requiring isolated 
 
 The ADB-PC-DC01 is designed as part of the modular ADB Series system, allowing for flexible configuration and scaling for MW-level power systems.
 
-<div style="text-align: center; margin: 4rem 0;">
-    <img src="../assets/dc01_system_architecture.webp" alt="System Architecture" style="width: auto; height: auto;">
-</div>
+{{ figure('../assets/dc01_system_architecture.webp', 'System Architecture') }}
 
 ### Key Architectural Features:
 
@@ -78,9 +76,7 @@ In our example here, the MCS charger is built using:
 - 1MW AC/DC PFC Building block based on the ADB-PC-AC01 power module.  
 - 1MW DC/DC isolated Building block based on the ADB-PC-DC01 power module.  
 
-<div style="text-align: center; margin: 4rem 0;">
-    <img src="../assets/ac01_dc01_mcs_example.webp" alt="System Architecture" style="width: auto; height: auto;">
-</div>
+{{ figure('../assets/ac01_dc01_mcs_example.webp', 'System Architecture') }}
 
 ## Compliance and Standards
 

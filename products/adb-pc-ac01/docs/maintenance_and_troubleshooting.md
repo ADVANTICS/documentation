@@ -1,7 +1,7 @@
 # Safety Considerations
 
 !!! danger "Critical Safety Notice"
-This equipment operates with **dangerous AC and DC voltages** and **high currents**. Improper installation, operation, or maintenance can result in **serious injury or death**. Only qualified and authorized personnel may install, operate, or service this equipment.
+      This equipment operates with **dangerous AC and DC voltages** and **high currents**. Improper installation, operation, or maintenance can result in **serious injury or death**. Only qualified and authorized personnel may install, operate, or service this equipment.
 
 
 ## Qualified Personnel
@@ -20,8 +20,8 @@ Installation, operation, and maintenance of the **ADB-PC-AC01** must be performe
 ### High Voltage Hazards
 
 !!! warning "Extreme Voltage Danger"
-The ADB-PC-AC01 operates with **AC voltages up to 400 V (L–L)** and **DC voltages up to 950 V**.
-Contact with live conductors can result in **severe electrical shock, burns, or death**.
+      The ADB-PC-AC01 operates with **AC voltages up to 400 V (L–L)** and **DC voltages up to 950 V**.
+      Contact with live conductors can result in **severe electrical shock, burns, or death**.
 
 ### Voltage Levels Present
 
@@ -60,8 +60,8 @@ Contact with live conductors can result in **severe electrical shock, burns, or 
 ### Arc Flash Hazards
 
 !!! danger "Arc Flash Risk"
-Fault currents from the AC input or DC bus can cause **arc flashes exceeding 19 000 °C**.
-Proper **arc-flash study**, **labeling**, and **PPE** are mandatory before operation.
+      Fault currents from the AC input or DC bus can cause **arc flashes exceeding 19 000 °C**.
+      Proper **arc-flash study**, **labeling**, and **PPE** are mandatory before operation.
 
 **Arc Flash Prevention**
 
@@ -101,8 +101,8 @@ graph TD
 ### Hot Surfaces
 
 !!! warning "Burn Hazard"
-The ADB-PC-AC01’s heat sinks and enclosure surfaces may reach **temperatures up to 125 °C** during operation.
-Allow adequate cooling time before contact or servicing.
+      The ADB-PC-AC01’s heat sinks and enclosure surfaces may reach **temperatures up to 125 °C** during operation.
+      Allow adequate cooling time before contact or servicing.
 
 ### Thermal Hazards
 
@@ -145,7 +145,7 @@ The **liquid-cooling system** operates under pressure and elevated temperature.
 ### Heavy Equipment
 
 !!! warning "Lifting Hazard"
-The ADB-PC-AC01 weighs approximately **30 kg**. Use proper lifting equipment and techniques.
+      The ADB-PC-AC01 weighs approximately **30 kg**. Use proper lifting equipment and techniques.
 
 **Lifting Safety**
 
@@ -238,8 +238,8 @@ Install the following on or near the equipment:
 ## Safety During Maintenance
 
 !!! warning "Maintenance Safety"
-**Never perform maintenance on energized AC or DC equipment.**
-Always de-energize and verify isolation before starting any work.
+      **Never perform maintenance on energized AC or DC equipment.**
+      Always de-energize and verify isolation before starting any work.
 
 **Pre-Maintenance Safety**
 

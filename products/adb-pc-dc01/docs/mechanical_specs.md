@@ -106,7 +106,8 @@ Each unit has 4 ports - two for top plate, two for bottom plate. To simplify the
 
 The recommended flow of water would look like this. Color indicates the temperature rise, arrows indicate flow direction
 
-![image.png](assets/ADB-PC-XXXX_liquid_flow.png)
+<!-- ![image.png](assets/ADB-PC-XXXX_liquid_flow.png) -->
+{{ figure('../assets/ADB-PC-XXXX_liquid_flow.png', 'Liquid flow') }}
 
 ### Heat dissipation
 
@@ -147,8 +148,8 @@ This goes with pump design - 100 units would require 5 l/min * 100 = 500 l/min. 
 Each port (inlet and outlet) uses G1/4 thread (British Standard Pipe). Unless specified separately by the customer, each unit comes with barbed fittings installed on all ports.
 These barbed fittings accept a hose with 3/8" (10 mm) internal tube wall.
 
-![image.png](assets/barbed_fitting.png)
-
+<!-- ![image.png](assets/barbed_fitting.png) -->
+{{ figure('../assets/ADB-PC-XXXX_liquid_flow.png', 'Barbed fitting') }}
 
 ### No-drip alternatives
 

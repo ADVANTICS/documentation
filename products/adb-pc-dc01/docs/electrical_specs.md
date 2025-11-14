@@ -25,7 +25,7 @@
 
 The following graph illustrates the relationship between the maximum achievable power output and the input voltage on the DC Bus Side (Port A). The maximum power is capped at 100 kW, with optimal performance within the specified voltage range of 750-950 V DC. Variations outside this range may result in derating to ensure safe and efficient operation.
 
-![Maximum Power vs Input Voltage](assets/max_power_vs_input_voltage.png)
+{{ figure('../assets/max_power_vs_input_voltage.png', 'Maximum Power vs Input Voltage') }}
 
 ## DC output side (Port B) Specifications
 
@@ -55,14 +55,14 @@ The following graph illustrates the relationship between the maximum achievable 
 
 The following graph illustrates the relationship between the maximum achievable power output and the output voltage on the DC Output Side (Port B). The maximum power is capped at 100 kW, with optimal performance within the specified voltage range of 200-1500 V DC. Variations outside this range may result in derating to ensure safe and efficient operation.
 
-![Maximum Power vs Output Voltage](assets/max_power_vs_output_voltage.png)
+{{ figure('../assets/max_power_vs_output_voltage.png', 'Maximum Power vs Output Voltage') }}
 
 
 ## Safe Operating Area
 
 The Safe Operating Area (SOA) graph provides a V-I plot illustrating the maximum allowable current versus voltage for the 100 kW power envelope. This boundary ensures safe operation without exceeding thermal or electrical limits.
 
-![Safe Operating Area](assets/soa_outputs.png)
+{{ figure('../assets/soa_outputs.png', 'Safe Operating Area') }}
 
 ## Efficiency Characteristics
 
@@ -77,7 +77,7 @@ The Safe Operating Area (SOA) graph provides a V-I plot illustrating the maximum
 
 The following graph shows the efficiency curve of the ADB-PC-DC01 across various load conditions. It demonstrates the high efficiency maintained from 20% to 100% load, peaking at 98% at the optimal point.
 
-![Efficiency Curve](assets/efficiency_curve.png)
+{{ figure('../assets/efficiency_curve.png', 'Efficiency Curve') }}
 
 
 ## Transient Response
@@ -86,7 +86,7 @@ The following graph shows the efficiency curve of the ADB-PC-DC01 across various
 
 The ADB-PC-DC01 converter demonstrates robust transient response to load steps, maintaining output voltage stability during rapid load changes. This ensures reliable operation in dynamic environments.
 
-![Output Voltage Transient Response Load Step](assets/output_voltage_transient_response_load_step.png)
+{{ figure('../assets/output_voltage_transient_response_load_step.png', 'Output Voltage Transient Response Load Step') }}
 
 The graph depicts the output voltage behavior during a load step, highlighting low overshoot and fast recovery to steady-state conditions.
 
@@ -103,7 +103,7 @@ The ADB-PC-DC01 converter maintains low output voltage ripple and noise to ensur
 
 The following graph shows the FFT spectrum of the output voltage ripple for the 1500 V output at 100 kW load, illustrating the low harmonic content and noise levels.
 
-![Output Voltage Ripple FFT Spectrum](assets/voltage_ripple_fft_spectrum.png)
+{{ figure('../assets/voltage_ripple_fft_spectrum.png', 'Output Voltage Ripple FFT Spectrum') }}
 
 ## Paralleling Specifications
 
@@ -188,3 +188,4 @@ All electrical parameters are continuously monitored and available through the C
 - Temperature monitoring across critical components
 - Fault and status information
 - Historical data logging capability
+

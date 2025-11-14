@@ -11,7 +11,7 @@ copyright: Copyright &copy; 2017-2025 ADVANTICS SAS
 watch:
   - "."
 
-use_directory_urls: false
+use_directory_urls: true
 
 # Theme configuration
 theme:
@@ -90,6 +90,8 @@ plugins:
       cover_subtitle: 100kW AC/DC Active Frontend (PFC)
       author: ADVANTICS SAS
       custom_template_path: docs/assets
+  - macros:
+      module_name: macros
 
 # Markdown extensions
 markdown_extensions:

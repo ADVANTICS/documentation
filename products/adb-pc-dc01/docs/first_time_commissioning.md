@@ -12,20 +12,22 @@ This guide simplifies the process. For detailed technical data and advanced proc
 
 Before you begin, make sure you have the following:
 
-**Knowledge & Safety:**
-* You must be a qualified electrical engineer or certified technician.
-* You must be familiar with high-voltage and high-current DC systems.
-* You have read and understood the conceptual safety warnings.  
+**Knowledge & Safety:**  
+
+- You must be a qualified electrical engineer or certified technician.
+- You must be familiar with high-voltage and high-current DC systems.
+- You have read and understood the conceptual safety warnings.  
   
 ***See Also:*** <a href="../safety">General Safety Information</a>
 
-**Tools & Equipment:**
-* Standard mechanics toolset (socket wrench, torque wrench, etc.)
-* Digital Multimeter (DMM) rated for 1500V DC
-* Personal Protective Equipment (PPE) (high-voltage insulated gloves, safety glasses, etc.)
-* Lifting equipment (the unit is heavy)
-* A CAN bus monitoring tool (e.g., a CAN-to-USB adapter and ETKA software)
-* A controllable DC source (Port A) and a controllable DC load (Port B)
+**Tools & Equipment:**  
+
+- Standard mechanics toolset (socket wrench, torque wrench, etc.)
+- Digital Multimeter (DMM) rated for 1500V DC
+- Personal Protective Equipment (PPE) (high-voltage insulated gloves, safety glasses, etc.)
+- Lifting equipment (the unit is heavy)
+- A CAN bus monitoring tool (e.g., a CAN-to-USB adapter and ETKA software)
+- A controllable DC source (Port A) and a controllable DC load (Port B)
 
 
 ### **Step 1: Pre-Installation Safety Check**

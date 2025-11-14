@@ -89,6 +89,8 @@ plugins:
       cover_subtitle: 100kW 1500V DC/DC Isolated
       author: ADVANTICS SAS
       custom_template_path: docs/assets
+  - macros:
+      module_name: macros
 
 # Markdown extensions
 markdown_extensions:

@@ -12,19 +12,23 @@ This guide simplifies the process. For detailed technical data and advanced proc
 
 Before you begin, make sure you have the following:
 
-**Knowledge & Safety:**
-* You must be a qualified electrical engineer or certified technician.
-* You must be familiar with high-voltage and high-current AC/DC systems.
-* You have read and understood the conceptual safety warnings.
-    * ***See Also:*** [General Safety Information](docs/safety.md)
+**Knowledge & Safety:**  
 
-**Tools & Equipment:**
-* Standard mechanics toolset (socket wrench, torque wrench, etc.)
-* Digital Multimeter (DMM)
-* Personal Protective Equipment (PPE) (high-voltage insulated gloves, safety glasses, etc.)
-* Lifting equipment (the unit is heavy)
-* A CAN bus monitoring tool (e.g., a CAN-to-USB adapter and ETKA software)
-* A 3 phase AC connection and a controllable DC load
+- You must be a qualified electrical engineer or certified technician.  
+- You must be familiar with high-voltage and high-current AC/DC systems.  
+- You have read and understood the conceptual safety warnings.  
+
+  
+***See Also:*** <a href="../safety">General Safety Information</a>
+
+**Tools & Equipment:**  
+
+- Standard mechanics toolset (socket wrench, torque wrench, etc.)  
+- Digital Multimeter (DMM)  
+- Personal Protective Equipment (PPE) (high-voltage insulated gloves, safety glasses, etc.)  
+- Lifting equipment (the unit is heavy)  
+- A CAN bus monitoring tool (e.g., a CAN-to-USB adapter and ETKA software)  
+- A 3 phase AC connection and a controllable DC load  
 
 
 ### **Step 1: Pre-Installation Safety Check**
@@ -40,10 +44,10 @@ Safety is the most critical step. Do not proceed until you have verified the fol
 
 This step covers the essential connections to get the unit running.
 
-1.  **Mount the Unit:**
+1.  **Mount the Unit:**  
     * Lift the converter using the designated lifting points.
     * Securely mount it to your rack or chassis using the correct bolt size and type.
-    ***See Also:*** [Install the Converter (Mechanical)](docs/installation.md#how-to-install-the-converter-mechanical)
+    ***See Also:*** [Install the Converter (Mechanical)](../installation#install-the-converter-mechanical)
 
 2.  **Connect Protective Earth (Ground):**
     * **This is the most important connection.** Connect your facility's Protective Earth (PE) ground to the main grounding stud on the converter chassis.
@@ -52,8 +56,10 @@ This step covers the essential connections to get the unit running.
 3.  **Connect the Cooling System:**
     * Connect the coolant inlet and outlet hoses to the manifold.
     * Ensure there are no leaks.
-    ***See Also:*** [Connect the Cooling System](docs/installation.md#connect-the-cooling-system)
-    ***See Also:*** [Liquid Cooling](docs/mechanical_specs.md#liquid-cooling)
+  
+    ***See Also:*** [Connect the Cooling System](../installation#connect-the-cooling-system)  
+    ***See Also:*** [Liquid Cooling](../mechanical_specs#liquid-cooling)
+
 
 4.  **Connect AC and DC connectors:**
     * **WARNING:** Ensure all sources remain locked out.
@@ -61,8 +67,9 @@ This step covers the essential connections to get the unit running.
     * Use your DMM to verify the polarity (+ and -) of your busbars.
     * Connect the DC busbar to the DC converter terminals. Ensure correct polarity.
     * Torque the bolts to the specified value.
-    * **See Also:** [Install the Converter (Electrical)](docs/installation.md#how-to-install-the-converter-electrical)
-    * **See Also:** [Connectors and Interfaces](docs/mechanical_specs.md#connectors)
+  
+    ***See Also:*** [Install the Converter (Electrical)](../installation#how-to-install-the-converter-electrical)  
+    ***See Also:*** [Connectors and Interfaces](../mechanical_specs#connectors)
 
 5.  **Connect the Low-Voltage Control Connector:**
     * Connect the main control harness. This includes the connector for CAN bus and the Interlock line.
@@ -82,7 +89,7 @@ Now, let's verify the converter is "awake" and communicating.
 
 1.  **Connect Your Monitor:** Connect your CAN bus monitoring tool to the CAN bus lines.
 2.  **Set Baud Rate:** Ensure your monitor is set to the correct baud rate (e.g., 500 kbit/s).
-    * ***See Also:*** [CAN Bus Communication](docs/can_bus_interface.md)
+    * ***See Also:*** [CAN Bus Communication](../can_bus_interface)
 3.  **Look for a Heartbeat:** Open ETKA tool. You should see information about your power module. This indicates the unit is alive and in a `STANDBY` state.
 
 Your control system should be successfully connected at this stage.
@@ -105,5 +112,5 @@ Let's confirm the unit can pass power.
 You have successfully completed the first-time commissioning. You are now ready to move on to more advanced configuration and integration.
 
 * To perform specific tasks like firmware updates or fault diagnosis, see our **Guides**.
-* To understand the theory behind the operating modes or safety systems, see the [**Explanation**](docs/operation.md) section.
-* For a complete list of all CAN commands, fault codes, and technical specifications, see the [**CAN Bus Communication**](docs/can_bus_interface.md) section.
+* To understand the theory behind the operating modes or safety systems, see the [**Explanation**](../operation) section.
+* For a complete list of all CAN commands, fault codes, and technical specifications, see the [**CAN Bus Communication**](../can_bus_interface) section.

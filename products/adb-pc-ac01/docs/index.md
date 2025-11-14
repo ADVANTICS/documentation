@@ -3,25 +3,31 @@ title: ADB-PC-AC01 User Manual
 description: 100kW AC/DC Active Frontend (PFC) - User Documentation
 ---
 
-<div style="text-align: center; margin: 3rem 0;">
-    <h1 style="color: #00A99D; font-size: 2.5rem; margin-bottom: 1rem;">ADB-PC-AC01</h1>
-    <h2 style="color: #1a1a1a; font-size: 1.8rem; margin-bottom: 0.5rem;">100kW AC/DC Active Frontend (PFC)</h2>
-    <p style="font-size: 1.2rem; color: #666;">Technical Documentation & User Manual</p>
-    <div style="margin-top: 1.5rem;">
-        <img src="assets/AC01.png" alt="ADB-PC-AC01" style="max-width: 600px; width: 100%; height: auto;">
+<div class="keep-on-one-page" style="page-break-inside: avoid; break-inside: avoid; -webkit-column-break-inside: avoid; -webkit-page-break-inside: avoid; page-break-after: avoid;">
+  <div style="text-align: center; margin: 2.5rem 0;">
+    <div role="heading" aria-level="1" style="color: #00A99D; font-size: 2.5rem; margin-bottom: 0.75rem; font-weight: 700;">
+      ADB-PC-AC01
     </div>
-</div>
+    <div role="heading" aria-level="2" style="color: #1a1a1a; font-size: 1.25rem; margin-bottom: 0.5rem; font-weight: 600;">
+      100kW AC/DC Active Frontend (PFC)
+    </div>
+    <p style="font-size: 1rem; color: #666; margin: 0 0 1rem 0;">Technical Documentation &amp; User Manual</p>
+    <div style="margin-top: 1rem;">
+      <img src="assets/AC01.png" alt="ADB-PC-AC01" style="max-width: 600px; width: 100%; height: auto; max-height: 300px; object-fit: contain;">
+    </div>
+  </div>
 
-<div style="text-align: center; margin: 4rem 0;">
-    <img src="assets/logo.webp" alt="Advantics Logo" style="max-width: 200px; height: auto;">
-</div>
+  <div style="text-align: center; margin: 1.5rem 0;">
+    <img src="assets/logo.webp" alt="Advantics Logo" style="max-width: 160px; height: auto;">
+  </div>
 
----
+  <hr style="border: none; border-top: 1px solid #eee; margin: 1.5rem 0;" />
 
-<div style="text-align: center; margin: 3rem 0;">
-    <p><strong>Document Version:</strong> 1.0</p>
-    <p><strong>Release Date:</strong> October 2025</p>
-    <p><strong>Document Classification:</strong> Public</p>
+  <div style="text-align: center; margin: 1.5rem 0; font-size: 0.95rem; color: #333;">
+    <p style="margin: 0.25rem 0;"><strong>Document Version:</strong> 1.0</p>
+    <p style="margin: 0.25rem 0;"><strong>Release Date:</strong> October 2025</p>
+    <p style="margin: 0.25rem 0;"><strong>Document Classification:</strong> Public</p>
+  </div>
 </div>
 
 ---

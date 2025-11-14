@@ -54,7 +54,8 @@ This guide covers the physical installation, mounting, and handling of the ADB-P
 
 This guide covers the connection of all high-voltage and low-voltage electrical cables.
 
-**WARNING:** **RISK OF ELECTRIC SHOCK.** This procedure must only be performed by qualified personnel. Ensure all power sources (Port A and Port B) are fully de-energized, disconnected, and locked-out.
+!!! WARNING "**RISK OF ELECTRIC SHOCK**"
+      This procedure must only be performed by qualified personnel. Ensure all power sources (Port A and Port B) are **de-energized, disconnected, and locked out**.
 
 **Prerequisites:**  
 - All power sources are confirmed OFF and locked-out (LOTO).  
@@ -103,9 +104,7 @@ This guide covers the procedure for connecting the liquid cooling loop.
 
 This procedure describes how to interconnect and configure multiple ADB-PC-DC01 units for parallel operation.
 
-<div style="text-align: center; margin: 4rem 0;">
-    <img src="../assets/dc01_system_architecture.webp" alt="System Architecture" style="width: auto; height: auto;">
-</div>
+{{ figure('../assets/dc01_system_architecture.webp', 'System Architecture') }}
 
 **Prerequisites:**  
 - All units are fully installed (mechanically, electrically, and cooling).  

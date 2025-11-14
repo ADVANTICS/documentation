@@ -86,9 +86,8 @@ This section covers the physical installation, mounting, and handling of the **A
 
 This section covers the electrical connection of all AC, DC, and control cables.
 
-> ⚠️ **WARNING – RISK OF ELECTRIC SHOCK:**
-> This procedure must only be performed by qualified personnel.
-> Ensure all power sources (AC and DC) are **de-energized, disconnected, and locked out**.
+!!! WARNING "**RISK OF ELECTRIC SHOCK**"
+      This procedure must only be performed by qualified personnel. Ensure all power sources (Port A and Port B) are **de-energized, disconnected, and locked out**.
 
 **Prerequisites:**
 
@@ -150,9 +149,12 @@ This section describes the procedure for connecting the **liquid cooling loop** 
 
 This procedure describes how to interconnect and configure multiple ADB-PC-AC01 units for parallel operation.
 
-<div style="text-align: center; margin: 4rem 0;">
+<!-- <div style="text-align: center; margin: 4rem 0;">
     <img src="assets/ac01_system_architecture.webp" alt="System Architecture" style="width: auto; height: auto;">
-</div>
+</div> -->
+
+{{ figure('../assets/ac01_system_architecture.webp', 'Parallel System') }}
+
 
 **Prerequisites:**
 
