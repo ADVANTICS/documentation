@@ -3,8 +3,8 @@
 Generate Markdown documentation from a CAN bus .kcd database file.
 
 Usage:
-  python tools/kcd_to_md.py --kcd /path/to/db.kcd --out /path/to/output.md \
-      [--reference-node NODE_NAME]
+    python tools/kcd_to_md.py --kcd /path/to/db.kcd --out /path/to/output.md \
+            [--reference-node NODE_NAME] [--generate-adb-ids --adb-device-type {GC01,AC01,DC01,CH01,DC02,GN01}]
 
 If --reference-node is provided, message Direction will be computed relative to
 that node: messages produced by the node are marked OUT; messages received by
@@ -92,6 +92,32 @@ def _direction_for_message(msg, reference_node: Optional[str],
     return ""
 
 
+# Mapping for ADB device types
+ADB_DEVICE_TYPE_MAP: Dict[str, int] = {
+    "GC01": 0x80,
+    "AC01": 0x81,
+    "DC01": 0x82,
+    "CH01": 0x83,
+    "DC02": 0x84,
+    "GN01": 0x85,
+}
+
+
+def _transform_adb_id(base_id: int, device_type: int, position_within_stack: int = 0) -> int:
+    """Compose 24-bit ADB-style ID from components.
+
+    Layout:
+    - bits [7:0]   Register address      -> base_id & 0xFF
+    - bits [15:8]  Position within stack -> position_within_stack (default 0)
+    - bits [23:16] Device type           -> device_type from ADB_DEVICE_TYPE_MAP
+    Bits [31:24] are zero.
+    """
+    reg = base_id & 0xFF
+    pos = (position_within_stack & 0xFF) << 8
+    dtype = (device_type & 0xFF) << 16
+    return dtype | pos | reg
+
+
 def _noheader_table_header(wrap_tables: bool, classes: str = "noheader-table small-table compact-table") -> str:
     """Return the header lines for a two-column captionless table, optionally wrapped in a div."""
     header = "| * | * |\n|---|---|"
@@ -161,7 +187,16 @@ def _parse_kcd_producers(kcd_path: str) -> Dict[str, List[str]]:
     return producers
 
 
-def generate_markdown(kcd_path: str, out_path: str, reference_node: Optional[str], *, wrap_tables: bool = False) -> str:
+def generate_markdown(
+    kcd_path: str,
+    out_path: str,
+    reference_node: Optional[str],
+    *,
+    wrap_tables: bool = False,
+    id_style: str = "braces",
+    generate_adb_ids: bool = False,
+    adb_device_type: Optional[str] = None,
+) -> str:
     db = cantools.db.load_file(kcd_path)
     kcd_producers = _parse_kcd_producers(kcd_path)
 
@@ -170,9 +205,25 @@ def generate_markdown(kcd_path: str, out_path: str, reference_node: Optional[str
 
     # Build message index rows
     index_rows: List[Tuple[str, str, int, str, Optional[int]]] = []
+    # Resolve device type value if requested
+    adb_device_value: Optional[int] = None
+    if generate_adb_ids:
+        if not adb_device_type:
+            raise SystemExit("--generate-adb-ids requires --adb-device-type {GC01,AC01,DC01,CH01,DC02,GN01}")
+        if adb_device_type in ADB_DEVICE_TYPE_MAP:
+            adb_device_value = ADB_DEVICE_TYPE_MAP[adb_device_type]
+        else:
+            # Allow numeric hex like 0x80 as fallback
+            try:
+                adb_device_value = int(adb_device_type, 0)
+            except Exception as e:
+                raise SystemExit(f"Unknown --adb-device-type '{adb_device_type}'. Expected one of {list(ADB_DEVICE_TYPE_MAP.keys())} or a hex value.")
+
     for msg in db.messages:
         name = msg.name
-        frame_id = _hex_id(msg.frame_id)
+        # Apply optional ADB ID transformation
+        id_num = _transform_adb_id(msg.frame_id, adb_device_value) if (generate_adb_ids and adb_device_value is not None) else msg.frame_id
+        frame_id = _hex_id(id_num)
         length = msg.length
         direction = _direction_for_message(msg, reference_node, kcd_producers)
         cycle = msg.cycle_time  # may be None
@@ -183,10 +234,10 @@ def generate_markdown(kcd_path: str, out_path: str, reference_node: Optional[str
 
     out_lines: List[str] = []
 
-    out_lines.append("<!--")
-    out_lines.append(_escape(rel_note))
-    out_lines.append("-->")
-    out_lines.append("")
+    # out_lines.append("<!--")
+    # out_lines.append(_escape(rel_note))
+    # out_lines.append("-->")
+    # out_lines.append("")
     out_lines.append("# CAN messages")
     out_lines.append("")
     out_lines.append("## Message index")
@@ -210,10 +261,17 @@ def generate_markdown(kcd_path: str, out_path: str, reference_node: Optional[str
         out_lines.append("")
         # Explicit HTML anchor for robust linking in Markdown renderers
         out_lines.append(f"<a id=\"{m_anchor}\"></a>")
-        out_lines.append(f"## {msg.name} {{ #{m_anchor} }}")
+        if id_style == "colon":
+            # Docsify-style IDs (example legacy format)
+            out_lines.append(f"## {msg.name}")
+        else:
+            # MkDocs-style heading ID
+            out_lines.append(f"## {msg.name} {{ #{m_anchor} }}")
         out_lines.append("")
         out_lines.append(_noheader_table_header(wrap_tables))
-        out_lines.append("| **Frame ID** | " + _hex_id(msg.frame_id) + " |")
+        # Apply the same optional ADB ID transformation in details
+        id_num = _transform_adb_id(msg.frame_id, adb_device_value) if (generate_adb_ids and adb_device_value is not None) else msg.frame_id
+        out_lines.append("| **Frame ID** | " + _hex_id(id_num) + " |")
         out_lines.append("| **Length [Bytes]** | " + str(msg.length) + " |")
         out_lines.append("| **Periodicity [ms]** | " + _format_num(msg.cycle_time) + " |")
         out_lines.append("| **Direction** | " + _direction_for_message(msg, reference_node, kcd_producers) + " |")
@@ -250,7 +308,10 @@ def generate_markdown(kcd_path: str, out_path: str, reference_node: Optional[str
         out_lines.append("")
         for sig in msg.signals:
             sig_anchor = _anchorize(f"{msg.name}-{sig.name}")
-            out_lines.append(f"#### {sig.name} {{ #{sig_anchor} }}")
+            if id_style == "colon":
+                out_lines.append(f"#### {sig.name} :id={sig_anchor}")
+            else:
+                out_lines.append(f"#### {sig.name} {{ #{sig_anchor} }}")
             out_lines.append("")
             if sig.comment:
                 normalized_sig = _normalize_notes_text(sig.comment)
@@ -320,9 +381,36 @@ def main():
         action="store_true",
         help="Wrap Markdown tables in HTML <div> with CSS classes (disabled by default for mkdocs)",
     )
+    ap.add_argument(
+        "--id-style",
+        choices=["braces", "colon"],
+        default="braces",
+        help=(
+            "Heading ID syntax: 'braces' -> '#### Name { #id }' (MkDocs style), "
+            "'colon' -> '#### Name :id=id' (Docsify style)."
+        ),
+    )
+    ap.add_argument(
+        "--generate-adb-ids",
+        action="store_true",
+        help="Generate ADB-styled message IDs (device type in bits [23:16], position [15:8]=0, register [7:0]=original ID)",
+    )
+    ap.add_argument(
+        "--adb-device-type",
+        default=None,
+        help="ADB device type (one of GC01, AC01, DC01, CH01, DC02, GN01) or a numeric value like 0x80. Required when --generate-adb-ids is set.",
+    )
     args = ap.parse_args()
 
-    out = generate_markdown(args.kcd, args.out, args.reference_node, wrap_tables=args.wrap_tables_in_divs)
+    out = generate_markdown(
+        args.kcd,
+        args.out,
+        args.reference_node,
+        wrap_tables=args.wrap_tables_in_divs,
+        id_style=args.id_style,
+        generate_adb_ids=args.generate_adb_ids,
+        adb_device_type=args.adb_device_type,
+    )
     print(f"Generated: {out}")
 
 
