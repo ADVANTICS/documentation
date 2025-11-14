@@ -108,7 +108,8 @@ markdown_extensions:
   - pymdownx.smartsymbols
   - pymdownx.tasklist:
       custom_checkbox: true
-  - pymdownx.arithmatex
+  - pymdownx.arithmatex:
+      generic: true
   - toc:
       permalink: false
       baselevel: 1
@@ -149,6 +150,8 @@ extra_css:
 # Extra JavaScript for Mermaid
 extra_javascript:
   - https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js
+  - docs/assets/mathjax-config.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 # extra_files:
 #   - _puml/advantics-theme-dark.puml
