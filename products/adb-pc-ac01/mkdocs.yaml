@@ -91,7 +91,7 @@ plugins:
       author: ADVANTICS SAS
       custom_template_path: docs/assets
   - macros:
-      module_name: macros
+      module_name: docs/assets/macros
 
 # Markdown extensions
 markdown_extensions:
