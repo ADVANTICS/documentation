@@ -90,6 +90,3 @@ Because the converter already operates on a high-frequency, fully regulated DC l
 Here we can put the applications example section i wrote in notion. Not done yet.
 
 
-In this system, ADB-PC-AC01 is used in AC to DC mode to regulate the DC voltage at the input of ADB-PC-DC01. The user can set the target DC voltage, along with the current limits, to regulate power delivery either to the grid or to the DC link.
-
-
