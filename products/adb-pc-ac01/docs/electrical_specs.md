@@ -102,22 +102,13 @@ The ADB-PC-AC01 supports multiple grid operation modes:
 - **Control Power Isolation**: 24V control isolated from power section
 - **Safety Isolation**: Basic isolation towards PE, reinforced towards HV
 
-## Paralleling Specifications
 
-### Parallel Operation Capability
+## Safe Operating Area
 
-- **Maximum Units**: Up to 120 modules in parallel
-- **Load Sharing**: Intelligent droop technology for automatic load sharing
-- **Communication**: Isolated CAN bus for inter-module communication
-- **Scalability**: Linear power scaling with additional modules
+The ADB-PC-AC01 is engineered to operate reliably within a specific DC voltage range of $650 \text{ V}$ to $950 \text{ V}$.The module's maximum output is always controlled by its $100 \text{ kW}$ power rating. This means that as the voltage gets lower (closer to $650 \text{ V}$), the current the module can handle automatically increases to maintain that $100 \text{ kW}$ limit.  
+For long-term reliability, especially in high-temperature environments, we recommend keeping the operating point slightly inside these limits.
 
-### Parallel Configuration
-
-!!! info "Parallel Operation Benefits"
-    - **Redundancy**: System continues operation with failed modules
-    - **Scalability**: Power can be increased by adding modules
-    - **Efficiency**: Optimized operation across wide load ranges
-    - **Maintenance**: Hot-swappable capability for service
+{{ figure('../assets/afe_soa_plot.webp', 'Safe Operating Area') }}
 
 ## Efficiency Characteristics
 
@@ -127,14 +118,37 @@ The ADB-PC-AC01 supports multiple grid operation modes:
 - **Full Load Efficiency**: >97% across wide operating range
 - **Partial Load Efficiency**: Maintained high efficiency down to 20% load
 
-### Loss Distribution
+**Efficiency Curve**
 
-| **Component** | **Loss Contribution** | **Optimization** |
-|---------------|---------------------|------------------|
-| **Power Semiconductors** | ~60% | SiC technology minimizes losses |
-| **Magnetics** | ~25% | Optimized core materials |
-| **Control Electronics** | ~10% | Efficient power management |
-| **Auxiliary Systems** | ~5% | Minimal auxiliary power draw |
+The ADB-PC-AC01 Active Frontend achieves its peak of 98.5% at full load (100 kW) when using the highest input voltage (480 V). The unit maintains strong performance across the operational range as illustraited in the following efficiency curve:
+
+{{ figure('../assets/afe_efficiency_plot.webp', 'Efficiency Curve') }}
+
+## Power Factor & THDi
+
+The Power Factor (PF) maintains a near-unity value of $\ge 0.99$ for all output loads above 50%, guaranteeing minimal reactive power draw. Similarly, Total Harmonic Distortion of Current (THDi) is aggressively managed, remaining below the stringent $5\%$ limit for all loads greater than $25\%$, fully complying with major harmonic standards.
+
+{{ figure('../assets/afe_pf_thdi_plots.webp', 'Power Factor & THDi vs Load') }}
+
+## Harmonic Spectrum
+
+The ADB-PC-AC01 employs a three-phase active Power Factor Correction (PFC) stage utilizing high-speed Silicon Carbide (SiC) switching technology. This advanced architecture is designed to draw a near-sinusoidal input current, ensuring near-unity Power Factor (PF) across most of the operating range.  
+
+Due to the fundamental nature of balanced three-phase systems, the PFC action naturally minimizes even-order harmonics (2nd, 4th, etc.). The remaining distortion is dominated by low-level, odd-order characteristic harmonics (5th, 7th, 11th, etc.) that originate primarily from switching ripple and slight imbalances in the grid voltage or control loops. As confirmed by the plot, the overall harmonic content is maintained well below industry standards (e.g., IEEE 519), with THDi typically remaining $\le 5\%$ at full power.
+
+{{ figure('../assets/afe_harmonic_spectrum.webp', 'Harmonic Spectrum') }}
+
+
+## Parallel Operation Capability
+
+- **Maximum Units**: Up to 120 modules in parallel
+- **Load Sharing**: Intelligent droop technology for automatic load sharing
+- **Communication**: Isolated CAN bus for inter-module communication
+- **Scalability**: Linear power scaling with additional modules
+- **Redundancy**: System continues operation with failed modules
+- **Maintenance**: Hot-swappable capability for service
+
+{{ figure('../assets/ac01_system_architecture.webp', 'Parallel System') }}
 
 ## Environmental Electrical Specifications
 

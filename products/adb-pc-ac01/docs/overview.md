@@ -54,8 +54,6 @@ The ADB-PC-AC01 is suitable for a wide range of applications requiring bidirecti
 
 The ADB-PC-AC01 is designed as part of the modular ADB Series system, allowing for flexible configuration and scaling for MW-level power systems.
 
-{{ figure('../assets/ac01_system_architecture.webp', 'System Architecture') }}
-
 ### Key Architectural Features:
 
 - **Stackable Design**: Modules can be combined for higher power applications

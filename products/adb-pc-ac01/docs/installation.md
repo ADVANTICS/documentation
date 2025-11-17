@@ -153,8 +153,6 @@ This procedure describes how to interconnect and configure multiple ADB-PC-AC01 
     <img src="assets/ac01_system_architecture.webp" alt="System Architecture" style="width: auto; height: auto;">
 </div> -->
 
-{{ figure('../assets/ac01_system_architecture.webp', 'Parallel System') }}
-
 
 **Prerequisites:**
 

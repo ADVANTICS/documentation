@@ -105,9 +105,7 @@ The following graph shows the FFT spectrum of the output voltage ripple for the 
 
 {{ figure('../assets/voltage_ripple_fft_spectrum.png', 'Output Voltage Ripple FFT Spectrum') }}
 
-## Paralleling Specifications
-
-### Parallel Operation Capability
+## Parallel Operation Capability
 
 The parallel configuration offers several key benefits, including redundancy where the system continues operation even with failed modules, scalability by increasing power through adding modules, efficiency with optimized operation across wide load ranges, and maintenance through hot-swappable capability for service.
 
@@ -116,6 +114,7 @@ The parallel configuration offers several key benefits, including redundancy whe
 - **Communication**: Isolated CAN bus for inter-module communication
 - **Scalability**: Linear power scaling with additional modules, up to 6MW
 
+{{ figure('../assets/dc01_system_architecture.webp', 'System Architecture') }}
 
 ## Control and Communication Specifications
 
