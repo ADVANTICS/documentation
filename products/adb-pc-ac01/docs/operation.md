@@ -4,7 +4,11 @@ The ADB-PC-AC01 supports multiple operating modes to accommodate various applica
 
 ## Rectifier Mode (AC to DC)
 
-In rectifier mode, the module converts AC input power to regulated DC output power:
+In AC to DC mode, the module receives three-phase AC (208-480V, 50/60Hz) from the grid and performs power factor correction to minimize reactive power and harmonic distortion, achieving a power factor above 0.99 and THD of less than 5%. The SiC switching devices modulate the input current to shape it while actively controlling both amplitude and phase to draw near sinusoidal current from the grid. The module can perform precharge thanks to the built-in circuit that eliminates inrush currents to avoid damage to the converter. An internal soft start algorithm limits the inrush current and avoids grid disturbances. 
+
+The DC link voltage is controlled by the user setpoints within the range of 650V to 950V. Current is regulated bidirectionally within the power envelope of 100kW, allowing for both charging and discharging of the DC link. 
+
+The module includes protection features to eliminate overvoltage, undervoltage, overcurrent, and overtemperature. Hardware interlock and CAN bus control ensure safe operation and coordination with other modules connected in parallel.
 
 
 ```mermaid
@@ -26,7 +30,9 @@ graph LR
 
 ## Inverter Mode (DC to AC)
 
-In inverter mode, the module converts DC input power to AC output power:
+In DC-to-AC mode, the module inverts energy from the DC link back to the AC side, generating a controlled three-phase output synchronized with the grid or microgrid. The modulation stage adjusts amplitude, phase, and frequency to support active and reactive power flow, enabling functions such as grid support, export, and microgrid stabilization. Grid-code protections and mains-side relays manage safe interconnection and disconnection, while real-time current regulation maintains a clean sinusoidal output. Parallel units operate cooperatively through intelligent droop control, allowing coordinated AC injection and stable multi-module behavior.
+
+The converter supports paralleling up to 120 units, scaling up to megawatt-level power stations. An intelligent ‘droop control’ algorithm manages the sharing of DC link voltage among the parallel modules, which eliminates the circulating currents and stabilizes the common DC bus without requiring overly complex communication.
 
 ```mermaid
 graph LR
