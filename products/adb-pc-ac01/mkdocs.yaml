@@ -18,7 +18,7 @@ theme:
   name: material
   language: en
   logo: assets/logo.webp
-  favicon: assets/logo.webp
+  favicon: assets/favicon.png
 
   palette:
     # Light theme
@@ -151,7 +151,7 @@ extra_css:
 # Extra JavaScript for Mermaid
 extra_javascript:
   - https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js
-  - docs/assets/mathjax-config.js
+  # - docs/assets/mathjax-config.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 # extra_files:
