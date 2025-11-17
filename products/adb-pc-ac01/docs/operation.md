@@ -87,11 +87,8 @@ Because the converter already operates on a high-frequency, fully regulated DC l
 
 ## Application Examples
 
-### 100kW 3-Phase Bidirectional Charger 
+Here we can put the applications example section i wrote in notion. Not done yet.
 
-An ADB-PC-AC01 can be a building block of a bidirectional battery charging system (e.g., G2V, V2G). The diagram below illustrates the connection diagram of such a system, where a 3-phase grid is connected to ADB-PC-DC01 through ADB-PC-AC01.
-![3-phase bidirectional charger diagram that employs ADB-PC-DC01 and ADB-PC-AC01](attachment:68ec7485-a655-4b1a-83d1-c281a15c4a70:image.png)
-3-phase bidirectional charger diagram that employs ADB-PC-DC01 and ADB-PC-AC01
 
 In this system, ADB-PC-AC01 is used in AC to DC mode to regulate the DC voltage at the input of ADB-PC-DC01. The user can set the target DC voltage, along with the current limits, to regulate power delivery either to the grid or to the DC link.
 
