@@ -104,8 +104,6 @@ This guide covers the procedure for connecting the liquid cooling loop.
 
 This procedure describes how to interconnect and configure multiple ADB-PC-DC01 units for parallel operation.
 
-{{ figure('../assets/dc01_system_architecture.webp', 'System Architecture') }}
-
 **Prerequisites:**  
 - All units are fully installed (mechanically, electrically, and cooling).  
 - All units are powered off.  

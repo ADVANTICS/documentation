@@ -58,8 +58,6 @@ The ADB-PC-DC01 is suitable for a wide range of applications requiring isolated 
 
 The ADB-PC-DC01 is designed as part of the modular ADB Series system, allowing for flexible configuration and scaling for MW-level power systems.
 
-{{ figure('../assets/dc01_system_architecture.webp', 'System Architecture') }}
-
 ### Key Architectural Features:
 
 - **Stackable Design**: Modules can be combined for higher power applications, up to 6MW.
