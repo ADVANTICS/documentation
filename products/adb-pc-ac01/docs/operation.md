@@ -79,3 +79,20 @@ sequenceDiagram
     Controller->>ADB: Set Inverter Mode
     ADB->>Grid: Full Power Export
 ```
+## DC to DC Mode 
+
+In DC-to-DC mode, the converter regulates power flow between a high-voltage DC source and a downstream DC bus, maintaining a controlled DC link while managing current in both directions. The internal SiC switching stage modulates the DC input to stabilize the output voltage within the supported operating window, allowing the unit to act as a tightly regulated DC supply or as a sink that absorbs energy from the DC side. Current is controlled with the same bidirectional precision used in AC-coupled modes, enabling charging, discharging, or buffering functions depending on system requirements.
+
+Because the converter already operates on a high-frequency, fully regulated DC link, the DC-to-DC function uses its existing modulation and protection framework: soft-start prevents inrush, active current regulation prevents overload, and all overvoltage, undervoltage, and thermal protections remain active. When multiple modules operate in parallel, the droop-control mechanism balances DC voltage and current sharing automatically, ensuring stable multi-module DC-bus operation.
+
+## Application Examples
+
+### 100kW 3-Phase Bidirectional Charger 
+
+An ADB-PC-AC01 can be a building block of a bidirectional battery charging system (e.g., G2V, V2G). The diagram below illustrates the connection diagram of such a system, where a 3-phase grid is connected to ADB-PC-DC01 through ADB-PC-AC01.
+![3-phase bidirectional charger diagram that employs ADB-PC-DC01 and ADB-PC-AC01](attachment:68ec7485-a655-4b1a-83d1-c281a15c4a70:image.png)
+3-phase bidirectional charger diagram that employs ADB-PC-DC01 and ADB-PC-AC01
+
+In this system, ADB-PC-AC01 is used in AC to DC mode to regulate the DC voltage at the input of ADB-PC-DC01. The user can set the target DC voltage, along with the current limits, to regulate power delivery either to the grid or to the DC link.
+
+
