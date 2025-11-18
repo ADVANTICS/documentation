@@ -31,10 +31,6 @@ The following graph illustrates the relationship between the maximum achievable 
 
 ### Output Characteristics
 
-## DC output side (Port B) Specifications
-
-### Output Characteristics
-
 | **Parameter** | **Value** | **Notes** |
 |---------------|-----------|-----------|
 | **Voltage Range** | 200 - 1500 V | - |
