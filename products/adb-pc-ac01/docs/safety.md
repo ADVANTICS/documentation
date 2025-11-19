@@ -72,19 +72,6 @@ Proper grounding is essential for safety:
 - Bonding of all metallic parts.
 - Ground fault protection.
 
-**Grounding Verification**
-
-```mermaid
-graph TD
-    A[Ground Connection] -->|Continuity Test| B[<1Ω Resistance]
-    C[Insulation Test] -->|Megohm Test| D[>1MΩ Resistance]
-    E[Ground Fault Test] -->|Simulated Fault| F[Protection Operates]
-    
-    B -->|Pass| G[Ground OK]
-    D -->|Pass| H[Insulation OK]
-    F -->|Pass| I[Protection OK]
-```
-
 ## Thermal Safety
 
 #### Hot Surfaces

@@ -10,18 +10,6 @@ The DC link voltage is controlled by the user setpoints within the range of 650V
 
 The module includes protection features to eliminate overvoltage, undervoltage, overcurrent, and overtemperature. Hardware interlock and CAN bus control ensure safe operation and coordination with other modules connected in parallel.
 
-
-```mermaid
-graph LR
-    A["AC Grid 208-480V"] -->|3-Phase AC| B["ADB-PC-AC01"]
-    B -->|PFC Control| C[Power Factor Correction]
-    C -->|DC Output| D["650-950V DC Bus"]
-    B -->|CAN Control| E[System Controller]
-    
-    F[Grid Monitoring] -->|Voltage/Current| C
-    G[Temperature Monitoring] -->|Thermal Data| C
-```
-
 **Key Features:**
 - Active Power Factor Correction (PFC) maintains PF ≥0.99
 - Low Total Harmonic Distortion (THDi ≤5%)
@@ -34,17 +22,6 @@ In DC-to-AC mode, the module inverts energy from the DC link back to the AC side
 
 The converter supports paralleling up to 120 units, scaling up to megawatt-level power stations. An intelligent ‘droop control’ algorithm manages the sharing of DC link voltage among the parallel modules, which eliminates the circulating currents and stabilizes the common DC bus without requiring overly complex communication.
 
-```mermaid
-graph LR
-    A["DC Source 650-950V"] -->|DC Input| B["ADB-PC-AC01"]
-    B -->|Inverter Control| C[Grid Synchronization]
-    C -->|AC Output| D["208-480V AC Grid"]
-    B -->|CAN Control| E[System Controller]
-    
-    F[Grid Monitoring] -->|Sync Data| C
-    G[Power Control] -->|Setpoint| C
-```
-
 
 **Key Features:**
 - Grid-tied or standalone operation
@@ -56,29 +33,6 @@ graph LR
 
 In bidirectional mode, the module seamlessly transitions between rectifier and inverter operation:
 
-
-```mermaid
-sequenceDiagram
-    participant Grid
-    participant ADB
-    participant Controller
-    participant Load
-    
-    Grid->>ADB: AC Power Available
-    Controller->>ADB: Set Rectifier Mode
-    ADB->>Load: DC Power Delivery
-    
-    Note over Load: Energy Demand Changes
-    
-    Controller->>ADB: Set Bidirectional Mode
-    Load->>ADB: Excess DC Power
-    ADB->>Grid: AC Power Injection
-    
-    Note over Grid: Grid Requirements Change
-    
-    Controller->>ADB: Set Inverter Mode
-    ADB->>Grid: Full Power Export
-```
 ## DC to DC Mode 
 
 In DC-to-DC mode, the converter regulates power flow between a high-voltage DC source and a downstream DC bus, maintaining a controlled DC link while managing current in both directions. The internal SiC switching stage modulates the DC input to stabilize the output voltage within the supported operating window, allowing the unit to act as a tightly regulated DC supply or as a sink that absorbs energy from the DC side. Current is controlled with the same bidirectional precision used in AC-coupled modes, enabling charging, discharging, or buffering functions depending on system requirements.

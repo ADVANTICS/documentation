@@ -1,324 +1,170 @@
-# Safety Considerations
+# Maintenance and Troubleshooting
+
+## Update Firmware
+
+This guide provides the procedure for updating the converter's firmware.
+
+**Prerequisites:**  
+  
+* You have the new firmware file (`.hex`) provided by the ADVANTICS.  
+* You have the rovided firmware flashing tool (software) and a CAN-to-USB adapter.  
+* The converter is powered on and in `STANDBY` mode.  
+
+**Steps:**  
+  
+1.  Connect your CAN-to-USB adapter to the CAN bus.  
+2.  Launch the firmware flashing tool.  
+3.  Use the tool to "discover" the converter on the bus.  
+4.  Load the new firmware file into the tool.  
+5.  Initiate the "Flash" or "Update" process.  
+6.  **WARNING:** Do not power off the unit or disconnect the CAN bus during this process.  
+7.  The tool will indicate when the flash is 100% complete and verified.  
+8.  Power-cycle the unit (see `Power On and Off`).  
+9.  Verify the new firmware version by reading the appropriate CAN message.  
+
+
+## Troubleshooting Faults
+
+This guide provides a step-by-step process for diagnosing and resolving faults.
+
+### Protection Levels
+
+| **Protection Level** | **Response Time** | **Action** | **Recovery** |
+|---------------------|-------------------|------------|--------------|
+| **Level 1** | <1ms | Immediate shutdown | Manual reset required |
+| **Level 2** | <10ms | Graceful shutdown | Automatic retry after delay |
+| **Level 3** | <100ms | Power limiting | Automatic recovery |
+| **Level 4** | <1s | Warning/alarm | No action required |
 
-!!! danger "Critical Safety Notice"
-      This equipment operates with **dangerous AC and DC voltages** and **high currents**. Improper installation, operation, or maintenance can result in **serious injury or death**. Only qualified and authorized personnel may install, operate, or service this equipment.
+### Fault Categories
 
+#### Critical Faults (Level 1)
+- Ground fault detection
+- Overcurrent protection activation (Port A or B)
+- Overtemperature shutdown
+- Hardware interlock activation
 
-## Qualified Personnel
+#### Serious Faults (Level 2)
+- DC overvoltage/undervoltage (Port A or B)
+- Communication loss timeout
+- Internal component failure
+
+#### Minor Faults (Level 3)
+- Power derating due to temperature
+- Current limiting activation
+- Efficiency below expected
 
-Installation, operation, and maintenance of the **ADB-PC-AC01** must be performed by personnel who:
+#### Informational (Level 4)
+- Maintenance reminders
+- Performance warnings
+- Configuration mismatches
+- Environmental alerts
+
+### Fault Recovery Procedures
 
-* Are trained and authorized to work on **high-voltage AC and DC electrical equipment**.
-* Understand the risks associated with **power electronics** and **mixed AC/DC systems**.
-* Are familiar with all relevant **safety standards and national electrical codes**.
-* Wear **appropriate personal protective equipment (PPE)**.
-* Are trained in **lockout/tagout (LOTO)** and **arc flash** procedures.
+- **Fault Detection** *(Level 2)* → **Graceful Shutdown**
+- **Fault Detection** *(Level 3)* → **Power Limiting**
+- **Fault Detection** *(Level 4)* → **Alarm Only**
+- **Immediate Shutdown** → **Fault Latch**
+- **Graceful Shutdown** → **Auto Retry Timer**
+- **Power Limiting** → **Monitor Recovery**
+- **Alarm Only** → **Log Event**
+- **Fault Latch** *(Manual Reset)* → **Restart Sequence**
+- **Auto Retry Timer** *(Timer Expired)* → **Automatic Restart**
+- **Monitor Recovery** *(Condition Cleared)* → **Normal Operation**
+- **Log Event** → **Continue Operation**
+
+### Troubleshooting
+
+**Procedure:**  
+  
+1.  **Identify the Fault:** Read the active fault code from the "Fault" CAN message.  
+2.  **Look Up the Code:** Find the code in the `Reference: Fault Code Directory`.  
+3.  **Understand the Cause:** The directory will state the cause (e.g., "Output Over-Voltage").  
+4.  **Take Corrective Action:**  
+    * **Example (Over-Voltage):** Check your load. Is it a battery that is already full? Is there another source pushing voltage back?  
+    * **Example (Over-Temperature):** Check coolant flow, check for blocked filters, and check ambient temperature.  
+    * **Example (CAN Timeout):** Check CAN bus wiring, termination resistors, and your master controller.  
+5.  **Resolve the Condition:** Fix the external or internal condition that caused the fault.  
+6.  **Clear the Fault:** Once the condition is resolved, send the "Clear Fault" command via CAN. The unit should return to `STANDBY` mode.  
+7.  If the fault re-occurs immediately, do not operate the unit and contact technical support.  
+
+<!-- ***See Also:*** `Reference: Fault Code Directory` (for a complete list of all codes) -->
+
+
+## Connector Maintenance
+
+### Regular Inspection
+
+- **Visual Inspection**: Check for corrosion, damage, or loose connections.
+- **Torque Verification**: Re-torque connections per maintenance schedule.
+- **Contact Resistance**: Measure contact resistance during maintenance.
+- **Insulation Testing**: Verify insulation integrity.
 
+### Replacement Guidelines
 
-## Electrical Safety
+- **Contact Replacement**: Replace contacts showing signs of wear or damage.
+- **Seal Replacement**: Replace environmental seals during maintenance.
+- **Locking Mechanism**: Verify proper operation of locking features.
 
-### High Voltage Hazards
+## Perform Routine Maintenance
 
-!!! warning "Extreme Voltage Danger"
-      The ADB-PC-AC01 operates with **AC voltages up to 400 V (L–L)** and **DC voltages up to 950 V**.
-      Contact with live conductors can result in **severe electrical shock, burns, or death**.
+Follow this guide to perform scheduled preventative maintenance to ensure long service life.
 
-### Voltage Levels Present
+**WARNING:** **RISK OF ELECTRIC SHOCK.** The unit must be fully powered off, de-energized, locked-out, and capacitors discharged before performing any maintenance.
 
-| **Circuit Type**       | **Typical Voltage Range** |
-|  |  |
-| **AC Input (Port A)**  | 380–415 V AC (L–L)        |
-| **DC Output (Port B)** | 650–950 V DC              |
-| **Control Power**      | 24 V DC                   |
+**Prerequisites:**  
+- Unit is fully de-energized (LOTO).  
+- You have the required spare parts (filters, etc.).  
 
+**Procedures:**  
+***Monthly:***  
+    1.  **Inspect Air Inlets (if any):** Check for and clean any dust or debris from air inlet filters.  
+    2.  **Visual Inspection:** Check for any signs of damage, leaks, or corrosion.  
+  
+***Annually*:**  
+    1.  **Replace Coolant Filter:** Power down the cooling loop, replace the external coolant filter, and purge the system.  
+    2.  **Torque Check:** Re-torque all high-power busbar connections to their specified values.  
+    3.  **Clean Connections:** Inspect and clean all low-voltage connector pins.  
 
-### Electrical Safety Requirements
+***See Also:***  
+* Reference: [Spare Parts List](../appendix#spare-parts-list)  
 
-1. **Lockout/Tagout (LOTO)**
 
-   * Always follow proper LOTO procedures before any work.
-   * Verify **zero-energy state** on both AC and DC sides.
-   * Use approved locks and tags.
-   * Follow company and regulatory safety policies.
+## Documentation and Records
 
-2. **Personal Protective Equipment (PPE)**
+### Installation Records
 
-   * Arc-flash-rated clothing (per NFPA 70E or equivalent).
-   * Insulated gloves.
-   * Safety glasses with side shields.
-   * Hard hat with arc-flash protection shield.
-   * Electrical-rated safety boots.
+Maintain records of:  
+- Installation date and personnel  
+- Serial numbers and configuration  
+- Test results and measurements  
+- As-built drawings and schematics  
 
-3. **Tools and Equipment**
+### Commissioning Reports
 
-   * Use **insulated tools** rated for the maximum voltage present.
-   * Inspect tools before use.
-   * Use properly rated **multimeters** and **voltage detectors**.
-   * Maintain minimum approach distances.
+Document:  
+- Startup procedures performed  
+- Test results and performance data  
+- Any deviations or issues encountered  
+- Sign-off by qualified personnel  
 
+### Safety Documentation
 
-### Arc Flash Hazards
+#### Required Documentation
 
-!!! danger "Arc Flash Risk"
-      Fault currents from the AC input or DC bus can cause **arc flashes exceeding 19 000 °C**.
-      Proper **arc-flash study**, **labeling**, and **PPE** are mandatory before operation.
+Maintain current copies of:  
+- Safety data sheets (SDS).  
+- Emergency contact lists.  
+- Safety procedures.  
+- Training records.  
+- Incident reports.  
 
-**Arc Flash Prevention**
+#### Safety Records
 
-* Never work on energized circuits.
-* Follow approved **switching and grounding** procedures.
-* Keep electrical connections clean and tight.
-* Perform **routine inspection** and maintenance.
-
-
-### Grounding and Bonding
-
-Proper grounding is essential for personnel safety and equipment protection.
-
-**Grounding Requirements**
-
-* Always connect the **Protective Earth (PE)** conductor before any power cables.
-* Comply with **IEC 60364**, **NFPA 70**, and local electrical codes.
-* Bond all metallic enclosures and structures.
-* Ensure proper **ground fault protection** is installed on the AC side.
-
-**Grounding Verification**
-
-```mermaid
-graph TD
-    A[Ground Connection] -->|Continuity Test| B[<0.1Ω Resistance]
-    C[Insulation Test] -->|Megohm Test| D[>1MΩ Resistance]
-    E[Ground Fault Test] -->|Simulated Fault| F[Protection Operates]
-    
-    B -->|Pass| G[Ground OK]
-    D -->|Pass| H[Insulation OK]
-    F -->|Pass| I[Protection OK]
-```
-
-
-## Thermal Safety
-
-### Hot Surfaces
-
-!!! warning "Burn Hazard"
-      The ADB-PC-AC01’s heat sinks and enclosure surfaces may reach **temperatures up to 125 °C** during operation.
-      Allow adequate cooling time before contact or servicing.
-
-### Thermal Hazards
-
-* High-temperature heat sinks and power semiconductors.
-* DC busbars and cable lugs may retain heat.
-* Cooling manifold and liquid-cooled components.
-* Proximity to other heat-generating devices.
-
-
-### Cooling System Safety
-
-The **liquid-cooling system** operates under pressure and elevated temperature.
-
-**Cooling System Hazards**
-
-* Pressurized fluid up to **4 bar**.
-* Coolant temperature up to **125 °C**.
-* Chemical hazard from **ethylene glycol** or other additives.
-* Slip hazard from leaks.
-
-**Cooling System Safety Procedures**
-
-1. **Pressure Safety**
-
-   * Depressurize before disconnecting hoses.
-   * Use properly rated pressure-relief valves.
-   * Monitor pressure during operation.
-   * Never exceed specified system limits.
-
-2. **Chemical Safety**
-
-   * Wear gloves and eye protection.
-   * Avoid skin or eye contact with coolant.
-   * Ensure adequate ventilation.
-   * Follow **MSDS** and environmental regulations.
-
-
-## Mechanical Safety
-
-### Heavy Equipment
-
-!!! warning "Lifting Hazard"
-      The ADB-PC-AC01 weighs approximately **30 kg**. Use proper lifting equipment and techniques.
-
-**Lifting Safety**
-
-* Use mechanical lifting aids when possible.
-* Follow ergonomic lifting practices.
-* Ensure multiple personnel for handling.
-* Inspect lifting straps and anchor points.
-
-### Sharp Edges
-
-Metal enclosures and mounting brackets may have sharp edges:
-
-* Wear **cut-resistant gloves**.
-* Handle with care.
-* Deburr edges if necessary.
-* Use proper tools and protective gear.
-
-
-## Environmental Safety
-
-### Chemical Exposure
-
-!!! warning "Chemical Hazard"
-The liquid coolant may contain **ethylene glycol** or similar compounds.
-Avoid skin or eye exposure and follow local **environmental disposal regulations**.
-
-**Chemical Safety**
-
-* Wear gloves and protective eyewear.
-* Provide proper ventilation.
-* Store chemicals in approved containers.
-* Dispose of coolant per environmental standards.
-
-### Noise Exposure
-
-The ADB-PC-AC01 itself is **quiet**, but associated cooling and power equipment may generate noise:
-
-* Monitor noise levels in the installation area.
-* Use hearing protection where required.
-* Follow occupational noise standards (e.g., ISO 9612, OSHA 1910.95).
-
-
-## Emergency Procedures
-
-### Emergency Response Steps
-
-1. **Immediate Actions**
-
-   * Ensure personal safety first.
-   * If possible, de-energize the system safely.
-   * Notify emergency response personnel.
-   * Secure and evacuate the area if necessary.
-
-2. **Medical Emergency**
-
-   * Call local emergency services.
-   * Administer first aid if trained.
-   * Do not move injured persons unless essential.
-   * Stay with the victim until help arrives.
-
-3. **Fire Emergency**
-
-   * Trigger the fire alarm system.
-   * Use **Class C (electrical)** fire extinguishers only.
-   * Evacuate per site procedure.
-   * Account for all personnel.
-
-
-## Warning Labels and Signs
-
-### Equipment Labels
-
-The ADB-PC-AC01 is equipped with **permanent warning labels** for:
-
-* AC high-voltage input hazards.
-* DC high-voltage output hazards.
-* Arc-flash and shock warnings.
-* Thermal and chemical hazards.
-
-### Required Site Signage
-
-Install the following on or near the equipment:
-
-* Electrical hazard warnings.
-* Arc-flash boundary labels.
-* Emergency contact information.
-* Operating and maintenance procedures.
-
-
-## Safety During Maintenance
-
-!!! warning "Maintenance Safety"
-      **Never perform maintenance on energized AC or DC equipment.**
-      Always de-energize and verify isolation before starting any work.
-
-**Pre-Maintenance Safety**
-
-1. **Planning**
-
-   * Review the maintenance procedure.
-   * Identify potential hazards.
-   * Prepare required PPE and tools.
-   * Notify operations personnel.
-
-2. **Preparation**
-
-   * Apply lockout/tagout on both AC and DC circuits.
-   * Verify **zero-energy** condition.
-   * Apply **temporary grounds** if required.
-   * Post warning signage and restrict access.
-
-3. **Execution**
-
-   * Wear full PPE throughout.
-   * Follow all procedures step-by-step.
-   * Monitor for unexpected hazards.
-   * Work in pairs for safety.
-
-**Post-Maintenance Safety**
-
-1. **Testing**
-
-   * Verify correct reassembly.
-   * Check for proper electrical continuity and insulation.
-   * Test safety interlocks and protective devices.
-
-2. **Restoration**
-
-   * Remove lockout/tagout devices.
-   * Ensure all personnel are clear.
-   * Power up in a controlled sequence.
-   * Observe the unit during initial energization.
-
-
-## Training and Competency
-
-### Required Training
-
-All personnel must receive:
-
-* **Electrical safety and arc-flash** training.
-* **ADB-PC-AC01 product-specific** training.
-* **Emergency response** and **first-aid** instruction.
-* Periodic **refresher courses**.
-
-### Competency Verification
-
-* Maintain records of completed training.
-* Conduct regular assessments.
-* Monitor adherence to safety practices.
-* Implement corrective and continuous-improvement actions.
-
-
-## Regulatory Compliance
-
-### Applicable Regulations
-
-The ADB-PC-AC01 installation must comply with:
-
-* **IEC 62477-1**, **IEC 61800-5-1**, or equivalent safety standards.
-* **OSHA** or local workplace safety requirements.
-* **Local electrical codes** and wiring regulations.
-* **Environmental** and **fire safety** codes.
-
-### Compliance Verification
-
-* Perform regular safety audits and inspections.
-* Maintain compliance documentation.
-* Track and close corrective actions.
-* Ensure readiness for regulatory review.
-
-
-**Remember:**
-
-> Safety is everyone’s responsibility.
-> If uncertain, **stop work** and consult qualified personnel before proceeding.
+Keep records of:  
+- Safety inspections.  
+- Incident investigations.  
+- Training activities.  
+- Safety meetings.  
+- Corrective actions.  
