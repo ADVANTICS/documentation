@@ -13,7 +13,7 @@ description: 100kW AC/DC Active Frontend (PFC) - User Documentation
     </div>
     <p style="font-size: 1rem; color: #666; margin: 0 0 1rem 0;">Technical Documentation &amp; User Manual</p>
     <div style="margin-top: 1rem;">
-      <img src="assets/AC01.png" alt="ADB-PC-AC01" style="max-width: 600px; width: 100%; height: auto; max-height: 300px; object-fit: contain;">
+      <img src="assets/AC01.webp" alt="ADB-PC-AC01" style="max-width: 600px; width: 100%; height: auto; max-height: 300px; object-fit: contain;">
     </div>
   </div>
 
