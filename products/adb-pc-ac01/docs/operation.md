@@ -79,11 +79,11 @@ sequenceDiagram
     Controller->>ADB: Set Inverter Mode
     ADB->>Grid: Full Power Export
 ```
-## DC to DC Mode 
+<!-- ## DC to DC Mode 
 
 In DC-to-DC mode, the converter regulates power flow between a high-voltage DC source and a downstream DC bus, maintaining a controlled DC link while managing current in both directions. The internal SiC switching stage modulates the DC input to stabilize the output voltage within the supported operating window, allowing the unit to act as a tightly regulated DC supply or as a sink that absorbs energy from the DC side. Current is controlled with the same bidirectional precision used in AC-coupled modes, enabling charging, discharging, or buffering functions depending on system requirements.
 
-Because the converter already operates on a high-frequency, fully regulated DC link, the DC-to-DC function uses its existing modulation and protection framework: soft-start prevents inrush, active current regulation prevents overload, and all overvoltage, undervoltage, and thermal protections remain active. When multiple modules operate in parallel, the droop-control mechanism balances DC voltage and current sharing automatically, ensuring stable multi-module DC-bus operation.
+Because the converter already operates on a high-frequency, fully regulated DC link, the DC-to-DC function uses its existing modulation and protection framework: soft-start prevents inrush, active current regulation prevents overload, and all overvoltage, undervoltage, and thermal protections remain active. When multiple modules operate in parallel, the droop-control mechanism balances DC voltage and current sharing automatically, ensuring stable multi-module DC-bus operation. -->
 
 ## Application Examples
 

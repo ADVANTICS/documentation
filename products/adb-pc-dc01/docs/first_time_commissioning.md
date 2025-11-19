@@ -16,7 +16,7 @@ Before you begin, make sure you have the following:
 
 - You must be a qualified electrical engineer or certified technician.
 - You must be familiar with high-voltage and high-current DC systems.
-- You have read and understood the conceptual safety warnings.  
+- You have read and understood the [Electrical Safety](../safety#electrical-safety) considerations.  
   
 ***See Also:*** <a href="../safety">General Safety Information</a>
 
@@ -25,7 +25,7 @@ Before you begin, make sure you have the following:
 - Standard mechanics toolset (socket wrench, torque wrench, etc.)
 - Digital Multimeter (DMM) rated for 1500V DC
 - Personal Protective Equipment (PPE) (high-voltage insulated gloves, safety glasses, etc.)
-- Lifting equipment (the unit is heavy)
+- lifting equipment rated for the converter’s weight (recommendation: Scissor-lift table or Hydraulic lift cart).
 - A CAN bus monitoring tool (e.g., a CAN-to-USB adapter and ETKA software)
 - A controllable DC source (Port A) and a controllable DC load (Port B)
 
@@ -44,7 +44,9 @@ Safety is the most critical step. Do not proceed until you have verified the fol
 This step covers the essential connections to get the unit running.
 
 1.  **Mount the Unit:**
-    * Lift the converter using the designated lifting points.
+    * lift the unit using the lifting equipment (Recommendation: scissor-lift table or the hydraulic lift cart).
+    * Align the unit in its final position or rack.
+    * Slide the unit inside and fasten the unit’s mounting flanges with the specified bolts and washers.
     * Securely mount it to your rack or chassis using the correct bolt size and type.  
   
     ***See Also:*** [Install the Converter (Mechanical)](../installation#install-the-converter-mechanical)
@@ -63,8 +65,8 @@ This step covers the essential connections to get the unit running.
 4.  **Connect DC Power (Port A & Port B):**
     * **WARNING:** Ensure all sources remain locked out.
     * Use your DMM to verify the polarity (+ and -) of your incoming and outgoing busbars.
-    * Connect the DC busbars (Port A and Port B) to the converter terminals. Ensure correct polarity.
-    * Torque the bolts to the specified value.  
+    * Connect the DC busbars (Port A and Port B) the dedicated connectors. Ensure correct polarity.
+    * Make sure the connectors are locked.
   
     ***See Also:*** [Install the Converter (Electrical)](../installation#how-to-install-the-converter-electrical)  
     ***See Also:*** [Connectors and Interfaces](../mechanical_specs#connectors)

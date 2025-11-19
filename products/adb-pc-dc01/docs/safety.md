@@ -22,32 +22,32 @@ Installation, operation, and maintenance of the ADB-PC-DC01 must be performed by
 
 #### Voltage Levels Present
 
-| **Circuit Type** | **Voltage Range** |
-|------------------|-------------------|
-| **DC Input (Port A)** | 750-950V DC |
-| **DC Output (Port B)** | 200-1500V DC |
-| **Control Power** | 24V DC |
+| **Circuit Type** | **Voltage Range** | **Hazard Level** |
+|------------------|-------------------|------------------|
+| **DC Input (Port A)** | 750-950V DC | Extra High Voltage |
+| **DC Output (Port B)** | 200-1500V DC | Extreme High Voltage |
+| **Control Power** | 24V DC | Low Voltage |
 
 #### Electrical Safety Requirements
 
 1. **Lockout/Tagout (LOTO)**
-   - Always use proper lockout/tagout procedures.
-   - Verify zero energy state before work.
-   - Use appropriate locks and tags.
-   - Follow company safety procedures.
+      - Always use proper lockout/tagout procedures.
+      - Verify zero energy state before work.
+      - Use appropriate locks and tags.
+      - Follow company safety procedures.
 
 2. **Personal Protective Equipment (PPE)**
-   - Arc flash rated clothing.
-   - Insulated gloves (Class 4 minimum for 1000V, higher for 1500V).
-   - Safety glasses with side shields.
-   - Hard hat with arc flash protection.
-   - Safety boots with electrical rating.
+      - Arc flash rated clothing.
+      - Insulated gloves (Class 4 minimum for 1000V, higher for 1500V).
+      - Safety glasses with side shields.
+      - Hard hat with arc flash protection.
+      - Safety boots with electrical rating.
 
 3. **Tools and Equipment**
-   - Use insulated tools rated for voltage level.
-   - Verify tool condition before use.
-   - Use proper test equipment.
-   - Maintain safe working distances.
+      - Use insulated tools rated for voltage level.
+      - Verify tool condition before use.
+      - Use proper test equipment.
+      - Maintain safe working distances.
 
 #### Arc Flash Hazards
 
@@ -113,16 +113,16 @@ The liquid cooling system operates under pressure and with hot fluids:
 **Cooling System Safety Procedures**
 
 1. **Pressure Safety**
-   - Depressurize before service.
-   - Use pressure relief valves.
-   - Check system pressure regularly.
-   - Never exceed maximum pressure.
+      - Depressurize before service.
+      - Use pressure relief valves.
+      - Check system pressure regularly.
+      - Never exceed maximum pressure.
 
 2. **Chemical Safety**
-   - Use appropriate PPE for coolant.
-   - Avoid skin and eye contact.
-   - Provide adequate ventilation.
-   - Follow MSDS requirements.
+      - Use appropriate PPE for coolant.
+      - Avoid skin and eye contact.
+      - Provide adequate ventilation.
+      - Follow MSDS requirements.
 
 ## Mechanical Safety
 
@@ -172,22 +172,22 @@ While the ADB-PC-DC01 is liquid-cooled and quiet, associated equipment may produ
 #### Emergency Response Steps
 
 1. **Immediate Actions**
-   - Ensure personal safety.
-   - De-energize if safely possible.
-   - Call for help if needed.
-   - Secure the area.
+      - Ensure personal safety.
+      - De-energize if safely possible.
+      - Call for help if needed.
+      - Secure the area.
 
 2. **Medical Emergency**
-   - Call emergency services.
-   - Provide first aid if trained.
-   - Do not move injured person.
-   - Stay with victim until help arrives.
+      - Call emergency services.
+      - Provide first aid if trained.
+      - Do not move injured person.
+      - Stay with victim until help arrives.
 
 3. **Fire Emergency**
-   - Activate fire alarm.
-   - Use fire extinguisher if trained.
-   - Evacuate if necessary.
-   - Account for all personnel.
+      - Activate fire alarm.
+      - Use fire extinguisher if trained.
+      - Evacuate if necessary.
+      - Account for all personnel.
 
 ## Warning Labels and Signs
 
@@ -217,36 +217,36 @@ Install appropriate warning signs:
 **Pre-Maintenance Safety**
 
 1. **Planning**
-   - Review maintenance procedures.
-   - Identify hazards and risks.
-   - Prepare safety equipment.
-   - Coordinate with operations.
+      - Review maintenance procedures.
+      - Identify hazards and risks.
+      - Prepare safety equipment.
+      - Coordinate with operations.
 
 2. **Preparation**
-   - Implement lockout/tagout.
-   - Verify zero energy state.
-   - Install safety grounds.
-   - Post warning signs.
+      - Implement lockout/tagout.
+      - Verify zero energy state.
+      - Install safety grounds.
+      - Post warning signs.
 
 3. **Execution**
-   - Use appropriate PPE.
-   - Follow procedures exactly.
-   - Monitor for hazards.
-   - Work with qualified partner.
+      - Use appropriate PPE.
+      - Follow procedures exactly.
+      - Monitor for hazards.
+      - Work with qualified partner.
 
 **Post-Maintenance Safety**
 
 1. **Testing**
-   - Verify proper reassembly.
-   - Test safety functions.
-   - Check for proper operation.
-   - Remove safety grounds.
+      - Verify proper reassembly.
+      - Test safety functions.
+      - Check for proper operation.
+      - Remove safety grounds.
 
 2. **Restoration**
-   - Remove lockout/tagout.
-   - Verify all personnel clear.
-   - Restore power systematically.
-   - Monitor initial operation.
+      - Remove lockout/tagout.
+      - Verify all personnel clear.
+      - Restore power systematically.
+      - Monitor initial operation.
 
 ## Training and Competency
 
@@ -270,6 +270,7 @@ All personnel working with this equipment must have:
 #### Applicable Regulations
 
 Comply with all applicable regulations:
+
 - OSHA electrical safety standards.
 - Local electrical codes.
 - Environmental regulations.
