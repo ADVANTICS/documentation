@@ -2,6 +2,8 @@
 
 ## Dimentions
 
+{{ figure('../assets/ADB-PC-AC01_3D.png', 'ADB-PC-AC01 3D model') }}
+
 | **Parameter** | **Value** | **Unit** |
 |---------------|-----------|----------|
 | **Dimensions (L × W × H)** | 700 × 440 × 165 | mm |
@@ -11,6 +13,8 @@
 | **Ingress Protection** | IP67 | - |
 
 ## Connectors
+
+{{ figure('../assets/ADB-PC-AC01-front.png', 'ADB-PC-AC01 Front panel') }}
 
 ### AC Input Connectors
 
