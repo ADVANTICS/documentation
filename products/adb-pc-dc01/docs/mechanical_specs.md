@@ -60,9 +60,24 @@ The module includes redundant CAN bus & interlock line connections:
 | **Quantity** | 2 | Redundant connections |
 | **Isolation** | Isolated interface | Safety isolation |
 
+{{ figure('../assets/control_connector.png', 'CAN Bus & Interlock line Connectors') }}
+
 **Pinout**
 
-<!-- TODO -->
+| Name              | Pin | Description                                                                 |
+|-------------------|-----|-----------------------------------------------------------------------------|
+| Interlock         | 1   | Interlock input/output                                                      |
+| CAN_GND           | 2   | Ground                                                                      |
+| CAN_L             | 3   | CAN bus low (differential)                                                  |
+| CAN_H             | 4   | CAN bus high (differential)                                                 |
+| CAN Termination   | 5   | Connect to CAN_H to provide the 120 Ω CAN bus termination when required |
+
+
+!!! warning "CAN Bus Termination"
+    - Enable termination only at the physical ends of the CAN bus.
+    - Do not fit termination on intermediate nodes; multiple terminations cause bus impedance mismatch and communication errors.
+    - If using the optional termination pin (Pin 5), connect it to CAN_H only on end nodes; leave it unconnected on intermediate modules.
+
 
 #### 24V Connector
 
@@ -74,9 +89,14 @@ The module includes redundant CAN bus & interlock line connections:
 | **Current Draw** | Up to 12A | Peak during startup |
 | **Isolation** | Isolated interface | Safety isolation |
 
+{{ figure('../assets/power_connector.png', '24V Connector') }}
+
 **Pinout**
 
-<!-- TODO -->
+| Name   | Pin |
+|--------|-----|
+| 24V_DC (+) | 1 |
+| 0V / GND   | 2 |
 
 ### Connector Environmental Ratings
 
