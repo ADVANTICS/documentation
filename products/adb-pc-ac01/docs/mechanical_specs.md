@@ -158,7 +158,7 @@ These barbed fittings accept a hose with 3/8" (10 mm) internal tube wall.
 
 <!-- ![image.png](assets/barbed_fitting.png) -->
 
-{{ figure('../assets/ADB-PC-XXXX_liquid_flow.png', 'Barbed fitting') }}
+{{ figure('../assets/barbed_fitting.png', 'Barbed fitting') }}
 
 
 ### No-drip alternatives
