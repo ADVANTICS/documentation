@@ -164,7 +164,6 @@ They are slow paced because the release process is substantial.
               <li>UI/UX improvements in logging page</li>
               <li>fix log export</li>
               <li>add unit annotations to config props</li>
-              <li></li>
             </ul>
           </li>
         </ul>
