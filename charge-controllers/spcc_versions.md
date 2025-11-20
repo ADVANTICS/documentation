@@ -159,7 +159,7 @@ They are slow paced because the release process is substantial.
       <td class="date-col">2025-11-05</td>
       <td>
         <ul>
-          <li><strong>advantics-csm 1.5.7</strong>
+          <li><strong>advantics-csm 1.5.7 (from 1.4.2)</strong>
             <ul>
               <li>UI/UX improvements in logging page</li>
               <li>fix log export</li>
