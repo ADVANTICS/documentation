@@ -7,7 +7,7 @@
 
 | **Parameter** | **Value** | **Conditions** |
 |---------------|-----------|----------------|
-| **Rated AC Voltage (L-L)** | 208 - 480 V<sub>rms</sub> | Reduced power below 380 V<sub>rms</sub> |
+| **Rated Nominal AC Voltage (L-L)** | 208 - 480 V<sub>rms</sub> | Reduced power below 380 V<sub>rms</sub> |
 | **Rated AC Frequency** | 50 / 60 Hz | ±3% tolerance |
 | **Maximum AC Current** | ±150 A<sub>rms</sub> per phase | Continuous operation |
 | **Power Factor (PF)** | ≥0.99 | At rated power |
@@ -18,8 +18,8 @@
 
 !!! info "AC Wiring Configuration"
     - **Connection Type**: 3-phase, 3-wire (L1, L2, L3)
-    - **Neutral**: Not required
-    - **Ground**: PE connection required for safety
+    - **Neutral**: Not used
+    - **Ground**: PE (protective earth) connection required for safety
 
 ### Protection Features
 
@@ -28,13 +28,13 @@
 | **Overvoltage Protection** | Monitors input voltage levels | Automatic shutdown |
 | **Undervoltage Protection** | Prevents operation below minimum voltage | Automatic shutdown |
 | **Overcurrent Protection** | Current limiting and protection | Automatic current limit |
-| **Overtemperature Protection** | Thermal monitoring | Graceful power reduction |
+| **Overtemperature Protection** | Thermal monitoring | Gradual power reduction |
 
 ### Startup Characteristics
 
-- **Internal Soft Start**: Controlled ramp-up to prevent inrush current
+- **Internal Soft Start**: Controlled ramp-up to prevent inrush current (precharge)
 - **Inrush Current**: Less than nominal current during startup
-- **Phase to PE Separation**: Basic isolation for safety
+- **Phase to PE Separation**: Basic safety isolation
 - **Overvoltage Category**: OVC2 (Overvoltage Category 2)
 
 ### Grid Generation Capabilities
@@ -45,7 +45,12 @@ The ADB-PC-AC01 supports multiple grid operation modes:
 - **Grid Following**: Synchronizes with existing grid
 - **Microgrid Operation**: Seamless transition between grid-tied and island modes
 
-## DC Side (Output - Bidirectional) Specifications
+!!! note "Grid Forming / AC microgrids"
+    While the ADB-PC-AC01 supports AC microgrid and grid forming operation, **the primary purpose of this unit is grid following**.
+    In case you want to build a genset or an AC microgrid system, please use ADB-PC-GN01 (genset module) instead. 
+    ADB-PC-GN01 also contains Neutral wire (needed for unbalanced operations and 1-phase loads), and has higher overload capability.
+
+## DC Side (DC Bus - Bidirectional) Specifications
 
 ### Output Characteristics
 
@@ -59,13 +64,13 @@ The ADB-PC-AC01 supports multiple grid operation modes:
 
 ### DC Configuration
 
-!!! warning "Non-Isolated Design"
-    The ADB-PC-AC01 features non-isolated primary-secondary separation. Ensure proper system grounding and safety measures are implemented.
+!!! warning "Non-Isolated PFC"
+    The ADB-PC-AC01 is a non-isolated PFC. If your system requires isolation, it needs to be handled by a DC/DC converter or a mains transformer.
 
 ### DC Protection
 
 - **Overvoltage Protection**: Active monitoring and shutdown
-- **Undervoltage Protection**: Prevents deep discharge
+- **Undervoltage Protection**: Active monitoring and shutdown
 - **Overcurrent Protection**: Current limiting and fusing
 - **Overtemperature Protection**: Thermal management system
 
@@ -73,7 +78,6 @@ The ADB-PC-AC01 supports multiple grid operation modes:
 
 - **DC Fusing**: UL/IEC rated fusing on positive line
 - **Output Contactors**: Not integrated (external contactors required)
-- **Protection Coordination**: Designed for selective protection
 
 ## Control and Communication Specifications
 
