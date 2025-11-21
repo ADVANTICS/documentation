@@ -122,6 +122,7 @@ nav:
   - "Overview": "overview.md"
   - "Electrical Specifications": "electrical_specs.md"
   - "Mechanical Specifications": "mechanical_specs.md"
+  - "Connectors": "connectors.md"
   - "Theory of Operation": "operation.md"
   - "Guides":
     - "First-Time Commissioning": "first_time_commissioning.md"
