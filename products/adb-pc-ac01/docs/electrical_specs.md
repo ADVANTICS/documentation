@@ -58,7 +58,7 @@ The ADB-PC-AC01 supports multiple grid operation modes:
 |---------------|-----------|----------------|
 | **Voltage Range** | 650 - 950 V DC | Minimum depends on mains voltage |
 | **Current Range** | ±170 A | Bidirectional, power envelope limited |
-| **Maximum Power** | 100 kW | Continuous operation |
+| **Maximum Power** | 100 kW | Continuous operation, up to 120kW for 480 VAC |
 | **Current Measurement Accuracy** | ±1% of full-scale | Over temperature range |
 | **Voltage Measurement Accuracy** | ±1% of full-scale | Over temperature range |
 
@@ -76,8 +76,8 @@ The ADB-PC-AC01 supports multiple grid operation modes:
 
 ### Fusing and Contactors
 
-- **DC Fusing**: UL/IEC rated fusing on positive line
-- **Output Contactors**: Not integrated (external contactors required)
+- **DC Fusing**: UL/IEC rated fusing on the positive line
+- **Output Contactors**: Not integrated
 
 ## Control and Communication Specifications
 
@@ -87,7 +87,7 @@ The ADB-PC-AC01 supports multiple grid operation modes:
 |---------------|-----------|-----------|
 | **Protocol** | CAN 2.0B | Industry standard |
 | **Baud Rate** | Configurable | Up to 1 Mbps |
-| **Isolation** | Isolated from PE and 24V | Safety isolation |
+| **Isolation** | Isolated from PE and 24 V | Safety isolation |
 
 ### Control Power Supply
 
@@ -102,17 +102,29 @@ The ADB-PC-AC01 supports multiple grid operation modes:
 
 **Connection Diagram:**
 
-- **CAN Bus Isolation**: Isolated from power electronics and 24V supply
-- **Control Power Isolation**: 24V control isolated from power section
-- **Safety Isolation**: Basic isolation towards PE, reinforced towards HV
+- **CAN Bus**: Isolated from power electronics and 24V supply
+- **Control Power**: 24V isolated from CAN bus and HV, PE referenced
+- **HV (AC,DC) side**: Basic isolation towards PE, reinforced towards CAN Bus
 
 
 ## Safe Operating Area
 
-The ADB-PC-AC01 is engineered to operate reliably within a specific DC voltage range of $650 \text{ V}$ to $950 \text{ V}$.The module's maximum output is always controlled by its $100 \text{ kW}$ power rating. This means that as the voltage gets lower (closer to $650 \text{ V}$), the current the module can handle automatically increases to maintain that $100 \text{ kW}$ limit.  
-For long-term reliability, especially in high-temperature environments, we recommend keeping the operating point slightly inside these limits.
+The ADB-PC-AC01 is engineered to operate reliably within a specific DC voltage range - on the low side limited by rectified mains + margin (typically 650 VDC for 400 VAC systems, 750 VDC for 480 VAC systems). 
+On the high side, the maxium operatinal voltage is to 950 V.The module's maximum power is limited by mains (AC) current. For 150 A phase current and 400 VAC voltage, the max input power is 103 kW. For 480 VAC, the max input power is 124 kW.
+Output power is input power minus losses. If the efficiency at a given operating point was 98%, and input power was 103 kW, the maximum output power at that point would be 100.94 kW.
 
-{{ figure('../assets/afe_soa_plot.webp', 'Safe Operating Area') }}
+The DC bus side doesn't really contribute to the power envelope - even at 650 VDC, the system is AC current limited.
+
+!!! info "DC bus voltage selection"
+    The DC bus voltage can be controlled over CAN bus, and can be freely selected.
+    However, if a voltage lower than the AC rectified voltage is selected, the module will automatically raise the voltage to prevent loss of control through self-rectification.
+    Meaning - you can give a 600 VDC setpoint for 480 VAC mains. But the converter might output 720 VDC instead.
+
+!!! info "input vs output"
+    As the module is inherently bidirectional, which side is input and which side is output depends only on the direction of the current.
+
+
+{{ figure('../assets/afe_soa_plot.webp', 'Safe Operating Area for 400 VAC') }}
 
 ## Efficiency Characteristics
 
@@ -120,7 +132,7 @@ For long-term reliability, especially in high-temperature environments, we recom
 
 - **Peak Efficiency**: 98.5% at optimal operating point
 - **Full Load Efficiency**: >97% across wide operating range
-- **Partial Load Efficiency**: Maintained high efficiency down to 20% load
+- **Partial Load Efficiency**: Maintaining high efficiency down to 10% load
 
 **Efficiency Curve**
 
@@ -130,7 +142,8 @@ The ADB-PC-AC01 Active Frontend achieves its peak of 98.5% at full load (100 kW)
 
 ## Power Factor & THDi
 
-The Power Factor (PF) maintains a near-unity value of $\ge 0.99$ for all output loads above 50%, guaranteeing minimal reactive power draw. Similarly, Total Harmonic Distortion of Current (THDi) is aggressively managed, remaining below the stringent $5\%$ limit for all loads greater than $25\%$, fully complying with major harmonic standards.
+The Power Factor (PF) maintains a near-unity value of ≥0.99 for all output loads above 50%, guaranteeing minimal reactive power draw. 
+Similarly, Total Harmonic Current Distortion (THDi) remaining below the 5% limit for all loads greater than 25%, fully complying with major harmonic standards. Full load THDi is below 3%.
 
 {{ figure('../assets/afe_pf_thdi_plots.webp', 'Power Factor & THDi vs Load') }}
 
@@ -138,9 +151,9 @@ The Power Factor (PF) maintains a near-unity value of $\ge 0.99$ for all output 
 
 The ADB-PC-AC01 employs a three-phase active Power Factor Correction (PFC) stage utilizing high-speed Silicon Carbide (SiC) switching technology. This advanced architecture is designed to draw a near-sinusoidal input current, ensuring near-unity Power Factor (PF) across most of the operating range.  
 
-Due to the fundamental nature of balanced three-phase systems, the PFC action naturally minimizes even-order harmonics (2nd, 4th, etc.). The remaining distortion is dominated by low-level, odd-order characteristic harmonics (5th, 7th, 11th, etc.) that originate primarily from switching ripple and slight imbalances in the grid voltage or control loops. As confirmed by the plot, the overall harmonic content is maintained well below industry standards (e.g., IEEE 519), with THDi typically remaining $\le 5\%$ at full power.
+Due to the fundamental nature of balanced three-phase systems, the PFC action naturally minimizes even-order harmonics (2nd, 4th, etc.). The remaining distortion is dominated by low-level, odd-order characteristic harmonics (5th, 7th, 11th, etc.) that originate primarily from switching ripple and slight imbalances in the grid voltage or control loops. As confirmed by the plot, the overall harmonic content is maintained well below industry standards (e.g., IEEE 519), with THDi typically remaining ≤5% at full power.
 
-{{ figure('../assets/afe_harmonic_spectrum.webp', 'Harmonic Spectrum') }}
+{{ figure('../assets/afe_harmonic_spectrum.webp', 'Harmonic Spectrum at full load') }}
 
 
 ## Parallel Operation Capability
@@ -150,7 +163,6 @@ Due to the fundamental nature of balanced three-phase systems, the PFC action na
 - **Communication**: Isolated CAN bus for inter-module communication
 - **Scalability**: Linear power scaling with additional modules
 - **Redundancy**: System continues operation with failed modules
-- **Maintenance**: Hot-swappable capability for service
 
 {{ figure('../assets/ac01_system_architecture.webp', 'Parallel System') }}
 
@@ -162,14 +174,16 @@ Due to the fundamental nature of balanced three-phase systems, the PFC action na
 |---------------|-----------|--------------|
 | **Operating Temperature** | -40°C to +70°C | Power derating applies above 50°C |
 | **Storage Temperature** | -50°C to +85°C | No operation |
-| **Altitude** | Up to 3000m | Derating above 2000m |
-| **Pollution Degree** | 3 (external) | Sealed design protects internals |
+| **Altitude** | Up to 3000m | |
+| **Pollution Degree** | 3 (external) | Sealed IP67 design |
+
+!!! note "Power derating"
+    As the liquid cooling system is controlled by the user, the derating is a function of fluid temperature and flow.
 
 ### Electromagnetic Compatibility
 
-- **EMC Class**: Class B with external filter
-- **Emissions**: Compliant with CISPR 11/22
-- **Immunity**: Compliant with IEC 61000-4 series
+- **Emissions**: Class A/B with external filter
+- **Immunity**: Class A immunity (industrial)
 - **Harmonics**: Compliant with IEC 61000-3-2
 
 ## Measurement and Monitoring
@@ -178,8 +192,9 @@ Due to the fundamental nature of balanced three-phase systems, the PFC action na
 
 - **AC Voltage**: 3-phase voltage measurement
 - **AC Current**: 3-phase current measurement with 1% accuracy
+- **AC Frequency**: Grid frequency measurement
 - **DC Voltage**: High voltage DC bus measurement
-- **DC Current**: Bidirectional current measurement
+- **DC Current**: DC bus current estimation
 - **Temperature**: Multiple temperature monitoring points
 
 ### Real-time Monitoring
@@ -190,4 +205,3 @@ All electrical parameters are continuously monitored and available through the C
 - Harmonic analysis and THD calculations
 - Temperature monitoring across critical components
 - Fault and status information
-- Historical data logging capability

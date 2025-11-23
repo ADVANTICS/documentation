@@ -1,6 +1,11 @@
 # Theory of Operation
 
-The ADB-PC-AC01 supports multiple operating modes to accommodate various application requirements. The module employs a bidirectional topology that operates as a bidirectional active-front-end (AFE), converting single or three-phase AC from the grid into a DC link with high efficiency and almost unity power factor. It performs real-time power factor correction and reactive-power control, while precisely regulating current and voltage on the DC side. Similarly, the converter can invert DC power back to the AC side, enabling grid support functionalities such as V2G or microgrid operations. Additionaly, this converter can be used as a DC to DC converter that can perform boost or buck operation up to 99% efficiency, thanks to the SiC switching technology. Its internal gateway controller facilitates the coordination with multiple modules to increase the power rating to meet megawatt levels.
+The ADB-PC-AC01 supports multiple operating modes to accommodate various application requirements. Based on the SiC (Silicon Carbide) technology, the module employs a bidirectional topology that operates as a bidirectional active-front-end (AFE), converting single or three-phase AC from the grid into a DC link with high efficiency and almost unity power factor. It performs real-time power factor correction and reactive-power control, while precisely regulating AC current and the DC side voltage. Similarly, the converter can invert DC power back to the AC side, enabling grid support functionalities such as V2G or microgrid operations. Its internal gateway controller facilitates the coordination with multiple modules to increase the power rating to meet megawatt levels.
+
+The control modes, while customizable and flexible, can be divided into two key categories, depending on which side is 'regulated', and which side is 'expected'.
+For example, it's not possible (logically) to simultaneously request a certain mains current, and also impose the DC side voltage. Either the control is AC port (mains) centric, or DC port (DC bus) centric.
+
+Which one should you choose? If the ADB-PC-AC01 is used as an PFC, to create a certain DC bus to be used by follow-up stages (whether to push or pull current), the Rectifier Mode is the correct choice. If the DC bus is maintained by external systems (batteries, solar), and it's the AC currents, voltage, or AC power you wish to control, then Inverter Mode is the correct choice.
 
 ## Rectifier Mode (AC to DC)
 
@@ -15,32 +20,27 @@ The module includes protection features to eliminate overvoltage, undervoltage, 
 - Low Total Harmonic Distortion (THDi ≤5%)
 - Programmable DC output voltage (650-950V)
 - Current limiting and overcurrent protection
+- Anti-islanding detection
 
 ## Inverter Mode (DC to AC)
 
-In DC-to-AC mode, the module inverts energy from the DC link back to the AC side, generating a controlled three-phase output synchronized with the grid or microgrid. The modulation stage adjusts amplitude, phase, and frequency to support active and reactive power flow, enabling functions such as grid support, export, and microgrid stabilization. Grid-code protections and mains-side relays manage safe interconnection and disconnection, while real-time current regulation maintains a clean sinusoidal output. Parallel units operate cooperatively through intelligent droop control, allowing coordinated AC injection and stable multi-module behavior.
+In DC-to-AC mode, the module inverts energy from the DC link back to the AC side, generating a controlled three-phase output synchronized with the grid or microgrid. The modulation stage adjusts amplitude, phase, and frequency to support active and reactive power flow, enabling functions such as grid support, export, and microgrid stabilization. Grid-code integration and mains-side relays manage safe interconnection and disconnection, while real-time current regulation maintains a clean sinusoidal output. Parallel units operate cooperatively through intelligent (and adjustable) droop control, allowing coordinated AC injection and stable multi-module behavior.
 
-The converter supports paralleling up to 120 units, scaling up to megawatt-level power stations. An intelligent ‘droop control’ algorithm manages the sharing of DC link voltage among the parallel modules, which eliminates the circulating currents and stabilizes the common DC bus without requiring overly complex communication.
+The converter supports paralleling up to 120 units, scaling up to megawatt-level power systems. An intelligent droop control algorithm manages the sharing of DC link voltage among the parallel modules, which eliminates the circulating currents and stabilizes the common DC bus without requiring overly complex communication.
 
 
 **Key Features:**
 - Grid-tied or standalone operation
 - Reactive power control (±0.9 inductive-capacitive)
 - Grid forming and following capabilities
-- Anti-islanding protection
+- No Neutral wire used (for pure genset applications, ADVANTICS offers a special variant)
 
 ## Bidirectional Mode
 
-In bidirectional mode, the module seamlessly transitions between rectifier and inverter operation:
-
-## DC to DC Mode 
-
-In DC-to-DC mode, the converter regulates power flow between a high-voltage DC source and a downstream DC bus, maintaining a controlled DC link while managing current in both directions. The internal SiC switching stage modulates the DC input to stabilize the output voltage within the supported operating window, allowing the unit to act as a tightly regulated DC supply or as a sink that absorbs energy from the DC side. Current is controlled with the same bidirectional precision used in AC-coupled modes, enabling charging, discharging, or buffering functions depending on system requirements.
-
-Because the converter already operates on a high-frequency, fully regulated DC link, the DC-to-DC function uses its existing modulation and protection framework: soft-start prevents inrush, active current regulation prevents overload, and all overvoltage, undervoltage, and thermal protections remain active. When multiple modules operate in parallel, the droop-control mechanism balances DC voltage and current sharing automatically, ensuring stable multi-module DC-bus operation.
+In bidirectional mode, the module seamlessly transitions between rectifier and inverter operation.
 
 ## Application Examples
 
-Here we can put the applications example section i wrote in notion. Not done yet.
+Examples pending.
 
 
