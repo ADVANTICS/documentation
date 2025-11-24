@@ -2,17 +2,16 @@
 
 ## Connector Installation Guidelines
 
-### AC Connector Installation (Port A)
+### AC Connector Installation (AC port)
 
 1. **Polarity / Phase Verification**
 
-      * Verify **Live (L)** and **Protective Earth (PE)** connections before mating.
-      * Use a multimeter or phase tester to ensure the supply phase is correct.
-      * Confirm that the **supply voltage and frequency** match the converter’s specifications.
+      * Verify **Phase (L1, L2, L3)** and **Protective Earth (PE)** connections before mating.
+      * Confirm that the **supply voltage and frequency** in your installation matches the converter’s specifications.
 
 2. **Cable Requirements**
 
-      * Use cables rated for the **nominal AC voltage and current** as specified for Port A.
+      * Use cables rated for the **nominal AC voltage and current** as specified for AC port.
       * Select cable gauge suitable for continuous current and ambient temperature.
       * Strip insulation according to manufacturer’s recommendations.
       * Use properly crimped terminals or ferrules to ensure reliable connections.
@@ -21,16 +20,14 @@
 
       * Ensure the AC supply is **fully disconnected** before installation.
       * Connect **PE (Protective Earth)** first.
-      * Connect **Live (L)** conductors.
-      * Verify all terminations are tight and torque screws to the specified value.
+      * Connect **Phase (L1, L2, L3)** conductors.
 
 
-### DC Connector Installation (Port B)
+### DC Connector Installation (Port B - DC bus)
 
 1. **Polarity Verification**
 
       * Double-check polarity before connection for both **positive (+)** and **negative (–)** terminals.
-      * Use a multimeter to confirm voltage polarity from your DC load or distribution bus.
       * Connect positive and negative conductors correctly according to terminal markings.
 
 2. **Cable Requirements**
@@ -42,10 +39,9 @@
 3. **Connection Procedure**
 
       * Ensure the DC side (load or bus) is **de-energized** before connection.
-      * Connect **PE** first if a DC ground reference is required.
-      * Connect **negative (–)** and then **positive (+)** busbars.
+      * Connect **PE** first.
+      * Connect **negative (–)** and then **positive (+)** cables.
       * Ensure busbar or cable lugs are clean and aligned.
-      * Torque all DC terminal bolts to the specified value.
 
 
 ### Control Connector Installation
@@ -59,7 +55,8 @@
 2. **Control Power Wiring**
 
       * Use adequate wire gauge for **3 A current** at **24 VDC**.
-      * Include overcurrent protection in 24V supply.
+      * Include overcurrent protection (fuse) in 24V supply.
+      * It is possible to use one 24V power supply for multiple converters. Consult with ADVANTICS beforehand.
 
 ## Install the Converter (Mechanical)
 
@@ -68,8 +65,7 @@ This section covers the physical installation, mounting, and handling of the **A
 **Prerequisites:**
 
 * Use lifting equipment rated for the converter’s weight (recommendation: Scissor-lift table or Hydraulic lift cart).
-* Have the proper mounting hardware (e.g., M12 bolts, washers).
-* Verify the installation site is clean, dry, and provides all required **ventilation and clearance**.
+* Have the proper mounting hardware (e.g., bolts, washers).
 * In case of a rack installation, make sure the cabinet/rack is equipped with rails or slides.
 
 **Steps:**
@@ -77,7 +73,7 @@ This section covers the physical installation, mounting, and handling of the **A
 1. **Inspect for Damage:** Visually inspect the unit for any shipping or handling damage before installation.
 2. **Lift the Unit:** lift the unit using the lifting equipment (Recommendation: scissor-lift table or the hydraulic lift cart).
 3. **Position and Mount:** align the unit in its final position or rack.
-4. **Secure the Unit:** slide the unit inside and fasten the unit’s mounting flanges with the specified bolts and washers.
+4. **Secure the Unit:** slide the unit inside and fasten the unit’s mounting flanges (if used) with the specified bolts and washers.
 5. **Torque Bolts:** Use a torque wrench to tighten bolts to the specified mechanical values.
 
 
@@ -127,7 +123,7 @@ This section describes the procedure for connecting the **liquid cooling loop** 
 
 **Prerequisites:**
 
-   * Cooling circuit is flushed and filled with **approved coolant**.
+   * Cooling circuit is flushed and filled with **appropriate coolant** - water/glycol mix with corrosion inhibitors and organic growth inhibitors.
    * The pump is **OFF** before connecting.
 
 **Steps:**
@@ -135,7 +131,7 @@ This section describes the procedure for connecting the **liquid cooling loop** 
    1. Inspect O-rings on the cooling ports for damage or contamination.
    2. Connect the **Coolant In** hose to the inlet port.
    3. Connect the **Coolant Out** hose to the outlet port.
-   4. Tighten all fittings securely (avoid overtightening).
+   4. Tighten all fittings securely (avoid overtightening), or install clamps (in case of barbed fittings).
    5. Start the pump at **low flow rate**.
    6. Purge all air from the circuit according to the chiller’s instructions.
    7. Increase to nominal flow rate and check for **leaks**.

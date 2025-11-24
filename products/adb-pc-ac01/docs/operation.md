@@ -35,9 +35,9 @@ The converter supports paralleling up to 120 units, scaling up to megawatt-level
 - Grid forming and following capabilities
 - No Neutral wire used (for pure genset applications, ADVANTICS offers a special variant)
 
-## Bidirectional Mode
+## Bidirectionality
 
-In bidirectional mode, the module seamlessly transitions between rectifier and inverter operation.
+All modes of the ADB-PC-AC01 are inherently bidirectional. This is perfectly fine even in unidirectional applications - as the mains tends to be the only source of energy in such systems. You can however emulate unidirectionality even in battery-based systems, by simply limiting negative current setpoint to a low value. Keep in mind that most systems are bidirectional, even if they don't look that way (AC motors, synchronous PFCs in many products).
 
 ## Application Examples
 

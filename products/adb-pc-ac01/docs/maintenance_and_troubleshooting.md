@@ -1,14 +1,15 @@
 # Maintenance and Troubleshooting
 
-## Update Firmware
+## Firmware update
 
 This guide provides the procedure for updating the converter's firmware.
 
 **Prerequisites:**  
   
-* You have the new firmware file (`.hex`) provided by the ADVANTICS.  
-* You have the rovided firmware flashing tool (software) and a CAN-to-USB adapter.  
+* You have the new firmware file(s) (`.hex`) provided by the ADVANTICS.  
+* You have the provided firmware flashing tool (software) and a Peak Systems CAN-to-USB adapter.  
 * The converter is powered on and in `STANDBY` mode.  
+* De-energize the HV bus, turn off AC or DC power feeding the units
 
 **Steps:**  
   
@@ -39,7 +40,6 @@ This guide provides a step-by-step process for diagnosing and resolving faults.
 ### Fault Categories
 
 #### Critical Faults (Level 1)
-- Ground fault detection
 - Overcurrent protection activation (Port A or B)
 - Overtemperature shutdown
 - Hardware interlock activation
@@ -101,70 +101,26 @@ This guide provides a step-by-step process for diagnosing and resolving faults.
 - **Contact Resistance**: Measure contact resistance during maintenance.
 - **Insulation Testing**: Verify insulation integrity.
 
+
 ### Replacement Guidelines
 
-- **Contact Replacement**: Replace contacts showing signs of wear or damage.
-- **Seal Replacement**: Replace environmental seals during maintenance.
-- **Locking Mechanism**: Verify proper operation of locking features.
+- **Contact Replacement**: Replace contacts or cables showing signs of wear or damage.
+- **Liquid cooling**: Inspect liquid cooled components (fittings, manifolds, pumps) - replace as needed.
+- **Coolant replacement**: Flush and fill new coolant (follow coolant manufacturer's recommnendations for intervals).
+- **Fluid filters**: If the coolant system contains filters, replace them as instructed by the manufacturer.
 
 ## Perform Routine Maintenance
 
 Follow this guide to perform scheduled preventative maintenance to ensure long service life.
 
-**WARNING:** **RISK OF ELECTRIC SHOCK.** The unit must be fully powered off, de-energized, locked-out, and capacitors discharged before performing any maintenance.
+**WARNING:** **RISK OF ELECTRIC SHOCK.** The unit must be fully powered off, de-energized, locked-out, and capacitors discharged before performing any maintenance. Wait at least 15 minutes after powering down the equipment.
 
 **Prerequisites:**  
-- Unit is fully de-energized (LOTO).  
+- Unit is fully de-energized.  
 - You have the required spare parts (filters, etc.).  
 
 **Procedures:**  
-***Monthly:***  
-    1.  **Inspect Air Inlets (if any):** Check for and clean any dust or debris from air inlet filters.  
-    2.  **Visual Inspection:** Check for any signs of damage, leaks, or corrosion.  
-  
-***Annually*:**  
-    1.  **Replace Coolant Filter:** Power down the cooling loop, replace the external coolant filter, and purge the system.  
-    2.  **Torque Check:** Re-torque all high-power busbar connections to their specified values.  
-    3.  **Clean Connections:** Inspect and clean all low-voltage connector pins.  
+There are currently no procedures documented. Contact ADVANTICS regarding the maintenance plan.
 
 ***See Also:***  
 * Reference: [Spare Parts List](../appendix#spare-parts-list)  
-
-
-## Documentation and Records
-
-### Installation Records
-
-Maintain records of:  
-- Installation date and personnel  
-- Serial numbers and configuration  
-- Test results and measurements  
-- As-built drawings and schematics  
-
-### Commissioning Reports
-
-Document:  
-- Startup procedures performed  
-- Test results and performance data  
-- Any deviations or issues encountered  
-- Sign-off by qualified personnel  
-
-### Safety Documentation
-
-#### Required Documentation
-
-Maintain current copies of:  
-- Safety data sheets (SDS).  
-- Emergency contact lists.  
-- Safety procedures.  
-- Training records.  
-- Incident reports.  
-
-#### Safety Records
-
-Keep records of:  
-- Safety inspections.  
-- Incident investigations.  
-- Training activities.  
-- Safety meetings.  
-- Corrective actions.  
