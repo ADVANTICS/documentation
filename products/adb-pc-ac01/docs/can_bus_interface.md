@@ -19,6 +19,7 @@
 | [AC01_Mode_Applied](#AC01_Mode_Applied) | 0x810041 | 1 | OUT | 1000 |
 | [AC01_faults](#AC01_faults) | 0x810042 | 8 | OUT | 1000 |
 | [AC01_warning](#AC01_warning) | 0x810043 | 8 | OUT | 1000 |
+| [AC01_info](#AC01_info) | 0x810044 | 8 | OUT | 1000 |
 
 
 <a id="DC_Ports_Setpoints"></a>
@@ -40,9 +41,9 @@ The setpoints control the behaviour of the DC Port of the AC01. The AC01 operate
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Voltage | 16 | Signed |
+| Voltage | 16 | Unsigned |
 | Source_Current_Limit | 16 | Unsigned |
-| Sink_Current_Limit | 16 | Signed |
+| Sink_Current_Limit | 16 | Unsigned |
 
 ### Payload description
 
@@ -52,7 +53,7 @@ Control the target dc side voltage. This voltage will be maintained as long as t
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 16 | Signed | V | 0.1 | 0 | 0 | 1500 |
+| 0 | 16 | Unsigned | V | 0.1 | 0 | 0 | 1500 |
 
 #### Source_Current_Limit { #DC_Ports_Setpoints-Source_Current_Limit }
 
@@ -68,7 +69,7 @@ The maximum current that the AC01 will sink into the DC Port
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 32 | 16 | Signed | A | 0.1 | 0 | 0 | 220 |
+| 32 | 16 | Unsigned | A | 0.1 | 0 | 0 | 220 |
 
 
 <a id="DC_Port_Applied_Setpoints"></a>
@@ -90,7 +91,7 @@ The setpoints that are currently used by the AC01. This message allows to valida
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Voltage | 16 | Signed |
+| Voltage | 16 | Unsigned |
 | Source_Current_Limit | 16 | Unsigned |
 | Sink_Current_Limit | 16 | Unsigned |
 
@@ -102,7 +103,7 @@ The voltage target of the DC port
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 16 | Signed | A | 0.01 | 0 |  |  |
+| 0 | 16 | Unsigned | V | 0.1 | 0 |  |  |
 
 #### Source_Current_Limit { #DC_Port_Applied_Setpoints-Source_Current_Limit }
 
@@ -110,7 +111,7 @@ The maximum current that the AC01 will source on the DC Port
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 16 | 16 | Unsigned | V | 0.1 | 0 |  |  |
+| 16 | 16 | Unsigned | A | 0.1 | 0 |  |  |
 
 #### Sink_Current_Limit { #DC_Port_Applied_Setpoints-Sink_Current_Limit }
 
@@ -118,7 +119,7 @@ The maximum amount of current that the AC01 will sink into the DC port
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 32 | 16 | Unsigned | V | 0.1 | 0 |  |  |
+| 32 | 16 | Unsigned | A | 0.1 | 0 |  |  |
 
 
 <a id="DC_Port_Droop_Setpoints"></a>
@@ -166,7 +167,7 @@ The droop resistance to apply for current flowing out of the DC port (DC current
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 4 | 16 | Unsigned | Ohm | 0.1 | 0 |  |  |
+| 4 | 16 | Unsigned | Ohm | 0.01 | 0 |  |  |
 
 #### Negative_Current_Droop { #DC_Port_Droop_Setpoints-Negative_Current_Droop }
 
@@ -174,7 +175,7 @@ The droop resistance to apply for current flowing in to the DC Port (DC current 
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 20 | 16 | Unsigned | Ohm | 0.1 | 0 |  |  |
+| 20 | 16 | Unsigned | Ohm | 0.01 | 0 |  |  |
 
 #### Reserved { #DC_Port_Droop_Setpoints-Reserved }
 
@@ -229,7 +230,7 @@ The droop resistance applied for current flowing out of the DC port (DC current 
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 4 | 16 | Unsigned | Ohm | 0.1 | 0 |  |  |
+| 4 | 16 | Unsigned | Ohm | 0.01 | 0 |  |  |
 
 #### Negative_Current_Droop { #DC_Port_Applied_Droop_Setpoints-Negative_Current_Droop }
 
@@ -237,7 +238,7 @@ The droop resistance applied for current flowing in to the DC Port (DC current i
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 20 | 16 | Unsigned | Ohm | 0.1 | 0 |  |  |
+| 20 | 16 | Unsigned | Ohm | 0.01 | 0 |  |  |
 
 
 <a id="DC_Port_Measurements"></a>
@@ -724,6 +725,7 @@ AC01 Critical and Error Faults
 | BLEEDING_NOT_RUNNING | 1 | Label set |
 | BLEEDING_STOP_RUNNING | 1 | Label set |
 | BLEEDING_FAILED | 1 | Label set |
+| FILTER_NOT_OFF | 1 | Label set |
 
 ### Payload description
 
@@ -1234,6 +1236,19 @@ Bleeding failed
 | Clear | 0 |
 | Error | 1 |
 
+#### FILTER_NOT_OFF { #AC01_faults-FILTER_NOT_OFF }
+
+filter not off
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 39 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Error | 1 |
+
 
 <a id="AC01_warning"></a>
 ## AC01_warning { #AC01_warning }
@@ -1264,8 +1279,6 @@ AC01 Warning and Info Alerts
 | RQ_C_SET_DC_ABOVE_MAX | 1 | Label set |
 | RQ_C_SET_DC_BELOW_MIN | 1 | Label set |
 | RQ_V_SET_DC_BELOW_MIN | 1 | Label set |
-| RQ_C_LIMITED_BY_POWER | 1 | Label set |
-| BLEEDING_DONE | 1 | Label set |
 | RQ_DC_DROOP_NEG_INVALID | 1 | Label set |
 | RQ_DC_DROOP_POS_INVALID | 1 | Label set |
 | RQ_V_SET_DC_ABOVE_MAX | 1 | Label set |
@@ -1402,32 +1415,6 @@ Source current too low
 | Clear | 0 |
 | Warning | 1 |
 
-#### RQ_C_LIMITED_BY_POWER { #AC01_warning-RQ_C_LIMITED_BY_POWER }
-
-Current limited by power max
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 10 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Info | 1 |
-
-#### BLEEDING_DONE { #AC01_warning-BLEEDING_DONE }
-
-Current limited by power max
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 11 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Info | 1 |
-
 #### RQ_DC_DROOP_NEG_INVALID { #AC01_warning-RQ_DC_DROOP_NEG_INVALID }
 
 Current limited by power max
@@ -1466,3 +1453,54 @@ Current above max
 |------------|-------|
 | Clear | 0 |
 | Warning | 1 |
+
+
+<a id="AC01_info"></a>
+## AC01_info { #AC01_info }
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x810044 |
+| **Length [Bytes]** | 8 |
+| **Periodicity [ms]** | 1000 |
+| **Direction** | OUT |
+
+### Description
+
+AC01 Info
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| BLEEDING_DONE | 1 | Label set |
+| RQ_C_LIMITED_BY_POWER | 1 | Label set |
+
+### Payload description
+
+#### BLEEDING_DONE { #AC01_info-BLEEDING_DONE }
+
+Current limited by power max
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 1 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Info | 1 |
+
+#### RQ_C_LIMITED_BY_POWER { #AC01_info-RQ_C_LIMITED_BY_POWER }
+
+Current limited by power max
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 2 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Info | 1 |
