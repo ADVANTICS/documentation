@@ -1,5 +1,7 @@
 # Rack Design
 
+This guide is under construction.
+
 ## Rack sizing
 
 ## Wiring and bus bars

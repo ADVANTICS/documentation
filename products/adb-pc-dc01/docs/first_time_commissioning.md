@@ -4,9 +4,14 @@
 
 Welcome to the ADB-PC-DC01! This tutorial is for first-time users, engineers, or technicians.
 
-**Our goal:** To guide you safely from unboxing your new converter to a successful first power-on. This guide provides a simple, direct path to verify that your unit is installed correctly and is operational.
+**Our goal:** To guide you safely from unboxing your new converter to a successful first power-on. 
 
-This guide simplifies the process. For detailed technical data and advanced procedures, it will link you to the main **Guides** section.
+This document is intended only as a simplified introduction to the product. For complete technical specifications and advanced procedures, always refer to the main **Guides** section. This document is not exhaustive. Any safety information included here is provided solely for convenience and in good faith.
+
+You are responsible for ensuring full compliance with all applicable laws, standards, and safety regulations in your country or region. ADVANTICS assumes no liability for any injury, damage, or loss resulting from the installation, operation, or misuse of this equipment.
+
+High-voltage systems must only be handled by trained and qualified personnel. Do not perform any operation unless you are properly certified and fully understand the associated risks.
+
 
 ### **Prerequisites**
 
@@ -57,29 +62,29 @@ This step covers the essential connections to get the unit running.
 
 3.  **Connect the Cooling System:**
     * Connect the coolant inlet and outlet hoses to the manifold.
-    * Ensure there are no leaks.  
+    * Ensure there are no leaks. This would be a good moment to perform cooling system test.  
   
     ***See Also:*** [Connect the Cooling System](../installation#connect-the-cooling-system)  
     ***See Also:*** [Liquid Cooling](../mechanical_specs#liquid-cooling)
 
 4.  **Connect DC Power (Port A & Port B):**
-    * **WARNING:** Ensure all sources remain locked out.
-    * Use your DMM to verify the polarity (+ and -) of your incoming and outgoing busbars.
-    * Connect the DC busbars (Port A and Port B) the dedicated connectors. Ensure correct polarity.
-    * Make sure the connectors are locked.
+    * **WARNING:** Ensure all sources remain de-energized.
+    * Verify the polarity (+ and -) of your busbars or wiring.
+    * Connect the DC busbars and cables to the DC converter Connectors.
+    * Make sure the connectors are locked (audible click when inserting the Amhpenol connector).
   
     ***See Also:*** [Install the Converter (Electrical)](../installation#how-to-install-the-converter-electrical)  
     ***See Also:*** [Connectors and Interfaces](../mechanical_specs#connectors)
 
 5.  **Connect the Low-Voltage Control Connector:**
     * Connect the main control harness. This includes the connector for CAN bus and the Interlock line.
-    * Connect the converter's auxiliary power supply harness.
+    * Connect the converter's auxiliary power supply harness (24V supply).
 
 ### **Step 3: Power-On Sequence**
 
 1.  **Start the Cooling System:** Turn on your external cooling/chiller system. Verify that coolant is flowing at the correct rate and temperature.
 2.  **Apply Auxiliary Power:** Energize the converter's auxiliary power supply (if separate from the main DC bus).
-3.  **Energize DC Busses:** Remove the lock-out and energize the main DC source (Port A) and the DC load/source (Port B) so that voltage is present at the terminals.
+3.  **Energize DC Bus:** In case your equipment energizes the DC bus on it's own, it can be performed now. Otherwise, it will get energized during precharge sequence later automatically.
 
 
 ### **Step 4: Establish CAN Communication ("Hello World")**
@@ -94,6 +99,9 @@ Now, let's verify the converter is "awake" and communicating.
 3.  **Look for a Heartbeat:** Open ETKA tool. You should see information about your power module. This indicates the unit is alive and in a `STANDBY` state.
 
 Your control system should be successfully connected at this stage.
+
+!!! tip
+    You can communicate with the power converter even without any mains power or DC bus voltage present - just the auxiliary 24V and CAN bus connections are needed. 
 
 
 ### **Step 5: Run a Simple Power Test**

@@ -24,8 +24,8 @@ Installation, operation, and maintenance of the ADB-PC-AC01 must be performed by
 
 | **Circuit Type** | **Voltage Range** | **Hazard Level** |
 |------------------|-------------------|------------------|
-| **AC Side (Port A)** | 750-950V DC | High |
-| **DC Bus (Port B)** | 200-1500V DC | High |
+| **AC Side (Port A)** | 208 - 480 V<sub>rms</sub> | High |
+| **DC Bus (Port B)** | 650 - 950 V DC | High |
 | **Control Power** | 24V DC | Low |
 
 #### Electrical Safety Requirements

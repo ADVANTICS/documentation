@@ -43,8 +43,16 @@ description: 100kW 1500V DC/DC Isolated Power Converter - User Documentation
 | **Description** | 100kW 1500V DC/DC Isolated Power Converter |
 | **Document Type** | Technical Manual |
 | **Version** | 1.0 |
-| **Last Updated** | October 2025 |
-| **Classification** | Public |
+| **Last Updated** | November 2025 |
+| **Classification** | Public pre-release |
+
+**This document is in a pre-relase stage.**
+
+- Not all information is present
+- The document is subject to changes without prior notice
+- There may be factual errors
+
+Please inform us in case you find issues with this document, or have ideas for improvements.
 
 ---
 

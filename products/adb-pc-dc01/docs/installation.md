@@ -43,8 +43,7 @@ This guide covers the physical installation, mounting, and handling of the ADB-P
 **Prerequisites:**
 
    * Use lifting equipment rated for the converter’s weight (recommendation: Scissor-lift table or Hydraulic lift cart).
-   * Have the proper mounting hardware (e.g., M12 bolts, washers).
-   * Verify the installation site is clean, dry, and provides all required **ventilation and clearance**.
+   * Have the proper mounting hardware (e.g., bolts, washers).
    * In case of a rack installation, make sure the cabinet/rack is equipped with rails or slides.
 
 **Steps:**
@@ -52,7 +51,7 @@ This guide covers the physical installation, mounting, and handling of the ADB-P
    1. **Inspect for Damage:** Visually inspect the unit for any shipping or handling damage before installation.
    2. **Lift the Unit:** lift the unit using the lifting equipment (Recommendation: scissor-lift table or the hydraulic lift cart).
    3. **Position and Mount:** Lift and align the unit in its final position or rack.
-   4. **Secure the Unit:** slide the unit inside and fasten the unit’s mounting flanges with the specified bolts and washers.
+   4. **Secure the Unit:** slide the unit inside and fasten the unit’s mounting flanges (if used) with the specified bolts and washers.
    5. **Torque Bolts:** Use a torque wrench to tighten bolts to the specified mechanical values.
 
 ## Install the Converter (Electrical)
@@ -91,7 +90,7 @@ This guide covers the procedure for connecting the liquid cooling loop.
 
 **Prerequisites:**
 
-   * Cooling circuit is flushed and filled with **approved coolant**.
+   * Cooling circuit is flushed and filled with **appropriate coolant** - water/glycol mix with corrosion inhibitors and organic growth inhibitors.
    * The pump is **OFF** before connecting.
 
 **Steps:**
@@ -99,7 +98,7 @@ This guide covers the procedure for connecting the liquid cooling loop.
    1. Inspect O-rings on the cooling ports for damage or contamination.
    2. Connect the **Coolant In** hose to the inlet port.
    3. Connect the **Coolant Out** hose to the outlet port.
-   4. Tighten all fittings securely (avoid overtightening).
+   4. Tighten all fittings securely (avoid overtightening), or install clamps (in case of barbed fittings).
    5. Start the pump at **low flow rate**.
    6. Purge all air from the circuit according to the chiller’s instructions.
    7. Increase to nominal flow rate and check for **leaks**.
