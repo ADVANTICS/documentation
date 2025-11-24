@@ -1,8 +1,8 @@
 # Electrical Specifications
 
-## DC Bus Side (Port A) Specifications
+## Port A (DC Bus Side) specifications
 
-### Input Characteristics
+### Characteristics
 
 | **Parameter** | **Value** | **Notes** |
 |---------------|-----------|-----------|
@@ -14,7 +14,7 @@
 | **Wiring** | DC+, DC- | - |
 | **DC Link Capacitance** | 160 uF | - |
 | **DC Link Precharge** | No | Must be precharged externally |
-| **DC Bus to PE Separation** | Basic Isolation | - |
+| **DC Bus to PE Separation** | Basic safety isolation | - |
 | **Protection** | Overvoltage, Undervoltage, Overcurrent, Overtemperature | - |
 | **Fusing** | On the positive line | UL/IEC rated |
 | **Overvoltage Category** | OVC2 | - |
@@ -27,9 +27,9 @@ The following graph illustrates the relationship between the maximum achievable 
 
 {{ figure('../assets/max_power_vs_input_voltage.png', 'Maximum Power vs Input Voltage') }}
 
-## DC output side (Port B) Specifications
+## Port B (DC wide control side) specifications
 
-### Output Characteristics
+### Characteristics
 
 | **Parameter** | **Value** | **Notes** |
 |---------------|-----------|-----------|
@@ -44,12 +44,13 @@ The following graph illustrates the relationship between the maximum achievable 
 | **Ripple Voltage/Current** | Fulfills IEC 61851-23-3 | - |
 | **Overvoltage Category** | OVC2 | - |
 | **Output Contactors** | No | - |
+| **Fusing** | No | - |
 | **Protection** | Overvoltage, Undervoltage, Overcurrent, Overtemperature | - |
 | **Connectors DC** | 2x RADSOK Size 10.3mm Amphenol SurLock Plus (SLP-HIR-C) | - |
 
-### Maximum Power vs Output Voltage
+### Maximum Power vs DC wide control side Voltage
 
-The following graph illustrates the relationship between the maximum achievable power output and the output voltage on the DC Output Side (Port B). The maximum power is capped at 100 kW, with optimal performance within the specified voltage range of 200-1500 V DC. Variations outside this range may result in derating to ensure safe and efficient operation.
+The following graph illustrates the relationship between the maximum achievable power output and the output voltage on the DC wide control side (Port B). The maximum power is capped at 100 kW, with optimal performance within the specified voltage range of 200-1500 VDC. Variations outside this range may result in derating to ensure safe and efficient operation.
 
 {{ figure('../assets/max_power_vs_output_voltage.png', 'Maximum Power vs Output Voltage') }}
 
@@ -57,6 +58,8 @@ The following graph illustrates the relationship between the maximum achievable 
 ## Safe Operating Area
 
 The Safe Operating Area (SOA) graph provides a V-I plot illustrating the maximum allowable current versus voltage for the 100 kW power envelope. This boundary ensures safe operation without exceeding thermal or electrical limits.
+
+It's important to note that the system is fully bidirectional - graph therefore spans ±220 A.
 
 {{ figure('../assets/soa_outputs.png', 'Safe Operating Area') }}
 
@@ -66,8 +69,7 @@ The Safe Operating Area (SOA) graph provides a V-I plot illustrating the maximum
 
 - **Peak Efficiency**: 98% at optimal operating point
 - **Full Load Efficiency**: >97% across wide operating range
-- **Partial Load Efficiency**: Maintained high efficiency down to 20% load
-
+- **Partial Load Efficiency**: Maintained high efficiency down to 10% load
 
 **Efficiency Curve**
 
@@ -84,12 +86,12 @@ The ADB-PC-DC01 converter demonstrates robust transient response to load steps, 
 
 {{ figure('../assets/output_voltage_transient_response_load_step.png', 'Output Voltage Transient Response Load Step') }}
 
-The graph depicts the output voltage behavior during a load step, highlighting low overshoot and fast recovery to steady-state conditions.
+The graph depicts Port B voltage behavior during a load step, highlighting low overshoot and fast recovery to steady-state conditions.
 
 
 ### Output Ripple and Noise
 
-The ADB-PC-DC01 converter maintains low output voltage ripple and noise to ensure stable and clean DC power delivery across the full operating range. Ripple is measured as the peak-to-peak variation in output voltage under steady-state conditions.
+The ADB-PC-DC01 converter maintains low voltage ripple and noise to ensure stable and clean DC power delivery across the full operating range. Ripple is measured as the peak-to-peak variation in output voltage under steady-state conditions.
 
 | **Parameter** | **Value** | **Notes** |
 |---------------|-----------|-----------|
@@ -103,12 +105,11 @@ The following graph shows the FFT spectrum of the output voltage ripple for the 
 
 ## Parallel Operation Capability
 
-The parallel configuration offers several key benefits, including redundancy where the system continues operation even with failed modules, scalability by increasing power through adding modules, efficiency with optimized operation across wide load ranges, and maintenance through hot-swappable capability for service.
-
 - **Maximum Units**: Up to 120 modules in parallel
 - **Load Sharing**: Intelligent droop technology for automatic load sharing
 - **Communication**: Isolated CAN bus for inter-module communication
-- **Scalability**: Linear power scaling with additional modules, up to 6MW
+- **Scalability**: Linear power scaling with additional modules
+- **Redundancy**: System continues operation with failed modules
 
 {{ figure('../assets/dc01_system_architecture.webp', 'System Architecture') }}
 
@@ -133,20 +134,11 @@ The parallel configuration offers several key benefits, including redundancy whe
 ### Isolation Concept
 
 
-- **CAN Bus Isolation**: Isolated from power electronics and 24V supply
-- **Control Power Isolation**: 24V control isolated from power section
+- **CAN Bus**: Isolated from power electronics and 24V supply
+- **Control Power**: 24V isolated from CAN bus and HV, PE referenced
 - **Primary-Secondary Isolation**: Reinforced isolation between Port A and Port B
-- **Safety Isolation**: Basic isolation towards PE
-
-
-### Loss Distribution
-
-| **Component** | **Loss Contribution** | **Optimization** |
-|---------------|---------------------|------------------|
-| **Power Semiconductors** | ~60% | SiC technology minimizes losses |
-| **Magnetics** | ~25% | Optimized core materials |
-| **Control Electronics** | ~10% | Efficient power management |
-| **Auxiliary Systems** | ~5% | Minimal auxiliary power draw |
+- **Port A to PE Isolation**: Basic safety isolation
+- **Port B to PE Isolation**: Reinforced safety isolation and basic safety isolation, depending on the voltage
 
 ## Environmental Electrical Specifications
 
@@ -156,14 +148,14 @@ The parallel configuration offers several key benefits, including redundancy whe
 |---------------|-----------|--------------|
 | **Operating Temperature** | -40°C to +70°C | Power derating applies above 50°C |
 | **Storage Temperature** | -50°C to +85°C | No operation |
-| **Altitude** | Up to 3000m | Derating above 2000m |
-| **Pollution Degree** | 3 (external) | Sealed design protects internals |
+| **Altitude** | Up to 3000m | |
+| **Pollution Degree** | 3 (external) | Sealed IP67 design |
 
 ### Electromagnetic Compatibility
 
-- **EMC Class**: Class B with external filter
-- **Emissions**: Compliant with CISPR 11/22
-- **Immunity**: Compliant with IEC 61000-4 series
+- **Emissions**: Class A/B with external filter
+- **Immunity**: Class A immunity (industrial)
+- **Harmonics**: Compliant with IEC 61000-3-2
 
 ## Measurement and Monitoring
 
@@ -182,5 +174,4 @@ All electrical parameters are continuously monitored and available through the C
 - Instantaneous voltage, current, and power readings for both DC ports
 - Temperature monitoring across critical components
 - Fault and status information
-- Historical data logging capability
 

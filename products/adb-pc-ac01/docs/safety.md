@@ -18,7 +18,7 @@ Installation, operation, and maintenance of the ADB-PC-AC01 must be performed by
 #### High Voltage Hazards
 
 !!! warning "High Voltage Danger"
-    The ADB-PC-AC01 operates with DC voltages up to 1500 VDC. These voltages can cause severe electrical shock, burns, or death.
+    The ADB-PC-AC01 operates with DC voltages up to 1000 VDC. These voltages can cause severe electrical shock, burns, or death.
 
 #### Voltage Levels Present
 
@@ -121,5 +121,3 @@ The liquid cooling system operates under pressure and with hot fluids:
 - Check equipment condition.
 
 **Remember: Safety is everyone's responsibility. When in doubt, stop the work and seek guidance from qualified personnel.**
-
-

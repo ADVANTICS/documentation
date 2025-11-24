@@ -53,7 +53,7 @@ The ADB-PC-AC01 is suitable for a wide range of applications requiring bidirecti
 
 ## System Architecture
 
-The ADB-PC-AC01 is designed as part of the modular ADB Series system, allowing for flexible configuration and scaling for MW-level power systems.
+The ADB-PC-AC01 is designed as part of the modular ADB Series system, allowing for flexible configuration and scaling to MW-level power systems.
 
 ### Key Architectural Features:
 
@@ -68,8 +68,8 @@ The modular design of ADVANTICS's ADB power modules series allows creating creat
 **These 1MW building block can be duplicated as much as needed to reach the targeted power level.**  
 In our example here, the MCS charger is built using:  
 
-- 1MW AC/DC PFC Building block based on the ADB-PC-AC01 power module.  
-- 1MW DC/DC isolated Building block based on the ADB-PC-DC01 power module.  
+- 1MW AC/DC PFC Building block based on the ADB-PC-AC01 power module
+- 1MW DC/DC isolated Building block based on the ADB-PC-DC01 power module
 
 {{ figure('../assets/ac01_dc01_mcs_example.webp', 'MCS Example') }}
 

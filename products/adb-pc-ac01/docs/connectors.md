@@ -18,14 +18,14 @@ The ADB-PC-AC01 features high-current Amphenol Surlok Plus connectors designed f
 | **Connector Type** | RADSOK Size 8mm | High-current contact technology |
 | **Manufacturer** | Amphenol | Industry-leading reliability |
 | **Series** | SurLock Plus (SLP-HIR-B) | Locking mechanism for safety |
-| **Quantity** | 3 connectors | One per phase (L1, L2, L3) |
+| **Quantity** | 3 | One per phase (L1, L2, L3) |
 | **Colour and Keyway** | Orange | 20&deg; |
 | **Connector Current Rating** | 200 A | Continuous operation |
 | **Connector Voltage Rating** | 1500 VDC | |
 
 ## DC Connectors
 
-The DC side features bidirectional connectors for the high-voltage DC link:
+The DC side features bidirectional connectors for the high voltage DC link:
 
 | **Specification** | **Value** | **Notes** |
 |-------------------|-----------|-----------|
@@ -104,4 +104,4 @@ The module includes redundant CAN bus & interlock line connections:
 | Name   | Pin |
 |--------|-----|
 | 24V_DC (+) | 1 |
-| 0V / GND   | 2 |
+| 0V / GND   | 3 |

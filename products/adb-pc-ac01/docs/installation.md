@@ -13,8 +13,7 @@
 
       * Use cables rated for the **nominal AC voltage and current** as specified for AC port.
       * Select cable gauge suitable for continuous current and ambient temperature.
-      * Strip insulation according to manufacturer’s recommendations.
-      * Use properly crimped terminals or ferrules to ensure reliable connections.
+      * Use proper crimping tools for contact termination.
 
 3. **Connection Procedure**
 
@@ -95,26 +94,25 @@ This section covers the electrical connection of all AC, DC, and control cables.
 
 1. **Connect Protective Earth (PE):**
 
-      * **Always connect PE first.**
-      * Connect the main facility ground to the PE terminal on the converter chassis.
-      * Verify the ground connection impedance is below **0.1 Ω**.
+      - **Always connect PE first.**
+      - Connect the main facility ground to the PE terminal on the converter chassis.
 
 2. **Connect AC Input (Port A):**
 
-      * Verify correct voltage, frequency, and phase.
-      * Connect **L (Live)** and **PE** to the AC input terminal.
-      * Ensure all Connectors are properly connected and locked.
+      - Verify correct voltage, frequency, and phase.
+      - Connect **L (Live)** and **PE** to the AC input terminal.
+      - Ensure all Connectors are properly connected and locked.
 
 3. **Connect DC Output (Port B):**
 
-      * Confirm polarity and ensure DC load is off.
-      * Connect **+ (positive)** and **– (negative)** conductors to Port B.
-      * Ensure all Connectors are properly connected and locked.
+      - Confirm polarity and ensure DC load is off.
+      - Connect **+ (positive)** and **– (negative)** conductors to Port B.
+      - Ensure all Connectors are properly connected and locked.
 
 4. **Connect Control Wiring:**
 
-      * Wire the **CAN bus**, **interlock**, and **24 VDC control power** per the provided pinout.
-      * Secure connectors to prevent loosening.
+      - Wire the **CAN bus**, **interlock**, and **24 VDC control power** per the provided pinout.
+      - Secure connectors to prevent loosening.
 
 
 ## Connect the Cooling System

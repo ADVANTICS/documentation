@@ -3,7 +3,7 @@
 
 ## AC Side (Mains) Specifications
 
-### Input Characteristics
+### Characteristics
 
 | **Parameter** | **Value** | **Conditions** |
 |---------------|-----------|----------------|
@@ -14,7 +14,7 @@
 | **Total Harmonic Distortion (THDi)** | ≤5% | For loads above 20% |
 | **Reactive Power Control** | ±0.9 inductive-capacitive | Full power range |
 
-### Input Configuration
+### Configuration
 
 !!! info "AC Wiring Configuration"
     - **Connection Type**: 3-phase, 3-wire (L1, L2, L3)
@@ -52,7 +52,7 @@ The ADB-PC-AC01 supports multiple grid operation modes:
 
 ## DC Side (DC Bus - Bidirectional) Specifications
 
-### Output Characteristics
+### Characteristics
 
 | **Parameter** | **Value** | **Conditions** |
 |---------------|-----------|----------------|
@@ -62,7 +62,7 @@ The ADB-PC-AC01 supports multiple grid operation modes:
 | **Current Measurement Accuracy** | ±1% of full-scale | Over temperature range |
 | **Voltage Measurement Accuracy** | ±1% of full-scale | Over temperature range |
 
-### DC Configuration
+### Configuration
 
 !!! warning "Non-Isolated PFC"
     The ADB-PC-AC01 is a non-isolated PFC. If your system requires isolation, it needs to be handled by a DC/DC converter or a mains transformer.

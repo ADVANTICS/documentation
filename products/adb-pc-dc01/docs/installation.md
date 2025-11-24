@@ -6,8 +6,7 @@
 
 1. **Polarity Verification**
 
-      * Double-check polarity before connection for both input and output.
-      * Use multimeter to verify voltage polarity.
+      * Double-check Port A and port B connections.
       * Connect positive and negative conductors correctly.
 
 2. **Cable Requirements**
@@ -15,7 +14,6 @@
       * Use cables rated for 1500V DC operation for Port B and 1000V DC for Port A.
       * Appropriate current rating for ±120A (Port A) and ±220A (Port B) operation.
       * Use appropriate cable gauge for continuous current.
-      * Strip insulation to manufacturer specifications.
       * Use proper crimping tools for contact termination.
 
 2. **Connection Procedure**
@@ -33,8 +31,9 @@
       * Install termination resistors at bus ends.
 
 * **Control Power Wiring**
-      * Use adequate wire gauge for 3A current.
-      * Include overcurrent protection in 24V supply.
+      * Use adequate wire gauge for **3 A current** at **24 VDC**.
+      * Include overcurrent protection (fuse) in 24V supply.
+      * It is possible to use one 24V power supply for multiple converters. Consult with ADVANTICS beforehand.
 
 ## Install the Converter (Mechanical)
 
@@ -63,30 +62,40 @@ This guide covers the connection of all high-voltage and low-voltage electrical 
 
 **Prerequisites:**
 
-   * All power sources are confirmed OFF and locked-out (LOTO).
+   * AC supply and DC load circuits are confirmed **OFF and locked out** (LOTO).
+   * Proper **PPE** (insulated gloves, safety glasses, etc.) is used.
    * You are wearing appropriate Personal Protective Equipment (PPE).
-   * You have a calibrated multimeter and torque wrench.
-   * All high-power cables are cut to length, properly terminated with lugs, and clean.
+   * Multimeter and torque wrench are available and calibrated.
+   * All cables are prepared, terminated, and labeled.
 
 **Steps:**
 
-   1.  **Connect Protective Earth (PE):**
+1.  **Connect Protective Earth (PE):**
       - **This must be the first connection made.**
       - Connect the main facility ground to the PE stud on the converter chassis.
-      - Verify the connection has low impedance (< 0.1 &#8486;).
-   2.  **Connect High-Power DC Busbars (Port A & B):**
-      - Use a multimeter to verify the polarity (+ and -) of your source and load cables one final time.
-      - Connect the positive and negative busbars for Port A.
-      - Connect the positive and negative busbars for Port B.
+
+2. **Connect DC (Port A):**
+
+      - Confirm polarity and ensure DC load is off.
+      - Connect **+ (positive)** and **– (negative)** conductors to Port A.
       - Ensure all Connectors are properly connected and locked.
-   3.  **Connect Low-Voltage Control:**
-      - Wire your control and power harness (CAN, interlock, 24v power, etc...).
-      - Mate your harness to the control and power connectors and secure it.
+
+3. **Connect DC (Port B):**
+
+      - Confirm polarity and ensure DC load is off.
+      - Connect **+ (positive)** and **– (negative)** conductors to Port B.
+      - Ensure all Connectors are properly connected and locked.
+
+      
+4.  **Connect Low-Voltage Control:**
+
+      - Wire the **CAN bus**, **interlock**, and **24 VDC control power** per the provided pinout.
+      - Secure connectors to prevent loosening.
 
 
 ## Connect the Cooling System
 
-This guide covers the procedure for connecting the liquid cooling loop.
+This section describes the procedure for connecting the **liquid cooling loop** of the converter.
 
 **Prerequisites:**
 
@@ -108,16 +117,26 @@ This guide covers the procedure for connecting the liquid cooling loop.
 
 ### Parallel Configuration Example
 
-This procedure describes how to interconnect and configure multiple ADB-PC-DC01 units for parallel operation.
+This procedure describes how to interconnect and configure multiple ADB-PC-AC01 units for parallel operation.
+
+<!-- <div style="text-align: center; margin: 4rem 0;">
+    <img src="assets/ac01_system_architecture.webp" alt="System Architecture" style="width: auto; height: auto;">
+</div> -->
+
 
 **Prerequisites:**
 
-   - All units are fully installed (mechanically, electrically, and cooling).
-   - All units are powered off.
+   * All units are mechanically, electrically, and cooling-system installed.
+   * All units are powered off.
 
 **Steps:**
 
-   1.  **Connect Parallel Bus:** Connect the dedicated parallel communication cable between all units in the parallel group.
-   2.  **Assign Unique IDs:** Set a unique ID for each unit using ETKA tool.
-   3.  **Configure the Group ID:** Configure a group ID using the ETKA tool.
-   4.  **Power On:** Power on all units in the group using the standard `Power On` procedure.
+   1. **Connect the Parallel Bus:**
+      Connect the dedicated **parallel communication cable** between all converters in the same group.
+   2. **Assign Unique IDs:**
+      Set a unique **unit ID** for each converter using the **ETKA configuration tool**.
+   3. **Configure the Group ID:**
+      Assign a **group ID** to define which units operate together.
+   4. **Power On:**
+      Power on all converters using the standard “Power On” procedure.
+

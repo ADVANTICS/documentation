@@ -4,7 +4,7 @@
 
 Welcome to the ADB-PC-AC01! This tutorial is for first-time users, engineers, or technicians.
 
-**Our goal:** To guide you safely from unboxing your new converter to a successful first power-on. This guide provides a simple, direct path to verify that your unit is installed correctly and is operational.
+**Our goal:** To guide you safely from unboxing your new converter to a successful first power-on.
 
 This document is intended only as a simplified introduction to the product. For complete technical specifications and advanced procedures, always refer to the main **Guides** section. This document is not exhaustive. Any safety information included here is provided solely for convenience and in good faith.
 
@@ -42,7 +42,6 @@ Safety is the most critical step. Do not proceed until you have verified the fol
 1.  **Inspect for Shipping Damage:** Visually inspect the crate and the converter for any signs of damage, such as dents, cracked insulators, or loose components.
 2.  **Clear the Workspace:** Ensure the installation area is clean, dry, and free of obstructions.
 3.  **Verify Power is OFF:** Confirm that all external AC and DC power sources and loads are completely de-energized, disconnected, and locked out (LOTO).
-4.  **Check Environment:** Ensure the ambient temperature and humidity are within the unit's operating range.
 
 ### **Step 2: Basic Mechanical & Electrical Installation**
 
@@ -81,31 +80,31 @@ This step covers the essential connections to get the unit running.
     * Connect the main control harness. This includes the connector for CAN bus and the Interlock line.
     * Connect the converter's auxiliary power supply harness (24V supply).
 
-### **Step 3: Power-On Sequence**
-
-1.  **Start the Cooling System:** Turn on your external cooling/chiller system. Verify that coolant is flowing at the correct rate and temperature.
-2.  **Apply Auxiliary Power:** Energize the converter's auxiliary power supply.
-3.  **Energize AC side** Apply the 3-phase AC voltage input.
-4.   **Energize DC Bus:** In case your equipment energizes the DC bus on it's own, it can be performed now. Otherwise, it will get energized during precharge sequence later automatically.
-
-
-### **Step 4: Establish CAN Communication ("Hello World")**
+### **Step 3: Establish CAN Communication ("Hello World")**
 
 Now, let's verify the converter is "awake" and communicating.
 
-1.  **Connect Your Monitor:** Connect your CAN bus monitoring tool to the CAN bus lines.
-2.  **Set Baud Rate:** Ensure your monitor is set to the correct baud rate (e.g., 500 kbit/s).
+1.  **Apply Auxiliary Power:** Energize the converter's auxiliary 24 V power supply.
+2.  **Connect Your Monitor:** Connect your CAN bus monitoring tool to the CAN bus lines.
+3.  **Set Baud Rate:** Ensure your monitor is set to the correct baud rate (e.g., 500 kbit/s).
     * ***See Also:*** [CAN Bus Communication](../can_bus_interface)
-3.  **Look for a Heartbeat:** Open ETKA tool. You should see information about your power module. This indicates the unit is alive and in a `STANDBY` state.
+4.  **Look for a Heartbeat:** Open ETKA tool. You should see information about your power module. This indicates the unit is alive and in a `STANDBY` state.
 
 Your control system should be successfully connected at this stage.
 
 !!! tip
     You can communicate with the power converter even without any mains power or DC bus voltage present - just the auxiliary 24V and CAN bus connections are needed. 
 
+### **Step 4: Power-On Sequence**
+
+1.  **Start the Cooling System:** Turn on your external cooling/chiller system. Verify that coolant is flowing at the correct rate and temperature.
+2.  **Apply Auxiliary Power:** Energize the converter's auxiliary 24 V power supply.
+3.  **Energize AC side** Apply the 3-phase AC voltage input.
+4.   **Energize DC Bus:** In case your equipment energizes the DC bus on it's own, it can be performed now. Otherwise, it will get energized during precharge sequence later automatically.
+
 ### **Step 5: Run a Simple Power Test**
 
-Let's confirm the unit can pass power.
+Let's confirm the unit can process power.
 
 1.  **Set to `STANDBY`:** Use ETKA tool to send the command to place the unit in `STANDBY` mode.
 2.  **Set Target Voltage/Current:** Send a simple command, for example, to regulate the DC side at a nominal voltage with a minimal current limit.

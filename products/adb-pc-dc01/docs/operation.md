@@ -1,16 +1,16 @@
 # Theory of Operation
 
-The ADB-PC-DC01 is designed to be a building block of bidirectional battery charge/ discharge applications that require reinforced galvanic insulation. This module operates in two primary modes controlled through CAN bus commands or digital control inputs to regulate the voltage at its ports: Port A or Port B. Each mode defines the internal power-conversion state and external power-flow behavior. It can be paralleled with other ADB-PC-DC01s to drive loads in the megawatt range by providing user-configurable drooping capability.
+The ADB-PC-DC01 is designed to be a building block of bidirectional battery charge/discharge applications, voltage bus conversion systems, power suppliers or similar projects that require reinforced galvanic insulation. This module operates in two primary modes controlled through CAN bus commands or digital control inputs to regulate the voltage at its ports: Port A or Port B. Each mode defines the internal power-conversion state and external power-flow behavior. It can be paralleled with other ADB-PC-DC01s to drive loads in the megawatt range by providing user-configurable drooping capability.
 
-The module is able to operate over a very wide range of Port B voltages between 200V and 1500V, where Port A is kept within 750V and 950V.  This is achieved using a novel interconnection strategy that utilizes the galvanic isolation to boost the output voltage above the input voltage, thus reaching the voltages required for different applications.
+The module is able to operate over a very wide range of Port B voltages between 200V and 1500V, where Port A is kept within 750V and 950V.  This is achieved using a novel interconnection strategy that utilizes the galvanic isolation to boost the output voltage above the input voltage, thus reaching the voltages required for different applications, while maintaining excellent conversion efficiency.
 
 ## Applications
 
-The ADB-PC-DC01 is suited for high power electric-vehicle DC charging, covering CCS1, CCS2, NACS, CHAdeMO and MCS. It integrates cleanly with energy-storage systems and supports full V2G operation thanks to it bidirectional topology that is designed to meet stringent reinforced insulation requirements. It can be used in any application that requires a large voltage regulation along with isolated bidirectionality, such as V2G systems. These applications require a wide voltage range to allow all kinds of vehicle types to be connected. Additionally, it functions effectively in EV chargers and charger simulators and as a laboratory-grade isolated bidirectional power source. The design maintains reliability in harsh locations, including marine, coastal, and mining environments.
+The ADB-PC-DC01 is suited for high power electric-vehicle DC charging, covering CCS1, CCS2, NACS, CHAdeMO and MCS. It integrates cleanly with energy-storage systems and supports full V2G operation thanks to it bidirectional topology that is designed to meet stringent reinforced insulation requirements. It can be used in any application that requires a large voltage regulation along with isolated bidirectionality, such as V2G systems. These applications require a wide voltage range to allow all kinds of vehicle types to be connected. Additionally, it functions effectively in EV chargers and charger simulators, DC voltage isolation and conversion aboard ships, mining equipment, or as a laboratory-grade isolated bidirectional power source. The design maintains reliability in harsh locations, including marine, coastal, and mining environments.
 
-Even though the module is fully bidirectional, port A and port B are not symmetrical due to the supported voltage ranges. When deploying the DC01, this asymmetry should be kept in mind. 
+Even though the module is fully bidirectional, port A and port B are not symmetrical due to the supported voltage ranges and use cases for each port. When deploying the DC01, this asymmetry should be kept in mind. 
 
-ADB-PC-DC01 can regulate the voltage at either port A or port B, but not both at the same time. It is up to the user’s discretion to choose which side needs regulation and make the connections accordingly.
+ADB-PC-DC01 can regulate the voltage at either Port A or Port B, but not both at the same time. It is up to the user’s discretion to choose which side needs regulation and make the connections accordingly.
 
 ## Module architecture
 
@@ -32,15 +32,21 @@ $$
 2V_A > V_B > V_A
 $$
 
-To prevent the system from switching back and forth between QP and QS connections at the border condition where Port A voltage is equal to Port B voltage, a hysteresis switchover algorithm is utilized. This reconfiguration is done automatically and without requiring any external intervention.
+To prevent the system from switching back and forth between QP and QS connections at the border condition where Port A voltage is equal to Port B voltage, a hysteresis switchover algorithm is utilized. This reconfiguration is done automatically and without requiring any external intervention by the user.
 
 ## Operation Mode 1: Port B control
 
-In this mode of operation, Port A requires a regulated voltage source to operate properly. When the converter is operating, Port B is actively controlled depending on the user setpoints and the characteristics of the load connected to Port B. A standalone ADB-PC-DC01 operated in ‘Port B control mode’ can not exceed 100kW, or the maximum power capability of Port A, whichever is smaller. Thus, an external system is needed to control the voltage on port A while being able to source or sink the required power, on top of the minimal power losses on ADB-PC-DC01.
+In this mode of operation, Port A must be connected to a regulated voltage source to operate properly. An external precharge is required when connecting voltage source to the port A.
 
-In battery-connected systems, Port B is first precharged to the actual battery voltage. This module achieves this by either measuring the battery voltage in case it is already connected to Port B, or by the setpoints defined by the user. The converter operates in QP or QS mode to match the battery voltage and create a soft connection to the battery before the power delivery starts. Then, the user may start power delivery either towards Port B or Port A.
+When the converter is operating, Port B is actively controlled depending on the user setpoints and the characteristics of the load connected to Port B. A standalone ADB-PC-DC01 operated in ‘Port B control mode’ can not exceed 100kW, or the maximum power capability of Port A, whichever is smaller.
+
+When used as a power supply, the ADB-PC-DC01 can automatically precharge the Port B, without a need for external voltage matching.
+
+In battery-connected systems, Port B is first internally precharged to the actual Port B voltage. This is automatic, and the user doesn't need to do anything specific.
 
 Power delivery towards Port B, in other words, ‘charging’, is possible to achieve by putting a voltage setpoint that is higher than the battery voltage until the desired battery voltage is reached. The converter will operate in constant current (CC) mode until the voltage setpoint is reached, and the current will always be limited by the setpoint defined by the user. Once the target voltage is reached, the operation switches to constant voltage mode (CV). An example CC/CV charging graph is shown below. The voltage and current setpoints in this example are set as 700V and 100A, respectively, when the battery was initially 500V. Charging continues in CC mode until the 700V setpoint is reached, then CV mode takes over until the end of charge.
+
+In other words, the converter behaves like any other lab power supply, with Voltage setpoint and Current limit values beig set over CAN bus.
 
 {{ figure('../assets/cc_cv_charge_session.png', 'An example CC/CV charging session of a battery, charged from 500V to 700V at a maximum 100A') }}
 
@@ -73,3 +79,5 @@ When connected as shown below, it is possible to deliver power from one battery 
 Both control modes support this application.
 
 {{ figure('../assets/battery-to-battery-charging.png', 'Battery-to-battery charging system that employs ADB-PC-DC01') }}
+
+These diagrams are simplified, and don't include precharge, fuses, filtering or contactors. We recommend consulting your system diagram with ADVANTICS before building a complete system.

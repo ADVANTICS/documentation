@@ -18,7 +18,7 @@ Installation, operation, and maintenance of the ADB-PC-DC01 must be performed by
 #### High Voltage Hazards
 
 !!! warning "High Voltage Danger"
-    The ADB-PC-AC01 operates with DC voltages up to 1500 VDC. These voltages can cause severe electrical shock, burns, or death.
+    The ADB-PC-DC01 operates with DC voltages up to 1500 VDC. These voltages can cause severe electrical shock, burns, or death.
 
 #### Voltage Levels Present
 
@@ -71,19 +71,6 @@ Proper grounding is essential for safety:
 - Bonding of all metallic parts.
 - Ground fault protection.
 
-**Grounding Verification**
-
-```mermaid
-graph TD
-    A[Ground Connection] -->|Continuity Test| B[<1Ω Resistance]
-    C[Insulation Test] -->|Megohm Test| D[>1MΩ Resistance]
-    E[Ground Fault Test] -->|Simulated Fault| F[Protection Operates]
-    
-    B -->|Pass| G[Ground OK]
-    D -->|Pass| H[Insulation OK]
-    F -->|Pass| I[Protection OK]
-```
-
 ## Thermal Safety
 
 #### Hot Surfaces
@@ -124,7 +111,7 @@ The liquid cooling system operates under pressure and with hot fluids:
 #### Heavy Equipment
 
 !!! warning "Lifting Hazard"
-    The ADB-PC-DC01 weighs around 40kg. Use proper lifting techniques and equipment.
+    The ADB-PC-AC01 weighs around 40kg. Use proper lifting techniques and equipment.
 
 **Lifting Safety**
 
@@ -133,7 +120,4 @@ The liquid cooling system operates under pressure and with hot fluids:
 - Ensure adequate personnel.
 - Check equipment condition.
 
-
 **Remember: Safety is everyone's responsibility. When in doubt, stop the work and seek guidance from qualified personnel.**
-
-
