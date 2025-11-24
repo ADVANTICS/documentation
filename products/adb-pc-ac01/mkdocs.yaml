@@ -130,7 +130,9 @@ nav:
     - "Installation Guide": "installation.md"
     - "Rack Design" : "rack_design.md"
   - "References":
-    - "CAN Bus Interface": "can_bus_interface.md"
+    - "CAN Bus Interface":
+      - "CAN bus overview": "can_bus_overview.md"
+      - "CAN bus messages": "can_bus_interface.md"
     - "Maintenance and Troubleshooting": "maintenance_and_troubleshooting.md"
     - "Safety Considerations": "safety.md"
     - "Appendix": "appendix.md"
