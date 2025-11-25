@@ -58,17 +58,22 @@ Please refer to Amphenol brochure for more details: [Amphenol](https://www.amphe
 
 ## Control and Communication Connectors
 
+The M12 screw-locking connectors present on the front panel of the power module follow IEC 61076 standard for Connectors for electronic equipment.
+
 ### CAN Bus & Interlock line Connectors
 
 The module includes redundant CAN bus & interlock line connections:
 
 | **Specification** | **Value** | **Notes** |
 |-------------------|-----------|-----------|
-| **Connector Type** | M12-P5A | Locking connector |
+| **Function** | CAN Bus & Interlock line | - |
+| **Connector Type** | M12-P5A | M12 screw-locking connector |
+| **Coding** | A code | According to IEC 61076 |
 | **Quantity** | 2 | Redundant connections |
 | **Isolation** | Isolated interface | Safety isolation |
 
-{{ figure('../assets/control_connector.png', 'CAN Bus & Interlock line Connectors') }}
+
+{{ figure('../assets/link_connector.png', 'CAN Bus & Interlock line Connectors') }}
 
 **Pinout**
 
@@ -80,6 +85,7 @@ The module includes redundant CAN bus & interlock line connections:
 | CAN_H             | 4   | CAN bus high (differential)                                                 |
 | CAN Termination   | 5   | Connect to CAN_H to provide the 120 Ω CAN bus termination when required |
 
+{{ figure('../assets/link_connector_pinout.png', 'CAN Bus & Interlock line Connector Pinout') }}
 
 !!! warning "CAN Bus Termination"
     - Enable termination only at the physical ends of the CAN bus.
@@ -93,11 +99,12 @@ The module includes redundant CAN bus & interlock line connections:
 |-------------------|-----------|-----------|
 | **Function** | 24V Power | Module control supply |
 | **Connector Type** | M12-P2T | Locking connector |
+| **Coding** | T code | According to IEC 61076 |
 | **Voltage Range** | 20-28 V DC | Nominal 24V |
 | **Current Draw** | Up to 12A | Peak during startup |
 | **Isolation** | Isolated interface | Safety isolation |
 
-{{ figure('../assets/power_connector.png', '24V Connector') }}
+{{ figure('../assets/24_connector.png', '24V Connector') }}
 
 **Pinout**
 
@@ -106,4 +113,5 @@ The module includes redundant CAN bus & interlock line connections:
 | 24V_DC (+) | 1 |
 | 0V / GND   | 3 |
 
+{{ figure('../assets/24_connector_pinout.png', '24V Connector Pinout') }}
 
