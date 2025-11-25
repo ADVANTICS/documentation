@@ -46,7 +46,10 @@ description: 100kW 1500V DC/DC Isolated Power Converter - User Documentation
 | **Last Updated** | November 2025 |
 | **Classification** | Public pre-release |
 
-**This document is in a pre-relase stage.**
+<div role="alert" aria-live="polite" style="background-color: #fff1f0; border-left:6px solid #ff4d4f; color: #7a0f0f; padding:1rem; border-radius:6px; margin:0 0 1rem 0;">
+  <strong style="display:block; font-size:1.05rem; margin-bottom:0.25rem;">Warning — Pre-release document</strong>
+  <p style="margin:0;">This document is in a pre-release stage. Information may be incomplete or subject to change.</p>
+</div>
 
 - Not all information is present
 - The document is subject to changes without prior notice
