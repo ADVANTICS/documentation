@@ -6,7 +6,7 @@
 
 | **Parameter** | **Value** | **Notes** |
 |---------------|-----------|-----------|
-| **Voltage** | 750 - 950 V | - |
+| **Voltage** | 750 - 950 V | Minimum voltage is limited to 52% of the voltage at port B or 750V, whichever is greater |
 | **Current** | ±120 A | - |
 | **Max Power** | 100 kW | - |
 | **Current Measurement Accuracy** | ±1 % | Of full-scale |
@@ -33,7 +33,7 @@ The following graph illustrates the relationship between the maximum achievable 
 
 | **Parameter** | **Value** | **Notes** |
 |---------------|-----------|-----------|
-| **Voltage Range** | 200 - 1500 V | - |
+| **Voltage Range** | 200 - 1500 V | Maximum voltage is limited to 195% of the voltage at port A or 1500V whichever is smaller |
 | **Current** | ±220 A | Bi-directional, limited by power envelope |
 | **Max Power** | 100 kW | - |
 | **Current Measurement Accuracy** | ±1 % | Of full-scale |

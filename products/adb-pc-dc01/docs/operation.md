@@ -36,6 +36,8 @@ To prevent the system from switching back and forth between QP and QS connection
 
 ## Operation Mode 1: Port B control
 
+This mode of operation is suitable for applications where the goal is to obtain a regulation range of 200V to 1500V, using a regulated source with a range of 750V to 950V. The maximum port B voltage is limited to 195% of the port A voltage at all times. This means that, to reach 1500V at port B, a minimum of 770V is required at port A.
+
 In this mode of operation, Port A must be connected to a regulated voltage source to operate properly. An external precharge is required when connecting voltage source to the port A.
 
 When the converter is operating, Port B is actively controlled depending on the user setpoints and the characteristics of the load connected to Port B. A standalone ADB-PC-DC01 operated in ‘Port B control mode’ can not exceed 100kW, or the maximum power capability of Port A, whichever is smaller.
@@ -46,21 +48,29 @@ In battery-connected systems, Port B is first internally precharged to the actua
 
 Power delivery towards Port B, in other words, ‘charging’, is possible to achieve by putting a voltage setpoint that is higher than the battery voltage until the desired battery voltage is reached. The converter will operate in constant current (CC) mode until the voltage setpoint is reached, and the current will always be limited by the setpoint defined by the user. Once the target voltage is reached, the operation switches to constant voltage mode (CV). An example CC/CV charging graph is shown below. The voltage and current setpoints in this example are set as 700V and 100A, respectively, when the battery was initially 500V. Charging continues in CC mode until the 700V setpoint is reached, then CV mode takes over until the end of charge.
 
-In other words, the converter behaves like any other lab power supply, with Voltage setpoint and Current limit values beig set over CAN bus.
+In other words, the converter behaves like any other lab power supply, with Voltage setpoint and Current limit values benig set over CAN bus.
 
 {{ figure('../assets/cc_cv_charge_session.png', 'An example CC/CV charging session of a battery, charged from 500V to 700V at a maximum 100A') }}
 
-Power delivery towards Port A, in other words, ‘discharging’, is also possible to achieve by appropriate voltage and current setpoints by the user. After connecting Port B to the battery with a precharge sequence, the Port B voltage setpoint should be set lower than the actual battery voltage, along with a negative current setpoint. In this configuration, ADB-PC-DC01 will try to regulate Port B by discharging the battery at the user-defined current limit. Similar to the charging operation, the discharging follows CC/CV operation.
+Power delivery towards Port A, in other words, ‘discharging’, is also possible to achieve by appropriate voltage and current setpoints by the user. After connecting Port B to the battery with a precharge sequence, the Port B voltage setpoint should be set lower than the actual battery voltage at port B, along with the user-specified current limit. In this configuration, ADB-PC-DC01 sink power from Port B by discharging the battery at the user-defined current limit. Similar to the charging operation, the discharging follows CC/CV operation.
 
-In summary, based on the voltage and current setpoints by the user, the ADM-PC-DC01 is capable of charging and discharging a battery pack after a precharge session.
+In summary, ADM-PC-DC01 can charge or discharge a battery connected to Port B in "Port B control mode". If the port B voltage setpoint is higher than the battery voltage connected to port B, power will be delivered to the battery at the current limit defined by the user; if the voltage setpoint is lower than the battery voltage, power will be delivered from the battery at the current limit set by the user.
 
 ## Operation Mode 2: Port A Control
 
-In this mode of operation, Port B requires a regulated voltage source to operate properly. When the converter is operating, Port A is actively controlled depending on the setpoints of the converter and the characteristics of the load connected to Port A within a 750V-950V range. This mode is particularly interesting when the source voltage is above 950V (maximum voltage supported by Port A), and regulation is required on the other side of the converter. A standalone ADB-PC-DC01 operated in ‘Port A control mode’ can not exceed 100kW, or the maximum power capability of Port B, whichever is smaller. Thus, an external system is needed to control the voltage on port A while being able to source or sink the required power, on top of the minimal power losses on ADB-PC-DC01.
+This mode of operation is suitable for applications where the goal is to obtain a regulation range of 750V to 950V, using a regulated source with a range of 200V to 1500V. The maximum port B voltage is limited to 195% of the port A voltage at all times. This means that, to reach 750V at port A, the maximum port B voltage can be 1465V. It is recommended to use "Port B control" mode if the regulated voltage source is between 750V and 950V. 
 
-The principle of operation is identical to ‘Port B control mode’, while the only difference is the Port that is regulated by ADB-PC-DC01. 
+This mode of operation has a limitation in terms of how the initial connections are made. User is responsible for choosing between QP and QS connection before the voltage source is connected to Port B through precharge. 
 
-When connecting the voltage source to Port B, the user must make sure that it is done via a precharge circuit since connecting a battery directly to the terminals will cause a high inrush current. After the successful precharge session, ADB-PC-DC01 can regulate voltage and power at Port A.
+If the regulated voltage source at port B is less than Vth, a QP connection is required; if the voltage source is greater than Vth, a QS connection is required. Vth is equal to 90% of the minimum expected voltage at port A (e.g., if port A regulation is required between the full range of 750V to 950V, Vth is 90% of 750V, which is 675V. This means that any port B voltage above 675V requires a selection of QS before connecting the voltage source to port B) 
+
+QP connection can not operate at any port B voltage higher than Vth. QS mode, however, can operate at the full range (200V-1500V) with a limited current capability of 110A or 100kW, whichever is smaller.
+
+When used as a power supply, the ADB-PC-DC01 can automatically precharge Port A, without the need for external voltage matching.
+
+In battery-connected systems, Port A is first internally precharged to the actual Port A voltage. This is automatic, and the user doesn't need to do anything specific.
+
+After the startup connections and precharge are completed, respecting the limitations, the user can set a voltage between 750V and 950V at port A, and define the current limit as desired. Similar to 'port B control mode', the power direction is defined by the voltage setpoint. If the port A voltage setpoint is higher than the battery voltage connected to port A, power will be delivered to the battery at the current limit defined by the user; if the voltage setpoint is lower than the battery voltage, power will be delivered from the battery at the current limit set by the user.
 
 ## Example application 1: 100kW 3-Phase Bidirectional Charger
 
@@ -68,7 +78,7 @@ An ADB-PC-DC01 can be a building block of a bidirectional battery charging syste
 
 {{ figure('../assets/3-phase-bidir-charger.png', '3-phase bidirectional charger diagram that employs ADB-PC-DC01 and ADB-PC-AC01') }}
 
-Let’s consider that a regulated 800V is connected to Port A of ADB-PC-DC01, and the actual battery voltage is 1100V, and the goal is to charge it to 1500V at the desired current. In this case, the user voltage setpoint will be 1500V, and the current setpoint will be the required charging current, not exceeding the 100kW power envelope. The power module will charge the battery in CC mode until the battery reaches 1500V. Then, the charging will continue in CV mode until the battery is fully charged. Conversely, if the goal is to discharge this battery to 850V, the voltage setpoint will be 850V along with the desired negative current setpoint, not exceeding the 100kW power envelope.
+Let’s consider that a regulated 800V is connected to Port A of ADB-PC-DC01, and the actual battery voltage is 1100V, and the goal is to charge it to 1500V at the desired current. In this case, the user voltage setpoint will be 1500V, and the current setpoint will be the required charging current, not exceeding the 100kW power envelope. The power module will charge the battery in CC mode until the battery reaches 1500V. Then, the charging will continue in CV mode until the battery is fully charged. Conversely, if the goal is to discharge this battery to 850V, the voltage setpoint will be 850V along with the desired current limit, not exceeding the 100kW power envelope.
 
  
 
