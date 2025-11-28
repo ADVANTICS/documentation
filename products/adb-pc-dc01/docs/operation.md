@@ -18,18 +18,18 @@ To achieve the wide output voltage range required by charging standards, the ADB
 
 ADB-PC-DC01 is automatically configured to operate in QP mode when the Port A voltage is higher than the Port B voltage. This mode increases the current capability of the converter while respecting the 100kW power limit. 
 
-For applications where Port B voltage is expected to be higher than Port A voltage, the unit reconfigures itself to be connected in QS. This voltage is limited to twice the voltage at Port A or 1500V, whichever is smaller. Again, this mode operates respecting the power envelope of 100kW based on the voltage rating. 
+For applications where Port B voltage is expected to be higher than Port A voltage, the unit reconfigures itself to be connected in QS. This voltage is limited to 195% of the voltage at Port A or 1500V, whichever is smaller. Again, this mode operates respecting the power envelope of 100kW based on the voltage rating. 
 
 The QP configuration is used when:
 
 $$
-V_A > V_B
+V_B<0.9*V_A
 $$
 
 The QS configuration is used when:
 
 $$
-2V_A > V_B > V_A
+0.9*V_A≤V_B<1.95*V_A
 $$
 
 To prevent the system from switching back and forth between QP and QS connections at the border condition where Port A voltage is equal to Port B voltage, a hysteresis switchover algorithm is utilized. This reconfiguration is done automatically and without requiring any external intervention by the user.
