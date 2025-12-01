@@ -16,6 +16,7 @@ The DC link voltage is controlled by the user setpoints within the range of 650V
 The module includes protection features to eliminate overvoltage, undervoltage, overcurrent, and overtemperature. Hardware interlock and CAN bus control ensure safe operation and coordination with other modules connected in parallel.
 
 **Key Features:**
+
 - Active Power Factor Correction (PFC) maintains PF ≥0.99
 - Low Total Harmonic Distortion (THDi ≤5%)
 - Programmable DC output voltage (650-950V)
@@ -30,6 +31,7 @@ The converter supports paralleling up to 120 units, scaling up to megawatt-level
 
 
 **Key Features:**
+
 - Grid-tied or standalone operation
 - Reactive power control (±0.9 inductive-capacitive)
 - Grid forming and following capabilities
