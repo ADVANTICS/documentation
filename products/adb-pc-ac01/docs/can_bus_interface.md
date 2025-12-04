@@ -7,7 +7,7 @@
 | [DC_Ports_Setpoints](#DC_Ports_Setpoints) | 0x810020 | 6 | IN | 1000 |
 | [DC_Port_Applied_Setpoints](#DC_Port_Applied_Setpoints) | 0x810021 | 8 | OUT | 1000 |
 | [DC_Port_Droop_Setpoints](#DC_Port_Droop_Setpoints) | 0x810022 | 8 | IN |  |
-| [DC_Port_Applied_Droop_Setpoints](#DC_Port_Applied_Droop_Setpoints) | 0x810023 | 5 | OUT | 1000 |
+| [DC_Port_Applied_Droop_Setpoints](#DC_Port_Applied_Droop_Setpoints) | 0x810023 | 8 | OUT | 1000 |
 | [DC_Port_Measurements](#DC_Port_Measurements) | 0x810024 | 4 | OUT | 100 |
 | [AC_Port_Setpoints](#AC_Port_Setpoints) | 0x810030 | 8 | IN |  |
 | [AC_Port_Applied_Setpoints](#AC_Port_Applied_Setpoints) | 0x810031 | 8 | OUT | 1000 |
@@ -141,25 +141,12 @@ Setpoints for applying Droop on the DC Port. Droop is needed for paralleling mul
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Enable | 4 | Label set |
 | Positive_Current_Droop | 16 | Unsigned |
 | Negative_Current_Droop | 16 | Unsigned |
-| Reserved | 28 | Unsigned |
+| Enable | 1 | Label set |
+| Reserved | 31 | Unsigned |
 
 ### Payload description
-
-#### Enable { #DC_Port_Droop_Setpoints-Enable }
-
-Enable DC Droop. If this feature is enabled the output voltage of the DC port varies with output current.
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 4 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Disabled | 0 |
-| Enabled | 1 |
 
 #### Positive_Current_Droop { #DC_Port_Droop_Setpoints-Positive_Current_Droop }
 
@@ -167,7 +154,7 @@ The droop resistance to apply for current flowing out of the DC port (DC current
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 4 | 16 | Unsigned | Ohm | 0.01 | 0 |  |  |
+| 0 | 16 | Unsigned | Ohm | 0.01 | 0 |  |  |
 
 #### Negative_Current_Droop { #DC_Port_Droop_Setpoints-Negative_Current_Droop }
 
@@ -175,7 +162,20 @@ The droop resistance to apply for current flowing in to the DC Port (DC current 
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 20 | 16 | Unsigned | Ohm | 0.01 | 0 |  |  |
+| 16 | 16 | Unsigned | Ohm | 0.01 | 0 |  |  |
+
+#### Enable { #DC_Port_Droop_Setpoints-Enable }
+
+Enable DC Droop. If this feature is enabled the output voltage of the DC port varies with output current.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 32 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Disabled | 0 |
+| Enabled | 1 |
 
 #### Reserved { #DC_Port_Droop_Setpoints-Reserved }
 
@@ -183,7 +183,7 @@ This space is reserved. This region should contain only &#x27;0&#x27;s
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 36 | 28 | Unsigned |  | 1 | 0 |  |  |
+| 33 | 31 | Unsigned |  | 1 | 0 |  |  |
 
 
 <a id="DC_Port_Applied_Droop_Setpoints"></a>
@@ -193,7 +193,7 @@ This space is reserved. This region should contain only &#x27;0&#x27;s
 | * | * |
 |---|---|
 | **Frame ID** | 0x810023 |
-| **Length [Bytes]** | 5 |
+| **Length [Bytes]** | 8 |
 | **Periodicity [ms]** | 1000 |
 | **Direction** | OUT |
 
@@ -205,24 +205,12 @@ Droop setpoints that are applied by the AC01
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Enable | 4 | Label set |
 | Positive_Current_Droop | 16 | Unsigned |
 | Negative_Current_Droop | 16 | Unsigned |
+| Enable | 1 | Label set |
+| Reserved | 31 | Unsigned |
 
 ### Payload description
-
-#### Enable { #DC_Port_Applied_Droop_Setpoints-Enable }
-
-Show is DC Droop is enabled.
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 4 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Disabled | 0 |
-| Enabled | 1 |
 
 #### Positive_Current_Droop { #DC_Port_Applied_Droop_Setpoints-Positive_Current_Droop }
 
@@ -230,7 +218,7 @@ The droop resistance applied for current flowing out of the DC port (DC current 
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 4 | 16 | Unsigned | Ohm | 0.01 | 0 |  |  |
+| 0 | 16 | Unsigned | Ohm | 0.01 | 0 |  |  |
 
 #### Negative_Current_Droop { #DC_Port_Applied_Droop_Setpoints-Negative_Current_Droop }
 
@@ -238,7 +226,28 @@ The droop resistance applied for current flowing in to the DC Port (DC current i
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 20 | 16 | Unsigned | Ohm | 0.01 | 0 |  |  |
+| 16 | 16 | Unsigned | Ohm | 0.01 | 0 |  |  |
+
+#### Enable { #DC_Port_Applied_Droop_Setpoints-Enable }
+
+Show is DC Droop is enabled.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 32 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Disabled | 0 |
+| Enabled | 1 |
+
+#### Reserved { #DC_Port_Applied_Droop_Setpoints-Reserved }
+
+This space is reserved. This region should contain only &#x27;0&#x27;s
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 33 | 31 | Unsigned |  | 1 | 0 |  |  |
 
 
 <a id="DC_Port_Measurements"></a>
@@ -719,7 +728,6 @@ AC01 Critical and Error Faults
 | FILTER_NOT_RUNNING | 1 | Label set |
 | RECTIFIER_3P_NOT_RUNNING | 1 | Label set |
 | AFE_NOT_OFF | 1 | Label set |
-| AFE_DROOP_NOT_ENABLE | 1 | Label set |
 | FILTER_STOP_RUNNING | 1 | Label set |
 | RECTIFIER_3P_STOP_RUNNING | 1 | Label set |
 | BLEEDING_NOT_RUNNING | 1 | Label set |
@@ -1158,19 +1166,6 @@ AFE not off
 | Clear | 0 |
 | Error | 1 |
 
-#### AFE_DROOP_NOT_ENABLE { #AC01_faults-AFE_DROOP_NOT_ENABLE }
-
-Group ID not set
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 33 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Warning | 1 |
-
 #### FILTER_STOP_RUNNING { #AC01_faults-FILTER_STOP_RUNNING }
 
 Filter stop running
@@ -1263,7 +1258,7 @@ filter not off
 
 ### Description
 
-AC01 Warning and Info Alerts
+AC01 Warning
 
 ### Payload
 
@@ -1282,6 +1277,7 @@ AC01 Warning and Info Alerts
 | RQ_DC_DROOP_NEG_INVALID | 1 | Label set |
 | RQ_DC_DROOP_POS_INVALID | 1 | Label set |
 | RQ_V_SET_DC_ABOVE_MAX | 1 | Label set |
+| AFE_DROOP_NOT_ENABLE | 1 | Label set |
 
 ### Payload description
 
@@ -1448,6 +1444,19 @@ Current above max
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 14 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Warning | 1 |
+
+#### AFE_DROOP_NOT_ENABLE { #AC01_warning-AFE_DROOP_NOT_ENABLE }
+
+Group ID not set
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 15 | 1 | Label set |  | 1 | 0 |  |  |
 
 | Label name | Value |
 |------------|-------|
