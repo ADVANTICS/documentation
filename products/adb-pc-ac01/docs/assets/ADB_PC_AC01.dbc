@@ -1,0 +1,350 @@
+VERSION "0.1"
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: User ADB_PC_AC01
+
+
+BO_ 8454208 AC01_Mode_Set: 1 User
+ SG_ mode : 0|8@1+ (1,0) [0|0] ""  ADB_PC_AC01
+
+BO_ 8454209 AC01_Mode_Applied: 1 ADB_PC_AC01
+ SG_ mode : 0|8@1+ (1,0) [0|0] ""  User
+
+BO_ 8454210 AC01_faults: 8 ADB_PC_AC01
+ SG_ FILTER_NOT_OFF : 39|1@1+ (1,0) [0|0] ""  User
+ SG_ BLEEDING_FAILED : 38|1@1+ (1,0) [0|0] ""  User
+ SG_ BLEEDING_STOP_RUNNING : 37|1@1+ (1,0) [0|0] ""  User
+ SG_ BLEEDING_NOT_RUNNING : 36|1@1+ (1,0) [0|0] ""  User
+ SG_ RECTIFIER_3P_STOP_RUNNING : 35|1@1+ (1,0) [0|0] ""  User
+ SG_ FILTER_STOP_RUNNING : 34|1@1+ (1,0) [0|0] ""  User
+ SG_ AFE_NOT_OFF : 32|1@1+ (1,0) [0|0] ""  User
+ SG_ RECTIFIER_3P_NOT_RUNNING : 31|1@1+ (1,0) [0|0] ""  User
+ SG_ FILTER_NOT_RUNNING : 30|1@1+ (1,0) [0|0] ""  User
+ SG_ PRECHARGE_RELAY_OPENING : 29|1@1+ (1,0) [0|0] ""  User
+ SG_ PRECHARGE_RELAY_CLOSING : 28|1@1+ (1,0) [0|0] ""  User
+ SG_ FILTER_4_RELAY_NOT_OFF : 27|1@1+ (1,0) [0|0] ""  User
+ SG_ FILTER_1_RELAY_NOT_OFF : 26|1@1+ (1,0) [0|0] ""  User
+ SG_ FILTER_4_RELAY_FAIL : 25|1@1+ (1,0) [0|0] ""  User
+ SG_ FILTER_1_RELAY_FAIL : 24|1@1+ (1,0) [0|0] ""  User
+ SG_ MODULE_6_RUNNING : 23|1@1+ (1,0) [0|0] ""  User
+ SG_ MODULE_5_RUNNING : 22|1@1+ (1,0) [0|0] ""  User
+ SG_ MODULE_4_RUNNING : 21|1@1+ (1,0) [0|0] ""  User
+ SG_ MODULE_3_RUNNING : 20|1@1+ (1,0) [0|0] ""  User
+ SG_ MODULE_2_RUNNING : 19|1@1+ (1,0) [0|0] ""  User
+ SG_ MODULE_1_RUNNING : 18|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_3_5_DC : 17|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_5_6_DC : 16|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_2_3_DC : 15|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_1_4_L3 : 14|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_1_4_L2 : 13|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_1_4_L1 : 12|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_4_6_L3 : 11|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_4_5_L3 : 10|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_4_6_L2 : 9|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_4_5_L2 : 8|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_4_6_L1 : 7|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_4_5_L1 : 6|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_1_3_L3 : 5|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_1_2_L3 : 4|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_1_3_L2 : 3|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_1_2_L2 : 2|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_1_3_L1 : 1|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_1_2_L1 : 0|1@1+ (1,0) [0|0] ""  User
+
+BO_ 8454211 AC01_warning: 8 ADB_PC_AC01
+ SG_ AFE_DROOP_NOT_ENABLE : 15|1@1+ (1,0) [0|0] ""  User
+ SG_ RQ_V_SET_DC_ABOVE_MAX : 14|1@1+ (1,0) [0|0] ""  User
+ SG_ RQ_DC_DROOP_POS_INVALID : 13|1@1+ (1,0) [0|0] ""  User
+ SG_ RQ_DC_DROOP_NEG_INVALID : 12|1@1+ (1,0) [0|0] ""  User
+ SG_ RQ_V_SET_DC_BELOW_MIN : 9|1@1+ (1,0) [0|0] ""  User
+ SG_ RQ_C_SET_DC_BELOW_MIN : 8|1@1+ (1,0) [0|0] ""  User
+ SG_ RQ_C_SET_DC_ABOVE_MAX : 7|1@1+ (1,0) [0|0] ""  User
+ SG_ RQ_C_SOURCE_SET_LOW : 6|1@1+ (1,0) [0|0] ""  User
+ SG_ RQ_C_SINK_SET_LOW : 5|1@1+ (1,0) [0|0] ""  User
+ SG_ RQ_V_SET_DC_BELOW_AC : 4|1@1+ (1,0) [0|0] ""  User
+ SG_ GHM_PHASE : 3|1@1+ (1,0) [0|0] ""  User
+ SG_ GHM_FREQ : 2|1@1+ (1,0) [0|0] ""  User
+ SG_ GHM_RMS : 1|1@1+ (1,0) [0|0] ""  User
+ SG_ GHM_INIT : 0|1@1+ (1,0) [0|0] ""  User
+
+BO_ 8454212 AC01_info: 8 ADB_PC_AC01
+ SG_ RQ_C_LIMITED_BY_POWER : 2|1@1+ (1,0) [0|0] ""  User
+ SG_ BLEEDING_DONE : 1|1@1+ (1,0) [0|0] ""  User
+
+BO_ 8454176 DC_Ports_Setpoints: 6 User
+ SG_ Sink_Current_Limit : 32|16@1+ (0.1,0) [0|220] "A"  ADB_PC_AC01
+ SG_ Source_Current_Limit : 16|16@1+ (0.1,0) [0|220] "A"  ADB_PC_AC01
+ SG_ Voltage : 0|16@1+ (0.1,0) [0|1500] "V"  ADB_PC_AC01
+
+BO_ 8454177 DC_Port_Applied_Setpoints: 8 ADB_PC_AC01
+ SG_ Sink_Current_Limit : 32|16@1+ (0.1,0) [0|0] "A"  User
+ SG_ Source_Current_Limit : 16|16@1+ (0.1,0) [0|0] "A"  User
+ SG_ Voltage : 0|16@1+ (0.1,0) [0|0] "V"  User
+
+BO_ 8454180 DC_Port_Measurements: 4 ADB_PC_AC01
+ SG_ Current : 16|16@1- (0.1,0) [0|0] "A"  User
+ SG_ Voltage : 0|16@1+ (0.1,0) [0|0] "V"  User
+
+BO_ 8454178 DC_Port_Droop_Setpoints: 8 User
+ SG_ Reserved : 33|31@1+ (1,0) [0|0] ""  ADB_PC_AC01
+ SG_ Enable : 32|1@1+ (1,0) [0|0] ""  ADB_PC_AC01
+ SG_ Negative_Current_Droop : 16|16@1+ (0.01,0) [0|0] "Ohm"  ADB_PC_AC01
+ SG_ Positive_Current_Droop : 0|16@1+ (0.01,0) [0|0] "Ohm"  ADB_PC_AC01
+
+BO_ 8454179 DC_Port_Applied_Droop_Setpoints: 8 ADB_PC_AC01
+ SG_ Reserved : 33|31@1+ (1,0) [0|0] ""  User
+ SG_ Enable : 32|1@1+ (1,0) [0|0] ""  User
+ SG_ Negative_Current_Droop : 16|16@1+ (0.01,0) [0|0] "Ohm"  User
+ SG_ Positive_Current_Droop : 0|16@1+ (0.01,0) [0|0] "Ohm"  User
+
+BO_ 8454194 AC_Port_Measurements: 8 ADB_PC_AC01
+ SG_ Reserved : 32|32@1+ (1,0) [0|0] ""  User
+ SG_ Voltage : 16|16@1+ (0.1,0) [0|0] "V"  User
+ SG_ Frequency : 0|16@1+ (0.01,0) [0|0] "Hz"  User
+
+BO_ 8454195 L1_Measurements: 8 ADB_PC_AC01
+ SG_ Q : 48|16@1- (0.1,0) [0|0] "VAR"  User
+ SG_ P : 32|16@1- (0.1,0) [0|0] "W"  User
+ SG_ I : 16|16@1- (0.1,0) [0|0] "A"  User
+ SG_ U : 0|16@1- (0.1,0) [0|0] "V"  User
+
+BO_ 8454196 L2_Measurements: 8 ADB_PC_AC01
+ SG_ Q : 48|16@1- (0.1,0) [0|0] "VAR"  User
+ SG_ P : 32|16@1- (0.1,0) [0|0] "W"  User
+ SG_ I : 16|16@1- (0.1,0) [0|0] "A"  User
+ SG_ U : 0|16@1- (0.1,0) [0|0] "V"  User
+
+BO_ 8454197 L3_Measurements: 8 ADB_PC_AC01
+ SG_ Q : 48|16@1- (0.1,0) [0|0] "VAR"  User
+ SG_ P : 32|16@1- (0.1,0) [0|0] "W"  User
+ SG_ I : 16|16@1- (0.1,0) [0|0] "A"  User
+ SG_ U : 0|16@1- (0.1,0) [0|0] "V"  User
+
+BO_ 8454192 AC_Port_Setpoints: 8 User
+ SG_ Reserved : 16|48@1+ (1,0) [0|0] ""  ADB_PC_AC01
+ SG_ Q : 0|16@1- (10,0) [0|0] "VAR"  ADB_PC_AC01
+
+BO_ 8454193 AC_Port_Applied_Setpoints: 8 ADB_PC_AC01
+ SG_ Reserved : 16|48@1+ (1,0) [0|0] ""  User
+ SG_ Q : 0|16@1- (10,0) [0|0] "VAR"  User
+
+
+
+
+CM_ BO_ 8454208 "Set the mode of AC01";
+CM_ SG_ 8454208 mode "require mode";
+CM_ BO_ 8454209 "read back the modes";
+CM_ SG_ 8454209 mode "actual mode";
+CM_ BO_ 8454210 "AC01 Critical and Error Faults";
+CM_ SG_ 8454210 FILTER_NOT_OFF "filter not off";
+CM_ SG_ 8454210 BLEEDING_FAILED "Bleeding failed";
+CM_ SG_ 8454210 BLEEDING_STOP_RUNNING "Bleeding stop running";
+CM_ SG_ 8454210 BLEEDING_NOT_RUNNING "BLEEDING not running";
+CM_ SG_ 8454210 RECTIFIER_3P_STOP_RUNNING "Rectifier stop running";
+CM_ SG_ 8454210 FILTER_STOP_RUNNING "Filter stop running";
+CM_ SG_ 8454210 AFE_NOT_OFF "AFE not off";
+CM_ SG_ 8454210 RECTIFIER_3P_NOT_RUNNING "Rectifier not running";
+CM_ SG_ 8454210 FILTER_NOT_RUNNING "Filter not running";
+CM_ SG_ 8454210 PRECHARGE_RELAY_OPENING "Precharge relay opening";
+CM_ SG_ 8454210 PRECHARGE_RELAY_CLOSING "Precharge relay closing";
+CM_ SG_ 8454210 FILTER_4_RELAY_NOT_OFF "Relay 4 not off";
+CM_ SG_ 8454210 FILTER_1_RELAY_NOT_OFF "Relay 1 not off";
+CM_ SG_ 8454210 FILTER_4_RELAY_FAIL "Relay 4 fail";
+CM_ SG_ 8454210 FILTER_1_RELAY_FAIL "Relay 1 fail";
+CM_ SG_ 8454210 MODULE_6_RUNNING "DMF1(6) running error";
+CM_ SG_ 8454210 MODULE_5_RUNNING "DMF1(5) running error";
+CM_ SG_ 8454210 MODULE_4_RUNNING "DMF1(4) running error";
+CM_ SG_ 8454210 MODULE_3_RUNNING "DMF1(3) running error";
+CM_ SG_ 8454210 MODULE_2_RUNNING "DMF1(2) running error";
+CM_ SG_ 8454210 MODULE_1_RUNNING "DMF1(1) running error";
+CM_ SG_ 8454210 CABLE_3_5_DC "BP25(3).DC  BP25(5).DC mismatch";
+CM_ SG_ 8454210 CABLE_5_6_DC "BP25(5).DC  BP25(6).DC mismatch";
+CM_ SG_ 8454210 CABLE_2_3_DC "BP25(2).DC  BP25(3).DC mismatch";
+CM_ SG_ 8454210 CABLE_1_4_L3 "Grid L3 - DMF1(1).in vs DMF1(4).in mismatch";
+CM_ SG_ 8454210 CABLE_1_4_L2 "Grid L2  DMF1(1).in vs DMF1(4).in mismatch";
+CM_ SG_ 8454210 CABLE_1_4_L1 "Grid L1  DMF1(1).in vs DMF1(4).in mismatch";
+CM_ SG_ 8454210 CABLE_4_6_L3 "DMF1(4).L3  BP25(6).W mismatch";
+CM_ SG_ 8454210 CABLE_4_5_L3 "DMF1(4).L3  BP25(5).W mismatch";
+CM_ SG_ 8454210 CABLE_4_6_L2 "DMF1(4).L2  BP25(6).V mismatch";
+CM_ SG_ 8454210 CABLE_4_5_L2 "DMF1(4).L2  BP25(5).V mismatch";
+CM_ SG_ 8454210 CABLE_4_6_L1 "DMF1(4).L1  BP25(6).U mismatch";
+CM_ SG_ 8454210 CABLE_4_5_L1 "DMF1(4).L1  BP25(5).U mismatch";
+CM_ SG_ 8454210 CABLE_1_3_L3 "DMF1(1).L3  BP25(3).W mismatch";
+CM_ SG_ 8454210 CABLE_1_2_L3 "DMF1(1).L3  BP25(2).W mismatch";
+CM_ SG_ 8454210 CABLE_1_3_L2 "DMF1(1).L2  BP25(3).V mismatch";
+CM_ SG_ 8454210 CABLE_1_2_L2 "DMF1(1).L2  BP25(2).V mismatch";
+CM_ SG_ 8454210 CABLE_1_3_L1 "DMF1(1).L1  BP25(3).U mismatch";
+CM_ SG_ 8454210 CABLE_1_2_L1 "DMF1(1).L1  BP25(2).U mismatch";
+CM_ BO_ 8454211 "AC01 Warning";
+CM_ SG_ 8454211 AFE_DROOP_NOT_ENABLE "Group ID not set";
+CM_ SG_ 8454211 RQ_V_SET_DC_ABOVE_MAX "Current above max ";
+CM_ SG_ 8454211 RQ_DC_DROOP_POS_INVALID "Current limited by power max ";
+CM_ SG_ 8454211 RQ_DC_DROOP_NEG_INVALID "Current limited by power max ";
+CM_ SG_ 8454211 RQ_V_SET_DC_BELOW_MIN "Source current too low";
+CM_ SG_ 8454211 RQ_C_SET_DC_BELOW_MIN "Sink current too low";
+CM_ SG_ 8454211 RQ_C_SET_DC_ABOVE_MAX "Current above max ";
+CM_ SG_ 8454211 RQ_C_SOURCE_SET_LOW "Source current too low";
+CM_ SG_ 8454211 RQ_C_SINK_SET_LOW "Sink current too low";
+CM_ SG_ 8454211 RQ_V_SET_DC_BELOW_AC "DC voltage too low vs AC";
+CM_ SG_ 8454211 GHM_PHASE "GHM phase failed";
+CM_ SG_ 8454211 GHM_FREQ "GHM freq failed";
+CM_ SG_ 8454211 GHM_RMS "GHM RMS failed";
+CM_ SG_ 8454211 GHM_INIT "GHM init failed";
+CM_ BO_ 8454212 "AC01 Info";
+CM_ SG_ 8454212 RQ_C_LIMITED_BY_POWER "Current limited by power max ";
+CM_ SG_ 8454212 BLEEDING_DONE "Current limited by power max ";
+CM_ BO_ 8454176 "The setpoints control the behaviour of the DC Port of the AC01. The AC01 operates this port in CVCC mode";
+CM_ SG_ 8454176 Sink_Current_Limit "The maximum current that the AC01 will sink into the DC Port";
+CM_ SG_ 8454176 Source_Current_Limit "The maximum current that the AC01 will source on the DC Port";
+CM_ SG_ 8454176 Voltage "Control the target dc side voltage. This voltage will be maintained as long as the current required to do so is smaller than the current limits specified in this message";
+CM_ BO_ 8454177 "The setpoints that are currently used by the AC01. This message allows to validate that the setpoints have been properly applied.";
+CM_ SG_ 8454177 Sink_Current_Limit "The maximum amount of current that the AC01 will sink into the DC port";
+CM_ SG_ 8454177 Source_Current_Limit "The maximum current that the AC01 will source on the DC Port";
+CM_ SG_ 8454177 Voltage "The voltage target of the DC port";
+CM_ BO_ 8454180 "Measurements of the DC Bus";
+CM_ SG_ 8454180 Current "Current through the DC Port";
+CM_ SG_ 8454180 Voltage "Voltage on the DC Port";
+CM_ BO_ 8454178 "Setpoints for applying Droop on the DC Port. Droop is needed for paralleling multiple AC01";
+CM_ SG_ 8454178 Reserved "This space is reserved. This region should contain only '0's";
+CM_ SG_ 8454178 Enable "Enable DC Droop. If this feature is enabled the output voltage of the DC port varies with output current.";
+CM_ SG_ 8454178 Negative_Current_Droop "The droop resistance to apply for current flowing in to the DC Port (DC current is negative)";
+CM_ SG_ 8454178 Positive_Current_Droop "The droop resistance to apply for current flowing out of the DC port (DC current is positive)";
+CM_ BO_ 8454179 "Droop setpoints that are applied by the AC01";
+CM_ SG_ 8454179 Reserved "This space is reserved. This region should contain only '0's";
+CM_ SG_ 8454179 Enable "Show is DC Droop is enabled.";
+CM_ SG_ 8454179 Negative_Current_Droop "The droop resistance applied for current flowing in to the DC Port (DC current is negative)";
+CM_ SG_ 8454179 Positive_Current_Droop "The droop resistance applied for current flowing out of the DC port (DC current is positive)";
+CM_ BO_ 8454194 "Mesured values of the Grid connection";
+CM_ SG_ 8454194 Reserved "This space is reserved. This region contains only '0's";
+CM_ SG_ 8454194 Voltage "Average RMS Line to Line voltage at the AC port";
+CM_ SG_ 8454194 Frequency "RMS Voltage of L1";
+CM_ BO_ 8454195 "Measurements for L1 of the AC port";
+CM_ SG_ 8454195 Q "Reactive power of L1";
+CM_ SG_ 8454195 P "Active power of L1";
+CM_ SG_ 8454195 I "RMS Current of L1";
+CM_ SG_ 8454195 U "RMS Voltage of L1";
+CM_ BO_ 8454196 "Measurements for L2 of the AC port";
+CM_ SG_ 8454196 Q "Reactive power of L2";
+CM_ SG_ 8454196 P "Active power of L2";
+CM_ SG_ 8454196 I "RMS Current of L2";
+CM_ SG_ 8454196 U "RMS Voltage of L1";
+CM_ BO_ 8454197 "Measurements for L3 of the AC port";
+CM_ SG_ 8454197 Q "Reactive power of L3";
+CM_ SG_ 8454197 P "Active power of L3";
+CM_ SG_ 8454197 I "RMS Current of L3";
+CM_ SG_ 8454197 U "RMS Voltage of L3";
+CM_ BO_ 8454192 "Setpoints to apply to the AC Port";
+CM_ SG_ 8454192 Reserved "This space is reserved. This region should contain only 0s";
+CM_ SG_ 8454192 Q "Reactive Power of the AC port. Positive values cause the AC01 to behave inductively, negative values cause the AC01 to behave capacitively";
+CM_ BO_ 8454193 "Setpoints that are currently being applied to the the AC Port";
+CM_ SG_ 8454193 Reserved "This space is reserved. This region should contain only 0s";
+CM_ SG_ 8454193 Q "Reactive Power of the AC port. Positive values cause the AC01 to behave inductively, negative values cause the AC01 to behave capacitively";
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65535;
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_ "GenMsgCycleTime" BO_ 8454209 1000;
+BA_ "GenMsgCycleTime" BO_ 8454210 1000;
+BA_ "GenMsgCycleTime" BO_ 8454211 1000;
+BA_ "GenMsgCycleTime" BO_ 8454212 1000;
+BA_ "GenMsgCycleTime" BO_ 8454176 1000;
+BA_ "GenMsgCycleTime" BO_ 8454177 1000;
+BA_ "GenMsgCycleTime" BO_ 8454180 100;
+BA_ "GenMsgCycleTime" BO_ 8454179 1000;
+BA_ "GenMsgCycleTime" BO_ 8454194 1000;
+BA_ "GenMsgCycleTime" BO_ 8454195 100;
+BA_ "GenMsgCycleTime" BO_ 8454196 100;
+BA_ "GenMsgCycleTime" BO_ 8454197 100;
+BA_ "GenMsgCycleTime" BO_ 8454193 1000;
+VAL_ 8454208 mode 0 "DC_Controlled" 1 "AC_Controlled" 2 "Bleeding" ;
+VAL_ 8454209 mode 0 "DC_Controlled" 1 "AC_Controlled" 2 "Bleeding" ;
+VAL_ 8454210 FILTER_NOT_OFF 0 "Clear" 1 "Error" ;
+VAL_ 8454210 BLEEDING_FAILED 0 "Clear" 1 "Error" ;
+VAL_ 8454210 BLEEDING_STOP_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8454210 BLEEDING_NOT_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8454210 RECTIFIER_3P_STOP_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8454210 FILTER_STOP_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8454210 AFE_NOT_OFF 0 "Clear" 1 "Error" ;
+VAL_ 8454210 RECTIFIER_3P_NOT_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8454210 FILTER_NOT_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8454210 PRECHARGE_RELAY_OPENING 0 "Clear" 1 "Error" ;
+VAL_ 8454210 PRECHARGE_RELAY_CLOSING 0 "Clear" 1 "Error" ;
+VAL_ 8454210 FILTER_4_RELAY_NOT_OFF 0 "Clear" 1 "Error" ;
+VAL_ 8454210 FILTER_1_RELAY_NOT_OFF 0 "Clear" 1 "Error" ;
+VAL_ 8454210 FILTER_4_RELAY_FAIL 0 "Clear" 1 "Error" ;
+VAL_ 8454210 FILTER_1_RELAY_FAIL 0 "Clear" 1 "Error" ;
+VAL_ 8454210 MODULE_6_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8454210 MODULE_5_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8454210 MODULE_4_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8454210 MODULE_3_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8454210 MODULE_2_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8454210 MODULE_1_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8454210 CABLE_3_5_DC 0 "Clear" 1 "Critical" ;
+VAL_ 8454210 CABLE_5_6_DC 0 "Clear" 1 "Critical" ;
+VAL_ 8454210 CABLE_2_3_DC 0 "Clear" 1 "Critical" ;
+VAL_ 8454210 CABLE_1_4_L3 0 "Clear" 1 "Critical" ;
+VAL_ 8454210 CABLE_1_4_L2 0 "Clear" 1 "Critical" ;
+VAL_ 8454210 CABLE_1_4_L1 0 "Clear" 1 "Critical" ;
+VAL_ 8454210 CABLE_4_6_L3 0 "Clear" 1 "Critical" ;
+VAL_ 8454210 CABLE_4_5_L3 0 "Clear" 1 "Critical" ;
+VAL_ 8454210 CABLE_4_6_L2 0 "Clear" 1 "Critical" ;
+VAL_ 8454210 CABLE_4_5_L2 0 "Clear" 1 "Critical" ;
+VAL_ 8454210 CABLE_4_6_L1 0 "Clear" 1 "Critical" ;
+VAL_ 8454210 CABLE_4_5_L1 0 "Clear" 1 "Critical" ;
+VAL_ 8454210 CABLE_1_3_L3 0 "Clear" 1 "Critical" ;
+VAL_ 8454210 CABLE_1_2_L3 0 "Clear" 1 "Critical" ;
+VAL_ 8454210 CABLE_1_3_L2 0 "Clear" 1 "Critical" ;
+VAL_ 8454210 CABLE_1_2_L2 0 "Clear" 1 "Critical" ;
+VAL_ 8454210 CABLE_1_3_L1 0 "Clear" 1 "Critical" ;
+VAL_ 8454210 CABLE_1_2_L1 0 "Clear" 1 "Critical" ;
+VAL_ 8454211 AFE_DROOP_NOT_ENABLE 0 "Clear" 1 "Warning" ;
+VAL_ 8454211 RQ_V_SET_DC_ABOVE_MAX 0 "Clear" 1 "Warning" ;
+VAL_ 8454211 RQ_DC_DROOP_POS_INVALID 0 "Clear" 1 "Warning" ;
+VAL_ 8454211 RQ_DC_DROOP_NEG_INVALID 0 "Clear" 1 "Warning" ;
+VAL_ 8454211 RQ_V_SET_DC_BELOW_MIN 0 "Clear" 1 "Warning" ;
+VAL_ 8454211 RQ_C_SET_DC_BELOW_MIN 0 "Clear" 1 "Warning" ;
+VAL_ 8454211 RQ_C_SET_DC_ABOVE_MAX 0 "Clear" 1 "Warning" ;
+VAL_ 8454211 RQ_C_SOURCE_SET_LOW 0 "Clear" 1 "Warning" ;
+VAL_ 8454211 RQ_C_SINK_SET_LOW 0 "Clear" 1 "Warning" ;
+VAL_ 8454211 RQ_V_SET_DC_BELOW_AC 0 "Clear" 1 "Warning" ;
+VAL_ 8454211 GHM_PHASE 0 "Clear" 1 "Warning" ;
+VAL_ 8454211 GHM_FREQ 0 "Clear" 1 "Warning" ;
+VAL_ 8454211 GHM_RMS 0 "Clear" 1 "Warning" ;
+VAL_ 8454211 GHM_INIT 0 "Clear" 1 "Warning" ;
+VAL_ 8454212 RQ_C_LIMITED_BY_POWER 0 "Clear" 1 "Info" ;
+VAL_ 8454212 BLEEDING_DONE 0 "Clear" 1 "Info" ;
+VAL_ 8454178 Enable 1 "Enabled" 0 "Disabled" ;
+VAL_ 8454179 Enable 1 "Enabled" 0 "Disabled" ;
+
+
+

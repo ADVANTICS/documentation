@@ -1,0 +1,345 @@
+<?xml version='1.0' encoding='utf-8'?>
+<NetworkDefinition xmlns="http://kayak.2codeornot2code.org/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="KCD_Definition.xsd">
+    <Document name="ADB_PC_DC01" version="0.1" author="Thomas A" company="Advantics" date="2025-09-23" />
+
+    <Node id="0" name="User" />
+    <Node id="1" name="ADB_PC_DC01" />
+
+
+    <Bus name="ADB_PC_DC01" baudrate="500000">
+
+      
+    <Message id="0x820040" length="2" name="DC01_Mode_Set" format="extended">
+      <Notes>Set the mode of AC01</Notes>
+      <Producer> 
+        <NodeRef id="0" /> 
+      </Producer>
+      <Signal name="mode" offset="0" length="8">
+        <Notes>require mode</Notes>
+        <Consumer> 
+          <NodeRef id="1" /> 
+        </Consumer>
+        <LabelSet>
+          <Label name="B_port_Controlled" value="0" />
+          <Label name="A_port_Controlled" value="1" />
+          <Label name="Bleeding" value="2" />
+        </LabelSet>
+      </Signal>
+
+      
+      <Signal name="connection" offset="8" length="8">
+        <Notes>require connection</Notes>
+        <Consumer> 
+          <NodeRef id="1" /> 
+        </Consumer>
+        <LabelSet>
+          <Label name="automatic" value="0" />
+          <Label name="forced_serial" value="1" />
+          <Label name="forced_parallel" value="2" />
+        </LabelSet>
+      </Signal>
+    </Message>
+
+    
+    <Message id="0x820041" length="2" name="DC01_Mode_Applied" interval="1000" format="extended">
+      <Notes>read back the modes</Notes>
+      <Producer> 
+        <NodeRef id="1" /> 
+      </Producer>
+      <Signal name="mode" offset="0" length="8">
+        <Notes>actual mode</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <LabelSet>
+          <Label name="B_side_Controlled" value="0" />
+          <Label name="A_side_Controlled" value="1" />
+          <Label name="Bleeding" value="2" />
+        </LabelSet>
+      </Signal>
+
+      <Signal name="connection" offset="8" length="8">
+        <Notes>connection mode</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <LabelSet>
+          <Label name="open" value="0" />
+          <Label name="serial" value="1" />
+          <Label name="parallel" value="2" />
+        </LabelSet>
+      </Signal>
+    </Message>
+
+        
+    <Message id="0x820042" length="8" name="DC01_faults" interval="1000" format="extended">
+      <Notes>DC01 Critical and Error Faults</Notes>
+      <Producer><NodeRef id="1" /></Producer>
+
+    </Message>
+
+    <Message id="0x820043" length="8" name="DC01_warning" interval="1000" format="extended">
+      <Notes>DC01 Warning</Notes>
+      <Producer><NodeRef id="1" /></Producer>
+
+    </Message>
+
+
+    <Message id="0x820044" length="8" name="DC01_info" interval="1000" format="extended">
+      <Notes>DC01 Info</Notes>
+      <Producer><NodeRef id="1" /></Producer>
+
+      
+      <Signal name="BLEEDING_DONE" offset="1" length="1" endianess="little">
+        <Notes>Current limited by power max </Notes>
+        <Consumer><NodeRef id="0" /></Consumer>
+        <LabelSet><Label name="Clear" value="0" /><Label name="Info" value="1" /></LabelSet>
+      </Signal>
+
+      <Signal name="parallel" offset="2" length="1" endianess="little">
+        <Notes>Afe are in parallel</Notes>
+        <Consumer><NodeRef id="0" /></Consumer>
+        <LabelSet><Label name="Clear" value="0" /><Label name="Info" value="1" /></LabelSet>
+      </Signal>
+
+      <Signal name="serial" offset="3" length="1" endianess="little">
+        <Notes>Afe are in series </Notes>
+        <Consumer><NodeRef id="0" /></Consumer>
+        <LabelSet><Label name="Clear" value="0" /><Label name="Info" value="1" /></LabelSet>
+      </Signal>
+
+    </Message>
+
+
+    <Message id="0x820020" length="6" name="B_Port_Setpoints" interval="1000" format="extended">
+      <Notes>The setpoints control the behaviour of the B Port of the DC01</Notes>
+      <Producer> 
+        <NodeRef id="0" /> 
+      </Producer>
+      <Signal name="Voltage" offset="0" length="16">
+        <Notes>Control the target B port voltage. This voltage will be maintained as long as the current required to do so is smaller than the current limits specified in this message</Notes>
+        <Consumer> 
+          <NodeRef id="1" /> 
+        </Consumer>
+        <Value type="unsigned" slope="0.1" unit="V" min="0" max="1500" />
+      </Signal>
+      <Signal name="Source_Current_Limit" offset="16" length="16">
+        <Notes>The maximum current that the DC01 will source on the B port</Notes>
+        <Consumer> 
+          <NodeRef id="1" /> 
+        </Consumer>
+        <Value type="unsigned" slope="0.1" unit="A" min="0" max="220" />
+      </Signal>
+      <Signal name="Sink_Current_Limit" offset="32" length="16">
+        <Notes>The maximum current that the AC01 will sink into the B port</Notes>
+        <Consumer> 
+          <NodeRef id="1" /> 
+        </Consumer>
+        <Value type="unsigned" slope="0.1" unit="A" min="0" max="220" />
+      </Signal>
+    </Message>
+
+
+    <Message id="0x820021" length="8" name="B_Port_Applied_Setpoints" interval="1000" format="extended">
+      <Notes>The setpoints that are currently used by the DC01. This message allows to validate that the setpoints have been properly applied.</Notes>
+      <Producer> 
+        <NodeRef id="1" /> 
+      </Producer>
+      <Signal name="Voltage" offset="0" length="16">
+        <Notes>The voltage target of the B port</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value type="unsigned" slope="0.1" unit="V" />
+      </Signal>
+      <Signal name="Source_Current_Limit" offset="16" length="16">
+        <Notes>The maximum current that the DC01 will source on the B Port</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value type="unsigned" slope="0.1" unit="A" />
+      </Signal>
+      <Signal name="Sink_Current_Limit" offset="32" length="16">
+        <Notes>The maximum amount of current that the DC01 will sink into the B port</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value type="unsigned" slope="0.1" unit="A" />
+      </Signal>
+    </Message>
+
+    <Message id="0x820022" length="8" name="B_Port_Droop_Setpoints" format="extended">
+      <Notes>Setpoints for applying Droop on the B Port. Droop is needed for paralleling multiple DC01</Notes>
+      <Producer> 
+        <NodeRef id="0" /> 
+      </Producer>
+      <Signal name="Enable" offset="0" length="4" endianess="little">
+        <Notes>Enable DC Droop. If this feature is enabled the output voltage of the B port varies with output current.</Notes>
+        <Consumer> 
+          <NodeRef id="1" /> 
+        </Consumer>
+        <LabelSet>
+          <Label name="Enabled" value="1" />
+          <Label name="Disabled" value="0" />
+        </LabelSet>
+      </Signal>
+      <Signal name="Positive_Current_Droop" offset="4" length="16" endianess="little">
+        <Notes>The droop resistance to apply for current flowing out of the B port (DC current is positive)</Notes>
+        <Consumer> 
+          <NodeRef id="1" /> 
+        </Consumer>
+        <Value slope="0.01" unit="Ohm" intercept="0" type="unsigned" />
+      </Signal>
+      <Signal name="Negative_Current_Droop" offset="20" length="16" endianess="little">
+        <Notes>The droop resistance to apply for current flowing in to the B Port (DC current is negative)</Notes>
+        <Consumer> 
+          <NodeRef id="1" /> 
+        </Consumer>
+        <Value slope="0.01" unit="Ohm" intercept="0" type="unsigned" />
+      </Signal>
+      <Signal name="Reserved" offset="36" length="28">
+        <Notes>This space is reserved. This region should contain only '0's</Notes>
+        <Consumer> 
+          <NodeRef id="1" /> 
+        </Consumer>
+      </Signal>
+    </Message>
+
+
+    <Message id="0x820023" length="5" name="B_Port_Applied_Droop_Setpoints" interval="1000" format="extended">
+      <Notes>Droop setpoints that are applied by the DC01</Notes>
+      <Producer> 
+        <NodeRef id="1" /> 
+      </Producer>
+      <Signal name="Enable" offset="0" length="4" endianess="little">
+        <Notes>Show is DC Droop is enabled.</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <LabelSet>
+          <Label name="Enabled" value="1" />
+          <Label name="Disabled" value="0" />
+        </LabelSet>
+      </Signal>
+      <Signal name="Positive_Current_Droop" offset="4" length="16" endianess="little">
+        <Notes>The droop resistance applied for current flowing out of the B port (DC current is positive)</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value slope="0.01" unit="Ohm" intercept="0" type="unsigned" />
+      </Signal>
+      <Signal name="Negative_Current_Droop" offset="20" length="16" endianess="little">
+        <Notes>The droop resistance applied for current flowing in to the B Port (DC current is negative)</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value slope="0.01" unit="Ohm" intercept="0" type="unsigned" />
+      </Signal>
+    </Message>
+
+    <Message id="0x820024" length="4" name="B_Port_Measurements" interval="100" format="extended">
+      <Notes>Measurements of the B port</Notes>
+      <Producer> 
+        <NodeRef id="1" /> 
+      </Producer>
+      <Signal name="Voltage" offset="0" length="16" endianess="little">
+        <Notes>Voltage on the B Port</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value slope="0.1" unit="V" intercept="0" type="unsigned" />
+      </Signal>
+      <Signal name="Current" offset="16" length="16" endianess="little">
+        <Notes>Current through the B Port</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value slope="0.1" unit="A" intercept="0" type="signed" />
+      </Signal>
+    </Message>
+
+
+    <Message id="0x820032" length="4" name="A_Port_Measurements" interval="100" format="extended">
+      <Notes>Measurements of the A port</Notes>
+      <Producer> 
+        <NodeRef id="1" /> 
+      </Producer>
+      <Signal name="Voltage" offset="0" length="16" endianess="little">
+        <Notes>Voltage on the A Port</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value slope="0.1" unit="V" intercept="0" type="unsigned" />
+      </Signal>
+      <Signal name="Current" offset="16" length="16" endianess="little">
+        <Notes>Current through the A Port</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value slope="0.1" unit="A" intercept="0" type="signed" />
+      </Signal>
+    </Message>
+
+
+    
+    <Message id="0x820030" length="6" name="A_Port_Setpoints" interval="1000" format="extended">
+      <Notes>The setpoints control the behaviour of the A Port of the DC01</Notes>
+      <Producer> 
+        <NodeRef id="0" /> 
+      </Producer>
+      <Signal name="Voltage" offset="0" length="16">
+        <Notes>Control the target A port voltage. This voltage will be maintained as long as the current required to do so is smaller than the current limits specified in this message</Notes>
+        <Consumer> 
+          <NodeRef id="1" /> 
+        </Consumer>
+        <Value type="unsigned" slope="0.1" unit="V" min="0" max="1500" />
+      </Signal>
+      <Signal name="Source_Current_Limit" offset="16" length="16">
+        <Notes>The maximum current that the DC01 will source on the A port</Notes>
+        <Consumer> 
+          <NodeRef id="1" /> 
+        </Consumer>
+        <Value type="unsigned" slope="0.1" unit="A" min="0" max="220" />
+      </Signal>
+      <Signal name="Sink_Current_Limit" offset="32" length="16">
+        <Notes>The maximum current that the AC01 will sink into the A port</Notes>
+        <Consumer> 
+          <NodeRef id="1" /> 
+        </Consumer>
+        <Value type="unsigned" slope="0.1" unit="A" min="0" max="220" />
+      </Signal>
+    </Message>
+
+
+    
+    <Message id="0x820031" length="8" name="A_Port_Applied_Setpoints" interval="1000" format="extended">
+      <Notes>The setpoints that are currently used by the DC01. This message allows to validate that the setpoints have been properly applied.</Notes>
+      <Producer> 
+        <NodeRef id="1" /> 
+      </Producer>
+      <Signal name="Voltage" offset="0" length="16">
+        <Notes>The voltage target of the A port</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value type="unsigned" slope="0.1" unit="V" />
+      </Signal>
+      <Signal name="Source_Current_Limit" offset="16" length="16">
+        <Notes>The maximum current that the DC01 will source on the A Port</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value type="unsigned" slope="0.1" unit="A" />
+      </Signal>
+      <Signal name="Sink_Current_Limit" offset="32" length="16">
+        <Notes>The maximum amount of current that the DC01 will sink into the A port</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value type="unsigned" slope="0.1" unit="A" />
+      </Signal>
+    </Message>
+
+
+    </Bus>
+</NetworkDefinition>
