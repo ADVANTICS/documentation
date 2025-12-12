@@ -1,3 +1,4 @@
 .cache
 site
 __pycache__/
+tools/generate_can_docs.py
