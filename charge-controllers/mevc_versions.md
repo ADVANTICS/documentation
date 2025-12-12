@@ -219,7 +219,7 @@ Currently supported hardware are for `ADM-CS-MEVC`.
           <li><strong>pev-controller 2.3.0 / ccs-evcc 2.4.0</strong>
             <ul>
               <li>Add possibility of dynamic target voltage control (configurable)</li>
-              <li>Report CE and ID state via new message “MCS_Extra_Information” (informational only)</li>
+              <li>Report CE and ID state via new message <a href="https://advantics.github.io/documentation/#/charge-controllers/evcc_generic/can_v2?id=mcs-extra-information">MCS_Extra_Information</a> (informational only)</li>
               <li>Add software filtering capability on CE and ID lines (experimental)</li>
               <li>Allow bidirectional cycling at full SOC (configurable)</li>
               <li>Disable current deviation check against target current in range mode (dynamic mode)</li>
