@@ -225,7 +225,7 @@ release.
                 - Add possibility of dynamic target voltage control (configurable)<br/>
                 - Report CE and ID state via new message “MCS_Extra_Information” (informational only)<br/>
                 - Allow bidirectional cycling at full SOC (configurable)<br/>
-                - Disable current deviation check against target current in range mode (dynamic mode)
+                - Disable current deviation check against target current in range mode (dynamic mode)<br/>
                 ccs-evcc 2.4.0:<br/>
                 - Possibility to disable AC charging (configurable) (only relevant for CCS)<br/>
                 - Pause and resume session according to ISO15118-2 and ISO15118-20<br/>
