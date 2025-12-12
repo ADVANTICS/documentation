@@ -212,5 +212,41 @@ Currently supported hardware are for `ADM-CS-MEVC`.
         </ul>
       </td>
     </tr>
+    <td class="branch-col">Release 2.4</td>
+      <td class="date-col">2025-12-11</td>
+      <td>
+        <ul>
+          <li><strong>pev-controller 2.3.0 / ccs-evcc 2.4.0</strong>
+            <ul>
+              <li>Add possibility of dynamic target voltage control (configurable)</li>
+              <li>Report CE and ID state via new message “MCS_Extra_Information” (informational only)</li>
+              <li>Add software filtering capability on CE and ID lines (experimental)</li>
+              <li>Allow bidirectional cycling at full SOC (configurable)</li>
+              <li>Disable current deviation check against target current in range mode (dynamic mode)</li>
+            </ul>
+          </li>
+          <li><strong>advantics-csm 1.6.3</strong>
+            <ul>
+              <li>Add the possibility to restart CSM when submitting config from the UI</li>
+              <li>Toggle J1939/CAN monitoring on config change without restarting the whole app</li>
+              <li>Support both extended and non-extended IDs for CAN monitoring</li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><strong>Option 1:</strong> Pull from Docker hub — <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=option-1-requires-internet-pulling-the-update-from-docker-hub">Guide</a></li>
+          <li><strong>Option 2:</strong> <a href="https://drive.google.com/uc?export=download&id=1zBtbxzA0KM8yBtF1vCWaawADOgA-oL1V">Download .tar (Release 2.4)</a> — <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=full-release-update">Update Instructions</a></li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><a href="https://hub.docker.com/r/advantics/pev-controller/tags">advantics/pev-controller:2.3.0</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/ccs-evcc/tags">advantics/ccs-evcc:2.4.0</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/advantics-csm/tags">advantics/advantics-csm:1.6.3</a></li>
+        </ul>
+      </td>
+    </tr>
   </tbody>
 </table>
