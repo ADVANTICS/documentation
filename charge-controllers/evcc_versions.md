@@ -223,7 +223,6 @@ release.
 			<td>
                 pev-controller 2.3.0:<br/>
                 - Add possibility of dynamic target voltage control (configurable)<br/>
-                - Report CE and ID state via new message “MCS_Extra_Information” (informational only)<br/>
                 - Allow bidirectional cycling at full SOC (configurable)<br/>
                 - Disable current deviation check against target current in range mode (dynamic mode)<br/>
                 ccs-evcc 2.4.0:<br/>
