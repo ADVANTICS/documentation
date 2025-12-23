@@ -45,13 +45,61 @@ BO_ 8519745 DC01_Mode_Applied: 2 ADB_PC_DC01
  SG_ mode : 0|8@1+ (1,0) [0|0] ""  User
 
 BO_ 8519746 DC01_faults: 8 ADB_PC_DC01
+ SG_ BI25_PWM_NOT_RUNNING : 33|1@1+ (1,0) [0|0] ""  User
+ SG_ BLEEDING_FAILED : 32|1@1+ (1,0) [0|0] ""  User
+ SG_ AFE_PWM_STOP_RUNNING : 31|1@1+ (1,0) [0|0] ""  User
+ SG_ AFE_PWM_NOT_RUNNING : 30|1@1+ (1,0) [0|0] ""  User
+ SG_ AFE_NOT_OFF : 29|1@1+ (1,0) [0|0] ""  User
+ SG_ CONTACTORS_CONNECTION_UNDEFINED : 28|1@1+ (1,0) [0|0] ""  User
+ SG_ CS_REV_INCOMPATIBLE : 27|1@1+ (1,0) [0|0] ""  User
+ SG_ PORT_B_OVERVOLTAGE : 26|1@1+ (1,0) [0|0] ""  User
+ SG_ CONTACTOR_4_FAIL : 25|1@1+ (1,0) [0|0] ""  User
+ SG_ CONTACTOR_3_FAIL : 24|1@1+ (1,0) [0|0] ""  User
+ SG_ CONTACTOR_2_FAIL : 23|1@1+ (1,0) [0|0] ""  User
+ SG_ CONTACTOR_1_FAIL : 22|1@1+ (1,0) [0|0] ""  User
+ SG_ CONTACTOR_4_OPEN : 21|1@1+ (1,0) [0|0] ""  User
+ SG_ CONTACTOR_3_OPEN : 20|1@1+ (1,0) [0|0] ""  User
+ SG_ CONTACTOR_2_OPEN : 19|1@1+ (1,0) [0|0] ""  User
+ SG_ CONTACTOR_1_OPEN : 18|1@1+ (1,0) [0|0] ""  User
+ SG_ CONTACTOR_4_CLOSED : 17|1@1+ (1,0) [0|0] ""  User
+ SG_ CONTACTOR_3_CLOSED : 16|1@1+ (1,0) [0|0] ""  User
+ SG_ CONTACTOR_2_CLOSED : 15|1@1+ (1,0) [0|0] ""  User
+ SG_ CONTACTOR_1_CLOSED : 14|1@1+ (1,0) [0|0] ""  User
+ SG_ MODULE_4_RUNNING : 13|1@1+ (1,0) [0|0] ""  User
+ SG_ MODULE_3_RUNNING : 12|1@1+ (1,0) [0|0] ""  User
+ SG_ MODULE_2_RUNNING : 11|1@1+ (1,0) [0|0] ""  User
+ SG_ MODULE_1_RUNNING : 10|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_4_IN_OUT : 9|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_2_IN_OUT : 8|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_1_3_L1 : 7|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_3_L2_L3 : 6|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_3_L1_L2 : 5|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_1_L2_L3 : 4|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_1_L1_L2 : 3|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_3_4_DC : 2|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_1_2_DC : 1|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_2_4_DC : 0|1@1+ (1,0) [0|0] ""  User
 
 BO_ 8519747 DC01_warning: 8 ADB_PC_DC01
+ SG_ V_A_HIGH : 11|1@1+ (1,0) [0|0] ""  User
+ SG_ V_A_LOW : 10|1@1+ (1,0) [0|0] ""  User
+ SG_ RQ_DC_DROOP_NEG_INVALID : 9|1@1+ (1,0) [0|0] ""  User
+ SG_ RQ_DC_DROOP_POS_INVALID : 8|1@1+ (1,0) [0|0] ""  User
+ SG_ RQ_V_B_SET_ABOVE_A : 7|1@1+ (1,0) [0|0] ""  User
+ SG_ RQ_C_SINK_B_BELLOW_MIN : 6|1@1+ (1,0) [0|0] ""  User
+ SG_ RQ_C_SINK_B_ABOVE_MAX : 5|1@1+ (1,0) [0|0] ""  User
+ SG_ RQ_C_SOURCE_B_BELLOW_MIN : 4|1@1+ (1,0) [0|0] ""  User
+ SG_ RQ_C_SOURCE_B_ABOVE_MAX : 3|1@1+ (1,0) [0|0] ""  User
+ SG_ RQ_V_B_SET_BELLOW_MIN : 2|1@1+ (1,0) [0|0] ""  User
+ SG_ RQ_V_B_SET_ABOVE_MAX : 1|1@1+ (1,0) [0|0] ""  User
+ SG_ MODE_NOT_SUPPORTED : 0|1@1+ (1,0) [0|0] ""  User
 
 BO_ 8519748 DC01_info: 8 ADB_PC_DC01
- SG_ serial : 3|1@1+ (1,0) [0|0] ""  User
- SG_ parallel : 2|1@1+ (1,0) [0|0] ""  User
- SG_ BLEEDING_DONE : 1|1@1+ (1,0) [0|0] ""  User
+ SG_ CONNECTION_MANAGER_RQ_CHANGE : 4|1@1+ (1,0) [0|0] ""  User
+ SG_ CONTACTORS_CONNECTION_OPEN : 3|1@1+ (1,0) [0|0] ""  User
+ SG_ CONTACTORS_CONNECTION_PARALLEL : 2|1@1+ (1,0) [0|0] ""  User
+ SG_ CONTACTORS_CONNECTION_SERIAL : 1|1@1+ (1,0) [0|0] ""  User
+ SG_ BLEEDING_DONE : 0|1@1+ (1,0) [0|0] ""  User
 
 BO_ 8519712 B_Port_Setpoints: 6 User
  SG_ Sink_Current_Limit : 32|16@1+ (0.1,0) [0|220] "A"  ADB_PC_DC01
@@ -92,6 +140,13 @@ BO_ 8519729 A_Port_Applied_Setpoints: 8 ADB_PC_DC01
  SG_ Source_Current_Limit : 16|16@1+ (0.1,0) [0|0] "A"  User
  SG_ Voltage : 0|16@1+ (0.1,0) [0|0] "V"  User
 
+BO_ 8519922 DC01_debug: 8 User
+ SG_ allow_close_contactor : 0|1@1+ (1,0) [0|0] ""  ADB_PC_DC01
+
+BO_ 8519923 DC01_debug_connection: 8 ADB_PC_DC01
+ SG_ new_connection_mode : 16|8@1+ (1,0) [0|0] ""  User
+ SG_ current_connection_mode : 8|8@1+ (1,0) [0|0] ""  User
+
 
 
 
@@ -102,11 +157,59 @@ CM_ BO_ 8519745 "read back the modes";
 CM_ SG_ 8519745 connection "connection mode";
 CM_ SG_ 8519745 mode "actual mode";
 CM_ BO_ 8519746 "DC01 Critical and Error Faults";
-CM_ BO_ 8519747 "DC01 Warning";
-CM_ BO_ 8519748 "DC01 Info";
-CM_ SG_ 8519748 serial "Afe are in series ";
-CM_ SG_ 8519748 parallel "Afe are in parallel";
-CM_ SG_ 8519748 BLEEDING_DONE "Current limited by power max ";
+CM_ SG_ 8519746 BI25_PWM_NOT_RUNNING "Bleeding resistor discharge failed";
+CM_ SG_ 8519746 BLEEDING_FAILED "Bleeding resistor discharge failed";
+CM_ SG_ 8519746 AFE_PWM_STOP_RUNNING "AFE PWM stopped unexpectedly";
+CM_ SG_ 8519746 AFE_PWM_NOT_RUNNING "AFE PWM not running";
+CM_ SG_ 8519746 AFE_NOT_OFF "AFE not off when expected";
+CM_ SG_ 8519746 CONTACTORS_CONNECTION_UNDEFINED "Contactors connection state undefined";
+CM_ SG_ 8519746 CS_REV_INCOMPATIBLE "Controller board incompatible";
+CM_ SG_ 8519746 PORT_B_OVERVOLTAGE "Port B overvoltage detected";
+CM_ SG_ 8519746 CONTACTOR_4_FAIL "Contactor 4 feedback failure";
+CM_ SG_ 8519746 CONTACTOR_3_FAIL "Contactor 3 feedback failure";
+CM_ SG_ 8519746 CONTACTOR_2_FAIL "Contactor 2 feedback failure";
+CM_ SG_ 8519746 CONTACTOR_1_FAIL "Contactor 1 feedback failure";
+CM_ SG_ 8519746 CONTACTOR_4_OPEN "Contactor 4 failed to close";
+CM_ SG_ 8519746 CONTACTOR_3_OPEN "Contactor 3 failed to close";
+CM_ SG_ 8519746 CONTACTOR_2_OPEN "Contactor 2 failed to close";
+CM_ SG_ 8519746 CONTACTOR_1_OPEN "Contactor 1 failed to close";
+CM_ SG_ 8519746 CONTACTOR_4_CLOSED "Contactor 4 unexpectedly closed";
+CM_ SG_ 8519746 CONTACTOR_3_CLOSED "Contactor 3 unexpectedly closed";
+CM_ SG_ 8519746 CONTACTOR_2_CLOSED "Contactor 2 unexpectedly closed";
+CM_ SG_ 8519746 CONTACTOR_1_CLOSED "Contactor 1 unexpectedly closed";
+CM_ SG_ 8519746 MODULE_4_RUNNING "Module 4 running error";
+CM_ SG_ 8519746 MODULE_3_RUNNING "Module 3 running error";
+CM_ SG_ 8519746 MODULE_2_RUNNING "Module 2 running error";
+CM_ SG_ 8519746 MODULE_1_RUNNING "Module 1 running error";
+CM_ SG_ 8519746 CABLE_4_IN_OUT "BI25(4).IN -> BI25(4).OUT mismatch";
+CM_ SG_ 8519746 CABLE_2_IN_OUT "BI25(2).IN -> BI25(2).OUT mismatch";
+CM_ SG_ 8519746 CABLE_1_3_L1 "BP25(1).L1 -> BI25(3).L1 mismatch";
+CM_ SG_ 8519746 CABLE_3_L2_L3 "BP25(3).L2 -> BI25(3).L3 mismatch";
+CM_ SG_ 8519746 CABLE_3_L1_L2 "BP25(3).L1 -> BI25(3).L2 mismatch";
+CM_ SG_ 8519746 CABLE_1_L2_L3 "BP25(1).L2 -> BI25(1).L3 mismatch";
+CM_ SG_ 8519746 CABLE_1_L1_L2 "BP25(1).L1 -> BI25(1).L2 mismatch";
+CM_ SG_ 8519746 CABLE_3_4_DC "BI25(4).DC -> BI25(2).DC mismatch";
+CM_ SG_ 8519746 CABLE_1_2_DC "BI25(2).DC -> BP25(1).DC mismatch";
+CM_ SG_ 8519746 CABLE_2_4_DC "BI25(2).DC -> BI25(4).DC mismatch";
+CM_ BO_ 8519747 "DC01 Warnings";
+CM_ SG_ 8519747 V_A_HIGH "voltage port a too high";
+CM_ SG_ 8519747 V_A_LOW "voltage port a too low";
+CM_ SG_ 8519747 RQ_DC_DROOP_NEG_INVALID "DC droop negative invalid";
+CM_ SG_ 8519747 RQ_DC_DROOP_POS_INVALID "DC droop positive invalid";
+CM_ SG_ 8519747 RQ_V_B_SET_ABOVE_A "Requested Port B voltage higher than Port A";
+CM_ SG_ 8519747 RQ_C_SINK_B_BELLOW_MIN "Sink current Port B below minimum";
+CM_ SG_ 8519747 RQ_C_SINK_B_ABOVE_MAX "Sink current Port B above maximum";
+CM_ SG_ 8519747 RQ_C_SOURCE_B_BELLOW_MIN "Source current Port B below minimum";
+CM_ SG_ 8519747 RQ_C_SOURCE_B_ABOVE_MAX "Source current Port B above maximum";
+CM_ SG_ 8519747 RQ_V_B_SET_BELLOW_MIN "Requested Port B voltage below minimum";
+CM_ SG_ 8519747 RQ_V_B_SET_ABOVE_MAX "Requested Port B voltage above maximum";
+CM_ SG_ 8519747 MODE_NOT_SUPPORTED "Mode not supported";
+CM_ BO_ 8519748 "DC01 Informational Flags";
+CM_ SG_ 8519748 CONNECTION_MANAGER_RQ_CHANGE "Connection manager requests topology change";
+CM_ SG_ 8519748 CONTACTORS_CONNECTION_OPEN "All contactors open";
+CM_ SG_ 8519748 CONTACTORS_CONNECTION_PARALLEL "Contactors connected in parallel";
+CM_ SG_ 8519748 CONTACTORS_CONNECTION_SERIAL "Contactors connected in series";
+CM_ SG_ 8519748 BLEEDING_DONE "Bleeding completed successfully";
 CM_ BO_ 8519712 "The setpoints control the behaviour of the B Port of the DC01";
 CM_ SG_ 8519712 Sink_Current_Limit "The maximum current that the AC01 will sink into the B port";
 CM_ SG_ 8519712 Source_Current_Limit "The maximum current that the DC01 will source on the B port";
@@ -138,6 +241,11 @@ CM_ BO_ 8519729 "The setpoints that are currently used by the DC01. This message
 CM_ SG_ 8519729 Sink_Current_Limit "The maximum amount of current that the DC01 will sink into the A port";
 CM_ SG_ 8519729 Source_Current_Limit "The maximum current that the DC01 will source on the A Port";
 CM_ SG_ 8519729 Voltage "The voltage target of the A port";
+CM_ BO_ 8519922 "The setpoints that are currently used by the DC01. This message allows to validate that the setpoints have been properly applied.";
+CM_ SG_ 8519922 allow_close_contactor "The voltage target of the A port";
+CM_ BO_ 8519923 "The setpoints that are currently used by the DC01. This message allows to validate that the setpoints have been properly applied.";
+CM_ SG_ 8519923 new_connection_mode "The voltage target of the A port";
+CM_ SG_ 8519923 current_connection_mode "The voltage target of the A port";
 BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65535;
 BA_DEF_DEF_  "GenMsgCycleTime" 0;
 BA_ "GenMsgCycleTime" BO_ 8519745 1000;
@@ -151,15 +259,68 @@ BA_ "GenMsgCycleTime" BO_ 8519716 100;
 BA_ "GenMsgCycleTime" BO_ 8519730 100;
 BA_ "GenMsgCycleTime" BO_ 8519728 1000;
 BA_ "GenMsgCycleTime" BO_ 8519729 1000;
+BA_ "GenMsgCycleTime" BO_ 8519922 1000;
+BA_ "GenMsgCycleTime" BO_ 8519923 1000;
 VAL_ 8519744 connection 0 "automatic" 1 "forced_serial" 2 "forced_parallel" ;
 VAL_ 8519744 mode 0 "B_port_Controlled" 1 "A_port_Controlled" 2 "Bleeding" ;
 VAL_ 8519745 connection 0 "open" 1 "serial" 2 "parallel" ;
 VAL_ 8519745 mode 0 "B_side_Controlled" 1 "A_side_Controlled" 2 "Bleeding" ;
-VAL_ 8519748 serial 0 "Clear" 1 "Info" ;
-VAL_ 8519748 parallel 0 "Clear" 1 "Info" ;
+VAL_ 8519746 BI25_PWM_NOT_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8519746 BLEEDING_FAILED 0 "Clear" 1 "Error" ;
+VAL_ 8519746 AFE_PWM_STOP_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8519746 AFE_PWM_NOT_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8519746 AFE_NOT_OFF 0 "Clear" 1 "Error" ;
+VAL_ 8519746 CONTACTORS_CONNECTION_UNDEFINED 0 "Clear" 1 "Error" ;
+VAL_ 8519746 CS_REV_INCOMPATIBLE 0 "Clear" 1 "Critical" ;
+VAL_ 8519746 PORT_B_OVERVOLTAGE 0 "Clear" 1 "Error" ;
+VAL_ 8519746 CONTACTOR_4_FAIL 0 "Clear" 1 "Error" ;
+VAL_ 8519746 CONTACTOR_3_FAIL 0 "Clear" 1 "Error" ;
+VAL_ 8519746 CONTACTOR_2_FAIL 0 "Clear" 1 "Error" ;
+VAL_ 8519746 CONTACTOR_1_FAIL 0 "Clear" 1 "Error" ;
+VAL_ 8519746 CONTACTOR_4_OPEN 0 "Clear" 1 "Error" ;
+VAL_ 8519746 CONTACTOR_3_OPEN 0 "Clear" 1 "Error" ;
+VAL_ 8519746 CONTACTOR_2_OPEN 0 "Clear" 1 "Error" ;
+VAL_ 8519746 CONTACTOR_1_OPEN 0 "Clear" 1 "Error" ;
+VAL_ 8519746 CONTACTOR_4_CLOSED 0 "Clear" 1 "Error" ;
+VAL_ 8519746 CONTACTOR_3_CLOSED 0 "Clear" 1 "Error" ;
+VAL_ 8519746 CONTACTOR_2_CLOSED 0 "Clear" 1 "Error" ;
+VAL_ 8519746 CONTACTOR_1_CLOSED 0 "Clear" 1 "Error" ;
+VAL_ 8519746 MODULE_4_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8519746 MODULE_3_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8519746 MODULE_2_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8519746 MODULE_1_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8519746 CABLE_4_IN_OUT 0 "Clear" 1 "Critical" ;
+VAL_ 8519746 CABLE_2_IN_OUT 0 "Clear" 1 "Critical" ;
+VAL_ 8519746 CABLE_1_3_L1 0 "Clear" 1 "Critical" ;
+VAL_ 8519746 CABLE_3_L2_L3 0 "Clear" 1 "Critical" ;
+VAL_ 8519746 CABLE_3_L1_L2 0 "Clear" 1 "Critical" ;
+VAL_ 8519746 CABLE_1_L2_L3 0 "Clear" 1 "Critical" ;
+VAL_ 8519746 CABLE_1_L1_L2 0 "Clear" 1 "Critical" ;
+VAL_ 8519746 CABLE_3_4_DC 0 "Clear" 1 "Critical" ;
+VAL_ 8519746 CABLE_1_2_DC 0 "Clear" 1 "Critical" ;
+VAL_ 8519746 CABLE_2_4_DC 0 "Clear" 1 "Critical" ;
+VAL_ 8519747 V_A_HIGH 0 "Clear" 1 "Warning" ;
+VAL_ 8519747 V_A_LOW 0 "Clear" 1 "Warning" ;
+VAL_ 8519747 RQ_DC_DROOP_NEG_INVALID 0 "Clear" 1 "Warning" ;
+VAL_ 8519747 RQ_DC_DROOP_POS_INVALID 0 "Clear" 1 "Warning" ;
+VAL_ 8519747 RQ_V_B_SET_ABOVE_A 0 "Clear" 1 "Warning" ;
+VAL_ 8519747 RQ_C_SINK_B_BELLOW_MIN 0 "Clear" 1 "Warning" ;
+VAL_ 8519747 RQ_C_SINK_B_ABOVE_MAX 0 "Clear" 1 "Warning" ;
+VAL_ 8519747 RQ_C_SOURCE_B_BELLOW_MIN 0 "Clear" 1 "Warning" ;
+VAL_ 8519747 RQ_C_SOURCE_B_ABOVE_MAX 0 "Clear" 1 "Warning" ;
+VAL_ 8519747 RQ_V_B_SET_BELLOW_MIN 0 "Clear" 1 "Warning" ;
+VAL_ 8519747 RQ_V_B_SET_ABOVE_MAX 0 "Clear" 1 "Warning" ;
+VAL_ 8519747 MODE_NOT_SUPPORTED 0 "Clear" 1 "Warning" ;
+VAL_ 8519748 CONNECTION_MANAGER_RQ_CHANGE 0 "Clear" 1 "Info" ;
+VAL_ 8519748 CONTACTORS_CONNECTION_OPEN 0 "Clear" 1 "Info" ;
+VAL_ 8519748 CONTACTORS_CONNECTION_PARALLEL 0 "Clear" 1 "Info" ;
+VAL_ 8519748 CONTACTORS_CONNECTION_SERIAL 0 "Clear" 1 "Info" ;
 VAL_ 8519748 BLEEDING_DONE 0 "Clear" 1 "Info" ;
 VAL_ 8519714 Enable 1 "Enabled" 0 "Disabled" ;
 VAL_ 8519715 Enable 1 "Enabled" 0 "Disabled" ;
+VAL_ 8519922 allow_close_contactor 1 "Enabled" 0 "Disabled" ;
+VAL_ 8519923 new_connection_mode 0 "contactors_open" 1 "contactors_serial" 2 "contactors_parallel" 3 "contactors_undefined" ;
+VAL_ 8519923 current_connection_mode 0 "contactors_open" 1 "contactors_serial" 2 "contactors_parallel" 3 "contactors_undefined" ;
 
 
 

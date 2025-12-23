@@ -730,8 +730,8 @@ AC01 Critical and Error Faults
 | AFE_NOT_OFF | 1 | Label set |
 | FILTER_STOP_RUNNING | 1 | Label set |
 | RECTIFIER_3P_STOP_RUNNING | 1 | Label set |
-| BLEEDING_NOT_RUNNING | 1 | Label set |
-| BLEEDING_STOP_RUNNING | 1 | Label set |
+| AFE_PWM_NOT_RUNNING | 1 | Label set |
+| AFE_PWM_STOP_RUNNING | 1 | Label set |
 | BLEEDING_FAILED | 1 | Label set |
 | FILTER_NOT_OFF | 1 | Label set |
 
@@ -1192,7 +1192,7 @@ Rectifier stop running
 | Clear | 0 |
 | Error | 1 |
 
-#### BLEEDING_NOT_RUNNING { #AC01_faults-BLEEDING_NOT_RUNNING }
+#### AFE_PWM_NOT_RUNNING { #AC01_faults-AFE_PWM_NOT_RUNNING }
 
 BLEEDING not running
 
@@ -1205,7 +1205,7 @@ BLEEDING not running
 | Clear | 0 |
 | Error | 1 |
 
-#### BLEEDING_STOP_RUNNING { #AC01_faults-BLEEDING_STOP_RUNNING }
+#### AFE_PWM_STOP_RUNNING { #AC01_faults-AFE_PWM_STOP_RUNNING }
 
 Bleeding stop running
 
@@ -1278,6 +1278,7 @@ AC01 Warning
 | RQ_DC_DROOP_POS_INVALID | 1 | Label set |
 | RQ_V_SET_DC_ABOVE_MAX | 1 | Label set |
 | AFE_DROOP_NOT_ENABLE | 1 | Label set |
+| MODE_NOT_SUPPORTED | 1 | Label set |
 
 ### Payload description
 
@@ -1457,6 +1458,19 @@ Group ID not set
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 15 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Warning | 1 |
+
+#### MODE_NOT_SUPPORTED { #AC01_warning-MODE_NOT_SUPPORTED }
+
+Mode not supported
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 1 | Label set |  | 1 | 0 |  |  |
 
 | Label name | Value |
 |------------|-------|

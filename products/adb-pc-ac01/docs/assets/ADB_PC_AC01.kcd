@@ -227,12 +227,12 @@
       <Consumer><NodeRef id="0" /></Consumer>
       <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
     </Signal>
-    <Signal name="BLEEDING_NOT_RUNNING" offset="36" length="1" endianess="little">
+    <Signal name="AFE_PWM_NOT_RUNNING" offset="36" length="1" endianess="little">
       <Notes>BLEEDING not running</Notes>
       <Consumer><NodeRef id="0" /></Consumer>
       <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
     </Signal>
-    <Signal name="BLEEDING_STOP_RUNNING" offset="37" length="1" endianess="little">
+    <Signal name="AFE_PWM_STOP_RUNNING" offset="37" length="1" endianess="little">
       <Notes>Bleeding stop running</Notes>
       <Consumer><NodeRef id="0" /></Consumer>
       <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
@@ -324,6 +324,13 @@
 
       <Signal name="AFE_DROOP_NOT_ENABLE" offset="15" length="1" endianess="little">
         <Notes>Group ID not set</Notes>
+        <Consumer><NodeRef id="0" /></Consumer>
+        <LabelSet><Label name="Clear" value="0" /><Label name="Warning" value="1" /></LabelSet>
+      </Signal>
+
+
+      <Signal name="MODE_NOT_SUPPORTED" offset="16" length="1" endianess="little">
+        <Notes>Mode not supported</Notes>
         <Consumer><NodeRef id="0" /></Consumer>
         <LabelSet><Label name="Clear" value="0" /><Label name="Warning" value="1" /></LabelSet>
       </Signal>

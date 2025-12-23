@@ -45,8 +45,8 @@ BO_ 8454209 AC01_Mode_Applied: 1 ADB_PC_AC01
 BO_ 8454210 AC01_faults: 8 ADB_PC_AC01
  SG_ FILTER_NOT_OFF : 39|1@1+ (1,0) [0|0] ""  User
  SG_ BLEEDING_FAILED : 38|1@1+ (1,0) [0|0] ""  User
- SG_ BLEEDING_STOP_RUNNING : 37|1@1+ (1,0) [0|0] ""  User
- SG_ BLEEDING_NOT_RUNNING : 36|1@1+ (1,0) [0|0] ""  User
+ SG_ AFE_PWM_STOP_RUNNING : 37|1@1+ (1,0) [0|0] ""  User
+ SG_ AFE_PWM_NOT_RUNNING : 36|1@1+ (1,0) [0|0] ""  User
  SG_ RECTIFIER_3P_STOP_RUNNING : 35|1@1+ (1,0) [0|0] ""  User
  SG_ FILTER_STOP_RUNNING : 34|1@1+ (1,0) [0|0] ""  User
  SG_ AFE_NOT_OFF : 32|1@1+ (1,0) [0|0] ""  User
@@ -84,6 +84,7 @@ BO_ 8454210 AC01_faults: 8 ADB_PC_AC01
  SG_ CABLE_1_2_L1 : 0|1@1+ (1,0) [0|0] ""  User
 
 BO_ 8454211 AC01_warning: 8 ADB_PC_AC01
+ SG_ MODE_NOT_SUPPORTED : 16|1@1+ (1,0) [0|0] ""  User
  SG_ AFE_DROOP_NOT_ENABLE : 15|1@1+ (1,0) [0|0] ""  User
  SG_ RQ_V_SET_DC_ABOVE_MAX : 14|1@1+ (1,0) [0|0] ""  User
  SG_ RQ_DC_DROOP_POS_INVALID : 13|1@1+ (1,0) [0|0] ""  User
@@ -170,8 +171,8 @@ CM_ SG_ 8454209 mode "actual mode";
 CM_ BO_ 8454210 "AC01 Critical and Error Faults";
 CM_ SG_ 8454210 FILTER_NOT_OFF "filter not off";
 CM_ SG_ 8454210 BLEEDING_FAILED "Bleeding failed";
-CM_ SG_ 8454210 BLEEDING_STOP_RUNNING "Bleeding stop running";
-CM_ SG_ 8454210 BLEEDING_NOT_RUNNING "BLEEDING not running";
+CM_ SG_ 8454210 AFE_PWM_STOP_RUNNING "Bleeding stop running";
+CM_ SG_ 8454210 AFE_PWM_NOT_RUNNING "BLEEDING not running";
 CM_ SG_ 8454210 RECTIFIER_3P_STOP_RUNNING "Rectifier stop running";
 CM_ SG_ 8454210 FILTER_STOP_RUNNING "Filter stop running";
 CM_ SG_ 8454210 AFE_NOT_OFF "AFE not off";
@@ -208,6 +209,7 @@ CM_ SG_ 8454210 CABLE_1_2_L2 "DMF1(1).L2  BP25(2).V mismatch";
 CM_ SG_ 8454210 CABLE_1_3_L1 "DMF1(1).L1  BP25(3).U mismatch";
 CM_ SG_ 8454210 CABLE_1_2_L1 "DMF1(1).L1  BP25(2).U mismatch";
 CM_ BO_ 8454211 "AC01 Warning";
+CM_ SG_ 8454211 MODE_NOT_SUPPORTED "Mode not supported";
 CM_ SG_ 8454211 AFE_DROOP_NOT_ENABLE "Group ID not set";
 CM_ SG_ 8454211 RQ_V_SET_DC_ABOVE_MAX "Current above max ";
 CM_ SG_ 8454211 RQ_DC_DROOP_POS_INVALID "Current limited by power max ";
@@ -290,8 +292,8 @@ VAL_ 8454208 mode 0 "DC_Controlled" 1 "AC_Controlled" 2 "Bleeding" ;
 VAL_ 8454209 mode 0 "DC_Controlled" 1 "AC_Controlled" 2 "Bleeding" ;
 VAL_ 8454210 FILTER_NOT_OFF 0 "Clear" 1 "Error" ;
 VAL_ 8454210 BLEEDING_FAILED 0 "Clear" 1 "Error" ;
-VAL_ 8454210 BLEEDING_STOP_RUNNING 0 "Clear" 1 "Error" ;
-VAL_ 8454210 BLEEDING_NOT_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8454210 AFE_PWM_STOP_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8454210 AFE_PWM_NOT_RUNNING 0 "Clear" 1 "Error" ;
 VAL_ 8454210 RECTIFIER_3P_STOP_RUNNING 0 "Clear" 1 "Error" ;
 VAL_ 8454210 FILTER_STOP_RUNNING 0 "Clear" 1 "Error" ;
 VAL_ 8454210 AFE_NOT_OFF 0 "Clear" 1 "Error" ;
@@ -327,6 +329,7 @@ VAL_ 8454210 CABLE_1_3_L2 0 "Clear" 1 "Critical" ;
 VAL_ 8454210 CABLE_1_2_L2 0 "Clear" 1 "Critical" ;
 VAL_ 8454210 CABLE_1_3_L1 0 "Clear" 1 "Critical" ;
 VAL_ 8454210 CABLE_1_2_L1 0 "Clear" 1 "Critical" ;
+VAL_ 8454211 MODE_NOT_SUPPORTED 0 "Clear" 1 "Warning" ;
 VAL_ 8454211 AFE_DROOP_NOT_ENABLE 0 "Clear" 1 "Warning" ;
 VAL_ 8454211 RQ_V_SET_DC_ABOVE_MAX 0 "Clear" 1 "Warning" ;
 VAL_ 8454211 RQ_DC_DROOP_POS_INVALID 0 "Clear" 1 "Warning" ;

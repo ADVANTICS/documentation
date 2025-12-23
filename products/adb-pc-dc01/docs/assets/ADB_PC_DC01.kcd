@@ -71,44 +71,285 @@
       </Signal>
     </Message>
 
-        
-    <Message id="0x820042" length="8" name="DC01_faults" interval="1000" format="extended">
-      <Notes>DC01 Critical and Error Faults</Notes>
-      <Producer><NodeRef id="1" /></Producer>
+  <Message id="0x820042" length="8" name="DC01_faults" interval="1000" format="extended">
+    <Notes>DC01 Critical and Error Faults</Notes>
+    <Producer><NodeRef id="1" /></Producer>
 
-    </Message>
+    <Signal name="CABLE_2_4_DC" offset="0" length="1" endianess="little">
+      <Notes>BI25(2).DC -&gt; BI25(4).DC mismatch</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Critical" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CABLE_1_2_DC" offset="1" length="1" endianess="little">
+      <Notes>BI25(2).DC -&gt; BP25(1).DC mismatch</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Critical" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CABLE_3_4_DC" offset="2" length="1" endianess="little">
+      <Notes>BI25(4).DC -&gt; BI25(2).DC mismatch</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Critical" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CABLE_1_L1_L2" offset="3" length="1" endianess="little">
+      <Notes>BP25(1).L1 -&gt; BI25(1).L2 mismatch</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Critical" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CABLE_1_L2_L3" offset="4" length="1" endianess="little">
+      <Notes>BP25(1).L2 -&gt; BI25(1).L3 mismatch</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Critical" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CABLE_3_L1_L2" offset="5" length="1" endianess="little">
+      <Notes>BP25(3).L1 -&gt; BI25(3).L2 mismatch</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Critical" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CABLE_3_L2_L3" offset="6" length="1" endianess="little">
+      <Notes>BP25(3).L2 -&gt; BI25(3).L3 mismatch</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Critical" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CABLE_1_3_L1" offset="7" length="1" endianess="little">
+      <Notes>BP25(1).L1 -&gt; BI25(3).L1 mismatch</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Critical" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CABLE_2_IN_OUT" offset="8" length="1" endianess="little">
+      <Notes>BI25(2).IN -&gt; BI25(2).OUT mismatch</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Critical" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CABLE_4_IN_OUT" offset="9" length="1" endianess="little">
+      <Notes>BI25(4).IN -&gt; BI25(4).OUT mismatch</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Critical" value="1" /></LabelSet>
+    </Signal>
 
-    <Message id="0x820043" length="8" name="DC01_warning" interval="1000" format="extended">
-      <Notes>DC01 Warning</Notes>
-      <Producer><NodeRef id="1" /></Producer>
+    <Signal name="MODULE_1_RUNNING" offset="10" length="1" endianess="little">
+      <Notes>Module 1 running error</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="MODULE_2_RUNNING" offset="11" length="1" endianess="little">
+      <Notes>Module 2 running error</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="MODULE_3_RUNNING" offset="12" length="1" endianess="little">
+      <Notes>Module 3 running error</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="MODULE_4_RUNNING" offset="13" length="1" endianess="little">
+      <Notes>Module 4 running error</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
 
-    </Message>
+    <Signal name="CONTACTOR_1_CLOSED" offset="14" length="1" endianess="little">
+      <Notes>Contactor 1 unexpectedly closed</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CONTACTOR_2_CLOSED" offset="15" length="1" endianess="little">
+      <Notes>Contactor 2 unexpectedly closed</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CONTACTOR_3_CLOSED" offset="16" length="1" endianess="little">
+      <Notes>Contactor 3 unexpectedly closed</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CONTACTOR_4_CLOSED" offset="17" length="1" endianess="little">
+      <Notes>Contactor 4 unexpectedly closed</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CONTACTOR_1_OPEN" offset="18" length="1" endianess="little">
+      <Notes>Contactor 1 failed to close</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CONTACTOR_2_OPEN" offset="19" length="1" endianess="little">
+      <Notes>Contactor 2 failed to close</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CONTACTOR_3_OPEN" offset="20" length="1" endianess="little">
+      <Notes>Contactor 3 failed to close</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CONTACTOR_4_OPEN" offset="21" length="1" endianess="little">
+      <Notes>Contactor 4 failed to close</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CONTACTOR_1_FAIL" offset="22" length="1" endianess="little">
+      <Notes>Contactor 1 feedback failure</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CONTACTOR_2_FAIL" offset="23" length="1" endianess="little">
+      <Notes>Contactor 2 feedback failure</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CONTACTOR_3_FAIL" offset="24" length="1" endianess="little">
+      <Notes>Contactor 3 feedback failure</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CONTACTOR_4_FAIL" offset="25" length="1" endianess="little">
+      <Notes>Contactor 4 feedback failure</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+
+    <Signal name="PORT_B_OVERVOLTAGE" offset="26" length="1" endianess="little">
+      <Notes>Port B overvoltage detected</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+
+    <Signal name="CS_REV_INCOMPATIBLE" offset="27" length="1" endianess="little">
+      <Notes>Controller board incompatible</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Critical" value="1" /></LabelSet>
+    </Signal>
+
+    <Signal name="CONTACTORS_CONNECTION_UNDEFINED" offset="28" length="1" endianess="little">
+      <Notes>Contactors connection state undefined</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
 
 
-    <Message id="0x820044" length="8" name="DC01_info" interval="1000" format="extended">
-      <Notes>DC01 Info</Notes>
-      <Producer><NodeRef id="1" /></Producer>
+    <Signal name="AFE_NOT_OFF" offset="29" length="1" endianess="little">
+      <Notes>AFE not off when expected</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="AFE_PWM_NOT_RUNNING" offset="30" length="1" endianess="little">
+      <Notes>AFE PWM not running</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="AFE_PWM_STOP_RUNNING" offset="31" length="1" endianess="little">
+      <Notes>AFE PWM stopped unexpectedly</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="BLEEDING_FAILED" offset="32" length="1" endianess="little">
+      <Notes>Bleeding resistor discharge failed</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="BI25_PWM_NOT_RUNNING" offset="33" length="1" endianess="little">
+      <Notes>Bleeding resistor discharge failed</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+  </Message>
 
-      
-      <Signal name="BLEEDING_DONE" offset="1" length="1" endianess="little">
-        <Notes>Current limited by power max </Notes>
-        <Consumer><NodeRef id="0" /></Consumer>
-        <LabelSet><Label name="Clear" value="0" /><Label name="Info" value="1" /></LabelSet>
-      </Signal>
+  <Message id="0x820043" length="8" name="DC01_warning" interval="1000" format="extended">
+    <Notes>DC01 Warnings</Notes>
+    <Producer><NodeRef id="1" /></Producer>
 
-      <Signal name="parallel" offset="2" length="1" endianess="little">
-        <Notes>Afe are in parallel</Notes>
-        <Consumer><NodeRef id="0" /></Consumer>
-        <LabelSet><Label name="Clear" value="0" /><Label name="Info" value="1" /></LabelSet>
-      </Signal>
+    <Signal name="MODE_NOT_SUPPORTED" offset="0" length="1" endianess="little">
+      <Notes>Mode not supported</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Warning" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="RQ_V_B_SET_ABOVE_MAX" offset="1" length="1" endianess="little">
+      <Notes>Requested Port B voltage above maximum</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Warning" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="RQ_V_B_SET_BELLOW_MIN" offset="2" length="1" endianess="little">
+      <Notes>Requested Port B voltage below minimum</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Warning" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="RQ_C_SOURCE_B_ABOVE_MAX" offset="3" length="1" endianess="little">
+      <Notes>Source current Port B above maximum</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Warning" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="RQ_C_SOURCE_B_BELLOW_MIN" offset="4" length="1" endianess="little">
+      <Notes>Source current Port B below minimum</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Warning" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="RQ_C_SINK_B_ABOVE_MAX" offset="5" length="1" endianess="little">
+      <Notes>Sink current Port B above maximum</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Warning" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="RQ_C_SINK_B_BELLOW_MIN" offset="6" length="1" endianess="little">
+      <Notes>Sink current Port B below minimum</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Warning" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="RQ_V_B_SET_ABOVE_A" offset="7" length="1" endianess="little">
+      <Notes>Requested Port B voltage higher than Port A</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Warning" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="RQ_DC_DROOP_POS_INVALID" offset="8" length="1" endianess="little">
+      <Notes>DC droop positive invalid</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Warning" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="RQ_DC_DROOP_NEG_INVALID" offset="9" length="1" endianess="little">
+      <Notes>DC droop negative invalid</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Warning" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="V_A_LOW" offset="10" length="1" endianess="little">
+      <Notes>voltage port a too low</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Warning" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="V_A_HIGH" offset="11" length="1" endianess="little">
+      <Notes>voltage port a too high</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Warning" value="1" /></LabelSet>
+    </Signal>
+  </Message>
 
-      <Signal name="serial" offset="3" length="1" endianess="little">
-        <Notes>Afe are in series </Notes>
-        <Consumer><NodeRef id="0" /></Consumer>
-        <LabelSet><Label name="Clear" value="0" /><Label name="Info" value="1" /></LabelSet>
-      </Signal>
+  <Message id="0x820044" length="8" name="DC01_info" interval="1000" format="extended">
+    <Notes>DC01 Informational Flags</Notes>
+    <Producer><NodeRef id="1" /></Producer>
 
-    </Message>
+    <Signal name="BLEEDING_DONE" offset="0" length="1" endianess="little">
+      <Notes>Bleeding completed successfully</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Info" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CONTACTORS_CONNECTION_SERIAL" offset="1" length="1" endianess="little">
+      <Notes>Contactors connected in series</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Info" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CONTACTORS_CONNECTION_PARALLEL" offset="2" length="1" endianess="little">
+      <Notes>Contactors connected in parallel</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Info" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CONTACTORS_CONNECTION_OPEN" offset="3" length="1" endianess="little">
+      <Notes>All contactors open</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Info" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CONNECTION_MANAGER_RQ_CHANGE" offset="4" length="1" endianess="little">
+      <Notes>Connection manager requests topology change</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Info" value="1" /></LabelSet>
+    </Signal>
+  </Message>
 
 
     <Message id="0x820020" length="6" name="B_Port_Setpoints" interval="1000" format="extended">
@@ -340,6 +581,64 @@
       </Signal>
     </Message>
 
+
+    <Message id="0x8200f2" length="8" name="DC01_debug" interval="1000" format="extended">
+      <Notes>The setpoints that are currently used by the DC01. This message allows to validate that the setpoints have been properly applied.</Notes>
+      <Producer> 
+        <NodeRef id="0" /> 
+      </Producer>
+      <Signal name="allow_close_contactor" offset="0" length="1">
+        <Notes>The voltage target of the A port</Notes>
+        <Consumer> 
+          <NodeRef id="1" /> 
+        </Consumer>
+        <LabelSet>
+          <Label name="Enabled" value="1" />
+          <Label name="Disabled" value="0" />
+        </LabelSet>
+      </Signal>
+  </Message>
+
+
+
+      
+    <Message id="0x8200f3" length="8" name="DC01_debug_connection" interval="1000" format="extended">
+      <Notes>The setpoints that are currently used by the DC01. This message allows to validate that the setpoints have been properly applied.</Notes>
+      <Producer> 
+        <NodeRef id="1" /> 
+      </Producer>
+
+      <Signal name="current_connection_mode" offset="8" length="8">
+        <Notes>The voltage target of the A port</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <LabelSet>
+          <Label name="contactors_open" value="0" />
+          <Label name="contactors_serial" value="1" />
+          <Label name="contactors_parallel" value="2" />
+          <Label name="contactors_undefined" value="3" />
+        </LabelSet>
+      </Signal>
+
+      
+      <Signal name="new_connection_mode" offset="16" length="8">
+        <Notes>The voltage target of the A port</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <LabelSet>
+          <Label name="contactors_open" value="0" />
+          <Label name="contactors_serial" value="1" />
+          <Label name="contactors_parallel" value="2" />
+          <Label name="contactors_undefined" value="3" />
+        </LabelSet>
+      </Signal>
+
+    </Message>
+
+
+  
 
     </Bus>
 </NetworkDefinition>
