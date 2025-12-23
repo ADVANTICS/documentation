@@ -184,5 +184,53 @@ They are slow paced because the release process is substantial.
         </ul>
       </td>
     </tr>
+    <tr>
+      <td class="branch-col">Release 4.2</td>
+      <td class="date-col">2025-12-23</td>
+      <td>
+        <ul>
+          <li><strong>evse-controller 3.4.0</strong>
+            <ul>
+              <li>Support for Pause/Resume functionality according to ISO15118-2 and ISO15118-20</li>
+              <li>Allow restarting a new charge session when B-C-B toggle is detected (CCS)</li>
+              <li>Add CCS and MCS extra info messages reporting CP, duty cycle / CE, ID</li>
+              <li>Change default current ramp up/down rates</li>
+              <li>Fix EV ID sending over CAN bus interface</li>
+              <li>Boost-Buck interface: Force boost to always have a 200V offset over buck voltage</li>
+              <li>Boost-Buck interface: Perform precharge using all the stacks</li>
+              <li>Boost-Buck interface: Turn off bucks in standby</li>
+            </ul>
+          </li>
+          <li><strong>ccs-secc 2.4.0</strong>
+            <ul>
+              <li>Support for Pause/Resume functionality according to ISO15118-2 and ISO15118-20</li>
+              <li>MCS: Add configurable software filtering on CE and ID lines</li>
+            </ul>
+          </li>
+          <li><strong>advantics-csm 1.6.4</strong>
+            <ul>
+              <li>Add the possibility to restart CSM when submitting config from the UI</li>
+              <li>Toggle J1939/CAN monitoring on config change without restarting the whole app</li>
+              <li>Support both extended and non-extended IDs for CAN monitoring</li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><strong>Option 1:</strong> Pull from Docker Hub - <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=option-1-requires-internet-pulling-the-update-from-docker-hub">Guide</a></li>
+          <li><strong>Option 2:</strong> <a href="https://drive.google.com/uc?export=download&id=1ykdS71tNExKZLM468Rl9SJCZUj5mm7UP">Download .tar</a> + <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=full-release-update">Update instructions</a></li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><a href="https://hub.docker.com/r/advantics/evse-controller/tags">advantics/evse-controller:3.4.0</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/ccs-secc/tags">advantics/ccs-secc:2.4.0</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/slac-evse/tags">advantics/slac-evse:2.3.2</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/advantics-csm/tags">advantics/advantics-csm:1.6.4</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/ocpp-charge-point/tags">advantics/ocpp-charge-point:1.5.1</a></li>
+        </ul>
+      </td>
+    </tr>
   </tbody>
 </table>
