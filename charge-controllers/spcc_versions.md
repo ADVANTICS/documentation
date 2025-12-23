@@ -210,8 +210,6 @@ They are slow paced because the release process is substantial.
           <li><strong>advantics-csm 1.6.4</strong>
             <ul>
               <li>Add the possibility to restart CSM when submitting config from the UI</li>
-              <li>Toggle J1939/CAN monitoring on config change without restarting the whole app</li>
-              <li>Support both extended and non-extended IDs for CAN monitoring</li>
             </ul>
           </li>
         </ul>
