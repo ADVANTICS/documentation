@@ -248,5 +248,36 @@ Currently supported hardware are for `ADM-CS-MEVC`.
         </ul>
       </td>
     </tr>
+    <tr>
+      <td class="branch-col">Release 2.4.1</td>
+      <td class="date-col">2025-12-23</td>
+      <td>
+        <ul>
+          <li><strong>ccs-evcc 2.4.1</strong>
+            <ul>
+              <li>Bug fix: checking for wrong CP state in session stop state resulting in abnormal session termination in some cases</li>
+              <li>CE and ID filtering: enhanced logging</li>
+            </ul>
+          </li>
+          <li><strong>advantics-csm 1.6.4</strong>
+            <ul>
+              <li>fix a minor bug</li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><strong>Option 1:</strong> Pull from Docker hub — <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=option-1-requires-internet-pulling-the-update-from-docker-hub">Guide</a></li>
+          <li><strong>Option 2:</strong> <a href="https://drive.google.com/uc?export=download&id=1k6z6sdHi-K8_FD3yBFHoNis11xjbzsCI">Download .tar (Release 2.4.1)</a> — <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=full-release-update">Update Instructions</a></li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><a href="https://hub.docker.com/r/advantics/ccs-evcc/tags">advantics/ccs-evcc:2.4.1</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/advantics-csm/tags">advantics/advantics-csm:1.6.4</a></li>
+        </ul>
+      </td>
+    </tr>
   </tbody>
 </table>

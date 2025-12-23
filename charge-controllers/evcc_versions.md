@@ -238,6 +238,20 @@ release.
 				Update instructions: (<a href="charge-controllers/sys3_update.md#full-release-update">Full release update</a>)
 			</td>
 		</tr>
+        <tr>
+            <td class="branch-col">release 2.4.1</td>
+            <td class="date-col">2025-12-23</td>
+            <td>
+                ccs-evcc 2.4.1:<br/>
+                - Bug fix: checking for wrong CP state in session stop state resulting in abnormal session termination in some cases<br/>
+                advantics-csm 1.6.4:<br/>
+                - fix a minor bug
+            </td>
+            <td>
+                Download link: <a href="https://drive.google.com/uc?export=download&id=1P94tjWQfFQqn-2JCfV5JVXagRMNqQ8CT">evcc-23-12-2025.zip</a><br/>
+                Update instructions: (<a href="charge-controllers/sys3_update.md#full-release-update">Full release update</a>)
+            </td>
+        </tr>
 	</tbody>
 </table>
 
