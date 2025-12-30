@@ -4,8 +4,8 @@ See [all messages page](charge-controllers/secc_generic/can_v3).
 
 Download CAN DBs:
 
-- [Advantics Generic EVSE protocol v3.3 (Kayak format)](charge-controllers/secc_generic/Advantics_Generic_EVSE_protocol_v3.3.kcd ':ignore')
-- [Advantics Generic EVSE protocol v3.3 (DBC format)](charge-controllers/secc_generic/Advantics_Generic_EVSE_protocol_v3.3.dbc ':ignore')
+- [Advantics Generic EVSE protocol v3.4 (Kayak format)](../charger-can-interfaces/Advantics_Generic_EVSE_protocol_v3.4.kcd ':ignore')
+- [Advantics Generic EVSE protocol v3.4 (DBC format)](../charger-can-interfaces/Advantics_Generic_EVSE_protocol_v3.4.dbc ':ignore')
 
 ## CAN ID index field
 
@@ -14,7 +14,7 @@ This section provides details about the config file section `[pistols]` for ADVA
 
 **For customers using versions 3.x, please consult the actual config file, as it contains all the necessary information on each section.**
 
-The generic interface abstracts away various charging standards operating over up to 3 pistols in parallel (CCS DC, AC, CHAdeMO).
+The generic interface abstracts away various charging standards operating over up to 3 pistols in parallel (MCS, CCS DC, AC, CHAdeMO).
 
 The CAN ID index field serves as an identifier for each pistol (charging connector) in the charging system. It acts as an offset to the CAN IDs, allowing independent addressing of each pistol via the generic interface as an individual charger. 
 
@@ -24,7 +24,8 @@ The following is an example:
 
     [pistols]
     enabled =
-        CCS DC
+        MCS
+    #    CCS DC
     #    CCS AC
     #    CHAdeMO
 

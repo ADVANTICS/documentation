@@ -1,15 +1,9 @@
-
-<!-- <div style="background-color: teal; color: white; font-weight: bold; padding: 10px; text-align: center;">
-    🚨 IMPORTANT: This interface is currently supported only for ADM-CS-SPCC and ADM-CS-MEVC 🚨
-</div> -->
-
-# Accessing and interacting with the controller
+# Connecting to the SPCC
 
 ## Introduction
 
-!!! note
+!!! Note
     The hostname is composed by the controller type and its serial number in the format: `adm-cs-<controller-type>-<serial-number>.local`. You should be able to find it in a sticker in the packaging of the controller.
-
 
 The default way to access controllers running the new AdvOS is through their web interface. Once the controller is powered on and connected to the same network as your computer, you can open a web browser on your computer and navigate to the hostname that is printed in the box . Don't forget to add the `http://`!. ie: `http://adm-cs-spcc-12345678.local`.
 
@@ -17,7 +11,7 @@ Then in your browser you should see something like this:
 
 ![CSM Web UI landing page](./images/csm-ui-dashboard-status.png ":size=80%")
 
-You can find documentation on how to use the UI under [CSM Web UI](charge-controllers/advantics_os/csm-web-ui.md).
+You can find documentation on how to use the UI under [CSM Web UI](../advos-yocto-system/csm-web-ui.md).
 
 Sections below explain typical network configurations for accessing the controller.
 
@@ -118,6 +112,6 @@ If `adm-cs-<controller-type>-<serial-number>.local` is not resolving in your bro
 
 If you are inside a managed network at your company facilities, chances are that you don't have direct access to the router/switch. If your computer is connected via ethernet cable to a wall socket, you will need to find another wall socket for the controller. After doing so you can try again to navigate to `http://adm-cs-<controller-type>-<serial-number>.local/` in your browser. If that still does not work, it is because there are many safety reasons to forbid adding arbitrary devices to the corporate network, and therefore the intervention of your company's IT is mandatory. In this case, your best bet is to contact them.
 
-Nevertheless, you can connect your controller directly to your computer via Ethernet cable, see [connecting directly using ethernet cable](charge-controllers/advantics_os/connecting.md?id=connect-directly-the-controller-to-your-computer-via-ethernet-cable).
+Nevertheless, you can connect your controller directly to your computer via Ethernet cable, see [connecting directly using ethernet cable](../advos-yocto-system/connecting.md#connect-directly-the-controller-to-your-computer-via-ethernet-cable).
 
 If all of the above does not work, contact your IT department and they will guide you to get the controller connected in the same network as your computer in order to access it from the browser.

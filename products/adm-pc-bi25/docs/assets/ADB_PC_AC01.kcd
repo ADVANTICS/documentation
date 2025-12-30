@@ -1,0 +1,690 @@
+<?xml version='1.0' encoding='utf-8'?>
+<NetworkDefinition xmlns="http://kayak.2codeornot2code.org/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="KCD_Definition.xsd">
+  <Document name="ADB_PC_AC01" version="0.1" author="Thomas A" company="Advantics" date="2025-09-23" />
+
+  <Node id="0" name="User" />
+  <Node id="1" name="ADB_PC_AC01" />
+
+  <Bus name="ADB_PC_AC01" baudrate="500000">
+
+    <Message id="0x810040" length="1" name="AC01_Mode_Set" format="extended">
+      <Notes>Set the mode of AC01</Notes>
+      <Producer> 
+        <NodeRef id="0" /> 
+      </Producer>
+      <Signal name="mode" offset="0" length="8">
+        <Notes>require mode</Notes>
+        <Consumer> 
+          <NodeRef id="1" /> 
+        </Consumer>
+        <LabelSet>
+          <Label name="DC_Controlled" value="0" />
+          <Label name="AC_Controlled" value="1" />
+          <Label name="Bleeding" value="2" />
+        </LabelSet>
+      </Signal>
+    </Message>
+
+    <Message id="0x810041" length="1" name="AC01_Mode_Applied" interval="1000" format="extended">
+      <Notes>read back the modes</Notes>
+      <Producer> 
+        <NodeRef id="1" /> 
+      </Producer>
+      <Signal name="mode" offset="0" length="8">
+        <Notes>actual mode</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <LabelSet>
+          <Label name="DC_Controlled" value="0" />
+          <Label name="AC_Controlled" value="1" />
+          <Label name="Bleeding" value="2" />
+        </LabelSet>
+      </Signal>
+    </Message>
+
+    
+  <Message id="0x810042" length="8" name="AC01_faults" interval="1000" format="extended">
+    <Notes>AC01 Critical and Error Faults</Notes>
+    <Producer><NodeRef id="1" /></Producer>
+
+    <Signal name="CABLE_1_2_L1" offset="0" length="1" endianess="little">
+      <Notes>DMF1(1).L1  BP25(2).U mismatch</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Critical" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CABLE_1_3_L1" offset="1" length="1" endianess="little">
+      <Notes>DMF1(1).L1  BP25(3).U mismatch</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Critical" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CABLE_1_2_L2" offset="2" length="1" endianess="little">
+      <Notes>DMF1(1).L2  BP25(2).V mismatch</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Critical" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CABLE_1_3_L2" offset="3" length="1" endianess="little">
+      <Notes>DMF1(1).L2  BP25(3).V mismatch</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Critical" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CABLE_1_2_L3" offset="4" length="1" endianess="little">
+      <Notes>DMF1(1).L3  BP25(2).W mismatch</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Critical" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CABLE_1_3_L3" offset="5" length="1" endianess="little">
+      <Notes>DMF1(1).L3  BP25(3).W mismatch</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Critical" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CABLE_4_5_L1" offset="6" length="1" endianess="little">
+      <Notes>DMF1(4).L1  BP25(5).U mismatch</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Critical" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CABLE_4_6_L1" offset="7" length="1" endianess="little">
+      <Notes>DMF1(4).L1  BP25(6).U mismatch</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Critical" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CABLE_4_5_L2" offset="8" length="1" endianess="little">
+      <Notes>DMF1(4).L2  BP25(5).V mismatch</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Critical" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CABLE_4_6_L2" offset="9" length="1" endianess="little">
+      <Notes>DMF1(4).L2  BP25(6).V mismatch</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Critical" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CABLE_4_5_L3" offset="10" length="1" endianess="little">
+      <Notes>DMF1(4).L3  BP25(5).W mismatch</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Critical" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CABLE_4_6_L3" offset="11" length="1" endianess="little">
+      <Notes>DMF1(4).L3  BP25(6).W mismatch</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Critical" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CABLE_1_4_L1" offset="12" length="1" endianess="little">
+      <Notes>Grid L1  DMF1(1).in vs DMF1(4).in mismatch</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Critical" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CABLE_1_4_L2" offset="13" length="1" endianess="little">
+      <Notes>Grid L2  DMF1(1).in vs DMF1(4).in mismatch</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Critical" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CABLE_1_4_L3" offset="14" length="1" endianess="little">
+      <Notes>Grid L3 - DMF1(1).in vs DMF1(4).in mismatch</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Critical" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CABLE_2_3_DC" offset="15" length="1" endianess="little">
+      <Notes>BP25(2).DC  BP25(3).DC mismatch</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Critical" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CABLE_5_6_DC" offset="16" length="1" endianess="little">
+      <Notes>BP25(5).DC  BP25(6).DC mismatch</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Critical" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="CABLE_3_5_DC" offset="17" length="1" endianess="little">
+      <Notes>BP25(3).DC  BP25(5).DC mismatch</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Critical" value="1" /></LabelSet>
+    </Signal>
+
+    <Signal name="MODULE_1_RUNNING" offset="18" length="1" endianess="little">
+      <Notes>DMF1(1) running error</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="MODULE_2_RUNNING" offset="19" length="1" endianess="little">
+      <Notes>DMF1(2) running error</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="MODULE_3_RUNNING" offset="20" length="1" endianess="little">
+      <Notes>DMF1(3) running error</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="MODULE_4_RUNNING" offset="21" length="1" endianess="little">
+      <Notes>DMF1(4) running error</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="MODULE_5_RUNNING" offset="22" length="1" endianess="little">
+      <Notes>DMF1(5) running error</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="MODULE_6_RUNNING" offset="23" length="1" endianess="little">
+      <Notes>DMF1(6) running error</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+
+    <Signal name="FILTER_1_RELAY_FAIL" offset="24" length="1" endianess="little">
+      <Notes>Relay 1 fail</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="FILTER_4_RELAY_FAIL" offset="25" length="1" endianess="little">
+      <Notes>Relay 4 fail</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="FILTER_1_RELAY_NOT_OFF" offset="26" length="1" endianess="little">
+      <Notes>Relay 1 not off</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="FILTER_4_RELAY_NOT_OFF" offset="27" length="1" endianess="little">
+      <Notes>Relay 4 not off</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="PRECHARGE_RELAY_CLOSING" offset="28" length="1" endianess="little">
+      <Notes>Precharge relay closing</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="PRECHARGE_RELAY_OPENING" offset="29" length="1" endianess="little">
+      <Notes>Precharge relay opening</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+
+    <Signal name="FILTER_NOT_RUNNING" offset="30" length="1" endianess="little">
+      <Notes>Filter not running</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="RECTIFIER_3P_NOT_RUNNING" offset="31" length="1" endianess="little">
+      <Notes>Rectifier not running</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="AFE_NOT_OFF" offset="32" length="1" endianess="little">
+      <Notes>AFE not off</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+
+    <Signal name="FILTER_STOP_RUNNING" offset="34" length="1" endianess="little">
+      <Notes>Filter stop running</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="RECTIFIER_3P_STOP_RUNNING" offset="35" length="1" endianess="little">
+      <Notes>Rectifier stop running</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="AFE_PWM_NOT_RUNNING" offset="36" length="1" endianess="little">
+      <Notes>BLEEDING not running</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="AFE_PWM_STOP_RUNNING" offset="37" length="1" endianess="little">
+      <Notes>Bleeding stop running</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="BLEEDING_FAILED" offset="38" length="1" endianess="little">
+      <Notes>Bleeding failed</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+    <Signal name="FILTER_NOT_OFF" offset="39" length="1" endianess="little">
+      <Notes>filter not off</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Error" value="1" /></LabelSet>
+    </Signal>
+  </Message>
+
+
+    <Message id="0x810043" length="8" name="AC01_warning" interval="1000" format="extended">
+      <Notes>AC01 Warning</Notes>
+      <Producer><NodeRef id="1" /></Producer>
+
+      <Signal name="GHM_INIT" offset="0" length="1" endianess="little">
+        <Notes>GHM init failed</Notes>
+        <Consumer><NodeRef id="0" /></Consumer>
+        <LabelSet><Label name="Clear" value="0" /><Label name="Warning" value="1" /></LabelSet>
+      </Signal>
+      <Signal name="GHM_RMS" offset="1" length="1" endianess="little">
+        <Notes>GHM RMS failed</Notes>
+        <Consumer><NodeRef id="0" /></Consumer>
+        <LabelSet><Label name="Clear" value="0" /><Label name="Warning" value="1" /></LabelSet>
+      </Signal>
+      <Signal name="GHM_FREQ" offset="2" length="1" endianess="little">
+        <Notes>GHM freq failed</Notes>
+        <Consumer><NodeRef id="0" /></Consumer>
+        <LabelSet><Label name="Clear" value="0" /><Label name="Warning" value="1" /></LabelSet>
+      </Signal>
+      <Signal name="GHM_PHASE" offset="3" length="1" endianess="little">
+        <Notes>GHM phase failed</Notes>
+        <Consumer><NodeRef id="0" /></Consumer>
+        <LabelSet><Label name="Clear" value="0" /><Label name="Warning" value="1" /></LabelSet>
+      </Signal>
+
+      <Signal name="RQ_V_SET_DC_BELOW_AC" offset="4" length="1" endianess="little">
+        <Notes>DC voltage too low vs AC</Notes>
+        <Consumer><NodeRef id="0" /></Consumer>
+        <LabelSet><Label name="Clear" value="0" /><Label name="Warning" value="1" /></LabelSet>
+      </Signal>
+      <Signal name="RQ_C_SINK_SET_LOW" offset="5" length="1" endianess="little">
+        <Notes>Sink current too low</Notes>
+        <Consumer><NodeRef id="0" /></Consumer>
+        <LabelSet><Label name="Clear" value="0" /><Label name="Warning" value="1" /></LabelSet>
+      </Signal>
+      <Signal name="RQ_C_SOURCE_SET_LOW" offset="6" length="1" endianess="little">
+        <Notes>Source current too low</Notes>
+        <Consumer><NodeRef id="0" /></Consumer>
+        <LabelSet><Label name="Clear" value="0" /><Label name="Warning" value="1" /></LabelSet>
+      </Signal>
+      <Signal name="RQ_C_SET_DC_ABOVE_MAX" offset="7" length="1" endianess="little">
+        <Notes>Current above max </Notes>
+        <Consumer><NodeRef id="0" /></Consumer>
+        <LabelSet><Label name="Clear" value="0" /><Label name="Warning" value="1" /></LabelSet>
+      </Signal>
+      <Signal name="RQ_C_SET_DC_BELOW_MIN" offset="8" length="1" endianess="little">
+        <Notes>Sink current too low</Notes>
+        <Consumer><NodeRef id="0" /></Consumer>
+        <LabelSet><Label name="Clear" value="0" /><Label name="Warning" value="1" /></LabelSet>
+      </Signal>
+      <Signal name="RQ_V_SET_DC_BELOW_MIN" offset="9" length="1" endianess="little">
+        <Notes>Source current too low</Notes>
+        <Consumer><NodeRef id="0" /></Consumer>
+        <LabelSet><Label name="Clear" value="0" /><Label name="Warning" value="1" /></LabelSet>
+      </Signal>
+
+      <Signal name="RQ_DC_DROOP_NEG_INVALID" offset="12" length="1" endianess="little">
+        <Notes>Current limited by power max </Notes>
+        <Consumer><NodeRef id="0" /></Consumer>
+        <LabelSet><Label name="Clear" value="0" /><Label name="Warning" value="1" /></LabelSet>
+      </Signal>
+      <Signal name="RQ_DC_DROOP_POS_INVALID" offset="13" length="1" endianess="little">
+        <Notes>Current limited by power max </Notes>
+        <Consumer><NodeRef id="0" /></Consumer>
+        <LabelSet><Label name="Clear" value="0" /><Label name="Warning" value="1" /></LabelSet>
+      </Signal>
+      <Signal name="RQ_V_SET_DC_ABOVE_MAX" offset="14" length="1" endianess="little">
+        <Notes>Current above max </Notes>
+        <Consumer><NodeRef id="0" /></Consumer>
+        <LabelSet><Label name="Clear" value="0" /><Label name="Warning" value="1" /></LabelSet>
+      </Signal>
+
+      <Signal name="AFE_DROOP_NOT_ENABLE" offset="15" length="1" endianess="little">
+        <Notes>Group ID not set</Notes>
+        <Consumer><NodeRef id="0" /></Consumer>
+        <LabelSet><Label name="Clear" value="0" /><Label name="Warning" value="1" /></LabelSet>
+      </Signal>
+
+
+      <Signal name="MODE_NOT_SUPPORTED" offset="16" length="1" endianess="little">
+        <Notes>Mode not supported</Notes>
+        <Consumer><NodeRef id="0" /></Consumer>
+        <LabelSet><Label name="Clear" value="0" /><Label name="Warning" value="1" /></LabelSet>
+      </Signal>
+
+    </Message>
+   
+
+
+    <Message id="0x810044" length="8" name="AC01_info" interval="1000" format="extended">
+      <Notes>AC01 Info</Notes>
+      <Producer><NodeRef id="1" /></Producer>
+
+      <Signal name="BLEEDING_DONE" offset="1" length="1" endianess="little">
+        <Notes>Current limited by power max </Notes>
+        <Consumer><NodeRef id="0" /></Consumer>
+        <LabelSet><Label name="Clear" value="0" /><Label name="Info" value="1" /></LabelSet>
+      </Signal>
+
+      <Signal name="RQ_C_LIMITED_BY_POWER" offset="2" length="1" endianess="little">
+        <Notes>Current limited by power max </Notes>
+        <Consumer><NodeRef id="0" /></Consumer>
+        <LabelSet><Label name="Clear" value="0" /><Label name="Info" value="1" /></LabelSet>
+      </Signal>
+
+    </Message>
+
+
+
+
+    <Message id="0x810020" length="6" name="DC_Ports_Setpoints" interval="1000" format="extended">
+      <Notes>The setpoints control the behaviour of the DC Port of the AC01. The AC01 operates this port in CVCC mode</Notes>
+      <Producer> 
+        <NodeRef id="0" /> 
+      </Producer>
+      <Signal name="Voltage" offset="0" length="16">
+        <Notes>Control the target dc side voltage. This voltage will be maintained as long as the current required to do so is smaller than the current limits specified in this message</Notes>
+        <Consumer> 
+          <NodeRef id="1" /> 
+        </Consumer>
+        <Value type="unsigned" slope="0.1" unit="V" min="0" max="1500" />
+      </Signal>
+      <Signal name="Source_Current_Limit" offset="16" length="16">
+        <Notes>The maximum current that the AC01 will source on the DC Port</Notes>
+        <Consumer> 
+          <NodeRef id="1" /> 
+        </Consumer>
+        <Value type="unsigned" slope="0.1" unit="A" min="0" max="220" />
+      </Signal>
+      <Signal name="Sink_Current_Limit" offset="32" length="16">
+        <Notes>The maximum current that the AC01 will sink into the DC Port</Notes>
+        <Consumer> 
+          <NodeRef id="1" /> 
+        </Consumer>
+        <Value type="unsigned" slope="0.1" unit="A" min="0" max="220" />
+      </Signal>
+    </Message>
+
+    <Message id="0x810021" length="8" name="DC_Port_Applied_Setpoints" interval="1000" format="extended">
+      <Notes>The setpoints that are currently used by the AC01. This message allows to validate that the setpoints have been properly applied.</Notes>
+      <Producer> 
+        <NodeRef id="1" /> 
+      </Producer>
+      <Signal name="Voltage" offset="0" length="16">
+        <Notes>The voltage target of the DC port</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value type="unsigned" slope="0.1" unit="V" />
+      </Signal>
+      <Signal name="Source_Current_Limit" offset="16" length="16">
+        <Notes>The maximum current that the AC01 will source on the DC Port</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value type="unsigned" slope="0.1" unit="A" />
+      </Signal>
+      <Signal name="Sink_Current_Limit" offset="32" length="16">
+        <Notes>The maximum amount of current that the AC01 will sink into the DC port</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value type="unsigned" slope="0.1" unit="A" />
+      </Signal>
+    </Message>
+
+    <Message id="0x810024" length="4" name="DC_Port_Measurements" interval="100" format="extended">
+      <Notes>Measurements of the DC Bus</Notes>
+      <Producer> 
+        <NodeRef id="1" /> 
+      </Producer>
+      <Signal name="Voltage" offset="0" length="16" endianess="little">
+        <Notes>Voltage on the DC Port</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value slope="0.1" unit="V" intercept="0" type="unsigned" />
+      </Signal>
+      <Signal name="Current" offset="16" length="16" endianess="little">
+        <Notes>Current through the DC Port</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value slope="0.1" unit="A" intercept="0" type="signed" />
+      </Signal>
+    </Message>
+
+    <Message id="0x810022" length="8" name="DC_Port_Droop_Setpoints" format="extended">
+      <Notes>Setpoints for applying Droop on the DC Port. Droop is needed for paralleling multiple AC01</Notes>
+      <Producer> 
+        <NodeRef id="0" /> 
+      </Producer>
+      <Signal name="Positive_Current_Droop" offset="0" length="16" endianess="little">
+        <Notes>The droop resistance to apply for current flowing out of the DC port (DC current is positive)</Notes>
+        <Consumer> 
+          <NodeRef id="1" /> 
+        </Consumer>
+        <Value slope="0.01" unit="Ohm" intercept="0" type="unsigned" />
+      </Signal>
+      <Signal name="Negative_Current_Droop" offset="16" length="16" endianess="little">
+        <Notes>The droop resistance to apply for current flowing in to the DC Port (DC current is negative)</Notes>
+        <Consumer> 
+          <NodeRef id="1" /> 
+        </Consumer>
+        <Value slope="0.01" unit="Ohm" intercept="0" type="unsigned" />
+      </Signal>
+      <Signal name="Enable" offset="32" length="1" endianess="little">
+        <Notes>Enable DC Droop. If this feature is enabled the output voltage of the DC port varies with output current.</Notes>
+        <Consumer> 
+          <NodeRef id="1" /> 
+        </Consumer>
+        <LabelSet>
+          <Label name="Enabled" value="1" />
+          <Label name="Disabled" value="0" />
+        </LabelSet>
+      </Signal>
+      <Signal name="Reserved" offset="33" length="31">
+        <Notes>This space is reserved. This region should contain only '0's</Notes>
+        <Consumer> 
+          <NodeRef id="1" /> 
+        </Consumer>
+      </Signal>
+    </Message>
+
+    <Message id="0x810023" length="8" name="DC_Port_Applied_Droop_Setpoints" interval="1000" format="extended">
+      <Notes>Droop setpoints that are applied by the AC01</Notes>
+      <Producer> 
+        <NodeRef id="1" /> 
+      </Producer>
+
+      <Signal name="Positive_Current_Droop" offset="0" length="16" endianess="little">
+        <Notes>The droop resistance applied for current flowing out of the DC port (DC current is positive)</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value slope="0.01" unit="Ohm" intercept="0" type="unsigned" />
+      </Signal>
+      <Signal name="Negative_Current_Droop" offset="16" length="16" endianess="little">
+        <Notes>The droop resistance applied for current flowing in to the DC Port (DC current is negative)</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value slope="0.01" unit="Ohm" intercept="0" type="unsigned" />
+      </Signal>
+
+      <Signal name="Enable" offset="32" length="1" endianess="little">
+        <Notes>Show is DC Droop is enabled.</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <LabelSet>
+          <Label name="Enabled" value="1" />
+          <Label name="Disabled" value="0" />
+        </LabelSet>
+      </Signal>
+
+      <Signal name="Reserved" offset="33" length="31">
+        <Notes>This space is reserved. This region should contain only '0's</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+      </Signal>
+    </Message>
+
+    <Message id="0x810032" length="8" name="AC_Port_Measurements" interval="1000" format="extended">
+      <Notes>Mesured values of the Grid connection</Notes>
+      <Producer> 
+        <NodeRef id="1" /> 
+      </Producer>
+      <Signal name="Frequency" offset="0" length="16" endianess="little">
+        <Notes>RMS Voltage of L1</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value slope="0.01" intercept="0" unit="Hz" type="unsigned" />
+      </Signal>
+      <Signal name="Voltage" offset="16" length="16" endianess="little">
+        <Notes>Average RMS Line to Line voltage at the AC port</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value slope="0.1" intercept="0" unit="V" type="unsigned" />
+      </Signal>
+      <Signal name="Reserved" offset="32" length="32">
+        <Notes>This space is reserved. This region contains only '0's</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+      </Signal>
+    </Message>
+
+    <Message id="0x810033" length="8" name="L1_Measurements" interval="100" format="extended">
+      <Notes>Measurements for L1 of the AC port</Notes>
+      <Producer> 
+        <NodeRef id="1" /> 
+      </Producer>
+      <Signal name="U" offset="0" length="16" endianess="little">
+        <Notes>RMS Voltage of L1</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value slope="0.1" intercept="0" unit="V" type="signed" />
+      </Signal>
+      <Signal name="I" offset="16" length="16" endianess="little">
+        <Notes>RMS Current of L1</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value slope="0.1" intercept="0" unit="A" type="signed" />
+      </Signal>
+      <Signal name="P" offset="32" length="16" endianess="little">
+        <Notes>Active power of L1</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value slope="0.1" intercept="0" unit="W" type="signed" />
+      </Signal>
+      <Signal name="Q" offset="48" length="16" endianess="little">
+        <Notes>Reactive power of L1</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value slope="0.1" intercept="0" unit="VAR" type="signed" />
+      </Signal>
+    </Message>
+
+    <Message id="0x810034" length="8" name="L2_Measurements" interval="100" format="extended">
+      <Notes>Measurements for L2 of the AC port</Notes>
+      <Producer> 
+        <NodeRef id="1" /> 
+      </Producer>
+      <Signal name="U" offset="0" length="16" endianess="little">
+        <Notes>RMS Voltage of L1</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value slope="0.1" intercept="0" unit="V" type="signed" />
+      </Signal>
+      <Signal name="I" offset="16" length="16" endianess="little">
+        <Notes>RMS Current of L2</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value slope="0.1" intercept="0" unit="A" type="signed" />
+      </Signal>
+      <Signal name="P" offset="32" length="16" endianess="little">
+        <Notes>Active power of L2</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value slope="0.1" intercept="0" unit="W" type="signed" />
+      </Signal>
+      <Signal name="Q" offset="48" length="16" endianess="little">
+        <Notes>Reactive power of L2</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value slope="0.1" intercept="0" unit="VAR" type="signed" />
+      </Signal>
+    </Message>
+
+    <Message id="0x810035" length="8" name="L3_Measurements" interval="100" format="extended">
+      <Notes>Measurements for L3 of the AC port</Notes>
+      <Producer> 
+        <NodeRef id="1" /> 
+      </Producer>
+      <Signal name="U" offset="0" length="16" endianess="little">
+        <Notes>RMS Voltage of L3</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value slope="0.1" intercept="0" unit="V" type="signed" />
+      </Signal>
+      <Signal name="I" offset="16" length="16" endianess="little">
+        <Notes>RMS Current of L3</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value slope="0.1" intercept="0" unit="A" type="signed" />
+      </Signal>
+      <Signal name="P" offset="32" length="16" endianess="little">
+        <Notes>Active power of L3</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value slope="0.1" intercept="0" unit="W" type="signed" />
+      </Signal>
+      <Signal name="Q" offset="48" length="16" endianess="little">
+        <Notes>Reactive power of L3</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value slope="0.1" intercept="0" unit="VAR" type="signed" />
+      </Signal>
+    </Message>
+
+    <Message id="0x810030" length="8" name="AC_Port_Setpoints" format="extended">
+      <Notes>Setpoints to apply to the AC Port</Notes>
+      <Producer> 
+        <NodeRef id="0" /> 
+      </Producer>
+      <Signal name="Q" offset="0" length="16" endianess="little">
+        <Notes>Reactive Power of the AC port. Positive values cause the AC01 to behave inductively, negative values cause the AC01 to behave capacitively</Notes>
+        <Consumer> 
+          <NodeRef id="1" /> 
+        </Consumer>
+        <Value slope="10" intercept="0" unit="VAR" type="signed" />
+      </Signal>
+      <Signal name="Reserved" offset="16" length="48">
+        <Notes>This space is reserved. This region should contain only 0s</Notes>
+        <Consumer> 
+          <NodeRef id="1" /> 
+        </Consumer>
+      </Signal>
+    </Message>
+
+    <Message id="0x810031" length="8" name="AC_Port_Applied_Setpoints" interval="1000" format="extended">
+      <Notes>Setpoints that are currently being applied to the the AC Port</Notes>
+      <Producer> 
+        <NodeRef id="1" /> 
+      </Producer>
+      <Signal name="Q" offset="0" length="16" endianess="little">
+        <Notes>Reactive Power of the AC port. Positive values cause the AC01 to behave inductively, negative values cause the AC01 to behave capacitively</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value slope="10" intercept="0" unit="VAR" type="signed" />
+      </Signal>
+      <Signal name="Reserved" offset="16" length="48">
+        <Notes>This space is reserved. This region should contain only 0s</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+      </Signal>
+    </Message>
+
+  </Bus>
+</NetworkDefinition>

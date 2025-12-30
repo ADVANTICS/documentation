@@ -1,6 +1,5 @@
-site_name: ADM-CS-SPCC Documentation
-site_description: Technical documentation for Advantics ADM-CS-SPCC 100kW AC/DC Active Frontend
-site_url: https://documentation.advantics.fr/adm-cs-spcc
+site_name: ADB-PC-AC01 Documentation
+site_description: Technical documentation for Advantics ADB-PC-AC01 100kW AC/DC Active Frontend
 repo_url: https://github.com/ADVANTICS/documentation
 repo_name: gh:ADVANTICS/documentation
 edit_uri: edit/material/docs/
@@ -11,14 +10,15 @@ copyright: Copyright &copy; 2017-2025 ADVANTICS SAS
 
 watch:
   - "."
-use_directory_urls: false
+
+use_directory_urls: true
 
 # Theme configuration
 theme:
   name: material
   language: en
   logo: assets/logo.webp
-  favicon: assets/logo.webp
+  favicon: assets/favicon.svg
 
   palette:
     # Light theme
@@ -71,6 +71,7 @@ theme:
 plugins:
   - search
   - mermaid2
+  - autorefs
   - plantuml:
       render: "server"
       puml_url: "https://www.plantuml.com/plantuml"
@@ -84,11 +85,13 @@ plugins:
       #     dark: advantics-theme-dark
   - with-pdf:
       enabled_if_env: PDF_EXPORT
-      output_path: pdf/adm-cs-spcc-manual.pdf
-      cover_title: ADM-CS-SPCC User Manual
-      cover_subtitle: Single Pistol Charge Controller (SPCC)
+      output_path: pdf/adb-pc-ac01-manual.pdf
+      cover_title: ADB-PC-AC01 User Manual
+      cover_subtitle: 100kW AC/DC Active Frontend (PFC)
       author: ADVANTICS SAS
       custom_template_path: docs/assets
+  - macros:
+      module_name: docs/assets/macros
 
 # Markdown extensions
 markdown_extensions:
@@ -106,7 +109,8 @@ markdown_extensions:
   - pymdownx.smartsymbols
   - pymdownx.tasklist:
       custom_checkbox: true
-  - pymdownx.arithmatex
+  - pymdownx.arithmatex:
+      generic: true
   - toc:
       permalink: false
       baselevel: 1
@@ -115,34 +119,23 @@ markdown_extensions:
 
 # Navigation structure
 nav:
-  - Document Information: "index.md"
-  - Overview: "overview.md"
-  - Interfaces: "interfaces.md"
-  - Examples of use: "examples.md"
-  - Versions: "spcc_versions.md"
-  - Configuration: "spcc_configuration.md"
-  - Working with the SPCC's platform:
-    - Connecting to the SPCC: "advos-yocto-system/connecting.md"
-    - Access & Configuration:
-      - Web UI Access: "advos-yocto-system/csm-web-ui.md"
-      - SSH access: "advos-yocto-system/ssh.md"
-      - Setting Static IP: "advos-yocto-system/static-ip.md"
-  - CAN bus Interfaces:
-    - Introduction: "charger-can-interfaces/introduction.md"
-    - Generic interface v2:
-      - Sequences of action: "charger-can-interfaces/sequences_v2.md"
-      - CAN databases: "charger-can-interfaces/databases_v2.md"
-      - CAN messages: "charger-can-interfaces/can_v2.md"
-      - Charge sequence diagram: "charger-can-interfaces/charge-sequence-diagram_v2.md"
-      - Changelog: "charger-can-interfaces/changelog_v2.md"
-    - Generic interface v3:
-      - Sequences of action: "charger-can-interfaces/sequences_v3.md"
-      - CAN databases: "charger-can-interfaces/databases_v3.md"
-      - CAN messages: "charger-can-interfaces/can_v3.md"
-      - Charge sequence diagram: "charger-can-interfaces/charge-sequence-diagram_v3.md"
-      - Changelog: "charger-can-interfaces/changelog_v3.md"
-    - V2G: "charger-can-interfaces/secc_bidirectional.md"
-    - AC charging: "charger-can-interfaces/secc_ac_charging.md"
+  - "Document Information": "index.md"
+  - "Overview": "overview.md"
+  - "Electrical Specifications": "electrical_specs.md"
+  - "Mechanical Specifications": "mechanical_specs.md"
+  - "Connectors": "connectors.md"
+  - "Theory of Operation": "operation.md"
+  - "Guides":
+    - "First-Time Commissioning": "first_time_commissioning.md"
+    - "Installation Guide": "installation.md"
+    - "Rack Design" : "rack_design.md"
+  - "References":
+    - "CAN Bus Interface":
+      - "CAN bus overview": "can_bus_overview.md"
+      - "CAN bus messages": "can_bus_interface.md"
+    - "Maintenance and Troubleshooting": "maintenance_and_troubleshooting.md"
+    - "Safety Considerations": "safety.md"
+    - "Appendix": "appendix.md"
 
 # Extra configurations
 extra:
@@ -161,6 +154,8 @@ extra_css:
 # Extra JavaScript for Mermaid
 extra_javascript:
   - https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js
+  # - docs/assets/mathjax-config.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 # extra_files:
 #   - _puml/advantics-theme-dark.puml

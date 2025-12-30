@@ -130,25 +130,113 @@ def _escape(s: Optional[str]) -> str:
     return html.escape(s or "")
 
 
+def _indent_for_admonition(body: str, indent: str = "    ") -> str:
+    """Indent content for MkDocs '!!!' blocks. Blank lines must also be indented."""
+    lines = body.split("\n")
+    return "\n".join((indent + ln) if ln.strip() != "" else "" for ln in lines)
+
+
+def _asciidoc_admonitions_to_mkdocs(s: str) -> str:
+    """
+    Convert blocks like:
+        [IMPORTANT]
+        ====
+        body...
+        ====
+    into:
+        !!! important
+            body...
+    """
+    tag_map = {
+        "important": "important",
+        "warning": "warning",
+        "caution": "warning",
+        "note": "note",
+        "tip": "tip",
+        "info": "info",
+        "danger": "danger",
+    }
+
+    lines = s.split("\n")
+    out: List[str] = []
+    i = 0
+    
+    # Regex for the tag line: [TAG]
+    tag_re = re.compile(r"^\s*\[(?P<tag>[A-Za-z0-9_-]+)\]\s*$")
+    # Regex for the fence line: ==== (4 or more =)
+    fence_re = re.compile(r"^\s*={4,}\s*$")
+
+    while i < len(lines):
+        line = lines[i]
+        m = tag_re.match(line)
+        
+        # Check if this line is a tag AND the next line is a fence
+        is_block_start = False
+        fence_idx = -1
+        
+        if m:
+            # Check immediate next line
+            if (i + 1 < len(lines)) and fence_re.match(lines[i+1]):
+                is_block_start = True
+                fence_idx = i + 1
+            # Check next line if current is followed by blank line (optional robustness)
+            elif (i + 2 < len(lines)) and not lines[i+1].strip() and fence_re.match(lines[i+2]):
+                is_block_start = True
+                fence_idx = i + 2
+        
+        if is_block_start:
+            tag = m.group("tag").lower()
+            mk_tag = tag_map.get(tag, tag)
+            
+            # Skip to body
+            i = fence_idx + 1
+            
+            body_lines = []
+            while i < len(lines):
+                if fence_re.match(lines[i]):
+                    # Found closing fence
+                    i += 1
+                    break
+                body_lines.append(lines[i])
+                i += 1
+            
+            # Format as MkDocs admonition
+            if out and out[-1].strip():
+                out.append("")
+            
+            out.append(f"!!! {mk_tag}")
+            
+            # Process body: dedent and indent
+            body = "\n".join(body_lines)
+            body = textwrap.dedent(body)
+            out.append(_indent_for_admonition(body))
+            out.append("")
+            
+        else:
+            out.append(line)
+            i += 1
+
+    return "\n".join(out)
+
+
 def _normalize_notes_text(text: Optional[str]) -> str:
     """Normalize KCD Notes to be Markdown-friendly (remove leading indentation,
     trim trailing spaces, and collapse excessive blank lines)."""
     if not text:
         return ""
-    # Normalize newlines and dedent common leading indentation
     s = text.replace("\r\n", "\n").replace("\r", "\n")
     s = textwrap.dedent(s)
-    # Normalize exotic spaces often coming from XML editors (NBSP, narrow no-break)
     s = s.replace("\u00A0", " ").replace("\u2007", " ").replace("\u202F", " ")
-    # Dedent common indentation but preserve relative extra indentation (for code blocks)
     s = textwrap.dedent(s)
-    # Strip trailing spaces per line but keep leading spaces (to preserve relative indentation)
     lines = [ln.rstrip() for ln in s.split("\n")]
-    s = "\n".join(lines)
-    # Trim leading/trailing blank lines
-    s = s.strip("\n")
-    # Collapse 3+ consecutive blank lines to max 1
+    s = "\n".join(lines).strip("\n")
     s = re.sub(r"\n{3,}", "\n\n", s)
+
+    # Convert Asciidoc-like admonitions to MkDocs admonitions
+    s = _asciidoc_admonitions_to_mkdocs(s)
+
+    # Final cleanup
+    s = re.sub(r"\n{3,}", "\n\n", s).strip("\n")
     return s
 
 
@@ -284,7 +372,8 @@ def generate_markdown(
         if msg.comment:
             normalized = _normalize_notes_text(msg.comment)
             if normalized:
-                out_lines.append(_escape(normalized))
+                # IMPORTANT: don't html-escape, we want Markdown (admonitions, etc.) to render
+                out_lines.append(normalized)
                 out_lines.append("")
         else:
             out_lines.append("\n")
@@ -316,7 +405,8 @@ def generate_markdown(
             if sig.comment:
                 normalized_sig = _normalize_notes_text(sig.comment)
                 if normalized_sig:
-                    out_lines.append(_escape(normalized_sig))
+                    # IMPORTANT: don't html-escape, we want Markdown to render
+                    out_lines.append(normalized_sig)
                     out_lines.append("")
 
             # Per-signal parameter table

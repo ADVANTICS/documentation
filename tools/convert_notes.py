@@ -15,7 +15,7 @@ def convert_admonition_blocks(directory="."):
     # Content group (group 2) now uses a more greedy pattern: 
     # (?:^>.*\n?)+ to capture any line starting with '> ' (including blank ones like '> ')
     standard_admonition_pattern = re.compile(
-        r'^> \[!(ATTENTION|CAUTION|DANGER|ERROR|HINT|IMPORTANT|NOTE|TIP|WARNING)\]\s*\n' # Block header
+        r'^> \[!(ATTENTION|CAUTION|DANGER|ERROR|HINT|IMPORTANT|NOTE|TIP|WARNING|INFO)\]\s*\n' # Block header
         r'((?:^>.*\n?)+)', # Enhanced Block content: captures lines starting with '> ' until the next line NOT starting with '>'
         re.MULTILINE | re.IGNORECASE
     )
@@ -31,7 +31,7 @@ def convert_admonition_blocks(directory="."):
     processed_files_count = 0
     admonitions_count = 0
 
-    for root, _, files in os.walk(directory):
+    for root, _, files in os.walk(directory, followlinks=True):
         for file_name in files:
             if file_name.endswith(".md"):
                 file_path = os.path.join(root, file_name)

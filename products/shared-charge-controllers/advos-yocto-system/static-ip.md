@@ -1,8 +1,4 @@
 
-<!-- <div style="background-color: teal; color: white; font-weight: bold; padding: 10px; text-align: center;">
-    🚨 IMPORTANT: This section is only applicable for ADM-CS-SPCC and ADM-CS-MEVC 🚨
-</div> -->
-
 # Set static IP
 
 !!! note
@@ -11,7 +7,7 @@
 
 Please note that this will disable DHCP. Also, if the currently assigned IP address differs from the new static IP, you will lose your connection or remote session.
 
-Once you are connected via [SSH](charge-controllers/advantics_os/ssh.md), you can run the following command (assuming 255.255.255.0 subnet mask):
+Once you are connected via [SSH](../advos-yocto-system/ssh.md), you can run the following command (assuming 255.255.255.0 subnet mask):
 
 ```bash
 nmcli con mod network0 ipv4.addresses <desired_ip_address>/24 \

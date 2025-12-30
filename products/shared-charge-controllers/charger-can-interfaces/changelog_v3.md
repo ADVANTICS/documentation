@@ -8,5 +8,3 @@
 | 1 | All | 2018-10-22: Initial version. |
 
 </div> -->
-
-[Migration from v3 to v3.2](charge-controllers/secc_generic/secc_bidirectional#Migration-from-v3-to-v3.2)
