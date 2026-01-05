@@ -7,7 +7,7 @@ Our charge controller offers out-of-the-box support for the Bender isoCHA425HV i
 
 The Bender isoCHA425HV integration is intended for use exclusively with DC charging pistols, such as CCS and CHAdeMO.
 
-You can check how to enable this feature in [configuration section](charge-controllers/secc_configuration).
+You can check how to enable this feature in the configuration section.
 
 ### Serial communication configuration
 

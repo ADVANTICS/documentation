@@ -116,17 +116,18 @@ markdown_extensions:
 # Navigation structure
 nav:
   - Document Information: "index.md"
-  - Overview: "overview.md"
+  - Technical data: "introduction.md"
   - Interfaces: "interfaces.md"
   - Examples of use: "examples.md"
-  - Versions: "spcc_versions.md"
+  - Software Releases: "spcc_versions.md"
   - Configuration: "spcc_configuration.md"
-  - Working with the SPCC's platform:
+  - Working with the SPCC:
     - Connecting to the SPCC: "advos-yocto-system/connecting.md"
-    - Access & Configuration:
-      - Web UI Access: "advos-yocto-system/csm-web-ui.md"
-      - SSH access: "advos-yocto-system/ssh.md"
-      - Setting Static IP: "advos-yocto-system/static-ip.md"
+    - Web UI Access: "advos-yocto-system/csm-web-ui.md"
+    - SSH access: "advos-yocto-system/ssh.md"
+    - Setting Static IP: "advos-yocto-system/static-ip.md"
+    - Updating the Software: "advos-yocto-system/updating.md"
+    - CAN Interface System Configuration: "advos-yocto-system/can-bus-configuration.md"
   - CAN bus Interfaces:
     - Introduction: "charger-can-interfaces/introduction.md"
     - Generic interface v2:
@@ -143,6 +144,18 @@ nav:
       - Changelog: "charger-can-interfaces/changelog_v3.md"
     - V2G: "charger-can-interfaces/secc_bidirectional.md"
     - AC charging: "charger-can-interfaces/secc_ac_charging.md"
+  - Features:
+    - NACS: "charger-features/secc_nacs.md"
+    - Climate control: "charger-features/secc_climate_control.md"
+    - IOs on CAN: "charger-features/secc_can_ios.md"
+    - Charger interfaces: "charger-features/charger_interfaces.md"
+    - OCPP 1.6J: "charger-features/ocpp16j.md"
+    - OCPP 2.0.1: "charger-features/ocpp201.md"
+    - Plug'n'Charge:
+      - Plug'n'Charge overview: "charger-features/tls_pnc/pnc_primer.md"
+      - TLS & Plug'n'Charge configuration: "charger-features/tls_pnc/tls_pnc_config.md"
+    - Supported Insulation Monitors: "charger-features/evse-supported-insulation-monitors.md"
+    - Charger Emulator: "charger-features/charger-simulation.md"
 
 # Extra configurations
 extra:

@@ -6,8 +6,6 @@ over Websockets using JSON).
 
 The current state of the OCPP 1.6 feature profiles is
 
-<div class="compact-table">
-
 | Feature Profile           | Status            | since | Remarks                                       |
 |---------------------------|-------------------|-------|-----------------------------------------------|
 | Core                      | Fully Implemented | v1.2  |                                               |
@@ -15,15 +13,10 @@ The current state of the OCPP 1.6 feature profiles is
 | Reservation               | Tested            | v1.3  | Reservation management, authentication.       |
 | Smart Charging            | Tested            | v1.3  | Charging Profile management, Smart Charging.  |
 
-
-</div>
-
 # Terminology & Definitions
 
 In this document, the following terms are used
 
-
-<div class="compact-table">
 
 | Terms                      | Definition                                                                                                                                                                                                                                                                  |
 |---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -36,8 +29,6 @@ In this document, the following terms are used
 | OCPP Application          | The ADVANTICS OCPP implementation which handles all OCPP communication with the Central System. It communicates with the Charge Point Vendor Application over the ZeroMQ RPC Channel, to the Central System with OCPP-J 1.6 and to the rest of the ADVANTICS software stack over the internal message system.               |
 | You                       | The person reading this document, assumed to be a Charge Point Vendor Employee wanting to interface with the ADVANTICS OCPP Application.                                                                                                                 |
 | ZeroMQ RPC Channel        | A bi-directional json-encoded remote procedure call channel between the ADVANTICS OCPP Application and the Charge Point Vendor Application based on ZeroMQ ROUTER/DEALER sockets.                                                                        |
-
-</div>
 
 # OCPP Implementation Details
 
@@ -200,8 +191,8 @@ horizontal arrows and are grouped by the channel on which they happen.
 While this uses a sequence diagram for visualization, the vertical axis
 does not directly reflect time in this instance.
 
-<div hidden>
-@startuml /ocpp_images/hlc_overview
+
+<!-- @startuml /ocpp_images/hlc_overview
 hide footbox
 skinparam BoxPadding 10
 
@@ -243,8 +234,58 @@ group EV charging standards
 CAR <-> EVSE:	handle charging process
 end
 
+@enduml -->
+
+<!-- ```puml
+@startuml hlc_overview
+hide footbox
+skinparam BoxPadding 10
+
+box "Customer" #PaleGoldenRod
+entity EV as CAR
+actor Customer as CUST
+end box
+
+box "Charge Point Vendor" #AquaMarine
+entity "Additional Hardware\n(RFID, Meters, ...)" as EXT
+participant "Charge Point Vendor\nApplication" as MGMT
+end box
+
+box "ADVANTICS" #LightGray
+participant "ADVANTICS\nOCPP Application" as OCPP
+participant "ADVANTICS\nCharge Controller" as EVSE
+end box
+
+box "Internet/Cloud" #MistyRose
+database "Central System" as CLOUD
+end box
+
+group charge point vendor specific
+MGMT <-> EXT: control additional hardware
+MGMT <-> CUST: handle user interaction
+end
+
+group #PowderBlue ZeroMQ RPC channel
+MGMT -> OCPP: inform of external events\n(e.g. id_presented(..))
+OCPP -> MGMT: request external data\n(e.g. meter(..) values)
+MGMT -> OCPP: provide external data
+end
+
+group OCPP-J 1.6
+OCPP -> OCPP: convert external data\nto OCPP message payloads
+OCPP <-> CLOUD: handle OCPP messaging
+end
+
+OCPP <-> EVSE: internal communications
+
+group EV charging standards
+CAR <-> EVSE: handle charging process
+end
+
 @enduml
-</div>
+``` -->
+
+
 
 ![A high-level schematic of components involved when using OCPP](ocpp_images/hlc_overview.svg)
 <figcaption style="text-align: center">A high-level schematic of components involved when using OCPP</figcaption>

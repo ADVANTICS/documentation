@@ -69,13 +69,6 @@ The configuration header allows to:
 
 ### The options shown vary with the type of the controller.
 
-Please check:
-
-- [SPCC](charge-controllers/ADM-CS-SPCC/README.md) for the SPCC
-- [SECC](charge-controllers/ADM-CS-SECC/README.md) for the SECC
-- [EVCC](charge-controllers/ADM-CS-EVCC/README.md) for the EVCC
-- [MEVC](charge-controllers/ADM-CS-MEVC/README.md) for the MEVC
-
 The two images below depict the differences between a supply equipment controller and a vehicle controller.
 
 ![Configuration sections of our MEVC - MCS vehicle controller](./images/csm-ui-configuration-mevc.png ":size=50%")

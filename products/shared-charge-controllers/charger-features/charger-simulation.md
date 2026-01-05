@@ -10,7 +10,7 @@ The primary objective of this software is to simulate a power stack (EVSE) on th
 
 # UI
 
-Simulation is primarily managed and controlled by the [CSM Web UI](charge-controllers/advantics_os/csm-web-ui.md). [Connect to your controller](charge-controllers/advantics_os/connecting) dashboard and head to `/dashboard/simulation`.
+Simulation is primarily managed and controlled by the [CSM Web UI](../advos-yocto-system/csm-web-ui.md). [Connect to your controller](../advos-yocto-system/connecting.md) dashboard and head to `/dashboard/simulation`.
 
 The interface allows enabling and disabling the simulator in real-time and editing parameters during a simulated charge session. It is divided into three main sections: **Parameters**, **Control**, and **Command**.
 
@@ -43,9 +43,9 @@ Parameters are grouped as follows:
 
 This section provides toggle switches to **enable or disable sending of specific CAN messages**. These toggles can be used to test partial EVSE Generic Interface v3 implementations by disabling the corresponding and giving control to the software under development. Each toggle controls sending of a specific message as listed below.
 
-- **Enable Sending DC Power Parameters**: [DC_Power_Parameters](https://advantics.github.io/documentation/#/charge-controllers/secc_generic/can_v3?id=dc_power_parameters) 
-- **Enable Sending Power Modules Status**: [Power_Modules_Status](https://advantics.github.io/documentation/#/charge-controllers/secc_generic/can_v3?id=power_modules_status)
-- **Enable Sending Sequence Flags**: [Sequence_Control](https://advantics.github.io/documentation/#/charge-controllers/secc_generic/can_v3?id=sequence_control)
+- **Enable Sending DC Power Parameters**: [DC_Power_Parameters](../charger-can-interfaces/can_v3.md#DC_Power_Parameters) 
+- **Enable Sending Power Modules Status**: [Power_Modules_Status](../charger-can-interfaces/can_v3.md#Power_Modules_Status)
+- **Enable Sending Sequence Flags**: [Sequence_Control](../charger-can-interfaces/can_v3.md#Sequence_Control)
 
 Toggling these switches takes effect immediately and determines whether these data types are being transmitted.
 
@@ -55,7 +55,7 @@ Toggling these switches takes effect immediately and determines whether these da
 
 This section allows the user to issue manual commands. Each command has its **own action button**:
 
-- **Current Setpoint**: User enters a value and clicks **“Apply”** to send it. Available only in [Range_Mode](https://advantics.github.io/documentation/#/charge-controllers/secc_generic/can_v3?id=bidirectional-power-transfers) bidirectional power transfers. The setpoint will always be limited to the general system limitations such as maximum charge/discharge current limits, cable limits, EV charge current limits. 
+- **Current Setpoint**: User enters a value and clicks **“Apply”** to send it. Available only in [Range_Mode](../charger-can-interfaces/sequences_v3.md#power-transfer-with-range-mode) bidirectional power transfers. The setpoint will always be limited to the general system limitations such as maximum charge/discharge current limits, cable limits, EV charge current limits. 
 - **User Stop Button Pressed**: Clicking **“Stop”** simulates a user stop button press on the charger side.
 
 ---
@@ -64,13 +64,11 @@ This section allows the user to issue manual commands. Each command has its **ow
 
 ## Simulating a bidirectional MCS charge session (ISO151180-20) with simulated charger and vehicle, using ADM-CS-SPCC, ADM-CS-MEVC and simulator software stack
 
-1. Update the charge controller configuration for bidirectional power transfer. [Relevant Config Entries](https://advantics.github.io/documentation/#/charge-controllers/secc_generic/secc_bidirectional?id=relevant-config-entries)
-2. Enable the [EVSE simulator](charge-controllers/charger-simulation#enabling-the-simulator) with sending all CAN messages enabled. The default simulation configuration can be used.
-3. Enable the [PEV simulator](charge-controllers/vehicle-simulation#enabling-the-simulator) with sending all CAN messages enabled.
-4. Make sure ADVANTICS vehicle controller configuration option [No BMS mode](charge-controllers/evcc_configuration/no_bms) is **disabled** (set to false).
-5. Set the [relevant configuration entries in the vehicle controller](charge-controllers/evcc_bidirectional?id=relevant-config-entries) and [charge station controller](charge-controllers/secc_generic/secc_bidirectional?id=relevant-config-entries) for ISO151180-20.
-6. Connect the plug.
-7. Head to `dashboard/monitoring` and follow the charge session.
+1. Update the charge controller configuration for bidirectional power transfer. [Relevant Config Entries](../charger-can-interfaces/secc_bidirectional.md#relevant-config-entries)
+2. [Enable the EVSE simulator](./charger-simulation.md#enabling-the-simulator) with sending all CAN messages enabled. The default simulation configuration can be used.
+3. Enable the simulator on your vehicle side if needed.
+4. Connect the plug.
+5. Head to `dashboard/monitoring` and follow the charge session.
 
 ![EVSE Monitoring Page](./charger-monitor.png)
 
@@ -87,17 +85,14 @@ This section allows the user to issue manual commands. Each command has its **ow
 If you prefer to wire a different hardware to one side of the simulator box, you can follow the connection table below:
 
 ### Power Connector
-<div class="small-table compact-table">
 
 | Number | Label | Color |  
 |--------|-------|-------|
 | 1 | 24V | Red |
 | 2 | GND | Black |
 
-</div>
 
 ### CAN Bus Connector
-<div class="small-table compact-table">
 
 | Number | Label | Color |  
 |--------|-------|-------|
@@ -105,10 +100,8 @@ If you prefer to wire a different hardware to one side of the simulator box, you
 | 2 | CAN L | Blue |
 | 3 | CAN GND | Black |
 
-</div>
 
 ### MCS Connector
-<div class="small-table compact-table">
 
 | Number | Label | Color |  
 |--------|-------|-------|
@@ -118,7 +111,6 @@ If you prefer to wire a different hardware to one side of the simulator box, you
 | 4 | PHY2 | Green |
 | 5 | PE | Yellow/Green |
 
-</div>
 
 
 # Simulated Charger Configuration Options
@@ -210,16 +202,16 @@ This section describes the configuration options available for the simulated cha
 
 - **Description:** Whether the `DC_Power_Parameters` message sent by the simulator should be enabled.
 - **Default:** `True`
-- Message description: [`dc_power_parameters`](charge-controllers/secc_generic/can_v3?id=dc_power_parameters)
+- Message description: [`dc_power_parameters`](../charger-can-interfaces/can_v3.md#DC_Power_Parameters)
 
 ## `enable_power_module_status` (bool)
 
 - **Description:** Whether the `Power_Modules_Status` message sent by the simulator should be enabled.
 - **Default:** `True`
-- Message description: [`power_modules_status`](charge-controllers/secc_generic/can_v3?id=power_modules_status)
+- Message description: [`power_modules_status`](../charger-can-interfaces/can_v3.md#Power_Modules_Status)
 
 ## `enable_sequence_control` (bool)
 
 - **Description:** Whether the `Sequence_Control` message sent by the simulator should be enabled.
 - **Default:** `True`
-- Message description: [`sequence_control`](charge-controllers/secc_generic/can_v3?id=sequence_control)
+- Message description: [`sequence_control`](../charger-can-interfaces/can_v3.md#Sequence_Control)

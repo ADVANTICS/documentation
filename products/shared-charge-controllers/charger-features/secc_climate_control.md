@@ -45,10 +45,6 @@ temperatures =
     io:cpu_temperature = monitor
 ```
 
-<br/>
-<div class="compact-table">
-<span>Available temperature channels</span>
-
 | Name | Controller | Pistol | Type | Typical application | Input | Note |
 |---|---|---|---|---|---|---|
 | io:pt1k_a | ADM-CO-CUI1 | Any | PT1000 | Cable | J11, pos. 17 |  |
@@ -65,7 +61,7 @@ temperatures =
 | charger:power_modules_semiconductors | Any | Any | CAN source | Advantics power modules | Semiconductor devices temperature reported by power modules | <span class="wrap">Actually a composite of all semiconductors temperature measurements, of all modules, of all stacks. Only the max value is kept.</span> |
 | charger:power_modules_magnetics | Any | Any | CAN source | Advantics power modules | Magnetic devices temperature reported by power modules | <span class="wrap">Actually a composite of all magnetics temperature measurements, of all modules, of all stacks. Only the max value is kept.</span> |
 
-</div><br/>
+<br/>
 
 Note:
 - The typical application of each channel is just a suggestion. You are free to repurpose them for any other hot location.
@@ -90,8 +86,6 @@ actions =
 ```
 
 <br/>
-<div class="compact-table">
-<span>Default functions provided</span>
 
 |Function|Actions|Purpose|Controller|
 |--------|-------|-------|----------|
@@ -101,7 +95,6 @@ actions =
 |power_modules_02|power_module_fan_02<br/>power_module_derate_current<br/>power_module_stop_threshold|<span class="wrap">Same than `power_modules`, but targeting fan PWM channel 2.</span>|ADM-CS-SECC|
 |monitor |monitor|<span class="wrap">Just for reporting a temperature channel over CAN.</span>|Any       |
 
-</div>
 
 ## Actions configuration
 
@@ -132,7 +125,6 @@ On the generic interface (≥ v2.2), these measurements are reported in `ADM_CO_
 
 <!-- panels:start -->
 <!-- div:left-panel -->
-<div class="compact-table">
 <span>[0x6800A] ADM_CO_CUI1_Inputs</span>
 
 | Signal              | Offset (bits) |
@@ -142,9 +134,7 @@ On the generic interface (≥ v2.2), these measurements are reported in `ADM_CO_
 | Pistol_PTC1         | 48            |
 | Pistol_PTC2         | 56            |
 
-</div>
 <!-- div:right-panel -->
-<div class="compact-table">
 <span>[0x6800B] ADM_CS_SECC_Inputs</span>
 
 | Signal          | Offset (bits) |
@@ -154,12 +144,10 @@ On the generic interface (≥ v2.2), these measurements are reported in `ADM_CO_
 | Pistol_PTC1     | 48            |
 | Pistol_PTC2     | 56            |
 
-</div>
 <!-- panels:end -->
 
 Note that it can only report two PTC channels per pistol. Since each pistol can instantiate a generic interface using a CAN ID offset, here are how they are mapped:
 
-<div class="compact-table">
 <span>Temperature channels mapping on Generic CAN interface</span>
 
 | Signal      | CCS DC             | CCS AC     | CHAdeMO              |
@@ -167,7 +155,6 @@ Note that it can only report two PTC channels per pistol. Since each pistol can 
 | Pistol_PTC1 | PT1K_A, PT1K_CH1_A | PT1K_CH1_B | PT1K_A, PT1K_CHADEMO |
 | Pistol_PTC2 | PT1K_B, PT1K_CH2_A | PT1K_CH2_B | PT1K_B               |
 
-</div>
 
 #### Encoding of temperature signals in the generic CAN interface
 
@@ -197,15 +184,11 @@ limit = 90
 ```
 
 <br/>
-<div class="compact-table">
-<span>Default threshold actions provided</span>
 
 | Action | Target | Limit | Note |
 |---|---|---|---|
 | cable_stop_threshold | charge_stop | 90 | As per CCS standard |
 | power_module_stop_threshold | charge_stop | 85 | Suitable for Silicon Carbide based power modules |
-
-</div>
 
 ### Interpolate modes
 
@@ -298,7 +281,6 @@ setpoints =
     +inf = 50%
 ```
 
-<div class="compact-table">
 <span>Default derate interpolate actions provided</span>
 
 |Action|Target|Setpoints|Note|Comment|
@@ -306,7 +288,6 @@ setpoints =
 |cable_derate_current|max_cable_current|-inf = 0%<br/>60 = 0%<br/>90 = 50%<br/>+inf = 50%|Gradual increase of derating from 60°C to 90°C.<br/>Plateau at 50% derating beyond 90°C.|<span class="wrap">To be used with a charge stop threshold action above 90°C.</span>|
 |power_module_derate_current|max_charger_current|-inf = 0%<br/>75 = 0%<br/>85 = 50%<br/>+inf = 50%|Sharp increase of derating from 75°C to 85°C.<br/>Plateau at 50% derating beyond 85°C.|<span class="wrap">Suitable for Silicon Carbide based power modules. To be used with a charge stop threshold action above 85°C.</span>|
 
-</div>
 
 #### PWM interpolate mode
 
@@ -332,8 +313,6 @@ setpoints =
     +inf = 100%
 ```
 
-<div class="compact-table">
-<span>Available PWM channels</span>
 
 | Name | Controller | Output |
 |---|---|---|
@@ -341,8 +320,6 @@ setpoints =
 | fan1_pwm | ADM-CS-SECC | "CONN6, position 10" |
 | fan2_pwm | ADM-CS-SECC | "CONN6, position 9" |
 
-</div><div class="compact-table">
-<span>Default PWM interpolate actions provided</span>
 
 |Action|Target|Frequency|Setpoints|Controller|Note|
 |---|---|---|---|---|---|
@@ -350,4 +327,3 @@ setpoints =
 |power_module_fan_01|fan1_pwm|25000|inf = 0%<br/>39.9 = 0%<br/>40 = 20%<br/>65 = 100%<br/>+inf = 100%|ADM-CS-SECC|<span class="wrap">Same than `power_module_fan`, but targetting only fan1_pwm channel.</span>|
 |power_module_fan_02|fan2_pwm|25000|inf = 0%<br/>39.9 = 0%<br/>40 = 20%<br/>65 = 100%<br/>inf = 100%|ADM-CS-SECC|<span class="wrap">Same than `power_module_fan`, but targetting only fan1_pwm channel.</span>|
 
-</div>

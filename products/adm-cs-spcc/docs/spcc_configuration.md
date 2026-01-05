@@ -1,4 +1,3 @@
-
 # SPCC Configuration Documentation
 
 The SPCC is configurable via the Web UI. More information can be found [**here**](charge-controllers/advantics_os/csm-web-ui.md)
@@ -227,10 +226,8 @@ Allows configuration of the controller IOs.
 - **`ping Timeout`**: No description (default: `20.0`)
 - **`Connection Timeout`**: Timeout for websocket, do not confuse with ConnectionTimeout (default: `30.0`)
 - **`Connection Retry Delay`**: No description (default: `60.0`)
-
 ### `Core`
-
-Core parameters for OCPP
+    Core parameters for OCPP
 
 - **`authorization Cach Enabled`**: No description (default: `True`)
 - **`authorize Remote Tx Requests`**: No description (default: `False`)
@@ -254,22 +251,19 @@ Core parameters for OCPP
 - **`transaction Message Retry Interval`**: No description (default: `10.0`)
 
 ### `Local Auth`
-
-Authentication related parameters
+    Authentication related parameters
 
 - **`Local Auth Lis Enabled`**: No description (default: `False`)
 - **`Local Auth List Max Length`**: No description (default: `1000`)
 - **`Send Local List Max Length`**: No description (default: `1000`)
 
 ### `Reservation`
-
-Reservation related parameters
+    Reservation related parameters
 
 - **`reserve Connector_zero Supported`**: No description (default: `False`)
 
 ### `OcppV16SmartCharging`
-
-Smart charging parameters
+    Smart charging parameters
 
 - **`Charge Profile Max Stack Level`**: No description (default: `100`)
 - **`Charging Schedule Allowed Charging Rate Unit`**: No description (default: `Current,Power`)

@@ -112,6 +112,6 @@ If `adm-cs-<controller-type>-<serial-number>.local` is not resolving in your bro
 
 If you are inside a managed network at your company facilities, chances are that you don't have direct access to the router/switch. If your computer is connected via ethernet cable to a wall socket, you will need to find another wall socket for the controller. After doing so you can try again to navigate to `http://adm-cs-<controller-type>-<serial-number>.local/` in your browser. If that still does not work, it is because there are many safety reasons to forbid adding arbitrary devices to the corporate network, and therefore the intervention of your company's IT is mandatory. In this case, your best bet is to contact them.
 
-Nevertheless, you can connect your controller directly to your computer via Ethernet cable, see [connecting directly using ethernet cable](../advos-yocto-system/connecting.md#connect-directly-the-controller-to-your-computer-via-ethernet-cable).
+Nevertheless, you can connect your controller directly to your computer via Ethernet cable, see [connecting directly using ethernet cable](#accessing-the-controller-by-directly-connecting-to-your-computer-via-ethernet-cable).
 
 If all of the above does not work, contact your IT department and they will guide you to get the controller connected in the same network as your computer in order to access it from the browser.

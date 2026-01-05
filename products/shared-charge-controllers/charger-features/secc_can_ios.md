@@ -6,15 +6,18 @@
 
 ## Inputs
 
-Digital Inputs can be configured such that their current value is reported over CAN, in message [ADM_CS_SECC_Inputs](secc_generic/can#adm_cs_secc_inputs).
+Digital Inputs can be configured such that their current value is reported over CAN, in message: 
+
+- For ADM-CS-SECC: [ADM_CS_SECC_Inputs](../charger-can-interfaces/can_v3.md#ADM_CS_SECC_Inputs)
+- For ADM-CS-SPCC: [ADM_CS_SPCC_Inputs](../charger-can-interfaces/can_v3.md#ADM_CS_SPCC_Inputs)
 
 ## Outputs
 
-Digital Outputs can be configured to be controller via the can bus message [ADM_CS_SECC_Outputs](secc_generic/can#adm_cs_secc_outputs).
+Digital Outputs can be configured to be controller via the can bus message:
 
-- Only for controllers having general purposes IO: `ADM-CS-SECC`
+- For ADM-CS-SECC: [ADM_CS_SECC_Outputs](../charger-can-interfaces/can_v3.md#ADM_CS_SECC_Outputs)
+
 - They can be controlled through generic CAN interface (≥ v2.2)
-    - See message [0x60013] ADM_CS_SECC_Outputs
 - They also need to be enabled in config file:
     ```
     [hardware]

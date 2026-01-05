@@ -9,7 +9,7 @@ Version 3 of the interface provides improvements that made it easier to integrat
 
 !!! note
     Generic interface v3, CCS ISO 15118-20 and CHAdeMO V2G are available in version 4 of the software (from version 4.x.dev10 and newer).
-    The stable software version 4.0 is available here: [Major releases](charge-controllers/secc_versions.md#Major_releases).
+    Software releases can be found here: [Software Releases](../spcc_versions.md).
 
 
 ## Relevant config entries
@@ -19,13 +19,13 @@ Version 3 of the interface provides improvements that made it easier to integrat
   - `is_bidirectional`: Default to `false`. Set it to `true` to enable bidirectionality.
   - `supports_range_mode` (since dev11): Default to `true`. Set it to `false` if your power modules are not in compatible with range mode.
   - `min_charger_voltage`: Default to 0.
-  - `max_charger_voltage`: Default to 500. Will be used as the default value in case signal [DC_Power_Parameters.Maximum_Voltage](charge-controllers/secc_generic/can_v3#DC_Power_Parameters-Maximum_Voltage) is 0.
+  - `max_charger_voltage`: Default to 500. Will be used as the default value in case signal [DC_Power_Parameters.Maximum_Voltage](../charger-can-interfaces/can_v3.md#DC_Power_Parameters-Maximum_Voltage) is 0.
   - `min_charger_current`: Default to 0. For charging direction.
-  - `max_charger_current`: Default to 120. For charging direction. Will be used as the default value in case signal [DC_Power_Parameters.Maximum_Charge_Current](charge-controllers/secc_generic/can_v3#DC_Power_Parameters-Maximum_Charge_Current) is 0.
+  - `max_charger_current`: Default to 120. For charging direction. Will be used as the default value in case signal [DC_Power_Parameters.Maximum_Charge_Current](../charger-can-interfaces/can_v3.md#DC_Power_Parameters-Maximum_Charge_Current) is 0.
   - `min_charger_power` (since dev11): Default to 0 (meaning computed from `min_charger_voltage` and `min_charger_current`). For charging direction.
   - `max_charger_power`: Default to 0 (meaning computed from `max_charger_voltage` and `max_charger_current`). For charging direction.
   - `min_charger_discharge_current` (since dev11): Default to 0. For discharging direction.
-  - `max_charger_discharge_current` (since dev11): Default to 0. For discharging direction. Will be used as the default value in case signal [DC_Power_Parameters.Maximum_Discharge_Current](charge-controllers/secc_generic/can_v3#DC_Power_Parameters-Maximum_Discharge_Current) is 0.
+  - `max_charger_discharge_current` (since dev11): Default to 0. For discharging direction. Will be used as the default value in case signal [DC_Power_Parameters.Maximum_Discharge_Current](../charger-can-interfaces/can_v3.md#DC_Power_Parameters-Maximum_Discharge_Current) is 0.
   - `min_charger_discharge_power` (since dev11): Default to 0 (meaning computed from `min_charger_voltage` and `min_charger_discharge_current`). For discharging direction.
   - `max_charger_discharge_power` (since dev11): Default to 0 (meaning computed from `max_charger_voltage` and `max_charger_discharge_current`). For discharging direction.
   - `enable_iso_part20`: Set to `true`
@@ -33,20 +33,14 @@ Version 3 of the interface provides improvements that made it easier to integrat
 
 ## SECC Generic CAN interface v3:
 
-See [all messages page](charge-controllers/secc_generic/can_v3).
-
-Download CAN DBs:
-
-- [Advantics Generic EVSE protocol v3.2 (Kayak format)](charge-controllers/secc_generic/Advantics_Generic_EVSE_protocol_v3.2.kcd ':ignore')
-- [Advantics Generic EVSE protocol v3.2 (DBC format)](charge-controllers/secc_generic/Advantics_Generic_EVSE_protocol_v3.2.dbc ':ignore')
+See [all generic interface v3 full documentation page](../charger-can-interfaces/can_v3.md).
 
 ### Migration from v2 to v3.2
 
 There are two important concepts introduced with v3:
 
 - It can function with setpoints that either mean targets (as it used to), or limits of a range.
-- All preliminary power functions like insulation test and precharge have been merged into a single
-  message.
+- All preliminary power functions like insulation test and precharge have been merged into a single message.
 
 Note that the range mode will only be used with charging protocols supporting it (usually the ones
 made for V2X applications).
@@ -74,7 +68,7 @@ have been entirely removed.
 The `Lower_Output_Voltage` and `Output_Contactors` command signals have been added to signal
 explicitly when the charger should actively stop presenting an output voltage using one way or
 another. You should definitely read [their](DC_Power_Control-Output_Contactors)
-[documentations](charge-controllers/secc_generic/can_v3#DC_Power_Control-Lower_Output_Voltage)
+[documentations](../charger-can-interfaces/can_v3.md#DC_Power_Control-Lower_Output_Voltage)
 as it can be a bit tricky to use correctly.
 
 That was for the "core" part of power related things. Around that, other things changed, notably
@@ -147,7 +141,7 @@ If you already migrated from v2 to v3, here are the changes between v3 and v3.1:
 
 ## CHAdeMO V2G
 
-ADVANTICS charge controller supports CHAdeMO vehicle to grid application following the CHAdeMO V2G guidelines. The controller needs to be configured as described in the section [Relevant config entries](#Relevant-config-entries).
+ADVANTICS charge controller supports CHAdeMO vehicle to grid application following the CHAdeMO V2G guidelines. The controller needs to be configured as described in the section [Relevant config entries](#relevant-config-entries).
 ### Operating Modes
 
 The CHAdeMO Bidirectional application is designed to be compatible with all CHAdeMO protocol versions, including non-bidirectional ones. In cases where a vehicle does not support bidirectionality, the application seamlessly operates in target mode. However, for vehicles that do support bidirectional functionality, the application operates in range mode, allowing customers to select the desired setpoint based on their specific requirements.
@@ -158,7 +152,7 @@ In a CHAdeMO bidirectional setup, it is necessary to replace the CHAdeMO diode w
 
 To implement this, you will need two relays and one precharge resistance:
 
-![CHAdeMO V2G Precharge Stage](../ADM-CS-SECC/images/chademo_precharge.jpg ':size=200%')
+![CHAdeMO V2G Precharge Stage](../assets/chademo_precharge.jpg ':size=200%')
 <figcaption style="text-align: center">CHAdeMO V2G Precharge Stage</figcaption>
 
 

@@ -14,9 +14,9 @@ All charger interfaces should be configured in the section corresponding to the 
 
 ADVANTICS charge controller offers a complete AC/DC charger interface.
 
-The BPUD interface is designed for the [3-phase unidirectional charger](../power-modules/ADM-PC-BP25/application_examples.md#3-phase-unidirectional-charger). It incorporates the ADM-PC-LF45 (filter stage and inrush limiter), the ADM-PC-BP25 as a Power Factor Correction (PFC) stage, and ADM-PC-LL25 (unidirectional isolated DC/DC converter).
+The BPUD interface is designed for the 3-phase unidirectional ADVANTICS charger. It incorporates the ADM-PC-LF45 (filter stage and inrush limiter), the ADM-PC-BP25 as a Power Factor Correction (PFC) stage, and ADM-PC-LL25 (unidirectional isolated DC/DC converter).
 
-![BPUD charger](../power-modules/ADM-PC-BP25/images/app_3phase_charger.svg ':size=200%')
+![BPUD charger](../charger-features/app_3phase_charger.svg ':size=200%')
 <figcaption style="text-align: center">BPUD charger</figcaption>
 
 ### power modules configuration
@@ -45,11 +45,10 @@ voltage is stepped down to provide the Voltage and Current regulation.
 
 This interface can be also used to control only one AFE as a Buck.
 
+> Insolation resistance value measured via your insulation monitor should be provided to the charge controller using the [CAN bus generic interface](../charger-can-interfaces/can_v3.md) signal [Power_Modules_Status](../charger-can-interfaces/can_v3.md#Power_Modules_Status).[Insulation_Resistance](../charger-can-interfaces/can_v3.md#Power_Modules_Status-Insulation_Resistance)
 
-> Insolation resistance value measured via your insulation monitor should be provided to the charge controller using the [CAN bus generic interface](charge-controllers/secc_generic/can.md) signal [Power_Modules_Status](charge-controllers/secc_generic/can.md#Power_Modules_Status).[Insulation_Resistance](charge-controllers/secc_generic/can.md#Insulation_Resistance)
 
-
-![BOOST-BUCK charger](ADM-CS-SECC/images/ADM-CS-SECC_boost_buck.svg ':size=200%')
+![BOOST-BUCK charger](../charger-features/ADM-CS-SECC_boost_buck.svg ':size=200%')
 <figcaption style="text-align: center">BOOST-BUCK charger</figcaption>
 
 
@@ -77,7 +76,7 @@ boost_buck_max_current: This float parameter can be used to set the maximum curr
 ```
 
 ```
-precharge_min_current: Specifies the minimum current required during precharge to ensure successful voltage rise and prevent precharge failures caused by low current requests from the vehicle. The default is 3 Amps
+precharge_min_current: Specifies the minimum current required during precharge to ensure successful voltage rise and prevent precharge failures caused by low current requests from the vehicle. The default is 10 Amps
 ```
 
 ```
@@ -96,9 +95,9 @@ The power modules stack with the stack position number ```0``` should correspond
 
 This interface applies to Maxwell power MXR100040 modules from MXR Series.
 
-> If you need to modify the CAN bus bitrate, you can refer to [CAN bus Bitrate](charge-controllers/sys3_user/developing.md#can-bus-bitrate)
+> If you need to modify the CAN bus bitrate, you can refer to [CAN bus Bitrate](../advos-yocto-system/can-bus-configuration.md#modifying-the-bitrate)
 
-> Insolation resistance value measured via your insulation monitor should be provided to the charge controller using the [CAN bus generic interface](charge-controllers/secc_generic/can.md) signal [Power_Modules_Status](charge-controllers/secc_generic/can.md#Power_Modules_Status).[Insulation_Resistance](charge-controllers/secc_generic/can.md#Insulation_Resistance)
+> Insolation resistance value measured via your insulation monitor should be provided to the charge controller using the [CAN bus generic interface](../charger-can-interfaces/can_v3.md) signal [Power_Modules_Status](../charger-can-interfaces/can_v3.md#Power_Modules_Status).[Insulation_Resistance](../charger-can-interfaces/can_v3.md#Power_Modules_Status-Insulation_Resistance)
 
 ### Controller configuration
 
@@ -109,7 +108,7 @@ charger_type: The charger type should be "Maxwell_MXR".
 
 The power module frame identifier is composed of the following parameters:
 
-![MXR Frame Identifier](ADM-CS-SECC/images/MXR_frame_id.svg ':size=200%')
+![MXR Frame Identifier](../charger-features/MXR_frame_id.svg ':size=200%')
 <figcaption style="text-align: center">MXR Frame Identifier</figcaption>
 
 ```

@@ -9,11 +9,6 @@ def main():
     # Determine paths
     script_path = Path(__file__).resolve()
     tools_dir = script_path.parent
-    # Assuming structure: workspace/Applications/documentation/tools/script.py
-    # So workspace root is script.parent.parent.parent
-    # But user said workspace is /home/amin/Documents/ADVANTICS/charge-controllers-workspace/Applications
-    # And script is in .../Applications/documentation/tools
-    # So workspace root relative to script is ../..
     workspace_root = tools_dir.parent.parent
     
     # Source files

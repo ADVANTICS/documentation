@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="135px" preserveAspectRatio="none" style="width:648px;height:135px;" version="1.1" viewBox="0 0 648 135" width="648px" zoomAndPan="magnify"><defs><filter height="300%" id="f18hryk1penpeq" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><!--class Charge Point Vendor Application--><rect fill="#7FFFD4" filter="url(#f18hryk1penpeq)" height="112.7969" id="Charge Point Vendor Application" style="stroke: #A80036; stroke-width: 1.5;" width="225" x="14" y="12"/><rect fill="#7FFFD4" height="23.9688" style="stroke: #A80036; stroke-width: 1.5;" width="225" x="14" y="12"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="202" x="25.5" y="28.1387">Charge Point Vendor Application</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="15" x2="238" y1="35.9688" y2="35.9688"/><ellipse cx="25" cy="47.8711" fill="none" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="174" x="34" y="50.1792">DEALER (calls remote function)</text><ellipse cx="25" cy="77.4805" fill="none" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="199" x="34" y="79.7886">ROUTER (accepts calls and replies)</text><rect fill="#F24D5C" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="22" y="87.2852"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="154" x="34" y="92.5933">change_availability_notice()</text><rect fill="#F24D5C" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="22" y="100.0898"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="42" x="34" y="105.3979">meter()</text><rect fill="#F24D5C" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="22" y="112.8945"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="145" x="34" y="118.2026">start_transaction_notice()</text><line style="stroke: #A80036; stroke-width: 1.0;" x1="15" x2="105" y1="63.1758" y2="63.1758"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="43" x="105" y="66.4839">callable</text><line style="stroke: #A80036; stroke-width: 1.0;" x1="148" x2="238" y1="63.1758" y2="63.1758"/><!--class ADVANTICS OCPP Application--><rect fill="#D3D3D3" filter="url(#f18hryk1penpeq)" height="99.9922" id="ADVANTICS OCPP Application" style="stroke: #A80036; stroke-width: 1.5;" width="322" x="315" y="12.5"/><rect fill="#D3D3D3" height="23.9688" style="stroke: #A80036; stroke-width: 1.5;" width="322" x="315" y="12.5"/><text fill="#000000" font-family="sans-serif" font-size="12" font-style="italic" lengthAdjust="spacingAndGlyphs" textLength="176" x="388" y="28.6387">ADVANTICS OCPP Application</text><line style="stroke: #A80036; stroke-width: 1.5;" x1="316" x2="636" y1="36.4688" y2="36.4688"/><ellipse cx="326" cy="48.3711" fill="none" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="271" x="335" y="50.6792">DEALER bound to :60501 (calls remote function)</text><ellipse cx="326" cy="77.9805" fill="none" rx="3" ry="3" style="stroke: #038048; stroke-width: 1.0;"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="296" x="335" y="80.2886">ROUTER bound to :60500 (accepts calls and replies)</text><rect fill="#F24D5C" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="323" y="87.7852"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="114" x="335" y="93.0933">change_availability()</text><rect fill="#F24D5C" height="6" style="stroke: #C82930; stroke-width: 1.0;" width="6" x="323" y="100.5898"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="82" x="335" y="105.8979">id_presented()</text><line style="stroke: #A80036; stroke-width: 1.0;" x1="316" x2="454.5" y1="63.6758" y2="63.6758"/><text fill="#000000" font-family="sans-serif" font-size="11" lengthAdjust="spacingAndGlyphs" textLength="43" x="454.5" y="66.9839">callable</text><line style="stroke: #A80036; stroke-width: 1.0;" x1="497.5" x2="636" y1="63.6758" y2="63.6758"/><!--link Charge Point Vendor Application to ADVANTICS OCPP Application--><path d="M245.59,73.29 C274.24,70.87 280.2,48.19 308.8,45.72 " fill="none" id="Charge Point Vendor Application-ADVANTICS OCPP Application" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="314,45.5,304.837,41.889,309.0046,45.7141,305.1795,49.8817,314,45.5" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="240.5,73.5,249.6635,77.1098,245.4954,73.2853,249.3199,69.1172,240.5,73.5" style="stroke: #A80036; stroke-width: 1.0;"/><!--link Charge Point Vendor Application to ADVANTICS OCPP Application--><path d="M245.59,45.71 C274.24,48.13 280.2,70.81 308.8,73.28 " fill="none" id="Charge Point Vendor Application-ADVANTICS OCPP Application" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="314,73.5,305.1795,69.1183,309.0046,73.2859,304.837,77.111,314,73.5" style="stroke: #A80036; stroke-width: 1.0;"/><polygon fill="#A80036" points="240.5,45.5,249.3199,49.8828,245.4954,45.7147,249.6635,41.8902,240.5,45.5" style="stroke: #A80036; stroke-width: 1.0;"/><!--
+@startuml /ocpp_images/zmq_rpc_channel
+left to right direction
+hide circle
+
+interface "Charge Point Vendor Application" << (V,AquaMarine) >> #AquaMarine {
++ {field} DEALER (calls remote function)
+- - callable - -
++ {field} ROUTER (accepts calls and replies)
+- change_availability_notice()
+- meter()
+- start_transaction_notice()
+}
+
+interface "ADVANTICS OCPP Application" << (A,LightGray) >> #LightGray {
++ {field} DEALER bound to :60501 (calls remote function)
+- - callable - -
++ {field} ROUTER bound to :60500 (accepts calls and replies)
+- change_availability()
+- id_presented()
+}
+
+"Charge Point Vendor Application::ROUTER" <- -> "ADVANTICS OCPP Application::DEALER"
+"Charge Point Vendor Application::DEALER" <- -> "ADVANTICS OCPP Application::ROUTER"
+
+@enduml
+
+PlantUML version 1.2018.13(Mon Nov 26 18:11:51 CET 2018)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Java Version: 11.0.19+7-post-Ubuntu-0ubuntu120.04.1
+Operating System: Linux
+OS Version: 5.15.0-76-generic
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

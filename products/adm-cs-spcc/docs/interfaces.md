@@ -6,7 +6,8 @@ The controller expects 24V power. Consult specification sheet for supply require
 
 ## MCS interface
 
-The MCS interface consists of 
+The MCS interface consists of
+
 - TRXP (MCS PHY1), TRXN (MCS PHY2) for 10baseT1S communication.
 - CE and ID lines
 - temperature sensor inputs.
@@ -46,16 +47,19 @@ Just like the CCS interface, CHAdeMO is under full control of the communication 
 CONTACTOR_ENABLE will be set to logic level 0 on SPCC when the following requirements are met for each pistol:
 
 **For MCS Charging**
+
 - CE_OK: Vehicle sets CE state C (power is allowed)
 - HW safety conditions are met: A set of HW safety conditions should be met (defined below)
 - Charge application or user requests closing contactors
 
 **For CCS Charging**
+
 - CP_OK: Vehicle sets CP state C (power is allowed)
 - HW safety conditions are met: A set of HW safety conditions should be met (defined below)
 - Charge application or user requests closing contactors
 
 **For CHAdeMO Charging**
+
 - CHAdeMO_OK (CHAdeMO_PERM_OK): PERM line from the vehicle is True
 - HW safety conditions are met: A set of HW safety conditions should be met (defined below)
 - Charge application or user requests closing contactors
