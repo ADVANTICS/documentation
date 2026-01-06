@@ -1,4 +1,5 @@
 {
+  "docsReady": true,
   "keywords": "SECC, Supply Equipment Communication Controller, CCS Charge Controller, MCS charge controller, Megawatt Charging System, charger charge controller, DC charge controller, DC fast charging, DC fast charger, DC wallbox, bidirectional wallbox, wallbox charger, wall box, High power charging, Single Pistol Charge Controller, CCS, V2G, CCS V2G, V2G charge controller, V2X, V2H, V2L, Bidirectional Charging, Bidirectional Power Transfer BPT, NACS, North American Charging System, OCPP1.6, OCPP2.0.1, Plug’n’Charge, plug and charge, CHAdeMO, 10baseT1S, IEC61851-1, IEC61851-23,  IEC61851-23-3, ISO15118-3, DIN SPEC 70121, ISO 15118-2, ISO 15118-20, SLAC, Combo 1, CCS1, Combo 2, CCS2, PLC to CAN gateway, Power line communication",
   "sortNumber": 3,
   "codename": "ADM-CS-SPCC",

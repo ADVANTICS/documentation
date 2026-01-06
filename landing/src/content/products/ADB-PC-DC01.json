@@ -1,4 +1,5 @@
 {
+  "docsReady": true,
   "keywords": "AC/DC, ACDC, AC to DC, AC-to-DC, DC/AC, DCAC, DC to AC, DC-to-AC, DC/DC, DCDC, DC-to-DC, Inverter, Converter, bi-directional, bidirectional, active front end, rectifier step up, boost, boost converter, step down, buck, buck converter, step down converter, step up, boost, boost converter, step up converter, active neutral, non-isolated, hybrid, hybrid genset, hybrid generator, hybrid generator inverter, grid-tie, off-grid, pass thru, ac pass thru, ac coupling, paralleling, inverter-charger, inverter/charger, inverter charger, transformerless, transformer less, 3 phase, split phase, single phase, frequency control, phase shift, high voltage, hv, high voltage dc, hvdc, ev, electric vehicle, ev battery, CAN, UL, CE, Certified, high efficiency, 24V, 100V, 200V, 300V, 400V, 500V, 600V, 700V, 800V, 900V, 1000V, 1kV, SiC, Silicon Carbide, ev charge station, fast charger",
   "codename": "ADB-PC-DC01",
   "releaseStatus": "comingSoon",

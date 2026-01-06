@@ -5,9 +5,9 @@ import { getCollection } from "astro:content";
 
 const products = await getCollection("products");
 
-const powerModules = products.filter((p) =>
-  p.data.codename.slice(3, 6).includes("PC"),
-);
+const powerModules = products
+  .filter((p) => p.data.codename.slice(3, 6).includes("PC"))
+  .filter((p) => !p.data.docsReady);
 import Layout from "@/layouts/layout.astro";
 ---
 

@@ -6,9 +6,9 @@ import { getCollection } from "astro:content";
 
 const products = await getCollection("products");
 
-const controllers = products.filter(
-  (p) => !p.data.codename.slice(3, 6).includes("PC"),
-);
+const controllers = products
+  .filter((p) => !p.data.docsReady)
+  .filter((p) => !p.data.codename.slice(3, 6).includes("PC"));
 ---
 
 <Layout title="ADVANTICS - Home">
