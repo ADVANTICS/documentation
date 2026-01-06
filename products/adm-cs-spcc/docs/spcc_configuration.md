@@ -280,7 +280,6 @@ Allows configuration of the controller IOs.
 
   - **`enabled`**: Whether TLS is enabled. (default: `True`)
   - **`allow No Cert`**: Allow no certificate verification. (default: `True`)
-  - **`allow Iso_20 Without Tls`**: Allow ISO 20 communication without TLS. (default: `True`)
 
 ### `Server`
 - **`Ca File`**: Path to the CA certificate file. (default: `/app/certs/CA.pem`)

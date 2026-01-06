@@ -18,7 +18,7 @@ theme:
   name: material
   language: en
   logo: assets/logo.webp
-  favicon: assets/logo.webp
+  favicon: assets/favicon.svg
 
   palette:
     # Light theme
@@ -145,7 +145,6 @@ nav:
     - V2G: "charger-can-interfaces/secc_bidirectional.md"
     - AC charging: "charger-can-interfaces/secc_ac_charging.md"
   - Features:
-    - NACS: "charger-features/secc_nacs.md"
     - Climate control: "charger-features/secc_climate_control.md"
     - IOs on CAN: "charger-features/secc_can_ios.md"
     - Charger interfaces: "charger-features/charger_interfaces.md"
