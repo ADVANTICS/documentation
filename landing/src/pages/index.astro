@@ -5,14 +5,16 @@ import Typography from "@/components/core/Typography.astro";
 ---
 
 <Layout title="ADVANTICS - Home">
-  <h1 class="font-poppins mx-auto my-20 w-fit text-6xl text-gray-200">
+  <h1 class="font-poppins mx-2 mx-auto my-20 w-fit text-6xl text-gray-200">
     Get Started Here
   </h1>
-  <section class="mx-auto mt-20 flex w-full max-w-7xl flex-col xl:flex-row">
+  <section
+    class="mx-2 mt-10 flex max-w-7xl flex-col gap-y-4 xl:mx-auto xl:mt-20 xl:w-full xl:flex-row xl:gap-y-0"
+  >
     <div
       class="xl:side-l relative mt-10 flex-1 text-left grayscale hover:grayscale-0"
     >
-      <a href="/cc" class="absolute inset-0">
+      <a href="/cc" class="xl:absolute xl:inset-0">
         <h2 class="font-goodtimes text-accent text-3xl">
           <span>CHARGE </span>
           <span>CONTROLLERS</span>
@@ -22,13 +24,13 @@ import Typography from "@/components/core/Typography.astro";
         </p>
       </a>
     </div>
-    <div class="ml-[-300px] hidden w-0 xl:block">
+    <div class="hidden w-0 xl:ml-[-300px] xl:block">
       <Diagonal />
     </div>
     <div
-      class="xl:side-r relative mt-10 flex-1 text-right grayscale hover:grayscale-0"
+      class="xl:side-r relative flex-1 text-right grayscale hover:grayscale-0 xl:mt-10"
     >
-      <a href="/pm" class="absolute inset-0">
+      <a href="/pm" class="xl:absolute xl:inset-0">
         <h2 class="font-goodtimes text-accent text-3xl">
           <span>POWER</span>
           <span>MODULES</span>
@@ -40,7 +42,7 @@ import Typography from "@/components/core/Typography.astro";
     </div>
   </section>
 
-  <section class="max-w-9xl mx-auto mt-20">
+  <section class="max-w-9xl mx-2 mt-20 xl:mx-auto">
     <Typography
       as="p"
       variant="body-xl"
