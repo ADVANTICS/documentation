@@ -815,7 +815,7 @@ If using a CAN sensor, and it has a temperature channel.
 ### Description
 
 > [!INFO]
-> Available since version 2.3
+> Available since version 2.3  
 >
 
 Diagnostic status of the charge controller.
@@ -1766,7 +1766,7 @@ Will be capped by max_discharge_current from config file.
 #### Target_Voltage :id=DC_Status1-Target_Voltage
 
 > [!INFO]
-> Available since version 2.4
+> Available since version 2.4  
 >
 
 Allows dynamic target voltage updates.
@@ -2398,7 +2398,7 @@ Used to report the status of the EV (from BMS to charge controller)
 #### HV_Preparing_Hold_Off :id=EV_Status-HV_Preparing_Hold_Off
 
 > [!INFO]
-> Available since version 2.2
+> Available since version 2.2  
 >
 
 Allows the vehicle to delay the transition to powered states (powered states start from the insulation test) until the HV system is ready.
@@ -2443,9 +2443,9 @@ Note: limited by wait_hv_ready_timeout_ms config entry. Default is 40 seconds (d
 #### Charge_Pause_Request :id=EV_Status-Charge_Pause_Request
 
 > [!INFO]
-> Available since version 2.4
-> Supported for CCS with ISO 15118.
-> Not supported for MCS (Megawatt Charging System) protocol.
+> Available since version 2.4  
+> Supported for CCS with ISO 15118.  
+> Not supported for MCS (Megawatt Charging System) protocol.  
 >
 
 Allows requesting a pause in energy transfer, in accordance with section CC.3.3 of IEC 61851-23:2023.
@@ -2475,9 +2475,9 @@ The pause request is not valid before the charging phase.
 #### Charge_Resume_Request :id=EV_Status-Charge_Resume_Request
 
 > [!INFO]
-> Available since version 2.4
-> Supported for CCS with ISO 15118.
-> Not supported for MCS (Megawatt Charging System) protocol.
+> Available since version 2.4  
+> Supported for CCS with ISO 15118.  
+> Not supported for MCS (Megawatt Charging System) protocol.  
 >
 
 Used to request waking up the charger and resume/restart the charge session, in accordance with section CC.5.2.4 of IEC 61851-23:2023
@@ -2507,7 +2507,7 @@ By performing a B - C - B toggle on the CP line.
 #### ISO15118_Part20_Scheduled_Mode_Control :id=EV_Status-ISO15118_Part20_Scheduled_Mode_Control
 
 > [!INFO]
-> Available since version 2.4
+> Available since version 2.4  
 >
 
 Power transfer in ISO15118-20 Scheduled mode defines that the EVCC shall either provide a `EVTargetVoltage` or
