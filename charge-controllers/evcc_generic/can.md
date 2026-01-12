@@ -68,21 +68,21 @@ Information about the EVSE (AC or DC source), when available.
 
 Current internal state of the charge controller, reflecting communication stage.
 
-Initialising:: Controller&#x27;s applications are starting up.
-Waiting_For_EVSE:: Controller is idle and ready for a plug-in.
-Negotiating_Connection:: Controller is plugged to a charger and the connection is
+- **Initialising**: Controller's applications are starting up.
+- **Waiting_For_EVSE**: Controller is idle and ready for a plug-in.
+- **Negotiating_Connection**: Controller is plugged to a charger and the connection is
     being initialised. Important charge information are exchanged.
-Connected_With_Full_Info:: All charge information from the EVSE were retrieved
+- **Connected_With_Full_Info**: All charge information from the EVSE were retrieved
     and a charge session can be considered to be properly started.
-Insulation_Test:: Insulation of charge cable is being tested by charger.
-Precharge:: Charger is matching its output voltage to present voltage of the
+- **Insulation_Test**: Insulation of charge cable is being tested by charger.
+- **Precharge**: Charger is matching its output voltage to present voltage of the
     battery.
-Waiting_For_Charge:: PEV is about to begin the actual charge.
-Charging:: Main charging loop going on.
-Ending_Charge:: A normal charge stop condition happened and the PEV is exiting
+- **Waiting_For_Charge**: PEV is about to begin the actual charge.
+- **Charging**: Main charging loop going on.
+- **Ending_Charge**: A normal charge stop condition happened and the PEV is exiting
     the charging loop.
-Welding_Detection:: PEV is testing if its contactors are welded.
-Closing_Communication:: PEV can unplug and we are reinitialising in order to
+- **Welding_Detection**: PEV is testing if its contactors are welded.
+- **Closing_Communication**: PEV can unplug and we are reinitialising in order to
     then go back to __Waiting_For_EVSE__.
 
 
@@ -276,11 +276,11 @@ EVSE is in position of delivering power.
 WARNING: Does not mean that power is currently being delivered!
 
 When going to __Ready__, the on-board charger should set its
-&lt;&lt;AC_Status.Ready_To_Charge&gt;&gt; flag, and THEN start to draw current.
+<<AC_Status.Ready_To_Charge>> flag, and THEN start to draw current.
 
 When going to __Not_Ready__ it means the AC source request a normal stop.
 On-board charger should stop drawing current and THEN set its
-&lt;&lt;AC_Status.Ready_To_Charge&gt;&gt; flag to 0.
+<<AC_Status.Ready_To_Charge>> flag to 0.
 
 
 <div class="small-table compact-table">
@@ -811,8 +811,9 @@ If using a CAN sensor, and it has a temperature channel.
 
 ### Description
 
-!!! info
-        Available since version 2.3
+> [!INFO]
+> Available since version 2.3  
+>
 
 Diagnostic status of the charge controller.
 This message gets reset to default values when the controller the state cycles back to
@@ -1664,7 +1665,7 @@ DC charging specific status (from BMS to charge controller), message 1.
 Current target sent to EVSE.
 Will be capped by maximum current from config file and from EVSE data.
 
-Alternatively, use max_current in `/srv/config.cfg` when in &lt;&lt;No BMS mode&gt;&gt;.
+Alternatively, use max_current in `/srv/config.cfg` when in <<No BMS mode>>.
 When doing so, you should set a safe `max_charge_voltage` to terminate the
 charge earlier than at full pack (ie. bulk charging):
 
@@ -1701,7 +1702,7 @@ Declare it as such in `/srv/config.cfg`:
     use_can_sensor = Isabellenhutte IVT-S
 
 In such case, this signal will be ignored.
-Refer to &lt;&lt;CAN sensor&gt;&gt; documentation to know how the sensor should be wired.
+Refer to <<CAN sensor>> documentation to know how the sensor should be wired.
 
 NOTE: Signal is of signed data type for compatibility with future bidirectional
 implementations.
@@ -1869,7 +1870,7 @@ Declare it as such in `/srv/config.cfg`:
     use_can_sensor = Isabellenhutte IVT-S
 
 In such case, this signal will be ignored.
-Refer to &lt;&lt;CAN sensor&gt;&gt; documentation to know how the sensor should be wired.
+Refer to <<CAN sensor>> documentation to know how the sensor should be wired.
 
 
 <div class="small-table compact-table">
@@ -1892,7 +1893,7 @@ Declare it as such in `/srv/config.cfg`:
     use_can_sensor = Isabellenhutte IVT-S
 
 In such case, this signal will be ignored.
-Refer to &lt;&lt;CAN sensor&gt;&gt; documentation to know how the sensor should be wired.
+Refer to <<CAN sensor>> documentation to know how the sensor should be wired.
 
 
 <div class="small-table compact-table">
@@ -2111,8 +2112,9 @@ Used to report the status of the EV (from BMS to charge controller)
 
 #### HV_Preparing_Hold_Off :id=EV_Status-HV_Preparing_Hold_Off
 
-!!! info
-        Available since version 2.2
+> [!INFO]
+> Available since version 2.2  
+>
 
 Allows the vehicle to delay the transition to powered states (powered states start from the insulation test) until the HV system is ready.
 Can be set at any time before Communication_Stage.Connected_With_Full_Info state.
@@ -2155,10 +2157,11 @@ Note: limited by wait_hv_ready_timeout_ms config entry. Default is 40 seconds (d
 
 #### Charge_Pause_Request :id=EV_Status-Charge_Pause_Request
 
-!!! info
-        Available since version 2.4
-        Supported for CCS with ISO 15118.
-        Not supported for MCS (Megawatt Charging System) protocol.
+> [!INFO]
+> Available since version 2.4  
+> Supported for CCS with ISO 15118.  
+> Not supported for MCS (Megawatt Charging System) protocol.  
+>
 
 Allows requesting a pause in energy transfer, in accordance with section CC.3.3 of IEC 61851-23:2023.
 The pause request is not valid before the charging phase.
@@ -2186,13 +2189,14 @@ The pause request is not valid before the charging phase.
 
 #### Charge_Resume_Request :id=EV_Status-Charge_Resume_Request
 
-!!! info
-        Available since version 2.4
-        Supported for CCS with ISO 15118.
-        Not supported for MCS (Megawatt Charging System) protocol.
+> [!INFO]
+> Available since version 2.4  
+> Supported for CCS with ISO 15118.  
+> Not supported for MCS (Megawatt Charging System) protocol.  
+>
 
-Used to request waking up the charger and resume the energy transfer, in accordance with section CC.5.2.4 of IEC 61851-23:2023.
-Only meaningful when the state is Charge_Pause.
+Used to request waking up the charger and resume/restart the charge session, in accordance with section CC.5.2.4 of IEC 61851-23:2023
+By performing a B - C - B toggle on the CP line.
 
 
 <div class="small-table compact-table">
