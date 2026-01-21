@@ -81,6 +81,7 @@ BO_ 8519746 DC01_faults: 8 ADB_PC_DC01
  SG_ CABLE_2_4_DC : 0|1@1+ (1,0) [0|0] ""  User
 
 BO_ 8519747 DC01_warning: 8 ADB_PC_DC01
+ SG_ NEED_UPDATE : 12|1@1+ (1,0) [0|0] ""  User
  SG_ V_A_HIGH : 11|1@1+ (1,0) [0|0] ""  User
  SG_ V_A_LOW : 10|1@1+ (1,0) [0|0] ""  User
  SG_ RQ_DC_DROOP_NEG_INVALID : 9|1@1+ (1,0) [0|0] ""  User
@@ -112,15 +113,15 @@ BO_ 8519713 B_Port_Applied_Setpoints: 8 ADB_PC_DC01
  SG_ Voltage : 0|16@1+ (0.1,0) [0|0] "V"  User
 
 BO_ 8519714 B_Port_Droop_Setpoints: 8 User
- SG_ Reserved : 36|28@1+ (1,0) [0|0] ""  ADB_PC_DC01
- SG_ Negative_Current_Droop : 20|16@1+ (0.01,0) [0|0] "Ohm"  ADB_PC_DC01
- SG_ Positive_Current_Droop : 4|16@1+ (0.01,0) [0|0] "Ohm"  ADB_PC_DC01
- SG_ Enable : 0|4@1+ (1,0) [0|0] ""  ADB_PC_DC01
+ SG_ Reserved : 33|31@1+ (1,0) [0|0] ""  ADB_PC_DC01
+ SG_ Enable : 32|1@1+ (1,0) [0|0] ""  ADB_PC_DC01
+ SG_ Negative_Current_Droop : 16|16@1+ (0.01,0) [0|0] "Ohm"  ADB_PC_DC01
+ SG_ Positive_Current_Droop : 0|16@1+ (0.01,0) [0|0] "Ohm"  ADB_PC_DC01
 
 BO_ 8519715 B_Port_Applied_Droop_Setpoints: 5 ADB_PC_DC01
- SG_ Negative_Current_Droop : 20|16@1+ (0.01,0) [0|0] "Ohm"  User
- SG_ Positive_Current_Droop : 4|16@1+ (0.01,0) [0|0] "Ohm"  User
- SG_ Enable : 0|4@1+ (1,0) [0|0] ""  User
+ SG_ Enable : 32|1@1+ (1,0) [0|0] ""  User
+ SG_ Negative_Current_Droop : 16|16@1+ (0.01,0) [0|0] "Ohm"  User
+ SG_ Positive_Current_Droop : 0|16@1+ (0.01,0) [0|0] "Ohm"  User
 
 BO_ 8519716 B_Port_Measurements: 4 ADB_PC_DC01
  SG_ Current : 16|16@1- (0.1,0) [0|0] "A"  User
@@ -192,6 +193,7 @@ CM_ SG_ 8519746 CABLE_3_4_DC "BI25(4).DC -> BI25(2).DC mismatch";
 CM_ SG_ 8519746 CABLE_1_2_DC "BI25(2).DC -> BP25(1).DC mismatch";
 CM_ SG_ 8519746 CABLE_2_4_DC "BI25(2).DC -> BI25(4).DC mismatch";
 CM_ BO_ 8519747 "DC01 Warnings";
+CM_ SG_ 8519747 NEED_UPDATE "power converter need update";
 CM_ SG_ 8519747 V_A_HIGH "voltage port a too high";
 CM_ SG_ 8519747 V_A_LOW "voltage port a too low";
 CM_ SG_ 8519747 RQ_DC_DROOP_NEG_INVALID "DC droop negative invalid";
@@ -218,15 +220,15 @@ CM_ BO_ 8519713 "The setpoints that are currently used by the DC01. This message
 CM_ SG_ 8519713 Sink_Current_Limit "The maximum amount of current that the DC01 will sink into the B port";
 CM_ SG_ 8519713 Source_Current_Limit "The maximum current that the DC01 will source on the B Port";
 CM_ SG_ 8519713 Voltage "The voltage target of the B port";
-CM_ BO_ 8519714 "Setpoints for applying Droop on the B Port. Droop is needed for paralleling multiple DC01";
+CM_ BO_ 8519714 "Setpoints for applying Droop on the DC Port B. Droop is needed for paralleling multiple DC01";
 CM_ SG_ 8519714 Reserved "This space is reserved. This region should contain only '0's";
-CM_ SG_ 8519714 Negative_Current_Droop "The droop resistance to apply for current flowing in to the B Port (DC current is negative)";
-CM_ SG_ 8519714 Positive_Current_Droop "The droop resistance to apply for current flowing out of the B port (DC current is positive)";
-CM_ SG_ 8519714 Enable "Enable DC Droop. If this feature is enabled the output voltage of the B port varies with output current.";
-CM_ BO_ 8519715 "Droop setpoints that are applied by the DC01";
-CM_ SG_ 8519715 Negative_Current_Droop "The droop resistance applied for current flowing in to the B Port (DC current is negative)";
-CM_ SG_ 8519715 Positive_Current_Droop "The droop resistance applied for current flowing out of the B port (DC current is positive)";
-CM_ SG_ 8519715 Enable "Show is DC Droop is enabled.";
+CM_ SG_ 8519714 Enable "Enable DC Droop. If this feature is enabled the output voltage of the DC port  Bvaries with output current.";
+CM_ SG_ 8519714 Negative_Current_Droop "The droop resistance to apply for current flowing in to the DC Port B (DC current is negative)";
+CM_ SG_ 8519714 Positive_Current_Droop "The droop resistance to apply for current flowing out of the DC port (DC current is positive)";
+CM_ BO_ 8519715 "Droop setpoints that are applied by the DC01 on port b ";
+CM_ SG_ 8519715 Enable "Show is B port Droop is enabled.";
+CM_ SG_ 8519715 Negative_Current_Droop "The droop resistance applied for current flowing in to the DC Port B (DC current is negative)";
+CM_ SG_ 8519715 Positive_Current_Droop "The droop resistance applied for current flowing out of the DC port B (DC current is positive)";
 CM_ BO_ 8519716 "Measurements of the B port";
 CM_ SG_ 8519716 Current "Current through the B Port";
 CM_ SG_ 8519716 Voltage "Voltage on the B Port";
@@ -299,6 +301,7 @@ VAL_ 8519746 CABLE_1_L1_L2 0 "Clear" 1 "Critical" ;
 VAL_ 8519746 CABLE_3_4_DC 0 "Clear" 1 "Critical" ;
 VAL_ 8519746 CABLE_1_2_DC 0 "Clear" 1 "Critical" ;
 VAL_ 8519746 CABLE_2_4_DC 0 "Clear" 1 "Critical" ;
+VAL_ 8519747 NEED_UPDATE 0 "Clear" 1 "Warning" ;
 VAL_ 8519747 V_A_HIGH 0 "Clear" 1 "Warning" ;
 VAL_ 8519747 V_A_LOW 0 "Clear" 1 "Warning" ;
 VAL_ 8519747 RQ_DC_DROOP_NEG_INVALID 0 "Clear" 1 "Warning" ;

@@ -179,7 +179,7 @@ Enable DC Droop. If this feature is enabled the output voltage of the DC port va
 
 #### Reserved { #DC_Port_Droop_Setpoints-Reserved }
 
-This space is reserved. This region should contain only &#x27;0&#x27;s
+This space is reserved. This region should contain only '0's
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -243,7 +243,7 @@ Show is DC Droop is enabled.
 
 #### Reserved { #DC_Port_Applied_Droop_Setpoints-Reserved }
 
-This space is reserved. This region should contain only &#x27;0&#x27;s
+This space is reserved. This region should contain only '0's
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -416,7 +416,7 @@ Average RMS Line to Line voltage at the AC port
 
 #### Reserved { #AC_Port_Measurements-Reserved }
 
-This space is reserved. This region contains only &#x27;0&#x27;s
+This space is reserved. This region contains only '0's
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|

@@ -318,6 +318,15 @@
       <Consumer><NodeRef id="0" /></Consumer>
       <LabelSet><Label name="Clear" value="0" /><Label name="Warning" value="1" /></LabelSet>
     </Signal>
+
+    <Signal name="NEED_UPDATE" offset="12" length="1" endianess="little">
+      <Notes>power converter need update</Notes>
+      <Consumer><NodeRef id="0" /></Consumer>
+      <LabelSet><Label name="Clear" value="0" /><Label name="Warning" value="1" /></LabelSet>
+    </Signal>
+
+
+
   </Message>
 
   <Message id="0x820044" length="8" name="DC01_info" interval="1000" format="extended">
@@ -410,12 +419,26 @@
     </Message>
 
     <Message id="0x820022" length="8" name="B_Port_Droop_Setpoints" format="extended">
-      <Notes>Setpoints for applying Droop on the B Port. Droop is needed for paralleling multiple DC01</Notes>
+      <Notes>Setpoints for applying Droop on the DC Port B. Droop is needed for paralleling multiple DC01</Notes>
       <Producer> 
         <NodeRef id="0" /> 
       </Producer>
-      <Signal name="Enable" offset="0" length="4" endianess="little">
-        <Notes>Enable DC Droop. If this feature is enabled the output voltage of the B port varies with output current.</Notes>
+      <Signal name="Positive_Current_Droop" offset="0" length="16" endianess="little">
+        <Notes>The droop resistance to apply for current flowing out of the DC port (DC current is positive)</Notes>
+        <Consumer> 
+          <NodeRef id="1" /> 
+        </Consumer>
+        <Value slope="0.01" unit="Ohm" intercept="0" type="unsigned" />
+      </Signal>
+      <Signal name="Negative_Current_Droop" offset="16" length="16" endianess="little">
+        <Notes>The droop resistance to apply for current flowing in to the DC Port B (DC current is negative)</Notes>
+        <Consumer> 
+          <NodeRef id="1" /> 
+        </Consumer>
+        <Value slope="0.01" unit="Ohm" intercept="0" type="unsigned" />
+      </Signal>
+      <Signal name="Enable" offset="32" length="1" endianess="little">
+        <Notes>Enable DC Droop. If this feature is enabled the output voltage of the DC port  Bvaries with output current.</Notes>
         <Consumer> 
           <NodeRef id="1" /> 
         </Consumer>
@@ -424,21 +447,7 @@
           <Label name="Disabled" value="0" />
         </LabelSet>
       </Signal>
-      <Signal name="Positive_Current_Droop" offset="4" length="16" endianess="little">
-        <Notes>The droop resistance to apply for current flowing out of the B port (DC current is positive)</Notes>
-        <Consumer> 
-          <NodeRef id="1" /> 
-        </Consumer>
-        <Value slope="0.01" unit="Ohm" intercept="0" type="unsigned" />
-      </Signal>
-      <Signal name="Negative_Current_Droop" offset="20" length="16" endianess="little">
-        <Notes>The droop resistance to apply for current flowing in to the B Port (DC current is negative)</Notes>
-        <Consumer> 
-          <NodeRef id="1" /> 
-        </Consumer>
-        <Value slope="0.01" unit="Ohm" intercept="0" type="unsigned" />
-      </Signal>
-      <Signal name="Reserved" offset="36" length="28">
+      <Signal name="Reserved" offset="33" length="31">
         <Notes>This space is reserved. This region should contain only '0's</Notes>
         <Consumer> 
           <NodeRef id="1" /> 
@@ -448,12 +457,28 @@
 
 
     <Message id="0x820023" length="5" name="B_Port_Applied_Droop_Setpoints" interval="1000" format="extended">
-      <Notes>Droop setpoints that are applied by the DC01</Notes>
+      <Notes>Droop setpoints that are applied by the DC01 on port b </Notes>
       <Producer> 
         <NodeRef id="1" /> 
       </Producer>
-      <Signal name="Enable" offset="0" length="4" endianess="little">
-        <Notes>Show is DC Droop is enabled.</Notes>
+
+      <Signal name="Positive_Current_Droop" offset="0" length="16" endianess="little">
+        <Notes>The droop resistance applied for current flowing out of the DC port B (DC current is positive)</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value slope="0.01" unit="Ohm" intercept="0" type="unsigned" />
+      </Signal>
+      <Signal name="Negative_Current_Droop" offset="16" length="16" endianess="little">
+        <Notes>The droop resistance applied for current flowing in to the DC Port B (DC current is negative)</Notes>
+        <Consumer> 
+          <NodeRef id="0" /> 
+        </Consumer>
+        <Value slope="0.01" unit="Ohm" intercept="0" type="unsigned" />
+      </Signal>
+
+      <Signal name="Enable" offset="32" length="1" endianess="little">
+        <Notes>Show is B port Droop is enabled.</Notes>
         <Consumer> 
           <NodeRef id="0" /> 
         </Consumer>
@@ -462,21 +487,9 @@
           <Label name="Disabled" value="0" />
         </LabelSet>
       </Signal>
-      <Signal name="Positive_Current_Droop" offset="4" length="16" endianess="little">
-        <Notes>The droop resistance applied for current flowing out of the B port (DC current is positive)</Notes>
-        <Consumer> 
-          <NodeRef id="0" /> 
-        </Consumer>
-        <Value slope="0.01" unit="Ohm" intercept="0" type="unsigned" />
-      </Signal>
-      <Signal name="Negative_Current_Droop" offset="20" length="16" endianess="little">
-        <Notes>The droop resistance applied for current flowing in to the B Port (DC current is negative)</Notes>
-        <Consumer> 
-          <NodeRef id="0" /> 
-        </Consumer>
-        <Value slope="0.01" unit="Ohm" intercept="0" type="unsigned" />
-      </Signal>
+
     </Message>
+
 
     <Message id="0x820024" length="4" name="B_Port_Measurements" interval="100" format="extended">
       <Notes>Measurements of the B port</Notes>

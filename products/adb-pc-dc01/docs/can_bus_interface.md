@@ -134,55 +134,55 @@ The maximum amount of current that the DC01 will sink into the B port
 
 ### Description
 
-Setpoints for applying Droop on the B Port. Droop is needed for paralleling multiple DC01
+Setpoints for applying Droop on the DC Port B. Droop is needed for paralleling multiple DC01
 
 ### Payload
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Enable | 4 | Label set |
 | Positive_Current_Droop | 16 | Unsigned |
 | Negative_Current_Droop | 16 | Unsigned |
-| Reserved | 28 | Unsigned |
+| Enable | 1 | Label set |
+| Reserved | 31 | Unsigned |
 
 ### Payload description
 
-#### Enable { #B_Port_Droop_Setpoints-Enable }
+#### Positive_Current_Droop { #B_Port_Droop_Setpoints-Positive_Current_Droop }
 
-Enable DC Droop. If this feature is enabled the output voltage of the B port varies with output current.
+The droop resistance to apply for current flowing out of the DC port (DC current is positive)
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 4 | Label set |  | 1 | 0 |  |  |
+| 0 | 16 | Unsigned | Ohm | 0.01 | 0 |  |  |
+
+#### Negative_Current_Droop { #B_Port_Droop_Setpoints-Negative_Current_Droop }
+
+The droop resistance to apply for current flowing in to the DC Port B (DC current is negative)
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 16 | Unsigned | Ohm | 0.01 | 0 |  |  |
+
+#### Enable { #B_Port_Droop_Setpoints-Enable }
+
+Enable DC Droop. If this feature is enabled the output voltage of the DC port  Bvaries with output current.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 32 | 1 | Label set |  | 1 | 0 |  |  |
 
 | Label name | Value |
 |------------|-------|
 | Disabled | 0 |
 | Enabled | 1 |
 
-#### Positive_Current_Droop { #B_Port_Droop_Setpoints-Positive_Current_Droop }
-
-The droop resistance to apply for current flowing out of the B port (DC current is positive)
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 4 | 16 | Unsigned | Ohm | 0.01 | 0 |  |  |
-
-#### Negative_Current_Droop { #B_Port_Droop_Setpoints-Negative_Current_Droop }
-
-The droop resistance to apply for current flowing in to the B Port (DC current is negative)
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 20 | 16 | Unsigned | Ohm | 0.01 | 0 |  |  |
-
 #### Reserved { #B_Port_Droop_Setpoints-Reserved }
 
-This space is reserved. This region should contain only &#x27;0&#x27;s
+This space is reserved. This region should contain only '0's
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 36 | 28 | Unsigned |  | 1 | 0 |  |  |
+| 33 | 31 | Unsigned |  | 1 | 0 |  |  |
 
 
 <a id="B_Port_Applied_Droop_Setpoints"></a>
@@ -198,46 +198,46 @@ This space is reserved. This region should contain only &#x27;0&#x27;s
 
 ### Description
 
-Droop setpoints that are applied by the DC01
+Droop setpoints that are applied by the DC01 on port b
 
 ### Payload
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Enable | 4 | Label set |
 | Positive_Current_Droop | 16 | Unsigned |
 | Negative_Current_Droop | 16 | Unsigned |
+| Enable | 1 | Label set |
 
 ### Payload description
 
-#### Enable { #B_Port_Applied_Droop_Setpoints-Enable }
+#### Positive_Current_Droop { #B_Port_Applied_Droop_Setpoints-Positive_Current_Droop }
 
-Show is DC Droop is enabled.
+The droop resistance applied for current flowing out of the DC port B (DC current is positive)
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 4 | Label set |  | 1 | 0 |  |  |
+| 0 | 16 | Unsigned | Ohm | 0.01 | 0 |  |  |
+
+#### Negative_Current_Droop { #B_Port_Applied_Droop_Setpoints-Negative_Current_Droop }
+
+The droop resistance applied for current flowing in to the DC Port B (DC current is negative)
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 16 | Unsigned | Ohm | 0.01 | 0 |  |  |
+
+#### Enable { #B_Port_Applied_Droop_Setpoints-Enable }
+
+Show is B port Droop is enabled.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 32 | 1 | Label set |  | 1 | 0 |  |  |
 
 | Label name | Value |
 |------------|-------|
 | Disabled | 0 |
 | Enabled | 1 |
-
-#### Positive_Current_Droop { #B_Port_Applied_Droop_Setpoints-Positive_Current_Droop }
-
-The droop resistance applied for current flowing out of the B port (DC current is positive)
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 4 | 16 | Unsigned | Ohm | 0.01 | 0 |  |  |
-
-#### Negative_Current_Droop { #B_Port_Applied_Droop_Setpoints-Negative_Current_Droop }
-
-The droop resistance applied for current flowing in to the B Port (DC current is negative)
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 20 | 16 | Unsigned | Ohm | 0.01 | 0 |  |  |
 
 
 <a id="B_Port_Measurements"></a>
@@ -586,7 +586,7 @@ DC01 Critical and Error Faults
 
 #### CABLE_2_4_DC { #DC01_faults-CABLE_2_4_DC }
 
-BI25(2).DC -&gt; BI25(4).DC mismatch
+BI25(2).DC -> BI25(4).DC mismatch
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -599,7 +599,7 @@ BI25(2).DC -&gt; BI25(4).DC mismatch
 
 #### CABLE_1_2_DC { #DC01_faults-CABLE_1_2_DC }
 
-BI25(2).DC -&gt; BP25(1).DC mismatch
+BI25(2).DC -> BP25(1).DC mismatch
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -612,7 +612,7 @@ BI25(2).DC -&gt; BP25(1).DC mismatch
 
 #### CABLE_3_4_DC { #DC01_faults-CABLE_3_4_DC }
 
-BI25(4).DC -&gt; BI25(2).DC mismatch
+BI25(4).DC -> BI25(2).DC mismatch
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -625,7 +625,7 @@ BI25(4).DC -&gt; BI25(2).DC mismatch
 
 #### CABLE_1_L1_L2 { #DC01_faults-CABLE_1_L1_L2 }
 
-BP25(1).L1 -&gt; BI25(1).L2 mismatch
+BP25(1).L1 -> BI25(1).L2 mismatch
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -638,7 +638,7 @@ BP25(1).L1 -&gt; BI25(1).L2 mismatch
 
 #### CABLE_1_L2_L3 { #DC01_faults-CABLE_1_L2_L3 }
 
-BP25(1).L2 -&gt; BI25(1).L3 mismatch
+BP25(1).L2 -> BI25(1).L3 mismatch
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -651,7 +651,7 @@ BP25(1).L2 -&gt; BI25(1).L3 mismatch
 
 #### CABLE_3_L1_L2 { #DC01_faults-CABLE_3_L1_L2 }
 
-BP25(3).L1 -&gt; BI25(3).L2 mismatch
+BP25(3).L1 -> BI25(3).L2 mismatch
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -664,7 +664,7 @@ BP25(3).L1 -&gt; BI25(3).L2 mismatch
 
 #### CABLE_3_L2_L3 { #DC01_faults-CABLE_3_L2_L3 }
 
-BP25(3).L2 -&gt; BI25(3).L3 mismatch
+BP25(3).L2 -> BI25(3).L3 mismatch
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -677,7 +677,7 @@ BP25(3).L2 -&gt; BI25(3).L3 mismatch
 
 #### CABLE_1_3_L1 { #DC01_faults-CABLE_1_3_L1 }
 
-BP25(1).L1 -&gt; BI25(3).L1 mismatch
+BP25(1).L1 -> BI25(3).L1 mismatch
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -690,7 +690,7 @@ BP25(1).L1 -&gt; BI25(3).L1 mismatch
 
 #### CABLE_2_IN_OUT { #DC01_faults-CABLE_2_IN_OUT }
 
-BI25(2).IN -&gt; BI25(2).OUT mismatch
+BI25(2).IN -> BI25(2).OUT mismatch
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -703,7 +703,7 @@ BI25(2).IN -&gt; BI25(2).OUT mismatch
 
 #### CABLE_4_IN_OUT { #DC01_faults-CABLE_4_IN_OUT }
 
-BI25(4).IN -&gt; BI25(4).OUT mismatch
+BI25(4).IN -> BI25(4).OUT mismatch
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -1058,6 +1058,7 @@ DC01 Warnings
 | RQ_DC_DROOP_NEG_INVALID | 1 | Label set |
 | V_A_LOW | 1 | Label set |
 | V_A_HIGH | 1 | Label set |
+| NEED_UPDATE | 1 | Label set |
 
 ### Payload description
 
@@ -1211,6 +1212,19 @@ voltage port a too high
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 11 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Warning | 1 |
+
+#### NEED_UPDATE { #DC01_warning-NEED_UPDATE }
+
+power converter need update
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 12 | 1 | Label set |  | 1 | 0 |  |  |
 
 | Label name | Value |
 |------------|-------|
