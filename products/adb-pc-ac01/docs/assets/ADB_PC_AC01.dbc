@@ -1,4 +1,4 @@
-VERSION "0.1"
+VERSION "2.0.0"
 
 
 NS_ : 
@@ -105,13 +105,13 @@ BO_ 8454212 AC01_info: 8 ADB_PC_AC01
  SG_ BLEEDING_DONE : 1|1@1+ (1,0) [0|0] ""  User
 
 BO_ 8454176 DC_Ports_Setpoints: 6 User
- SG_ Sink_Current_Limit : 32|16@1+ (0.1,0) [0|220] "A"  ADB_PC_AC01
- SG_ Source_Current_Limit : 16|16@1+ (0.1,0) [0|220] "A"  ADB_PC_AC01
- SG_ Voltage : 0|16@1+ (0.1,0) [0|1500] "V"  ADB_PC_AC01
+ SG_ Negative_Current_Limit : 32|16@1- (0.1,0) [0|0] "A"  ADB_PC_AC01
+ SG_ Positive_Current_Limit : 16|16@1- (0.1,0) [0|0] "A"  ADB_PC_AC01
+ SG_ Voltage : 0|16@1+ (0.1,0) [0|0] "V"  ADB_PC_AC01
 
 BO_ 8454177 DC_Port_Applied_Setpoints: 8 ADB_PC_AC01
- SG_ Sink_Current_Limit : 32|16@1+ (0.1,0) [0|0] "A"  User
- SG_ Source_Current_Limit : 16|16@1+ (0.1,0) [0|0] "A"  User
+ SG_ Negative_Current_Limit : 32|16@1- (0.1,0) [0|0] "A"  User
+ SG_ Positive_Current_Limit : 16|16@1- (0.1,0) [0|0] "A"  User
  SG_ Voltage : 0|16@1+ (0.1,0) [0|0] "V"  User
 
 BO_ 8454180 DC_Port_Measurements: 4 ADB_PC_AC01
@@ -228,12 +228,12 @@ CM_ BO_ 8454212 "AC01 Info";
 CM_ SG_ 8454212 RQ_C_LIMITED_BY_POWER "Current limited by power max ";
 CM_ SG_ 8454212 BLEEDING_DONE "Current limited by power max ";
 CM_ BO_ 8454176 "The setpoints control the behaviour of the DC Port of the AC01. The AC01 operates this port in CVCC mode";
-CM_ SG_ 8454176 Sink_Current_Limit "The maximum current that the AC01 will sink into the DC Port";
-CM_ SG_ 8454176 Source_Current_Limit "The maximum current that the AC01 will source on the DC Port";
+CM_ SG_ 8454176 Negative_Current_Limit "The maximum current that the AC01 will sink into the DC Port";
+CM_ SG_ 8454176 Positive_Current_Limit "The maximum current that the AC01 will source on the DC Port";
 CM_ SG_ 8454176 Voltage "Control the target dc side voltage. This voltage will be maintained as long as the current required to do so is smaller than the current limits specified in this message";
 CM_ BO_ 8454177 "The setpoints that are currently used by the AC01. This message allows to validate that the setpoints have been properly applied.";
-CM_ SG_ 8454177 Sink_Current_Limit "The maximum amount of current that the AC01 will sink into the DC port";
-CM_ SG_ 8454177 Source_Current_Limit "The maximum current that the AC01 will source on the DC Port";
+CM_ SG_ 8454177 Negative_Current_Limit "The maximum amount of current that the AC01 will sink into the DC port";
+CM_ SG_ 8454177 Positive_Current_Limit "The maximum current that the AC01 will source on the DC Port";
 CM_ SG_ 8454177 Voltage "The voltage target of the DC port";
 CM_ BO_ 8454180 "Measurements of the DC Bus";
 CM_ SG_ 8454180 Current "Current through the DC Port";

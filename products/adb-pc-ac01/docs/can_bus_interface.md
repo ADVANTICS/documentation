@@ -42,8 +42,8 @@ The setpoints control the behaviour of the DC Port of the AC01. The AC01 operate
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
 | Voltage | 16 | Unsigned |
-| Source_Current_Limit | 16 | Unsigned |
-| Sink_Current_Limit | 16 | Unsigned |
+| Positive_Current_Limit | 16 | Signed |
+| Negative_Current_Limit | 16 | Signed |
 
 ### Payload description
 
@@ -53,23 +53,23 @@ Control the target dc side voltage. This voltage will be maintained as long as t
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 16 | Unsigned | V | 0.1 | 0 | 0 | 1500 |
+| 0 | 16 | Unsigned | V | 0.1 | 0 |  |  |
 
-#### Source_Current_Limit { #DC_Ports_Setpoints-Source_Current_Limit }
+#### Positive_Current_Limit { #DC_Ports_Setpoints-Positive_Current_Limit }
 
 The maximum current that the AC01 will source on the DC Port
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 16 | 16 | Unsigned | A | 0.1 | 0 | 0 | 220 |
+| 16 | 16 | Signed | A | 0.1 | 0 |  |  |
 
-#### Sink_Current_Limit { #DC_Ports_Setpoints-Sink_Current_Limit }
+#### Negative_Current_Limit { #DC_Ports_Setpoints-Negative_Current_Limit }
 
 The maximum current that the AC01 will sink into the DC Port
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 32 | 16 | Unsigned | A | 0.1 | 0 | 0 | 220 |
+| 32 | 16 | Signed | A | 0.1 | 0 |  |  |
 
 
 <a id="DC_Port_Applied_Setpoints"></a>
@@ -92,8 +92,8 @@ The setpoints that are currently used by the AC01. This message allows to valida
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
 | Voltage | 16 | Unsigned |
-| Source_Current_Limit | 16 | Unsigned |
-| Sink_Current_Limit | 16 | Unsigned |
+| Positive_Current_Limit | 16 | Signed |
+| Negative_Current_Limit | 16 | Signed |
 
 ### Payload description
 
@@ -105,21 +105,21 @@ The voltage target of the DC port
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 0 | 16 | Unsigned | V | 0.1 | 0 |  |  |
 
-#### Source_Current_Limit { #DC_Port_Applied_Setpoints-Source_Current_Limit }
+#### Positive_Current_Limit { #DC_Port_Applied_Setpoints-Positive_Current_Limit }
 
 The maximum current that the AC01 will source on the DC Port
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 16 | 16 | Unsigned | A | 0.1 | 0 |  |  |
+| 16 | 16 | Signed | A | 0.1 | 0 |  |  |
 
-#### Sink_Current_Limit { #DC_Port_Applied_Setpoints-Sink_Current_Limit }
+#### Negative_Current_Limit { #DC_Port_Applied_Setpoints-Negative_Current_Limit }
 
 The maximum amount of current that the AC01 will sink into the DC port
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 32 | 16 | Unsigned | A | 0.1 | 0 |  |  |
+| 32 | 16 | Signed | A | 0.1 | 0 |  |  |
 
 
 <a id="DC_Port_Droop_Setpoints"></a>

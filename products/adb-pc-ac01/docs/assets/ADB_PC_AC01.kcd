@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <NetworkDefinition xmlns="http://kayak.2codeornot2code.org/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="KCD_Definition.xsd">
-  <Document name="ADB_PC_AC01" version="0.1" author="Thomas A" company="Advantics" date="2025-09-23" />
+  <Document name="ADB_PC_AC01" version="2.0.0" author="Thomas A" company="Advantics" date="2025-09-23" />
 
   <Node id="0" name="User" />
   <Node id="1" name="ADB_PC_AC01" />
@@ -370,21 +370,21 @@
         <Consumer> 
           <NodeRef id="1" /> 
         </Consumer>
-        <Value type="unsigned" slope="0.1" unit="V" min="0" max="1500" />
+        <Value type="unsigned" slope="0.1" unit="V" />
       </Signal>
-      <Signal name="Source_Current_Limit" offset="16" length="16">
+      <Signal name="Positive_Current_Limit" offset="16" length="16">
         <Notes>The maximum current that the AC01 will source on the DC Port</Notes>
         <Consumer> 
           <NodeRef id="1" /> 
         </Consumer>
-        <Value type="unsigned" slope="0.1" unit="A" min="0" max="220" />
+        <Value type="signed" slope="0.1" unit="A" />
       </Signal>
-      <Signal name="Sink_Current_Limit" offset="32" length="16">
+      <Signal name="Negative_Current_Limit" offset="32" length="16">
         <Notes>The maximum current that the AC01 will sink into the DC Port</Notes>
         <Consumer> 
           <NodeRef id="1" /> 
         </Consumer>
-        <Value type="unsigned" slope="0.1" unit="A" min="0" max="220" />
+        <Value type="signed" slope="0.1" unit="A" />
       </Signal>
     </Message>
 
@@ -400,19 +400,19 @@
         </Consumer>
         <Value type="unsigned" slope="0.1" unit="V" />
       </Signal>
-      <Signal name="Source_Current_Limit" offset="16" length="16">
+      <Signal name="Positive_Current_Limit" offset="16" length="16">
         <Notes>The maximum current that the AC01 will source on the DC Port</Notes>
         <Consumer> 
           <NodeRef id="0" /> 
         </Consumer>
-        <Value type="unsigned" slope="0.1" unit="A" />
+        <Value type="signed" slope="0.1" unit="A" />
       </Signal>
-      <Signal name="Sink_Current_Limit" offset="32" length="16">
+      <Signal name="Negative_Current_Limit" offset="32" length="16">
         <Notes>The maximum amount of current that the AC01 will sink into the DC port</Notes>
         <Consumer> 
           <NodeRef id="0" /> 
         </Consumer>
-        <Value type="unsigned" slope="0.1" unit="A" />
+        <Value type="signed" slope="0.1" unit="A" />
       </Signal>
     </Message>
 
