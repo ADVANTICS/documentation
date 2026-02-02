@@ -4,742 +4,1461 @@
 
 | Name | ID | Length | Direction | Cycle time |
 |------|----|--------|-----------|------------|
-| [DC_Ports_Setpoints](#DC_Ports_Setpoints) | 0x810020 | 6 | IN | 1000 |
-| [DC_Port_Applied_Setpoints](#DC_Port_Applied_Setpoints) | 0x810021 | 8 | OUT | 1000 |
-| [DC_Port_Droop_Setpoints](#DC_Port_Droop_Setpoints) | 0x810022 | 8 | IN |  |
-| [DC_Port_Applied_Droop_Setpoints](#DC_Port_Applied_Droop_Setpoints) | 0x810023 | 8 | OUT | 1000 |
-| [DC_Port_Measurements](#DC_Port_Measurements) | 0x810024 | 4 | OUT | 100 |
-| [AC_Port_Setpoints](#AC_Port_Setpoints) | 0x810030 | 8 | IN |  |
-| [AC_Port_Applied_Setpoints](#AC_Port_Applied_Setpoints) | 0x810031 | 8 | OUT | 1000 |
-| [AC_Port_Measurements](#AC_Port_Measurements) | 0x810032 | 8 | OUT | 1000 |
-| [L1_Measurements](#L1_Measurements) | 0x810033 | 8 | OUT | 100 |
-| [L2_Measurements](#L2_Measurements) | 0x810034 | 8 | OUT | 100 |
-| [L3_Measurements](#L3_Measurements) | 0x810035 | 8 | OUT | 100 |
-| [AC01_Mode_Set](#AC01_Mode_Set) | 0x810040 | 1 | IN |  |
-| [AC01_Mode_Applied](#AC01_Mode_Applied) | 0x810041 | 1 | OUT | 1000 |
-| [AC01_faults](#AC01_faults) | 0x810042 | 8 | OUT | 1000 |
-| [AC01_warning](#AC01_warning) | 0x810043 | 8 | OUT | 1000 |
-| [AC01_info](#AC01_info) | 0x810044 | 8 | OUT | 1000 |
+| [DAB_Current_Limits](#DAB_Current_Limits) | 0x80030 | 8 | OUT |  |
+| [DAB_Phase_Current_Limits](#DAB_Phase_Current_Limits) | 0x80031 | 8 | OUT |  |
+| [DAB_Voltage_Limits](#DAB_Voltage_Limits) | 0x80032 | 8 | OUT |  |
+| [DAB_Mode_Control](#DAB_Mode_Control) | 0x80040 | 1 | OUT | 100 |
+| [_DAB_Calibration_Offset_Update](#_DAB_Calibration_Offset_Update) | 0x80041 | 6 | OUT |  |
+| [_DAB_Calibration_Scale_Update](#_DAB_Calibration_Scale_Update) | 0x80042 | 6 | OUT |  |
+| [DAB_PWM_Phase_Control](#DAB_PWM_Phase_Control) | 0x80043 | 4 | OUT |  |
+| [CLLC_PWM_Frequency_Control](#CLLC_PWM_Frequency_Control) | 0x80044 | 2 | OUT |  |
+| [DAB_Stack_Control](#DAB_Stack_Control) | 0x80045 | 6 | OUT |  |
+| [DAB_Current_Setpoint_Control](#DAB_Current_Setpoint_Control) | 0x80046 | 4 | OUT | 100 |
+| [DAB_Voltage_Setpoint_Control](#DAB_Voltage_Setpoint_Control) | 0x80047 | 2 | OUT | 100 |
+| [CLLC_PWM_Gain_Control](#CLLC_PWM_Gain_Control) | 0x80048 | 2 | OUT |  |
+| [CLLC_PWM_Phase_Mode](#CLLC_PWM_Phase_Mode) | 0x80049 | 1 | OUT |  |
+| [DAB_Group_Control](#DAB_Group_Control) | 0x8004c | 1 | OUT |  |
+| [DAB_Fault_Control](#DAB_Fault_Control) | 0x80050 | 1 | OUT |  |
+| [EPWM_control](#EPWM_control) | 0x80052 | 8 | OUT |  |
+| [DAB_Identification](#DAB_Identification) | 0x88000 | 8 | IN | 1000 |
+| [DAB_FwInfo](#DAB_FwInfo) | 0x88001 | 8 | IN | 1000 |
+| [DAB_Debug](#DAB_Debug) | 0x88002 | 8 | IN | 1000 |
+| [DAB_Status](#DAB_Status) | 0x88003 | 2 | IN | 100 |
+| [DAB_Faults](#DAB_Faults) | 0x88004 | 3 | IN | 100 |
+| [DAB_Voltages_Currents](#DAB_Voltages_Currents) | 0x88005 | 8 | IN | 100 |
+| [DAB_Phase_Currents](#DAB_Phase_Currents) | 0x88006 | 4 | IN | 100 |
+| [_DAB_Voltages_Currents_Raw](#_DAB_Voltages_Currents_Raw) | 0x88007 | 8 | IN | 100 |
+| [_DAB_Phase_Currents_Raw](#_DAB_Phase_Currents_Raw) | 0x88008 | 8 | IN | 100 |
+| [DAB_Temperatures](#DAB_Temperatures) | 0x88009 | 8 | IN | 100 |
+| [DAB_Setpoints_PWM_Phase](#DAB_Setpoints_PWM_Phase) | 0x8800a | 4 | IN | 100 |
+| [_DAB_Broadcast](#_DAB_Broadcast) | 0x8800e | 8 | OUT | 50 |
+| [DAB_Group_Info](#DAB_Group_Info) | 0x8800f | 1 | IN | 1000 |
+| [_DAB_Calibration_Adc_Fs](#_DAB_Calibration_Adc_Fs) | 0x88041 | 6 | IN | 1000 |
+| [_DAB_Calibration_Adc_Scale](#_DAB_Calibration_Adc_Scale) | 0x88042 | 6 | IN | 1000 |
+| [CLLC_PWM_Frequency_value](#CLLC_PWM_Frequency_value) | 0x88048 | 4 | IN | 1000 |
+| [Data_test_out](#Data_test_out) | 0x88090 | 1 | IN | 100 |
+| [Data_phase_shift](#Data_phase_shift) | 0x88091 | 4 | IN | 100 |
+| [DAB_CAN_API_Version](#DAB_CAN_API_Version) | 0x880f3 | 3 | IN | 1000 |
 
 
-<a id="DC_Ports_Setpoints"></a>
-## DC_Ports_Setpoints { #DC_Ports_Setpoints }
-
-
-| * | * |
-|---|---|
-| **Frame ID** | 0x810020 |
-| **Length [Bytes]** | 6 |
-| **Periodicity [ms]** | 1000 |
-| **Direction** | IN |
-
-### Description
-
-The setpoints control the behaviour of the DC Port of the AC01. The AC01 operates this port in CVCC mode
-
-### Payload
-
-| Signal | Length (bits) | Type |
-|--------|---------------|------|
-| Voltage | 16 | Unsigned |
-| Source_Current_Limit | 16 | Unsigned |
-| Sink_Current_Limit | 16 | Unsigned |
-
-### Payload description
-
-#### Voltage { #DC_Ports_Setpoints-Voltage }
-
-Control the target dc side voltage. This voltage will be maintained as long as the current required to do so is smaller than the current limits specified in this message
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 16 | Unsigned | V | 0.1 | 0 | 0 | 1500 |
-
-#### Source_Current_Limit { #DC_Ports_Setpoints-Source_Current_Limit }
-
-The maximum current that the AC01 will source on the DC Port
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 16 | 16 | Unsigned | A | 0.1 | 0 | 0 | 220 |
-
-#### Sink_Current_Limit { #DC_Ports_Setpoints-Sink_Current_Limit }
-
-The maximum current that the AC01 will sink into the DC Port
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 32 | 16 | Unsigned | A | 0.1 | 0 | 0 | 220 |
-
-
-<a id="DC_Port_Applied_Setpoints"></a>
-## DC_Port_Applied_Setpoints { #DC_Port_Applied_Setpoints }
+<a id="DAB_Current_Limits"></a>
+## DAB_Current_Limits
 
 
 | * | * |
 |---|---|
-| **Frame ID** | 0x810021 |
-| **Length [Bytes]** | 8 |
-| **Periodicity [ms]** | 1000 |
-| **Direction** | OUT |
-
-### Description
-
-The setpoints that are currently used by the AC01. This message allows to validate that the setpoints have been properly applied.
-
-### Payload
-
-| Signal | Length (bits) | Type |
-|--------|---------------|------|
-| Voltage | 16 | Unsigned |
-| Source_Current_Limit | 16 | Unsigned |
-| Sink_Current_Limit | 16 | Unsigned |
-
-### Payload description
-
-#### Voltage { #DC_Port_Applied_Setpoints-Voltage }
-
-The voltage target of the DC port
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 16 | Unsigned | V | 0.1 | 0 |  |  |
-
-#### Source_Current_Limit { #DC_Port_Applied_Setpoints-Source_Current_Limit }
-
-The maximum current that the AC01 will source on the DC Port
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 16 | 16 | Unsigned | A | 0.1 | 0 |  |  |
-
-#### Sink_Current_Limit { #DC_Port_Applied_Setpoints-Sink_Current_Limit }
-
-The maximum amount of current that the AC01 will sink into the DC port
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 32 | 16 | Unsigned | A | 0.1 | 0 |  |  |
-
-
-<a id="DC_Port_Droop_Setpoints"></a>
-## DC_Port_Droop_Setpoints { #DC_Port_Droop_Setpoints }
-
-
-| * | * |
-|---|---|
-| **Frame ID** | 0x810022 |
+| **Frame ID** | 0x80030 |
 | **Length [Bytes]** | 8 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
-
-### Description
-
-Setpoints for applying Droop on the DC Port. Droop is needed for paralleling multiple AC01
-
-### Payload
-
-| Signal | Length (bits) | Type |
-|--------|---------------|------|
-| Positive_Current_Droop | 16 | Unsigned |
-| Negative_Current_Droop | 16 | Unsigned |
-| Enable | 1 | Label set |
-| Reserved | 31 | Unsigned |
-
-### Payload description
-
-#### Positive_Current_Droop { #DC_Port_Droop_Setpoints-Positive_Current_Droop }
-
-The droop resistance to apply for current flowing out of the DC port (DC current is positive)
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 16 | Unsigned | Ohm | 0.01 | 0 |  |  |
-
-#### Negative_Current_Droop { #DC_Port_Droop_Setpoints-Negative_Current_Droop }
-
-The droop resistance to apply for current flowing in to the DC Port (DC current is negative)
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 16 | 16 | Unsigned | Ohm | 0.01 | 0 |  |  |
-
-#### Enable { #DC_Port_Droop_Setpoints-Enable }
-
-Enable DC Droop. If this feature is enabled the output voltage of the DC port varies with output current.
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 32 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Disabled | 0 |
-| Enabled | 1 |
-
-#### Reserved { #DC_Port_Droop_Setpoints-Reserved }
-
-This space is reserved. This region should contain only &#x27;0&#x27;s
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 33 | 31 | Unsigned |  | 1 | 0 |  |  |
-
-
-<a id="DC_Port_Applied_Droop_Setpoints"></a>
-## DC_Port_Applied_Droop_Setpoints { #DC_Port_Applied_Droop_Setpoints }
-
-
-| * | * |
-|---|---|
-| **Frame ID** | 0x810023 |
-| **Length [Bytes]** | 8 |
-| **Periodicity [ms]** | 1000 |
 | **Direction** | OUT |
 
 ### Description
 
-Droop setpoints that are applied by the AC01
+
 
 ### Payload
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Positive_Current_Droop | 16 | Unsigned |
-| Negative_Current_Droop | 16 | Unsigned |
-| Enable | 1 | Label set |
-| Reserved | 31 | Unsigned |
+| Current_In_Min | 16 | Signed |
+| Current_In_Max | 16 | Signed |
+| Current_Out_Min | 16 | Signed |
+| Current_Out_Max | 16 | Signed |
 
 ### Payload description
 
-#### Positive_Current_Droop { #DC_Port_Applied_Droop_Setpoints-Positive_Current_Droop }
+#### Current_In_Min :id=DAB_Current_Limits-Current_In_Min
 
-The droop resistance applied for current flowing out of the DC port (DC current is positive)
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 16 | Unsigned | Ohm | 0.01 | 0 |  |  |
-
-#### Negative_Current_Droop { #DC_Port_Applied_Droop_Setpoints-Negative_Current_Droop }
-
-The droop resistance applied for current flowing in to the DC Port (DC current is negative)
+Minimum allowable input current of the converter.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 16 | 16 | Unsigned | Ohm | 0.01 | 0 |  |  |
+| 0 | 16 | Signed | A | 0.01 | 0 | -60 | 60 |
 
-#### Enable { #DC_Port_Applied_Droop_Setpoints-Enable }
+#### Current_In_Max :id=DAB_Current_Limits-Current_In_Max
 
-Show is DC Droop is enabled.
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 32 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Disabled | 0 |
-| Enabled | 1 |
-
-#### Reserved { #DC_Port_Applied_Droop_Setpoints-Reserved }
-
-This space is reserved. This region should contain only &#x27;0&#x27;s
+Maximum allowable input current of the converter.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 33 | 31 | Unsigned |  | 1 | 0 |  |  |
+| 16 | 16 | Signed | A | 0.01 | 0 | -60 | 60 |
+
+#### Current_Out_Min :id=DAB_Current_Limits-Current_Out_Min
+
+Minimum allowable output current of the converter.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 32 | 16 | Signed | A | 0.01 | 0 | -60 | 60 |
+
+#### Current_Out_Max :id=DAB_Current_Limits-Current_Out_Max
+
+Maximum allowable output current of the converter.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 48 | 16 | Signed | A | 0.01 | 0 | -60 | 60 |
 
 
-<a id="DC_Port_Measurements"></a>
-## DC_Port_Measurements { #DC_Port_Measurements }
+<a id="DAB_Phase_Current_Limits"></a>
+## DAB_Phase_Current_Limits
 
 
 | * | * |
 |---|---|
-| **Frame ID** | 0x810024 |
+| **Frame ID** | 0x80031 |
+| **Length [Bytes]** | 8 |
+| **Periodicity [ms]** |  |
+| **Direction** | OUT |
+
+### Description
+
+
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Current_In_Min | 16 | Signed |
+| Current_In_Max | 16 | Signed |
+| Current_Out_Min | 16 | Signed |
+| Current_Out_Max | 16 | Signed |
+
+### Payload description
+
+#### Current_In_Min :id=DAB_Phase_Current_Limits-Current_In_Min
+
+Minimum allowable input current of the converter.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Signed | A | 0.01 | 0 | -60 | 60 |
+
+#### Current_In_Max :id=DAB_Phase_Current_Limits-Current_In_Max
+
+Maximum allowable input current of the converter.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 16 | Signed | A | 0.01 | 0 | -60 | 60 |
+
+#### Current_Out_Min :id=DAB_Phase_Current_Limits-Current_Out_Min
+
+Minimum allowable output current of the converter.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 32 | 16 | Signed | A | 0.01 | 0 | -60 | 60 |
+
+#### Current_Out_Max :id=DAB_Phase_Current_Limits-Current_Out_Max
+
+Maximum allowable output current of the converter.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 48 | 16 | Signed | A | 0.01 | 0 | -60 | 60 |
+
+
+<a id="DAB_Voltage_Limits"></a>
+## DAB_Voltage_Limits
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x80032 |
+| **Length [Bytes]** | 8 |
+| **Periodicity [ms]** |  |
+| **Direction** | OUT |
+
+### Description
+
+Set the voltage limits (mminimum and maximum)
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Voltage_In_Min | 16 | Signed |
+| Voltage_In_Max | 16 | Signed |
+| Voltage_Out_Min | 16 | Signed |
+| Voltage_Out_Max | 16 | Signed |
+
+### Payload description
+
+#### Voltage_In_Min :id=DAB_Voltage_Limits-Voltage_In_Min
+
+Minimum allowable input voltage of the converter.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Signed | V | 0.1 | 0 | 0 | 850 |
+
+#### Voltage_In_Max :id=DAB_Voltage_Limits-Voltage_In_Max
+
+Minimum allowable input voltage of the converter.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 16 | Signed | V | 0.1 | 0 | 0 | 850 |
+
+#### Voltage_Out_Min :id=DAB_Voltage_Limits-Voltage_Out_Min
+
+Minimum allowable output voltage of the converter.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 32 | 16 | Signed | V | 0.1 | 0 | 0 | 850 |
+
+#### Voltage_Out_Max :id=DAB_Voltage_Limits-Voltage_Out_Max
+
+Minimum allowable output voltage of the converter.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 48 | 16 | Signed | V | 0.1 | 0 | 0 | 850 |
+
+
+<a id="DAB_Mode_Control"></a>
+## DAB_Mode_Control
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x80040 |
+| **Length [Bytes]** | 1 |
+| **Periodicity [ms]** | 100 |
+| **Direction** | OUT |
+
+### Description
+
+Operation Mode control: sets the converter operation mode
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Converter_ON | 1 | Single bit |
+| PWM_mode_ON | 1 | Single bit |
+| DC_DC_mode_ON | 1 | Single bit |
+| Voltage_follower_mode_ON | 1 | Single bit |
+| PFC_Voltage_mode_ON | 1 | Single bit |
+| Gain_mode_on | 1 | Single bit |
+
+### Payload description
+
+#### Converter_ON :id=DAB_Mode_Control-Converter_ON
+
+Enable the converter
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### PWM_mode_ON :id=DAB_Mode_Control-PWM_mode_ON
+
+Enable the PWM mode (this will set the converter in open loop).
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 1 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### DC_DC_mode_ON :id=DAB_Mode_Control-DC_DC_mode_ON
+
+Enable the DC DC mode (this will set the converter in automatic angle control).
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 2 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### Voltage_follower_mode_ON :id=DAB_Mode_Control-Voltage_follower_mode_ON
+
+This mode will regulate a 1:1 ratio voltage from A to B (A is reference voltage)
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 3 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### PFC_Voltage_mode_ON :id=DAB_Mode_Control-PFC_Voltage_mode_ON
+
+This mode regulates output (port B) current/voltage while sending voltage commands to an Upstream AFE working as PFC (AC to DC), to ensure a 1:1 voltage ratio.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 4 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### Gain_mode_on :id=DAB_Mode_Control-Gain_mode_on
+
+Enable the GAIN mode (this will set the converter in open loop).
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 5 | 1 | Single bit |  | 1 | 0 |  |  |
+
+
+<a id="_DAB_Calibration_Offset_Update"></a>
+## _DAB_Calibration_Offset_Update
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x80041 |
+| **Length [Bytes]** | 6 |
+| **Periodicity [ms]** |  |
+| **Direction** | OUT |
+
+### Description
+
+Update of the calibration table for offsets.
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Current_Side_A | 16 | Signed |
+| Current_Side_B | 16 | Signed |
+| Current_Phase_Side_A | 16 | Signed |
+| Voltage_Side_A | 16 | Signed |
+| Voltage_Side_B | 16 | Signed |
+| Current_Phase_Side_B | 16 | Signed |
+| Calibration_Index | 16 | Unsigned |
+| CRC | 16 | Unsigned |
+
+### Payload description
+
+#### Current_Side_A :id=_DAB_Calibration_Offset_Update-Current_Side_A
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Signed | ADC Counts | 1 | 0 |  |  |
+
+#### Current_Side_B :id=_DAB_Calibration_Offset_Update-Current_Side_B
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Signed | ADC Counts | 1 | 0 |  |  |
+
+#### Current_Phase_Side_A :id=_DAB_Calibration_Offset_Update-Current_Phase_Side_A
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Signed | ADC Counts | 1 | 0 |  |  |
+
+#### Voltage_Side_A :id=_DAB_Calibration_Offset_Update-Voltage_Side_A
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Signed | ADC Counts | 1 | 0 |  |  |
+
+#### Voltage_Side_B :id=_DAB_Calibration_Offset_Update-Voltage_Side_B
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Signed | ADC Counts | 1 | 0 |  |  |
+
+#### Current_Phase_Side_B :id=_DAB_Calibration_Offset_Update-Current_Phase_Side_B
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Signed | ADC Counts | 1 | 0 |  |  |
+
+#### Calibration_Index :id=_DAB_Calibration_Offset_Update-Calibration_Index
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 16 | Unsigned |  | 1 | 0 |  |  |
+
+#### CRC :id=_DAB_Calibration_Offset_Update-CRC
+
+Checksum of bytes 0 to 2, CRC-CCITT, corresponding to qChecksum (www.qt.io)
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 32 | 16 | Unsigned | - | 1 | 0 |  |  |
+
+
+<a id="_DAB_Calibration_Scale_Update"></a>
+## _DAB_Calibration_Scale_Update
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x80042 |
+| **Length [Bytes]** | 6 |
+| **Periodicity [ms]** |  |
+| **Direction** | OUT |
+
+### Description
+
+Update of the calibration table for scales.
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Current_Side_A | 16 | Signed |
+| Current_Side_B | 16 | Signed |
+| Current_Phase_Side_A | 16 | Signed |
+| Voltage_Side_A | 16 | Signed |
+| Voltage_Side_B | 16 | Signed |
+| Current_Phase_Side_B | 16 | Signed |
+| Calibration_Index | 16 | Unsigned |
+| CRC | 16 | Unsigned |
+
+### Payload description
+
+#### Current_Side_A :id=_DAB_Calibration_Scale_Update-Current_Side_A
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Signed | ADC Counts | 1 | 0 |  |  |
+
+#### Current_Side_B :id=_DAB_Calibration_Scale_Update-Current_Side_B
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Signed | ADC Counts | 1 | 0 |  |  |
+
+#### Current_Phase_Side_A :id=_DAB_Calibration_Scale_Update-Current_Phase_Side_A
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Signed | ADC Counts | 1 | 0 |  |  |
+
+#### Voltage_Side_A :id=_DAB_Calibration_Scale_Update-Voltage_Side_A
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Signed | ADC Counts | 1 | 0 |  |  |
+
+#### Voltage_Side_B :id=_DAB_Calibration_Scale_Update-Voltage_Side_B
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Signed | ADC Counts | 1 | 0 |  |  |
+
+#### Current_Phase_Side_B :id=_DAB_Calibration_Scale_Update-Current_Phase_Side_B
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Signed | ADC Counts | 1 | 0 |  |  |
+
+#### Calibration_Index :id=_DAB_Calibration_Scale_Update-Calibration_Index
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 16 | Unsigned |  | 1 | 0 |  |  |
+
+#### CRC :id=_DAB_Calibration_Scale_Update-CRC
+
+Checksum of bytes 0 to 2, CRC-CCITT, corresponding to qChecksum (www.qt.io)
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 32 | 16 | Unsigned | - | 1 | 0 |  |  |
+
+
+<a id="DAB_PWM_Phase_Control"></a>
+## DAB_PWM_Phase_Control
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x80043 |
+| **Length [Bytes]** | 4 |
+| **Periodicity [ms]** |  |
+| **Direction** | OUT |
+
+### Description
+
+PWM duty cycle control
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Phase_A | 16 | Signed |
+| Phase_B | 16 | Signed |
+
+### Payload description
+
+#### Phase_A :id=DAB_PWM_Phase_Control-Phase_A
+
+PWM Phase setpoint
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Signed | ° | 0.003 | 0 |  |  |
+
+#### Phase_B :id=DAB_PWM_Phase_Control-Phase_B
+
+PWM Phase setpoint
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 16 | Signed | ° | 0.003 | 0 |  |  |
+
+
+<a id="CLLC_PWM_Frequency_Control"></a>
+## CLLC_PWM_Frequency_Control
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x80044 |
+| **Length [Bytes]** | 2 |
+| **Periodicity [ms]** |  |
+| **Direction** | OUT |
+
+### Description
+
+PWM frequency control
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| PWM_frequency | 16 | Unsigned |
+
+### Payload description
+
+#### PWM_frequency :id=CLLC_PWM_Frequency_Control-PWM_frequency
+
+Sets the PWM frequency. Active only when the converter is in PWM mode
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Unsigned | Hz | 10 | 0 |  |  |
+
+
+<a id="DAB_Stack_Control"></a>
+## DAB_Stack_Control
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x80045 |
+| **Length [Bytes]** | 6 |
+| **Periodicity [ms]** |  |
+| **Direction** | OUT |
+
+### Description
+
+PFC stack control
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Stack_position | 8 | Unsigned |
+| Stack_size | 8 | Unsigned |
+| SN_number | 32 | Unsigned |
+
+### Payload description
+
+#### Stack_position :id=DAB_Stack_Control-Stack_position
+
+The converter position within the stack
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### Stack_size :id=DAB_Stack_Control-Stack_size
+
+How many PFC converters are in stack in total
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 8 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### SN_number :id=DAB_Stack_Control-SN_number
+
+Unique module serial number
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 32 | Unsigned |  | 1 | 0 |  |  |
+
+
+<a id="DAB_Current_Setpoint_Control"></a>
+## DAB_Current_Setpoint_Control
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x80046 |
 | **Length [Bytes]** | 4 |
 | **Periodicity [ms]** | 100 |
 | **Direction** | OUT |
 
 ### Description
 
-Measurements of the DC Bus
+Current setpoint control
 
 ### Payload
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Voltage | 16 | Unsigned |
-| Current | 16 | Signed |
+| Positive_Current_setpoint | 16 | Signed |
+| Negative_Current_setpoint | 16 | Signed |
 
 ### Payload description
 
-#### Voltage { #DC_Port_Measurements-Voltage }
+#### Positive_Current_setpoint :id=DAB_Current_Setpoint_Control-Positive_Current_setpoint
 
-Voltage on the DC Port
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 16 | Unsigned | V | 0.1 | 0 |  |  |
-
-#### Current { #DC_Port_Measurements-Current }
-
-Current through the DC Port
+Sets the port B positive current setpoint.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 16 | 16 | Signed | A | 0.1 | 0 |  |  |
+| 0 | 16 | Signed | A | 0.01 | 0 | -55 | 55 |
+
+#### Negative_Current_setpoint :id=DAB_Current_Setpoint_Control-Negative_Current_setpoint
+
+Sets the port B negative current setpoint.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 16 | Signed | A | 0.01 | 0 | -55 | 55 |
 
 
-<a id="AC_Port_Setpoints"></a>
-## AC_Port_Setpoints { #AC_Port_Setpoints }
+<a id="DAB_Voltage_Setpoint_Control"></a>
+## DAB_Voltage_Setpoint_Control
 
 
 | * | * |
 |---|---|
-| **Frame ID** | 0x810030 |
+| **Frame ID** | 0x80047 |
+| **Length [Bytes]** | 2 |
+| **Periodicity [ms]** | 100 |
+| **Direction** | OUT |
+
+### Description
+
+Voltage setpoint control
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Voltage_setpoint | 16 | Unsigned |
+
+### Payload description
+
+#### Voltage_setpoint :id=DAB_Voltage_Setpoint_Control-Voltage_setpoint
+
+Sets the output voltage setpoint
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Unsigned | V | 0.1 | 0 | 0 | 1000 |
+
+
+<a id="CLLC_PWM_Gain_Control"></a>
+## CLLC_PWM_Gain_Control
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x80048 |
+| **Length [Bytes]** | 2 |
+| **Periodicity [ms]** |  |
+| **Direction** | OUT |
+
+### Description
+
+PWM gain control
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Gain | 16 | Unsigned |
+
+### Payload description
+
+#### Gain :id=CLLC_PWM_Gain_Control-Gain
+
+Sets voltage gain in open loop
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Unsigned | none | 0.01 | 0 |  |  |
+
+
+<a id="CLLC_PWM_Phase_Mode"></a>
+## CLLC_PWM_Phase_Mode
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x80049 |
+| **Length [Bytes]** | 1 |
+| **Periodicity [ms]** |  |
+| **Direction** | OUT |
+
+### Description
+
+PWM duty cycle control
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| phase_mode | 8 | Unsigned |
+
+### Payload description
+
+#### phase_mode :id=CLLC_PWM_Phase_Mode-phase_mode
+
+PWM Phase shift mode/gain mode
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+
+<a id="DAB_Group_Control"></a>
+## DAB_Group_Control
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x8004c |
+| **Length [Bytes]** | 1 |
+| **Periodicity [ms]** |  |
+| **Direction** | OUT |
+
+### Description
+
+Set the Group ID of the device
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Group_ID | 8 | Unsigned |
+
+### Payload description
+
+#### Group_ID :id=DAB_Group_Control-Group_ID
+
+Desired group ID for the device
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+
+<a id="DAB_Fault_Control"></a>
+## DAB_Fault_Control
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x80050 |
+| **Length [Bytes]** | 1 |
+| **Periodicity [ms]** |  |
+| **Direction** | OUT |
+
+### Description
+
+Fault Control: actions to clear faults and reset the system
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Clear_Interlock | 1 | Single bit |
+| Reset_Processor | 1 | Single bit |
+| Clear_Faults | 1 | Single bit |
+| Bleeder_Pulse | 1 | Single bit |
+| Trip_Interlock | 1 | Single bit |
+
+### Payload description
+
+#### Clear_Interlock :id=DAB_Fault_Control-Clear_Interlock
+
+Clears the converter interlock
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### Reset_Processor :id=DAB_Fault_Control-Reset_Processor
+
+Reset the converter DSP
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 1 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### Clear_Faults :id=DAB_Fault_Control-Clear_Faults
+
+Clear software faults
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 2 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### Bleeder_Pulse :id=DAB_Fault_Control-Bleeder_Pulse
+
+Bleed out output
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 3 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### Trip_Interlock :id=DAB_Fault_Control-Trip_Interlock
+
+Trips the converter interlock
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 4 | 1 | Single bit |  | 1 | 0 |  |  |
+
+
+<a id="EPWM_control"></a>
+## EPWM_control
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x80052 |
 | **Length [Bytes]** | 8 |
 | **Periodicity [ms]** |  |
+| **Direction** | OUT |
+
+### Description
+
+Control the EPWM_control
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| update | 8 | Unsigned |
+| EPWM1 | 8 | Unsigned |
+| EPWM2 | 8 | Unsigned |
+| EPWM3 | 8 | Unsigned |
+| EPWM4 | 8 | Unsigned |
+
+### Payload description
+
+#### update :id=EPWM_control-update
+
+Customers MUST NOT USE this bit. If set to 1, EPWM is turned on.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### EPWM1 :id=EPWM_control-EPWM1
+
+Customers MUST NOT USE this bit. If set to 1, EPWM is turned on.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 8 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### EPWM2 :id=EPWM_control-EPWM2
+
+Customers MUST NOT USE this bit. If set to 1, EPWM is turned on.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### EPWM3 :id=EPWM_control-EPWM3
+
+Customers MUST NOT USE this bit. If set to 1, EPWM is turned on.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 24 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### EPWM4 :id=EPWM_control-EPWM4
+
+Customers MUST NOT USE this bit. If set to 1, EPWM is turned on.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 32 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+
+<a id="DAB_Identification"></a>
+## DAB_Identification
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x88000 |
+| **Length [Bytes]** | 8 |
+| **Periodicity [ms]** | 1000 |
 | **Direction** | IN |
 
 ### Description
 
-Setpoints to apply to the AC Port
+Identification of the device
 
 ### Payload
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Q | 16 | Signed |
-| Reserved | 48 | Unsigned |
+| Device_type | 8 | Label set |
+| HW_revision | 8 | Unsigned |
+| HW_variant | 8 | Unsigned |
+| Stack_position | 8 | Unsigned |
+| SN_number | 32 | Unsigned |
 
 ### Payload description
 
-#### Q { #AC_Port_Setpoints-Q }
+#### Device_type :id=DAB_Identification-Device_type
 
-Reactive Power of the AC port. Positive values cause the AC01 to behave inductively, negative values cause the AC01 to behave capacitively
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 16 | Signed | VAR | 10 | 0 |  |  |
-
-#### Reserved { #AC_Port_Setpoints-Reserved }
-
-This space is reserved. This region should contain only 0s
+The device identification field, uniquely identifies the sender in the network.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 16 | 48 | Unsigned |  | 1 | 0 |  |  |
+| 0 | 8 | Label set |  | 1 | 0 |  |  |
 
+| Label name | Value |
+|------------|-------|
+| ADM_PC_BI25 | 8 |
 
-<a id="AC_Port_Applied_Setpoints"></a>
-## AC_Port_Applied_Setpoints { #AC_Port_Applied_Setpoints }
+#### HW_revision :id=DAB_Identification-HW_revision
 
-
-| * | * |
-|---|---|
-| **Frame ID** | 0x810031 |
-| **Length [Bytes]** | 8 |
-| **Periodicity [ms]** | 1000 |
-| **Direction** | OUT |
-
-### Description
-
-Setpoints that are currently being applied to the the AC Port
-
-### Payload
-
-| Signal | Length (bits) | Type |
-|--------|---------------|------|
-| Q | 16 | Signed |
-| Reserved | 48 | Unsigned |
-
-### Payload description
-
-#### Q { #AC_Port_Applied_Setpoints-Q }
-
-Reactive Power of the AC port. Positive values cause the AC01 to behave inductively, negative values cause the AC01 to behave capacitively
+The hardware revision number
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 16 | Signed | VAR | 10 | 0 |  |  |
+| 8 | 8 | Unsigned |  | 1 | 0 |  |  |
 
-#### Reserved { #AC_Port_Applied_Setpoints-Reserved }
+#### HW_variant :id=DAB_Identification-HW_variant
 
-This space is reserved. This region should contain only 0s
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 16 | 48 | Unsigned |  | 1 | 0 |  |  |
-
-
-<a id="AC_Port_Measurements"></a>
-## AC_Port_Measurements { #AC_Port_Measurements }
-
-
-| * | * |
-|---|---|
-| **Frame ID** | 0x810032 |
-| **Length [Bytes]** | 8 |
-| **Periodicity [ms]** | 1000 |
-| **Direction** | OUT |
-
-### Description
-
-Mesured values of the Grid connection
-
-### Payload
-
-| Signal | Length (bits) | Type |
-|--------|---------------|------|
-| Frequency | 16 | Unsigned |
-| Voltage | 16 | Unsigned |
-| Reserved | 32 | Unsigned |
-
-### Payload description
-
-#### Frequency { #AC_Port_Measurements-Frequency }
-
-RMS Voltage of L1
+The DSP firmware revision number
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 16 | Unsigned | Hz | 0.01 | 0 |  |  |
+| 16 | 8 | Unsigned |  | 1 | 0 |  |  |
 
-#### Voltage { #AC_Port_Measurements-Voltage }
+#### Stack_position :id=DAB_Identification-Stack_position
 
-Average RMS Line to Line voltage at the AC port
+Position of the module within the stack
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 16 | 16 | Unsigned | V | 0.1 | 0 |  |  |
+| 24 | 8 | Unsigned |  | 1 | 0 |  |  |
 
-#### Reserved { #AC_Port_Measurements-Reserved }
+#### SN_number :id=DAB_Identification-SN_number
 
-This space is reserved. This region contains only &#x27;0&#x27;s
+Unique module serial number
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 32 | 32 | Unsigned |  | 1 | 0 |  |  |
 
 
-<a id="L1_Measurements"></a>
-## L1_Measurements { #L1_Measurements }
+<a id="DAB_FwInfo"></a>
+## DAB_FwInfo
 
 
 | * | * |
 |---|---|
-| **Frame ID** | 0x810033 |
+| **Frame ID** | 0x88001 |
 | **Length [Bytes]** | 8 |
-| **Periodicity [ms]** | 100 |
-| **Direction** | OUT |
-
-### Description
-
-Measurements for L1 of the AC port
-
-### Payload
-
-| Signal | Length (bits) | Type |
-|--------|---------------|------|
-| U | 16 | Signed |
-| I | 16 | Signed |
-| P | 16 | Signed |
-| Q | 16 | Signed |
-
-### Payload description
-
-#### U { #L1_Measurements-U }
-
-RMS Voltage of L1
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 16 | Signed | V | 0.1 | 0 |  |  |
-
-#### I { #L1_Measurements-I }
-
-RMS Current of L1
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 16 | 16 | Signed | A | 0.1 | 0 |  |  |
-
-#### P { #L1_Measurements-P }
-
-Active power of L1
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 32 | 16 | Signed | W | 0.1 | 0 |  |  |
-
-#### Q { #L1_Measurements-Q }
-
-Reactive power of L1
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 48 | 16 | Signed | VAR | 0.1 | 0 |  |  |
-
-
-<a id="L2_Measurements"></a>
-## L2_Measurements { #L2_Measurements }
-
-
-| * | * |
-|---|---|
-| **Frame ID** | 0x810034 |
-| **Length [Bytes]** | 8 |
-| **Periodicity [ms]** | 100 |
-| **Direction** | OUT |
-
-### Description
-
-Measurements for L2 of the AC port
-
-### Payload
-
-| Signal | Length (bits) | Type |
-|--------|---------------|------|
-| U | 16 | Signed |
-| I | 16 | Signed |
-| P | 16 | Signed |
-| Q | 16 | Signed |
-
-### Payload description
-
-#### U { #L2_Measurements-U }
-
-RMS Voltage of L1
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 16 | Signed | V | 0.1 | 0 |  |  |
-
-#### I { #L2_Measurements-I }
-
-RMS Current of L2
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 16 | 16 | Signed | A | 0.1 | 0 |  |  |
-
-#### P { #L2_Measurements-P }
-
-Active power of L2
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 32 | 16 | Signed | W | 0.1 | 0 |  |  |
-
-#### Q { #L2_Measurements-Q }
-
-Reactive power of L2
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 48 | 16 | Signed | VAR | 0.1 | 0 |  |  |
-
-
-<a id="L3_Measurements"></a>
-## L3_Measurements { #L3_Measurements }
-
-
-| * | * |
-|---|---|
-| **Frame ID** | 0x810035 |
-| **Length [Bytes]** | 8 |
-| **Periodicity [ms]** | 100 |
-| **Direction** | OUT |
-
-### Description
-
-Measurements for L3 of the AC port
-
-### Payload
-
-| Signal | Length (bits) | Type |
-|--------|---------------|------|
-| U | 16 | Signed |
-| I | 16 | Signed |
-| P | 16 | Signed |
-| Q | 16 | Signed |
-
-### Payload description
-
-#### U { #L3_Measurements-U }
-
-RMS Voltage of L3
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 16 | Signed | V | 0.1 | 0 |  |  |
-
-#### I { #L3_Measurements-I }
-
-RMS Current of L3
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 16 | 16 | Signed | A | 0.1 | 0 |  |  |
-
-#### P { #L3_Measurements-P }
-
-Active power of L3
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 32 | 16 | Signed | W | 0.1 | 0 |  |  |
-
-#### Q { #L3_Measurements-Q }
-
-Reactive power of L3
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 48 | 16 | Signed | VAR | 0.1 | 0 |  |  |
-
-
-<a id="AC01_Mode_Set"></a>
-## AC01_Mode_Set { #AC01_Mode_Set }
-
-
-| * | * |
-|---|---|
-| **Frame ID** | 0x810040 |
-| **Length [Bytes]** | 1 |
-| **Periodicity [ms]** |  |
+| **Periodicity [ms]** | 1000 |
 | **Direction** | IN |
 
 ### Description
 
-Set the mode of AC01
+Git revision of the DSP firmware
 
 ### Payload
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| mode | 8 | Label set |
+| FW_revision_0 | 8 | Unsigned |
+| FW_revision_7 | 8 | Unsigned |
+| FW_datecode_0 | 8 | Unsigned |
+| FW_datecode_7 | 8 | Unsigned |
+| FW_revision_1 | 8 | Unsigned |
+| FW_revision_8 | 8 | Unsigned |
+| FW_datecode_1 | 8 | Unsigned |
+| FW_datecode_8 | 8 | Unsigned |
+| FW_revision_2 | 8 | Unsigned |
+| FW_revision_9 | 8 | Unsigned |
+| FW_datecode_2 | 8 | Unsigned |
+| FW_datecode_9 | 8 | Unsigned |
+| FW_revision_3 | 8 | Unsigned |
+| FW_revision_10 | 8 | Unsigned |
+| FW_datecode_3 | 8 | Unsigned |
+| FW_datecode_10 | 8 | Unsigned |
+| FW_revision_4 | 8 | Unsigned |
+| FW_revision_11 | 8 | Unsigned |
+| FW_datecode_4 | 8 | Unsigned |
+| FW_datecode_11 | 8 | Unsigned |
+| FW_revision_5 | 8 | Unsigned |
+| FW_revision_12 | 8 | Unsigned |
+| FW_datecode_5 | 8 | Unsigned |
+| FW_datecode_12 | 8 | Unsigned |
+| FW_revision_6 | 8 | Unsigned |
+| FW_revision_13 | 8 | Unsigned |
+| FW_datecode_6 | 8 | Unsigned |
+| FW_datecode_13 | 8 | Unsigned |
+| FW_info_mux | 8 | Unsigned |
 
 ### Payload description
 
-#### mode { #AC01_Mode_Set-mode }
+#### FW_revision_0 :id=DAB_FwInfo-FW_revision_0
 
-require mode
+Character 0
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 8 | Label set |  | 1 | 0 |  |  |
+| 0 | 8 | Unsigned |  | 1 | 0 |  |  |
 
-| Label name | Value |
-|------------|-------|
-| DC_Controlled | 0 |
-| AC_Controlled | 1 |
-| Bleeding | 2 |
+#### FW_revision_7 :id=DAB_FwInfo-FW_revision_7
+
+Character 7
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### FW_datecode_0 :id=DAB_FwInfo-FW_datecode_0
+
+Character 0
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### FW_datecode_7 :id=DAB_FwInfo-FW_datecode_7
+
+Character 7
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### FW_revision_1 :id=DAB_FwInfo-FW_revision_1
+
+Character 1
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 8 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### FW_revision_8 :id=DAB_FwInfo-FW_revision_8
+
+Character 8
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 8 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### FW_datecode_1 :id=DAB_FwInfo-FW_datecode_1
+
+Character 1
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 8 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### FW_datecode_8 :id=DAB_FwInfo-FW_datecode_8
+
+Character 8
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 8 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### FW_revision_2 :id=DAB_FwInfo-FW_revision_2
+
+Character 2
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### FW_revision_9 :id=DAB_FwInfo-FW_revision_9
+
+Character 9
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### FW_datecode_2 :id=DAB_FwInfo-FW_datecode_2
+
+Character 2
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### FW_datecode_9 :id=DAB_FwInfo-FW_datecode_9
+
+Character 9
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### FW_revision_3 :id=DAB_FwInfo-FW_revision_3
+
+Character 3
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 24 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### FW_revision_10 :id=DAB_FwInfo-FW_revision_10
+
+Character 10
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 24 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### FW_datecode_3 :id=DAB_FwInfo-FW_datecode_3
+
+Character 3
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 24 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### FW_datecode_10 :id=DAB_FwInfo-FW_datecode_10
+
+Character 10
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 24 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### FW_revision_4 :id=DAB_FwInfo-FW_revision_4
+
+Character 3
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 32 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### FW_revision_11 :id=DAB_FwInfo-FW_revision_11
+
+Character 11
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 32 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### FW_datecode_4 :id=DAB_FwInfo-FW_datecode_4
+
+Character 3
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 32 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### FW_datecode_11 :id=DAB_FwInfo-FW_datecode_11
+
+Character 11
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 32 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### FW_revision_5 :id=DAB_FwInfo-FW_revision_5
+
+Character 3
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 40 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### FW_revision_12 :id=DAB_FwInfo-FW_revision_12
+
+Character 12
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 40 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### FW_datecode_5 :id=DAB_FwInfo-FW_datecode_5
+
+Character 3
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 40 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### FW_datecode_12 :id=DAB_FwInfo-FW_datecode_12
+
+Character 12
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 40 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### FW_revision_6 :id=DAB_FwInfo-FW_revision_6
+
+Character 3
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 48 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### FW_revision_13 :id=DAB_FwInfo-FW_revision_13
+
+Character 13
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 48 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### FW_datecode_6 :id=DAB_FwInfo-FW_datecode_6
+
+Character 3
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 48 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### FW_datecode_13 :id=DAB_FwInfo-FW_datecode_13
+
+Character 13
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 48 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### FW_info_mux :id=DAB_FwInfo-FW_info_mux
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 56 | 8 | Unsigned |  | 1 | 0 |  |  |
 
 
-<a id="AC01_Mode_Applied"></a>
-## AC01_Mode_Applied { #AC01_Mode_Applied }
+<a id="DAB_Debug"></a>
+## DAB_Debug
 
 
 | * | * |
 |---|---|
-| **Frame ID** | 0x810041 |
-| **Length [Bytes]** | 1 |
-| **Periodicity [ms]** | 1000 |
-| **Direction** | OUT |
-
-### Description
-
-read back the modes
-
-### Payload
-
-| Signal | Length (bits) | Type |
-|--------|---------------|------|
-| mode | 8 | Label set |
-
-### Payload description
-
-#### mode { #AC01_Mode_Applied-mode }
-
-actual mode
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 8 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| DC_Controlled | 0 |
-| AC_Controlled | 1 |
-| Bleeding | 2 |
-
-
-<a id="AC01_faults"></a>
-## AC01_faults { #AC01_faults }
-
-
-| * | * |
-|---|---|
-| **Frame ID** | 0x810042 |
+| **Frame ID** | 0x88002 |
 | **Length [Bytes]** | 8 |
 | **Periodicity [ms]** | 1000 |
-| **Direction** | OUT |
+| **Direction** | IN |
 
 ### Description
 
-AC01 Critical and Error Faults
+Values for debugging of HW/SW problems
 
 ### Payload
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| CABLE_1_2_L1 | 1 | Label set |
-| CABLE_1_3_L1 | 1 | Label set |
-| CABLE_1_2_L2 | 1 | Label set |
-| CABLE_1_3_L2 | 1 | Label set |
-| CABLE_1_2_L3 | 1 | Label set |
-| CABLE_1_3_L3 | 1 | Label set |
-| CABLE_4_5_L1 | 1 | Label set |
-| CABLE_4_6_L1 | 1 | Label set |
-| CABLE_4_5_L2 | 1 | Label set |
-| CABLE_4_6_L2 | 1 | Label set |
-| CABLE_4_5_L3 | 1 | Label set |
-| CABLE_4_6_L3 | 1 | Label set |
-| CABLE_1_4_L1 | 1 | Label set |
-| CABLE_1_4_L2 | 1 | Label set |
-| CABLE_1_4_L3 | 1 | Label set |
-| CABLE_2_3_DC | 1 | Label set |
-| CABLE_5_6_DC | 1 | Label set |
-| CABLE_3_5_DC | 1 | Label set |
-| MODULE_1_RUNNING | 1 | Label set |
-| MODULE_2_RUNNING | 1 | Label set |
-| MODULE_3_RUNNING | 1 | Label set |
-| MODULE_4_RUNNING | 1 | Label set |
-| MODULE_5_RUNNING | 1 | Label set |
-| MODULE_6_RUNNING | 1 | Label set |
-| FILTER_1_RELAY_FAIL | 1 | Label set |
-| FILTER_4_RELAY_FAIL | 1 | Label set |
-| FILTER_1_RELAY_NOT_OFF | 1 | Label set |
-| FILTER_4_RELAY_NOT_OFF | 1 | Label set |
-| PRECHARGE_RELAY_CLOSING | 1 | Label set |
-| PRECHARGE_RELAY_OPENING | 1 | Label set |
-| FILTER_NOT_RUNNING | 1 | Label set |
-| RECTIFIER_3P_NOT_RUNNING | 1 | Label set |
-| AFE_NOT_OFF | 1 | Label set |
-| FILTER_STOP_RUNNING | 1 | Label set |
-| RECTIFIER_3P_STOP_RUNNING | 1 | Label set |
-| AFE_PWM_NOT_RUNNING | 1 | Label set |
-| AFE_PWM_STOP_RUNNING | 1 | Label set |
-| BLEEDING_FAILED | 1 | Label set |
-| FILTER_NOT_OFF | 1 | Label set |
+| Status_Error_Code | 16 | Unsigned |
+| Data_1 | 16 | Unsigned |
+| Data_2 | 16 | Unsigned |
+| Data_3 | 16 | Unsigned |
 
 ### Payload description
 
-#### CABLE_1_2_L1 { #AC01_faults-CABLE_1_2_L1 }
+#### Status_Error_Code :id=DAB_Debug-Status_Error_Code
 
-DMF1(1).L1  BP25(2).U mismatch
+Main status / error code as defined in errno/errno.h
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Unsigned |  | 1 | 0 |  |  |
+
+#### Data_1 :id=DAB_Debug-Data_1
+
+Additional information for the error/status
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 16 | Unsigned |  | 1 | 0 |  |  |
+
+#### Data_2 :id=DAB_Debug-Data_2
+
+Additional information for the error/status
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 32 | 16 | Unsigned |  | 1 | 0 |  |  |
+
+#### Data_3 :id=DAB_Debug-Data_3
+
+Additional information for the error/status
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 48 | 16 | Unsigned |  | 1 | 0 |  |  |
+
+
+<a id="DAB_Status"></a>
+## DAB_Status
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x88003 |
+| **Length [Bytes]** | 2 |
+| **Periodicity [ms]** | 100 |
+| **Direction** | IN |
+
+### Description
+
+Status bitfield
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Converter_running | 1 | Single bit |
+| Stack_mode | 1 | Single bit |
+| Master | 1 | Single bit |
+| Slave | 1 | Single bit |
+| PWM_mode | 1 | Single bit |
+| DC_DC_mode | 1 | Single bit |
+| Voltage_follower_mode | 1 | Single bit |
+| PFC_Voltage_mode | 1 | Single bit |
+| Gain_mode | 1 | Single bit |
+| Ready | 1 | Single bit |
+
+### Payload description
+
+#### Converter_running :id=DAB_Status-Converter_running
+
+Indicates that the converter is running, and its output is active.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### Stack_mode :id=DAB_Status-Stack_mode
+
+Indicates if running in stack mode.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 1 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### Master :id=DAB_Status-Master
+
+Indicates if the current converter is the Master in the stack.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 2 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### Slave :id=DAB_Status-Slave
+
+Indicates if the current converter is a Slave in the stack.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 3 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### PWM_mode :id=DAB_Status-PWM_mode
+
+Indicates if the converter is in PWM mode, and therefore working in open loop.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 4 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### DC_DC_mode :id=DAB_Status-DC_DC_mode
+
+Indicates if the converter is in DC DC mode with automatic bi-dir angle control.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 5 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### Voltage_follower_mode :id=DAB_Status-Voltage_follower_mode
+
+Indicates if the converter is in Voltage follower mode.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 6 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### PFC_Voltage_mode :id=DAB_Status-PFC_Voltage_mode
+
+Indicates if the converter is in PFC Voltage mode.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 7 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### Gain_mode :id=DAB_Status-Gain_mode
+
+Indicates if the converter is in Gain Mode.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 8 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### Ready :id=DAB_Status-Ready
+
+Indicates if converter is ready for operation.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 9 | 1 | Single bit |  | 1 | 0 |  |  |
+
+
+<a id="DAB_Faults"></a>
+## DAB_Faults
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x88004 |
+| **Length [Bytes]** | 3 |
+| **Periodicity [ms]** | 100 |
+| **Direction** | IN |
+
+### Description
+
+Fault bitfield
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Protection_trip_internal | 1 | Label set |
+| Protection_trip_external | 1 | Label set |
+| Current_Side_A_overcurrent | 1 | Label set |
+| Current_Side_B_overcurrent | 1 | Label set |
+| Current_Phase_Side_A_overcurrent | 1 | Label set |
+| Current_Phase_Side_B_overcurrent | 1 | Label set |
+| Voltage_Side_A_undervoltage | 1 | Label set |
+| Voltage_Side_A_overvoltage | 1 | Label set |
+| Voltage_Side_B_undervoltage | 1 | Label set |
+| Voltage_Side_B_overvoltage | 1 | Label set |
+| Bar_A_overtemperature | 1 | Label set |
+| Bar_B_overtemperature | 1 | Label set |
+| Switching_failure | 1 | Label set |
+| CAN_failure | 1 | Label set |
+| Control_response_timedout | 1 | Label set |
+| Measurement_system_failure | 1 | Label set |
+| EEPROM_failure | 1 | Label set |
+| System | 1 | Label set |
+| NFO | 1 | Label set |
+| ADC | 1 | Label set |
+| WCH | 1 | Label set |
+| Transformer_1_overtemperature | 1 | Label set |
+| Transformer_2_overtemperature | 1 | Label set |
+
+### Payload description
+
+#### Protection_trip_internal :id=DAB_Faults-Protection_trip_internal
+
+This flag is asserted if the interlock is open due to an internal fault condition (self-protection).
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -747,12 +1466,11 @@ DMF1(1).L1  BP25(2).U mismatch
 
 | Label name | Value |
 |------------|-------|
-| Clear | 0 |
-| Critical | 1 |
+| fault | 1 |
 
-#### CABLE_1_3_L1 { #AC01_faults-CABLE_1_3_L1 }
+#### Protection_trip_external :id=DAB_Faults-Protection_trip_external
 
-DMF1(1).L1  BP25(3).U mismatch
+This flag is asserted if the interlock is open due to an external condition received in the module.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -760,12 +1478,12 @@ DMF1(1).L1  BP25(3).U mismatch
 
 | Label name | Value |
 |------------|-------|
-| Clear | 0 |
-| Critical | 1 |
+| fault | 1 |
 
-#### CABLE_1_2_L2 { #AC01_faults-CABLE_1_2_L2 }
+#### Current_Side_A_overcurrent :id=DAB_Faults-Current_Side_A_overcurrent
 
-DMF1(1).L2  BP25(2).V mismatch
+Indicates an overcurrent event on input current. The overcurrent event is triggered
+when the measured phase current is over the programmed / absolute current limit.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -773,12 +1491,12 @@ DMF1(1).L2  BP25(2).V mismatch
 
 | Label name | Value |
 |------------|-------|
-| Clear | 0 |
-| Critical | 1 |
+| fault | 1 |
 
-#### CABLE_1_3_L2 { #AC01_faults-CABLE_1_3_L2 }
+#### Current_Side_B_overcurrent :id=DAB_Faults-Current_Side_B_overcurrent
 
-DMF1(1).L2  BP25(3).V mismatch
+Indicates an overcurrent event on output current. The overcurrent event is
+triggered when the measured current is over the programmed / absolute current limit.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -786,12 +1504,12 @@ DMF1(1).L2  BP25(3).V mismatch
 
 | Label name | Value |
 |------------|-------|
-| Clear | 0 |
-| Critical | 1 |
+| fault | 1 |
 
-#### CABLE_1_2_L3 { #AC01_faults-CABLE_1_2_L3 }
+#### Current_Phase_Side_A_overcurrent :id=DAB_Faults-Current_Phase_Side_A_overcurrent
 
-DMF1(1).L3  BP25(2).W mismatch
+Indicates an overcurrent event on input phase current. The overcurrent event is
+triggered when the measured current is over the programmed / absolute current limit.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -799,12 +1517,12 @@ DMF1(1).L3  BP25(2).W mismatch
 
 | Label name | Value |
 |------------|-------|
-| Clear | 0 |
-| Critical | 1 |
+| fault | 1 |
 
-#### CABLE_1_3_L3 { #AC01_faults-CABLE_1_3_L3 }
+#### Current_Phase_Side_B_overcurrent :id=DAB_Faults-Current_Phase_Side_B_overcurrent
 
-DMF1(1).L3  BP25(3).W mismatch
+Indicates an overcurrent event on output phase current. The overcurrent event is
+triggered when the measured current is over the programmed / absolute current limit.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -812,12 +1530,12 @@ DMF1(1).L3  BP25(3).W mismatch
 
 | Label name | Value |
 |------------|-------|
-| Clear | 0 |
-| Critical | 1 |
+| fault | 1 |
 
-#### CABLE_4_5_L1 { #AC01_faults-CABLE_4_5_L1 }
+#### Voltage_Side_A_undervoltage :id=DAB_Faults-Voltage_Side_A_undervoltage
 
-DMF1(4).L1  BP25(5).U mismatch
+Indicates an undervoltage event on Voltage In. The undervoltage event is triggered
+when the measured voltage is under the programmed / absolute voltage limit.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -825,12 +1543,12 @@ DMF1(4).L1  BP25(5).U mismatch
 
 | Label name | Value |
 |------------|-------|
-| Clear | 0 |
-| Critical | 1 |
+| fault | 1 |
 
-#### CABLE_4_6_L1 { #AC01_faults-CABLE_4_6_L1 }
+#### Voltage_Side_A_overvoltage :id=DAB_Faults-Voltage_Side_A_overvoltage
 
-DMF1(4).L1  BP25(6).U mismatch
+Indicates an overvoltage event Voltage In. The overvoltage event is triggered when
+the measured phase voltage is over the programmed / absolute voltage limit.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -838,12 +1556,12 @@ DMF1(4).L1  BP25(6).U mismatch
 
 | Label name | Value |
 |------------|-------|
-| Clear | 0 |
-| Critical | 1 |
+| fault | 1 |
 
-#### CABLE_4_5_L2 { #AC01_faults-CABLE_4_5_L2 }
+#### Voltage_Side_B_undervoltage :id=DAB_Faults-Voltage_Side_B_undervoltage
 
-DMF1(4).L2  BP25(5).V mismatch
+Indicates an undervoltage event on Voltage Out. The undervoltage event is triggered
+when the measured voltage is under the programmed / absolute voltage limit.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -851,12 +1569,12 @@ DMF1(4).L2  BP25(5).V mismatch
 
 | Label name | Value |
 |------------|-------|
-| Clear | 0 |
-| Critical | 1 |
+| fault | 1 |
 
-#### CABLE_4_6_L2 { #AC01_faults-CABLE_4_6_L2 }
+#### Voltage_Side_B_overvoltage :id=DAB_Faults-Voltage_Side_B_overvoltage
 
-DMF1(4).L2  BP25(6).V mismatch
+Indicates an overvoltage event Voltage Out. The overvoltage event is triggered when
+the measured phase voltage is over the programmed / absolute voltage limit.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -864,12 +1582,11 @@ DMF1(4).L2  BP25(6).V mismatch
 
 | Label name | Value |
 |------------|-------|
-| Clear | 0 |
-| Critical | 1 |
+| fault | 1 |
 
-#### CABLE_4_5_L3 { #AC01_faults-CABLE_4_5_L3 }
+#### Bar_A_overtemperature :id=DAB_Faults-Bar_A_overtemperature
 
-DMF1(4).L3  BP25(5).W mismatch
+This flag is asserted when the temperature of the Bar A block is too high.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -877,12 +1594,11 @@ DMF1(4).L3  BP25(5).W mismatch
 
 | Label name | Value |
 |------------|-------|
-| Clear | 0 |
-| Critical | 1 |
+| fault | 1 |
 
-#### CABLE_4_6_L3 { #AC01_faults-CABLE_4_6_L3 }
+#### Bar_B_overtemperature :id=DAB_Faults-Bar_B_overtemperature
 
-DMF1(4).L3  BP25(6).W mismatch
+This flag is asserted when the temperature of the Bar B block is too high.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -890,12 +1606,11 @@ DMF1(4).L3  BP25(6).W mismatch
 
 | Label name | Value |
 |------------|-------|
-| Clear | 0 |
-| Critical | 1 |
+| fault | 1 |
 
-#### CABLE_1_4_L1 { #AC01_faults-CABLE_1_4_L1 }
+#### Switching_failure :id=DAB_Faults-Switching_failure
 
-Grid L1  DMF1(1).in vs DMF1(4).in mismatch
+Failure in the MOSFET block or in their drivers.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -903,12 +1618,11 @@ Grid L1  DMF1(1).in vs DMF1(4).in mismatch
 
 | Label name | Value |
 |------------|-------|
-| Clear | 0 |
-| Critical | 1 |
+| fault | 1 |
 
-#### CABLE_1_4_L2 { #AC01_faults-CABLE_1_4_L2 }
+#### CAN_failure :id=DAB_Faults-CAN_failure
 
-Grid L2  DMF1(1).in vs DMF1(4).in mismatch
+CAN bus or transceiver not operating properly.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -916,12 +1630,13 @@ Grid L2  DMF1(1).in vs DMF1(4).in mismatch
 
 | Label name | Value |
 |------------|-------|
-| Clear | 0 |
-| Critical | 1 |
+| fault | 1 |
 
-#### CABLE_1_4_L3 { #AC01_faults-CABLE_1_4_L3 }
+#### Control_response_timedout :id=DAB_Faults-Control_response_timedout
 
-Grid L3 - DMF1(1).in vs DMF1(4).in mismatch
+The control system did not answer within the allowed time window, and a time out
+condition was triggered. The converter is switched off as the control system is
+not present.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -929,12 +1644,12 @@ Grid L3 - DMF1(1).in vs DMF1(4).in mismatch
 
 | Label name | Value |
 |------------|-------|
-| Clear | 0 |
-| Critical | 1 |
+| fault | 1 |
 
-#### CABLE_2_3_DC { #AC01_faults-CABLE_2_3_DC }
+#### Measurement_system_failure :id=DAB_Faults-Measurement_system_failure
 
-BP25(2).DC  BP25(3).DC mismatch
+The voltages/currents measurement system is malfunctionning, and readouts are not
+guaranteed to be accurate.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -942,12 +1657,11 @@ BP25(2).DC  BP25(3).DC mismatch
 
 | Label name | Value |
 |------------|-------|
-| Clear | 0 |
-| Critical | 1 |
+| fault | 1 |
 
-#### CABLE_5_6_DC { #AC01_faults-CABLE_5_6_DC }
+#### EEPROM_failure :id=DAB_Faults-EEPROM_failure
 
-BP25(5).DC  BP25(6).DC mismatch
+The configuration EEPROM failed to load or save the module configuration.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -955,12 +1669,9 @@ BP25(5).DC  BP25(6).DC mismatch
 
 | Label name | Value |
 |------------|-------|
-| Clear | 0 |
-| Critical | 1 |
+| fault | 1 |
 
-#### CABLE_3_5_DC { #AC01_faults-CABLE_3_5_DC }
-
-BP25(3).DC  BP25(5).DC mismatch
+#### System :id=DAB_Faults-System
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -968,12 +1679,9 @@ BP25(3).DC  BP25(5).DC mismatch
 
 | Label name | Value |
 |------------|-------|
-| Clear | 0 |
-| Critical | 1 |
+| fault | 1 |
 
-#### MODULE_1_RUNNING { #AC01_faults-MODULE_1_RUNNING }
-
-DMF1(1) running error
+#### NFO :id=DAB_Faults-NFO
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -981,12 +1689,9 @@ DMF1(1) running error
 
 | Label name | Value |
 |------------|-------|
-| Clear | 0 |
-| Error | 1 |
+| fault | 1 |
 
-#### MODULE_2_RUNNING { #AC01_faults-MODULE_2_RUNNING }
-
-DMF1(2) running error
+#### ADC :id=DAB_Faults-ADC
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -994,12 +1699,9 @@ DMF1(2) running error
 
 | Label name | Value |
 |------------|-------|
-| Clear | 0 |
-| Error | 1 |
+| fault | 1 |
 
-#### MODULE_3_RUNNING { #AC01_faults-MODULE_3_RUNNING }
-
-DMF1(3) running error
+#### WCH :id=DAB_Faults-WCH
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -1007,12 +1709,11 @@ DMF1(3) running error
 
 | Label name | Value |
 |------------|-------|
-| Clear | 0 |
-| Error | 1 |
+| fault | 1 |
 
-#### MODULE_4_RUNNING { #AC01_faults-MODULE_4_RUNNING }
+#### Transformer_1_overtemperature :id=DAB_Faults-Transformer_1_overtemperature
 
-DMF1(4) running error
+This flag is asserted when the temperature of the Bar B block is too high.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -1020,12 +1721,11 @@ DMF1(4) running error
 
 | Label name | Value |
 |------------|-------|
-| Clear | 0 |
-| Error | 1 |
+| fault | 1 |
 
-#### MODULE_5_RUNNING { #AC01_faults-MODULE_5_RUNNING }
+#### Transformer_2_overtemperature :id=DAB_Faults-Transformer_2_overtemperature
 
-DMF1(5) running error
+This flag is asserted when the temperature of the Bar B block is too high.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -1033,497 +1733,689 @@ DMF1(5) running error
 
 | Label name | Value |
 |------------|-------|
-| Clear | 0 |
-| Error | 1 |
+| fault | 1 |
 
-#### MODULE_6_RUNNING { #AC01_faults-MODULE_6_RUNNING }
 
-DMF1(6) running error
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 23 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Error | 1 |
-
-#### FILTER_1_RELAY_FAIL { #AC01_faults-FILTER_1_RELAY_FAIL }
-
-Relay 1 fail
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 24 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Error | 1 |
-
-#### FILTER_4_RELAY_FAIL { #AC01_faults-FILTER_4_RELAY_FAIL }
-
-Relay 4 fail
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 25 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Error | 1 |
-
-#### FILTER_1_RELAY_NOT_OFF { #AC01_faults-FILTER_1_RELAY_NOT_OFF }
-
-Relay 1 not off
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 26 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Error | 1 |
-
-#### FILTER_4_RELAY_NOT_OFF { #AC01_faults-FILTER_4_RELAY_NOT_OFF }
-
-Relay 4 not off
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 27 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Error | 1 |
-
-#### PRECHARGE_RELAY_CLOSING { #AC01_faults-PRECHARGE_RELAY_CLOSING }
-
-Precharge relay closing
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 28 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Error | 1 |
-
-#### PRECHARGE_RELAY_OPENING { #AC01_faults-PRECHARGE_RELAY_OPENING }
-
-Precharge relay opening
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 29 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Error | 1 |
-
-#### FILTER_NOT_RUNNING { #AC01_faults-FILTER_NOT_RUNNING }
-
-Filter not running
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 30 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Error | 1 |
-
-#### RECTIFIER_3P_NOT_RUNNING { #AC01_faults-RECTIFIER_3P_NOT_RUNNING }
-
-Rectifier not running
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 31 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Error | 1 |
-
-#### AFE_NOT_OFF { #AC01_faults-AFE_NOT_OFF }
-
-AFE not off
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 32 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Error | 1 |
-
-#### FILTER_STOP_RUNNING { #AC01_faults-FILTER_STOP_RUNNING }
-
-Filter stop running
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 34 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Error | 1 |
-
-#### RECTIFIER_3P_STOP_RUNNING { #AC01_faults-RECTIFIER_3P_STOP_RUNNING }
-
-Rectifier stop running
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 35 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Error | 1 |
-
-#### AFE_PWM_NOT_RUNNING { #AC01_faults-AFE_PWM_NOT_RUNNING }
-
-BLEEDING not running
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 36 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Error | 1 |
-
-#### AFE_PWM_STOP_RUNNING { #AC01_faults-AFE_PWM_STOP_RUNNING }
-
-Bleeding stop running
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 37 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Error | 1 |
-
-#### BLEEDING_FAILED { #AC01_faults-BLEEDING_FAILED }
-
-Bleeding failed
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 38 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Error | 1 |
-
-#### FILTER_NOT_OFF { #AC01_faults-FILTER_NOT_OFF }
-
-filter not off
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 39 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Error | 1 |
-
-
-<a id="AC01_warning"></a>
-## AC01_warning { #AC01_warning }
+<a id="DAB_Voltages_Currents"></a>
+## DAB_Voltages_Currents
 
 
 | * | * |
 |---|---|
-| **Frame ID** | 0x810043 |
+| **Frame ID** | 0x88005 |
 | **Length [Bytes]** | 8 |
-| **Periodicity [ms]** | 1000 |
-| **Direction** | OUT |
+| **Periodicity [ms]** | 100 |
+| **Direction** | IN |
 
 ### Description
 
-AC01 Warning
+Voltages and currents of Input/Output
 
 ### Payload
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| GHM_INIT | 1 | Label set |
-| GHM_RMS | 1 | Label set |
-| GHM_FREQ | 1 | Label set |
-| GHM_PHASE | 1 | Label set |
-| RQ_V_SET_DC_BELOW_AC | 1 | Label set |
-| RQ_C_SINK_SET_LOW | 1 | Label set |
-| RQ_C_SOURCE_SET_LOW | 1 | Label set |
-| RQ_C_SET_DC_ABOVE_MAX | 1 | Label set |
-| RQ_C_SET_DC_BELOW_MIN | 1 | Label set |
-| RQ_V_SET_DC_BELOW_MIN | 1 | Label set |
-| RQ_DC_DROOP_NEG_INVALID | 1 | Label set |
-| RQ_DC_DROOP_POS_INVALID | 1 | Label set |
-| RQ_V_SET_DC_ABOVE_MAX | 1 | Label set |
-| AFE_DROOP_NOT_ENABLE | 1 | Label set |
-| MODE_NOT_SUPPORTED | 1 | Label set |
+| Current_Side_A | 16 | Signed |
+| Current_Side_B | 16 | Signed |
+| Voltage_Side_A | 16 | Signed |
+| Voltage_Side_B | 16 | Signed |
 
 ### Payload description
 
-#### GHM_INIT { #AC01_warning-GHM_INIT }
+#### Current_Side_A :id=DAB_Voltages_Currents-Current_Side_A
 
-GHM init failed
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Warning | 1 |
-
-#### GHM_RMS { #AC01_warning-GHM_RMS }
-
-GHM RMS failed
+Input current of the converter (direction from input to output is positive).
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 1 | 1 | Label set |  | 1 | 0 |  |  |
+| 0 | 16 | Signed | A | 0.01 | 0 |  |  |
 
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Warning | 1 |
+#### Current_Side_B :id=DAB_Voltages_Currents-Current_Side_B
 
-#### GHM_FREQ { #AC01_warning-GHM_FREQ }
-
-GHM freq failed
+Input current of the converter (direction from input to output is positive).
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 2 | 1 | Label set |  | 1 | 0 |  |  |
+| 16 | 16 | Signed | A | 0.01 | 0 |  |  |
 
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Warning | 1 |
+#### Voltage_Side_A :id=DAB_Voltages_Currents-Voltage_Side_A
 
-#### GHM_PHASE { #AC01_warning-GHM_PHASE }
-
-GHM phase failed
+Input voltage of the converter.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 3 | 1 | Label set |  | 1 | 0 |  |  |
+| 32 | 16 | Signed | V | 0.1 | 0 |  |  |
 
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Warning | 1 |
+#### Voltage_Side_B :id=DAB_Voltages_Currents-Voltage_Side_B
 
-#### RQ_V_SET_DC_BELOW_AC { #AC01_warning-RQ_V_SET_DC_BELOW_AC }
-
-DC voltage too low vs AC
+Output voltage of the converter.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 4 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Warning | 1 |
-
-#### RQ_C_SINK_SET_LOW { #AC01_warning-RQ_C_SINK_SET_LOW }
-
-Sink current too low
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 5 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Warning | 1 |
-
-#### RQ_C_SOURCE_SET_LOW { #AC01_warning-RQ_C_SOURCE_SET_LOW }
-
-Source current too low
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 6 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Warning | 1 |
-
-#### RQ_C_SET_DC_ABOVE_MAX { #AC01_warning-RQ_C_SET_DC_ABOVE_MAX }
-
-Current above max
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 7 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Warning | 1 |
-
-#### RQ_C_SET_DC_BELOW_MIN { #AC01_warning-RQ_C_SET_DC_BELOW_MIN }
-
-Sink current too low
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 8 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Warning | 1 |
-
-#### RQ_V_SET_DC_BELOW_MIN { #AC01_warning-RQ_V_SET_DC_BELOW_MIN }
-
-Source current too low
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 9 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Warning | 1 |
-
-#### RQ_DC_DROOP_NEG_INVALID { #AC01_warning-RQ_DC_DROOP_NEG_INVALID }
-
-Current limited by power max
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 12 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Warning | 1 |
-
-#### RQ_DC_DROOP_POS_INVALID { #AC01_warning-RQ_DC_DROOP_POS_INVALID }
-
-Current limited by power max
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 13 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Warning | 1 |
-
-#### RQ_V_SET_DC_ABOVE_MAX { #AC01_warning-RQ_V_SET_DC_ABOVE_MAX }
-
-Current above max
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 14 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Warning | 1 |
-
-#### AFE_DROOP_NOT_ENABLE { #AC01_warning-AFE_DROOP_NOT_ENABLE }
-
-Group ID not set
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 15 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Warning | 1 |
-
-#### MODE_NOT_SUPPORTED { #AC01_warning-MODE_NOT_SUPPORTED }
-
-Mode not supported
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 16 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Warning | 1 |
+| 48 | 16 | Signed | V | 0.1 | 0 |  |  |
 
 
-<a id="AC01_info"></a>
-## AC01_info { #AC01_info }
+<a id="DAB_Phase_Currents"></a>
+## DAB_Phase_Currents
 
 
 | * | * |
 |---|---|
-| **Frame ID** | 0x810044 |
-| **Length [Bytes]** | 8 |
-| **Periodicity [ms]** | 1000 |
-| **Direction** | OUT |
+| **Frame ID** | 0x88006 |
+| **Length [Bytes]** | 4 |
+| **Periodicity [ms]** | 100 |
+| **Direction** | IN |
 
 ### Description
 
-AC01 Info
+Phase currents of Input/Output
 
 ### Payload
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| BLEEDING_DONE | 1 | Label set |
-| RQ_C_LIMITED_BY_POWER | 1 | Label set |
+| Current_Phase_Side_A | 16 | Signed |
+| Current_Phase_Side_B | 16 | Signed |
 
 ### Payload description
 
-#### BLEEDING_DONE { #AC01_info-BLEEDING_DONE }
+#### Current_Phase_Side_A :id=DAB_Phase_Currents-Current_Phase_Side_A
 
-Current limited by power max
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 1 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Info | 1 |
-
-#### RQ_C_LIMITED_BY_POWER { #AC01_info-RQ_C_LIMITED_BY_POWER }
-
-Current limited by power max
+Input phase current of the converter (direction from input to output is positive).
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 2 | 1 | Label set |  | 1 | 0 |  |  |
+| 0 | 16 | Signed | A | 0.01 | 0 |  |  |
 
-| Label name | Value |
-|------------|-------|
-| Clear | 0 |
-| Info | 1 |
+#### Current_Phase_Side_B :id=DAB_Phase_Currents-Current_Phase_Side_B
+
+Input phase current of the converter (direction from input to output is positive).
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 16 | Signed | A | 0.01 | 0 |  |  |
+
+
+<a id="_DAB_Voltages_Currents_Raw"></a>
+## _DAB_Voltages_Currents_Raw
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x88007 |
+| **Length [Bytes]** | 8 |
+| **Periodicity [ms]** | 100 |
+| **Direction** | IN |
+
+### Description
+
+Raw Voltages and currents of Input/Output
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Current_Side_A | 16 | Unsigned |
+| Current_Side_B | 16 | Signed |
+| Voltage_Side_A | 16 | Unsigned |
+| Voltage_Side_B | 16 | Signed |
+
+### Payload description
+
+#### Current_Side_A :id=_DAB_Voltages_Currents_Raw-Current_Side_A
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Unsigned |  | 1 | 0 |  |  |
+
+#### Current_Side_B :id=_DAB_Voltages_Currents_Raw-Current_Side_B
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 16 | Signed |  | 1 | 0 |  |  |
+
+#### Voltage_Side_A :id=_DAB_Voltages_Currents_Raw-Voltage_Side_A
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 32 | 16 | Unsigned |  | 1 | 0 |  |  |
+
+#### Voltage_Side_B :id=_DAB_Voltages_Currents_Raw-Voltage_Side_B
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 48 | 16 | Signed |  | 1 | 0 |  |  |
+
+
+<a id="_DAB_Phase_Currents_Raw"></a>
+## _DAB_Phase_Currents_Raw
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x88008 |
+| **Length [Bytes]** | 8 |
+| **Periodicity [ms]** | 100 |
+| **Direction** | IN |
+
+### Description
+
+Raw ADC values from the Phase current sensors
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Current_Phase_Side_A | 16 | Unsigned |
+| Current_Phase_Side_B | 16 | Unsigned |
+
+### Payload description
+
+#### Current_Phase_Side_A :id=_DAB_Phase_Currents_Raw-Current_Phase_Side_A
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Unsigned |  | 1 | 0 |  |  |
+
+#### Current_Phase_Side_B :id=_DAB_Phase_Currents_Raw-Current_Phase_Side_B
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 16 | Unsigned |  | 1 | 0 |  |  |
+
+
+<a id="DAB_Temperatures"></a>
+## DAB_Temperatures
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x88009 |
+| **Length [Bytes]** | 8 |
+| **Periodicity [ms]** | 100 |
+| **Direction** | IN |
+
+### Description
+
+Readouts of the module temperature sensors
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Temp_Bar_In | 16 | Signed |
+| Temp_Bar_Out | 16 | Signed |
+| Temp_Transformer | 16 | Signed |
+| Temp_Magnetics | 16 | Signed |
+
+### Payload description
+
+#### Temp_Bar_In :id=DAB_Temperatures-Temp_Bar_In
+
+Temperature of the Bar A block
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Signed | °C | 0.01 | 0 |  |  |
+
+#### Temp_Bar_Out :id=DAB_Temperatures-Temp_Bar_Out
+
+Temperature of the Bar A block
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 16 | Signed | °C | 0.01 | 0 |  |  |
+
+#### Temp_Transformer :id=DAB_Temperatures-Temp_Transformer
+
+Temperature of the Bar B block
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 32 | 16 | Signed | °C | 0.01 | 0 |  |  |
+
+#### Temp_Magnetics :id=DAB_Temperatures-Temp_Magnetics
+
+Temperature of the Magnetic B block
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 48 | 16 | Signed | °C | 0.01 | 0 |  |  |
+
+
+<a id="DAB_Setpoints_PWM_Phase"></a>
+## DAB_Setpoints_PWM_Phase
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x8800a |
+| **Length [Bytes]** | 4 |
+| **Periodicity [ms]** | 100 |
+| **Direction** | IN |
+
+### Description
+
+PWM duty cycle control
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Phase_A | 16 | Signed |
+| Phase_B | 16 | Signed |
+
+### Payload description
+
+#### Phase_A :id=DAB_Setpoints_PWM_Phase-Phase_A
+
+PWM Phase setpoint.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Signed | ° | 0.003 | 0 |  |  |
+
+#### Phase_B :id=DAB_Setpoints_PWM_Phase-Phase_B
+
+PWM Phase setpoint.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 16 | Signed | ° | 0.003 | 0 |  |  |
+
+
+<a id="_DAB_Broadcast"></a>
+## _DAB_Broadcast
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x8800e |
+| **Length [Bytes]** | 8 |
+| **Periodicity [ms]** | 50 |
+| **Direction** | OUT |
+
+### Description
+
+All DABs will listen to this message
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Stack_position | 5 | Unsigned |
+| Group_ID | 3 | Unsigned |
+| Port_A | 16 | Signed |
+| Port_B | 16 | Signed |
+| Diagnostics_Index | 8 | Unsigned |
+
+### Payload description
+
+#### Stack_position :id=_DAB_Broadcast-Stack_position
+
+Sender Stack position
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 5 | Unsigned |  | 1 | 0 |  |  |
+
+#### Group_ID :id=_DAB_Broadcast-Group_ID
+
+Sender Group ID
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 5 | 3 | Unsigned |  | 1 | 0 |  |  |
+
+#### Port_A :id=_DAB_Broadcast-Port_A
+
+'Input' port A current.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 8 | 16 | Signed | A | 0.01 | 0 |  |  |
+
+#### Port_B :id=_DAB_Broadcast-Port_B
+
+'Output' port B current.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 24 | 16 | Signed | A | 0.01 | 0 |  |  |
+
+#### Diagnostics_Index :id=_DAB_Broadcast-Diagnostics_Index
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 56 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+
+<a id="DAB_Group_Info"></a>
+## DAB_Group_Info
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x8800f |
+| **Length [Bytes]** | 1 |
+| **Periodicity [ms]** | 1000 |
+| **Direction** | IN |
+
+### Description
+
+Contains the Group ID of the device
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Group_ID | 8 | Unsigned |
+
+### Payload description
+
+#### Group_ID :id=DAB_Group_Info-Group_ID
+
+Group ID of the device
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+
+<a id="_DAB_Calibration_Adc_Fs"></a>
+## _DAB_Calibration_Adc_Fs
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x88041 |
+| **Length [Bytes]** | 6 |
+| **Periodicity [ms]** | 1000 |
+| **Direction** | IN |
+
+### Description
+
+Fullscale value of readouts.
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Current_Side_A | 32 | Float |
+| Current_Side_B | 32 | Float |
+| Current_Phase_Side_A | 32 | Float |
+| Voltage_Side_A | 32 | Float |
+| Voltage_Side_B | 32 | Float |
+| Current_Phase_Side_B | 32 | Float |
+| Adc_Index | 16 | Unsigned |
+
+### Payload description
+
+#### Current_Side_A :id=_DAB_Calibration_Adc_Fs-Current_Side_A
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 32 | Float | Fullscale | 1 | 0 |  |  |
+
+#### Current_Side_B :id=_DAB_Calibration_Adc_Fs-Current_Side_B
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 32 | Float | Fullscale | 1 | 0 |  |  |
+
+#### Current_Phase_Side_A :id=_DAB_Calibration_Adc_Fs-Current_Phase_Side_A
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 32 | Float | Fullscale | 1 | 0 |  |  |
+
+#### Voltage_Side_A :id=_DAB_Calibration_Adc_Fs-Voltage_Side_A
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 32 | Float | Fullscale | 1 | 0 |  |  |
+
+#### Voltage_Side_B :id=_DAB_Calibration_Adc_Fs-Voltage_Side_B
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 32 | Float | Fullscale | 1 | 0 |  |  |
+
+#### Current_Phase_Side_B :id=_DAB_Calibration_Adc_Fs-Current_Phase_Side_B
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 32 | Float | Fullscale | 1 | 0 |  |  |
+
+#### Adc_Index :id=_DAB_Calibration_Adc_Fs-Adc_Index
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 32 | 16 | Unsigned |  | 1 | 0 |  |  |
+
+
+<a id="_DAB_Calibration_Adc_Scale"></a>
+## _DAB_Calibration_Adc_Scale
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x88042 |
+| **Length [Bytes]** | 6 |
+| **Periodicity [ms]** | 1000 |
+| **Direction** | IN |
+
+### Description
+
+Adc scale (resolution) value of readouts.
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Current_Side_A | 32 | Signed |
+| Current_Side_B | 32 | Signed |
+| Current_Phase_Side_A | 32 | Signed |
+| Voltage_Side_A | 32 | Signed |
+| Voltage_Side_B | 32 | Signed |
+| Current_Phase_Side_B | 32 | Float |
+| Adc_Index | 16 | Unsigned |
+
+### Payload description
+
+#### Current_Side_A :id=_DAB_Calibration_Adc_Scale-Current_Side_A
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 32 | Signed | 1 / adc_bins | 1 | 0 |  |  |
+
+#### Current_Side_B :id=_DAB_Calibration_Adc_Scale-Current_Side_B
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 32 | Signed | 1 / adc_bins | 1 | 0 |  |  |
+
+#### Current_Phase_Side_A :id=_DAB_Calibration_Adc_Scale-Current_Phase_Side_A
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 32 | Signed | 1 / adc_bins | 1 | 0 |  |  |
+
+#### Voltage_Side_A :id=_DAB_Calibration_Adc_Scale-Voltage_Side_A
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 32 | Signed | 1 / adc_bins | 1 | 0 |  |  |
+
+#### Voltage_Side_B :id=_DAB_Calibration_Adc_Scale-Voltage_Side_B
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 32 | Signed | 1 / adc_bins | 1 | 0 |  |  |
+
+#### Current_Phase_Side_B :id=_DAB_Calibration_Adc_Scale-Current_Phase_Side_B
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 32 | Float | 1 / adc_bins | 1 | 0 |  |  |
+
+#### Adc_Index :id=_DAB_Calibration_Adc_Scale-Adc_Index
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 32 | 16 | Unsigned |  | 1 | 0 |  |  |
+
+
+<a id="CLLC_PWM_Frequency_value"></a>
+## CLLC_PWM_Frequency_value
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x88048 |
+| **Length [Bytes]** | 4 |
+| **Periodicity [ms]** | 1000 |
+| **Direction** | IN |
+
+### Description
+
+PWM duty cycle Readout
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| frequency | 16 | Unsigned |
+
+### Payload description
+
+#### frequency :id=CLLC_PWM_Frequency_value-frequency
+
+PWM frequency setpoint.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Unsigned | Hz | 10 | 0 |  |  |
+
+
+<a id="Data_test_out"></a>
+## Data_test_out
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x88090 |
+| **Length [Bytes]** | 1 |
+| **Periodicity [ms]** | 100 |
+| **Direction** | IN |
+
+### Description
+
+Readouts of the module temperature sensors
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| gain | 8 | Unsigned |
+
+### Payload description
+
+#### gain :id=Data_test_out-gain
+
+Gain mode select
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+
+<a id="Data_phase_shift"></a>
+## Data_phase_shift
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x88091 |
+| **Length [Bytes]** | 4 |
+| **Periodicity [ms]** | 100 |
+| **Direction** | IN |
+
+### Description
+
+Readouts of the module phase shifts
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| phase_shift_a | 16 | Signed |
+| phase_shift_b | 16 | Unsigned |
+
+### Payload description
+
+#### phase_shift_a :id=Data_phase_shift-phase_shift_a
+
+Phase_shift_A of the Bar A block
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Signed | V | 0.1 | 0 |  |  |
+
+#### phase_shift_b :id=Data_phase_shift-phase_shift_b
+
+Phase_shift_B of the Bar A block
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 16 | Unsigned | Hz | 0.1 | 0 |  |  |
+
+
+<a id="DAB_CAN_API_Version"></a>
+## DAB_CAN_API_Version
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x880f3 |
+| **Length [Bytes]** | 3 |
+| **Periodicity [ms]** | 1000 |
+| **Direction** | IN |
+
+### Description
+
+This message declares the version of the API that is provided by the converter. The version follows newer convention.
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Major | 8 | Unsigned |
+| Minor | 8 | Unsigned |
+| Patch | 8 | Unsigned |
+
+### Payload description
+
+#### Major :id=DAB_CAN_API_Version-Major
+
+The Major version number. This number increases if there are backwards incompatible changes
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### Minor :id=DAB_CAN_API_Version-Minor
+
+The Minor version number. This number increases if there are backwards compatible changes, like new messages or the use of previously reserved space
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 8 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### Patch :id=DAB_CAN_API_Version-Patch
+
+The Patch number. This number increases when changes to descriptions and documentation/comments are made
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 8 | Unsigned |  | 1 | 0 |  |  |

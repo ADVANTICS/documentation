@@ -1,0 +1,1077 @@
+<?xml version="1.0" ?>
+<NetworkDefinition xmlns="http://kayak.2codeornot2code.org/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="KCD_Definition.xsd">
+  <Document name="ADM_PC_BI25" version="1" author="[...]" company="Advantics" date="2019-11-04"/>
+  <Node id="0" name="User"/>
+  <Node id="8" name="ADM_PC_BI25"/>
+  <Bus name="ADM_PC_BI25" baudrate="500000">
+    <Message id="0x88000" length="8" name="DAB_Identification" interval="1000" format="extended">
+      <Notes>Identification of the device</Notes>
+      <Producer> <NodeRef id="8"/> </Producer>
+      <Signal name="Device_type" offset="0" length="8">
+        <Notes> The device identification field, uniquely identifies the sender in the network. </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="ADM_PC_BI25" value="8" />
+        </LabelSet>
+      </Signal>
+      <Signal name="HW_revision" offset="8" length="8">
+        <Notes>The hardware revision number</Notes>
+      <Consumer> <NodeRef id="0"/> </Consumer>
+        </Signal>
+      <Signal name="HW_variant" offset="16" length="8">
+        <Notes>The DSP firmware revision number</Notes>
+      <Consumer> <NodeRef id="0"/> </Consumer>
+        </Signal>
+      <Signal name="Stack_position" offset="24" length="8">
+        <Notes>Position of the module within the stack</Notes>
+      <Consumer> <NodeRef id="0"/> </Consumer>
+        </Signal>
+      <Signal name="SN_number" offset="32" length="32">
+        <Notes>Unique module serial number</Notes>
+      <Consumer> <NodeRef id="0"/> </Consumer>
+        </Signal>
+    </Message>
+
+    <Message id="0x88001" length="8" name="DAB_FwInfo" interval="1000" format="extended">
+      <Notes>Git revision of the DSP firmware</Notes>
+      <Producer> <NodeRef id="8"/> </Producer>
+      <Multiplex name="FW_info_mux" offset="56" length="8">
+        <MuxGroup count="0">
+          <Signal name="FW_revision_0" offset="0" length="8">
+            <Notes>Character 0</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_1" offset="8" length="8">
+            <Notes>Character 1</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_2" offset="16" length="8">
+            <Notes>Character 2</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_3" offset="24" length="8">
+            <Notes>Character 3</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_4" offset="32" length="8">
+            <Notes>Character 3</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_5" offset="40" length="8">
+            <Notes>Character 3</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_6" offset="48" length="8">
+            <Notes>Character 3</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="1">
+          <Signal name="FW_revision_7" offset="0" length="8">
+            <Notes>Character 7</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_8" offset="8" length="8">
+            <Notes>Character 8</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_9" offset="16" length="8">
+            <Notes>Character 9</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_10" offset="24" length="8">
+            <Notes>Character 10</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_11" offset="32" length="8">
+            <Notes>Character 11</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_12" offset="40" length="8">
+            <Notes>Character 12</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_13" offset="48" length="8">
+            <Notes>Character 13</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="2">
+          <Signal name="FW_datecode_0" offset="0" length="8">
+            <Notes>Character 0</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_1" offset="8" length="8">
+            <Notes>Character 1</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_2" offset="16" length="8">
+            <Notes>Character 2</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_3" offset="24" length="8">
+            <Notes>Character 3</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_4" offset="32" length="8">
+            <Notes>Character 3</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_5" offset="40" length="8">
+            <Notes>Character 3</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_6" offset="48" length="8">
+            <Notes>Character 3</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="3">
+          <Signal name="FW_datecode_7" offset="0" length="8">
+            <Notes>Character 7</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_8" offset="8" length="8">
+            <Notes>Character 8</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_9" offset="16" length="8">
+            <Notes>Character 9</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_10" offset="24" length="8">
+            <Notes>Character 10</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_11" offset="32" length="8">
+            <Notes>Character 11</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_12" offset="40" length="8">
+            <Notes>Character 12</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_13" offset="48" length="8">
+            <Notes>Character 13</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+        </MuxGroup>
+      </Multiplex>
+    </Message>
+
+    <Message id="0x88002" length="8" name="DAB_Debug" interval="1000" format="extended">
+      <Notes>Values for debugging of HW/SW problems</Notes>
+      <Producer> <NodeRef id="8"/> </Producer>
+      <Signal name="Status_Error_Code" offset="0" length="16">
+        <Notes>Main status / error code as defined in errno/errno.h</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        </Signal>
+      <Signal name="Data_1" offset="16" length="16">
+        <Notes>Additional information for the error/status</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="Data_2" offset="32" length="16">
+        <Notes>Additional information for the error/status</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="Data_3" offset="48" length="16">
+        <Notes>Additional information for the error/status</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+    </Message>
+
+    <Message id="0x88003" length="2" name="DAB_Status" interval="100" format="extended">
+      <Notes>Status bitfield</Notes>
+      <Producer> <NodeRef id="8"/> </Producer>
+      <Signal name="Converter_running" offset="0" length="1" endianess="little">
+        <Notes>Indicates that the converter is running, and its output is active.</Notes>
+      <Consumer> <NodeRef id="0"/> </Consumer>
+        </Signal>
+      <Signal name="Stack_mode" offset="1" length="1" endianess="little">
+        <Notes>Indicates if running in stack mode.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        </Signal>
+      <Signal name="Master" offset="2" length="1" endianess="little">
+        <Notes>Indicates if the current converter is the Master in the stack.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        </Signal>
+      <Signal name="Slave" offset="3" length="1" endianess="little">
+        <Notes>Indicates if the current converter is a Slave in the stack.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        </Signal>
+      <Signal name="PWM_mode" offset="4" length="1" endianess="little">
+        <Notes> Indicates if the converter is in PWM mode, and therefore working in open loop. </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        </Signal>
+      <Signal name="DC_DC_mode" offset="5" length="1" endianess="little">
+        <Notes> Indicates if the converter is in DC DC mode with automatic bi-dir angle control. </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        </Signal>
+      <Signal name="Voltage_follower_mode" offset="6" length="1" endianess="little">
+        <Notes> Indicates if the converter is in Voltage follower mode. </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        </Signal>
+      <Signal name="PFC_Voltage_mode" offset="7" length="1" endianess="little">
+        <Notes> Indicates if the converter is in PFC Voltage mode. </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="Gain_mode" offset="8" length="1" endianess="little">
+        <Notes> Indicates if the converter is in Gain Mode.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="Ready" offset="9" length="1" endianess="little">
+        <Notes>Indicates if converter is ready for operation.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+    </Message>
+
+    <Message id="0x88004" length="3" name="DAB_Faults" interval="100" format="extended">
+      <Notes>Fault bitfield</Notes>
+      <Producer> <NodeRef id="8"/> </Producer>
+      <Signal name="Protection_trip_internal" offset="0" length="1" endianess="little">
+        <Notes> This flag is asserted if the interlock is open due to an internal fault condition (self-protection). </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Protection_trip_external" offset="1" length="1" endianess="little">
+        <Notes> This flag is asserted if the interlock is open due to an external condition received in the module. </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1" type="error" />
+        </LabelSet>
+      </Signal>
+      <Signal name="Current_Side_A_overcurrent" offset="2" length="1" endianess="little">
+        <Notes>
+            Indicates an overcurrent event on input current. The overcurrent event is triggered
+            when the measured phase current is over the programmed / absolute current limit.
+        </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1" type="error" />
+        </LabelSet>
+      </Signal>
+      <Signal name="Current_Side_B_overcurrent" offset="3" length="1" endianess="little">
+        <Notes>
+            Indicates an overcurrent event on output current. The overcurrent event is
+            triggered when the measured current is over the programmed / absolute current limit.
+        </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1" type="error" />
+        </LabelSet>
+      </Signal>
+      <Signal name="Current_Phase_Side_A_overcurrent" offset="4" length="1" endianess="little">
+        <Notes>
+            Indicates an overcurrent event on input phase current. The overcurrent event is
+            triggered when the measured current is over the programmed / absolute current limit.
+        </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1" type="error" />
+        </LabelSet>
+      </Signal>
+      <Signal name="Current_Phase_Side_B_overcurrent" offset="5" length="1" endianess="little">
+        <Notes>
+            Indicates an overcurrent event on output phase current. The overcurrent event is
+            triggered when the measured current is over the programmed / absolute current limit.
+        </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1" type="error" />
+        </LabelSet>
+      </Signal>
+      <Signal name="Voltage_Side_A_undervoltage" offset="6" length="1" endianess="little">
+        <Notes>
+            Indicates an undervoltage event on Voltage In. The undervoltage event is triggered
+            when the measured voltage is under the programmed / absolute voltage limit.
+        </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1" type="error" />
+        </LabelSet>
+      </Signal>
+      <Signal name="Voltage_Side_A_overvoltage" offset="7" length="1" endianess="little">
+        <Notes>
+            Indicates an overvoltage event Voltage In. The overvoltage event is triggered when
+            the measured phase voltage is over the programmed / absolute voltage limit.
+        </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1" type="error" />
+        </LabelSet>
+      </Signal>
+      <Signal name="Voltage_Side_B_undervoltage" offset="8" length="1" endianess="little">
+        <Notes>
+            Indicates an undervoltage event on Voltage Out. The undervoltage event is triggered
+            when the measured voltage is under the programmed / absolute voltage limit.
+        </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1" type="error" />
+        </LabelSet>
+      </Signal>
+      <Signal name="Voltage_Side_B_overvoltage" offset="9" length="1" endianess="little">
+        <Notes>
+            Indicates an overvoltage event Voltage Out. The overvoltage event is triggered when
+            the measured phase voltage is over the programmed / absolute voltage limit.
+        </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1" type="error" />
+        </LabelSet>
+      </Signal>
+      <Signal name="Bar_A_overtemperature" offset="10" length="1" endianess="little">
+        <Notes>
+            This flag is asserted when the temperature of the Bar A block is too high.
+        </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1" type="error" />
+        </LabelSet>
+      </Signal>
+      <Signal name="Bar_B_overtemperature" offset="11" length="1" endianess="little">
+        <Notes>
+            This flag is asserted when the temperature of the Bar B block is too high.
+        </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1" type="error" />
+        </LabelSet>
+      </Signal>
+      <Signal name="Switching_failure" offset="12" length="1" endianess="little">
+        <Notes>
+            Failure in the MOSFET block or in their drivers.
+        </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1" type="error" />
+        </LabelSet>
+      </Signal>
+      <Signal name="CAN_failure" offset="13" length="1" endianess="little">
+        <Notes>
+            CAN bus or transceiver not operating properly.
+        </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1" type="error" />
+        </LabelSet>
+      </Signal>
+      <Signal name="Control_response_timedout" offset="14" length="1" endianess="little">
+        <Notes>
+            The control system did not answer within the allowed time window, and a time out
+            condition was triggered. The converter is switched off as the control system is
+            not present.
+        </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1" type="error" />
+        </LabelSet>
+      </Signal>
+      <Signal name="Measurement_system_failure" offset="15" length="1" endianess="little">
+        <Notes>
+            The voltages/currents measurement system is malfunctionning, and readouts are not
+            guaranteed to be accurate.
+        </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1" type="error" />
+        </LabelSet>
+      </Signal>
+      <Signal name="EEPROM_failure" offset="16" length="1" endianess="little">
+        <Notes>
+            The configuration EEPROM failed to load or save the module configuration.
+        </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1" type="error" />
+        </LabelSet>
+      </Signal>
+      <Signal name="System" offset="17" length="1" endianess="little">
+        <Notes></Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1" type="error"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="NFO" offset="18" length="1" endianess="little">
+        <Notes></Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1" type="error"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="ADC" offset="19" length="1" endianess="little">
+        <Notes></Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1" type="error"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="WCH" offset="20" length="1" endianess="little">
+        <Notes></Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1" type="error"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Transformer_1_overtemperature" offset="21" length="1" endianess="little">
+        <Notes>
+            This flag is asserted when the temperature of the Bar B block is too high.
+        </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1" type="error" />
+        </LabelSet>
+      </Signal>
+      <Signal name="Transformer_2_overtemperature" offset="22" length="1" endianess="little">
+        <Notes>
+            This flag is asserted when the temperature of the Bar B block is too high.
+        </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1" type="error" />
+        </LabelSet>
+      </Signal>
+    </Message>
+
+    <Message id="0x88005" length="8" name="DAB_Voltages_Currents" interval="100" format="extended">
+      <Notes>Voltages and currents of Input/Output</Notes>
+      <Producer> <NodeRef id="8"/> </Producer>
+      <Signal name="Current_Side_A" offset="0" length="16" endianess="little">
+        <Notes> Input current of the converter (direction from input to output is positive). </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value slope="0.01" unit="A" type="signed" />
+      </Signal>
+      <Signal name="Current_Side_B" offset="16" length="16" endianess="little">
+        <Notes> Input current of the converter (direction from input to output is positive). </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value slope="0.01" unit="A" type="signed" />
+      </Signal>
+      <Signal name="Voltage_Side_A" offset="32" length="16" endianess="little">
+        <Notes>Input voltage of the converter.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value slope="0.1" unit="V" type="signed" />
+      </Signal>
+      <Signal name="Voltage_Side_B" offset="48" length="16" endianess="little">
+        <Notes>Output voltage of the converter.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value slope="0.1" unit="V" type="signed" />
+      </Signal>
+    </Message>
+
+    <Message id="0x88006" length="4" name="DAB_Phase_Currents" interval="100" format="extended">
+      <Notes>Phase currents of Input/Output</Notes>
+      <Producer> <NodeRef id="8"/> </Producer>
+      <Signal name="Current_Phase_Side_A" offset="0" length="16" endianess="little">
+        <Notes> Input phase current of the converter (direction from input to output is positive). </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value slope="0.01" unit="A" type="signed" />
+      </Signal>
+      <Signal name="Current_Phase_Side_B" offset="16" length="16" endianess="little">
+        <Notes> Input phase current of the converter (direction from input to output is positive). </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value slope="0.01" unit="A" type="signed" />
+      </Signal>
+    </Message>
+
+    <Message id="0x88007" length="8" name="_DAB_Voltages_Currents_Raw" interval="100" format="extended">
+      <Notes>Raw Voltages and currents of Input/Output</Notes>
+      <Producer>
+        <NodeRef id="8"/>
+      </Producer>
+      <Signal name="Current_Side_A" offset="0" length="16" endianess="little">
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="unsigned" />
+      </Signal>
+      <Signal name="Current_Side_B" offset="16" length="16" endianess="little">
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="signed" />
+      </Signal>
+      <Signal name="Voltage_Side_A" offset="32" length="16" endianess="little">
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="unsigned" />
+      </Signal>
+      <Signal name="Voltage_Side_B" offset="48" length="16" endianess="little">
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="signed" />
+      </Signal>
+    </Message>
+
+    <Message id="0x88008" length="8" name="_DAB_Phase_Currents_Raw" interval="100" format="extended">
+      <Notes>Raw ADC values from the Phase current sensors</Notes>
+      <Producer><NodeRef id="8"/></Producer>
+      <Signal name="Current_Phase_Side_A" offset="0" length="16" endianess="little">
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="unsigned" />
+      </Signal>
+      <Signal name="Current_Phase_Side_B" offset="16" length="16" endianess="little">
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="unsigned" />
+      </Signal>
+    </Message>
+
+    <Message id="0x88009" length="8" name="DAB_Temperatures" interval="100" format="extended">
+      <Notes>Readouts of the module temperature sensors</Notes>
+      <Producer><NodeRef id="8"/></Producer>
+      <Signal name="Temp_Bar_In" offset="0" length="16">
+        <Notes>Temperature of the Bar A block</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="signed" slope="0.01" unit="°C" />
+      </Signal>
+      <Signal name="Temp_Bar_Out" offset="16" length="16">
+        <Notes>Temperature of the Bar A block</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="signed" slope="0.01" unit="°C" />
+      </Signal>
+      <Signal name="Temp_Transformer" offset="32" length="16">
+        <Notes>Temperature of the Bar B block</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="signed" slope="0.01" unit="°C" />
+      </Signal>
+      <Signal name="Temp_Magnetics" offset="48" length="16">
+        <Notes>Temperature of the Magnetic B block</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="signed" slope="0.01" unit="°C" />
+      </Signal>
+    </Message>
+
+    <Message id="0x8800A" length="4" name="DAB_Setpoints_PWM_Phase" interval="100" format="extended">
+      <Notes>PWM duty cycle control</Notes>
+      <Producer> <NodeRef id="8"/> </Producer>
+      <Signal name="Phase_A" offset="0" length="16">
+        <Notes>PWM Phase setpoint.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="signed" slope="0.003" unit="°" />
+      </Signal>
+      <Signal name="Phase_B" offset="16" length="16">
+        <Notes>PWM Phase setpoint.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="signed" slope="0.003" unit="°" />
+      </Signal>
+    </Message>
+
+    <Message id="0x8800E" length="8" name="_DAB_Broadcast" interval="50" format="extended">
+      <Notes>All DABs will listen to this message</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>	
+      <Multiplex name="Diagnostics_Index" offset="56" length="8">
+        <MuxGroup count="1">
+          <Signal name="Port_A" offset="8" length="16" endianess="little">
+            <Notes>'Input' port A current. </Notes>
+            <Consumer> <NodeRef id="8"/> </Consumer>
+            <Value slope="0.01" unit="A" type="signed"/>
+          </Signal>
+          <Signal name="Port_B" offset="24" length="16" endianess="little">
+            <Notes>'Output' port B current.</Notes>
+            <Consumer> <NodeRef id="8"/> </Consumer>
+            <Value slope="0.01" unit="A" type="signed"/>
+          </Signal>
+        </MuxGroup>
+      </Multiplex>
+      <Signal name="Stack_position" offset="0" length="5" endianess="little">
+        <Notes>Sender Stack position</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+      </Signal>
+      <Signal name="Group_ID" offset="5" length="3" endianess="little">
+        <Notes>Sender Group ID</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+      </Signal>
+    </Message>
+
+    <Message id="0x8800F" length="1" name="DAB_Group_Info" interval="1000" format="extended">
+      <Notes>Contains the Group ID of the device</Notes>
+      <Producer> <NodeRef id="8"/> </Producer>
+      <Signal name="Group_ID" offset="0" length="8" endianess="little">
+        <Notes>Group ID of the device</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+    </Message>
+
+    <Message id="0x80040" length="1" name="DAB_Mode_Control" interval="100" format="extended">
+      <Notes>Operation Mode control: sets the converter operation mode</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Signal name="Converter_ON" offset="0" length="1" endianess="little">
+        <Notes>Enable the converter</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+      </Signal>
+      <Signal name="PWM_mode_ON" offset="1" length="1" endianess="little">
+        <Notes>Enable the PWM mode (this will set the converter in open loop).</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+      </Signal>
+      <Signal name="DC_DC_mode_ON" offset="2" length="1" endianess="little">
+        <Notes>Enable the DC DC mode (this will set the converter in automatic angle control). </Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+      </Signal>
+      <Signal name="Voltage_follower_mode_ON" offset="3" length="1" endianess="little">
+        <Notes>This mode will regulate a 1:1 ratio voltage from A to B (A is reference voltage)</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+      </Signal>
+      <Signal name="PFC_Voltage_mode_ON" offset="4" length="1" endianess="little">
+        <Notes>This mode regulates output (port B) current/voltage while sending voltage commands to an Upstream AFE working as PFC (AC to DC), to ensure a 1:1 voltage ratio.</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+      </Signal>
+      <Signal name="Gain_mode_on" offset="5" length="1" endianess="little">
+        <Notes>Enable the GAIN mode (this will set the converter in open loop).</Notes>
+        <Consumer><NodeRef id="8"/></Consumer>
+      </Signal>
+    </Message>
+
+    <Message id="0x8004C" length="1" name="DAB_Group_Control" format="extended">
+      <Notes>Set the Group ID of the device</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Signal name="Group_ID" offset="0" length="8" endianess="little">
+        <Notes>Desired group ID for the device</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+      </Signal>
+    </Message>
+
+    <Message id="0x80050" length="1" name="DAB_Fault_Control" format="extended">
+      <Notes>Fault Control: actions to clear faults and reset the system</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Signal name="Clear_Interlock" offset="0" length="1" endianess="little">
+        <Notes>Clears the converter interlock</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+      </Signal>
+      <Signal name="Reset_Processor" offset="1" length="1" endianess="little">
+        <Notes>Reset the converter DSP</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+      </Signal>
+      <Signal name="Clear_Faults" offset="2" length="1" endianess="little">
+        <Notes>Clear software faults</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+      </Signal>
+      <Signal name="Bleeder_Pulse" offset="3" length="1" endianess="little">
+        <Notes>Bleed out output</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+      </Signal>
+      <Signal name="Trip_Interlock" offset="4" length="1" endianess="little">
+        <Notes>Trips the converter interlock</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+      </Signal>
+    </Message>
+
+    <Message id="0x80046" length="4" name="DAB_Current_Setpoint_Control" interval="100" format="extended">
+      <Notes>Current setpoint control</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Signal name="Positive_Current_setpoint" offset="0" length="16" endianess="little">
+        <Notes>Sets the port B positive current setpoint.</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+        <Value type="signed" slope="0.01" unit="A" min="-55" max="55"/>
+      </Signal>
+      <Signal name="Negative_Current_setpoint" offset="16" length="16" endianess="little">
+        <Notes>Sets the port B negative current setpoint.</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+        <Value type="signed" slope="0.01" unit="A" min="-55" max="55"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x80047" length="2" name="DAB_Voltage_Setpoint_Control" interval="100" format="extended">
+      <Notes>Voltage setpoint control</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Signal name="Voltage_setpoint" offset="0" length="16" endianess="little">
+        <Notes>Sets the output voltage setpoint</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+        <Value type="unsigned" slope="0.1" unit="V" min="0" max="1000"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x80030" length="8" name="DAB_Current_Limits" format="extended">
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Signal name="Current_In_Min" offset="0" length="16" endianess="little">
+        <Notes>Minimum allowable input current of the converter.</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+        <Value slope="0.01" unit="A" type="signed" min="-60" max="60"/>
+      </Signal>
+      <Signal name="Current_In_Max" offset="16" length="16" endianess="little">
+        <Notes>Maximum allowable input current of the converter.</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+        <Value slope="0.01" unit="A" type="signed" min="-60" max="60"/>
+      </Signal>
+      <Signal name="Current_Out_Min" offset="32" length="16" endianess="little">
+        <Notes>Minimum allowable output current of the converter.</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+        <Value slope="0.01" unit="A" type="signed" min="-60" max="60"/>
+      </Signal>
+      <Signal name="Current_Out_Max" offset="48" length="16" endianess="little">
+        <Notes>Maximum allowable output current of the converter.</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+        <Value slope="0.01" unit="A" type="signed" min="-60" max="60"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x80031" length="8" name="DAB_Phase_Current_Limits" format="extended">
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Signal name="Current_In_Min" offset="0" length="16" endianess="little">
+        <Notes>Minimum allowable input current of the converter.</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+        <Value slope="0.01" unit="A" type="signed" min="-60" max="60"/>
+      </Signal>
+      <Signal name="Current_In_Max" offset="16" length="16" endianess="little">
+        <Notes>Maximum allowable input current of the converter.</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+        <Value slope="0.01" unit="A" type="signed" min="-60" max="60"/>
+      </Signal>
+      <Signal name="Current_Out_Min" offset="32" length="16" endianess="little">
+        <Notes>Minimum allowable output current of the converter.</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+        <Value slope="0.01" unit="A" type="signed" min="-60" max="60"/>
+      </Signal>
+      <Signal name="Current_Out_Max" offset="48" length="16" endianess="little">
+        <Notes>Maximum allowable output current of the converter.</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+        <Value slope="0.01" unit="A" type="signed" min="-60" max="60"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x80032" length="8" name="DAB_Voltage_Limits" format="extended">
+      <Notes>Set the voltage limits (mminimum and maximum)</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Signal name="Voltage_In_Min" offset="0" length="16" endianess="little">
+        <Notes>Minimum allowable input voltage of the converter.</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+        <Value slope="0.1" unit="V" type="signed" min="0" max="850"/>
+      </Signal>
+      <Signal name="Voltage_In_Max" offset="16" length="16" endianess="little">
+        <Notes>Minimum allowable input voltage of the converter.</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+        <Value slope="0.1" unit="V" type="signed" min="0" max="850"/>
+      </Signal>
+      <Signal name="Voltage_Out_Min" offset="32" length="16" endianess="little">
+        <Notes>Minimum allowable output voltage of the converter.</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+        <Value slope="0.1" unit="V" type="signed"  min="0" max="850"/>
+      </Signal>
+      <Signal name="Voltage_Out_Max" offset="48" length="16" endianess="little">
+        <Notes>Minimum allowable output voltage of the converter.</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+        <Value slope="0.1" unit="V" type="signed"  min="0" max="850"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x88041" length="6" name="_DAB_Calibration_Adc_Fs" interval="1000" format="extended">
+      <Notes> Fullscale value of readouts. </Notes>
+      <Producer> <NodeRef id="8"/> </Producer>
+      <Multiplex name="Adc_Index" offset="32" length="16">
+        <MuxGroup count="0">
+          <Signal name="Current_Side_A" offset="0" length="32" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="single" unit="Fullscale" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="1">
+          <Signal name="Current_Side_B" offset="0" length="32" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="single" unit="Fullscale" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="2">
+          <Signal name="Current_Phase_Side_A" offset="0" length="32" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="single" unit="Fullscale" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="3">
+          <Signal name="Voltage_Side_A" offset="0" length="32" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="single" unit="Fullscale" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="4">
+          <Signal name="Voltage_Side_B" offset="0" length="32" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="single" unit="Fullscale" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="5">
+          <Signal name="Current_Phase_Side_B" offset="0" length="32" endianess="little">
+            <Consumer><NodeRef id="0"/></Consumer>
+            <Value type="single" unit="Fullscale" />
+          </Signal>
+        </MuxGroup>
+      </Multiplex>
+    </Message>
+
+    <Message id="0x80041" length="6" name="_DAB_Calibration_Offset_Update" format="extended">
+      <Notes>Update of the calibration table for offsets.</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Multiplex name="Calibration_Index" offset="16" length="16">
+        <MuxGroup count="0">
+          <Signal name="Current_Side_A" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="8"/> </Consumer>
+            <Value type="signed" unit="ADC Counts" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="1">
+          <Signal name="Current_Side_B" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="8"/> </Consumer>
+            <Value type="signed" unit="ADC Counts" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="2">
+          <Signal name="Current_Phase_Side_A" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="8"/> </Consumer>
+            <Value type="signed" unit="ADC Counts" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="3">
+          <Signal name="Voltage_Side_A" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="8"/> </Consumer>
+            <Value type="signed" unit="ADC Counts" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="4">
+          <Signal name="Voltage_Side_B" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="8"/> </Consumer>
+            <Value type="signed" unit="ADC Counts" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="5">
+          <Signal name="Current_Phase_Side_B" offset="0" length="16" endianess="little">
+            <Consumer><NodeRef id="8"/></Consumer>
+            <Value type="signed" unit="ADC Counts" />
+          </Signal>
+        </MuxGroup>
+      </Multiplex>
+      <Signal name="CRC" offset="32" length="16" endianess="little">
+        <Notes> Checksum of bytes 0 to 2, CRC-CCITT, corresponding to qChecksum (www.qt.io) </Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+        <Value type="unsigned" unit="-" />
+      </Signal>
+    </Message>
+
+    <Message id="0x80042" length="6" name="_DAB_Calibration_Scale_Update" format="extended">
+      <Notes>Update of the calibration table for scales.</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Multiplex name="Calibration_Index" offset="16" length="16">
+        <MuxGroup count="0">
+          <Signal name="Current_Side_A" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="8"/> </Consumer>
+            <Value type="signed" unit="ADC Counts" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="1">
+          <Signal name="Current_Side_B" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="8"/> </Consumer>
+            <Value type="signed" unit="ADC Counts" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="2">
+          <Signal name="Current_Phase_Side_A" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="8"/> </Consumer>
+            <Value type="signed" unit="ADC Counts" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="3">
+          <Signal name="Voltage_Side_A" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="8"/> </Consumer>
+            <Value type="signed" unit="ADC Counts" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="4">
+          <Signal name="Voltage_Side_B" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="8"/> </Consumer>
+            <Value type="signed" unit="ADC Counts" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="5">
+          <Signal name="Current_Phase_Side_B" offset="0" length="16" endianess="little">
+            <Consumer><NodeRef id="8"/></Consumer>
+            <Value type="signed" unit="ADC Counts" />
+          </Signal>
+        </MuxGroup>
+      </Multiplex>
+      <Signal name="CRC" offset="32" length="16" endianess="little">
+        <Notes> Checksum of bytes 0 to 2, CRC-CCITT, corresponding to qChecksum (www.qt.io) </Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+        <Value type="unsigned" unit="-" />
+      </Signal>
+    </Message>
+
+    <Message id="0x88042" length="6" name="_DAB_Calibration_Adc_Scale" interval="1000" format="extended">
+      <Notes> Adc scale (resolution) value of readouts. </Notes>
+      <Producer> <NodeRef id="8"/> </Producer>
+      <Multiplex name="Adc_Index" offset="32" length="16">
+        <MuxGroup count="0">
+          <Signal name="Current_Side_A" offset="0" length="32" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="signed" unit="1 / adc_bins" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="1">
+          <Signal name="Current_Side_B" offset="0" length="32" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="signed" unit="1 / adc_bins" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="2">
+          <Signal name="Current_Phase_Side_A" offset="0" length="32" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="signed" unit="1 / adc_bins" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="3">
+          <Signal name="Voltage_Side_A" offset="0" length="32" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="signed" unit="1 / adc_bins" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="4">
+          <Signal name="Voltage_Side_B" offset="0" length="32" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="signed" unit="1 / adc_bins" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="5">
+          <Signal name="Current_Phase_Side_B" offset="0" length="32" endianess="little">
+            <Consumer><NodeRef id="0"/></Consumer>
+            <Value type="single" unit="1 / adc_bins" />
+          </Signal>
+        </MuxGroup>
+      </Multiplex>
+    </Message>
+
+    <Message id="0x80043" length="4" name="DAB_PWM_Phase_Control" format="extended">
+      <Notes>PWM duty cycle control</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Signal name="Phase_A" offset="0" length="16">
+        <Notes>PWM Phase setpoint</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+        <Value type="signed" slope="0.003" unit="°" />
+      </Signal>
+      <Signal name="Phase_B" offset="16" length="16">
+        <Notes>PWM Phase setpoint</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+        <Value type="signed" slope="0.003" unit="°" />
+      </Signal>
+    </Message>
+
+    <Message id="0x80044" length="2" name="CLLC_PWM_Frequency_Control" format="extended">
+      <Notes>PWM frequency control</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Signal name="PWM_frequency" offset="0" length="16" endianess="little">
+        <Notes>Sets the PWM frequency. Active only when the converter is in PWM mode</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+        <Value type="unsigned" slope="10.0" unit="Hz"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x88048" length="4" name="CLLC_PWM_Frequency_value" interval="1000" format="extended">
+      <Notes>PWM duty cycle Readout</Notes>
+      <Producer> <NodeRef id="8"/> </Producer>
+      <Signal name="frequency" offset="0" length="16">
+        <Notes>PWM frequency setpoint.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="unsigned" slope="10" unit="Hz" />
+      </Signal>
+    </Message>
+
+    <Message id="0x80045" length="6" name="DAB_Stack_Control" format="extended">
+      <Notes>PFC stack control</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Signal name="Stack_position" offset="0" length="8" endianess="little">
+        <Notes>The converter position within the stack</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+        <Value type="unsigned" slope="1" />
+      </Signal>
+      <Signal name="Stack_size" offset="8" length="8" endianess="little">
+        <Notes>How many PFC converters are in stack in total</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+        <Value type="unsigned" slope="1" />
+      </Signal>
+      <Signal name="SN_number" offset="16" length="32">
+        <Notes>Unique module serial number</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+      </Signal>
+    </Message>
+
+    <Message id="0x80048" length="2" name="CLLC_PWM_Gain_Control" format="extended">
+      <Notes>PWM gain control</Notes>
+      <Producer><NodeRef id="0"/></Producer>
+      <Signal name="Gain" offset="0" length="16" endianess="little">
+        <Notes>Sets voltage gain in open loop</Notes>
+        <Consumer><NodeRef id="8"/></Consumer>
+        <Value type="unsigned" slope="0.01" unit="none"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x88090" length="1" name="Data_test_out" interval="100" format="extended">
+      <Notes>Readouts of the module temperature sensors</Notes>
+      <Producer> <NodeRef id="8"/> </Producer>
+      <Signal name="gain" offset="0" length="8">
+        <Notes>Gain mode select</Notes>
+         <Consumer><NodeRef id="0"/></Consumer>
+      </Signal>
+    </Message>
+
+    <Message id="0x88091" length="4" name="Data_phase_shift" interval="100" format="extended">
+      <Notes>Readouts of the module phase shifts</Notes>
+      <Producer> <NodeRef id="8"/> </Producer>
+      <Signal name="phase_shift_a" offset="0" length="16">
+        <Notes>Phase_shift_A of the Bar A block</Notes>
+        <Consumer><NodeRef id="0"/></Consumer>
+        <Value slope="0.1" unit="V" type="signed" />
+      </Signal>
+      <Signal name="phase_shift_b" offset="16" length="16">
+        <Notes>Phase_shift_B of the Bar A block</Notes>
+        <Consumer><NodeRef id="0"/></Consumer>
+        <Value type="unsigned" slope="0.1" unit="Hz"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x80049" length="1" name="CLLC_PWM_Phase_Mode" format="extended">
+      <Notes>PWM duty cycle control</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Signal name="phase_mode" offset="0" length="8">
+        <Notes>PWM Phase shift mode/gain mode</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+      </Signal>
+    </Message>
+
+    <Message id="0x80052" length="8" name="EPWM_control" format="extended">
+      <Notes>Control the EPWM_control</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Signal name="update" offset="0" length="8" endianess="little">
+        <Notes>Customers MUST NOT USE this bit. If set to 1, EPWM is turned on. </Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+      </Signal>
+      <Signal name="EPWM1" offset="8" length="8" endianess="little">
+        <Notes>Customers MUST NOT USE this bit. If set to 1, EPWM is turned on. </Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+      </Signal>
+      <Signal name="EPWM2" offset="16" length="8" endianess="little">
+        <Notes>Customers MUST NOT USE this bit. If set to 1, EPWM is turned on. </Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+      </Signal>
+      <Signal name="EPWM3" offset="24" length="8" endianess="little">
+        <Notes>Customers MUST NOT USE this bit. If set to 1, EPWM is turned on. </Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+      </Signal>
+      <Signal name="EPWM4" offset="32" length="8" endianess="little">
+        <Notes>Customers MUST NOT USE this bit. If set to 1, EPWM is turned on. </Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+      </Signal>
+    </Message>
+
+    <Message id="0x880F3" length="3" name="DAB_CAN_API_Version" interval="1000" format="extended">
+      <Notes>This message declares the version of the API that is provided by the converter. The version follows newer convention.</Notes>
+      <Producer> <NodeRef id="8"/> </Producer>
+      <Signal name="Major" offset="0" length="8" endianess="little">
+        <Notes>The Major version number. This number increases if there are backwards incompatible changes</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="unsigned"/>
+      </Signal>
+      <Signal name="Minor" offset="8" length="8" endianess="little">
+        <Notes>The Minor version number. This number increases if there are backwards compatible changes, like new messages or the use of previously reserved space</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="unsigned"/>
+      </Signal>
+      <Signal name="Patch" offset="16" length="8" endianess="little">
+        <Notes>The Patch number. This number increases when changes to descriptions and documentation/comments are made</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="unsigned"/>
+      </Signal>
+    </Message>
+
+  </Bus>
+</NetworkDefinition>
