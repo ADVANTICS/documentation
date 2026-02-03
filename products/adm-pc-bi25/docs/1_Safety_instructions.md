@@ -42,7 +42,7 @@ If safe operation of the instrument can no longer be assumed, it must be removed
 1.7.4. After lengthy periods of storage under unfavorable conditions  
 1.7.5. After exposure to unusual transport stresses.
 
-## 1.8 Power Disconnection Before Work** 
+## 1.8 Power Disconnection Before Work
 
 Maintenance, repair, or internal balancing may only be performed by trained personnel familiar with the dangers involved. As long as the module is connected, conducting parts may be exposed to the voltage. As far as possible, the instrument must be disconnected from all external power sources before performing maintenance and repair work. A waiting period of 2 minutes must be observed after the module has been disconnected to allow internal capacitors discharge to a safe voltage level.
 
