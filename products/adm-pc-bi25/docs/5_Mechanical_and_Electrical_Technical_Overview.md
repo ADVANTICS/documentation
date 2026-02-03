@@ -31,13 +31,13 @@ Table 1\. Mechanical and Electrical Specifications
 
 |  Parameters |  Values |
 | :---- | :---- |
-| **Max Input Voltage** | 1000 V |
+| **Voltage Range** | 500 to 1000 V |
 | **Voltage conversion ratio** | 1:1 |
 | **Creepage and Clearance** | IEC 62477-1 and IEC 61851-23 |
 | **Current range** | ±60 A |
 | **Power** | 50 kW |
 | **Power flow** | Bidirectional |
-| **Power conversion modes** | Ratiometric |
+| **Operating Mode** | 1:1 Voltage Following |
 | **Technology** | Silicon Carbide |
 | **Efficiency** | 98.6% peak |
 | **Switching technique** | Soft switching |
@@ -45,18 +45,17 @@ Table 1\. Mechanical and Electrical Specifications
 | **Assembly** | Completely flat plate for easy integration |
 | **Protection features** | Overcurrent, overvoltage, overtemperature and hardware interlock |
 | **Voltage and current accuracy** | ±2% (±1% typical) |
-| **Cooling** | Air and liquid are available |
+| **Cooling** | Air and liquid cooling |
 | **Communication protocol** | CAN bus 2.0B |
 | **Communication chaining** | Up to 32 devices of the same type |
 | **Logic interface** | 8-pin JST CPT automotive series |
 | **Logic power** | Max 15 W |
-| **Interlock** | Open collector, hardware interlock |
 | **Control System Voltage** | 24 V |
 | **HV Bus Capacitance** | 80 uF |
 | **Weight** | 6.65 kg |
 | **Power Density** | 7.52 kW/kg 8.48 kW/L |
 | **Operating heat sink temperature range** | \-20°C to 65°C |
-| **Design and fabrication** | Made in the EU |
+| **Design and manufacturing** | Made in the EU |
 
 ## **Cooling considerations**
 
