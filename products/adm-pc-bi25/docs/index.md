@@ -46,17 +46,6 @@ description: 50kW Bidirectional Isolated DC/DC converter - User Documentation
 | **Version** | 1.0 |
 | **Last Updated** | February 2026|
 
-<div role="alert" aria-live="polite" style="background-color: #fff1f0; border-left:6px solid #ff4d4f; color: #7a0f0f; padding:1rem; border-radius:6px; margin:0 0 1rem 0;">
-  <strong style="display:block; font-size:1.05rem; margin-bottom:0.25rem;">Warning — Pre-release document</strong>
-  <p style="margin:0 0 0.5rem 0;"><strong>This document is in a pre-release stage.</strong></p>
-  <ul style="margin:0 0 0.5rem 1.25rem; color:#7a0f0f;">
-    <li>Not all information is present</li>
-    <li>The document is subject to changes without prior notice</li>
-    <li>There may be factual errors</li>
-  </ul>
-  <p style="margin:0;">Please inform us in case you find issues with this document, or have ideas for improvements.</p>
-</div>
-
 ---
 
 ## Trademark and Copyright

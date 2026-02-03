@@ -123,7 +123,7 @@ nav:
   - "Safety Instructions": "1_Safety_instructions.md"
   - "Module Overview": "3_Module_Overview.md"
   - "Applications": "4_Applications.md"
-  - "Technical Overview": "Technical overview.md"
+  - "Technical Overview":
     - "Mechanical and Electrical Overview": "5_Mechanical_and_Electrical_Technical_Overview.md"
     - "Firmware Overview": "7_Firmware_Overview.md"
   - "Setting up ADM-PC-BI25": "6_Setting_up_ADM_PC_BI25.md"
