@@ -16,6 +16,7 @@ jobs:
           - adb-pc-ac01
           - adb-pc-dc01
           - adm-cs-spcc
+          - adm-pc-bi25
 
     steps:
       - uses: actions/checkout@v4
