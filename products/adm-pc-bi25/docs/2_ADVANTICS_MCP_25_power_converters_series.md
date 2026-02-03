@@ -1,6 +1,6 @@
-# [2. ADVANTICS MCP-25 power converters series]
+# 2. MCP-25 power converters series
 
-MCP-25 is a series of high efficiency power converters based on the latest Silicon Carbide (SiC) technology. By combining these modules, it is possible to implement a wide variety of power conversion systems, including bidirectional grid connectivity, EV charging and battery storage up to 500 kW.
+The ADVANTICS MCP-25 series consists of high-efficiency power converters based on the latest Silicon Carbide (SiC) technology. By combining these modules, it is possible to implement a wide variety of power conversion systems, including bidirectional grid connectivity, EV charging and battery storage up to 500 kW.
 
 Key modules in the MCP-25 family are:
 
