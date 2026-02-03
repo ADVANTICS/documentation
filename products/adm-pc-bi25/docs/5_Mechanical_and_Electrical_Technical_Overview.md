@@ -1,4 +1,4 @@
-# **Mechanical and Electrical Technical Overview**
+# **Technical Overview**
 
 ## **Content of package**
 
