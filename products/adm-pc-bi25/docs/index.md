@@ -5,7 +5,7 @@ description: 50kW Bidirectional Isolated DC/DC converter - User Documentation
 
 <div class="keep-on-one-page" style="page-break-inside: avoid; break-inside: avoid; -webkit-column-break-inside: avoid; -webkit-page-break-inside: avoid; page-break-after: avoid;">
   <div style="text-align: center; margin: 2.5rem 0;">
-    <div role="heading" aria-level="1" style="color: #00A99D; font-size: 2.5rem; margin-bottom: 0.75rem; font-weight: 700;">
+    <div role="heading" aria-level="1" style="color: #00A89D; font-size: 2.5rem; margin-bottom: 0.75rem; font-weight: 700;">
       ADM-PC-BI25
     </div>
     <div role="heading" aria-level="2" style="color: #1a1a1a; font-size: 1.25rem; margin-bottom: 0.5rem; font-weight: 600;">
