@@ -122,7 +122,7 @@ nav:
   - "Document Information": "index.md"
   - "Safety Instructions": "1_Safety_instructions.md"
   - "Module Overview": "3_Module_Overview.md"
-  - "Application Examples": "4_Applications.md"
+  - "Applications": "4_Applications.md"
   - "Technical Overview": "5_Mechanical_and_Electrical_Technical_Overview.md"
    - "Mechanical and Electrical Overview.md"
    - "Firmware Overview": "7_Firmware_Overview.md"
