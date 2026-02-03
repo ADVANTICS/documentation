@@ -1,39 +1,39 @@
-# Safety instructions
+# 1. Safety instructions
 
    
 
 ![][image1]
 
 
-## Safety notice
+## 1.1 Safety notice
 
 Please note that users must read the safety instructions mentioned below before any usage of this equipment. The most important general safety precautions are summarized below in this preface. 
 
 Improper connection or operation could result in death, serious injury, fire, or equipment damage. Always read and understand the full manual before installation and use, and follow all recommended installation and operating procedures.
 
-### Qualified personnel only
+## 1.2 Qualified personnel only
 
 The instrument may only be operated by personnel capable of recognizing contact hazards and implementing appropriate safety precautions. 
 
 Contact hazards are present anywhere where voltages of greater than 50 V exist. This is very important when the open-ended output signal cable is used or any OEM/PCB version of equipment is operated, tested or else used.
 
-####  Avoid working alone
+## 1.3 Avoid working alone
 
 Do not perform measurements involving contact hazards alone; another person must always be present.
 
-####  Do Not Operate During Faults
+## 1.4 Do Not Operate During Faults
 
 Do not use the equipment in case of sparking, short circuits or other discharge events with attached batteries, module or signal cable.
 
-##### Prohibit Use in Damp Conditions
+## 1.5 Prohibit Use in Damp Conditions
 
 Operation under damp or wet ambient conditions is strictly prohibited.
 
-##### Maintain Cable and Lead Integrity
+## 1.6 Maintain Cable and Lead Integrity
 
 Power and data cables must be kept in flawless condition, with no damage to insulation, plugs, or connectors.
 
-###### Remove Unsafe Equipment from Service
+## 1.7 Remove Unsafe Equipment from Service
 
 If safe operation of the instrument can no longer be assumed, it must be removed from the factory, laboratory and secured against unintentional use. Safe operation can be no longer assumed if:   
 1.7.1. The module, power cables or any cables show visible damage  
@@ -42,7 +42,7 @@ If safe operation of the instrument can no longer be assumed, it must be removed
 1.7.4. After lengthy periods of storage under unfavorable conditions  
 1.7.5. After exposure to unusual transport stresses.
 
-###### Power Disconnection Before Work** 
+## 1.8 Power Disconnection Before Work** 
 
 Maintenance, repair, or internal balancing may only be performed by trained personnel familiar with the dangers involved. As long as the module is connected, conducting parts may be exposed to the voltage. As far as possible, the instrument must be disconnected from all external power sources before performing maintenance and repair work. A waiting period of 2 minutes must be observed after the module has been disconnected to allow internal capacitors discharge to a safe voltage level.
 
