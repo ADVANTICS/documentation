@@ -35,7 +35,8 @@ Power and data cables must be kept in flawless condition, with no damage to insu
 
 ## 1.7 Remove Unsafe Equipment from Service
 
-If safe operation of the instrument can no longer be assumed, it must be removed from the factory, laboratory and secured against unintentional use. Safe operation can be no longer assumed if:   
+If safe operation of the instrument can no longer be assumed, it must be removed from the factory, laboratory and secured against unintentional use. Safe operation can be no longer assumed if: 
+
 ### 1.7.1. The module, power cables or any cables show visible damage  
 ### 1.7.2. The module no longer functions  
 ### 1.7.3. The module shows very dirty conditions because of dust etc.   
