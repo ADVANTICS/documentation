@@ -25,7 +25,7 @@ description: 50kW Bidirectional Isolated DC/DC converter - User Documentation
 
   <div style="text-align: center; margin: 1.5rem 0; font-size: 0.95rem; color: #333;">
     <p style="margin: 0.25rem 0;"><strong>Document Version:</strong> 1.0</p>
-    <p style="margin: 0.25rem 0;"><strong>Release Date:</strong> January 2026</p>
+    <p style="margin: 0.25rem 0;"><strong>Release Date:</strong> February 2026</p>
     <p style="margin: 0.25rem 0;"><strong>Document Classification:</strong> Public</p>
   </div>
 </div>
@@ -59,31 +59,20 @@ description: 50kW Bidirectional Isolated DC/DC converter - User Documentation
 
 ---
 
-## Trademarks and Copyright
+## Trademark and Copyright
 
 © 2025 ADVANTICS SAS. All rights reserved.
-
-Advantics and the Advantics logo are trademarks of Advantics SAS.
-
-All other trademarks mentioned in this document are the property of their respective owners.
 
 ---
 
 ## Get in Touch
 
+- ADVANTICS website: [advantics.fr](https://advantics.fr/)  
 - Product page: [ADM-PC-BI25](https://advantics.fr/products/ADM-PC-BI25/)  
 - Discover our portfolio: [ADVANTICS Products](https://advantics.fr/products/)  
-- Sales: sales@advantics.fr  
+- Sales: sales@advantics.fr
+- Marketing: marketing@advantics.fr  
 - Technical Support: [Support Desk](https://advantics.atlassian.net/servicedesk/customer/portal/1)
-
----
-
-## Contact & Legal
-
-**Advantics SAS**  
-https://advantics.fr  
-Email: sales@advantics.fr  
-Phone: +33 7 87 14 09 19
 
 ---
 
