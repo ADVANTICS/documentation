@@ -11,7 +11,7 @@ description: 50kW Bidirectional Isolated DC/DC converter - User Documentation
     <div role="heading" aria-level="2" style="color: #1a1a1a; font-size: 1.25rem; margin-bottom: 0.5rem; font-weight: 600;">
       50kW Bidirectional Isolated DC/DC converter
     </div>
-    <p style="font-size: 1rem; color: #666; margin: 0 0 1rem 0;">Technical Documentation &amp; User Manual</p>
+    <p style="font-size: 1rem; color: #666; margin: 0 0 1rem 0;">User Manual</p>
     <div style="margin-top: 1rem;">
       <img src="assets/bi25_header.png" alt="ADM-PC-BI25" style="max-width: 600px; width: 100%; height: auto; max-height: 300px; object-fit: contain;">
     </div>
@@ -44,8 +44,7 @@ description: 50kW Bidirectional Isolated DC/DC converter - User Documentation
 | **Description** | 50kW Bidirectional Isolated DC/DC converter |
 | **Document Type** | Technical Manual |
 | **Version** | 1.0 |
-| **Last Updated** | January 2026 |
-| **Classification** | Public pre-release |
+| **Last Updated** | February 2026|
 
 <div role="alert" aria-live="polite" style="background-color: #fff1f0; border-left:6px solid #ff4d4f; color: #7a0f0f; padding:1rem; border-radius:6px; margin:0 0 1rem 0;">
   <strong style="display:block; font-size:1.05rem; margin-bottom:0.25rem;">Warning — Pre-release document</strong>
