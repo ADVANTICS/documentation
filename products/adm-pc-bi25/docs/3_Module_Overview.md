@@ -1,4 +1,4 @@
-# **3. ADM-PC-BI25 Module Overview**
+# **2. ADM-PC-BI25 Module Overview**
 
 The ADVANTICS module, <font color="#00A89D">**ADM-PC-BI25**</font> is an advanced DC/DC power converter based on a dual active bridge topology. It provides reinforced galvanic isolation between its two ports, eliminating the need for a large mains frequency transformer. The converter is fully symmetrical, providing bidirectional power transfer based on SiC technology. Its reinforced galvanic isolation makes it physically impossible for battery short-circuit currents to propagate through the system in the event of a fault, while also creating a robust electrical barrier that supports effective isolation monitoring in mixed-voltage environments.
 
