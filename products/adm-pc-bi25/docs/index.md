@@ -1,6 +1,6 @@
 ---
 title: ADM-PC-BI25 User Manual
-description: 50kW Bidirectional Isolated DC/DC converter - User Documentation
+description: 50kW Bidirectional Isolated DC/DC converter
 ---
 
 <div class="keep-on-one-page" style="page-break-inside: avoid; break-inside: avoid; -webkit-column-break-inside: avoid; -webkit-page-break-inside: avoid; page-break-after: avoid;">
@@ -42,7 +42,7 @@ description: 50kW Bidirectional Isolated DC/DC converter - User Documentation
 |--------------|-----------|
 | **Product** | ADM-PC-BI25 |
 | **Description** | 50kW Bidirectional Isolated DC/DC converter |
-| **Document Type** | Technical Manual |
+| **Document Type** | User Manual |
 | **Version** | 1.0 |
 | **Last Updated** | February 2026|
 
