@@ -1,6 +1,6 @@
-# **9\. Disposal**
+# **7\. Disposal**
 
-As per Safety Instructions, if safe operation of the instrument can no longer be assumed, it must be removed from the factory, laboratory and secured against unintentional use. 
+As per the [Safety Instructions](https://documentation.advantics.fr/adm-pc-bi25/1_Safety_instructions/), if safe operation of the instrument can no longer be assumed, it must be removed from the factory, laboratory and secured against unintentional use. 
 
 Safe operation can be no longer assumed if: 
 
