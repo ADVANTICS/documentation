@@ -59,7 +59,7 @@ Table 1\. Mechanical and Electrical Specifications
 
 ## **4.1.5. Cooling considerations**
 
-For correct operation, sufficient cooling is needed. **Never run the module without a heatsink attached\!** The thermal protection might not react fast enough if the transistor bar is not cooled. The power modules are designed to be installed on a flat metallic cooling surface. The module can output up to 1250W of heat through the aluminium bar and inductors. This heat needs to be evacuated through the user-supplied metallic plate. It is possible to use either forced aircooled heatsink or a watercooled plate. 
+For correct operation, sufficient cooling is required. **Never run the module without a heatsink attached\!** The thermal protection might not react fast enough if the transistor bar is not properly cooled. The power modules are designed to be installed on a flat metallic cooling surface. The module can output up to 1250W of heat through the aluminium bar and inductors. This heat needs to be evacuated through the user-supplied metallic plate. It is possible to use either forced air-cooled heatsink or a water-cooled plate to provide cooling. If using air cooling, ensure a fan is installed to circulate air over the surface of the board, maintaining uniform temperature and preventing hot spots.
 
 {{ figure('../assets/Figure3.png', 'Module attached to heatsink') }}
 
