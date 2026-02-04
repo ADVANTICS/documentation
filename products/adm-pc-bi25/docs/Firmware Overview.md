@@ -1,4 +1,4 @@
-# **Firmware Overview**
+# **4.2. Firmware Overview**
 
 | WARNING:   The BI25 module is not able to limit the output current to a low resistance load. Thus, a current limiting device must be installed in series with the BI25 output. |
 | :---- |
