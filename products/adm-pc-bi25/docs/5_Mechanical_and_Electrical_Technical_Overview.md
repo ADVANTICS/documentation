@@ -71,7 +71,7 @@ Consult the details of your implementation with ADVANTICS engineering team for c
 
 There is only one cooling surface on this module – two bars and a transformer channel is attached to it. This surface should be cooled with a good conducting silicone that cures/solidifies. Consult the Recommended accessories as mentioned in [5.1. Mounting and Assembly procedure](#51-mounting-and-assembly-procedure).
 
-**4.1.6. Functional accessories**
+## **4.1.6. Functional accessories**
 
 Additionally, users may add the following functional accessories along with the BI25 power module:
 
