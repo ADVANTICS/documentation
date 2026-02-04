@@ -61,7 +61,7 @@ The BI25 module also monitors the voltage on both ports. If a voltage larger tha
 !!! warning 
     While the protection mechanisms will stop the converter from operating, the communication interface stays active. This will allow re-enabling the converter after conditions have entered nominal ranges. 
 
-If the temperature of the power switches exceeds 90°C or the temperature of the transformers exceeds 110°C the module will cease operations. When detecting the overheating condition, the converter will stop operating but without tripping the interlock line. This means that other modules chained in the same bus will still continue normal operation.
+If the temperature of the power switches (Temp_Bar_In or Temp_Bar_Out) exceeds 90°C or the temperature of the transformers (Temp_Transformer or Temp_Magnetics) exceeds 110°C the module will cease operations. When detecting the overheating condition, the converter will stop operating but without tripping the interlock line. This means that other modules chained in the same bus will still continue normal operation.
 
 ## **4.2.5. Communication Interface**
 
