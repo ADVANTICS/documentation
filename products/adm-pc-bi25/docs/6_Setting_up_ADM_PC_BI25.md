@@ -5,6 +5,8 @@
     
 ## 
 
+<a id="mounting-assembly"></a>
+
 ## 5.1. Mounting and assembly procedure
 
 Recommended accessories are as follows:
