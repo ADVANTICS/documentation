@@ -112,9 +112,7 @@ Modules have two types of interlock signals: internal which is latched in a lock
 
 To configure the operating mode, the BI25\_Mode\_Control message is used. The message contains multiple one-bit wide signals, one per operating mode. The module does not check if more than one operating mode has been selected. The operating modes will be checked in the following order and the first enabled operating mode will be selected.
 
-* PWM Mode  
-* GAIN Control Mode  
-* Voltage Following Mode
+* <font color="#00A89D">**Voltage Following Mode**</font> is designated for normal user operation and should be used for standard system configuration. PWM Mode and GAIN Control Mode are not intended for user operation and must not be used under normal operating conditions.
 
 ### Step 3 – Start converter
 
