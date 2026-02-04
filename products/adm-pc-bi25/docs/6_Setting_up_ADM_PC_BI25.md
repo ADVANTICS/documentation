@@ -5,7 +5,7 @@
     
 ## 
 
-## Mounting and assembly procedure
+## 5.1. Mounting and assembly procedure
 
 Recommended accessories are as follows:
 
@@ -19,7 +19,7 @@ Recommended accessories are as follows:
 
 {{ figure('../assets/Figure4.png', 'Recommend accessories required for mounting and assembly') }}
 
-## Step-by-step guide
+## 5.2. Step-by-step guide
 
 {{ figure('../assets/Figure5.png', 'Visual overview of steps 1 to 3') }}
 
@@ -43,7 +43,7 @@ Recommended accessories are as follows:
 
 {{ figure('../assets/Figure8.png', 'Example of final assembly of power wires and power terminal screws') }}
 
-## Power terminals
+## 5.3. Power terminals
 
 The power modules use SMD terminals for connecting the power cables or bus bars. The thread is M5, and the maximum length of a screw can be 6 mm, measured from the top of the terminal. Whether a wire or bus bar is used, it is absolutely essential that no constant force sideways is applied on the terminal. Design bus bars with stress reliefs and secure the cables to prevent excessive force or vibrations on the terminals.
 
@@ -56,7 +56,7 @@ Recommended tightening: 2 Nm, maximum nominal torque 3 Nm.
 !!! warning
     If a longer screw is used, it will push against the PCB as it is screwed in, leading to pull the terminal out of the PCB. If this happens, the converter will be destroyed, causing a safety hazard, and warranty voided.
 
-## Power wiring
+## 5.4. Power wiring
 
 It is recommended to lead the wires by the shortest way out from PCB and avoid crossing and touching the PCB of the source module or any other module.
 
@@ -64,7 +64,7 @@ ADVANTICS recommends RADOX® cables from the company HUBER+SUHNER. Guidelines on
 
 The assembly engineer needs to take into account the final number, position, cover of cables and ambient temperature to choose the correct cross-section. These rules are recommended for cables longer than 5 cm. Shorter cables can be used with smaller cross sections due to the cooling effect of the M5 SMD power terminals.
 
-## Communication terminal and wiring
+## 5.5. Communication terminal and wiring
 
 {{ figure('../assets/Figure10.png', 'Pintout of the CPT-connector pins 1-8') }}
 
@@ -93,7 +93,7 @@ Table 2\.
 | 8 | Signal ground | Interface ground |
 
 
-## Module Chaining
+## 5.6. Module Chaining
 
 {{ figure('../assets/Figure12.png', 'An example of a 1:1 chaining cable') }}
 
@@ -104,7 +104,7 @@ The total end-to-end wire length of the network should not exceed 10 m with mult
 
 If you are planning to deploy a large network of more than 24 nodes, consult with ADVANTICS engineering team for special assistance.
 
-## Firmware setup
+## 5.7. Firmware setup
 
 ### Step 1 – Clear interlock
 
