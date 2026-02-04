@@ -1,14 +1,14 @@
 # **4.1. Mechanical and Electrical Overview**
 
-## **Content of package**
+## **4.1.1. Content of package**
 
 Please check the content of the package and compare it with the Box Content List, provided with the shipped package. Verify that all components are intact and free from visible damage. In case of any doubt regarding the condition of the items, please contact our Sales Department: [**sales@advantics.fr**](mailto:sales@advantics.fr)
 
-## **Storage Conditions**
+## **4.1.2. Storage Conditions**
 
 When stored outside of the transport box, the module should be kept at temperatures between 0 °C and 45 °C, with relative humidity between 20% and 80%, without condensation.
 
-## **Form Factor**
+## **4.1.3. Form Factor**
 
 {{ figure('../assets/Figure2.png', 'Mechanical view with dimensions of the module') }}
 
@@ -25,7 +25,7 @@ This allows the customer to reuse the same cooling and housing concept for ADVAN
 
 ## 
 
-## **Specifications**
+## **4.1.4. Specifications**
 
 Table 1\. Mechanical and Electrical Specifications
 
@@ -57,7 +57,7 @@ Table 1\. Mechanical and Electrical Specifications
 | **Operating heat sink temperature range** | \-20°C to 65°C |
 | **Design and manufacturing** | Made in the EU |
 
-## **Cooling considerations**
+## **4.1.5. Cooling considerations**
 
 For correct operation, sufficient cooling is needed. **Never run the module without a heatsink attached\!** The thermal protection might not react fast enough if the transistor bar is not cooled. The power modules are designed to be installed on a flat metallic cooling surface. The module can output up to 1250W of heat through the aluminium bar and inductors. This heat needs to be evacuated through the user-supplied metallic plate. It is possible to use either forced aircooled heatsink or a watercooled plate. 
 
@@ -71,7 +71,7 @@ Consult the details of your implementation with ADVANTICS engineering team for c
 
 There is only one cooling surface on this module – two bars and a transformer channel is attached to it. This surface should be cooled with a good conducting silicone that cures/solidifies. Consult the Recommended accessories as mentioned in [5.1. Mounting and Assembly procedure](#51-mounting-and-assembly-procedure).
 
-**Functional accessories**
+**4.1.6. Functional accessories**
 
 Additionally, users may add the following functional accessories along with the BI25 power module:
 
