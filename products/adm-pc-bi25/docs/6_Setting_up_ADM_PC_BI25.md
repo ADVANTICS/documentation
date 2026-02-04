@@ -2,11 +2,8 @@
 
 !!! warning 
     Please do not place the unit at an angle or rest it on its connectors, as this may damage the 8-pin JST interface. Ensure the module is always supported on a flat, stable surface and properly aligned before mounting.
-    
-## 
 
 <a id="mounting-assembly"></a>
-
 ## 5.1. Mounting and assembly procedure
 
 Recommended accessories are as follows:
