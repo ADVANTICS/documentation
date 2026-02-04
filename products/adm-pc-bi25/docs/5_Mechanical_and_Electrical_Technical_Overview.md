@@ -69,7 +69,7 @@ For correct operation, sufficient cooling is needed. **Never run the module with
 
 Consult the details of your implementation with ADVANTICS engineering team for cooling design verification. Pre-drilled heatsinks for module verification are also offered for rapid prototyping.
 
-There is only one cooling surface on this module – two bars and a transformer channel is attached to it. This surface should be cooled with a good conducting silicone that cures/solidifies. Consult the Recommended accessories as mentioned in [5.1. Mounting and Assembly procedure](#5.1.-mounting-and-assembly-procedure).
+There is only one cooling surface on this module – two bars and a transformer channel is attached to it. This surface should be cooled with a good conducting silicone that cures/solidifies. Consult the Recommended accessories as mentioned in [5.1. Mounting and Assembly procedure](#mounting-assembly).
 
 ## **4.1.6. Functional accessories**
 
