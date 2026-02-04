@@ -59,8 +59,8 @@ description: 50kW Bidirectional Isolated DC/DC converter - User Documentation
 - ADVANTICS website: [advantics.fr](https://advantics.fr/)  
 - Product page: [ADM-PC-BI25](https://advantics.fr/products/ADM-PC-BI25/)  
 - Discover our portfolio: [ADVANTICS Products](https://advantics.fr/products/)  
-- Sales: sales@advantics.fr
-- Marketing: marketing@advantics.fr  
+- Sales: [sales@advantics.fr](mailto:sales@advantics.fr)
+- Marketing: [marketing@advantics.fr](mailto:marketing@advantics.fr) 
 - Technical Support: [Support Desk](https://advantics.atlassian.net/servicedesk/customer/portal/1)
 
 ---
