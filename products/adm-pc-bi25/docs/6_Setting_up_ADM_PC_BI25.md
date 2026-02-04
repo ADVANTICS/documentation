@@ -92,7 +92,7 @@ Table 2\.
 
 ## 5.6. Module Chaining
 
-{{ figure('../assets/Figure12.png', 'An example of a 1:1 chaining cable') }}
+{{ figure('../assets/Figure12.jpeg', 'An example of a 1:1 chaining cable') }}
 
 
 {{ figure('../assets/Figure13.png', 'Chaining and termination diagram') }}
