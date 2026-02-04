@@ -8,25 +8,24 @@
 
 ## 
 
-## **System Configuration**
+## **4.2.1. System Configuration**
 
 {{ figure('../assets/Figure14.png', 'Chaining and termination diagram') }}
 
 * Input: A DC voltage source is connected to **the side A of the** BI25.  
 * Intermediate Stage: The Output (Side B) is connected to a non isolated DC/DC converter which provides the output current limiting and voltage control range. An ADM-PC-BP25 may be used for this.The output of the non-isolated DC-DC is connected to the load.
 
-## **Note: Startup Condition**
-
+!!! note "Startup Condition"
 To ensure safe operation and protect the controller, a startup condition is implemented. The voltage following mode will only be enabled when the input DC voltage to the BI25 is **above 500V**. This acts as a protective measure to prevent the controller from starting under potentially unsafe low-voltage conditions.
 
 !!! warning 
     Please take care to not operate the module close to the temperature limits, as it will reduce the lifetime of the unit.
 
-## **Control Modes**
+## **4.2.2. Control Modes**
 
 The BI25 module is operated in ‘Voltage-Following’ mode. In ‘Voltage-Following’ the BI25 will provide the same voltage on side B as it sees on side A. In this mode it will also compensate for the voltage drop across the isolation transformer. Side B will appear as a low impedance voltage source.
 
-## **Operational Ranges**
+## **4.2.3. Operational Ranges**
 
 !!! warning 
     Exceeding the recommended range may lead to a deterioration of the device resulting in a shorter operational life span and reduced reliability.
@@ -43,7 +42,7 @@ Table 3\.
 
 ## 
 
-## **Protection mechanisms**
+## **4.2.4. Protection mechanisms**
 
 ### Over-current protection
 
@@ -64,7 +63,7 @@ The BI25 module also monitors the voltage on both ports. If a voltage larger tha
 
 If the temperature of the power switches exceeds 90°C or the temperature of the transformers exceeds 110°C the module will cease operations. When detecting the overheating condition, the converter will stop operating but without tripping the interlock line. This means that other modules chained in the same bus will still continue normal operation.
 
-## **Communication Interface**
+## **4.2.5. Communication Interface**
 
 The BI25 communication interface consists of a CAN 2.0B interface configured at 500 kbit/s with extended address mode and an open collector interlock line (INTLK).
 
