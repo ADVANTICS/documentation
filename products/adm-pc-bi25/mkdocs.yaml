@@ -119,17 +119,17 @@ markdown_extensions:
 
 # Navigation structure
 nav:
-  - "Document Information": "index.md"
-  - "Safety Instructions": "1_Safety_instructions.md"
-  - "Module Overview": "3_Module_Overview.md"
-  - "Applications": "4_Applications.md"
-  - "Technical Overview":
-    - "Mechanical and Electrical Overview": "5_Mechanical_and_Electrical_Technical_Overview.md"
-    - "Firmware Overview": "7_Firmware_Overview.md"
-  - "Setting up ADM-PC-BI25": "6_Setting_up_ADM_PC_BI25.md"
-  - "Servicing": "8_Servicing.md"
-  - "Disposal": "9_Disposal.md"
-  - "Reference":
+  - "Get Started here": "index.md"
+  - "1. Safety Instructions": "1_Safety_instructions.md"
+  - "2. Module Overview": "3_Module_Overview.md"
+  - "3. Applications": "4_Applications.md"
+  - "4. Technical Overview":
+    - "4.1. Mechanical and Electrical Overview": "5_Mechanical_and_Electrical_Technical_Overview.md"
+    - "4.2. Firmware Overview": "7_Firmware_Overview.md"
+  - "5. Installation": "6_Setting_up_ADM_PC_BI25.md"
+  - "6. Servicing": "8_Servicing.md"
+  - "7. Disposal": "9_Disposal.md"
+  - "8. Reference":
     - "CAN Bus Interface":
         - "CAN bus overview": "can_bus_overview.md"
         - "CAN bus messages": "can_bus_interface.md"
