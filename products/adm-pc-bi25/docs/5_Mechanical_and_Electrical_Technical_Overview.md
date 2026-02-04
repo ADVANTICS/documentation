@@ -1,4 +1,4 @@
-# **Mechanical and Electrical Overview**
+# **4.1. Mechanical and Electrical Overview**
 
 ## **Content of package**
 
@@ -12,9 +12,9 @@ When stored outside of the transport box, the module should be kept at temperatu
 
 {{ figure('../assets/Figure2.png', 'Mechanical view with dimensions of the module') }}
 
-All ADVANTICS power modules from the MCP-25 series share a similar mechanical and electrical form factor. For example, every module fits on a 300 mm wide heat sink and the height is chosen such that a space from the module base to the top of the module is always maximum 70 mm. 
+All ADVANTICS power modules share a similar mechanical and electrical form factor. For example, every module fits on a 300 mm wide heat sink and the height is chosen such that a space from the module base to the top of the module is always maximum 70 mm. 
 
-This allows the customer to reuse the same cooling and housing concept for every MCP-25 series power converter. Some of the common features of these converters are: 
+This allows the customer to reuse the same cooling and housing concept for ADVANTICS module power converters. Some of the common features of these converters are: 
 
 * The narrowest X-Y dimension is less than 300 mm   
 * The height of the module is less than 70 mm   
