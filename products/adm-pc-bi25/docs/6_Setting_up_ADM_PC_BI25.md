@@ -21,7 +21,7 @@ Recommended accessories are as follows:
 {{ figure('../assets/Figure5.png', 'Visual overview of steps 1 to 3') }}
 
 1. Clean the surface of the cooler degrease.  
-2. Apply the heat paste on the purple area.  
+2. Apply the thermal grease lightly on the purple area.  
 3. Apply the construction glue on the capacitor (recommended for systems exposed to vibration as implementation on board of vehicles).  
 
 {{ figure('../assets/Figure6.png', 'Visual overview of step 5') }}
