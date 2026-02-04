@@ -67,15 +67,14 @@ The assembly engineer needs to take into account the final number, position, cov
 {{ figure('../assets/Figure10.png', 'Pintout of the CPT-connector pins 1-8') }}
 
 
-{{ figure('../assets/Figure11.png', 'JST CPT crimping tool WC-CPT021') }}
+{{ figure('../assets/Figure11.jpeg', 'JST CPT crimping tool WC-CPT021') }}
 
 
 All ADVANTICS modules have a common interface for control and readout. The interface consists of a CAN bus for control and status reporting, and an interlock line (INTLK) for safety. Additionally, the interface connectors also include power distribution for the control section of the modules. Each module is provided with two interface connectors that are completely identical in pinout, allowing chaining of the modules without using branched cables or a distribution hub.
 
 The interface connector mounted on every power converter is an 8-pin CPT series automotive connector with a latch, manufactured by JST.
 
-The modules use the SM08B-CPTK male connector, and the mating female connector is model number 08CPT-B-2A. The pins used for the female connector are part number SCPT-A021GF-0.5, which can be crimped using the WC-CPT021 crimping tool. These terminals are made for use with 22 AWG (0.3 mm2) wire with an outer diameter of 1.4 mm. The wires for each connector should be bundled tightly together, to reduce the amount of electrical noise picked up from the environment. Unshielded communications cables should not be near the power wiring. CAN bus High and Low should be twisted (form a twisted pair). JST CPT product page can be visited online:   
-[CPT Connector](https://www.jst-mfg.com/product/index.php?series=477).
+The modules use the SM08B-CPTK male connector, and the mating female connector is model number 08CPT-B-2A. The pins used for the female connector are part number SCPT-A021GF-0.5, which can be crimped using the WC-CPT021 crimping tool. These terminals are made for use with 22 AWG (0.3 mm2) wire with an outer diameter of 1.4 mm. The wires for each connector should be bundled tightly together, to reduce the amount of electrical noise picked up from the environment. Unshielded communications cables should not be near the power wiring. CAN bus High and Low should be twisted (form a twisted pair). JST CPT product page can be visited online: [CPT Connector](https://www.jst-mfg.com/product/index.php?series=477).
 
 Table 2\.
 
@@ -112,7 +111,7 @@ Modules have two types of interlock signals: internal which is latched in a lock
 
 To configure the operating mode, the BI25\_Mode\_Control message is used. The message contains multiple one-bit wide signals, one per operating mode. The module does not check if more than one operating mode has been selected. The operating modes will be checked in the following order and the first enabled operating mode will be selected.
 
-* <font color="#00A89D">**Voltage Following Mode**</font> is designated for normal user operation and should be used for standard system configuration. PWM Mode and GAIN Control Mode are not intended for user operation and must not be used under normal operating conditions.
+<font color="#00A89D">**Voltage Following Mode**</font> is designated for normal user operation and should be used for standard system configuration. PWM Mode and GAIN Control Mode are not intended for user operation and must not be used under normal operating conditions.
 
 ### Step 3 – Start converter
 
