@@ -1,4 +1,4 @@
-# **Setting up ADM-PC-BI25**
+# **5. Installation**
 
 ## **Mounting and assembly procedure**
 
