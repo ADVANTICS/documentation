@@ -9,7 +9,7 @@ format, and our software and firmware use it directly.
 
 <!-- - [Advantics Generic PEV protocol v2 (Kayak format)](charge-controllers/evcc_generic/Advantics_Generic_PEV_protocol_v2.kcd ':ignore') -->
 <!-- - [Advantics Generic PEV protocol v2.1 (Kayak format)](charge-controllers/evcc_generic/Advantics_Generic_PEV_protocol_v2.1.kcd ':ignore') -->
-- [Advantics Generic PEV protocol v2.2 (Kayak format)](charge-controllers/evcc_generic/Advantics_Generic_PEV_protocol_v2.4.kcd ':ignore')
+- [Advantics Generic PEV protocol v2.4 (Kayak format, latest)](charge-controllers/evcc_generic/Advantics_Generic_PEV_protocol_v2.4.kcd ':ignore')
 
 
 ## DBC format
