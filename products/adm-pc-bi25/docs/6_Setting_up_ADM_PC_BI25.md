@@ -34,7 +34,7 @@ Recommended accessories are as follows:
 5. Place screws with washers into the holes.  
 
 6. Apply initial tightening torque on screws:  
-   Torque: 2.5 nm (Aluminium base)
+   Torque: 2.5 Nm (Aluminium base)
 
 !!! warning 
     Torque is necessary to be applied again after the first heat up cycle. Make sure the circuit is off, cooled down and free from any residual current. Finally, repeat tightening all the screws. 
@@ -49,7 +49,7 @@ The power modules use SMD terminals for connecting the power cables or bus bars.
 
 Recommended screws: Screw ISO 14583-2011 M5 x 6 mm for one lug, M5 x 8 mm for two lugs.
 
-Recommended tightening: 2 nm, maximum nominal torque 3 nm.
+Recommended tightening: 2 Nm, maximum nominal torque 3 Nm.
 
 Recommended maximum cable cross section: mm²
 
@@ -91,6 +91,8 @@ Table 2\.
 | 7 | CAN LOW | Twisted pair between 6,7 |
 | 8 | Signal ground | Interface ground |
 
+> [!NOTE]
+> ADVANTICS has a stock of the mating CPT connector already crimped and ready to use. Contact us for purchase information.'
 
 ## 5.6. Module Chaining
 
