@@ -112,9 +112,9 @@ Modules have two types of interlock signals: internal which is latched in a lock
 
 ### Step 2 – Configure operating mode
 
-To configure the operating mode, the BI25\_Mode\_Control message is used. The message contains multiple one-bit wide signals, one per operating mode. The module does not check if more than one operating mode has been selected. The operating modes will be checked in the following order and the first enabled operating mode will be selected.
+<font color="#00A89D">**PWM Mode**</font> is designated for normal user operation and should be used for standard system configuration. This mode operates in open loop with a user-defined frequency, which should be set to 300 kHz. As this mode does not compensate for voltage drops, there can be up to a 20 V difference between Side A and Side B at full load. Incorrect selection of frequency may result in irreversible damage to the module. If in doubt, contact us for guidance.
 
-<font color="#00A89D">**Voltage Following Mode**</font> is designated for normal user operation and should be used for standard system configuration. PWM Mode and GAIN Control Mode are not intended for user operation and must not be used under normal operating conditions.
+Please note that Voltage Follower Mode and Gain Mode are under development. We do not recommended using this mode at this stage.
 
 ### Step 3 – Start converter
 
