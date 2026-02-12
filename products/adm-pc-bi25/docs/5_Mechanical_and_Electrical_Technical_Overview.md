@@ -6,7 +6,7 @@ Please check the content of the package and compare it with the Box Content List
 
 ## **4.1.2. Storage Conditions**
 
-When stored outside of the transport box, the module should be kept at temperatures between 0 °C and 45 °C, with relative humidity between 20% and 80%, without condensation.
+When stored outside of the transport box, the module should be kept at temperatures between -30°C and 65°C, with relative humidity between 20% and 80%, without condensation.
 
 ## **4.1.3. Form Factor**
 
