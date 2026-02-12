@@ -78,7 +78,7 @@ The interface connector mounted on every power converter is an 8-pin CPT series 
 
 The modules use the SM08B-CPTK male connector, and the mating female connector is model number 08CPT-B-2A. The pins used for the female connector are part number SCPT-A021GF-0.5, which can be crimped using the WC-CPT021 crimping tool. These terminals are made for use with 22 AWG (0.3 mm2) wire with an outer diameter of 1.4 mm. The wires for each connector should be bundled tightly together, to reduce the amount of electrical noise picked up from the environment. Unshielded communications cables should not be near the power wiring. CAN bus High and Low should be twisted (form a twisted pair). JST CPT product page can be visited online: [CPT Connector](https://www.jst-mfg.com/product/index.php?series=477).
 
-Table 2\.
+Table 3. Pinout of the CPT connector
 
 | JST CPT pin | Name | Description |
 | :---: | :---: | :---: |
@@ -92,7 +92,7 @@ Table 2\.
 | 8 | Signal ground | Interface ground |
 
 > [!NOTE]
-> ADVANTICS has a stock of the mating CPT connector already crimped and ready to use. Contact us for purchase information.'
+> ADVANTICS has the mating CPT connector in stock, already crimped and ready for use. Please contact us for purchase information.
 
 ## 5.6. Module Chaining
 
