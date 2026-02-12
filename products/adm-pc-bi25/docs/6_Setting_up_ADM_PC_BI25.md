@@ -45,11 +45,13 @@ Recommended accessories are as follows:
 
 The power modules use SMD terminals for connecting the power cables or bus bars. The thread is M5, and the maximum length of a screw can be 6 mm, measured from the top of the terminal. Whether a wire or bus bar is used, it is absolutely essential that no constant force sideways is applied on the terminal. Design bus bars with stress reliefs and secure the cables to prevent excessive force or vibrations on the terminals.
 
+{{ figure('../assets/Figure9.png', 'Recommended screws.') }}
+
 Recommended screws: Screw ISO 14583-2011 M5 x 6 mm for one lug, M5 x 8 mm for two lugs.
 
-Recommended tightening: 2 Nm, maximum nominal torque 3 Nm.
+Recommended tightening: 2 nm, maximum nominal torque 3 nm.
 
-{{ figure('../assets/Figure9.png', 'Recommended screws.') }}
+Recommended maximum cable cross section: 10 mm^2<img width="451" height="49" alt="image" src="https://github.com/user-attachments/assets/7abb4800-df5c-4647-b154-b329b45e4d7b" />
 
 !!! warning
     If a longer screw is used, it will push against the PCB as it is screwed in, leading to pull the terminal out of the PCB. If this happens, the converter will be destroyed, causing a safety hazard, and warranty voided.
