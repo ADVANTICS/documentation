@@ -34,7 +34,7 @@ Recommended accessories are as follows:
 5. Place screws with washers into the holes.  
 
 6. Apply initial tightening torque on screws:  
-   Torque: 2.5 Nm (Aluminium base)
+   Torque: 2.5 nm (Aluminium base)
 
 !!! warning 
     Torque is necessary to be applied again after the first heat up cycle. Make sure the circuit is off, cooled down and free from any residual current. Finally, repeat tightening all the screws. 
