@@ -29,7 +29,7 @@ The Bi25 module is operated in PWM Mode at 300 kHz. In this mode, BI25 will prov
 
 To ensure a long life and reliable operation of the converter, the voltage, current, power and temperature should be within the following ranges during operation:
 
-Table 3\.
+Table 2\. Operating Specifications
 
 | Parameters | Values |
 | :---- | :---- |
