@@ -91,8 +91,7 @@ Table 3. Pinout of the CPT connector
 | 7 | CAN LOW | Twisted pair between 6,7 |
 | 8 | Signal ground | Interface ground |
 
-> [!NOTE]
-> ADVANTICS has the mating CPT connector in stock, already crimped and ready for use. Please contact us for purchase information.
+> **Note:** ADVANTICS has the mating CPT connector in stock, already crimped and ready for use. Please contact us for purchase information.
 
 ## 5.6. Module Chaining
 
