@@ -20,7 +20,7 @@
 
 ## **4.2.2. Control Modes**
 
-The Bi25 module is operated in PWM Mode at 300 kHz. In this mode, BI25 will provide the same voltage on Side B as it sees on Side A. As the load current increases, there may be up to 20 V voltage drop between the two sides of the converter. An additional operating mode, Voltage-Follower Mode, is under development and not yet ready to be used by customers, to support compensating the voltage drops at higher loads. 
+The Bi25 module is operated in PWM Mode at 300 kHz. In this mode, BI25 will provide the same voltage on Side B as it sees on Side A. As the load current increases, there may be up to 20 V voltage drop between the two sides of the converter. Additional operating modes, Voltage Follower Mode and Gain Mode, are under development and not yet ready to be used by customers, to support compensating the voltage drops at higher loads. 
 
 ## **4.2.3. Operational Ranges**
 
