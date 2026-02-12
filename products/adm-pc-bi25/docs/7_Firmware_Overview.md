@@ -43,7 +43,7 @@ Table 3\.
 
 ### Over-current protection
 
-The BI25 module has an output current protection at 75 A. If a larger current is detected by the control system, the module will cease operation. A further transient protection is set to 95 A. If the BI25 exceeds this current at any point in time operation will cease immediately as this limit is implemented in hardware.
+The BI25 module has two levels of protection controlled by its firmware and hardware. Firmware will cease operation within 1000 μs if the output current exceeds 75 A. A faster protection is implemented on hardware that stops operation within 5 μs if the amplitude exceeds 95 A.
 
 ### Over-voltage protection
 
