@@ -15,15 +15,12 @@
 * Input: A DC voltage source is connected to **the side A of the** BI25.  
 * Intermediate Stage: The Output (Side B) is connected to a non isolated DC/DC converter which provides the output current limiting and voltage control range. An ADM-PC-BP25 may be used for this.The output of the non-isolated DC-DC is connected to the load.
 
-!!! note "Startup Condition"
-To ensure safe operation and protect the controller, a startup condition is implemented. The voltage following mode will only be enabled when the input DC voltage to the BI25 is **above 500V**. This acts as a protective measure to prevent the controller from starting under potentially unsafe low-voltage conditions.
-
 !!! warning 
     Please take care to not operate the module close to the temperature limits, as it will reduce the lifetime of the unit.
 
 ## **4.2.2. Control Modes**
 
-The BI25 module is operated in ‘Voltage-Following’ mode. In ‘Voltage-Following’ the BI25 will provide the same voltage on side B as it sees on side A. In this mode it will also compensate for the voltage drop across the isolation transformer. Side B will appear as a low impedance voltage source.
+The Bi25 module is operated in PWM Mode at 300 kHz. In this mode, BI25 will provide the same voltage on Side B as it sees on Side A. As the load current increases, there may be up to 20 V voltage drop between the two sides of the converter. An additional operating mode, Voltage-Follower Mode, is under development and not yet ready to be used by customers, to support compensating the voltage drops at higher loads. 
 
 ## **4.2.3. Operational Ranges**
 
@@ -36,7 +33,7 @@ Table 3\.
 
 | Parameters | Values |
 | :---- | :---- |
-| **Voltage Range** | Port A: **600 V** to **950 V**  Port B: **600 V** to **950 V** |
+| **Voltage Range** | Port A: **500 V** to **950 V**  Port B: **500 V** to **950 V** |
 | **Current Range** | Bidirectional current range: **60 A** |
 | **Thermal Range** | The temperature of the power transistors may not exceed **90°C**. The temperature of the Transformers may not exceed **110°C.** |
 
@@ -77,7 +74,7 @@ The module is controlled via ‘signals’. Signals similar to the ‘register�
 
 CAN bus termination is necessary for correct operation. To ensure stable communications and good noise margin, no more or less than two termination resistors should be present on the CAN bus, ideally at each end of the chain. If the CAN bus is branched, the termination resistors should be placed at the two points farthest away in the chain, and unterminated branches should be kept at minimum length.
 
-The power module contains an on-board CAN termination resistor per each CPT connector, which can be activated by bridging pins 6 and 3 of the CPT connector with a simple wire (shown on the chaining diagram). The wire used to bridge pins 6 and 3 should be as short as possible to minimize noise pickup, less than 5 cm.
+The power module contains an on-board CAN termination resistor per each communication plug, which can be activated by bridging pins 6 and 3 of the CPT connector with a simple wire (shown on the chaining diagram). The wire used to bridge pins 6 and 3 should be as short as possible to minimize noise pickup, less than 5 cm.
 
 ### Interlock Line
 
