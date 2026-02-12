@@ -112,9 +112,9 @@ Modules have two types of interlock signals: internal which is latched in a lock
 
 ### Step 2 – Configure operating mode
 
-<font color="#00A89D">**PWM Mode**</font> is designated for normal user operation and should be used for standard system configuration. This mode operates in open loop with a user-defined frequency, which should be set to 300 kHz. As this mode does not compensate for voltage drops, there can be up to a 20 V difference between Side A and Side B at full load. Incorrect selection of frequency may result in irreversible damage to the module. If in doubt, contact us for guidance.
+<font color="#00A89D">**PWM Mode**</font> is designated for normal user operation and should be used for standard system configuration. This mode operates in open loop with a user-defined frequency, which should be set to 300 kHz. As this mode does not compensate for voltage drops, there can be up to a 20 V difference between Side A and Side B at full load. Incorrect selection of frequency may result in irreversible damage to the module. If in doubt, please contact us for guidance.
 
-Please note that Voltage Follower Mode and Gain Mode are under development. We do not recommended using this mode at this stage.
+The other modes, Voltage Follower Mode and Gain Mode, are under development. We do not recommend using this mode at this stage.
 
 ### Step 3 – Start converter
 
