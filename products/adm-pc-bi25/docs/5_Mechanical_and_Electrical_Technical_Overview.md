@@ -31,7 +31,7 @@ Table 1\. Mechanical and Electrical Specifications
 
 |  Parameters |  Values |
 | :---- | :---- |
-| **Voltage Range** | 500 to 1000 V |
+| **Voltage Range** | 500 to 950 V |
 | **Voltage Conversion Ratio** | 1:1 |
 | **Creepage and Clearance** | IEC 62477-1 and IEC 61851-23 |
 | **Overvoltage Category** | OVCII (up to 3000m altitude) |
@@ -40,23 +40,20 @@ Table 1\. Mechanical and Electrical Specifications
 | **Power Flow** | Bidirectional |
 | **Operating Mode** | 1:1 Voltage Following |
 | **Technology** | Silicon Carbide |
-| **Efficiency** | 98.6% peak |
-| **Switching Technique** | Soft switching |
-| **Topology** | High-frequency resonant |
-| **Assembly** | Completely flat plate for easy integration |
-| **Protection Features** | Overcurrent, overvoltage, overtemperature and hardware interlock |
-| **Voltage and Current Accuracy** | ±2% (±1% typical) |
+| **Efficiency** | 98.7% peak |
+| **Assembly** | Flat plate for easy integration |
+| **Protection Features** | Overcurrent, overvoltage, overtemperature and external hardware interlock |
+| **Voltage and Current Measurement Accuracy** | ±2% (±1% typical) |
 | **Cooling** | Air and liquid cooling |
-| **Communication Protocol** | CAN bus 2.0B |
 | **Communication Chaining** | Up to 32 devices of the same type |
-| **Logic Interface** | 8-pin JST CPT automotive series |
-| **Logic Power** | Max 15 W |
+| **Control Connector** | 8-pin JST CPT |
+| **Control System Power** | Max 15 W |
 | **Control System Voltage** | 24 V |
 | **HV Bus Capacitance** | 80 uF |
 | **Weight** | 6.65 kg |
 | **Power Density** | 7.52 kW/kg 8.48 kW/L |
 | **Operating Heat Sink Temperature Range** | \-20°C to 65°C |
-| **Design and Manufacturing** | Made in the EU |
+| **Design and Manufacturing** | European Union |
 
 ## **4.1.5. Cooling considerations**
 
