@@ -118,7 +118,7 @@ markdown_extensions:
 
 # Navigation structure
 nav:
-  - "Document Information": "index.md"
+  - "Get Started here": "index.md"
   - "Overview": "overview.md"
   - "Electrical Specifications": "electrical_specs.md"
   - "Mechanical Specifications": "mechanical_specs.md"
