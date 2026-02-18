@@ -13,7 +13,7 @@ description: 100kW 1500V DC/DC Isolated Power Converter - User Documentation
     </div>
     <p style="font-size: 1rem; color: #666; margin: 0 0 1rem 0;">User Manual</p>
     <div style="margin-top: 1rem;">
-      <img src="assets/DC01.webp" alt="ADB-PC-DC01" style="max-width: 600px; width: 100%; height: auto; max-height: 300px; object-fit: contain;">
+      <img src="assets/3.png" alt="ADB-PC-DC01" style="max-width: 600px; width: 100%; height: auto; max-height: 300px; object-fit: contain;">
     </div>
   </div>
 
