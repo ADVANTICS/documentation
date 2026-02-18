@@ -5,7 +5,7 @@ description: 100kW AC/DC Active Frontend (PFC) - User Documentation
 
 <div class="keep-on-one-page" style="page-break-inside: avoid; break-inside: avoid; -webkit-column-break-inside: avoid; -webkit-page-break-inside: avoid; page-break-after: avoid;">
   <div style="text-align: center; margin: 2.5rem 0;">
-    <div role="heading" aria-level="1" style="color: #00A99D; font-size: 2.5rem; margin-bottom: 0.75rem; font-weight: 700;">
+    <div role="heading" aria-level="1" style="color: #00A89D; font-size: 2.5rem; margin-bottom: 0.75rem; font-weight: 700;">
       ADB-PC-AC01
     </div>
     <div role="heading" aria-level="2" style="color: #1a1a1a; font-size: 1.25rem; margin-bottom: 0.5rem; font-weight: 600;">
@@ -13,7 +13,7 @@ description: 100kW AC/DC Active Frontend (PFC) - User Documentation
     </div>
     <p style="font-size: 1rem; color: #666; margin: 0 0 1rem 0;">Technical Documentation &amp; User Manual</p>
     <div style="margin-top: 1rem;">
-      <img src="assets/AC01.webp" alt="ADB-PC-AC01" style="max-width: 600px; width: 100%; height: auto; max-height: 300px; object-fit: contain;">
+      <img src="assets/ADB-PC-AC01 (1).png" alt="ADB-PC-AC01" style="max-width: 600px; width: 100%; height: auto; max-height: 300px; object-fit: contain;">
     </div>
   </div>
 
@@ -44,7 +44,7 @@ description: 100kW AC/DC Active Frontend (PFC) - User Documentation
 | **Description** | 100kW AC/DC Active Frontend (PFC) |
 | **Document Type** | Technical Manual |
 | **Version** | 1.0 |
-| **Last Updated** | November 2025 |
+| **Last Updated** | February 2026 |
 | **Classification** | Public pre-release |
 
 <div role="alert" aria-live="polite" style="background-color: #fff1f0; border-left:6px solid #ff4d4f; color: #7a0f0f; padding:1rem; border-radius:6px; margin:0 0 1rem 0;">
