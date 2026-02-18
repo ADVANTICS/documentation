@@ -35,7 +35,7 @@ description: 100kW 1500V DC/DC Isolated Power Converter - User Documentation
 <div class="page-break"></div>
 
 
-# Get Started here
+# Document Information
 
 | **Property** | **Value** |
 |--------------|-----------|
