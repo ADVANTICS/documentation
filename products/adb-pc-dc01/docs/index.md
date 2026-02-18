@@ -5,13 +5,13 @@ description: 100kW 1500V DC/DC Isolated Power Converter - User Documentation
 
 <div class="keep-on-one-page" style="page-break-inside: avoid; break-inside: avoid; -webkit-column-break-inside: avoid; -webkit-page-break-inside: avoid; page-break-after: avoid;">
   <div style="text-align: center; margin: 2.5rem 0;">
-    <div role="heading" aria-level="1" style="color: #00A99D; font-size: 2rem; margin-bottom: 0.75rem; font-weight: 700;">
+    <div role="heading" aria-level="1" style="color: #00A89D; font-size: 2rem; margin-bottom: 0.75rem; font-weight: 700;">
       ADB-PC-DC01
     </div>
     <div role="heading" aria-level="1" style="color: #1a1a1a; font-size: 1.25rem; margin-bottom: 0.5rem; font-weight: 600;">
       100kW 1500V DC/DC Isolated Power Converter
     </div>
-    <p style="font-size: 1rem; color: #666; margin: 0 0 1rem 0;">Technical Documentation &amp; User Manual</p>
+    <p style="font-size: 1rem; color: #666; margin: 0 0 1rem 0;">User Manual</p>
     <div style="margin-top: 1rem;">
       <img src="assets/DC01.webp" alt="ADB-PC-DC01" style="max-width: 600px; width: 100%; height: auto; max-height: 300px; object-fit: contain;">
     </div>
@@ -43,8 +43,8 @@ description: 100kW 1500V DC/DC Isolated Power Converter - User Documentation
 | **Description** | 100kW 1500V DC/DC Isolated Power Converter |
 | **Document Type** | Technical Manual |
 | **Version** | 1.0 |
-| **Last Updated** | November 2025 |
-| **Classification** | Public pre-release |
+| **Last Updated** | February 2026 |
+| **Classification** | Pre-release |
 
 <div role="alert" aria-live="polite" style="background-color: #fff1f0; border-left:6px solid #ff4d4f; color: #7a0f0f; padding:1rem; border-radius:6px; margin:0 0 1rem 0;">
   <strong style="display:block; font-size:1.05rem; margin-bottom:0.25rem;">Warning — Pre-release document</strong>
@@ -63,27 +63,16 @@ description: 100kW 1500V DC/DC Isolated Power Converter - User Documentation
 
 © 2025 ADVANTICS SAS. All rights reserved.
 
-Advantics and the Advantics logo are trademarks of Advantics SAS.
-
-All other trademarks mentioned in this document are the property of their respective owners.
-
 ---
 
 ## Get in Touch
 
-- Product page: https://advantics.fr/products/ADB-PC-DC01/  
-- Discover our portfolio: https://advantics.fr/products/  
-- Sales: sales@advantics.fr  
+- ADVANTICS website: [advantics.fr](https://advantics.fr/)  
+- Product page: [ADB-PC-DC01](https://advantics.fr/products/ADB-PC-DC01/)  
+- Discover our portfolio: [ADVANTICS Products](https://advantics.fr/products/)  
+- Sales: [sales@advantics.fr](mailto:sales@advantics.fr)
+- Marketing: [marketing@advantics.fr](mailto:marketing@advantics.fr) 
 - Technical Support: [Support Desk](https://advantics.atlassian.net/servicedesk/customer/portal/1)
-
----
-
-## Contact & Legal
-
-**Advantics SAS**  
-https://advantics.fr  
-Email: sales@advantics.fr  
-Phone: +33 7 87 14 09 19
 
 ---
 
