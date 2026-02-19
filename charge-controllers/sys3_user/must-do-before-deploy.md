@@ -28,3 +28,21 @@ Unrestricted log growth can eventually consume all available disk space, leading
   }
 }
 ```
+
+### 3. Disable CSM web interface
+
+The CSM http interface is designed for development purposes and should be disabled in production.
+You can disable in the web interface itself.
+
+![Disable CSM interface from UI settings](./images/disable-csm-from-ui.png)
+
+Or in the config file itself in the controller file system under the system section, set the `enable_web_interface` to false.
+
+```
+[system]
+
+# enable_web_interface: bool
+#       default: True
+#       Makes the administration web interface available
+enable_web_interface = True
+```
