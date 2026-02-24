@@ -137,5 +137,6 @@
     - [Set static IP](charge-controllers/advantics_os/static-ip.md)
     - [SSH](charge-controllers/advantics_os/ssh.md)
     - [Updating](charge-controllers/advantics_os/updating.md)
+    - [Must do before deploy](charge-controllers/advantics_os/must-do-before-deploy.md)
   - [Web UI](charge-controllers/advantics_os/csm-web-ui.md)
     <!-- - [4.x branch](charge-controllers/systems_branch4.m) -->

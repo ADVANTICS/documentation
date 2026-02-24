@@ -29,20 +29,38 @@ Unrestricted log growth can eventually consume all available disk space, leading
 }
 ```
 
-### 3. Disable CSM web interface
+### 3. Disable ADVANTICS CSM
 
-The CSM http interface is designed for development purposes and should be disabled in production.
-You can disable in the web interface itself.
+ADVANTICS CSM is used manage system-level actions on Charge Controllers. It is designed for development purposes and should be disabled in production.
 
-![Disable CSM interface from UI settings](./images/disable-csm-from-ui.png)
+[ SSH ](charge-controllers/sys3_user/access.md) to the controller.
 
-Or in the config file itself in the controller file system under the system section, set the `enable_web_interface` to false.
+Stop and remove all containers:
 
 ```
-[system]
-
-# enable_web_interface: bool
-#       default: True
-#       Makes the administration web interface available
-enable_web_interface = True
+docker container stop $(docker ps -aq)
+docker container remove $(docker ps -aq)
 ```
+
+Edit the file `/etc/init.d/S80vehicle` for the vehicle controller (evcc) and `/etc/init.d/S80charger` for the charge station controller (secc). You can use `nano` or `vi`.
+
+Comment the following lines by adding a `#` at the beginning of each line:
+
+```
+    # Start CSM
+    /srv/run-advantics-csm.sh start
+
+    # Stop CSM
+    /srv/run-advantics-csm.sh stop
+
+
+    /srv/run-advantics-csm.sh clean
+```
+
+Reboot the controller by executing:
+
+```
+reboot
+```
+
+Please contact us to arrange this preparation before shipping for bulk orders.

@@ -8,3 +8,4 @@
 
 1. [Connecting to the controller](charge-controllers/advantics_os/connecting.md)
 1. [CSM Web UI - Controller's web interface](charge-controllers/advantics_os/csm-web-ui.md)
+1. [Must do before deploy](charge-controllers/advantics_os/must-do-before-deploy.md)
