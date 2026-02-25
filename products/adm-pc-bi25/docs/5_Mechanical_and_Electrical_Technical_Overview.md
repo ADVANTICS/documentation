@@ -57,7 +57,7 @@ Table 1\. Mechanical and Electrical Specifications
 
 ## **4.1.5. Efficiency Measurement**
 
-{{ figure('../assets/1.png', 'Voltage/Current envelope') }}
+{{ figure('../assets/1.png') }}
 
 The current and voltage relationship of ADM-PC-BI25 is shown in Figure. The envelope is limited by a 50 kW power rating, +-60 A current limit, and 500V-950 V voltage range.
 
