@@ -55,7 +55,20 @@ Table 1\. Mechanical and Electrical Specifications
 | **Operating Heat Sink Temperature Range** | \-20°C to 65°C |
 | **Design and Manufacturing** | European Union |
 
-## **4.1.5. Cooling considerations**
+## **4.1.5. Efficiency Measurement**
+
+{{ figure('../assets/1.png', 'Voltage/Current envelope') }}
+
+The current and voltage relationship of ADM-PC-BI25 is shown in Figure. The envelope is limited by a 50 kW power rating, +-60 A current limit, and 500V-950 V voltage range.
+
+{{ figure('../assets/2.png') }}
+
+{{ figure('../assets/3.png') }}
+
+Efficiency measurements of ADM-PC-BI25 at different bus voltage and power ratings are shown in Figure X and X+1. Higher bus voltage allows this module to achieve superior efficiency up to 98.7%.
+
+
+## **4.1.6. Cooling considerations**
 
 For correct operation, sufficient cooling is required. **Never run the module without a heatsink attached\!** The thermal protection might not react fast enough if the transistor bar is not properly cooled. The power modules are designed to be installed on a flat metallic cooling surface. The module can output up to 1250W of heat through the aluminium bar and inductors. This heat needs to be evacuated through the user-supplied metallic plate. It is possible to use either forced air-cooled heatsink or a water-cooled plate to provide cooling. Additionally, please ensure a fan is installed to circulate air over the surface of the board, maintaining uniform temperature and preventing hot spots.
 
@@ -69,7 +82,7 @@ Consult the details of your implementation with ADVANTICS engineering team for c
 
 There is only one cooling surface on this module – two bars and a transformer channel is attached to it. This surface should be cooled with a good conducting silicone that cures/solidifies. Consult the Recommended accessories as mentioned in [5.1. Mounting and Assembly procedure](https://documentation.advantics.fr/adm-pc-bi25/6_Setting_up_ADM_PC_BI25/).
 
-## **4.1.6. Functional accessories**
+## **4.1.7. Functional accessories**
 
 Additionally, users may add the following functional accessories along with the BI25 power module:
 
