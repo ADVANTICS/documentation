@@ -57,13 +57,13 @@ Table 1\. Mechanical and Electrical Specifications
 
 ## **4.1.5. Efficiency Measurement**
 
-{{ figure('../assets/1.png') }}
+{{ figure('../assets/1.png', 'Module attached to heatsink') }}
 
 The current and voltage relationship of ADM-PC-BI25 is shown in Figure. The envelope is limited by a 50 kW power rating, +-60 A current limit, and 500V-950 V voltage range.
 
-{{ figure('../assets/2.png') }}
+{{ figure('../assets/2.png', 'Module attached to heatsink') }}
 
-{{ figure('../assets/3.png') }}
+{{ figure('../assets/3.png', 'Module attached to heatsink') }}
 
 Efficiency measurements of ADM-PC-BI25 at different bus voltage and power ratings are shown in Figure X and X+1. Higher bus voltage allows this module to achieve superior efficiency up to 98.7%.
 
