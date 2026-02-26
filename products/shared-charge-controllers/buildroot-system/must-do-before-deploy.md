@@ -28,3 +28,39 @@ Unrestricted log growth can eventually consume all available disk space, leading
   }
 }
 ```
+
+### 3. Disable ADVANTICS CSM
+
+ADVANTICS CSM is used manage system-level actions on Charge Controllers. It is designed for development purposes and should be disabled in production.
+
+[ SSH ](charge-controllers/sys3_user/access.md) to the controller.
+
+Stop and remove all containers:
+
+```
+docker container stop $(docker ps -aq)
+docker container remove $(docker ps -aq)
+```
+
+Edit the file `/etc/init.d/S80vehicle` for the vehicle controller (evcc) and `/etc/init.d/S80charger` for the charge station controller (secc). You can use `nano` or `vi`.
+
+Comment the following lines by adding a `#` at the beginning of each line:
+
+```
+    # Start CSM
+    /srv/run-advantics-csm.sh start
+
+    # Stop CSM
+    /srv/run-advantics-csm.sh stop
+
+
+    /srv/run-advantics-csm.sh clean
+```
+
+Reboot the controller by executing:
+
+```
+reboot
+```
+
+Please contact us to arrange this preparation before shipping for bulk orders.

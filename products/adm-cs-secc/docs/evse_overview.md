@@ -2,9 +2,8 @@
 
 There are many key components making up a charging station. Some of them are essential (like power converters for DC charging), others are required by their respective national standards (like ground fault monitoring devices). A properly designed charging station should be cost-optimized, but safe and compliant. Generally speaking, the lower the power, the fewer additional components would be installed, as they can significantly affect the price.
 
-!!! warning
-    Always check national rules and requirements when designing a charging station. Do not rely on the following information to be accurate or even applicable.
-
+> [!WARNING]
+> Always check national rules and requirements when designing a charging station. Do not rely on the following information to be accurate or even applicable.
 
 ## Input (mains) side protection
 
@@ -70,9 +69,8 @@ A majority of CCS cables on the market are identical in their wiring. The follow
 - Positive DC high gauge wire (power delivery).
 - Negative DC high gauge wire (power delivery).
 
-!!! tip
-    Some CCS cable manufacturers are notoriously bad at documenting their cable. If you end up probing with a multimeter, just to find which wire is which, you can always identify the RTD (temperature sensor) by being able to see around 1100 Ohms between them
-
+> [!TIP]
+> Some CCS cable manufacturers are notoriously bad at documenting their cable. If you end up probing with a multimeter, just to find which wire is which, you can always identify the RTD (temperature sensor) by being able to see around 1100 Ohms between them
 
 ## CHAdeMO charging cable
 

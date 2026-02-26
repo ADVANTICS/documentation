@@ -3,11 +3,12 @@
 ## Characteristics
 
 The ADM-CS-SECC is a charge controller for electric vehicle charging stations. The main features include:
+
 - Linux system, running on iMX7 ARM platform
 - CCS (Combined Charging System) – DIN SPEC 70121 and ISO 15118-2/-20,  NACS and CHAdeMO (V2G).
 - AC charging interface (IEC 61851-1, J1772)
 - Bidirectional Power Transfer (BPT) Capable.
-- Plug and Charge (PnC) coming soon.
+- Plug and Charge (PnC).
 - OCPP 1.6 Compatibility (OCPP 2.0.1 coming soon).
 - Over-the-air (OTA) Updates capability ensures staying ahead of the market.
 - CAN bus 2.0B, RS485, Ethernet (RJ45) interfaces, and control for DC and AC contactors.
@@ -23,6 +24,7 @@ The ADM-CS-SECC is a charge controller for electric vehicle charging stations. T
 Manufacturers of stationary and portable charging stations, integrators, research laboratories, new EV applications like rescue vehicles, charging emulation during vehicle development.
 
 ## Electrical and Mechanical specifications
+
 |       |                                            |                         |
 |-----------------------------|-------------------------------------------------|----------------------------------------------------|
 | **Charging Standards**      | **AC**                                           | SAE J1772, IEC 61851-1/-23                        |
@@ -64,14 +66,9 @@ Manufacturers of stationary and portable charging stations, integrators, researc
 |                             | **Weight**                                       | 350 g                                             |
 
 
-## Software development guide
-
-Please see the Software [Development Guide document](charge-controllers/sys3_user/README.md) for ADM-CS-SECC for details.
-
 ## Pinout
 
 ![Pinout](images/charge-station-controller-pinout.jpg "Pinout")
-</div>
 <figcaption style="text-align: center">Pinout</figcaption>
 
 ## Typical use case
@@ -89,8 +86,6 @@ Each EV charging station design is different – requiring a different set of in
 - Standard IEC 61851-21-2, Electric vehicle requirements for conductive connection to an AC/DC supply
 - CharIN association – [CCS implementation guide](https://www.charinev.org/ccs-at-a-glance/ccs-implementation-guideline/)
 
-<div class="bigger-1000">
 
 ![Functionality overview](images/functionalities.jpg "Functionality overview")
-</div>
 <figcaption style="text-align: center">Functionality overview</figcaption>

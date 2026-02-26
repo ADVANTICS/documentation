@@ -23,7 +23,7 @@ The ADM-CS-SPCC is a charge controller for electric vehicle charging stations. T
 - **LEDs**: 3 LED outputs, 12V, overcurrent protected
 - **RS-485 + 5V**: Modbus-RTU stack available, 5 V max. 2 A max
 - **Ethernet**: 100Mbps RJ45, Modbus TCP available
-- **Wireless**: Dual-Band 2.4/5 GHz 1x1 Wi-Fi 4 (802.11n), Bluetooth 5.2
+- **Wireless (optional)**: Dual-Band 2.4 and 5 GHz 1x1 Wi-Fi 4 (802.11n), Bluetooth 5.2
 - **USB-C**: USB 3.1 Gen 1
 - **Temperature Measurements**: 4 PT1000 inputs ( 2 of them are HW protected to prevent overheating)
 - **Output Contactor Driver**: Contactor enable signal provided, open collector, max 200 mA, max 30V

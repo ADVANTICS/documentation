@@ -128,6 +128,7 @@ nav:
     - Setting Static IP: "advos-yocto-system/static-ip.md"
     - Updating the Software: "advos-yocto-system/updating.md"
     - CAN Interface System Configuration: "advos-yocto-system/can-bus-configuration.md"
+    - Deployment Checklist: "advos-yocto-system/must-do-before-deploy.md"
   - CAN bus Interfaces:
     - Introduction: "charger-can-interfaces/introduction.md"
     - Generic interface v2:

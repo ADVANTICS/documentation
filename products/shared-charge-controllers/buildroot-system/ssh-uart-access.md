@@ -8,16 +8,10 @@ An SSH server is running on the controller on the standard SSH port, 22. To acce
 
 In the present version, controllers are configured by default for a static IPv4 address:
 
-<div class="small-table compact-table">
-
 | Variant | Static IP | Submask | Gateway |
 |---|---|---|---|
 | **ADM-CS-SECC** | 192.168.1.51 | 255.255.255.0 | 192.168.1.1
-| **ADM-CS-EVCC** | 192.168.1.49 | 255.255.255.0 | 192.168.1.1
 
-</div>
-
-> [!NOTE] This will change in the future with DHCP addressing by default
 
 The following steps will help access the controller successfully:
 <br/><br/>
@@ -72,14 +66,10 @@ The following steps will help access the controller successfully:
 
 On controllers sold for development and prototyping, the login credentials are:
 
-<div class="noheader-table small-table compact-table">
-
 | * | *
 |---|---
 | **Login** | _root_
 | **Password** | _dev-only_
-
-</div>
 
 For controllers meant for series production, the following hardening methods are available.
 
@@ -108,7 +98,6 @@ On the EVCC:
 On the Generic Controller:
 ![UART](images/UART.png "UART")
 
-<div class="noheader-table small-table compact-table">
 <span>UART configuration</span>
 
 | * | *
@@ -119,7 +108,6 @@ On the Generic Controller:
 | **Size** | 8 bits
 | **Flow control** | None
 
-</div>
 
 !!! warning
     This UART port works in **3.3 V only**. If you use another voltage you might damage the computer module!
@@ -136,13 +124,9 @@ Jump to [Login](#Login) for the next step.
 !!! tip
     A compatible console cable would be a TTL-232R-3V3 from FTDI. Wire it as such:
 
->
-> <div class="small-table compact-table">
->
-> | Cable pin | Cable color | Cable signal | J4 pin | J4 name on picture |
-> | :---: | :---: | :---: | :---: | :---: |
-> | 1 | Black | GND | 3 | GND |
-> | 4 | Orange | TXD | 1 | IN |
-> | 5 | Yellow | RXD | 2 | OUT |
->
-> </div>
+    | Cable pin | Cable color | Cable signal | J4 pin | J4 name on picture |
+    | :---: | :---: | :---: | :---: | :---: |
+    | 1 | Black | GND | 3 | GND |
+    | 4 | Orange | TXD | 1 | IN |
+    | 5 | Yellow | RXD | 2 | OUT |
+

@@ -6,11 +6,11 @@ The ADM-CS-SECC should be considered as a development platform – experience wi
 
 The controller expects 24V power. Consult specification sheet for supply requirements.
 
-<div class="bigger-300">
 
-![Power section - connector reference next to the pin](images/ADM-CS-SECC_multipart_power.svg "Power section - connector reference next to the pin")
-</div>
-<figcaption style="text-align: center">Figure 2: Power section - connector reference next to the pin</figcaption>
+<figure style="text-align: center">
+  <img src="images/ADM-CS-SECC_multipart_power.svg" alt="Power section - connector reference next to the pin" title="Power section - connector reference next to the pin">
+  <figcaption>Power section - connector reference next to the pin</figcaption>
+</figure>
 
 ## CCS and AC interfaces
 
@@ -20,14 +20,15 @@ The CCS and AC interface consists of CP, PP lines, inlet lock and temperature se
     There are many different CCS and AC inlets and cables. Suitable cables are manufactured by typical suppliers such as Phoenix Contact, and are available in a wide price-range. However, beware of potential wiring differences. Consult your choice of cable with ADVANTICS.
 
 
-<div class="bigger-300">
+<figure style="text-align: center">
+  <img src="images/ADM-CS-SECC_multipart_CCS_A.svg" alt="CCS A interface - DC charging" title="CCS A interface - DC charging">
+  <figcaption>CCS A interface - DC charging</figcaption>
+</figure>
 
-![CCS A interface - DC charging](images/ADM-CS-SECC_multipart_CCS_A.svg "CCS A interface - DC charging")
-<figcaption style="text-align: center">Figure 3: CCS A interface - DC charging</figcaption>
-
-![CCS B interface - AC charging only](images/ADM-CS-SECC_multipart_CCS_B.svg "CCS B interface - AC charging only")
-</div>
-<figcaption style="text-align: center">Figure 4: CCS B interface - AC charging only</figcaption>
+<figure style="text-align: center">
+  <img src="images/ADM-CS-SECC_multipart_CCS_B.svg" alt="CCS B interface - AC charging only" title="CCS B interface - AC charging only">
+  <figcaption>CCS B interface - AC charging only</figcaption>
+</figure>
 
 ## Inlet locking of AC interface
 
@@ -42,11 +43,10 @@ Just like the CCS interface, CHAdeMO is under full control of the communication 
     CHAdeMO cables have even higher variance in wiring than CCS. Datasheets often miss critical information about solenoid control for example. There are two types of CHAdeMO solenoids – bistable ones, requiring having the solenoid wired between SOLENOID_P and SOLENOID_N outputs, and then monostable ones – requiring connection between SOLENOID_P and GROUND.
 
 
-<div class="bigger-300">
-
-![CHAdeMO interface pinout](images/ADM-CS-SECC_multipart_CHADEMO.svg "CHAdeMO interface pinout")
-</div>
-<figcaption style="text-align: center">Figure 5:CHAdeMO interface pinout</figcaption>
+<figure style="text-align: center">
+  <img src="images/ADM-CS-SECC_multipart_CHADEMO.svg" alt="CHAdeMO interface pinout" title="CHAdeMO interface pinout">
+  <figcaption>CHAdeMO interface pinout</figcaption>
+</figure>
 
 ## Output contactor control
 
@@ -62,30 +62,30 @@ The customer can also use the output of these relays, and add an additional prot
 
 The charge controller has one dedicated CAN bus for connection to the customer’s systems. For example power modules, voltage and current sensors with CAN bus interface, HMI systems and similar eqiupment. This CAN bus is the main way of communication between ADVANTICS CCS and CHAdeMO stacks, and the power modules.
 
-> [!TIP|label:CAN bus tip]
-> Not all power modules use a CAN bus, some of them might require Ethernet, Modbus or RS-485. Customers can write their own applications running on the charge controller, converting the CAN bus communication into another interface – effectively creating a communications bridge. Typical use would be to listen to ADVANTICS CAN messages, and then convert and send them over RS-485, and vise-versa.
+!!! tip "CAN bus tip"
+    Not all power modules use a CAN bus, some of them might require Ethernet, Modbus or RS-485. Customers can write their own applications running on the charge controller, converting the CAN bus communication into another interface – effectively creating a communications bridge. Typical use would be to listen to ADVANTICS CAN messages, and then convert and send them over RS-485, and vise-versa.
 
 The CAN bus runs at speed of 500kbaud by default. There is no 120 Ohm termination on this bus, but it can be easily enabled by installing a wire jumper between pins CAN_TERM_BRIDGE1 and CAN_TERM_BRIDGE2. A built-in 120 Ohm resistor will then be automatically placed between CAN High and Low.
 
-<div class="bigger-300">
 
-![Communication pinout - CAN, RS485, Interlock, Current Loop, Ethernet, Antenna](images/ADM-CS-SECC_multipart_COMM.svg "Communication pinout - CAN, RS485, Interlock, Current Loop, Ethernet, Antenna")
-</div>
-<figcaption style="text-align: center">Figure 6: Communication pinout - CAN, RS485, Interlock, Current Loop, Ethernet, Antenna</figcaption>
+<figure style="text-align: center">
+  <img src="images/ADM-CS-SECC_multipart_COMM.svg" alt="Communication pinout - CAN, RS485, Interlock, Current Loop, Ethernet, Antenna" title="Communication pinout - CAN, RS485, Interlock, Current Loop, Ethernet, Antenna">
+  <figcaption>Communication pinout - CAN, RS485, Interlock, Current Loop, Ethernet, Antenna</figcaption>
+</figure>
 
 ## Digital inputs and outputs
 
 There are four digital inputs and four digital outputs on the charge controller.
 The digital inputs and outputs are fully user-configurable and controllable.
 
-Por GPIO control, please refer to sections [**Manual GPIO control**](charge-controllers/sys3_user/gpios.md#manual_gpio_control) and [**GPIO control in your application**](charge-controllers/sys3_user/gpios.md#gpio_control_in_your_application)
+Por GPIO control, please refer to sections [**Manual GPIO control**](./buildroot-system/gpios.md#manual_gpio_control) and [**GPIO control in your application**](./buildroot-system/gpios.md#gpio_control_in_your_application)
 
 
-<div class="bigger-300">
 
-![Digital input/output pinout and fans](images/ADM-CS-SECC_multipart_dig_IO.svg "Digital input/output pinout and fans")
-</div>
-<figcaption style="text-align: center">Figure 7: Digital input/output pinout and fans</figcaption>
+<figure style="text-align: center">
+  <img src="images/ADM-CS-SECC_multipart_dig_IO.svg" alt="Digital input/output pinout and fans" title="Digital input/output pinout and fans">
+  <figcaption>Digital input/output pinout and fans</figcaption>
+</figure>
 
 ### Digital Inputs
 The inputs are 24V tolerant but are also compatible with 12V logic level, the maximum voltage on this pin is about 30V, and have a weak 10 kOhm pulldown.

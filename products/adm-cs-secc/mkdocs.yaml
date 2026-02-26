@@ -1,6 +1,6 @@
-site_name: ADB-PC-DC01 Documentation
-site_description: Technical documentation for Advantics ADB-PC-DC01 100kW AC/DC Active Frontend
-site_url: https://documentation.advantics.fr/adb-pc-dc01
+site_name: ADM-CS-SPCC Documentation
+site_description: Technical documentation for Advantics ADM-CS-SPCC 100kW AC/DC Active Frontend
+site_url: https://documentation.advantics.fr/adm-cs-spcc
 repo_url: https://github.com/ADVANTICS/documentation
 repo_name: gh:ADVANTICS/documentation
 edit_uri: edit/material/docs/
@@ -18,16 +18,18 @@ theme:
   name: material
   language: en
   logo: assets/logo.webp
-  favicon: assets/logo.webp
+  favicon: assets/favicon.svg
 
-  # Color scheme
   palette:
-    - scheme: black
+    # Light theme
+    - scheme: default
       primary: black
       accent: black
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
+
+    # Dark theme
     - scheme: slate
       primary: black
       accent: black
@@ -42,24 +44,49 @@ theme:
 
   # Features
   features:
-    - navigation.tabs
-    - navigation.sections
-    - navigation.expand
-    - navigation.top
-    - search.suggest
-    - search.highlight
-    - content.code.copy
+    - navigation.instant  # No reload between pages, use XHR
+    - navigation.instant.progress  # Show progress-bar if longer than 400ms
+    # - navigation.tracking  # Update URL with scroll
+    # - navigation.tabs  # Top-level nav as tabs in header
+    - navigation.tabs.sticky  # Header tabs don't dissapear when scrolling down
+    - navigation.top  # Back-to-top button
+    # - navigation.sections  # Group sections in the sidebar
+    # - navigation.expand  # Expand all collapsible navigation sub-sections
+    # - navigation.prune  # all sections collapsed by default
+    - navigation.path  # Breadcrumb
+    - navigation.indexes  # Intermediate section levels can have their own pages
+    - navigation.footer  # Prev/Next links at the bottom
+    - toc.follow  # TOC sidebar follows scroll
+    # - toc.integrate  # Merge TOC into navigation sidebar
+    - search.suggest  # Suggest search completion
+    - search.highlight  # Highlight search results in the page
+    - search.share  # Can create/copy share link for searched
+    - header.autohide  # Collapse header entirely as scrolling down
+    # - content.action.edit  # Top-right (middle column) edit icon
+    # - content.action.view  # Top-right (middle column) view raw icon
+    - content.code.copy  # Enable copy button site-wise
     - content.tabs.link
 
 # Plugins
 plugins:
   - search
   - mermaid2
+  - plantuml:
+      render: "server"
+      puml_url: "https://www.plantuml.com/plantuml"
+      output_format: "svg"
+      theme_enabled: false
+      retries: 5
+      delay: 2
+      # theme:
+      #     url: _puml  # Path to custom themes, must contain advantics-theme-light.puml and advantics-theme-dark.puml
+      #     light: advantics-theme-light
+      #     dark: advantics-theme-dark
   - with-pdf:
       enabled_if_env: PDF_EXPORT
-      output_path: pdf/adb-pc-dc01-manual.pdf
-      cover_title: ADB-PC-DC01 User Manual
-      cover_subtitle: 100kW 1500V DC/DC Isolated
+      output_path: pdf/adm-cs-spcc-manual.pdf
+      cover_title: ADM-CS-SPCC User Manual
+      cover_subtitle: Single Pistol Charge Controller (SPCC)
       author: ADVANTICS SAS
       custom_template_path: docs/assets
 
@@ -88,14 +115,51 @@ markdown_extensions:
 
 # Navigation structure
 nav:
-  - "Document Information": "index.md"
-  - "Overview": "1_overview.md"
-  - "Electrical Specifications": "2_electrical_specs.md"
-  - "Connectors and Interfaces": "3_connectors_and_interfaces.md"
-  - "Operation": "4_operation.md"
-  - "Installation": "5_installation.md"
-  - "Safety and Warnings": "6_safety_and_warnings.md"
-  - "Appendix": "7_appendix.md"
+  - Document Information: "index.md"
+  - Technical data: "introduction.md"
+  - Interfaces: "interfaces.md"
+  - Examples of use: "examples.md"
+  - Software Releases: "secc_versions.md"
+  - Configuration: "secc_configuration.md"
+  - Working with the SECC:
+    - SSH access: "buildroot-system/ssh-uart-access.md"
+    - Web UI Access: "csm-web-ui.md"
+    - Read-only file system: "buildroot-system/read-only.md"
+    - Updating the Software: "buildroot-system/sys3_update.md"
+    - Managing Applications: "buildroot-system/manage-applications.md"
+    - Debugging: "buildroot-system/debugging.md"
+    - Manual GPIO control: "buildroot-system/gpios.md"
+    - CAN Interface System Configuration: "buildroot-system/can-bus-configuration.md"
+    - Changing the IP address: "buildroot-system/set-different-ip.md"
+    - Developping with the SECC: "buildroot-system/developing.md"
+    - Deployment Checklist: "buildroot-system/must-do-before-deploy.md"
+  - CAN bus Interfaces:
+    - Introduction: "charger-can-interfaces/introduction.md"
+    - Generic interface v2:
+      - Sequences of action: "charger-can-interfaces/sequences_v2.md"
+      - CAN databases: "charger-can-interfaces/databases_v2.md"
+      - CAN messages: "charger-can-interfaces/can_v2.md"
+      - Charge sequence diagram: "charger-can-interfaces/charge-sequence-diagram_v2.md"
+      - Changelog: "charger-can-interfaces/changelog_v2.md"
+    - Generic interface v3:
+      - Sequences of action: "charger-can-interfaces/sequences_v3.md"
+      - CAN databases: "charger-can-interfaces/databases_v3.md"
+      - CAN messages: "charger-can-interfaces/can_v3.md"
+      - Charge sequence diagram: "charger-can-interfaces/charge-sequence-diagram_v3.md"
+      - Changelog: "charger-can-interfaces/changelog_v3.md"
+    - V2G: "charger-can-interfaces/secc_bidirectional.md"
+    - AC charging: "charger-can-interfaces/secc_ac_charging.md"
+  - Features:
+    - Climate control: "charger-features/secc_climate_control.md"
+    - IOs on CAN: "charger-features/secc_can_ios.md"
+    - Charger interfaces: "charger-features/charger_interfaces.md"
+    - OCPP 1.6J: "charger-features/ocpp16j.md"
+    - OCPP 2.0.1: "charger-features/ocpp201.md"
+    - Plug'n'Charge:
+      - Plug'n'Charge overview: "charger-features/tls_pnc/pnc_primer.md"
+      - TLS & Plug'n'Charge configuration: "charger-features/tls_pnc/tls_pnc_config.md"
+    - Supported Insulation Monitors: "charger-features/evse-supported-insulation-monitors.md"
+    - Charger Emulator: "charger-features/charger-simulation.md"
 
 # Extra configurations
 extra:
@@ -114,3 +178,7 @@ extra_css:
 # Extra JavaScript for Mermaid
 extra_javascript:
   - https://unpkg.com/mermaid@10.6.1/dist/mermaid.min.js
+
+# extra_files:
+#   - _puml/advantics-theme-dark.puml
+#   - _puml/advantics-theme-light.puml
