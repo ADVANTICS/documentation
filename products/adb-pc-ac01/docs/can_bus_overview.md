@@ -4,13 +4,20 @@
 
 Kayak is an open [format](https://github.com/julietkilo/kcd) based on XML, and is rather human readable (more than DBCs…). This is the main format for us. That is, we author the CAN DBs in this format, and our software and firmware use it directly.
 
-Find ADB-PC-AC01 CAN bus .kcd file here: [**ADB_PC_AC01.kcd**](../assets/ADB_PC_AC01.kcd)
+<!-- Find ADB-PC-AC01 CAN bus .kcd file here: [**ADB_PC_AC01.kcd**](../assets/ADB_PC_AC01.kcd) -->
 
 ## DBC format
 
 As a courtesy we also provide our CAN DBs in the more usual DBC format. Note these are automatically converted from the Kayak ones. Therefore, they are not the reference DBs.
 
-Find ADB-PC-AC01 CAN bus .dbc file here: [**ADB_PC_AC01.dbc**](../assets/ADB_PC_AC01.dbc)
+<!-- Find ADB-PC-AC01 CAN bus .dbc file here: [**ADB_PC_AC01.dbc**](../assets/ADB_PC_AC01.dbc) -->
+
+## CAN API Versions
+
+| CAN API Version | .kcd file | .dbc file |
+|-----------------|-----------|-----------|
+| 3.1.0           | [**ADB_PC_AC01_3.1.0.kcd**](../assets/ADB_PC_AC01_3.1.0.kcd) | [**ADB_PC_AC01_3.1.0.dbc**](../assets/ADB_PC_AC01_3.1.0.dbc) |
+
 
 # CAN frame ID format
 

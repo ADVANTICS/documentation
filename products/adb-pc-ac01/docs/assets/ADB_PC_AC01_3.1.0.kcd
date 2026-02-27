@@ -1,0 +1,2685 @@
+<NetworkDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://kayak.2codeornot2code.org/1.0" xsi:schemaLocation="Definition.xsd">
+  <Document name="Some Document Name">some text</Document>
+  <Node name="User" id="1"/>
+  <Node name="ADB_PC_AC01" id="2"/>
+  <Node name="ADB_PC_BASE" id="3"/>
+  <Node name="ADB_PC_BOX" id="4"/>
+  <Bus name="ADB_PC_AC01">
+    <Message id="0x810040" name="AC01_Mode_Set_0_AC01" length="1" format="extended">
+      <Notes>Set the mode of AC01</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="mode_0_AC01" offset="0" length="8">
+        <Notes>require mode</Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="DC_Controlled" value="0"/>
+          <Label name="AC_Controlled" value="1"/>
+          <Label name="Bleeding" value="2"/>
+        </LabelSet>
+      </Signal>
+    </Message>
+    <Message id="0x810041" name="AC01_Mode_Applied_0_AC01" length="1" format="extended">
+      <Notes>read back the modes</Notes>
+      <Producer>
+        <NodeRef id="2"/>
+      </Producer>
+      <Signal name="mode_0_AC01" offset="0" length="8">
+        <Notes>actual mode</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="DC_Controlled" value="0"/>
+          <Label name="AC_Controlled" value="1"/>
+          <Label name="Bleeding" value="2"/>
+        </LabelSet>
+      </Signal>
+    </Message>
+    <Message id="0x810042" name="AC01_faults_0_AC01" length="8" format="extended">
+      <Notes>AC01 Critical and Error Faults</Notes>
+      <Producer>
+        <NodeRef id="2"/>
+      </Producer>
+      <Signal name="CABLE_1_2_L1_0_AC01" offset="0">
+        <Notes>DMF1(1).L1  BP25(2).U mismatch</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_1_3_L1_0_AC01" offset="1">
+        <Notes>DMF1(1).L1  BP25(3).U mismatch</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_1_2_L2_0_AC01" offset="2">
+        <Notes>DMF1(1).L2  BP25(2).V mismatch</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_1_3_L2_0_AC01" offset="3">
+        <Notes>DMF1(1).L2  BP25(3).V mismatch</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_1_2_L3_0_AC01" offset="4">
+        <Notes>DMF1(1).L3  BP25(2).W mismatch</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_1_3_L3_0_AC01" offset="5">
+        <Notes>DMF1(1).L3  BP25(3).W mismatch</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_4_5_L1_0_AC01" offset="6">
+        <Notes>DMF1(4).L1  BP25(5).U mismatch</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_4_6_L1_0_AC01" offset="7">
+        <Notes>DMF1(4).L1  BP25(6).U mismatch</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_4_5_L2_0_AC01" offset="8">
+        <Notes>DMF1(4).L2  BP25(5).V mismatch</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_4_6_L2_0_AC01" offset="9">
+        <Notes>DMF1(4).L2  BP25(6).V mismatch</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_4_5_L3_0_AC01" offset="10">
+        <Notes>DMF1(4).L3  BP25(5).W mismatch</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_4_6_L3_0_AC01" offset="11">
+        <Notes>DMF1(4).L3  BP25(6).W mismatch</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_1_4_L1_0_AC01" offset="12">
+        <Notes>Grid L1  DMF1(1).in vs DMF1(4).in mismatch</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_1_4_L2_0_AC01" offset="13">
+        <Notes>Grid L2  DMF1(1).in vs DMF1(4).in mismatch</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_1_4_L3_0_AC01" offset="14">
+        <Notes>Grid L3 - DMF1(1).in vs DMF1(4).in mismatch</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_2_3_DC_0_AC01" offset="15">
+        <Notes>BP25(2).DC  BP25(3).DC mismatch</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_5_6_DC_0_AC01" offset="16">
+        <Notes>BP25(5).DC  BP25(6).DC mismatch</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_3_5_DC_0_AC01" offset="17">
+        <Notes>BP25(3).DC  BP25(5).DC mismatch</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="MODULE_1_RUNNING_0_AC01" offset="18">
+        <Notes>DMF1(1) running error</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="MODULE_2_RUNNING_0_AC01" offset="19">
+        <Notes>DMF1(2) running error</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="MODULE_3_RUNNING_0_AC01" offset="20">
+        <Notes>DMF1(3) running error</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="MODULE_4_RUNNING_0_AC01" offset="21">
+        <Notes>DMF1(4) running error</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="MODULE_5_RUNNING_0_AC01" offset="22">
+        <Notes>DMF1(5) running error</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="MODULE_6_RUNNING_0_AC01" offset="23">
+        <Notes>DMF1(6) running error</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="FILTER_1_RELAY_FAIL_0_AC01" offset="24">
+        <Notes>Relay 1 fail</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="FILTER_4_RELAY_FAIL_0_AC01" offset="25">
+        <Notes>Relay 4 fail</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="FILTER_1_RELAY_NOT_OFF_0_AC01" offset="26">
+        <Notes>Relay 1 not off</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="FILTER_4_RELAY_NOT_OFF_0_AC01" offset="27">
+        <Notes>Relay 4 not off</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="PRECHARGE_RELAY_CLOSING_0_AC01" offset="28">
+        <Notes>Precharge relay closing</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="PRECHARGE_RELAY_OPENING_0_AC01" offset="29">
+        <Notes>Precharge relay opening</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="FILTER_NOT_RUNNING_0_AC01" offset="30">
+        <Notes>Filter not running</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="RECTIFIER_3P_NOT_RUNNING_0_AC01" offset="31">
+        <Notes>Rectifier not running</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="AFE_NOT_OFF_0_AC01" offset="32">
+        <Notes>AFE not off</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="FILTER_STOP_RUNNING_0_AC01" offset="34">
+        <Notes>Filter stop running</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="RECTIFIER_3P_STOP_RUNNING_0_AC01" offset="35">
+        <Notes>Rectifier stop running</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="AFE_PWM_NOT_RUNNING_0_AC01" offset="36">
+        <Notes>BLEEDING not running</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="AFE_PWM_STOP_RUNNING_0_AC01" offset="37">
+        <Notes>Bleeding stop running</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="BLEEDING_FAILED_0_AC01" offset="38">
+        <Notes>Bleeding failed</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="FILTER_NOT_OFF_0_AC01" offset="39">
+        <Notes>filter not off</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+    </Message>
+    <Message id="0x810043" name="AC01_warning_0_AC01" length="8" format="extended">
+      <Notes>AC01 Warning</Notes>
+      <Producer>
+        <NodeRef id="2"/>
+      </Producer>
+      <Signal name="GHM_INIT_0_AC01" offset="0">
+        <Notes>GHM init failed</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Warning" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="GHM_RMS_0_AC01" offset="1">
+        <Notes>GHM RMS failed</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Warning" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="GHM_FREQ_0_AC01" offset="2">
+        <Notes>GHM freq failed</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Warning" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="GHM_PHASE_0_AC01" offset="3">
+        <Notes>GHM phase failed</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Warning" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="V_SET_DC_BELOW_AC_0_AC01" offset="4">
+        <Notes>DC voltage too low vs AC</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Warning" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="AFE_DROOP_NOT_ENABLE_0_AC01" offset="15">
+        <Notes>Group ID not set</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Warning" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="MODE_NOT_SUPPORTED_0_AC01" offset="16">
+        <Notes>Mode not supported</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Warning" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="V_A_LOW_0_AC01" offset="17">
+        <Notes>voltage port a too low</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Warning" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="V_A_HIGH_0_AC01" offset="18">
+        <Notes>voltage port a too high</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Warning" value="1"/>
+        </LabelSet>
+      </Signal>
+    </Message>
+    <Message id="0x810044" name="AC01_info_0_AC01" length="8" format="extended">
+      <Notes>AC01 Info</Notes>
+      <Producer>
+        <NodeRef id="2"/>
+      </Producer>
+      <Signal name="BLEEDING_DONE_0_AC01" offset="1">
+        <Notes>Current limited by power max </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Info" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CURRENT_LIMIT_0_AC01" offset="2">
+        <Notes>Current limited by power max </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Info" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CURRENT_LIMITED_BY_POWER_0_AC01" offset="3">
+        <Notes>Current limited by power max </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Info" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="VB_LIMITED_BY_VA_0_AC01" offset="4">
+        <Notes>VA is not high enough to reach targeted VB</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Info" value="1"/>
+        </LabelSet>
+      </Signal>
+    </Message>
+    <Message id="0x810020" name="DC_Ports_Setpoints_0_AC01" length="6" format="extended">
+      <Notes>The setpoints control the behaviour of the DC Port of the AC01. The AC01 operates this port in CVCC mode</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="Voltage_0_AC01" offset="0" length="16">
+        <Notes>Control the target dc side voltage. This voltage will be maintained as long as the current required to do so is smaller than the current limits specified in this message</Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value slope="0.1" max="6553.5" unit="V"/>
+      </Signal>
+      <Signal name="Positive_Current_Limit_0_AC01" offset="16" length="16">
+        <Notes>The maximum current that the AC01 will source on the DC Port</Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="A"/>
+      </Signal>
+      <Signal name="Negative_Current_Limit_0_AC01" offset="32" length="16">
+        <Notes>The maximum current that the AC01 will sink into the DC Port</Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="A"/>
+      </Signal>
+    </Message>
+    <Message id="0x810021" name="DC_Port_Applied_Setpoints_0_AC01" length="8" format="extended">
+      <Notes>The setpoints that are currently used by the AC01. This message allows to validate that the setpoints have been properly applied.</Notes>
+      <Producer>
+        <NodeRef id="2"/>
+      </Producer>
+      <Signal name="Voltage_0_AC01" offset="0" length="16">
+        <Notes>The voltage target of the DC port</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value slope="0.1" max="6553.5" unit="V"/>
+      </Signal>
+      <Signal name="Positive_Current_Limit_0_AC01" offset="16" length="16">
+        <Notes>The maximum current that the AC01 will source on the DC Port</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="A"/>
+      </Signal>
+      <Signal name="Negative_Current_Limit_0_AC01" offset="32" length="16">
+        <Notes>The maximum amount of current that the AC01 will sink into the DC port</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="A"/>
+      </Signal>
+    </Message>
+    <Message id="0x810024" name="DC_Port_Measurements_0_AC01" length="4" format="extended">
+      <Notes>Measurements of the DC Bus</Notes>
+      <Producer>
+        <NodeRef id="2"/>
+      </Producer>
+      <Signal name="Voltage_0_AC01" offset="0" length="16">
+        <Notes>Voltage on the DC Port</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value slope="0.1" max="6553.5" unit="V"/>
+      </Signal>
+      <Signal name="Current_0_AC01" offset="16" length="16">
+        <Notes>Current through the DC Port</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="A"/>
+      </Signal>
+    </Message>
+    <Message id="0x810022" name="DC_Port_Droop_Setpoints_0_AC01" length="8" format="extended">
+      <Notes>Setpoints for applying Droop on the DC Port. Droop is needed for paralleling multiple AC01</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="Positive_Current_Droop_0_AC01" offset="0" length="16">
+        <Notes>The droop resistance to apply for current flowing out of the DC port (DC current is positive)</Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value slope="0.01" max="655.35" unit="Ohm"/>
+      </Signal>
+      <Signal name="Negative_Current_Droop_0_AC01" offset="16" length="16">
+        <Notes>The droop resistance to apply for current flowing in to the DC Port (DC current is negative)</Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value slope="0.01" max="655.35" unit="Ohm"/>
+      </Signal>
+      <Signal name="Enable_0_AC01" offset="32">
+        <Notes>Enable DC Droop. If this feature is enabled the output voltage of the DC port varies with output current.</Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Disabled" value="0"/>
+          <Label name="Enabled" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Reserved_0_AC01" offset="33" length="31">
+        <Notes>This space is reserved. This region should contain only '0's</Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="2147483647"/>
+      </Signal>
+    </Message>
+    <Message id="0x810023" name="DC_Port_Applied_Droop_Setpoints_0_AC01" length="8" format="extended">
+      <Notes>Droop setpoints that are applied by the AC01</Notes>
+      <Producer>
+        <NodeRef id="2"/>
+      </Producer>
+      <Signal name="Positive_Current_Droop_0_AC01" offset="0" length="16">
+        <Notes>The droop resistance applied for current flowing out of the DC port (DC current is positive)</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value slope="0.01" max="655.35" unit="Ohm"/>
+      </Signal>
+      <Signal name="Negative_Current_Droop_0_AC01" offset="16" length="16">
+        <Notes>The droop resistance applied for current flowing in to the DC Port (DC current is negative)</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value slope="0.01" max="655.35" unit="Ohm"/>
+      </Signal>
+      <Signal name="Enable_0_AC01" offset="32">
+        <Notes>Show is DC Droop is enabled.</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Disabled" value="0"/>
+          <Label name="Enabled" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Reserved_0_AC01" offset="33" length="31">
+        <Notes>This space is reserved. This region should contain only '0's</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="2147483647"/>
+      </Signal>
+    </Message>
+    <Message id="0x810032" name="AC_Port_Measurements_0_AC01" length="8" format="extended">
+      <Notes>Mesured values of the Grid connection</Notes>
+      <Producer>
+        <NodeRef id="2"/>
+      </Producer>
+      <Signal name="Frequency_0_AC01" offset="0" length="16">
+        <Notes>RMS Voltage of L1</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value slope="0.01" max="655.35" unit="Hz"/>
+      </Signal>
+      <Signal name="Voltage_0_AC01" offset="16" length="16">
+        <Notes>Average RMS Line to Line voltage at the AC port</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value slope="0.1" max="6553.5" unit="V"/>
+      </Signal>
+      <Signal name="Reserved_0_AC01" offset="32" length="32">
+        <Notes>This space is reserved. This region contains only '0's</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="4294967295"/>
+      </Signal>
+    </Message>
+    <Message id="0x810033" name="L1_Measurements_0_AC01" length="8" format="extended">
+      <Notes>Measurements for L1 of the AC port</Notes>
+      <Producer>
+        <NodeRef id="2"/>
+      </Producer>
+      <Signal name="U_0_AC01" offset="0" length="16">
+        <Notes>RMS Voltage of L1</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="V"/>
+      </Signal>
+      <Signal name="I_0_AC01" offset="16" length="16">
+        <Notes>RMS Current of L1</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="A"/>
+      </Signal>
+      <Signal name="P_0_AC01" offset="32" length="16">
+        <Notes>Active power of L1</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="W"/>
+      </Signal>
+      <Signal name="Q_0_AC01" offset="48" length="16">
+        <Notes>Reactive power of L1</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="VAR"/>
+      </Signal>
+    </Message>
+    <Message id="0x810034" name="L2_Measurements_0_AC01" length="8" format="extended">
+      <Notes>Measurements for L2 of the AC port</Notes>
+      <Producer>
+        <NodeRef id="2"/>
+      </Producer>
+      <Signal name="U_0_AC01" offset="0" length="16">
+        <Notes>RMS Voltage of L1</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="V"/>
+      </Signal>
+      <Signal name="I_0_AC01" offset="16" length="16">
+        <Notes>RMS Current of L2</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="A"/>
+      </Signal>
+      <Signal name="P_0_AC01" offset="32" length="16">
+        <Notes>Active power of L2</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="W"/>
+      </Signal>
+      <Signal name="Q_0_AC01" offset="48" length="16">
+        <Notes>Reactive power of L2</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="VAR"/>
+      </Signal>
+    </Message>
+    <Message id="0x810035" name="L3_Measurements_0_AC01" length="8" format="extended">
+      <Notes>Measurements for L3 of the AC port</Notes>
+      <Producer>
+        <NodeRef id="2"/>
+      </Producer>
+      <Signal name="U_0_AC01" offset="0" length="16">
+        <Notes>RMS Voltage of L3</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="V"/>
+      </Signal>
+      <Signal name="I_0_AC01" offset="16" length="16">
+        <Notes>RMS Current of L3</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="A"/>
+      </Signal>
+      <Signal name="P_0_AC01" offset="32" length="16">
+        <Notes>Active power of L3</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="W"/>
+      </Signal>
+      <Signal name="Q_0_AC01" offset="48" length="16">
+        <Notes>Reactive power of L3</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="VAR"/>
+      </Signal>
+    </Message>
+    <Message id="0x810030" name="AC_Port_Setpoints_0_AC01" length="8" format="extended">
+      <Notes>Setpoints to apply to the AC Port</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="Q_0_AC01" offset="0" length="16">
+        <Notes>Reactive Power of the AC port. Positive values cause the AC01 to behave inductively, negative values cause the AC01 to behave capacitively</Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="signed" slope="10" min="-327680" max="327670" unit="VAR"/>
+      </Signal>
+      <Signal name="Reserved_0_AC01" offset="16" length="48">
+        <Notes>This space is reserved. This region should contain only 0s</Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value max="281474976710655"/>
+      </Signal>
+    </Message>
+    <Message id="0x810031" name="AC_Port_Applied_Setpoints_0_AC01" length="8" format="extended">
+      <Notes>Setpoints that are currently being applied to the the AC Port</Notes>
+      <Producer>
+        <NodeRef id="2"/>
+      </Producer>
+      <Signal name="Q_0_AC01" offset="0" length="16">
+        <Notes>Reactive Power of the AC port. Positive values cause the AC01 to behave inductively, negative values cause the AC01 to behave capacitively</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="10" min="-327680" max="327670" unit="VAR"/>
+      </Signal>
+      <Signal name="Reserved_0_AC01" offset="16" length="48">
+        <Notes>This space is reserved. This region should contain only 0s</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="281474976710655"/>
+      </Signal>
+    </Message>
+    <Message id="0x810000" name="Identification_0_BASE" length="8" format="extended">
+      <Notes>Identification of the device</Notes>
+      <Producer>
+        <NodeRef id="3"/>
+      </Producer>
+      <Signal name="Type_0_BASE" offset="0" length="8">
+        <Notes>The device identification field, uniquely identifies the sender in the network</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="GC01" value="128"/>
+          <Label name="AC01" value="129"/>
+          <Label name="DC01" value="130"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Revision_0_BASE" offset="8" length="8">
+        <Notes>The hardware revision number</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="R0A" value="0"/>
+          <Label name="R0B" value="1"/>
+          <Label name="R0C" value="2"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Variant_0_BASE" offset="16" length="8">
+        <Notes>The hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="VA00" value="0"/>
+          <Label name="VA01" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Stack_position_0_BASE" offset="24" length="8">
+        <Notes>Position of the module within the stack</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+          <NodeRef id="3"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="serial_number_0_BASE" offset="32" length="32">
+        <Notes>Unique module serial number</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="4294967295"/>
+      </Signal>
+    </Message>
+    <Message id="0x810002" name="Firmware_UID_0_BASE" length="8" format="extended">
+      <Notes>Unique Identifier of the Firmware used on this module</Notes>
+      <Producer>
+        <NodeRef id="3"/>
+      </Producer>
+      <Signal name="UID_0_BASE" offset="0" length="64">
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="1.844674407370955e+19"/>
+      </Signal>
+    </Message>
+    <Message id="0x810001" name="Bootloader_UID_0_BASE" length="8" format="extended">
+      <Notes>Unique Identifier of the Bootloader used on this module</Notes>
+      <Producer>
+        <NodeRef id="3"/>
+      </Producer>
+      <Signal name="UID_0_BASE" offset="0" length="64">
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="1.844674407370955e+19"/>
+      </Signal>
+    </Message>
+    <Message id="0x810003" name="ADB_CAN_API_Version_0_BASE" length="3" format="extended">
+      <Notes>This message declares the version of the API that is provided by the converter. The version follows newer convention, as this file is an API definition, patch does not apply</Notes>
+      <Producer>
+        <NodeRef id="3"/>
+      </Producer>
+      <Signal name="Major_0_BASE" offset="0" length="8">
+        <Notes>The Major version number. This number increases if there are backwards incompatible changes</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Minor_0_BASE" offset="8" length="8">
+        <Notes>The Minor version number. This number increases if there are backwards compatible changes, like new messages or the use of previously reserved space</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Patch_0_BASE" offset="16" length="8">
+        <Notes>The Patch number. This number increases when changes to descriptions and documentation/comments are made</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+    </Message>
+    <Message id="0x810045" name="Stack_Control_0_BASE" length="6" format="extended">
+      <Notes>Module stack control</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="Stack_position_0_BASE" offset="0" length="8">
+        <Notes>The module position within the stack</Notes>
+        <Consumer>
+          <NodeRef id="3"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="reserved_0_BASE" offset="8" length="8">
+        <Notes>was stack size before</Notes>
+        <Consumer>
+          <NodeRef id="3"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="SN_number_0_BASE" offset="16" length="32">
+        <Notes>Unique module serial number</Notes>
+        <Consumer>
+          <NodeRef id="3"/>
+        </Consumer>
+        <Value max="4294967295"/>
+      </Signal>
+    </Message>
+    <Message id="0x810050" name="Fault_Control_0_BASE" length="1" format="extended">
+      <Notes>Fault Control: actions to clear faults and reset the system</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="Clear_Interlock_0_BASE" offset="0">
+        <Notes>Clears the converter interlock</Notes>
+        <Consumer>
+          <NodeRef id="3"/>
+        </Consumer>
+      </Signal>
+      <Signal name="Reset_Processor_0_BASE" offset="1">
+        <Notes>Reset the converter DSP</Notes>
+        <Consumer>
+          <NodeRef id="3"/>
+        </Consumer>
+      </Signal>
+      <Signal name="Trip_Interlock_0_BASE" offset="2">
+        <Notes>Trip the inetrnal Interlock</Notes>
+        <Consumer>
+          <NodeRef id="3"/>
+        </Consumer>
+      </Signal>
+      <Signal name="Reserved_0_BASE" offset="3" length="5">
+        <Notes>Reserved space</Notes>
+        <Consumer>
+          <NodeRef id="3"/>
+        </Consumer>
+        <Value max="31"/>
+      </Signal>
+    </Message>
+    <Message id="0x810061" name="Factory_Control_0_BASE" length="8" format="extended">
+      <Notes>Control the system flags</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="Factory_mode_0_BASE" offset="0">
+        <Notes>Customers MUST NOT USE this bit. If set to 1, module will enter in factory mode. </Notes>
+        <Consumer>
+          <NodeRef id="3"/>
+        </Consumer>
+      </Signal>
+    </Message>
+    <Message id="0x810012" name="Converter_Control_0__BOX" length="1" format="extended">
+      <Notes>box commands</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="enable_0__BOX" offset="0">
+        <Notes>Enable the system</Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+        </Consumer>
+      </Signal>
+    </Message>
+    <Message id="0x810013" name="Converter_Power_Info_0__BOX" length="6" format="extended">
+      <Notes>Converter power info</Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="load_0__BOX" offset="0" length="8">
+        <Notes>load in percent</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255" unit="%"/>
+      </Signal>
+      <Signal name="efficiency_0__BOX" offset="8" length="8">
+        <Notes>load in percent</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255" unit="%"/>
+      </Signal>
+      <Signal name="Power_capability_0__BOX" offset="16" length="16">
+        <Notes>Power capabilities in kw</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="kw"/>
+      </Signal>
+      <Signal name="low_power_input_0__BOX" offset="32" length="16">
+        <Notes>low power iunput voltage</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.01" min="-327.68" max="327.67" unit="v"/>
+      </Signal>
+    </Message>
+    <Message id="0x810010" name="Status_0__BOX" length="8" format="extended">
+      <Notes>General Status of the converter</Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="State_0__BOX" offset="0" length="16">
+        <Notes>box state</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="65535"/>
+        <LabelSet>
+          <Label name="init" value="0"/>
+          <Label name="standby" value="1"/>
+          <Label name="turning_on" value="2"/>
+          <Label name="running" value="3"/>
+          <Label name="turning_off" value="4"/>
+          <Label name="error" value="5"/>
+          <Label name="critical" value="6"/>
+          <Label name="god" value="7"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="flag_enable_0__BOX" offset="16">
+        <Notes>flag to know if the system is Enable</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="flag_ready_0__BOX" offset="17">
+        <Notes>box has receive correct set point and can be turned one </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="flag_energized_0__BOX" offset="18">
+        <Notes>the box is energized </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="flag_busy_0__BOX" offset="19">
+        <Notes>box is busy </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="flag_eco_0__BOX" offset="20">
+        <Notes>box is in eco mode</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="flag_warning_0__BOX" offset="24">
+        <Notes>box has warning and might be in degraded mode </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="flag_degraded_0__BOX" offset="25">
+        <Notes>box function in degraded mode </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="flag_error_0__BOX" offset="26">
+        <Notes>box has error those need to ble cleared to allow operation </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="flag_factory_0__BOX" offset="48">
+        <Notes>box function in factory mode </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="flag_god_mode_0__BOX" offset="49">
+        <Notes>box function in degraded mode </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+    </Message>
+    <Message id="0x8100F0" name="_fms_state_0__BOX" length="8" format="extended">
+      <Notes>FSm status for debug</Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="init_0__BOX" offset="0" length="8">
+        <Notes>box state init</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="ready_0__BOX" offset="16" length="8">
+        <Notes>box state ready</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="turned_on_0__BOX" offset="32" length="8">
+        <Notes>box state turned on</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="turned_off_0__BOX" offset="40" length="8">
+        <Notes>box state turned off</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="bleeding_0__BOX" offset="48" length="8">
+        <Notes>box state bleeding</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+    </Message>
+    <Message id="0x810011" name="Faults_0__BOX" length="8" format="extended">
+      <Notes>Fault bitfield</Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="internal_0__BOX" offset="0">
+        <Notes>This g is asserted if the interlock is open due to an internal fault condition (self-protection)</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Tripped" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="external_0__BOX" offset="1">
+        <Notes>This flag is asserted if the interlock is open due to an external condition received in the module.</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Tripped" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="system_0__BOX" offset="2">
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="EEPROM_failure_0__BOX" offset="3">
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="wrong_nfo_0__BOX" offset="4">
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Measurement_system_failure_0__BOX" offset="5">
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Warning" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="PLL_not_locked_0__BOX" offset="6">
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="overtemperature_0__BOX" offset="7">
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="fan_stuck_0__BOX" offset="8">
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Warning" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="dead_module_0__BOX" offset="9">
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="keep_alive_not_serv_internal_0__BOX" offset="10">
+        <Notes> keep alive internal not served </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="error_temperature_0__BOX" offset="11">
+        <Notes>trigger when a temperature has an errror</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Info" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="internal_modules_ready_0__BOX" offset="12">
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="internal_modules_can_api_0__BOX" offset="13">
+        <Notes>internal module wrong API</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="internal_modules_missing_0__BOX" offset="14">
+        <Notes>internal modules missing</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="internal_modules_wrong_0__BOX" offset="15">
+        <Notes>internal modules wrong</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="internal_modules_stack_0__BOX" offset="16">
+        <Notes>internal modules stack error</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="internal_modules_init_0__BOX" offset="17">
+        <Notes>internal module failed init</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="wrong_revision_0__BOX" offset="18">
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="v_in_low_0__BOX" offset="19">
+        <Notes>24v input too low </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="v_in_critical_0__BOX" offset="20">
+        <Notes>24v input too low </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="keep_alive_not_serv_0__BOX" offset="21">
+        <Notes> keep alive not served </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+    </Message>
+    <Message id="0x810015" name="Interface_Status_0__BOX" length="3" format="extended">
+      <Notes>interface status</Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="Broadcast_Group_0__BOX" offset="0" length="8">
+        <Notes>The broadcast group that the module belongs to. Broadcast group 0 implies that the module is not part of a broadcast group. </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="30"/>
+      </Signal>
+      <Signal name="keep_Alive_0__BOX" offset="8" length="4">
+        <Notes>keep alive requires the supervisory controller to send a heartbeat message at regular intervals</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="15"/>
+        <LabelSet>
+          <Label name="Disabled" value="0"/>
+          <Label name="Enabled" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="reserved_0__BOX" offset="12" length="4">
+        <Notes>If this signal and the 'keep alive' is enabled, violating the heartbeat will trip the interlock, shutting down all connected power converters</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="15"/>
+        <LabelSet>
+          <Label name="Disabled" value="0"/>
+          <Label name="Enabled" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="keep_Alive_Period_0__BOX" offset="16" length="8">
+        <Notes>The maximum period of the keep alive message. If the time between two heart-beat messages is longer than this value, the module ceases operation. This only applies when the Heartbeat signal is Enabled</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value slope="0.1" max="25.5" unit="s"/>
+      </Signal>
+    </Message>
+    <Message id="0x810016" name="Keep_Alive_Control_0__BOX" length="2" format="extended">
+      <Notes>Configure the Heartbeat for the Module. The 'Trip interlock' and 'Heartbeat Period' only apply if the heartbeat signals are enabled</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="Enable_0__BOX" offset="0">
+        <Notes>Enable/Disable the Heartbeat feature of the Module</Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Disabled" value="0"/>
+          <Label name="Enabled" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="reserved_0__BOX" offset="1">
+        <Notes>Set if the external interlock should be tripped if a heartbeat is not received within the configured period. If this signal is enabled the interlock is triped and the module is disabled. If this signal is set to Disabled, the interlock like will not be tripped but the module will cease operation</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Disabled" value="0"/>
+          <Label name="Enabled" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Period_0__BOX" offset="8" length="8">
+        <Notes>Set the maximum period of the Heartbeat message. If the time between two heart-beat messages is longer than this value, the module ceases operation.</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value slope="0.1" max="25.5" unit="s"/>
+      </Signal>
+    </Message>
+    <Message id="0x810017" name="Converter_Temperature_0__BOX" length="8" format="extended">
+      <Notes>Readouts of the converter temperature sensors</Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="Cooling_plate_0__BOX" offset="0" length="16">
+        <Notes>Temperature of the cooling plate</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.01" min="-327.68" max="327.67" unit="&#176;C"/>
+      </Signal>
+      <Signal name="Magnetics_0__BOX" offset="16" length="16">
+        <Notes>Highest mesured temp of magnetics</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.01" min="-327.68" max="327.67" unit="&#176;C"/>
+      </Signal>
+      <Signal name="Transistors_0__BOX" offset="32" length="16">
+        <Notes>Highest mesured temp of transistors</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.01" min="-327.68" max="327.67" unit="&#176;C"/>
+      </Signal>
+      <Signal name="RESERVED_0__BOX" offset="48" length="16">
+        <Notes>Lowest measured temp internally</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.01" min="-327.68" max="327.67" unit="&#176;C"/>
+      </Signal>
+    </Message>
+    <Message id="0x810018" name="Converter_Fans_0__BOX" length="6" format="extended">
+      <Notes>Readouts of the converter fans</Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="A_rpm_0__BOX" offset="0" length="16">
+        <Notes>Measured speed of Fan 1</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="65535" unit="rpm"/>
+      </Signal>
+      <Signal name="A_pwm_0__BOX" offset="16" length="8">
+        <Notes>Fan speed in percentage (0 to 100%)</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255" unit="%"/>
+      </Signal>
+      <Signal name="B_rpm_0__BOX" offset="24" length="16">
+        <Notes>Measured speed of Fan 1</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="65535" unit="rpm"/>
+      </Signal>
+      <Signal name="B_pwm_0__BOX" offset="40" length="8">
+        <Notes>Fan speed in percentage (0 to 100%)</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255" unit="%"/>
+      </Signal>
+    </Message>
+    <Message id="0x810019" name="Keep_Alive_Feed_0__BOX" length="1" format="extended">
+      <Notes>keep alive feeding</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="feed_0__BOX" offset="0">
+        <Notes>the value don't matter her tin order to feed the alive</Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+        </Consumer>
+      </Signal>
+    </Message>
+    <Message id="0x8100F1" name="_interlocks_status_0__BOX" length="3" format="extended">
+      <Notes>BOX interlock status used for debug </Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="e_0__BOX" offset="0">
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Tripped" value="0"/>
+          <Label name="Clear" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="a_0__BOX" offset="1">
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Tripped" value="0"/>
+          <Label name="Clear" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="b_0__BOX" offset="2">
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Tripped" value="0"/>
+          <Label name="Clear" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="i_0__BOX" offset="3">
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Tripped" value="0"/>
+          <Label name="Clear" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="x_0__BOX" offset="4">
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Tripped" value="0"/>
+          <Label name="Clear" value="1"/>
+        </LabelSet>
+      </Signal>
+    </Message>
+    <Message id="0x810014" name="Broadcast_Group_Control_0__BOX" length="1" format="extended">
+      <Notes>Configure the broadcast group that the module belongs to.</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="Group_ID_0__BOX" offset="0" length="8">
+        <Notes>Broadcast Group that the module should monitor</Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+    </Message>
+    <Message id="0x810080" name="info_adm_cs_0__BOX" length="8" format="extended">
+      <Notes>Contains the Group ID of the device</Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="Type_0__BOX" offset="0" length="8">
+        <Notes>The device identification field</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="GC01" value="16"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Revision_0__BOX" offset="8" length="8">
+        <Notes>The hardware revision numbere</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Variant_0__BOX" offset="16" length="8">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="reserved_0__BOX" offset="24" length="8">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="serial_number_0__BOX" offset="32" length="32">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="4294967295"/>
+      </Signal>
+    </Message>
+    <Message id="0x810081" name="info_adm_pc_0__BOX" length="4" format="extended">
+      <Notes>Contains the Group ID of the device</Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="nb_detected_0__BOX" offset="0" length="8">
+        <Notes>number of modules detectedce</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="nd_side_a_0__BOX" offset="8" length="8">
+        <Notes>number of modules detectedce</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="nd_side_b_0__BOX" offset="16" length="8">
+        <Notes>number of modules detectedce</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Collision_0__BOX" offset="24" length="8">
+        <Notes>collision between module</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+    </Message>
+    <Message id="0x810082" name="info_adm_pc_id_1_0__BOX" length="8" format="extended">
+      <Notes>Contains the Group ID of the device</Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="Type_0__BOX" offset="0" length="8">
+        <Notes>The device identification field</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="BP25" value="7"/>
+          <Label name="BI25" value="8"/>
+          <Label name="DMF1" value="19"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Revision_0__BOX" offset="8" length="8">
+        <Notes>The hardware revision numbere</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Variant_0__BOX" offset="16" length="8">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Stack_position_0__BOX" offset="24" length="8">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="serial_number_0__BOX" offset="32" length="32">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="4294967295"/>
+      </Signal>
+    </Message>
+    <Message id="0x810083" name="info_adm_pc_id_2_0__BOX" length="8" format="extended">
+      <Notes>Contains the Group ID of the device</Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="Type_0__BOX" offset="0" length="8">
+        <Notes>The device identification field</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="BP25" value="7"/>
+          <Label name="BI25" value="8"/>
+          <Label name="DMF1" value="19"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Revision_0__BOX" offset="8" length="8">
+        <Notes>The hardware revision numbere</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Variant_0__BOX" offset="16" length="8">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Stack_position_0__BOX" offset="24" length="8">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="serial_number_0__BOX" offset="32" length="32">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="4294967295"/>
+      </Signal>
+    </Message>
+    <Message id="0x810084" name="info_adm_pc_id_3_0__BOX" length="8" format="extended">
+      <Notes>Contains the Group ID of the device</Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="Type_0__BOX" offset="0" length="8">
+        <Notes>The device identification field</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="BP25" value="7"/>
+          <Label name="BI25" value="8"/>
+          <Label name="DMF1" value="19"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Revision_0__BOX" offset="8" length="8">
+        <Notes>The hardware revision numbere</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Variant_0__BOX" offset="16" length="8">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Stack_position_0__BOX" offset="24" length="8">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="serial_number_0__BOX" offset="32" length="32">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="4294967295"/>
+      </Signal>
+    </Message>
+    <Message id="0x810085" name="info_adm_pc_id_4_0__BOX" length="8" format="extended">
+      <Notes>Contains the Group ID of the device</Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="Type_0__BOX" offset="0" length="8">
+        <Notes>The device identification field</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="BP25" value="7"/>
+          <Label name="BI25" value="8"/>
+          <Label name="DMF1" value="19"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Revision_0__BOX" offset="8" length="8">
+        <Notes>The hardware revision numbere</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Variant_0__BOX" offset="16" length="8">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Stack_position_0__BOX" offset="24" length="8">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="serial_number_0__BOX" offset="32" length="32">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="4294967295"/>
+      </Signal>
+    </Message>
+    <Message id="0x810086" name="info_adm_pc_id_5_0__BOX" length="8" format="extended">
+      <Notes>Contains the Group ID of the device</Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="Type_0__BOX" offset="0" length="8">
+        <Notes>The device identification field</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="BP25" value="7"/>
+          <Label name="BI25" value="8"/>
+          <Label name="DMF1" value="19"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Revision_0__BOX" offset="8" length="8">
+        <Notes>The hardware revision numbere</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Variant_0__BOX" offset="16" length="8">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Stack_position_0__BOX" offset="24" length="8">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="serial_number_0__BOX" offset="32" length="32">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="4294967295"/>
+      </Signal>
+    </Message>
+    <Message id="0x810087" name="info_adm_pc_id_6_0__BOX" length="8" format="extended">
+      <Notes>Contains the Group ID of the device</Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="Type_0__BOX" offset="0" length="8">
+        <Notes>The device identification field</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="BP25" value="7"/>
+          <Label name="BI25" value="8"/>
+          <Label name="DMF1" value="19"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Revision_0__BOX" offset="8" length="8">
+        <Notes>The hardware revision numbere</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Variant_0__BOX" offset="16" length="8">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Stack_position_0__BOX" offset="24" length="8">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="serial_number_0__BOX" offset="32" length="32">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="4294967295"/>
+      </Signal>
+    </Message>
+    <Message id="0x810088" name="info_adm_pc_status_1_0__BOX" length="8" format="extended">
+      <Notes>Status of internal modules</Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="Available_0__BOX" offset="0">
+        <Notes>The device available</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="Side_0__BOX" offset="1" length="2">
+        <Notes>The device is Ready</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="3"/>
+        <LabelSet>
+          <Label name="side_unk" value="0"/>
+          <Label name="side_a" value="1"/>
+          <Label name="side_b" value="2"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Status_0__BOX" offset="3" length="2">
+        <Notes>The device is Running</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="3"/>
+        <LabelSet>
+          <Label name="off" value="0"/>
+          <Label name="ready" value="1"/>
+          <Label name="running" value="2"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Interlock_I_0__BOX" offset="8">
+        <Notes>The device have interlock internal</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="Interlock_E_0__BOX" offset="9">
+        <Notes>The device have interlock external</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="mode_0__BOX" offset="16" length="16">
+        <Notes>Mode</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="65535"/>
+      </Signal>
+    </Message>
+    <Message id="0x810089" name="info_adm_pc_status_2_0__BOX" length="8" format="extended">
+      <Notes>Status of internal modules</Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="Available_0__BOX" offset="0">
+        <Notes>The device available</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="Side_0__BOX" offset="1" length="2">
+        <Notes>The device is Ready</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="3"/>
+        <LabelSet>
+          <Label name="side_unk" value="0"/>
+          <Label name="side_a" value="1"/>
+          <Label name="side_b" value="2"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Status_0__BOX" offset="3" length="2">
+        <Notes>The device is Running</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="3"/>
+        <LabelSet>
+          <Label name="off" value="0"/>
+          <Label name="ready" value="1"/>
+          <Label name="running" value="2"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Interlock_I_0__BOX" offset="8">
+        <Notes>The device have interlock internal</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="Interlock_E_0__BOX" offset="9">
+        <Notes>The device have interlock external</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="mode_0__BOX" offset="16" length="16">
+        <Notes>Mode</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="65535"/>
+      </Signal>
+    </Message>
+    <Message id="0x81008A" name="info_adm_pc_status_3_0__BOX" length="8" format="extended">
+      <Notes>Status of internal modules</Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="Available_0__BOX" offset="0">
+        <Notes>The device available</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="Side_0__BOX" offset="1" length="2">
+        <Notes>The device is Ready</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="3"/>
+        <LabelSet>
+          <Label name="side_unk" value="0"/>
+          <Label name="side_a" value="1"/>
+          <Label name="side_b" value="2"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Status_0__BOX" offset="3" length="2">
+        <Notes>The device is Running</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="3"/>
+        <LabelSet>
+          <Label name="off" value="0"/>
+          <Label name="ready" value="1"/>
+          <Label name="running" value="2"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Interlock_I_0__BOX" offset="8">
+        <Notes>The device have interlock internal</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="Interlock_E_0__BOX" offset="9">
+        <Notes>The device have interlock external</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="mode_0__BOX" offset="16" length="16">
+        <Notes>Mode</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="65535"/>
+      </Signal>
+    </Message>
+    <Message id="0x81008B" name="info_adm_pc_status_4_0__BOX" length="8" format="extended">
+      <Notes>Status of internal modules</Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="Available_0__BOX" offset="0">
+        <Notes>The device available</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="Side_0__BOX" offset="1" length="2">
+        <Notes>The device is Ready</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="3"/>
+        <LabelSet>
+          <Label name="side_unk" value="0"/>
+          <Label name="side_a" value="1"/>
+          <Label name="side_b" value="2"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Status_0__BOX" offset="3" length="2">
+        <Notes>The device is Running</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="3"/>
+        <LabelSet>
+          <Label name="off" value="0"/>
+          <Label name="ready" value="1"/>
+          <Label name="running" value="2"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Interlock_I_0__BOX" offset="8">
+        <Notes>The device have interlock internal</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="Interlock_E_0__BOX" offset="9">
+        <Notes>The device have interlock external</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="mode_0__BOX" offset="16" length="16">
+        <Notes>Mode</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="65535"/>
+      </Signal>
+    </Message>
+    <Message id="0x81008C" name="info_adm_pc_status_5_0__BOX" length="8" format="extended">
+      <Notes>Status of internal modules</Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="Available_0__BOX" offset="0">
+        <Notes>The device available</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="Side_0__BOX" offset="1" length="2">
+        <Notes>The device is Ready</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="3"/>
+        <LabelSet>
+          <Label name="side_unk" value="0"/>
+          <Label name="side_a" value="1"/>
+          <Label name="side_b" value="2"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Status_0__BOX" offset="3" length="2">
+        <Notes>The device is Running</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="3"/>
+        <LabelSet>
+          <Label name="off" value="0"/>
+          <Label name="ready" value="1"/>
+          <Label name="running" value="2"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Interlock_I_0__BOX" offset="8">
+        <Notes>The device have interlock internal</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="Interlock_E_0__BOX" offset="9">
+        <Notes>The device have interlock external</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="mode_0__BOX" offset="16" length="16">
+        <Notes>Mode</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="65535"/>
+      </Signal>
+    </Message>
+    <Message id="0x81008D" name="info_adm_pc_status_6_0__BOX" length="8" format="extended">
+      <Notes>Status of internal modules</Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="Available_0__BOX" offset="0">
+        <Notes>The device available</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="Side_0__BOX" offset="1" length="2">
+        <Notes>The device is Ready</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="3"/>
+        <LabelSet>
+          <Label name="side_unk" value="0"/>
+          <Label name="side_a" value="1"/>
+          <Label name="side_b" value="2"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Status_0__BOX" offset="3" length="2">
+        <Notes>The device is Running</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="3"/>
+        <LabelSet>
+          <Label name="off" value="0"/>
+          <Label name="ready" value="1"/>
+          <Label name="running" value="2"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Interlock_I_0__BOX" offset="8">
+        <Notes>The device have interlock internal</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="Interlock_E_0__BOX" offset="9">
+        <Notes>The device have interlock external</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="mode_0__BOX" offset="16" length="16">
+        <Notes>Mode</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="65535"/>
+      </Signal>
+    </Message>
+    <Message id="0x810090" name="cs_performance_0__BOX" length="8" format="extended">
+      <Notes>Status of internal modules</Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="cpu_1_usage_0__BOX" offset="0" length="8">
+        <Notes>Controller cpu 1 usage</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255" unit="%"/>
+      </Signal>
+      <Signal name="cpu_2_usage_0__BOX" offset="8" length="8">
+        <Notes>Controller cpu 2 usage</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255" unit="%"/>
+      </Signal>
+      <Signal name="can_bus_load_A_0__BOX" offset="16" length="8">
+        <Notes>Controller cup 1 usage</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255" unit="%"/>
+      </Signal>
+      <Signal name="can_bus_load_B_0__BOX" offset="24" length="8">
+        <Notes>Controller cpu 1 usage</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255" unit="%"/>
+      </Signal>
+      <Signal name="main_loop_freq_0__BOX" offset="32" length="16">
+        <Notes>Controller cpu 1 usage</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="65535" unit="Hz"/>
+      </Signal>
+    </Message>
+    <Message id="0x810091" name="info_can_api_error_0__BOX" length="8" format="extended">
+      <Notes>debug - Allow to knwow  what module has wrong can api</Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="Type_0__BOX" offset="0" length="8">
+        <Notes>The device identification field</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="BP25" value="7"/>
+          <Label name="BI25" value="8"/>
+          <Label name="DMF1" value="19"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Stack_position_0__BOX" offset="8" length="8">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Major_expected_0__BOX" offset="16" length="8">
+        <Notes>The Major version number. This number increases if there are backwards incompatible changes</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Minor_expected_0__BOX" offset="24" length="8">
+        <Notes>The minor version number. This number increases if there are backwards incompatible changes</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Patch_expected_0__BOX" offset="32" length="8">
+        <Notes>The patch version number. This number increases if there are backwards incompatible changes</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Major_actual_0__BOX" offset="40" length="8">
+        <Notes>The Major version number. This number increases if there are backwards incompatible changes</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Minor_actual_0__BOX" offset="48" length="8">
+        <Notes>The minor version number. This number increases if there are backwards incompatible changes</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Patch_actual_0__BOX" offset="56" length="8">
+        <Notes>The patch version number. This number increases if there are backwards incompatible changes</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+    </Message>
+    <Message id="0x810062" name="_Calibration_writing_0__BOX" length="6" format="extended">
+      <Notes>Calibration control (factory mode need to be set)</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="index_0__BOX" offset="0" length="8">
+        <Notes>index of the device that nee calibration (0 is unvalid) </Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="invalid" value="0"/>
+          <Label name="voltage_sensor_b" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="select_0__BOX" offset="8" length="8">
+        <Notes>select what value to set</Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="invalid" value="0"/>
+          <Label name="prob_offset" value="1"/>
+          <Label name="prob_scale_factor" value="2"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="value_0__BOX" offset="16" length="32">
+        <Notes>require calibration valut </Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.0001" min="-214748.3648" max="214748.3647"/>
+      </Signal>
+    </Message>
+    <Message id="0x810063" name="_Calibration_reading_cmd_0__BOX" length="2" format="extended">
+      <Notes>Calibration reading cmd (factory mode need to be set)</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="index_0__BOX" offset="0" length="8">
+        <Notes>index of the device that need reading </Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="invalid" value="0"/>
+          <Label name="voltage_sensor_b" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="select_0__BOX" offset="8" length="8">
+        <Notes>select what value to read</Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="raw" value="0"/>
+          <Label name="value" value="1"/>
+          <Label name="prob_offset" value="2"/>
+          <Label name="prob_scale_factor" value="3"/>
+        </LabelSet>
+      </Signal>
+    </Message>
+    <Message id="0x810064" name="_Calibration_reading_0__BOX" length="8" format="extended">
+      <Notes>Calibration reading cmd (factory mode need to be set)</Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="index_0__BOX" offset="0" length="8">
+        <Notes>index of the device that need reading </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="unvalid" value="0"/>
+          <Label name="voltage_sensor_b" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="select_0__BOX" offset="8" length="8">
+        <Notes>select what value to read</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="raw" value="0"/>
+          <Label name="value" value="1"/>
+          <Label name="prob_offset" value="2"/>
+          <Label name="prob_scale_factor" value="3"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="calibration_status_0__BOX" offset="16">
+        <Notes>select what value to read</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="bad" value="0"/>
+          <Label name="ok" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="reserved_0__BOX" offset="17" length="7">
+        <Notes>select what value to read</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="127"/>
+      </Signal>
+      <Signal name="value_0__BOX" offset="24" length="32">
+        <Notes>require calibration valut </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.0001" min="-214748.3648" max="214748.3647"/>
+      </Signal>
+    </Message>
+    <Message id="0x810060" name="_Factory_Config_0__BOX" length="8" format="extended">
+      <Notes>factory setting of controller and boxs</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="select_0__BOX" offset="0" length="8">
+        <Notes>set ID, need factory mode = 1 (will change revision and variant as well)</Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="invalid" value="0"/>
+          <Label name="cs" value="1"/>
+          <Label name="adb" value="2"/>
+          <Label name="reset" value="3"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="set_id_0__BOX" offset="8" length="8">
+        <Notes>set ID, need factory mode = 1 (will change revision and variant as well)</Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="set_revision_0__BOX" offset="16" length="8">
+        <Notes>set revision, need factory mode = 1 , applied if set_id is valid</Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="set_variant_0__BOX" offset="24" length="8">
+        <Notes>set variant, need factory mode = 1, applied if set_id is valid</Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+    </Message>
+    <Message id="0x810065" name="_Factory_Debug_cmd_0__BOX" length="8" format="extended">
+      <Notes>factory debug cmd, need factory mode flag set to 1</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="god_mode_0__BOX" offset="0">
+        <Notes>Customers MUST NOT USE this bit. If set to 1, module will enter in factory mode. </Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+        </Consumer>
+      </Signal>
+      <Signal name="internal_power_a_0__BOX" offset="1">
+        <Notes>Customers MUST NOT USE this bit. If set to 1, module will enter in factory mode. </Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="on" value="0"/>
+          <Label name="off" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="internal_power_b_0__BOX" offset="2">
+        <Notes>Customers MUST NOT USE this bit. If set to 1, module will enter in factory mode. </Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="on" value="0"/>
+          <Label name="off" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="offset_stack_internal_0__BOX" offset="8" length="8">
+        <Notes>Customers MUST NOT USE this bit. need factory mode = 1 </Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+        </Consumer>
+        <Value max="255" unit="offset"/>
+      </Signal>
+    </Message>
+  </Bus>
+</NetworkDefinition>
