@@ -5,326 +5,402 @@ NS_ :
 
 BS_:
 
-BU_: ADM_CS_GC01 User ADB_PC_BASE ADB_PC_BOX 
+BU_: User ADB_PC_DC01 ADB_PC_BASE ADB_PC_BOX 
 
 
-BO_ 2155872288 GC01_Analog_0_GC01: 8 ADM_CS_GC01
- SG_ Temp_NTC_A_0_GC01 : 0|16@1- (0.01,0) [-327.68|327.67] "°C" User
- SG_ v_in_0_GC01 : 16|16@1- (0.1,0) [-3276.8|3276.7] "V" User
- SG_ Voltage_prob_b_0_GC01 : 32|16@1+ (0.1,0) [0|6553.5] "V" User
- SG_ Voltage_prob_b_raw_0_GC01 : 48|16@1+ (1,0) [0|65535] "V" User
+BO_ 2155872320 DC01_Mode_Set: 2 User
+ SG_ mode : 0|8@1+ (1,0) [0|255] "" ADB_PC_DC01,User
+ SG_ connection : 8|8@1+ (1,0) [0|255] "" ADB_PC_DC01,User
 
-BO_ 2155872290 FAN_Speed_Control_0_GC01: 1 User
- SG_ FAN1_speed_0_GC01 : 0|8@1+ (1,0) [0|255] "" ADM_CS_GC01
+BO_ 2155872321 DC01_Mode_Applied: 2 ADB_PC_DC01
+ SG_ mode : 0|8@1+ (1,0) [0|255] "" User
+ SG_ connection : 8|8@1+ (1,0) [0|255] "" User
 
-BO_ 2155872291 FAN_Enable_Control_0_GC01: 1 User
- SG_ FAN1_enable_0_GC01 : 0|1@1+ (1,0) [0|1] "" ADM_CS_GC01
+BO_ 2155872322 DC01_faults: 8 ADB_PC_DC01
+ SG_ CABLE_2_4_DC : 0|1@1+ (1,0) [0|1] "" User
+ SG_ CABLE_1_2_DC : 1|1@1+ (1,0) [0|1] "" User
+ SG_ CABLE_3_4_DC : 2|1@1+ (1,0) [0|1] "" User
+ SG_ CABLE_1_L1_L2 : 3|1@1+ (1,0) [0|1] "" User
+ SG_ CABLE_1_L2_L3 : 4|1@1+ (1,0) [0|1] "" User
+ SG_ CABLE_3_L1_L2 : 5|1@1+ (1,0) [0|1] "" User
+ SG_ CABLE_3_L2_L3 : 6|1@1+ (1,0) [0|1] "" User
+ SG_ CABLE_1_3_L1 : 7|1@1+ (1,0) [0|1] "" User
+ SG_ CABLE_2_IN_OUT : 8|1@1+ (1,0) [0|1] "" User
+ SG_ CABLE_4_IN_OUT : 9|1@1+ (1,0) [0|1] "" User
+ SG_ MODULE_1_RUNNING : 10|1@1+ (1,0) [0|1] "" User
+ SG_ MODULE_2_RUNNING : 11|1@1+ (1,0) [0|1] "" User
+ SG_ MODULE_3_RUNNING : 12|1@1+ (1,0) [0|1] "" User
+ SG_ MODULE_4_RUNNING : 13|1@1+ (1,0) [0|1] "" User
+ SG_ CONTACTOR_1_CLOSED : 14|1@1+ (1,0) [0|1] "" User
+ SG_ CONTACTOR_2_CLOSED : 15|1@1+ (1,0) [0|1] "" User
+ SG_ CONTACTOR_3_CLOSED : 16|1@1+ (1,0) [0|1] "" User
+ SG_ CONTACTOR_4_CLOSED : 17|1@1+ (1,0) [0|1] "" User
+ SG_ CONTACTOR_1_OPEN : 18|1@1+ (1,0) [0|1] "" User
+ SG_ CONTACTOR_2_OPEN : 19|1@1+ (1,0) [0|1] "" User
+ SG_ CONTACTOR_3_OPEN : 20|1@1+ (1,0) [0|1] "" User
+ SG_ CONTACTOR_4_OPEN : 21|1@1+ (1,0) [0|1] "" User
+ SG_ CONTACTOR_1_FAIL : 22|1@1+ (1,0) [0|1] "" User
+ SG_ CONTACTOR_2_FAIL : 23|1@1+ (1,0) [0|1] "" User
+ SG_ CONTACTOR_3_FAIL : 24|1@1+ (1,0) [0|1] "" User
+ SG_ CONTACTOR_4_FAIL : 25|1@1+ (1,0) [0|1] "" User
+ SG_ PORT_A_OVERVOLTAGE : 26|1@1+ (1,0) [0|1] "" User
+ SG_ CS_REV_INCOMPATIBLE : 27|1@1+ (1,0) [0|1] "" User
+ SG_ CONTACTORS_CONNECTION_UNDEFINED : 28|1@1+ (1,0) [0|1] "" User
+ SG_ AFE_NOT_OFF : 29|1@1+ (1,0) [0|1] "" User
+ SG_ AFE_PWM_NOT_RUNNING : 30|1@1+ (1,0) [0|1] "" User
+ SG_ AFE_PWM_STOP_RUNNING : 31|1@1+ (1,0) [0|1] "" User
+ SG_ BLEEDING_FAILED : 32|1@1+ (1,0) [0|1] "" User
+ SG_ BI25_PWM_NOT_RUNNING : 33|1@1+ (1,0) [0|1] "" User
+ SG_ CALIBRATION_ERROR : 34|1@1+ (1,0) [0|1] "" User
 
-BO_ 2155872292 GC01_cont_main_ctrl_0_GC01: 1 User
- SG_ pwr_enable_0_GC01 : 0|1@1+ (1,0) [0|1] "" ADM_CS_GC01
- SG_ not_eco_0_GC01 : 1|1@1+ (1,0) [0|1] "" ADM_CS_GC01
- SG_ cont_1_2_en_0_GC01 : 2|1@1+ (1,0) [0|1] "" ADM_CS_GC01
- SG_ cont_1_close_0_GC01 : 3|1@1+ (1,0) [0|1] "" ADM_CS_GC01
- SG_ cont_2_close_0_GC01 : 4|1@1+ (1,0) [0|1] "" ADM_CS_GC01
+BO_ 2155872323 DC01_warning: 8 ADB_PC_DC01
+ SG_ MODE_NOT_SUPPORTED : 0|1@1+ (1,0) [0|1] "" User
+ SG_ V_A_LOW : 10|1@1+ (1,0) [0|1] "" User
+ SG_ V_A_HIGH : 11|1@1+ (1,0) [0|1] "" User
+ SG_ NEED_UPDATE : 12|1@1+ (1,0) [0|1] "" User
 
-BO_ 2155872293 GC01_cont_main_status_0_GC01: 1 ADM_CS_GC01
- SG_ cont_1_good_0_GC01 : 0|1@1+ (1,0) [0|1] "" User
- SG_ cont_2_good_0_GC01 : 1|1@1+ (1,0) [0|1] "" User
- SG_ cont_1_aux_0_GC01 : 2|1@1+ (1,0) [0|1] "" User
- SG_ cont_2_aux_0_GC01 : 3|1@1+ (1,0) [0|1] "" User
+BO_ 2155872324 DC01_info: 8 ADB_PC_DC01
+ SG_ BLEEDING_DONE : 0|1@1+ (1,0) [0|1] "" User
+ SG_ CONTACTORS_CONNECTION_SERIAL : 1|1@1+ (1,0) [0|1] "" User
+ SG_ CONTACTORS_CONNECTION_PARALLEL : 2|1@1+ (1,0) [0|1] "" User
+ SG_ CONTACTORS_CONNECTION_OPEN : 3|1@1+ (1,0) [0|1] "" User
+ SG_ CONNECTION_MANAGER_RQ_CHANGE : 4|1@1+ (1,0) [0|1] "" User
+ SG_ VB_LIMITED_BY_VA : 5|1@1+ (1,0) [0|1] "" User
+ SG_ CURRENT_LIMIT : 6|1@1+ (1,0) [0|1] "" User
+ SG_ VB_TO_HIGH_FOR_SELECTED_MODE : 7|1@1+ (1,0) [0|1] "" User
+ SG_ CURRENT_LIMITED_BY_POWER : 8|1@1+ (1,0) [0|1] "" User
 
-BO_ 2155872294 GC01_cont_secondary_ctrl_0_GC01: 1 User
- SG_ pwr_enable_0_GC01 : 0|1@1+ (1,0) [0|1] "" ADM_CS_GC01
- SG_ not_eco_0_GC01 : 1|1@1+ (1,0) [0|1] "" ADM_CS_GC01
- SG_ reserved_0_GC01 : 2|1@1+ (1,0) [0|1] "" ADM_CS_GC01
- SG_ cont_3_ctrl_0_GC01 : 3|1@1+ (1,0) [0|1] "" ADM_CS_GC01
- SG_ cont_4_ctrl_0_GC01 : 4|1@1+ (1,0) [0|1] "" ADM_CS_GC01
+BO_ 2155872288 B_Port_Setpoints: 6 User
+ SG_ Voltage : 0|16@1+ (0.1,0) [0|6553.5] "V" ADB_PC_DC01,User
+ SG_ Positive_Current_Limit : 16|16@1- (0.1,0) [-3276.8|3276.7] "A" ADB_PC_DC01,User
+ SG_ Negative_Current_Limit : 32|16@1- (0.1,0) [-3276.8|3276.7] "A" ADB_PC_DC01,User
 
-BO_ 2155872295 GC01_cont_secondary_status_0_GC0: 1 ADM_CS_GC01
- SG_ cont_3_aux_0_GC01 : 2|1@1+ (1,0) [0|1] "" User
- SG_ cont_4_aux_0_GC01 : 3|1@1+ (1,0) [0|1] "" User
+BO_ 2155872289 B_Port_Applied_Setpoints: 8 ADB_PC_DC01
+ SG_ Voltage : 0|16@1+ (0.1,0) [0|6553.5] "V" User
+ SG_ Positive_Current_Limit : 16|16@1- (0.1,0) [-3276.8|3276.7] "A" User
+ SG_ Negative_Current_Limit : 32|16@1- (0.1,0) [-3276.8|3276.7] "A" User
 
-BO_ 2155872296 contactors_cmd_0_GC01: 1 User
- SG_ conf_0_GC01 : 0|8@1+ (1,0) [0|255] "" ADM_CS_GC01
+BO_ 2155872290 B_Port_Droop_Setpoints: 8 User
+ SG_ Positive_Current_Droop : 0|16@1+ (0.01,0) [0.00|655.35] "Ohm" ADB_PC_DC01,User
+ SG_ Negative_Current_Droop : 16|16@1+ (0.01,0) [0.00|655.35] "Ohm" ADB_PC_DC01,User
+ SG_ Enable : 32|1@1+ (1,0) [0|1] "" ADB_PC_DC01,User,ADB_PC_BOX
+ SG_ Reserved : 33|31@1+ (1,0) [0|2147483647] "" ADB_PC_DC01,ADB_PC_BASE
 
-BO_ 2155872256 Identification_0_BASE: 8 ADB_PC_BASE
- SG_ Type_0_BASE : 0|8@1+ (1,0) [0|255] "" User
- SG_ Revision_0_BASE : 8|8@1+ (1,0) [0|255] "" User
- SG_ Variant_0_BASE : 16|8@1+ (1,0) [0|255] "" User
- SG_ Stack_position_0_BASE : 24|8@1+ (1,0) [0|255] "" User,ADB_PC_BASE
- SG_ serial_number_0_BASE : 32|32@1+ (1,0) [0|4294967295] "" User
+BO_ 2155872291 B_Port_Applied_Droop_Setpoints: 5 ADB_PC_DC01
+ SG_ Positive_Current_Droop : 0|16@1+ (0.01,0) [0.00|655.35] "Ohm" User
+ SG_ Negative_Current_Droop : 16|16@1+ (0.01,0) [0.00|655.35] "Ohm" User
+ SG_ Enable : 32|1@1+ (1,0) [0|1] "" User
 
-BO_ 2155872258 Firmware_UID_0_BASE: 8 ADB_PC_BASE
- SG_ UID_0_BASE : 0|64@1+ (1,0) [0|1.844674407370955E+019] "" User
+BO_ 2155872292 B_Port_Measurements: 4 ADB_PC_DC01
+ SG_ Voltage : 0|16@1+ (0.1,0) [0|6553.5] "V" User
+ SG_ Current : 16|16@1- (0.1,0) [-3276.8|3276.7] "A" User
 
-BO_ 2155872257 Bootloader_UID_0_BASE: 8 ADB_PC_BASE
- SG_ UID_0_BASE : 0|64@1+ (1,0) [0|1.844674407370955E+019] "" User
+BO_ 2155872306 A_Port_Measurements: 4 ADB_PC_DC01
+ SG_ Voltage : 0|16@1+ (0.1,0) [0|6553.5] "V" User
+ SG_ Current : 16|16@1- (0.1,0) [-3276.8|3276.7] "A" User
 
-BO_ 2155872259 ADB_CAN_API_Version_0_BASE: 3 ADB_PC_BASE
- SG_ Major_0_BASE : 0|8@1+ (1,0) [0|255] "" User
- SG_ Minor_0_BASE : 8|8@1+ (1,0) [0|255] "" User
- SG_ Patch_0_BASE : 16|8@1+ (1,0) [0|255] "" User
+BO_ 2155872304 A_Port_Setpoints: 6 User
+ SG_ Voltage : 0|16@1+ (0.1,0) [0|1500] "V" ADB_PC_DC01
+ SG_ Source_Current_Limit : 16|16@1+ (0.1,0) [0|220] "A" ADB_PC_DC01,User
+ SG_ Sink_Current_Limit : 32|16@1+ (0.1,0) [0|220] "A" ADB_PC_DC01,User
 
-BO_ 2155872325 Stack_Control_0_BASE: 6 User
- SG_ Stack_position_0_BASE : 0|8@1+ (1,0) [0|255] "" ADB_PC_BASE
- SG_ reserved_0_BASE : 8|8@1+ (1,0) [0|255] "" ADB_PC_BASE
- SG_ SN_number_0_BASE : 16|32@1+ (1,0) [0|4294967295] "" ADB_PC_BASE
+BO_ 2155872305 A_Port_Applied_Setpoints: 8 ADB_PC_DC01
+ SG_ Voltage : 0|16@1+ (0.1,0) [0|6553.5] "V" User
+ SG_ Source_Current_Limit : 16|16@1+ (0.1,0) [0|6553.5] "A" User
+ SG_ Sink_Current_Limit : 32|16@1+ (0.1,0) [0|6553.5] "A" User
 
-BO_ 2155872336 Fault_Control_0_BASE: 1 User
- SG_ Clear_Interlock_0_BASE : 0|1@1+ (1,0) [0|1] "" ADB_PC_BASE
- SG_ Reset_Processor_0_BASE : 1|1@1+ (1,0) [0|1] "" ADB_PC_BASE
- SG_ Trip_Interlock_0_BASE : 2|1@1+ (1,0) [0|1] "" ADB_PC_BASE
- SG_ Reserved_0_BASE : 3|5@1+ (1,0) [0|31] "" ADB_PC_BASE
+BO_ 2155872498 DC01_debug: 8 User
+ SG_ allow_close_contactor : 0|1@1+ (1,0) [0|1] "" ADB_PC_DC01
 
-BO_ 2155872353 Factory_Control_0_BASE: 8 User
- SG_ Factory_mode_0_BASE : 0|1@1+ (1,0) [0|1] "" ADB_PC_BASE
+BO_ 2155872499 DC01_debug_connection: 8 ADB_PC_DC01
+ SG_ current_connection_mode : 8|8@1+ (1,0) [0|255] "" User
+ SG_ new_connection_mode : 16|8@1+ (1,0) [0|255] "" User
 
-BO_ 2155872274 Converter_Control_0__BOX: 1 User
- SG_ enable_0__BOX : 0|1@1+ (1,0) [0|1] "" ADB_PC_BOX
+BO_ 2155872256 Identification: 8 ADB_PC_BASE
+ SG_ Type : 0|8@1+ (1,0) [0|255] "" User
+ SG_ Revision : 8|8@1+ (1,0) [0|255] "" User
+ SG_ Variant : 16|8@1+ (1,0) [0|255] "" User
+ SG_ Stack_position : 24|8@1+ (1,0) [0|255] "" User,ADB_PC_BASE
+ SG_ serial_number : 32|32@1+ (1,0) [0|4294967295] "" User
 
-BO_ 2155872275 Converter_Power_Info_0__BOX: 6 ADB_PC_BOX
- SG_ load_0__BOX : 0|8@1+ (1,0) [0|255] "%" User
- SG_ efficiency_0__BOX : 8|8@1+ (1,0) [0|255] "%" User
- SG_ Power_capability_0__BOX : 16|16@1- (0.1,0) [-3276.8|3276.7] "kw" User
- SG_ low_power_input_0__BOX : 32|16@1- (0.01,0) [-327.68|327.67] "v" User
+BO_ 2155872258 Firmware_UID: 8 ADB_PC_BASE
+ SG_ UID : 0|64@1+ (1,0) [0|1.844674407370955E+019] "" User
 
-BO_ 2155872272 Status_0__BOX: 8 ADB_PC_BOX
- SG_ State_0__BOX : 0|16@1+ (1,0) [0|65535] "" User
- SG_ flag_enable_0__BOX : 16|1@1+ (1,0) [0|1] "" User
- SG_ flag_ready_0__BOX : 17|1@1+ (1,0) [0|1] "" User
- SG_ flag_energized_0__BOX : 18|1@1+ (1,0) [0|1] "" User
- SG_ flag_busy_0__BOX : 19|1@1+ (1,0) [0|1] "" User
- SG_ flag_eco_0__BOX : 20|1@1+ (1,0) [0|1] "" User
- SG_ flag_warning_0__BOX : 24|1@1+ (1,0) [0|1] "" User
- SG_ flag_degraded_0__BOX : 25|1@1+ (1,0) [0|1] "" User
- SG_ flag_error_0__BOX : 26|1@1+ (1,0) [0|1] "" User
- SG_ flag_factory_0__BOX : 48|1@1+ (1,0) [0|1] "" User
- SG_ flag_god_mode_0__BOX : 49|1@1+ (1,0) [0|1] "" User
+BO_ 2155872257 Bootloader_UID: 8 ADB_PC_BASE
+ SG_ UID : 0|64@1+ (1,0) [0|1.844674407370955E+019] "" User
 
-BO_ 2155872496 _fms_state_0__BOX: 8 ADB_PC_BOX
- SG_ init_0__BOX : 0|8@1+ (1,0) [0|255] "" User
- SG_ ready_0__BOX : 16|8@1+ (1,0) [0|255] "" User
- SG_ turned_on_0__BOX : 32|8@1+ (1,0) [0|255] "" User
- SG_ turned_off_0__BOX : 40|8@1+ (1,0) [0|255] "" User
- SG_ bleeding_0__BOX : 48|8@1+ (1,0) [0|255] "" User
+BO_ 2155872259 ADB_CAN_API_Version: 3 ADB_PC_BASE
+ SG_ Major : 0|8@1+ (1,0) [0|255] "" User
+ SG_ Minor : 8|8@1+ (1,0) [0|255] "" User
+ SG_ Patch : 16|8@1+ (1,0) [0|255] "" User
 
-BO_ 2155872273 Faults_0__BOX: 8 ADB_PC_BOX
- SG_ internal_0__BOX : 0|1@1+ (1,0) [0|1] "" User
- SG_ external_0__BOX : 1|1@1+ (1,0) [0|1] "" User
- SG_ system_0__BOX : 2|1@1+ (1,0) [0|1] "" User
- SG_ EEPROM_failure_0__BOX : 3|1@1+ (1,0) [0|1] "" User
- SG_ wrong_nfo_0__BOX : 4|1@1+ (1,0) [0|1] "" User
- SG_ Measurement_system_failure_0__BO : 5|1@1+ (1,0) [0|1] "" User
- SG_ PLL_not_locked_0__BOX : 6|1@1+ (1,0) [0|1] "" User
- SG_ overtemperature_0__BOX : 7|1@1+ (1,0) [0|1] "" User
- SG_ fan_stuck_0__BOX : 8|1@1+ (1,0) [0|1] "" User
- SG_ dead_module_0__BOX : 9|1@1+ (1,0) [0|1] "" User
- SG_ keep_alive_not_serv_internal_0__ : 10|1@1+ (1,0) [0|1] "" User
- SG_ error_temperature_0__BOX : 11|1@1+ (1,0) [0|1] "" User
- SG_ internal_modules_ready_0__BOX : 12|1@1+ (1,0) [0|1] "" User
- SG_ internal_modules_can_api_0__BOX : 13|1@1+ (1,0) [0|1] "" User
- SG_ internal_modules_missing_0__BOX : 14|1@1+ (1,0) [0|1] "" User
- SG_ internal_modules_wrong_0__BOX : 15|1@1+ (1,0) [0|1] "" User
- SG_ internal_modules_stack_0__BOX : 16|1@1+ (1,0) [0|1] "" User
- SG_ internal_modules_init_0__BOX : 17|1@1+ (1,0) [0|1] "" User
- SG_ wrong_revision_0__BOX : 18|1@1+ (1,0) [0|1] "" User
- SG_ v_in_low_0__BOX : 19|1@1+ (1,0) [0|1] "" User
- SG_ v_in_critical_0__BOX : 20|1@1+ (1,0) [0|1] "" User
- SG_ keep_alive_not_serv_0__BOX : 21|1@1+ (1,0) [0|1] "" User
+BO_ 2155872325 Stack_Control: 6 User
+ SG_ Stack_position : 0|8@1+ (1,0) [0|255] "" ADB_PC_BASE
+ SG_ reserved : 8|8@1+ (1,0) [0|255] "" ADB_PC_BASE,User
+ SG_ SN_number : 16|32@1+ (1,0) [0|4294967295] "" ADB_PC_BASE
 
-BO_ 2155872277 Interface_Status_0__BOX: 3 ADB_PC_BOX
- SG_ Broadcast_Group_0__BOX : 0|8@1+ (1,0) [0|30] "" User
- SG_ keep_Alive_0__BOX : 8|4@1+ (1,0) [0|15] "" User
- SG_ reserved_0__BOX : 12|4@1+ (1,0) [0|15] "" User
- SG_ keep_Alive_Period_0__BOX : 16|8@1+ (0.1,0) [0|25.5] "s" User
+BO_ 2155872336 Fault_Control: 1 User
+ SG_ Clear_Interlock : 0|1@1+ (1,0) [0|1] "" ADB_PC_BASE
+ SG_ Reset_Processor : 1|1@1+ (1,0) [0|1] "" ADB_PC_BASE
+ SG_ Trip_Interlock : 2|1@1+ (1,0) [0|1] "" ADB_PC_BASE
+ SG_ Reserved : 3|5@1+ (1,0) [0|31] "" ADB_PC_BASE
 
-BO_ 2155872278 Keep_Alive_Control_0__BOX: 2 User
- SG_ Enable_0__BOX : 0|1@1+ (1,0) [0|1] "" ADB_PC_BOX
- SG_ reserved_0__BOX : 1|1@1+ (1,0) [0|1] "" User
- SG_ Period_0__BOX : 8|8@1+ (0.1,0) [0|25.5] "s" User
+BO_ 2155872353 Factory_Control: 8 User
+ SG_ Factory_mode : 0|1@1+ (1,0) [0|1] "" ADB_PC_BASE
 
-BO_ 2155872279 Converter_Temperature_0__BOX: 8 ADB_PC_BOX
- SG_ Cooling_plate_0__BOX : 0|16@1- (0.01,0) [-327.68|327.67] "°C" User
- SG_ Magnetics_0__BOX : 16|16@1- (0.01,0) [-327.68|327.67] "°C" User
- SG_ Transistors_0__BOX : 32|16@1- (0.01,0) [-327.68|327.67] "°C" User
- SG_ RESERVED_0__BOX : 48|16@1- (0.01,0) [-327.68|327.67] "°C" User
+BO_ 2155872274 Converter_Control: 1 User
+ SG_ enable : 0|1@1+ (1,0) [0|1] "" ADB_PC_BOX
 
-BO_ 2155872280 Converter_Fans_0__BOX: 6 ADB_PC_BOX
- SG_ A_rpm_0__BOX : 0|16@1+ (1,0) [0|65535] "rpm" User
- SG_ A_pwm_0__BOX : 16|8@1+ (1,0) [0|255] "%" User
- SG_ B_rpm_0__BOX : 24|16@1+ (1,0) [0|65535] "rpm" User
- SG_ B_pwm_0__BOX : 40|8@1+ (1,0) [0|255] "%" User
+BO_ 2155872275 Converter_Power_Info: 6 ADB_PC_BOX
+ SG_ load : 0|8@1+ (1,0) [0|255] "%" User
+ SG_ efficiency : 8|8@1+ (1,0) [0|255] "%" User
+ SG_ Power_capability : 16|16@1- (0.1,0) [-3276.8|3276.7] "kw" User
+ SG_ low_power_input : 32|16@1- (0.01,0) [-327.68|327.67] "v" User
 
-BO_ 2155872281 Keep_Alive_Feed_0__BOX: 1 User
- SG_ feed_0__BOX : 0|1@1+ (1,0) [0|1] "" ADB_PC_BOX
+BO_ 2155872272 Status: 8 ADB_PC_BOX
+ SG_ State : 0|16@1+ (1,0) [0|65535] "" User
+ SG_ flag_enable : 16|1@1+ (1,0) [0|1] "" User
+ SG_ flag_ready : 17|1@1+ (1,0) [0|1] "" User
+ SG_ flag_energized : 18|1@1+ (1,0) [0|1] "" User
+ SG_ flag_busy : 19|1@1+ (1,0) [0|1] "" User
+ SG_ flag_eco : 20|1@1+ (1,0) [0|1] "" User
+ SG_ flag_warning : 24|1@1+ (1,0) [0|1] "" User
+ SG_ flag_degraded : 25|1@1+ (1,0) [0|1] "" User
+ SG_ flag_error : 26|1@1+ (1,0) [0|1] "" User
+ SG_ flag_factory : 48|1@1+ (1,0) [0|1] "" User
+ SG_ flag_god_mode : 49|1@1+ (1,0) [0|1] "" User
 
-BO_ 2155872497 _interlocks_status_0__BOX: 3 ADB_PC_BOX
- SG_ e_0__BOX : 0|1@1+ (1,0) [0|1] "" User
- SG_ a_0__BOX : 1|1@1+ (1,0) [0|1] "" User
- SG_ b_0__BOX : 2|1@1+ (1,0) [0|1] "" User
- SG_ i_0__BOX : 3|1@1+ (1,0) [0|1] "" User
- SG_ x_0__BOX : 4|1@1+ (1,0) [0|1] "" User
+BO_ 2155872496 _fms_state: 8 ADB_PC_BOX
+ SG_ init : 0|8@1+ (1,0) [0|255] "" User
+ SG_ ready : 16|8@1+ (1,0) [0|255] "" User
+ SG_ turned_on : 32|8@1+ (1,0) [0|255] "" User
+ SG_ turned_off : 40|8@1+ (1,0) [0|255] "" User
+ SG_ bleeding : 48|8@1+ (1,0) [0|255] "" User
 
-BO_ 2155872276 Broadcast_Group_Control_0__BOX: 1 User
- SG_ Group_ID_0__BOX : 0|8@1+ (1,0) [0|255] "" ADB_PC_BOX
+BO_ 2155872273 Faults: 8 ADB_PC_BOX
+ SG_ internal : 0|1@1+ (1,0) [0|1] "" User
+ SG_ external : 1|1@1+ (1,0) [0|1] "" User
+ SG_ system : 2|1@1+ (1,0) [0|1] "" User
+ SG_ EEPROM_failure : 3|1@1+ (1,0) [0|1] "" User
+ SG_ wrong_nfo : 4|1@1+ (1,0) [0|1] "" User
+ SG_ Measurement_system_failure : 5|1@1+ (1,0) [0|1] "" User
+ SG_ PLL_not_locked : 6|1@1+ (1,0) [0|1] "" User
+ SG_ overtemperature : 7|1@1+ (1,0) [0|1] "" User
+ SG_ fan_stuck : 8|1@1+ (1,0) [0|1] "" User
+ SG_ dead_module : 9|1@1+ (1,0) [0|1] "" User
+ SG_ keep_alive_not_serv_internal : 10|1@1+ (1,0) [0|1] "" User
+ SG_ error_temperature : 11|1@1+ (1,0) [0|1] "" User
+ SG_ internal_modules_ready : 12|1@1+ (1,0) [0|1] "" User
+ SG_ internal_modules_can_api : 13|1@1+ (1,0) [0|1] "" User
+ SG_ internal_modules_missing : 14|1@1+ (1,0) [0|1] "" User
+ SG_ internal_modules_wrong : 15|1@1+ (1,0) [0|1] "" User
+ SG_ internal_modules_stack : 16|1@1+ (1,0) [0|1] "" User
+ SG_ internal_modules_init : 17|1@1+ (1,0) [0|1] "" User
+ SG_ wrong_revision : 18|1@1+ (1,0) [0|1] "" User
+ SG_ v_in_low : 19|1@1+ (1,0) [0|1] "" User
+ SG_ v_in_critical : 20|1@1+ (1,0) [0|1] "" User
+ SG_ keep_alive_not_serv : 21|1@1+ (1,0) [0|1] "" User
 
-BO_ 2155872384 info_adm_cs_0__BOX: 8 ADB_PC_BOX
- SG_ Type_0__BOX : 0|8@1+ (1,0) [0|255] "" User
- SG_ Revision_0__BOX : 8|8@1+ (1,0) [0|255] "" User
- SG_ Variant_0__BOX : 16|8@1+ (1,0) [0|255] "" User
- SG_ reserved_0__BOX : 24|8@1+ (1,0) [0|255] "" User
- SG_ serial_number_0__BOX : 32|32@1+ (1,0) [0|4294967295] "" User
+BO_ 2155872277 Interface_Status: 3 ADB_PC_BOX
+ SG_ Broadcast_Group : 0|8@1+ (1,0) [0|30] "" User
+ SG_ keep_Alive : 8|4@1+ (1,0) [0|15] "" User
+ SG_ reserved : 12|4@1+ (1,0) [0|15] "" User
+ SG_ keep_Alive_Period : 16|8@1+ (0.1,0) [0|25.5] "s" User
 
-BO_ 2155872385 info_adm_pc_0__BOX: 4 ADB_PC_BOX
- SG_ nb_detected_0__BOX : 0|8@1+ (1,0) [0|255] "" User
- SG_ nd_side_a_0__BOX : 8|8@1+ (1,0) [0|255] "" User
- SG_ nd_side_b_0__BOX : 16|8@1+ (1,0) [0|255] "" User
- SG_ Collision_0__BOX : 24|8@1+ (1,0) [0|255] "" User
+BO_ 2155872278 Keep_Alive_Control: 2 User
+ SG_ Enable : 0|1@1+ (1,0) [0|1] "" ADB_PC_BOX
+ SG_ reserved : 1|1@1+ (1,0) [0|1] "" User
+ SG_ Period : 8|8@1+ (0.1,0) [0|25.5] "s" User
 
-BO_ 2155872386 info_adm_pc_id_1_0__BOX: 8 ADB_PC_BOX
- SG_ Type_0__BOX : 0|8@1+ (1,0) [0|255] "" User
- SG_ Revision_0__BOX : 8|8@1+ (1,0) [0|255] "" User
- SG_ Variant_0__BOX : 16|8@1+ (1,0) [0|255] "" User
- SG_ Stack_position_0__BOX : 24|8@1+ (1,0) [0|255] "" User
- SG_ serial_number_0__BOX : 32|32@1+ (1,0) [0|4294967295] "" User
+BO_ 2155872279 Converter_Temperature: 8 ADB_PC_BOX
+ SG_ Cooling_plate : 0|16@1- (0.01,0) [-327.68|327.67] "°C" User
+ SG_ Magnetics : 16|16@1- (0.01,0) [-327.68|327.67] "°C" User
+ SG_ Transistors : 32|16@1- (0.01,0) [-327.68|327.67] "°C" User
+ SG_ RESERVED : 48|16@1- (0.01,0) [-327.68|327.67] "°C" User
 
-BO_ 2155872387 info_adm_pc_id_2_0__BOX: 8 ADB_PC_BOX
- SG_ Type_0__BOX : 0|8@1+ (1,0) [0|255] "" User
- SG_ Revision_0__BOX : 8|8@1+ (1,0) [0|255] "" User
- SG_ Variant_0__BOX : 16|8@1+ (1,0) [0|255] "" User
- SG_ Stack_position_0__BOX : 24|8@1+ (1,0) [0|255] "" User
- SG_ serial_number_0__BOX : 32|32@1+ (1,0) [0|4294967295] "" User
+BO_ 2155872280 Converter_Fans: 6 ADB_PC_BOX
+ SG_ A_rpm : 0|16@1+ (1,0) [0|65535] "rpm" User
+ SG_ A_pwm : 16|8@1+ (1,0) [0|255] "%" User
+ SG_ B_rpm : 24|16@1+ (1,0) [0|65535] "rpm" User
+ SG_ B_pwm : 40|8@1+ (1,0) [0|255] "%" User
 
-BO_ 2155872388 info_adm_pc_id_3_0__BOX: 8 ADB_PC_BOX
- SG_ Type_0__BOX : 0|8@1+ (1,0) [0|255] "" User
- SG_ Revision_0__BOX : 8|8@1+ (1,0) [0|255] "" User
- SG_ Variant_0__BOX : 16|8@1+ (1,0) [0|255] "" User
- SG_ Stack_position_0__BOX : 24|8@1+ (1,0) [0|255] "" User
- SG_ serial_number_0__BOX : 32|32@1+ (1,0) [0|4294967295] "" User
+BO_ 2155872281 Keep_Alive_Feed: 1 User
+ SG_ feed : 0|1@1+ (1,0) [0|1] "" ADB_PC_BOX
 
-BO_ 2155872389 info_adm_pc_id_4_0__BOX: 8 ADB_PC_BOX
- SG_ Type_0__BOX : 0|8@1+ (1,0) [0|255] "" User
- SG_ Revision_0__BOX : 8|8@1+ (1,0) [0|255] "" User
- SG_ Variant_0__BOX : 16|8@1+ (1,0) [0|255] "" User
- SG_ Stack_position_0__BOX : 24|8@1+ (1,0) [0|255] "" User
- SG_ serial_number_0__BOX : 32|32@1+ (1,0) [0|4294967295] "" User
+BO_ 2155872497 _interlocks_status: 3 ADB_PC_BOX
+ SG_ e : 0|1@1+ (1,0) [0|1] "" User
+ SG_ a : 1|1@1+ (1,0) [0|1] "" User
+ SG_ b : 2|1@1+ (1,0) [0|1] "" User
+ SG_ i : 3|1@1+ (1,0) [0|1] "" User
+ SG_ x : 4|1@1+ (1,0) [0|1] "" User
 
-BO_ 2155872390 info_adm_pc_id_5_0__BOX: 8 ADB_PC_BOX
- SG_ Type_0__BOX : 0|8@1+ (1,0) [0|255] "" User
- SG_ Revision_0__BOX : 8|8@1+ (1,0) [0|255] "" User
- SG_ Variant_0__BOX : 16|8@1+ (1,0) [0|255] "" User
- SG_ Stack_position_0__BOX : 24|8@1+ (1,0) [0|255] "" User
- SG_ serial_number_0__BOX : 32|32@1+ (1,0) [0|4294967295] "" User
+BO_ 2155872276 Broadcast_Group_Control: 1 User
+ SG_ Group_ID : 0|8@1+ (1,0) [0|255] "" ADB_PC_BOX
 
-BO_ 2155872391 info_adm_pc_id_6_0__BOX: 8 ADB_PC_BOX
- SG_ Type_0__BOX : 0|8@1+ (1,0) [0|255] "" User
- SG_ Revision_0__BOX : 8|8@1+ (1,0) [0|255] "" User
- SG_ Variant_0__BOX : 16|8@1+ (1,0) [0|255] "" User
- SG_ Stack_position_0__BOX : 24|8@1+ (1,0) [0|255] "" User
- SG_ serial_number_0__BOX : 32|32@1+ (1,0) [0|4294967295] "" User
+BO_ 2155872384 info_adm_cs: 8 ADB_PC_BOX
+ SG_ Type : 0|8@1+ (1,0) [0|255] "" User
+ SG_ Revision : 8|8@1+ (1,0) [0|255] "" User
+ SG_ Variant : 16|8@1+ (1,0) [0|255] "" User
+ SG_ reserved : 24|8@1+ (1,0) [0|255] "" User
+ SG_ serial_number : 32|32@1+ (1,0) [0|4294967295] "" User
 
-BO_ 2155872392 info_adm_pc_status_1_0__BOX: 8 ADB_PC_BOX
- SG_ Available_0__BOX : 0|1@1+ (1,0) [0|1] "" User
- SG_ Side_0__BOX : 1|2@1+ (1,0) [0|3] "" User
- SG_ Status_0__BOX : 3|2@1+ (1,0) [0|3] "" User
- SG_ Interlock_I_0__BOX : 8|1@1+ (1,0) [0|1] "" User
- SG_ Interlock_E_0__BOX : 9|1@1+ (1,0) [0|1] "" User
- SG_ mode_0__BOX : 16|16@1+ (1,0) [0|65535] "" User
+BO_ 2155872385 info_adm_pc: 4 ADB_PC_BOX
+ SG_ nb_detected : 0|8@1+ (1,0) [0|255] "" User
+ SG_ nd_side_a : 8|8@1+ (1,0) [0|255] "" User
+ SG_ nd_side_b : 16|8@1+ (1,0) [0|255] "" User
+ SG_ Collision : 24|8@1+ (1,0) [0|255] "" User
 
-BO_ 2155872393 info_adm_pc_status_2_0__BOX: 8 ADB_PC_BOX
- SG_ Available_0__BOX : 0|1@1+ (1,0) [0|1] "" User
- SG_ Side_0__BOX : 1|2@1+ (1,0) [0|3] "" User
- SG_ Status_0__BOX : 3|2@1+ (1,0) [0|3] "" User
- SG_ Interlock_I_0__BOX : 8|1@1+ (1,0) [0|1] "" User
- SG_ Interlock_E_0__BOX : 9|1@1+ (1,0) [0|1] "" User
- SG_ mode_0__BOX : 16|16@1+ (1,0) [0|65535] "" User
+BO_ 2155872386 info_adm_pc_id_1: 8 ADB_PC_BOX
+ SG_ Type : 0|8@1+ (1,0) [0|255] "" User
+ SG_ Revision : 8|8@1+ (1,0) [0|255] "" User
+ SG_ Variant : 16|8@1+ (1,0) [0|255] "" User
+ SG_ Stack_position : 24|8@1+ (1,0) [0|255] "" User
+ SG_ serial_number : 32|32@1+ (1,0) [0|4294967295] "" User
 
-BO_ 2155872394 info_adm_pc_status_3_0__BOX: 8 ADB_PC_BOX
- SG_ Available_0__BOX : 0|1@1+ (1,0) [0|1] "" User
- SG_ Side_0__BOX : 1|2@1+ (1,0) [0|3] "" User
- SG_ Status_0__BOX : 3|2@1+ (1,0) [0|3] "" User
- SG_ Interlock_I_0__BOX : 8|1@1+ (1,0) [0|1] "" User
- SG_ Interlock_E_0__BOX : 9|1@1+ (1,0) [0|1] "" User
- SG_ mode_0__BOX : 16|16@1+ (1,0) [0|65535] "" User
+BO_ 2155872387 info_adm_pc_id_2: 8 ADB_PC_BOX
+ SG_ Type : 0|8@1+ (1,0) [0|255] "" User
+ SG_ Revision : 8|8@1+ (1,0) [0|255] "" User
+ SG_ Variant : 16|8@1+ (1,0) [0|255] "" User
+ SG_ Stack_position : 24|8@1+ (1,0) [0|255] "" User
+ SG_ serial_number : 32|32@1+ (1,0) [0|4294967295] "" User
 
-BO_ 2155872395 info_adm_pc_status_4_0__BOX: 8 ADB_PC_BOX
- SG_ Available_0__BOX : 0|1@1+ (1,0) [0|1] "" User
- SG_ Side_0__BOX : 1|2@1+ (1,0) [0|3] "" User
- SG_ Status_0__BOX : 3|2@1+ (1,0) [0|3] "" User
- SG_ Interlock_I_0__BOX : 8|1@1+ (1,0) [0|1] "" User
- SG_ Interlock_E_0__BOX : 9|1@1+ (1,0) [0|1] "" User
- SG_ mode_0__BOX : 16|16@1+ (1,0) [0|65535] "" User
+BO_ 2155872388 info_adm_pc_id_3: 8 ADB_PC_BOX
+ SG_ Type : 0|8@1+ (1,0) [0|255] "" User
+ SG_ Revision : 8|8@1+ (1,0) [0|255] "" User
+ SG_ Variant : 16|8@1+ (1,0) [0|255] "" User
+ SG_ Stack_position : 24|8@1+ (1,0) [0|255] "" User
+ SG_ serial_number : 32|32@1+ (1,0) [0|4294967295] "" User
 
-BO_ 2155872396 info_adm_pc_status_5_0__BOX: 8 ADB_PC_BOX
- SG_ Available_0__BOX : 0|1@1+ (1,0) [0|1] "" User
- SG_ Side_0__BOX : 1|2@1+ (1,0) [0|3] "" User
- SG_ Status_0__BOX : 3|2@1+ (1,0) [0|3] "" User
- SG_ Interlock_I_0__BOX : 8|1@1+ (1,0) [0|1] "" User
- SG_ Interlock_E_0__BOX : 9|1@1+ (1,0) [0|1] "" User
- SG_ mode_0__BOX : 16|16@1+ (1,0) [0|65535] "" User
+BO_ 2155872389 info_adm_pc_id_4: 8 ADB_PC_BOX
+ SG_ Type : 0|8@1+ (1,0) [0|255] "" User
+ SG_ Revision : 8|8@1+ (1,0) [0|255] "" User
+ SG_ Variant : 16|8@1+ (1,0) [0|255] "" User
+ SG_ Stack_position : 24|8@1+ (1,0) [0|255] "" User
+ SG_ serial_number : 32|32@1+ (1,0) [0|4294967295] "" User
 
-BO_ 2155872397 info_adm_pc_status_6_0__BOX: 8 ADB_PC_BOX
- SG_ Available_0__BOX : 0|1@1+ (1,0) [0|1] "" User
- SG_ Side_0__BOX : 1|2@1+ (1,0) [0|3] "" User
- SG_ Status_0__BOX : 3|2@1+ (1,0) [0|3] "" User
- SG_ Interlock_I_0__BOX : 8|1@1+ (1,0) [0|1] "" User
- SG_ Interlock_E_0__BOX : 9|1@1+ (1,0) [0|1] "" User
- SG_ mode_0__BOX : 16|16@1+ (1,0) [0|65535] "" User
+BO_ 2155872390 info_adm_pc_id_5: 8 ADB_PC_BOX
+ SG_ Type : 0|8@1+ (1,0) [0|255] "" User
+ SG_ Revision : 8|8@1+ (1,0) [0|255] "" User
+ SG_ Variant : 16|8@1+ (1,0) [0|255] "" User
+ SG_ Stack_position : 24|8@1+ (1,0) [0|255] "" User
+ SG_ serial_number : 32|32@1+ (1,0) [0|4294967295] "" User
 
-BO_ 2155872400 cs_performance_0__BOX: 8 ADB_PC_BOX
- SG_ cpu_1_usage_0__BOX : 0|8@1+ (1,0) [0|255] "%" User
- SG_ cpu_2_usage_0__BOX : 8|8@1+ (1,0) [0|255] "%" User
- SG_ can_bus_load_A_0__BOX : 16|8@1+ (1,0) [0|255] "%" User
- SG_ can_bus_load_B_0__BOX : 24|8@1+ (1,0) [0|255] "%" User
- SG_ main_loop_freq_0__BOX : 32|16@1+ (1,0) [0|65535] "Hz" User
+BO_ 2155872391 info_adm_pc_id_6: 8 ADB_PC_BOX
+ SG_ Type : 0|8@1+ (1,0) [0|255] "" User
+ SG_ Revision : 8|8@1+ (1,0) [0|255] "" User
+ SG_ Variant : 16|8@1+ (1,0) [0|255] "" User
+ SG_ Stack_position : 24|8@1+ (1,0) [0|255] "" User
+ SG_ serial_number : 32|32@1+ (1,0) [0|4294967295] "" User
 
-BO_ 2155872401 info_can_api_error_0__BOX: 8 ADB_PC_BOX
- SG_ Type_0__BOX : 0|8@1+ (1,0) [0|255] "" User
- SG_ Stack_position_0__BOX : 8|8@1+ (1,0) [0|255] "" User
- SG_ Major_expected_0__BOX : 16|8@1+ (1,0) [0|255] "" User
- SG_ Minor_expected_0__BOX : 24|8@1+ (1,0) [0|255] "" User
- SG_ Patch_expected_0__BOX : 32|8@1+ (1,0) [0|255] "" User
- SG_ Major_actual_0__BOX : 40|8@1+ (1,0) [0|255] "" User
- SG_ Minor_actual_0__BOX : 48|8@1+ (1,0) [0|255] "" User
- SG_ Patch_actual_0__BOX : 56|8@1+ (1,0) [0|255] "" User
+BO_ 2155872392 info_adm_pc_status_1: 8 ADB_PC_BOX
+ SG_ Available : 0|1@1+ (1,0) [0|1] "" User
+ SG_ Side : 1|2@1+ (1,0) [0|3] "" User
+ SG_ Status : 3|2@1+ (1,0) [0|3] "" User
+ SG_ Interlock_I : 8|1@1+ (1,0) [0|1] "" User
+ SG_ Interlock_E : 9|1@1+ (1,0) [0|1] "" User
+ SG_ mode : 16|16@1+ (1,0) [0|65535] "" User
 
-BO_ 2155872354 _Calibration_writing_0__BOX: 6 User
- SG_ index_0__BOX : 0|8@1+ (1,0) [0|255] "" ADB_PC_BOX,User
- SG_ select_0__BOX : 8|8@1+ (1,0) [0|255] "" ADB_PC_BOX,User
- SG_ value_0__BOX : 16|32@1- (0.0001,0) [-214748.3648|214748.3647] "" ADB_PC_BOX,User
+BO_ 2155872393 info_adm_pc_status_2: 8 ADB_PC_BOX
+ SG_ Available : 0|1@1+ (1,0) [0|1] "" User
+ SG_ Side : 1|2@1+ (1,0) [0|3] "" User
+ SG_ Status : 3|2@1+ (1,0) [0|3] "" User
+ SG_ Interlock_I : 8|1@1+ (1,0) [0|1] "" User
+ SG_ Interlock_E : 9|1@1+ (1,0) [0|1] "" User
+ SG_ mode : 16|16@1+ (1,0) [0|65535] "" User
 
-BO_ 2155872355 _Calibration_reading_cmd_0__BOX: 2 User
- SG_ index_0__BOX : 0|8@1+ (1,0) [0|255] "" ADB_PC_BOX
- SG_ select_0__BOX : 8|8@1+ (1,0) [0|255] "" ADB_PC_BOX
+BO_ 2155872394 info_adm_pc_status_3: 8 ADB_PC_BOX
+ SG_ Available : 0|1@1+ (1,0) [0|1] "" User
+ SG_ Side : 1|2@1+ (1,0) [0|3] "" User
+ SG_ Status : 3|2@1+ (1,0) [0|3] "" User
+ SG_ Interlock_I : 8|1@1+ (1,0) [0|1] "" User
+ SG_ Interlock_E : 9|1@1+ (1,0) [0|1] "" User
+ SG_ mode : 16|16@1+ (1,0) [0|65535] "" User
 
-BO_ 2155872356 _Calibration_reading_0__BOX: 8 ADB_PC_BOX
- SG_ index_0__BOX : 0|8@1+ (1,0) [0|255] "" User
- SG_ select_0__BOX : 8|8@1+ (1,0) [0|255] "" User
- SG_ calibration_status_0__BOX : 16|1@1+ (1,0) [0|1] "" User
- SG_ reserved_0__BOX : 17|7@1+ (1,0) [0|127] "" User
- SG_ value_0__BOX : 24|32@1- (0.0001,0) [-214748.3648|214748.3647] "" User
+BO_ 2155872395 info_adm_pc_status_4: 8 ADB_PC_BOX
+ SG_ Available : 0|1@1+ (1,0) [0|1] "" User
+ SG_ Side : 1|2@1+ (1,0) [0|3] "" User
+ SG_ Status : 3|2@1+ (1,0) [0|3] "" User
+ SG_ Interlock_I : 8|1@1+ (1,0) [0|1] "" User
+ SG_ Interlock_E : 9|1@1+ (1,0) [0|1] "" User
+ SG_ mode : 16|16@1+ (1,0) [0|65535] "" User
 
-BO_ 2155872352 _Factory_Config_0__BOX: 8 User
- SG_ select_0__BOX : 0|8@1+ (1,0) [0|255] "" ADB_PC_BOX
- SG_ set_id_0__BOX : 8|8@1+ (1,0) [0|255] "" ADB_PC_BOX
- SG_ set_revision_0__BOX : 16|8@1+ (1,0) [0|255] "" ADB_PC_BOX
- SG_ set_variant_0__BOX : 24|8@1+ (1,0) [0|255] "" ADB_PC_BOX
+BO_ 2155872396 info_adm_pc_status_5: 8 ADB_PC_BOX
+ SG_ Available : 0|1@1+ (1,0) [0|1] "" User
+ SG_ Side : 1|2@1+ (1,0) [0|3] "" User
+ SG_ Status : 3|2@1+ (1,0) [0|3] "" User
+ SG_ Interlock_I : 8|1@1+ (1,0) [0|1] "" User
+ SG_ Interlock_E : 9|1@1+ (1,0) [0|1] "" User
+ SG_ mode : 16|16@1+ (1,0) [0|65535] "" User
 
-BO_ 2155872357 _Factory_Debug_cmd_0__BOX: 8 User
- SG_ god_mode_0__BOX : 0|1@1+ (1,0) [0|1] "" ADB_PC_BOX
- SG_ internal_power_a_0__BOX : 1|1@1+ (1,0) [0|1] "" ADB_PC_BOX
- SG_ internal_power_b_0__BOX : 2|1@1+ (1,0) [0|1] "" ADB_PC_BOX
- SG_ offset_stack_internal_0__BOX : 8|8@1+ (1,0) [0|255] "offset" ADB_PC_BOX
+BO_ 2155872397 info_adm_pc_status_6: 8 ADB_PC_BOX
+ SG_ Available : 0|1@1+ (1,0) [0|1] "" User
+ SG_ Side : 1|2@1+ (1,0) [0|3] "" User
+ SG_ Status : 3|2@1+ (1,0) [0|3] "" User
+ SG_ Interlock_I : 8|1@1+ (1,0) [0|1] "" User
+ SG_ Interlock_E : 9|1@1+ (1,0) [0|1] "" User
+ SG_ mode : 16|16@1+ (1,0) [0|65535] "" User
+
+BO_ 2155872400 cs_performance: 8 ADB_PC_BOX
+ SG_ cpu_1_usage : 0|8@1+ (1,0) [0|255] "%" User
+ SG_ cpu_2_usage : 8|8@1+ (1,0) [0|255] "%" User
+ SG_ can_bus_load_A : 16|8@1+ (1,0) [0|255] "%" User
+ SG_ can_bus_load_B : 24|8@1+ (1,0) [0|255] "%" User
+ SG_ main_loop_freq : 32|16@1+ (1,0) [0|65535] "Hz" User
+
+BO_ 2155872401 info_can_api_error: 8 ADB_PC_BOX
+ SG_ Type : 0|8@1+ (1,0) [0|255] "" User
+ SG_ Stack_position : 8|8@1+ (1,0) [0|255] "" User
+ SG_ Major_expected : 16|8@1+ (1,0) [0|255] "" User
+ SG_ Minor_expected : 24|8@1+ (1,0) [0|255] "" User
+ SG_ Patch_expected : 32|8@1+ (1,0) [0|255] "" User
+ SG_ Major_actual : 40|8@1+ (1,0) [0|255] "" User
+ SG_ Minor_actual : 48|8@1+ (1,0) [0|255] "" User
+ SG_ Patch_actual : 56|8@1+ (1,0) [0|255] "" User
+
+BO_ 2155872354 _Calibration_writing: 6 User
+ SG_ index : 0|8@1+ (1,0) [0|255] "" ADB_PC_BOX,User
+ SG_ select : 8|8@1+ (1,0) [0|255] "" ADB_PC_BOX,User
+ SG_ value : 16|32@1- (0.0001,0) [-214748.3648|214748.3647] "" ADB_PC_BOX,User
+
+BO_ 2155872355 _Calibration_reading_cmd: 2 User
+ SG_ index : 0|8@1+ (1,0) [0|255] "" ADB_PC_BOX
+ SG_ select : 8|8@1+ (1,0) [0|255] "" ADB_PC_BOX
+
+BO_ 2155872356 _Calibration_reading: 8 ADB_PC_BOX
+ SG_ index : 0|8@1+ (1,0) [0|255] "" User
+ SG_ select : 8|8@1+ (1,0) [0|255] "" User
+ SG_ calibration_status : 16|1@1+ (1,0) [0|1] "" User
+ SG_ reserved : 17|7@1+ (1,0) [0|127] "" User
+ SG_ value : 24|32@1- (0.0001,0) [-214748.3648|214748.3647] "" User
+
+BO_ 2155872352 _Factory_Config: 8 User
+ SG_ select : 0|8@1+ (1,0) [0|255] "" ADB_PC_BOX
+ SG_ set_id : 8|8@1+ (1,0) [0|255] "" ADB_PC_BOX
+ SG_ set_revision : 16|8@1+ (1,0) [0|255] "" ADB_PC_BOX
+ SG_ set_variant : 24|8@1+ (1,0) [0|255] "" ADB_PC_BOX
+
+BO_ 2155872357 _Factory_Debug_cmd: 8 User
+ SG_ god_mode : 0|1@1+ (1,0) [0|1] "" ADB_PC_BOX
+ SG_ internal_power_a : 1|1@1+ (1,0) [0|1] "" ADB_PC_BOX
+ SG_ internal_power_b : 2|1@1+ (1,0) [0|1] "" ADB_PC_BOX
+ SG_ offset_stack_internal : 8|8@1+ (1,0) [0|255] "offset" ADB_PC_BOX
 
 
-CM_ BO_ 2155872288  "Readouts of the module temperature sensor";
-CM_ BO_ 2155872290  "Manual control of fan speed pwm (for debug) ";
-CM_ BO_ 2155872291  "Manual control of enable/disable (for debug) ";
-CM_ BO_ 2155872292  "Control: contactors 1 and 2 ";
-CM_ BO_ 2155872293  "status of contactors 1 and 2";
-CM_ BO_ 2155872294  "Control: contactors 3 and 4 ";
-CM_ BO_ 2155872295  "status of contactors 1 and 2";
-CM_ BO_ 2155872296  "status of contactors 1 and 2";
+CM_ BO_ 2155872320  "Set the mode of AC01";
+CM_ BO_ 2155872321  "read back the modes";
+CM_ BO_ 2155872322  "DC01 Critical and Error Faults";
+CM_ BO_ 2155872323  "DC01 Warnings";
+CM_ BO_ 2155872324  "DC01 Informational Flags";
+CM_ BO_ 2155872288  "The setpoints control the behaviour of the B Port of the DC01";
+CM_ BO_ 2155872289  "The setpoints that are currently used by the DC01. This message allows to validate that the setpoints have been properly applied.";
+CM_ BO_ 2155872290  "Setpoints for applying Droop on the DC Port B. Droop is needed for paralleling multiple DC01";
+CM_ BO_ 2155872291  "Droop setpoints that are applied by the DC01 on port b ";
+CM_ BO_ 2155872292  "Measurements of the B port";
+CM_ BO_ 2155872306  "Measurements of the A port";
+CM_ BO_ 2155872304  "The setpoints control the behaviour of the A Port of the DC01";
+CM_ BO_ 2155872305  "The setpoints that are currently used by the DC01. This message allows to validate that the setpoints have been properly applied.";
+CM_ BO_ 2155872498  "The setpoints that are currently used by the DC01. This message allows to validate that the setpoints have been properly applied.";
+CM_ BO_ 2155872499  "The setpoints that are currently used by the DC01. This message allows to validate that the setpoints have been properly applied.";
 CM_ BO_ 2155872256  "Identification of the device";
 CM_ BO_ 2155872258  "Unique Identifier of the Firmware used on this module";
 CM_ BO_ 2155872257  "Unique Identifier of the Bootloader used on this module";
@@ -366,275 +442,381 @@ CM_ BO_ 2155872356  "Calibration reading cmd (factory mode need to be set)";
 CM_ BO_ 2155872352  "factory setting of controller and boxs";
 CM_ BO_ 2155872357  "factory debug cmd, need factory mode flag set to 1";
 
-CM_ SG_ 2155872288 Temp_NTC_A_0_GC01 "Temperature of the inductor";
-CM_ SG_ 2155872288 v_in_0_GC01 "Temperature of the inductor";
-CM_ SG_ 2155872288 Voltage_prob_b_0_GC01 "Temperature of the inductor";
-CM_ SG_ 2155872288 Voltage_prob_b_raw_0_GC01 "Temperature of the inductor";
-CM_ SG_ 2155872290 FAN1_speed_0_GC01 "Fan speed in percentage (0 to 100%)";
-CM_ SG_ 2155872291 FAN1_enable_0_GC01 "Fan enable/disable";
-CM_ SG_ 2155872292 pwr_enable_0_GC01 "enable power to contactors";
-CM_ SG_ 2155872292 not_eco_0_GC01 "economised mode";
-CM_ SG_ 2155872292 cont_1_2_en_0_GC01 "enable cont 1 and 2";
-CM_ SG_ 2155872292 cont_1_close_0_GC01 "close cont 1 ";
-CM_ SG_ 2155872292 cont_2_close_0_GC01 "close cont 1 ";
-CM_ SG_ 2155872294 pwr_enable_0_GC01 "enable power to contactors";
-CM_ SG_ 2155872294 not_eco_0_GC01 "economised mode";
-CM_ SG_ 2155872294 reserved_0_GC01 "economised mode";
-CM_ SG_ 2155872294 cont_3_ctrl_0_GC01 "close cont 1 ";
-CM_ SG_ 2155872294 cont_4_ctrl_0_GC01 "close cont 1 ";
-CM_ SG_ 2155872296 conf_0_GC01 "Enable the systeme";
-CM_ SG_ 2155872256 Type_0_BASE "The device identification field, uniquely identifies the sender in the network";
-CM_ SG_ 2155872256 Revision_0_BASE "The hardware revision number";
-CM_ SG_ 2155872256 Variant_0_BASE "The hardware variant";
-CM_ SG_ 2155872256 Stack_position_0_BASE "Position of the module within the stack";
-CM_ SG_ 2155872256 serial_number_0_BASE "Unique module serial number";
-CM_ SG_ 2155872259 Major_0_BASE "The Major version number. This number increases if there are backwards incompatible changes";
-CM_ SG_ 2155872259 Minor_0_BASE "The Minor version number. This number increases if there are backwards compatible changes, like new messages or the use of previously reserved space";
-CM_ SG_ 2155872259 Patch_0_BASE "The Patch number. This number increases when changes to descriptions and documentation/comments are made";
-CM_ SG_ 2155872325 Stack_position_0_BASE "The module position within the stack";
-CM_ SG_ 2155872325 reserved_0_BASE "was stack size before";
-CM_ SG_ 2155872325 SN_number_0_BASE "Unique module serial number";
-CM_ SG_ 2155872336 Clear_Interlock_0_BASE "Clears the converter interlock";
-CM_ SG_ 2155872336 Reset_Processor_0_BASE "Reset the converter DSP";
-CM_ SG_ 2155872336 Trip_Interlock_0_BASE "Trip the inetrnal Interlock";
-CM_ SG_ 2155872336 Reserved_0_BASE "Reserved space";
-CM_ SG_ 2155872353 Factory_mode_0_BASE "Customers MUST NOT USE this bit. If set to 1, module will enter in factory mode. ";
-CM_ SG_ 2155872274 enable_0__BOX "Enable the system";
-CM_ SG_ 2155872275 load_0__BOX "load in percent";
-CM_ SG_ 2155872275 efficiency_0__BOX "load in percent";
-CM_ SG_ 2155872275 Power_capability_0__BOX "Power capabilities in kw";
-CM_ SG_ 2155872275 low_power_input_0__BOX "low power iunput voltage";
-CM_ SG_ 2155872272 State_0__BOX "box state";
-CM_ SG_ 2155872272 flag_enable_0__BOX "flag to know if the system is Enable";
-CM_ SG_ 2155872272 flag_ready_0__BOX "box has receive correct set point and can be turned one ";
-CM_ SG_ 2155872272 flag_energized_0__BOX "the box is energized ";
-CM_ SG_ 2155872272 flag_busy_0__BOX "box is busy ";
-CM_ SG_ 2155872272 flag_eco_0__BOX "box is in eco mode";
-CM_ SG_ 2155872272 flag_warning_0__BOX "box has warning and might be in degraded mode ";
-CM_ SG_ 2155872272 flag_degraded_0__BOX "box function in degraded mode ";
-CM_ SG_ 2155872272 flag_error_0__BOX "box has error those need to ble cleared to allow operation ";
-CM_ SG_ 2155872272 flag_factory_0__BOX "box function in factory mode ";
-CM_ SG_ 2155872272 flag_god_mode_0__BOX "box function in degraded mode ";
-CM_ SG_ 2155872496 init_0__BOX "box state init";
-CM_ SG_ 2155872496 ready_0__BOX "box state ready";
-CM_ SG_ 2155872496 turned_on_0__BOX "box state turned on";
-CM_ SG_ 2155872496 turned_off_0__BOX "box state turned off";
-CM_ SG_ 2155872496 bleeding_0__BOX "box state bleeding";
-CM_ SG_ 2155872273 internal_0__BOX "This g is asserted if the interlock is open due to an internal fault condition (self-protection)";
-CM_ SG_ 2155872273 external_0__BOX "This flag is asserted if the interlock is open due to an external condition received in the module.";
-CM_ SG_ 2155872273 keep_alive_not_serv_internal_0__ " keep alive internal not served ";
-CM_ SG_ 2155872273 error_temperature_0__BOX "trigger when a temperature has an errror";
-CM_ SG_ 2155872273 internal_modules_can_api_0__BOX "internal module wrong API";
-CM_ SG_ 2155872273 internal_modules_missing_0__BOX "internal modules missing";
-CM_ SG_ 2155872273 internal_modules_wrong_0__BOX "internal modules wrong";
-CM_ SG_ 2155872273 internal_modules_stack_0__BOX "internal modules stack error";
-CM_ SG_ 2155872273 internal_modules_init_0__BOX "internal module failed init";
-CM_ SG_ 2155872273 v_in_low_0__BOX "24v input too low ";
-CM_ SG_ 2155872273 v_in_critical_0__BOX "24v input too low ";
-CM_ SG_ 2155872273 keep_alive_not_serv_0__BOX " keep alive not served ";
-CM_ SG_ 2155872277 Broadcast_Group_0__BOX "The broadcast group that the module belongs to. Broadcast group 0 implies that the module is not part of a broadcast group. ";
-CM_ SG_ 2155872277 keep_Alive_0__BOX "keep alive requires the supervisory controller to send a heartbeat message at regular intervals";
-CM_ SG_ 2155872277 reserved_0__BOX "If this signal and the 'keep alive' is enabled, violating the heartbeat will trip the interlock, shutting down all connected power converters";
-CM_ SG_ 2155872277 keep_Alive_Period_0__BOX "The maximum period of the keep alive message. If the time between two heart-beat messages is longer than this value, the module ceases operation. This only applies when the Heartbeat signal is Enabled";
-CM_ SG_ 2155872278 Enable_0__BOX "Enable/Disable the Heartbeat feature of the Module";
-CM_ SG_ 2155872278 reserved_0__BOX "Set if the external interlock should be tripped if a heartbeat is not received within the configured period. If this signal is enabled the interlock is triped and the module is disabled. If this signal is set to Disabled, the interlock like will not be tripped but the module will cease operation";
-CM_ SG_ 2155872278 Period_0__BOX "Set the maximum period of the Heartbeat message. If the time between two heart-beat messages is longer than this value, the module ceases operation.";
-CM_ SG_ 2155872279 Cooling_plate_0__BOX "Temperature of the cooling plate";
-CM_ SG_ 2155872279 Magnetics_0__BOX "Highest mesured temp of magnetics";
-CM_ SG_ 2155872279 Transistors_0__BOX "Highest mesured temp of transistors";
-CM_ SG_ 2155872279 RESERVED_0__BOX "Lowest measured temp internally";
-CM_ SG_ 2155872280 A_rpm_0__BOX "Measured speed of Fan 1";
-CM_ SG_ 2155872280 A_pwm_0__BOX "Fan speed in percentage (0 to 100%)";
-CM_ SG_ 2155872280 B_rpm_0__BOX "Measured speed of Fan 1";
-CM_ SG_ 2155872280 B_pwm_0__BOX "Fan speed in percentage (0 to 100%)";
-CM_ SG_ 2155872281 feed_0__BOX "the value don't matter her tin order to feed the alive";
-CM_ SG_ 2155872276 Group_ID_0__BOX "Broadcast Group that the module should monitor";
-CM_ SG_ 2155872384 Type_0__BOX "The device identification field";
-CM_ SG_ 2155872384 Revision_0__BOX "The hardware revision numbere";
-CM_ SG_ 2155872384 Variant_0__BOX "Hardware variant";
-CM_ SG_ 2155872384 reserved_0__BOX "Hardware variant";
-CM_ SG_ 2155872384 serial_number_0__BOX "Hardware variant";
-CM_ SG_ 2155872385 nb_detected_0__BOX "number of modules detectedce";
-CM_ SG_ 2155872385 nd_side_a_0__BOX "number of modules detectedce";
-CM_ SG_ 2155872385 nd_side_b_0__BOX "number of modules detectedce";
-CM_ SG_ 2155872385 Collision_0__BOX "collision between module";
-CM_ SG_ 2155872386 Type_0__BOX "The device identification field";
-CM_ SG_ 2155872386 Revision_0__BOX "The hardware revision numbere";
-CM_ SG_ 2155872386 Variant_0__BOX "Hardware variant";
-CM_ SG_ 2155872386 Stack_position_0__BOX "Hardware variant";
-CM_ SG_ 2155872386 serial_number_0__BOX "Hardware variant";
-CM_ SG_ 2155872387 Type_0__BOX "The device identification field";
-CM_ SG_ 2155872387 Revision_0__BOX "The hardware revision numbere";
-CM_ SG_ 2155872387 Variant_0__BOX "Hardware variant";
-CM_ SG_ 2155872387 Stack_position_0__BOX "Hardware variant";
-CM_ SG_ 2155872387 serial_number_0__BOX "Hardware variant";
-CM_ SG_ 2155872388 Type_0__BOX "The device identification field";
-CM_ SG_ 2155872388 Revision_0__BOX "The hardware revision numbere";
-CM_ SG_ 2155872388 Variant_0__BOX "Hardware variant";
-CM_ SG_ 2155872388 Stack_position_0__BOX "Hardware variant";
-CM_ SG_ 2155872388 serial_number_0__BOX "Hardware variant";
-CM_ SG_ 2155872389 Type_0__BOX "The device identification field";
-CM_ SG_ 2155872389 Revision_0__BOX "The hardware revision numbere";
-CM_ SG_ 2155872389 Variant_0__BOX "Hardware variant";
-CM_ SG_ 2155872389 Stack_position_0__BOX "Hardware variant";
-CM_ SG_ 2155872389 serial_number_0__BOX "Hardware variant";
-CM_ SG_ 2155872390 Type_0__BOX "The device identification field";
-CM_ SG_ 2155872390 Revision_0__BOX "The hardware revision numbere";
-CM_ SG_ 2155872390 Variant_0__BOX "Hardware variant";
-CM_ SG_ 2155872390 Stack_position_0__BOX "Hardware variant";
-CM_ SG_ 2155872390 serial_number_0__BOX "Hardware variant";
-CM_ SG_ 2155872391 Type_0__BOX "The device identification field";
-CM_ SG_ 2155872391 Revision_0__BOX "The hardware revision numbere";
-CM_ SG_ 2155872391 Variant_0__BOX "Hardware variant";
-CM_ SG_ 2155872391 Stack_position_0__BOX "Hardware variant";
-CM_ SG_ 2155872391 serial_number_0__BOX "Hardware variant";
-CM_ SG_ 2155872392 Available_0__BOX "The device available";
-CM_ SG_ 2155872392 Side_0__BOX "The device is Ready";
-CM_ SG_ 2155872392 Status_0__BOX "The device is Running";
-CM_ SG_ 2155872392 Interlock_I_0__BOX "The device have interlock internal";
-CM_ SG_ 2155872392 Interlock_E_0__BOX "The device have interlock external";
-CM_ SG_ 2155872392 mode_0__BOX "Mode";
-CM_ SG_ 2155872393 Available_0__BOX "The device available";
-CM_ SG_ 2155872393 Side_0__BOX "The device is Ready";
-CM_ SG_ 2155872393 Status_0__BOX "The device is Running";
-CM_ SG_ 2155872393 Interlock_I_0__BOX "The device have interlock internal";
-CM_ SG_ 2155872393 Interlock_E_0__BOX "The device have interlock external";
-CM_ SG_ 2155872393 mode_0__BOX "Mode";
-CM_ SG_ 2155872394 Available_0__BOX "The device available";
-CM_ SG_ 2155872394 Side_0__BOX "The device is Ready";
-CM_ SG_ 2155872394 Status_0__BOX "The device is Running";
-CM_ SG_ 2155872394 Interlock_I_0__BOX "The device have interlock internal";
-CM_ SG_ 2155872394 Interlock_E_0__BOX "The device have interlock external";
-CM_ SG_ 2155872394 mode_0__BOX "Mode";
-CM_ SG_ 2155872395 Available_0__BOX "The device available";
-CM_ SG_ 2155872395 Side_0__BOX "The device is Ready";
-CM_ SG_ 2155872395 Status_0__BOX "The device is Running";
-CM_ SG_ 2155872395 Interlock_I_0__BOX "The device have interlock internal";
-CM_ SG_ 2155872395 Interlock_E_0__BOX "The device have interlock external";
-CM_ SG_ 2155872395 mode_0__BOX "Mode";
-CM_ SG_ 2155872396 Available_0__BOX "The device available";
-CM_ SG_ 2155872396 Side_0__BOX "The device is Ready";
-CM_ SG_ 2155872396 Status_0__BOX "The device is Running";
-CM_ SG_ 2155872396 Interlock_I_0__BOX "The device have interlock internal";
-CM_ SG_ 2155872396 Interlock_E_0__BOX "The device have interlock external";
-CM_ SG_ 2155872396 mode_0__BOX "Mode";
-CM_ SG_ 2155872397 Available_0__BOX "The device available";
-CM_ SG_ 2155872397 Side_0__BOX "The device is Ready";
-CM_ SG_ 2155872397 Status_0__BOX "The device is Running";
-CM_ SG_ 2155872397 Interlock_I_0__BOX "The device have interlock internal";
-CM_ SG_ 2155872397 Interlock_E_0__BOX "The device have interlock external";
-CM_ SG_ 2155872397 mode_0__BOX "Mode";
-CM_ SG_ 2155872400 cpu_1_usage_0__BOX "Controller cpu 1 usage";
-CM_ SG_ 2155872400 cpu_2_usage_0__BOX "Controller cpu 2 usage";
-CM_ SG_ 2155872400 can_bus_load_A_0__BOX "Controller cup 1 usage";
-CM_ SG_ 2155872400 can_bus_load_B_0__BOX "Controller cpu 1 usage";
-CM_ SG_ 2155872400 main_loop_freq_0__BOX "Controller cpu 1 usage";
-CM_ SG_ 2155872401 Type_0__BOX "The device identification field";
-CM_ SG_ 2155872401 Stack_position_0__BOX "Hardware variant";
-CM_ SG_ 2155872401 Major_expected_0__BOX "The Major version number. This number increases if there are backwards incompatible changes";
-CM_ SG_ 2155872401 Minor_expected_0__BOX "The minor version number. This number increases if there are backwards incompatible changes";
-CM_ SG_ 2155872401 Patch_expected_0__BOX "The patch version number. This number increases if there are backwards incompatible changes";
-CM_ SG_ 2155872401 Major_actual_0__BOX "The Major version number. This number increases if there are backwards incompatible changes";
-CM_ SG_ 2155872401 Minor_actual_0__BOX "The minor version number. This number increases if there are backwards incompatible changes";
-CM_ SG_ 2155872401 Patch_actual_0__BOX "The patch version number. This number increases if there are backwards incompatible changes";
-CM_ SG_ 2155872354 index_0__BOX "index of the device that nee calibration (0 is unvalid) ";
-CM_ SG_ 2155872354 select_0__BOX "select what value to set";
-CM_ SG_ 2155872354 value_0__BOX "require calibration valut ";
-CM_ SG_ 2155872355 index_0__BOX "index of the device that need reading ";
-CM_ SG_ 2155872355 select_0__BOX "select what value to read";
-CM_ SG_ 2155872356 index_0__BOX "index of the device that need reading ";
-CM_ SG_ 2155872356 select_0__BOX "select what value to read";
-CM_ SG_ 2155872356 calibration_status_0__BOX "select what value to read";
-CM_ SG_ 2155872356 reserved_0__BOX "select what value to read";
-CM_ SG_ 2155872356 value_0__BOX "require calibration valut ";
-CM_ SG_ 2155872352 select_0__BOX "set ID, need factory mode = 1 (will change revision and variant as well)";
-CM_ SG_ 2155872352 set_id_0__BOX "set ID, need factory mode = 1 (will change revision and variant as well)";
-CM_ SG_ 2155872352 set_revision_0__BOX "set revision, need factory mode = 1 , applied if set_id is valid";
-CM_ SG_ 2155872352 set_variant_0__BOX "set variant, need factory mode = 1, applied if set_id is valid";
-CM_ SG_ 2155872357 god_mode_0__BOX "Customers MUST NOT USE this bit. If set to 1, module will enter in factory mode. ";
-CM_ SG_ 2155872357 internal_power_a_0__BOX "Customers MUST NOT USE this bit. If set to 1, module will enter in factory mode. ";
-CM_ SG_ 2155872357 internal_power_b_0__BOX "Customers MUST NOT USE this bit. If set to 1, module will enter in factory mode. ";
-CM_ SG_ 2155872357 offset_stack_internal_0__BOX "Customers MUST NOT USE this bit. need factory mode = 1 ";
+CM_ SG_ 2155872320 mode "require mode";
+CM_ SG_ 2155872320 connection "require connection";
+CM_ SG_ 2155872321 mode "actual mode";
+CM_ SG_ 2155872321 connection "connection mode";
+CM_ SG_ 2155872322 CABLE_2_4_DC "BI25(2).DC -> BI25(4).DC mismatch";
+CM_ SG_ 2155872322 CABLE_1_2_DC "BI25(2).DC -> BP25(1).DC mismatch";
+CM_ SG_ 2155872322 CABLE_3_4_DC "BI25(4).DC -> BI25(2).DC mismatch";
+CM_ SG_ 2155872322 CABLE_1_L1_L2 "BP25(1).L1 -> BI25(1).L2 mismatch";
+CM_ SG_ 2155872322 CABLE_1_L2_L3 "BP25(1).L2 -> BI25(1).L3 mismatch";
+CM_ SG_ 2155872322 CABLE_3_L1_L2 "BP25(3).L1 -> BI25(3).L2 mismatch";
+CM_ SG_ 2155872322 CABLE_3_L2_L3 "BP25(3).L2 -> BI25(3).L3 mismatch";
+CM_ SG_ 2155872322 CABLE_1_3_L1 "BP25(1).L1 -> BI25(3).L1 mismatch";
+CM_ SG_ 2155872322 CABLE_2_IN_OUT "BI25(2).IN -> BI25(2).OUT mismatch";
+CM_ SG_ 2155872322 CABLE_4_IN_OUT "BI25(4).IN -> BI25(4).OUT mismatch";
+CM_ SG_ 2155872322 MODULE_1_RUNNING "Module 1 running error";
+CM_ SG_ 2155872322 MODULE_2_RUNNING "Module 2 running error";
+CM_ SG_ 2155872322 MODULE_3_RUNNING "Module 3 running error";
+CM_ SG_ 2155872322 MODULE_4_RUNNING "Module 4 running error";
+CM_ SG_ 2155872322 CONTACTOR_1_CLOSED "Contactor 1 unexpectedly closed";
+CM_ SG_ 2155872322 CONTACTOR_2_CLOSED "Contactor 2 unexpectedly closed";
+CM_ SG_ 2155872322 CONTACTOR_3_CLOSED "Contactor 3 unexpectedly closed";
+CM_ SG_ 2155872322 CONTACTOR_4_CLOSED "Contactor 4 unexpectedly closed";
+CM_ SG_ 2155872322 CONTACTOR_1_OPEN "Contactor 1 failed to close";
+CM_ SG_ 2155872322 CONTACTOR_2_OPEN "Contactor 2 failed to close";
+CM_ SG_ 2155872322 CONTACTOR_3_OPEN "Contactor 3 failed to close";
+CM_ SG_ 2155872322 CONTACTOR_4_OPEN "Contactor 4 failed to close";
+CM_ SG_ 2155872322 CONTACTOR_1_FAIL "Contactor 1 feedback failure";
+CM_ SG_ 2155872322 CONTACTOR_2_FAIL "Contactor 2 feedback failure";
+CM_ SG_ 2155872322 CONTACTOR_3_FAIL "Contactor 3 feedback failure";
+CM_ SG_ 2155872322 CONTACTOR_4_FAIL "Contactor 4 feedback failure";
+CM_ SG_ 2155872322 PORT_A_OVERVOLTAGE "Port A overvoltage detected";
+CM_ SG_ 2155872322 CS_REV_INCOMPATIBLE "Controller board incompatible";
+CM_ SG_ 2155872322 CONTACTORS_CONNECTION_UNDEFINED "Contactors connection state undefined";
+CM_ SG_ 2155872322 AFE_NOT_OFF "AFE not off when expected";
+CM_ SG_ 2155872322 AFE_PWM_NOT_RUNNING "AFE PWM not running";
+CM_ SG_ 2155872322 AFE_PWM_STOP_RUNNING "AFE PWM stopped unexpectedly";
+CM_ SG_ 2155872322 BLEEDING_FAILED "Bleeding resistor discharge failed";
+CM_ SG_ 2155872322 BI25_PWM_NOT_RUNNING "Bleeding resistor discharge failed";
+CM_ SG_ 2155872322 CALIBRATION_ERROR "Bleeding resistor discharge failed";
+CM_ SG_ 2155872323 MODE_NOT_SUPPORTED "Mode not supported";
+CM_ SG_ 2155872323 V_A_LOW "voltage port a too low";
+CM_ SG_ 2155872323 V_A_HIGH "voltage port a too high";
+CM_ SG_ 2155872323 NEED_UPDATE "power converter need update";
+CM_ SG_ 2155872324 BLEEDING_DONE "Bleeding completed successfully";
+CM_ SG_ 2155872324 CONTACTORS_CONNECTION_SERIAL "Contactors connected in series";
+CM_ SG_ 2155872324 CONTACTORS_CONNECTION_PARALLEL "Contactors connected in parallel";
+CM_ SG_ 2155872324 CONTACTORS_CONNECTION_OPEN "All contactors open";
+CM_ SG_ 2155872324 CONNECTION_MANAGER_RQ_CHANGE "Connection manager requests topology change";
+CM_ SG_ 2155872324 VB_LIMITED_BY_VA "VA is not high enough to reach targeted VB";
+CM_ SG_ 2155872324 CURRENT_LIMIT "current limit reached";
+CM_ SG_ 2155872324 VB_TO_HIGH_FOR_SELECTED_MODE "cvb is too high for the current selected mode";
+CM_ SG_ 2155872324 CURRENT_LIMITED_BY_POWER "current is limited because max power is reached";
+CM_ SG_ 2155872288 Voltage "Control the target B port voltage. This voltage will be maintained as long as the current required to do so is smaller than the current limits specified in this message";
+CM_ SG_ 2155872288 Positive_Current_Limit "The maximum current that the DC01 will source on the B port";
+CM_ SG_ 2155872288 Negative_Current_Limit "The maximum current that the AC01 will sink into the B port";
+CM_ SG_ 2155872289 Voltage "The voltage target of the B port";
+CM_ SG_ 2155872289 Positive_Current_Limit "The maximum current that the DC01 will source on the B Port";
+CM_ SG_ 2155872289 Negative_Current_Limit "The maximum amount of current that the DC01 will sink into the B port";
+CM_ SG_ 2155872290 Positive_Current_Droop "The droop resistance to apply for current flowing out of the DC port (DC current is positive)";
+CM_ SG_ 2155872290 Negative_Current_Droop "The droop resistance to apply for current flowing in to the DC Port B (DC current is negative)";
+CM_ SG_ 2155872290 Enable "Enable DC Droop. If this feature is enabled the output voltage of the DC port  Bvaries with output current.";
+CM_ SG_ 2155872290 Reserved "This space is reserved. This region should contain only '0's";
+CM_ SG_ 2155872291 Positive_Current_Droop "The droop resistance applied for current flowing out of the DC port B (DC current is positive)";
+CM_ SG_ 2155872291 Negative_Current_Droop "The droop resistance applied for current flowing in to the DC Port B (DC current is negative)";
+CM_ SG_ 2155872291 Enable "Show is B port Droop is enabled.";
+CM_ SG_ 2155872292 Voltage "Voltage on the B Port";
+CM_ SG_ 2155872292 Current "Current through the B Port";
+CM_ SG_ 2155872306 Voltage "Voltage on the A Port";
+CM_ SG_ 2155872306 Current "Current through the A Port";
+CM_ SG_ 2155872304 Voltage "Control the target A port voltage. This voltage will be maintained as long as the current required to do so is smaller than the current limits specified in this message";
+CM_ SG_ 2155872304 Source_Current_Limit "The maximum current that the DC01 will source on the A port";
+CM_ SG_ 2155872304 Sink_Current_Limit "The maximum current that the AC01 will sink into the A port";
+CM_ SG_ 2155872305 Voltage "The voltage target of the A port";
+CM_ SG_ 2155872305 Source_Current_Limit "The maximum current that the DC01 will source on the A Port";
+CM_ SG_ 2155872305 Sink_Current_Limit "The maximum amount of current that the DC01 will sink into the A port";
+CM_ SG_ 2155872498 allow_close_contactor "The voltage target of the A port";
+CM_ SG_ 2155872499 current_connection_mode "The voltage target of the A port";
+CM_ SG_ 2155872499 new_connection_mode "The voltage target of the A port";
+CM_ SG_ 2155872256 Type "The device identification field, uniquely identifies the sender in the network";
+CM_ SG_ 2155872256 Revision "The hardware revision number";
+CM_ SG_ 2155872256 Variant "The hardware variant";
+CM_ SG_ 2155872256 Stack_position "Position of the module within the stack";
+CM_ SG_ 2155872256 serial_number "Unique module serial number";
+CM_ SG_ 2155872259 Major "The Major version number. This number increases if there are backwards incompatible changes";
+CM_ SG_ 2155872259 Minor "The Minor version number. This number increases if there are backwards compatible changes, like new messages or the use of previously reserved space";
+CM_ SG_ 2155872259 Patch "The Patch number. This number increases when changes to descriptions and documentation/comments are made";
+CM_ SG_ 2155872325 Stack_position "The module position within the stack";
+CM_ SG_ 2155872325 reserved "was stack size before";
+CM_ SG_ 2155872325 SN_number "Unique module serial number";
+CM_ SG_ 2155872336 Clear_Interlock "Clears the converter interlock";
+CM_ SG_ 2155872336 Reset_Processor "Reset the converter DSP";
+CM_ SG_ 2155872336 Trip_Interlock "Trip the inetrnal Interlock";
+CM_ SG_ 2155872336 Reserved "Reserved space";
+CM_ SG_ 2155872353 Factory_mode "Customers MUST NOT USE this bit. If set to 1, module will enter in factory mode. ";
+CM_ SG_ 2155872274 enable "Enable the system";
+CM_ SG_ 2155872275 load "load in percent";
+CM_ SG_ 2155872275 efficiency "load in percent";
+CM_ SG_ 2155872275 Power_capability "Power capabilities in kw";
+CM_ SG_ 2155872275 low_power_input "low power iunput voltage";
+CM_ SG_ 2155872272 State "box state";
+CM_ SG_ 2155872272 flag_enable "flag to know if the system is Enable";
+CM_ SG_ 2155872272 flag_ready "box has receive correct set point and can be turned one ";
+CM_ SG_ 2155872272 flag_energized "the box is energized ";
+CM_ SG_ 2155872272 flag_busy "box is busy ";
+CM_ SG_ 2155872272 flag_eco "box is in eco mode";
+CM_ SG_ 2155872272 flag_warning "box has warning and might be in degraded mode ";
+CM_ SG_ 2155872272 flag_degraded "box function in degraded mode ";
+CM_ SG_ 2155872272 flag_error "box has error those need to ble cleared to allow operation ";
+CM_ SG_ 2155872272 flag_factory "box function in factory mode ";
+CM_ SG_ 2155872272 flag_god_mode "box function in degraded mode ";
+CM_ SG_ 2155872496 init "box state init";
+CM_ SG_ 2155872496 ready "box state ready";
+CM_ SG_ 2155872496 turned_on "box state turned on";
+CM_ SG_ 2155872496 turned_off "box state turned off";
+CM_ SG_ 2155872496 bleeding "box state bleeding";
+CM_ SG_ 2155872273 internal "This g is asserted if the interlock is open due to an internal fault condition (self-protection)";
+CM_ SG_ 2155872273 external "This flag is asserted if the interlock is open due to an external condition received in the module.";
+CM_ SG_ 2155872273 keep_alive_not_serv_internal " keep alive internal not served ";
+CM_ SG_ 2155872273 error_temperature "trigger when a temperature has an errror";
+CM_ SG_ 2155872273 internal_modules_can_api "internal module wrong API";
+CM_ SG_ 2155872273 internal_modules_missing "internal modules missing";
+CM_ SG_ 2155872273 internal_modules_wrong "internal modules wrong";
+CM_ SG_ 2155872273 internal_modules_stack "internal modules stack error";
+CM_ SG_ 2155872273 internal_modules_init "internal module failed init";
+CM_ SG_ 2155872273 v_in_low "24v input too low ";
+CM_ SG_ 2155872273 v_in_critical "24v input too low ";
+CM_ SG_ 2155872273 keep_alive_not_serv " keep alive not served ";
+CM_ SG_ 2155872277 Broadcast_Group "The broadcast group that the module belongs to. Broadcast group 0 implies that the module is not part of a broadcast group. ";
+CM_ SG_ 2155872277 keep_Alive "keep alive requires the supervisory controller to send a heartbeat message at regular intervals";
+CM_ SG_ 2155872277 reserved "If this signal and the 'keep alive' is enabled, violating the heartbeat will trip the interlock, shutting down all connected power converters";
+CM_ SG_ 2155872277 keep_Alive_Period "The maximum period of the keep alive message. If the time between two heart-beat messages is longer than this value, the module ceases operation. This only applies when the Heartbeat signal is Enabled";
+CM_ SG_ 2155872278 Enable "Enable/Disable the Heartbeat feature of the Module";
+CM_ SG_ 2155872278 reserved "Set if the external interlock should be tripped if a heartbeat is not received within the configured period. If this signal is enabled the interlock is triped and the module is disabled. If this signal is set to Disabled, the interlock like will not be tripped but the module will cease operation";
+CM_ SG_ 2155872278 Period "Set the maximum period of the Heartbeat message. If the time between two heart-beat messages is longer than this value, the module ceases operation.";
+CM_ SG_ 2155872279 Cooling_plate "Temperature of the cooling plate";
+CM_ SG_ 2155872279 Magnetics "Highest mesured temp of magnetics";
+CM_ SG_ 2155872279 Transistors "Highest mesured temp of transistors";
+CM_ SG_ 2155872279 RESERVED "Lowest measured temp internally";
+CM_ SG_ 2155872280 A_rpm "Measured speed of Fan 1";
+CM_ SG_ 2155872280 A_pwm "Fan speed in percentage (0 to 100%)";
+CM_ SG_ 2155872280 B_rpm "Measured speed of Fan 1";
+CM_ SG_ 2155872280 B_pwm "Fan speed in percentage (0 to 100%)";
+CM_ SG_ 2155872281 feed "the value don't matter her tin order to feed the alive";
+CM_ SG_ 2155872276 Group_ID "Broadcast Group that the module should monitor";
+CM_ SG_ 2155872384 Type "The device identification field";
+CM_ SG_ 2155872384 Revision "The hardware revision numbere";
+CM_ SG_ 2155872384 Variant "Hardware variant";
+CM_ SG_ 2155872384 reserved "Hardware variant";
+CM_ SG_ 2155872384 serial_number "Hardware variant";
+CM_ SG_ 2155872385 nb_detected "number of modules detectedce";
+CM_ SG_ 2155872385 nd_side_a "number of modules detectedce";
+CM_ SG_ 2155872385 nd_side_b "number of modules detectedce";
+CM_ SG_ 2155872385 Collision "collision between module";
+CM_ SG_ 2155872386 Type "The device identification field";
+CM_ SG_ 2155872386 Revision "The hardware revision numbere";
+CM_ SG_ 2155872386 Variant "Hardware variant";
+CM_ SG_ 2155872386 Stack_position "Hardware variant";
+CM_ SG_ 2155872386 serial_number "Hardware variant";
+CM_ SG_ 2155872387 Type "The device identification field";
+CM_ SG_ 2155872387 Revision "The hardware revision numbere";
+CM_ SG_ 2155872387 Variant "Hardware variant";
+CM_ SG_ 2155872387 Stack_position "Hardware variant";
+CM_ SG_ 2155872387 serial_number "Hardware variant";
+CM_ SG_ 2155872388 Type "The device identification field";
+CM_ SG_ 2155872388 Revision "The hardware revision numbere";
+CM_ SG_ 2155872388 Variant "Hardware variant";
+CM_ SG_ 2155872388 Stack_position "Hardware variant";
+CM_ SG_ 2155872388 serial_number "Hardware variant";
+CM_ SG_ 2155872389 Type "The device identification field";
+CM_ SG_ 2155872389 Revision "The hardware revision numbere";
+CM_ SG_ 2155872389 Variant "Hardware variant";
+CM_ SG_ 2155872389 Stack_position "Hardware variant";
+CM_ SG_ 2155872389 serial_number "Hardware variant";
+CM_ SG_ 2155872390 Type "The device identification field";
+CM_ SG_ 2155872390 Revision "The hardware revision numbere";
+CM_ SG_ 2155872390 Variant "Hardware variant";
+CM_ SG_ 2155872390 Stack_position "Hardware variant";
+CM_ SG_ 2155872390 serial_number "Hardware variant";
+CM_ SG_ 2155872391 Type "The device identification field";
+CM_ SG_ 2155872391 Revision "The hardware revision numbere";
+CM_ SG_ 2155872391 Variant "Hardware variant";
+CM_ SG_ 2155872391 Stack_position "Hardware variant";
+CM_ SG_ 2155872391 serial_number "Hardware variant";
+CM_ SG_ 2155872392 Available "The device available";
+CM_ SG_ 2155872392 Side "The device is Ready";
+CM_ SG_ 2155872392 Status "The device is Running";
+CM_ SG_ 2155872392 Interlock_I "The device have interlock internal";
+CM_ SG_ 2155872392 Interlock_E "The device have interlock external";
+CM_ SG_ 2155872392 mode "Mode";
+CM_ SG_ 2155872393 Available "The device available";
+CM_ SG_ 2155872393 Side "The device is Ready";
+CM_ SG_ 2155872393 Status "The device is Running";
+CM_ SG_ 2155872393 Interlock_I "The device have interlock internal";
+CM_ SG_ 2155872393 Interlock_E "The device have interlock external";
+CM_ SG_ 2155872393 mode "Mode";
+CM_ SG_ 2155872394 Available "The device available";
+CM_ SG_ 2155872394 Side "The device is Ready";
+CM_ SG_ 2155872394 Status "The device is Running";
+CM_ SG_ 2155872394 Interlock_I "The device have interlock internal";
+CM_ SG_ 2155872394 Interlock_E "The device have interlock external";
+CM_ SG_ 2155872394 mode "Mode";
+CM_ SG_ 2155872395 Available "The device available";
+CM_ SG_ 2155872395 Side "The device is Ready";
+CM_ SG_ 2155872395 Status "The device is Running";
+CM_ SG_ 2155872395 Interlock_I "The device have interlock internal";
+CM_ SG_ 2155872395 Interlock_E "The device have interlock external";
+CM_ SG_ 2155872395 mode "Mode";
+CM_ SG_ 2155872396 Available "The device available";
+CM_ SG_ 2155872396 Side "The device is Ready";
+CM_ SG_ 2155872396 Status "The device is Running";
+CM_ SG_ 2155872396 Interlock_I "The device have interlock internal";
+CM_ SG_ 2155872396 Interlock_E "The device have interlock external";
+CM_ SG_ 2155872396 mode "Mode";
+CM_ SG_ 2155872397 Available "The device available";
+CM_ SG_ 2155872397 Side "The device is Ready";
+CM_ SG_ 2155872397 Status "The device is Running";
+CM_ SG_ 2155872397 Interlock_I "The device have interlock internal";
+CM_ SG_ 2155872397 Interlock_E "The device have interlock external";
+CM_ SG_ 2155872397 mode "Mode";
+CM_ SG_ 2155872400 cpu_1_usage "Controller cpu 1 usage";
+CM_ SG_ 2155872400 cpu_2_usage "Controller cpu 2 usage";
+CM_ SG_ 2155872400 can_bus_load_A "Controller cup 1 usage";
+CM_ SG_ 2155872400 can_bus_load_B "Controller cpu 1 usage";
+CM_ SG_ 2155872400 main_loop_freq "Controller cpu 1 usage";
+CM_ SG_ 2155872401 Type "The device identification field";
+CM_ SG_ 2155872401 Stack_position "Hardware variant";
+CM_ SG_ 2155872401 Major_expected "The Major version number. This number increases if there are backwards incompatible changes";
+CM_ SG_ 2155872401 Minor_expected "The minor version number. This number increases if there are backwards incompatible changes";
+CM_ SG_ 2155872401 Patch_expected "The patch version number. This number increases if there are backwards incompatible changes";
+CM_ SG_ 2155872401 Major_actual "The Major version number. This number increases if there are backwards incompatible changes";
+CM_ SG_ 2155872401 Minor_actual "The minor version number. This number increases if there are backwards incompatible changes";
+CM_ SG_ 2155872401 Patch_actual "The patch version number. This number increases if there are backwards incompatible changes";
+CM_ SG_ 2155872354 index "index of the device that nee calibration (0 is unvalid) ";
+CM_ SG_ 2155872354 select "select what value to set";
+CM_ SG_ 2155872354 value "require calibration valut ";
+CM_ SG_ 2155872355 index "index of the device that need reading ";
+CM_ SG_ 2155872355 select "select what value to read";
+CM_ SG_ 2155872356 index "index of the device that need reading ";
+CM_ SG_ 2155872356 select "select what value to read";
+CM_ SG_ 2155872356 calibration_status "select what value to read";
+CM_ SG_ 2155872356 reserved "select what value to read";
+CM_ SG_ 2155872356 value "require calibration valut ";
+CM_ SG_ 2155872352 select "set ID, need factory mode = 1 (will change revision and variant as well)";
+CM_ SG_ 2155872352 set_id "set ID, need factory mode = 1 (will change revision and variant as well)";
+CM_ SG_ 2155872352 set_revision "set revision, need factory mode = 1 , applied if set_id is valid";
+CM_ SG_ 2155872352 set_variant "set variant, need factory mode = 1, applied if set_id is valid";
+CM_ SG_ 2155872357 god_mode "Customers MUST NOT USE this bit. If set to 1, module will enter in factory mode. ";
+CM_ SG_ 2155872357 internal_power_a "Customers MUST NOT USE this bit. If set to 1, module will enter in factory mode. ";
+CM_ SG_ 2155872357 internal_power_b "Customers MUST NOT USE this bit. If set to 1, module will enter in factory mode. ";
+CM_ SG_ 2155872357 offset_stack_internal "Customers MUST NOT USE this bit. need factory mode = 1 ";
 
 
-BA_DEF_ BO_ "SystemMessageLongSymbol" STRING;
-BA_DEF_ SG_ "SystemSignalLongSymbol" STRING;
 
 
-BA_ "SystemMessageLongSymbol" BO_ 2155872295 "GC01_cont_secondary_status_0_GC01";
 
-BA_ "SystemSignalLongSymbol" SG_ 2155872273 Measurement_system_failure_0__BO "Measurement_system_failure_0__BOX";
-BA_ "SystemSignalLongSymbol" SG_ 2155872273 keep_alive_not_serv_internal_0__ "keep_alive_not_serv_internal_0__BOX";
 
-VAL_ 2155872293 cont_1_good_0_GC01 0 "fault" 1 "good";
-VAL_ 2155872293 cont_2_good_0_GC01 0 "fault" 1 "good";
-VAL_ 2155872293 cont_1_aux_0_GC01 0 "open" 1 "closed";
-VAL_ 2155872293 cont_2_aux_0_GC01 0 "open" 1 "closed";
-VAL_ 2155872295 cont_3_aux_0_GC01 0 "open" 1 "closed";
-VAL_ 2155872295 cont_4_aux_0_GC01 0 "open" 1 "closed";
-VAL_ 2155872296 conf_0_GC01 0 "open" 1 "dc01_serial" 2 "dc01_parallel" 3 "manual";
-VAL_ 2155872256 Type_0_BASE 128 "GC01" 129 "AC01" 130 "DC01";
-VAL_ 2155872256 Revision_0_BASE 0 "R0A" 1 "R0B" 2 "R0C";
-VAL_ 2155872256 Variant_0_BASE 0 "VA00" 1 "VA01";
-VAL_ 2155872272 State_0__BOX 0 "init" 1 "standby" 2 "turning_on" 3 "running" 4 "turning_off" 5 "error" 6 "critical" 7 "god";
-VAL_ 2155872273 internal_0__BOX 0 "Clear" 1 "Tripped";
-VAL_ 2155872273 external_0__BOX 0 "Clear" 1 "Tripped";
-VAL_ 2155872273 system_0__BOX 0 "Clear" 1 "Critical";
-VAL_ 2155872273 EEPROM_failure_0__BOX 0 "Clear" 1 "Critical";
-VAL_ 2155872273 wrong_nfo_0__BOX 0 "Clear" 1 "Critical";
-VAL_ 2155872273 Measurement_system_failure_0__BO 0 "Clear" 1 "Warning";
-VAL_ 2155872273 PLL_not_locked_0__BOX 0 "Clear" 1 "Critical";
-VAL_ 2155872273 overtemperature_0__BOX 0 "Clear" 1 "Error";
-VAL_ 2155872273 fan_stuck_0__BOX 0 "Clear" 1 "Warning";
-VAL_ 2155872273 dead_module_0__BOX 0 "Clear" 1 "Error";
-VAL_ 2155872273 keep_alive_not_serv_internal_0__ 0 "Clear" 1 "Error";
-VAL_ 2155872273 error_temperature_0__BOX 0 "Clear" 1 "Info";
-VAL_ 2155872273 internal_modules_ready_0__BOX 0 "Clear" 1 "Error";
-VAL_ 2155872273 internal_modules_can_api_0__BOX 0 "Clear" 1 "Critical";
-VAL_ 2155872273 internal_modules_missing_0__BOX 0 "Clear" 1 "Critical";
-VAL_ 2155872273 internal_modules_wrong_0__BOX 0 "Clear" 1 "Critical";
-VAL_ 2155872273 internal_modules_stack_0__BOX 0 "Clear" 1 "Critical";
-VAL_ 2155872273 internal_modules_init_0__BOX 0 "Clear" 1 "Error";
-VAL_ 2155872273 wrong_revision_0__BOX 0 "Clear" 1 "Critical";
-VAL_ 2155872273 v_in_low_0__BOX 0 "Clear" 1 "Error";
-VAL_ 2155872273 v_in_critical_0__BOX 0 "Clear" 1 "Critical";
-VAL_ 2155872273 keep_alive_not_serv_0__BOX 0 "Clear" 1 "Error";
-VAL_ 2155872277 keep_Alive_0__BOX 0 "Disabled" 1 "Enabled";
-VAL_ 2155872277 reserved_0__BOX 0 "Disabled" 1 "Enabled";
-VAL_ 2155872278 Enable_0__BOX 0 "Disabled" 1 "Enabled";
-VAL_ 2155872278 reserved_0__BOX 0 "Disabled" 1 "Enabled";
-VAL_ 2155872497 e_0__BOX 0 "Tripped" 1 "Clear";
-VAL_ 2155872497 a_0__BOX 0 "Tripped" 1 "Clear";
-VAL_ 2155872497 b_0__BOX 0 "Tripped" 1 "Clear";
-VAL_ 2155872497 i_0__BOX 0 "Tripped" 1 "Clear";
-VAL_ 2155872497 x_0__BOX 0 "Tripped" 1 "Clear";
-VAL_ 2155872384 Type_0__BOX 16 "GC01";
-VAL_ 2155872386 Type_0__BOX 7 "BP25" 8 "BI25" 19 "DMF1";
-VAL_ 2155872387 Type_0__BOX 7 "BP25" 8 "BI25" 19 "DMF1";
-VAL_ 2155872388 Type_0__BOX 7 "BP25" 8 "BI25" 19 "DMF1";
-VAL_ 2155872389 Type_0__BOX 7 "BP25" 8 "BI25" 19 "DMF1";
-VAL_ 2155872390 Type_0__BOX 7 "BP25" 8 "BI25" 19 "DMF1";
-VAL_ 2155872391 Type_0__BOX 7 "BP25" 8 "BI25" 19 "DMF1";
-VAL_ 2155872392 Side_0__BOX 0 "side_unk" 1 "side_a" 2 "side_b";
-VAL_ 2155872392 Status_0__BOX 0 "off" 1 "ready" 2 "running";
-VAL_ 2155872393 Side_0__BOX 0 "side_unk" 1 "side_a" 2 "side_b";
-VAL_ 2155872393 Status_0__BOX 0 "off" 1 "ready" 2 "running";
-VAL_ 2155872394 Side_0__BOX 0 "side_unk" 1 "side_a" 2 "side_b";
-VAL_ 2155872394 Status_0__BOX 0 "off" 1 "ready" 2 "running";
-VAL_ 2155872395 Side_0__BOX 0 "side_unk" 1 "side_a" 2 "side_b";
-VAL_ 2155872395 Status_0__BOX 0 "off" 1 "ready" 2 "running";
-VAL_ 2155872396 Side_0__BOX 0 "side_unk" 1 "side_a" 2 "side_b";
-VAL_ 2155872396 Status_0__BOX 0 "off" 1 "ready" 2 "running";
-VAL_ 2155872397 Side_0__BOX 0 "side_unk" 1 "side_a" 2 "side_b";
-VAL_ 2155872397 Status_0__BOX 0 "off" 1 "ready" 2 "running";
-VAL_ 2155872401 Type_0__BOX 7 "BP25" 8 "BI25" 19 "DMF1";
-VAL_ 2155872354 index_0__BOX 0 "invalid" 1 "voltage_sensor_b";
-VAL_ 2155872354 select_0__BOX 0 "invalid" 1 "prob_offset" 2 "prob_scale_factor";
-VAL_ 2155872355 index_0__BOX 0 "invalid" 1 "voltage_sensor_b";
-VAL_ 2155872355 select_0__BOX 0 "raw" 1 "value" 2 "prob_offset" 3 "prob_scale_factor";
-VAL_ 2155872356 index_0__BOX 0 "unvalid" 1 "voltage_sensor_b";
-VAL_ 2155872356 select_0__BOX 0 "raw" 1 "value" 2 "prob_offset" 3 "prob_scale_factor";
-VAL_ 2155872356 calibration_status_0__BOX 0 "bad" 1 "ok";
-VAL_ 2155872352 select_0__BOX 0 "invalid" 1 "cs" 2 "adb" 3 "reset";
-VAL_ 2155872357 internal_power_a_0__BOX 0 "on" 1 "off";
-VAL_ 2155872357 internal_power_b_0__BOX 0 "on" 1 "off";
+VAL_ 2155872320 mode 0 "B_port_Controlled" 1 "A_port_Controlled" 2 "Bleeding";
+VAL_ 2155872320 connection 0 "forced_serial" 1 "forced_parallel" 2 "automatic";
+VAL_ 2155872321 mode 0 "B_side_Controlled" 1 "A_side_Controlled" 2 "Bleeding";
+VAL_ 2155872321 connection 0 "open" 1 "serial" 2 "parallel";
+VAL_ 2155872322 CABLE_2_4_DC 0 "Clear" 1 "Critical";
+VAL_ 2155872322 CABLE_1_2_DC 0 "Clear" 1 "Critical";
+VAL_ 2155872322 CABLE_3_4_DC 0 "Clear" 1 "Critical";
+VAL_ 2155872322 CABLE_1_L1_L2 0 "Clear" 1 "Critical";
+VAL_ 2155872322 CABLE_1_L2_L3 0 "Clear" 1 "Critical";
+VAL_ 2155872322 CABLE_3_L1_L2 0 "Clear" 1 "Critical";
+VAL_ 2155872322 CABLE_3_L2_L3 0 "Clear" 1 "Critical";
+VAL_ 2155872322 CABLE_1_3_L1 0 "Clear" 1 "Critical";
+VAL_ 2155872322 CABLE_2_IN_OUT 0 "Clear" 1 "Critical";
+VAL_ 2155872322 CABLE_4_IN_OUT 0 "Clear" 1 "Critical";
+VAL_ 2155872322 MODULE_1_RUNNING 0 "Clear" 1 "Error";
+VAL_ 2155872322 MODULE_2_RUNNING 0 "Clear" 1 "Error";
+VAL_ 2155872322 MODULE_3_RUNNING 0 "Clear" 1 "Error";
+VAL_ 2155872322 MODULE_4_RUNNING 0 "Clear" 1 "Error";
+VAL_ 2155872322 CONTACTOR_1_CLOSED 0 "Clear" 1 "Error";
+VAL_ 2155872322 CONTACTOR_2_CLOSED 0 "Clear" 1 "Error";
+VAL_ 2155872322 CONTACTOR_3_CLOSED 0 "Clear" 1 "Error";
+VAL_ 2155872322 CONTACTOR_4_CLOSED 0 "Clear" 1 "Error";
+VAL_ 2155872322 CONTACTOR_1_OPEN 0 "Clear" 1 "Error";
+VAL_ 2155872322 CONTACTOR_2_OPEN 0 "Clear" 1 "Error";
+VAL_ 2155872322 CONTACTOR_3_OPEN 0 "Clear" 1 "Error";
+VAL_ 2155872322 CONTACTOR_4_OPEN 0 "Clear" 1 "Error";
+VAL_ 2155872322 CONTACTOR_1_FAIL 0 "Clear" 1 "Error";
+VAL_ 2155872322 CONTACTOR_2_FAIL 0 "Clear" 1 "Error";
+VAL_ 2155872322 CONTACTOR_3_FAIL 0 "Clear" 1 "Error";
+VAL_ 2155872322 CONTACTOR_4_FAIL 0 "Clear" 1 "Error";
+VAL_ 2155872322 PORT_A_OVERVOLTAGE 0 "Clear" 1 "Error";
+VAL_ 2155872322 CS_REV_INCOMPATIBLE 0 "Clear" 1 "Critical";
+VAL_ 2155872322 CONTACTORS_CONNECTION_UNDEFINED 0 "Clear" 1 "Error";
+VAL_ 2155872322 AFE_NOT_OFF 0 "Clear" 1 "Error";
+VAL_ 2155872322 AFE_PWM_NOT_RUNNING 0 "Clear" 1 "Error";
+VAL_ 2155872322 AFE_PWM_STOP_RUNNING 0 "Clear" 1 "Error";
+VAL_ 2155872322 BLEEDING_FAILED 0 "Clear" 1 "Error";
+VAL_ 2155872322 BI25_PWM_NOT_RUNNING 0 "Clear" 1 "Error";
+VAL_ 2155872322 CALIBRATION_ERROR 0 "Clear" 1 "Error";
+VAL_ 2155872323 MODE_NOT_SUPPORTED 0 "Clear" 1 "Warning";
+VAL_ 2155872323 V_A_LOW 0 "Clear" 1 "Warning";
+VAL_ 2155872323 V_A_HIGH 0 "Clear" 1 "Warning";
+VAL_ 2155872323 NEED_UPDATE 0 "Clear" 1 "Warning";
+VAL_ 2155872324 BLEEDING_DONE 0 "Clear" 1 "Info";
+VAL_ 2155872324 CONTACTORS_CONNECTION_SERIAL 0 "Clear" 1 "Info";
+VAL_ 2155872324 CONTACTORS_CONNECTION_PARALLEL 0 "Clear" 1 "Info";
+VAL_ 2155872324 CONTACTORS_CONNECTION_OPEN 0 "Clear" 1 "Info";
+VAL_ 2155872324 CONNECTION_MANAGER_RQ_CHANGE 0 "Clear" 1 "Info";
+VAL_ 2155872324 VB_LIMITED_BY_VA 0 "Clear" 1 "Info";
+VAL_ 2155872324 CURRENT_LIMIT 0 "Clear" 1 "Info";
+VAL_ 2155872324 VB_TO_HIGH_FOR_SELECTED_MODE 0 "Clear" 1 "Info";
+VAL_ 2155872324 CURRENT_LIMITED_BY_POWER 0 "Clear" 1 "Info";
+VAL_ 2155872290 Enable 0 "Disabled" 1 "Enabled";
+VAL_ 2155872291 Enable 0 "Disabled" 1 "Enabled";
+VAL_ 2155872498 allow_close_contactor 0 "Disabled" 1 "Enabled";
+VAL_ 2155872499 current_connection_mode 0 "contactors_open" 1 "contactors_serial" 2 "contactors_parallel" 3 "contactors_undefined";
+VAL_ 2155872499 new_connection_mode 0 "contactors_open" 1 "contactors_serial" 2 "contactors_parallel" 3 "contactors_undefined";
+VAL_ 2155872256 Type 128 "GC01" 129 "AC01" 130 "DC01";
+VAL_ 2155872256 Revision 0 "R0A" 1 "R0B" 2 "R0C";
+VAL_ 2155872256 Variant 0 "VA00" 1 "VA01";
+VAL_ 2155872272 State 0 "init" 1 "standby" 2 "turning_on" 3 "running" 4 "turning_off" 5 "error" 6 "critical" 7 "god";
+VAL_ 2155872273 internal 0 "Clear" 1 "Tripped";
+VAL_ 2155872273 external 0 "Clear" 1 "Tripped";
+VAL_ 2155872273 system 0 "Clear" 1 "Critical";
+VAL_ 2155872273 EEPROM_failure 0 "Clear" 1 "Critical";
+VAL_ 2155872273 wrong_nfo 0 "Clear" 1 "Critical";
+VAL_ 2155872273 Measurement_system_failure 0 "Clear" 1 "Warning";
+VAL_ 2155872273 PLL_not_locked 0 "Clear" 1 "Critical";
+VAL_ 2155872273 overtemperature 0 "Clear" 1 "Error";
+VAL_ 2155872273 fan_stuck 0 "Clear" 1 "Warning";
+VAL_ 2155872273 dead_module 0 "Clear" 1 "Error";
+VAL_ 2155872273 keep_alive_not_serv_internal 0 "Clear" 1 "Error";
+VAL_ 2155872273 error_temperature 0 "Clear" 1 "Info";
+VAL_ 2155872273 internal_modules_ready 0 "Clear" 1 "Error";
+VAL_ 2155872273 internal_modules_can_api 0 "Clear" 1 "Critical";
+VAL_ 2155872273 internal_modules_missing 0 "Clear" 1 "Critical";
+VAL_ 2155872273 internal_modules_wrong 0 "Clear" 1 "Critical";
+VAL_ 2155872273 internal_modules_stack 0 "Clear" 1 "Critical";
+VAL_ 2155872273 internal_modules_init 0 "Clear" 1 "Error";
+VAL_ 2155872273 wrong_revision 0 "Clear" 1 "Critical";
+VAL_ 2155872273 v_in_low 0 "Clear" 1 "Error";
+VAL_ 2155872273 v_in_critical 0 "Clear" 1 "Critical";
+VAL_ 2155872273 keep_alive_not_serv 0 "Clear" 1 "Error";
+VAL_ 2155872277 keep_Alive 0 "Disabled" 1 "Enabled";
+VAL_ 2155872277 reserved 0 "Disabled" 1 "Enabled";
+VAL_ 2155872278 Enable 0 "Disabled" 1 "Enabled";
+VAL_ 2155872278 reserved 0 "Disabled" 1 "Enabled";
+VAL_ 2155872497 e 0 "Tripped" 1 "Clear";
+VAL_ 2155872497 a 0 "Tripped" 1 "Clear";
+VAL_ 2155872497 b 0 "Tripped" 1 "Clear";
+VAL_ 2155872497 i 0 "Tripped" 1 "Clear";
+VAL_ 2155872497 x 0 "Tripped" 1 "Clear";
+VAL_ 2155872384 Type 16 "GC01";
+VAL_ 2155872386 Type 7 "BP25" 8 "BI25" 19 "DMF1";
+VAL_ 2155872387 Type 7 "BP25" 8 "BI25" 19 "DMF1";
+VAL_ 2155872388 Type 7 "BP25" 8 "BI25" 19 "DMF1";
+VAL_ 2155872389 Type 7 "BP25" 8 "BI25" 19 "DMF1";
+VAL_ 2155872390 Type 7 "BP25" 8 "BI25" 19 "DMF1";
+VAL_ 2155872391 Type 7 "BP25" 8 "BI25" 19 "DMF1";
+VAL_ 2155872392 Side 0 "side_unk" 1 "side_a" 2 "side_b";
+VAL_ 2155872392 Status 0 "off" 1 "ready" 2 "running";
+VAL_ 2155872393 Side 0 "side_unk" 1 "side_a" 2 "side_b";
+VAL_ 2155872393 Status 0 "off" 1 "ready" 2 "running";
+VAL_ 2155872394 Side 0 "side_unk" 1 "side_a" 2 "side_b";
+VAL_ 2155872394 Status 0 "off" 1 "ready" 2 "running";
+VAL_ 2155872395 Side 0 "side_unk" 1 "side_a" 2 "side_b";
+VAL_ 2155872395 Status 0 "off" 1 "ready" 2 "running";
+VAL_ 2155872396 Side 0 "side_unk" 1 "side_a" 2 "side_b";
+VAL_ 2155872396 Status 0 "off" 1 "ready" 2 "running";
+VAL_ 2155872397 Side 0 "side_unk" 1 "side_a" 2 "side_b";
+VAL_ 2155872397 Status 0 "off" 1 "ready" 2 "running";
+VAL_ 2155872401 Type 7 "BP25" 8 "BI25" 19 "DMF1";
+VAL_ 2155872354 index 0 "invalid" 1 "voltage_sensor_b";
+VAL_ 2155872354 select 0 "invalid" 1 "prob_offset" 2 "prob_scale_factor";
+VAL_ 2155872355 index 0 "invalid" 1 "voltage_sensor_b";
+VAL_ 2155872355 select 0 "raw" 1 "value" 2 "prob_offset" 3 "prob_scale_factor";
+VAL_ 2155872356 index 0 "unvalid" 1 "voltage_sensor_b";
+VAL_ 2155872356 select 0 "raw" 1 "value" 2 "prob_offset" 3 "prob_scale_factor";
+VAL_ 2155872356 calibration_status 0 "bad" 1 "ok";
+VAL_ 2155872352 select 0 "invalid" 1 "cs" 2 "adb" 3 "reset";
+VAL_ 2155872357 internal_power_a 0 "on" 1 "off";
+VAL_ 2155872357 internal_power_b 0 "on" 1 "off";

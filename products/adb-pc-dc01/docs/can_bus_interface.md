@@ -4,58 +4,65 @@
 
 | Name | ID | Length | Direction | Cycle time |
 |------|----|--------|-----------|------------|
-| [Identification_0_BASE](#Identification_0_BASE) | 0x820000 | 8 | IN |  |
-| [Bootloader_UID_0_BASE](#Bootloader_UID_0_BASE) | 0x820001 | 8 | IN |  |
-| [Firmware_UID_0_BASE](#Firmware_UID_0_BASE) | 0x820002 | 8 | IN |  |
-| [ADB_CAN_API_Version_0_BASE](#ADB_CAN_API_Version_0_BASE) | 0x820003 | 3 | IN |  |
-| [Status_0__BOX](#Status_0__BOX) | 0x820010 | 8 | IN |  |
-| [Faults_0__BOX](#Faults_0__BOX) | 0x820011 | 8 | IN |  |
-| [Converter_Control_0__BOX](#Converter_Control_0__BOX) | 0x820012 | 1 | IN |  |
-| [Converter_Power_Info_0__BOX](#Converter_Power_Info_0__BOX) | 0x820013 | 6 | IN |  |
-| [Broadcast_Group_Control_0__BOX](#Broadcast_Group_Control_0__BOX) | 0x820014 | 1 | IN |  |
-| [Interface_Status_0__BOX](#Interface_Status_0__BOX) | 0x820015 | 3 | IN |  |
-| [Keep_Alive_Control_0__BOX](#Keep_Alive_Control_0__BOX) | 0x820016 | 2 | IN |  |
-| [Converter_Temperature_0__BOX](#Converter_Temperature_0__BOX) | 0x820017 | 8 | IN |  |
-| [Converter_Fans_0__BOX](#Converter_Fans_0__BOX) | 0x820018 | 6 | IN |  |
-| [Keep_Alive_Feed_0__BOX](#Keep_Alive_Feed_0__BOX) | 0x820019 | 1 | IN |  |
-| [GC01_Analog_0_GC01](#GC01_Analog_0_GC01) | 0x820020 | 8 | IN |  |
-| [FAN_Speed_Control_0_GC01](#FAN_Speed_Control_0_GC01) | 0x820022 | 1 | IN |  |
-| [FAN_Enable_Control_0_GC01](#FAN_Enable_Control_0_GC01) | 0x820023 | 1 | IN |  |
-| [GC01_cont_main_ctrl_0_GC01](#GC01_cont_main_ctrl_0_GC01) | 0x820024 | 1 | IN |  |
-| [GC01_cont_main_status_0_GC01](#GC01_cont_main_status_0_GC01) | 0x820025 | 1 | IN |  |
-| [GC01_cont_secondary_ctrl_0_GC01](#GC01_cont_secondary_ctrl_0_GC01) | 0x820026 | 1 | IN |  |
-| [GC01_cont_secondary_status_0_GC01](#GC01_cont_secondary_status_0_GC01) | 0x820027 | 1 | IN |  |
-| [contactors_cmd_0_GC01](#contactors_cmd_0_GC01) | 0x820028 | 1 | IN |  |
-| [Stack_Control_0_BASE](#Stack_Control_0_BASE) | 0x820045 | 6 | IN |  |
-| [Fault_Control_0_BASE](#Fault_Control_0_BASE) | 0x820050 | 1 | IN |  |
-| [_Factory_Config_0__BOX](#_Factory_Config_0__BOX) | 0x820060 | 8 | IN |  |
-| [Factory_Control_0_BASE](#Factory_Control_0_BASE) | 0x820061 | 8 | IN |  |
-| [_Calibration_writing_0__BOX](#_Calibration_writing_0__BOX) | 0x820062 | 6 | IN |  |
-| [_Calibration_reading_cmd_0__BOX](#_Calibration_reading_cmd_0__BOX) | 0x820063 | 2 | IN |  |
-| [_Calibration_reading_0__BOX](#_Calibration_reading_0__BOX) | 0x820064 | 8 | IN |  |
-| [_Factory_Debug_cmd_0__BOX](#_Factory_Debug_cmd_0__BOX) | 0x820065 | 8 | IN |  |
-| [info_adm_cs_0__BOX](#info_adm_cs_0__BOX) | 0x820080 | 8 | IN |  |
-| [info_adm_pc_0__BOX](#info_adm_pc_0__BOX) | 0x820081 | 4 | IN |  |
-| [info_adm_pc_id_1_0__BOX](#info_adm_pc_id_1_0__BOX) | 0x820082 | 8 | IN |  |
-| [info_adm_pc_id_2_0__BOX](#info_adm_pc_id_2_0__BOX) | 0x820083 | 8 | IN |  |
-| [info_adm_pc_id_3_0__BOX](#info_adm_pc_id_3_0__BOX) | 0x820084 | 8 | IN |  |
-| [info_adm_pc_id_4_0__BOX](#info_adm_pc_id_4_0__BOX) | 0x820085 | 8 | IN |  |
-| [info_adm_pc_id_5_0__BOX](#info_adm_pc_id_5_0__BOX) | 0x820086 | 8 | IN |  |
-| [info_adm_pc_id_6_0__BOX](#info_adm_pc_id_6_0__BOX) | 0x820087 | 8 | IN |  |
-| [info_adm_pc_status_1_0__BOX](#info_adm_pc_status_1_0__BOX) | 0x820088 | 8 | IN |  |
-| [info_adm_pc_status_2_0__BOX](#info_adm_pc_status_2_0__BOX) | 0x820089 | 8 | IN |  |
-| [info_adm_pc_status_3_0__BOX](#info_adm_pc_status_3_0__BOX) | 0x82008a | 8 | IN |  |
-| [info_adm_pc_status_4_0__BOX](#info_adm_pc_status_4_0__BOX) | 0x82008b | 8 | IN |  |
-| [info_adm_pc_status_5_0__BOX](#info_adm_pc_status_5_0__BOX) | 0x82008c | 8 | IN |  |
-| [info_adm_pc_status_6_0__BOX](#info_adm_pc_status_6_0__BOX) | 0x82008d | 8 | IN |  |
-| [cs_performance_0__BOX](#cs_performance_0__BOX) | 0x820090 | 8 | IN |  |
-| [info_can_api_error_0__BOX](#info_can_api_error_0__BOX) | 0x820091 | 8 | IN |  |
-| [_fms_state_0__BOX](#_fms_state_0__BOX) | 0x8200f0 | 8 | IN |  |
-| [_interlocks_status_0__BOX](#_interlocks_status_0__BOX) | 0x8200f1 | 3 | IN |  |
+| [Identification](#Identification) | 0x820000 | 8 | IN |  |
+| [Bootloader_UID](#Bootloader_UID) | 0x820001 | 8 | IN |  |
+| [Firmware_UID](#Firmware_UID) | 0x820002 | 8 | IN |  |
+| [ADB_CAN_API_Version](#ADB_CAN_API_Version) | 0x820003 | 3 | IN |  |
+| [Status](#Status) | 0x820010 | 8 | IN |  |
+| [Faults](#Faults) | 0x820011 | 8 | IN |  |
+| [Converter_Control](#Converter_Control) | 0x820012 | 1 | IN |  |
+| [Converter_Power_Info](#Converter_Power_Info) | 0x820013 | 6 | IN |  |
+| [Broadcast_Group_Control](#Broadcast_Group_Control) | 0x820014 | 1 | IN |  |
+| [Interface_Status](#Interface_Status) | 0x820015 | 3 | IN |  |
+| [Keep_Alive_Control](#Keep_Alive_Control) | 0x820016 | 2 | IN |  |
+| [Converter_Temperature](#Converter_Temperature) | 0x820017 | 8 | IN |  |
+| [Converter_Fans](#Converter_Fans) | 0x820018 | 6 | IN |  |
+| [Keep_Alive_Feed](#Keep_Alive_Feed) | 0x820019 | 1 | IN |  |
+| [B_Port_Setpoints](#B_Port_Setpoints) | 0x820020 | 6 | IN |  |
+| [B_Port_Applied_Setpoints](#B_Port_Applied_Setpoints) | 0x820021 | 8 | OUT |  |
+| [B_Port_Droop_Setpoints](#B_Port_Droop_Setpoints) | 0x820022 | 8 | IN |  |
+| [B_Port_Applied_Droop_Setpoints](#B_Port_Applied_Droop_Setpoints) | 0x820023 | 5 | OUT |  |
+| [B_Port_Measurements](#B_Port_Measurements) | 0x820024 | 4 | OUT |  |
+| [A_Port_Setpoints](#A_Port_Setpoints) | 0x820030 | 6 | IN |  |
+| [A_Port_Applied_Setpoints](#A_Port_Applied_Setpoints) | 0x820031 | 8 | OUT |  |
+| [A_Port_Measurements](#A_Port_Measurements) | 0x820032 | 4 | OUT |  |
+| [DC01_Mode_Set](#DC01_Mode_Set) | 0x820040 | 2 | IN |  |
+| [DC01_Mode_Applied](#DC01_Mode_Applied) | 0x820041 | 2 | OUT |  |
+| [DC01_faults](#DC01_faults) | 0x820042 | 8 | OUT |  |
+| [DC01_warning](#DC01_warning) | 0x820043 | 8 | OUT |  |
+| [DC01_info](#DC01_info) | 0x820044 | 8 | OUT |  |
+| [Stack_Control](#Stack_Control) | 0x820045 | 6 | IN |  |
+| [Fault_Control](#Fault_Control) | 0x820050 | 1 | IN |  |
+| [_Factory_Config](#_Factory_Config) | 0x820060 | 8 | IN |  |
+| [Factory_Control](#Factory_Control) | 0x820061 | 8 | IN |  |
+| [_Calibration_writing](#_Calibration_writing) | 0x820062 | 6 | IN |  |
+| [_Calibration_reading_cmd](#_Calibration_reading_cmd) | 0x820063 | 2 | IN |  |
+| [_Calibration_reading](#_Calibration_reading) | 0x820064 | 8 | IN |  |
+| [_Factory_Debug_cmd](#_Factory_Debug_cmd) | 0x820065 | 8 | IN |  |
+| [info_adm_cs](#info_adm_cs) | 0x820080 | 8 | IN |  |
+| [info_adm_pc](#info_adm_pc) | 0x820081 | 4 | IN |  |
+| [info_adm_pc_id_1](#info_adm_pc_id_1) | 0x820082 | 8 | IN |  |
+| [info_adm_pc_id_2](#info_adm_pc_id_2) | 0x820083 | 8 | IN |  |
+| [info_adm_pc_id_3](#info_adm_pc_id_3) | 0x820084 | 8 | IN |  |
+| [info_adm_pc_id_4](#info_adm_pc_id_4) | 0x820085 | 8 | IN |  |
+| [info_adm_pc_id_5](#info_adm_pc_id_5) | 0x820086 | 8 | IN |  |
+| [info_adm_pc_id_6](#info_adm_pc_id_6) | 0x820087 | 8 | IN |  |
+| [info_adm_pc_status_1](#info_adm_pc_status_1) | 0x820088 | 8 | IN |  |
+| [info_adm_pc_status_2](#info_adm_pc_status_2) | 0x820089 | 8 | IN |  |
+| [info_adm_pc_status_3](#info_adm_pc_status_3) | 0x82008a | 8 | IN |  |
+| [info_adm_pc_status_4](#info_adm_pc_status_4) | 0x82008b | 8 | IN |  |
+| [info_adm_pc_status_5](#info_adm_pc_status_5) | 0x82008c | 8 | IN |  |
+| [info_adm_pc_status_6](#info_adm_pc_status_6) | 0x82008d | 8 | IN |  |
+| [cs_performance](#cs_performance) | 0x820090 | 8 | IN |  |
+| [info_can_api_error](#info_can_api_error) | 0x820091 | 8 | IN |  |
+| [_fms_state](#_fms_state) | 0x8200f0 | 8 | IN |  |
+| [_interlocks_status](#_interlocks_status) | 0x8200f1 | 3 | IN |  |
+| [DC01_debug](#DC01_debug) | 0x8200f2 | 8 | IN |  |
+| [DC01_debug_connection](#DC01_debug_connection) | 0x8200f3 | 8 | OUT |  |
 
 
-<a id="Identification_0_BASE"></a>
-## Identification_0_BASE { #Identification_0_BASE }
+<a id="Identification"></a>
+## Identification { #Identification }
 
 
 | * | * |
@@ -73,15 +80,15 @@ Identification of the device
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Type_0_BASE | 8 | Label set |
-| Revision_0_BASE | 8 | Label set |
-| Variant_0_BASE | 8 | Label set |
-| Stack_position_0_BASE | 8 | Unsigned |
-| serial_number_0_BASE | 32 | Unsigned |
+| Type | 8 | Label set |
+| Revision | 8 | Label set |
+| Variant | 8 | Label set |
+| Stack_position | 8 | Unsigned |
+| serial_number | 32 | Unsigned |
 
 ### Payload description
 
-#### Type_0_BASE { #Identification_0_BASE-Type_0_BASE }
+#### Type { #Identification-Type }
 
 The device identification field, uniquely identifies the sender in the network
 
@@ -95,7 +102,7 @@ The device identification field, uniquely identifies the sender in the network
 | AC01 | 129 |
 | DC01 | 130 |
 
-#### Revision_0_BASE { #Identification_0_BASE-Revision_0_BASE }
+#### Revision { #Identification-Revision }
 
 The hardware revision number
 
@@ -109,7 +116,7 @@ The hardware revision number
 | R0B | 1 |
 | R0C | 2 |
 
-#### Variant_0_BASE { #Identification_0_BASE-Variant_0_BASE }
+#### Variant { #Identification-Variant }
 
 The hardware variant
 
@@ -122,7 +129,7 @@ The hardware variant
 | VA00 | 0 |
 | VA01 | 1 |
 
-#### Stack_position_0_BASE { #Identification_0_BASE-Stack_position_0_BASE }
+#### Stack_position { #Identification-Stack_position }
 
 Position of the module within the stack
 
@@ -130,7 +137,7 @@ Position of the module within the stack
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 24 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### serial_number_0_BASE { #Identification_0_BASE-serial_number_0_BASE }
+#### serial_number { #Identification-serial_number }
 
 Unique module serial number
 
@@ -139,8 +146,8 @@ Unique module serial number
 | 32 | 32 | Unsigned |  | 1 | 0 |  | 4294967295 |
 
 
-<a id="Bootloader_UID_0_BASE"></a>
-## Bootloader_UID_0_BASE { #Bootloader_UID_0_BASE }
+<a id="Bootloader_UID"></a>
+## Bootloader_UID { #Bootloader_UID }
 
 
 | * | * |
@@ -158,19 +165,19 @@ Unique Identifier of the Bootloader used on this module
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| UID_0_BASE | 64 | Unsigned |
+| UID | 64 | Unsigned |
 
 ### Payload description
 
-#### UID_0_BASE { #Bootloader_UID_0_BASE-UID_0_BASE }
+#### UID { #Bootloader_UID-UID }
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 0 | 64 | Unsigned |  | 1 | 0 |  | 18446744073709549568 |
 
 
-<a id="Firmware_UID_0_BASE"></a>
-## Firmware_UID_0_BASE { #Firmware_UID_0_BASE }
+<a id="Firmware_UID"></a>
+## Firmware_UID { #Firmware_UID }
 
 
 | * | * |
@@ -188,19 +195,19 @@ Unique Identifier of the Firmware used on this module
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| UID_0_BASE | 64 | Unsigned |
+| UID | 64 | Unsigned |
 
 ### Payload description
 
-#### UID_0_BASE { #Firmware_UID_0_BASE-UID_0_BASE }
+#### UID { #Firmware_UID-UID }
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 0 | 64 | Unsigned |  | 1 | 0 |  | 18446744073709549568 |
 
 
-<a id="ADB_CAN_API_Version_0_BASE"></a>
-## ADB_CAN_API_Version_0_BASE { #ADB_CAN_API_Version_0_BASE }
+<a id="ADB_CAN_API_Version"></a>
+## ADB_CAN_API_Version { #ADB_CAN_API_Version }
 
 
 | * | * |
@@ -218,13 +225,13 @@ This message declares the version of the API that is provided by the converter. 
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Major_0_BASE | 8 | Unsigned |
-| Minor_0_BASE | 8 | Unsigned |
-| Patch_0_BASE | 8 | Unsigned |
+| Major | 8 | Unsigned |
+| Minor | 8 | Unsigned |
+| Patch | 8 | Unsigned |
 
 ### Payload description
 
-#### Major_0_BASE { #ADB_CAN_API_Version_0_BASE-Major_0_BASE }
+#### Major { #ADB_CAN_API_Version-Major }
 
 The Major version number. This number increases if there are backwards incompatible changes
 
@@ -232,7 +239,7 @@ The Major version number. This number increases if there are backwards incompati
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 0 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### Minor_0_BASE { #ADB_CAN_API_Version_0_BASE-Minor_0_BASE }
+#### Minor { #ADB_CAN_API_Version-Minor }
 
 The Minor version number. This number increases if there are backwards compatible changes, like new messages or the use of previously reserved space
 
@@ -240,7 +247,7 @@ The Minor version number. This number increases if there are backwards compatibl
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 8 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### Patch_0_BASE { #ADB_CAN_API_Version_0_BASE-Patch_0_BASE }
+#### Patch { #ADB_CAN_API_Version-Patch }
 
 The Patch number. This number increases when changes to descriptions and documentation/comments are made
 
@@ -249,8 +256,8 @@ The Patch number. This number increases when changes to descriptions and documen
 | 16 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
 
-<a id="Status_0__BOX"></a>
-## Status_0__BOX { #Status_0__BOX }
+<a id="Status"></a>
+## Status { #Status }
 
 
 | * | * |
@@ -268,21 +275,21 @@ General Status of the converter
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| State_0__BOX | 16 | Label set |
-| flag_enable_0__BOX | 1 | Single bit |
-| flag_ready_0__BOX | 1 | Single bit |
-| flag_energized_0__BOX | 1 | Single bit |
-| flag_busy_0__BOX | 1 | Single bit |
-| flag_eco_0__BOX | 1 | Single bit |
-| flag_warning_0__BOX | 1 | Single bit |
-| flag_degraded_0__BOX | 1 | Single bit |
-| flag_error_0__BOX | 1 | Single bit |
-| flag_factory_0__BOX | 1 | Single bit |
-| flag_god_mode_0__BOX | 1 | Single bit |
+| State | 16 | Label set |
+| flag_enable | 1 | Single bit |
+| flag_ready | 1 | Single bit |
+| flag_energized | 1 | Single bit |
+| flag_busy | 1 | Single bit |
+| flag_eco | 1 | Single bit |
+| flag_warning | 1 | Single bit |
+| flag_degraded | 1 | Single bit |
+| flag_error | 1 | Single bit |
+| flag_factory | 1 | Single bit |
+| flag_god_mode | 1 | Single bit |
 
 ### Payload description
 
-#### State_0__BOX { #Status_0__BOX-State_0__BOX }
+#### State { #Status-State }
 
 box state
 
@@ -301,7 +308,7 @@ box state
 | critical | 6 |
 | god | 7 |
 
-#### flag_enable_0__BOX { #Status_0__BOX-flag_enable_0__BOX }
+#### flag_enable { #Status-flag_enable }
 
 flag to know if the system is Enable
 
@@ -309,7 +316,7 @@ flag to know if the system is Enable
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 16 | 1 | Single bit |  | 1 | 0 |  |  |
 
-#### flag_ready_0__BOX { #Status_0__BOX-flag_ready_0__BOX }
+#### flag_ready { #Status-flag_ready }
 
 box has receive correct set point and can be turned one
 
@@ -317,7 +324,7 @@ box has receive correct set point and can be turned one
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 17 | 1 | Single bit |  | 1 | 0 |  |  |
 
-#### flag_energized_0__BOX { #Status_0__BOX-flag_energized_0__BOX }
+#### flag_energized { #Status-flag_energized }
 
 the box is energized
 
@@ -325,7 +332,7 @@ the box is energized
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 18 | 1 | Single bit |  | 1 | 0 |  |  |
 
-#### flag_busy_0__BOX { #Status_0__BOX-flag_busy_0__BOX }
+#### flag_busy { #Status-flag_busy }
 
 box is busy
 
@@ -333,7 +340,7 @@ box is busy
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 19 | 1 | Single bit |  | 1 | 0 |  |  |
 
-#### flag_eco_0__BOX { #Status_0__BOX-flag_eco_0__BOX }
+#### flag_eco { #Status-flag_eco }
 
 box is in eco mode
 
@@ -341,7 +348,7 @@ box is in eco mode
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 20 | 1 | Single bit |  | 1 | 0 |  |  |
 
-#### flag_warning_0__BOX { #Status_0__BOX-flag_warning_0__BOX }
+#### flag_warning { #Status-flag_warning }
 
 box has warning and might be in degraded mode
 
@@ -349,7 +356,7 @@ box has warning and might be in degraded mode
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 24 | 1 | Single bit |  | 1 | 0 |  |  |
 
-#### flag_degraded_0__BOX { #Status_0__BOX-flag_degraded_0__BOX }
+#### flag_degraded { #Status-flag_degraded }
 
 box function in degraded mode
 
@@ -357,7 +364,7 @@ box function in degraded mode
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 25 | 1 | Single bit |  | 1 | 0 |  |  |
 
-#### flag_error_0__BOX { #Status_0__BOX-flag_error_0__BOX }
+#### flag_error { #Status-flag_error }
 
 box has error those need to ble cleared to allow operation
 
@@ -365,7 +372,7 @@ box has error those need to ble cleared to allow operation
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 26 | 1 | Single bit |  | 1 | 0 |  |  |
 
-#### flag_factory_0__BOX { #Status_0__BOX-flag_factory_0__BOX }
+#### flag_factory { #Status-flag_factory }
 
 box function in factory mode
 
@@ -373,7 +380,7 @@ box function in factory mode
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 48 | 1 | Single bit |  | 1 | 0 |  |  |
 
-#### flag_god_mode_0__BOX { #Status_0__BOX-flag_god_mode_0__BOX }
+#### flag_god_mode { #Status-flag_god_mode }
 
 box function in degraded mode
 
@@ -382,8 +389,8 @@ box function in degraded mode
 | 49 | 1 | Single bit |  | 1 | 0 |  |  |
 
 
-<a id="Faults_0__BOX"></a>
-## Faults_0__BOX { #Faults_0__BOX }
+<a id="Faults"></a>
+## Faults { #Faults }
 
 
 | * | * |
@@ -401,32 +408,32 @@ Fault bitfield
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| internal_0__BOX | 1 | Label set |
-| external_0__BOX | 1 | Label set |
-| system_0__BOX | 1 | Label set |
-| EEPROM_failure_0__BOX | 1 | Label set |
-| wrong_nfo_0__BOX | 1 | Label set |
-| Measurement_system_failure_0__BOX | 1 | Label set |
-| PLL_not_locked_0__BOX | 1 | Label set |
-| overtemperature_0__BOX | 1 | Label set |
-| fan_stuck_0__BOX | 1 | Label set |
-| dead_module_0__BOX | 1 | Label set |
-| keep_alive_not_serv_internal_0__BOX | 1 | Label set |
-| error_temperature_0__BOX | 1 | Label set |
-| internal_modules_ready_0__BOX | 1 | Label set |
-| internal_modules_can_api_0__BOX | 1 | Label set |
-| internal_modules_missing_0__BOX | 1 | Label set |
-| internal_modules_wrong_0__BOX | 1 | Label set |
-| internal_modules_stack_0__BOX | 1 | Label set |
-| internal_modules_init_0__BOX | 1 | Label set |
-| wrong_revision_0__BOX | 1 | Label set |
-| v_in_low_0__BOX | 1 | Label set |
-| v_in_critical_0__BOX | 1 | Label set |
-| keep_alive_not_serv_0__BOX | 1 | Label set |
+| internal | 1 | Label set |
+| external | 1 | Label set |
+| system | 1 | Label set |
+| EEPROM_failure | 1 | Label set |
+| wrong_nfo | 1 | Label set |
+| Measurement_system_failure | 1 | Label set |
+| PLL_not_locked | 1 | Label set |
+| overtemperature | 1 | Label set |
+| fan_stuck | 1 | Label set |
+| dead_module | 1 | Label set |
+| keep_alive_not_serv_internal | 1 | Label set |
+| error_temperature | 1 | Label set |
+| internal_modules_ready | 1 | Label set |
+| internal_modules_can_api | 1 | Label set |
+| internal_modules_missing | 1 | Label set |
+| internal_modules_wrong | 1 | Label set |
+| internal_modules_stack | 1 | Label set |
+| internal_modules_init | 1 | Label set |
+| wrong_revision | 1 | Label set |
+| v_in_low | 1 | Label set |
+| v_in_critical | 1 | Label set |
+| keep_alive_not_serv | 1 | Label set |
 
 ### Payload description
 
-#### internal_0__BOX { #Faults_0__BOX-internal_0__BOX }
+#### internal { #Faults-internal }
 
 This g is asserted if the interlock is open due to an internal fault condition (self-protection)
 
@@ -439,7 +446,7 @@ This g is asserted if the interlock is open due to an internal fault condition (
 | Clear | 0 |
 | Tripped | 1 |
 
-#### external_0__BOX { #Faults_0__BOX-external_0__BOX }
+#### external { #Faults-external }
 
 This flag is asserted if the interlock is open due to an external condition received in the module.
 
@@ -452,7 +459,7 @@ This flag is asserted if the interlock is open due to an external condition rece
 | Clear | 0 |
 | Tripped | 1 |
 
-#### system_0__BOX { #Faults_0__BOX-system_0__BOX }
+#### system { #Faults-system }
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -463,7 +470,7 @@ This flag is asserted if the interlock is open due to an external condition rece
 | Clear | 0 |
 | Critical | 1 |
 
-#### EEPROM_failure_0__BOX { #Faults_0__BOX-EEPROM_failure_0__BOX }
+#### EEPROM_failure { #Faults-EEPROM_failure }
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -474,7 +481,7 @@ This flag is asserted if the interlock is open due to an external condition rece
 | Clear | 0 |
 | Critical | 1 |
 
-#### wrong_nfo_0__BOX { #Faults_0__BOX-wrong_nfo_0__BOX }
+#### wrong_nfo { #Faults-wrong_nfo }
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -485,7 +492,7 @@ This flag is asserted if the interlock is open due to an external condition rece
 | Clear | 0 |
 | Critical | 1 |
 
-#### Measurement_system_failure_0__BOX { #Faults_0__BOX-Measurement_system_failure_0__BOX }
+#### Measurement_system_failure { #Faults-Measurement_system_failure }
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -496,7 +503,7 @@ This flag is asserted if the interlock is open due to an external condition rece
 | Clear | 0 |
 | Warning | 1 |
 
-#### PLL_not_locked_0__BOX { #Faults_0__BOX-PLL_not_locked_0__BOX }
+#### PLL_not_locked { #Faults-PLL_not_locked }
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -507,7 +514,7 @@ This flag is asserted if the interlock is open due to an external condition rece
 | Clear | 0 |
 | Critical | 1 |
 
-#### overtemperature_0__BOX { #Faults_0__BOX-overtemperature_0__BOX }
+#### overtemperature { #Faults-overtemperature }
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -518,7 +525,7 @@ This flag is asserted if the interlock is open due to an external condition rece
 | Clear | 0 |
 | Error | 1 |
 
-#### fan_stuck_0__BOX { #Faults_0__BOX-fan_stuck_0__BOX }
+#### fan_stuck { #Faults-fan_stuck }
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -529,7 +536,7 @@ This flag is asserted if the interlock is open due to an external condition rece
 | Clear | 0 |
 | Warning | 1 |
 
-#### dead_module_0__BOX { #Faults_0__BOX-dead_module_0__BOX }
+#### dead_module { #Faults-dead_module }
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -540,7 +547,7 @@ This flag is asserted if the interlock is open due to an external condition rece
 | Clear | 0 |
 | Error | 1 |
 
-#### keep_alive_not_serv_internal_0__BOX { #Faults_0__BOX-keep_alive_not_serv_internal_0__BOX }
+#### keep_alive_not_serv_internal { #Faults-keep_alive_not_serv_internal }
 
 keep alive internal not served
 
@@ -553,7 +560,7 @@ keep alive internal not served
 | Clear | 0 |
 | Error | 1 |
 
-#### error_temperature_0__BOX { #Faults_0__BOX-error_temperature_0__BOX }
+#### error_temperature { #Faults-error_temperature }
 
 trigger when a temperature has an errror
 
@@ -566,7 +573,7 @@ trigger when a temperature has an errror
 | Clear | 0 |
 | Info | 1 |
 
-#### internal_modules_ready_0__BOX { #Faults_0__BOX-internal_modules_ready_0__BOX }
+#### internal_modules_ready { #Faults-internal_modules_ready }
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -577,7 +584,7 @@ trigger when a temperature has an errror
 | Clear | 0 |
 | Error | 1 |
 
-#### internal_modules_can_api_0__BOX { #Faults_0__BOX-internal_modules_can_api_0__BOX }
+#### internal_modules_can_api { #Faults-internal_modules_can_api }
 
 internal module wrong API
 
@@ -590,7 +597,7 @@ internal module wrong API
 | Clear | 0 |
 | Critical | 1 |
 
-#### internal_modules_missing_0__BOX { #Faults_0__BOX-internal_modules_missing_0__BOX }
+#### internal_modules_missing { #Faults-internal_modules_missing }
 
 internal modules missing
 
@@ -603,7 +610,7 @@ internal modules missing
 | Clear | 0 |
 | Critical | 1 |
 
-#### internal_modules_wrong_0__BOX { #Faults_0__BOX-internal_modules_wrong_0__BOX }
+#### internal_modules_wrong { #Faults-internal_modules_wrong }
 
 internal modules wrong
 
@@ -616,7 +623,7 @@ internal modules wrong
 | Clear | 0 |
 | Critical | 1 |
 
-#### internal_modules_stack_0__BOX { #Faults_0__BOX-internal_modules_stack_0__BOX }
+#### internal_modules_stack { #Faults-internal_modules_stack }
 
 internal modules stack error
 
@@ -629,7 +636,7 @@ internal modules stack error
 | Clear | 0 |
 | Critical | 1 |
 
-#### internal_modules_init_0__BOX { #Faults_0__BOX-internal_modules_init_0__BOX }
+#### internal_modules_init { #Faults-internal_modules_init }
 
 internal module failed init
 
@@ -642,7 +649,7 @@ internal module failed init
 | Clear | 0 |
 | Error | 1 |
 
-#### wrong_revision_0__BOX { #Faults_0__BOX-wrong_revision_0__BOX }
+#### wrong_revision { #Faults-wrong_revision }
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -653,7 +660,7 @@ internal module failed init
 | Clear | 0 |
 | Critical | 1 |
 
-#### v_in_low_0__BOX { #Faults_0__BOX-v_in_low_0__BOX }
+#### v_in_low { #Faults-v_in_low }
 
 24v input too low
 
@@ -666,7 +673,7 @@ internal module failed init
 | Clear | 0 |
 | Error | 1 |
 
-#### v_in_critical_0__BOX { #Faults_0__BOX-v_in_critical_0__BOX }
+#### v_in_critical { #Faults-v_in_critical }
 
 24v input too low
 
@@ -679,7 +686,7 @@ internal module failed init
 | Clear | 0 |
 | Critical | 1 |
 
-#### keep_alive_not_serv_0__BOX { #Faults_0__BOX-keep_alive_not_serv_0__BOX }
+#### keep_alive_not_serv { #Faults-keep_alive_not_serv }
 
 keep alive not served
 
@@ -693,8 +700,8 @@ keep alive not served
 | Error | 1 |
 
 
-<a id="Converter_Control_0__BOX"></a>
-## Converter_Control_0__BOX { #Converter_Control_0__BOX }
+<a id="Converter_Control"></a>
+## Converter_Control { #Converter_Control }
 
 
 | * | * |
@@ -712,11 +719,11 @@ box commands
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| enable_0__BOX | 1 | Single bit |
+| enable | 1 | Single bit |
 
 ### Payload description
 
-#### enable_0__BOX { #Converter_Control_0__BOX-enable_0__BOX }
+#### enable { #Converter_Control-enable }
 
 Enable the system
 
@@ -725,8 +732,8 @@ Enable the system
 | 0 | 1 | Single bit |  | 1 | 0 |  |  |
 
 
-<a id="Converter_Power_Info_0__BOX"></a>
-## Converter_Power_Info_0__BOX { #Converter_Power_Info_0__BOX }
+<a id="Converter_Power_Info"></a>
+## Converter_Power_Info { #Converter_Power_Info }
 
 
 | * | * |
@@ -744,14 +751,14 @@ Converter power info
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| load_0__BOX | 8 | Unsigned |
-| efficiency_0__BOX | 8 | Unsigned |
-| Power_capability_0__BOX | 16 | Signed |
-| low_power_input_0__BOX | 16 | Signed |
+| load | 8 | Unsigned |
+| efficiency | 8 | Unsigned |
+| Power_capability | 16 | Signed |
+| low_power_input | 16 | Signed |
 
 ### Payload description
 
-#### load_0__BOX { #Converter_Power_Info_0__BOX-load_0__BOX }
+#### load { #Converter_Power_Info-load }
 
 load in percent
 
@@ -759,7 +766,7 @@ load in percent
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 0 | 8 | Unsigned | % | 1 | 0 |  | 255 |
 
-#### efficiency_0__BOX { #Converter_Power_Info_0__BOX-efficiency_0__BOX }
+#### efficiency { #Converter_Power_Info-efficiency }
 
 load in percent
 
@@ -767,7 +774,7 @@ load in percent
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 8 | 8 | Unsigned | % | 1 | 0 |  | 255 |
 
-#### Power_capability_0__BOX { #Converter_Power_Info_0__BOX-Power_capability_0__BOX }
+#### Power_capability { #Converter_Power_Info-Power_capability }
 
 Power capabilities in kw
 
@@ -775,7 +782,7 @@ Power capabilities in kw
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 16 | 16 | Signed | kw | 0.1 | 0 | -3276.8 | 3276.7 |
 
-#### low_power_input_0__BOX { #Converter_Power_Info_0__BOX-low_power_input_0__BOX }
+#### low_power_input { #Converter_Power_Info-low_power_input }
 
 low power iunput voltage
 
@@ -784,8 +791,8 @@ low power iunput voltage
 | 32 | 16 | Signed | v | 0.01 | 0 | -327.68 | 327.67 |
 
 
-<a id="Broadcast_Group_Control_0__BOX"></a>
-## Broadcast_Group_Control_0__BOX { #Broadcast_Group_Control_0__BOX }
+<a id="Broadcast_Group_Control"></a>
+## Broadcast_Group_Control { #Broadcast_Group_Control }
 
 
 | * | * |
@@ -803,11 +810,11 @@ Configure the broadcast group that the module belongs to.
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Group_ID_0__BOX | 8 | Unsigned |
+| Group_ID | 8 | Unsigned |
 
 ### Payload description
 
-#### Group_ID_0__BOX { #Broadcast_Group_Control_0__BOX-Group_ID_0__BOX }
+#### Group_ID { #Broadcast_Group_Control-Group_ID }
 
 Broadcast Group that the module should monitor
 
@@ -816,8 +823,8 @@ Broadcast Group that the module should monitor
 | 0 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
 
-<a id="Interface_Status_0__BOX"></a>
-## Interface_Status_0__BOX { #Interface_Status_0__BOX }
+<a id="Interface_Status"></a>
+## Interface_Status { #Interface_Status }
 
 
 | * | * |
@@ -835,14 +842,14 @@ interface status
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Broadcast_Group_0__BOX | 8 | Unsigned |
-| keep_Alive_0__BOX | 4 | Label set |
-| reserved_0__BOX | 4 | Label set |
-| keep_Alive_Period_0__BOX | 8 | Unsigned |
+| Broadcast_Group | 8 | Unsigned |
+| keep_Alive | 4 | Label set |
+| reserved | 4 | Label set |
+| keep_Alive_Period | 8 | Unsigned |
 
 ### Payload description
 
-#### Broadcast_Group_0__BOX { #Interface_Status_0__BOX-Broadcast_Group_0__BOX }
+#### Broadcast_Group { #Interface_Status-Broadcast_Group }
 
 The broadcast group that the module belongs to. Broadcast group 0 implies that the module is not part of a broadcast group.
 
@@ -850,7 +857,7 @@ The broadcast group that the module belongs to. Broadcast group 0 implies that t
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 0 | 8 | Unsigned |  | 1 | 0 |  | 30 |
 
-#### keep_Alive_0__BOX { #Interface_Status_0__BOX-keep_Alive_0__BOX }
+#### keep_Alive { #Interface_Status-keep_Alive }
 
 keep alive requires the supervisory controller to send a heartbeat message at regular intervals
 
@@ -863,7 +870,7 @@ keep alive requires the supervisory controller to send a heartbeat message at re
 | Disabled | 0 |
 | Enabled | 1 |
 
-#### reserved_0__BOX { #Interface_Status_0__BOX-reserved_0__BOX }
+#### reserved { #Interface_Status-reserved }
 
 If this signal and the &#x27;keep alive&#x27; is enabled, violating the heartbeat will trip the interlock, shutting down all connected power converters
 
@@ -876,7 +883,7 @@ If this signal and the &#x27;keep alive&#x27; is enabled, violating the heartbea
 | Disabled | 0 |
 | Enabled | 1 |
 
-#### keep_Alive_Period_0__BOX { #Interface_Status_0__BOX-keep_Alive_Period_0__BOX }
+#### keep_Alive_Period { #Interface_Status-keep_Alive_Period }
 
 The maximum period of the keep alive message. If the time between two heart-beat messages is longer than this value, the module ceases operation. This only applies when the Heartbeat signal is Enabled
 
@@ -885,8 +892,8 @@ The maximum period of the keep alive message. If the time between two heart-beat
 | 16 | 8 | Unsigned | s | 0.1 | 0 |  | 25.5 |
 
 
-<a id="Keep_Alive_Control_0__BOX"></a>
-## Keep_Alive_Control_0__BOX { #Keep_Alive_Control_0__BOX }
+<a id="Keep_Alive_Control"></a>
+## Keep_Alive_Control { #Keep_Alive_Control }
 
 
 | * | * |
@@ -904,13 +911,13 @@ Configure the Heartbeat for the Module. The &#x27;Trip interlock&#x27; and &#x27
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Enable_0__BOX | 1 | Label set |
-| reserved_0__BOX | 1 | Label set |
-| Period_0__BOX | 8 | Unsigned |
+| Enable | 1 | Label set |
+| reserved | 1 | Label set |
+| Period | 8 | Unsigned |
 
 ### Payload description
 
-#### Enable_0__BOX { #Keep_Alive_Control_0__BOX-Enable_0__BOX }
+#### Enable { #Keep_Alive_Control-Enable }
 
 Enable/Disable the Heartbeat feature of the Module
 
@@ -923,7 +930,7 @@ Enable/Disable the Heartbeat feature of the Module
 | Disabled | 0 |
 | Enabled | 1 |
 
-#### reserved_0__BOX { #Keep_Alive_Control_0__BOX-reserved_0__BOX }
+#### reserved { #Keep_Alive_Control-reserved }
 
 Set if the external interlock should be tripped if a heartbeat is not received within the configured period. If this signal is enabled the interlock is triped and the module is disabled. If this signal is set to Disabled, the interlock like will not be tripped but the module will cease operation
 
@@ -936,7 +943,7 @@ Set if the external interlock should be tripped if a heartbeat is not received w
 | Disabled | 0 |
 | Enabled | 1 |
 
-#### Period_0__BOX { #Keep_Alive_Control_0__BOX-Period_0__BOX }
+#### Period { #Keep_Alive_Control-Period }
 
 Set the maximum period of the Heartbeat message. If the time between two heart-beat messages is longer than this value, the module ceases operation.
 
@@ -945,8 +952,8 @@ Set the maximum period of the Heartbeat message. If the time between two heart-b
 | 8 | 8 | Unsigned | s | 0.1 | 0 |  | 25.5 |
 
 
-<a id="Converter_Temperature_0__BOX"></a>
-## Converter_Temperature_0__BOX { #Converter_Temperature_0__BOX }
+<a id="Converter_Temperature"></a>
+## Converter_Temperature { #Converter_Temperature }
 
 
 | * | * |
@@ -964,14 +971,14 @@ Readouts of the converter temperature sensors
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Cooling_plate_0__BOX | 16 | Signed |
-| Magnetics_0__BOX | 16 | Signed |
-| Transistors_0__BOX | 16 | Signed |
-| RESERVED_0__BOX | 16 | Signed |
+| Cooling_plate | 16 | Signed |
+| Magnetics | 16 | Signed |
+| Transistors | 16 | Signed |
+| RESERVED | 16 | Signed |
 
 ### Payload description
 
-#### Cooling_plate_0__BOX { #Converter_Temperature_0__BOX-Cooling_plate_0__BOX }
+#### Cooling_plate { #Converter_Temperature-Cooling_plate }
 
 Temperature of the cooling plate
 
@@ -979,7 +986,7 @@ Temperature of the cooling plate
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 0 | 16 | Signed | °C | 0.01 | 0 | -327.68 | 327.67 |
 
-#### Magnetics_0__BOX { #Converter_Temperature_0__BOX-Magnetics_0__BOX }
+#### Magnetics { #Converter_Temperature-Magnetics }
 
 Highest mesured temp of magnetics
 
@@ -987,7 +994,7 @@ Highest mesured temp of magnetics
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 16 | 16 | Signed | °C | 0.01 | 0 | -327.68 | 327.67 |
 
-#### Transistors_0__BOX { #Converter_Temperature_0__BOX-Transistors_0__BOX }
+#### Transistors { #Converter_Temperature-Transistors }
 
 Highest mesured temp of transistors
 
@@ -995,7 +1002,7 @@ Highest mesured temp of transistors
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 32 | 16 | Signed | °C | 0.01 | 0 | -327.68 | 327.67 |
 
-#### RESERVED_0__BOX { #Converter_Temperature_0__BOX-RESERVED_0__BOX }
+#### RESERVED { #Converter_Temperature-RESERVED }
 
 Lowest measured temp internally
 
@@ -1004,8 +1011,8 @@ Lowest measured temp internally
 | 48 | 16 | Signed | °C | 0.01 | 0 | -327.68 | 327.67 |
 
 
-<a id="Converter_Fans_0__BOX"></a>
-## Converter_Fans_0__BOX { #Converter_Fans_0__BOX }
+<a id="Converter_Fans"></a>
+## Converter_Fans { #Converter_Fans }
 
 
 | * | * |
@@ -1023,14 +1030,14 @@ Readouts of the converter fans
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| A_rpm_0__BOX | 16 | Unsigned |
-| A_pwm_0__BOX | 8 | Unsigned |
-| B_rpm_0__BOX | 16 | Unsigned |
-| B_pwm_0__BOX | 8 | Unsigned |
+| A_rpm | 16 | Unsigned |
+| A_pwm | 8 | Unsigned |
+| B_rpm | 16 | Unsigned |
+| B_pwm | 8 | Unsigned |
 
 ### Payload description
 
-#### A_rpm_0__BOX { #Converter_Fans_0__BOX-A_rpm_0__BOX }
+#### A_rpm { #Converter_Fans-A_rpm }
 
 Measured speed of Fan 1
 
@@ -1038,7 +1045,7 @@ Measured speed of Fan 1
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 0 | 16 | Unsigned | rpm | 1 | 0 |  | 65535 |
 
-#### A_pwm_0__BOX { #Converter_Fans_0__BOX-A_pwm_0__BOX }
+#### A_pwm { #Converter_Fans-A_pwm }
 
 Fan speed in percentage (0 to 100%)
 
@@ -1046,7 +1053,7 @@ Fan speed in percentage (0 to 100%)
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 16 | 8 | Unsigned | % | 1 | 0 |  | 255 |
 
-#### B_rpm_0__BOX { #Converter_Fans_0__BOX-B_rpm_0__BOX }
+#### B_rpm { #Converter_Fans-B_rpm }
 
 Measured speed of Fan 1
 
@@ -1054,7 +1061,7 @@ Measured speed of Fan 1
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 24 | 16 | Unsigned | rpm | 1 | 0 |  | 65535 |
 
-#### B_pwm_0__BOX { #Converter_Fans_0__BOX-B_pwm_0__BOX }
+#### B_pwm { #Converter_Fans-B_pwm }
 
 Fan speed in percentage (0 to 100%)
 
@@ -1063,8 +1070,8 @@ Fan speed in percentage (0 to 100%)
 | 40 | 8 | Unsigned | % | 1 | 0 |  | 255 |
 
 
-<a id="Keep_Alive_Feed_0__BOX"></a>
-## Keep_Alive_Feed_0__BOX { #Keep_Alive_Feed_0__BOX }
+<a id="Keep_Alive_Feed"></a>
+## Keep_Alive_Feed { #Keep_Alive_Feed }
 
 
 | * | * |
@@ -1082,11 +1089,11 @@ keep alive feeding
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| feed_0__BOX | 1 | Single bit |
+| feed | 1 | Single bit |
 
 ### Payload description
 
-#### feed_0__BOX { #Keep_Alive_Feed_0__BOX-feed_0__BOX }
+#### feed { #Keep_Alive_Feed-feed }
 
 the value don&#x27;t matter her tin order to feed the alive
 
@@ -1095,409 +1102,434 @@ the value don&#x27;t matter her tin order to feed the alive
 | 0 | 1 | Single bit |  | 1 | 0 |  |  |
 
 
-<a id="GC01_Analog_0_GC01"></a>
-## GC01_Analog_0_GC01 { #GC01_Analog_0_GC01 }
+<a id="B_Port_Setpoints"></a>
+## B_Port_Setpoints { #B_Port_Setpoints }
 
 
 | * | * |
 |---|---|
 | **Frame ID** | 0x820020 |
+| **Length [Bytes]** | 6 |
+| **Periodicity [ms]** |  |
+| **Direction** | IN |
+
+### Description
+
+The setpoints control the behaviour of the B Port of the DC01
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Voltage | 16 | Unsigned |
+| Positive_Current_Limit | 16 | Signed |
+| Negative_Current_Limit | 16 | Signed |
+
+### Payload description
+
+#### Voltage { #B_Port_Setpoints-Voltage }
+
+Control the target B port voltage. This voltage will be maintained as long as the current required to do so is smaller than the current limits specified in this message
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Unsigned | V | 0.1 | 0 |  | 6553.5 |
+
+#### Positive_Current_Limit { #B_Port_Setpoints-Positive_Current_Limit }
+
+The maximum current that the DC01 will source on the B port
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 16 | Signed | A | 0.1 | 0 | -3276.8 | 3276.7 |
+
+#### Negative_Current_Limit { #B_Port_Setpoints-Negative_Current_Limit }
+
+The maximum current that the AC01 will sink into the B port
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 32 | 16 | Signed | A | 0.1 | 0 | -3276.8 | 3276.7 |
+
+
+<a id="B_Port_Applied_Setpoints"></a>
+## B_Port_Applied_Setpoints { #B_Port_Applied_Setpoints }
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x820021 |
+| **Length [Bytes]** | 8 |
+| **Periodicity [ms]** |  |
+| **Direction** | OUT |
+
+### Description
+
+The setpoints that are currently used by the DC01. This message allows to validate that the setpoints have been properly applied.
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Voltage | 16 | Unsigned |
+| Positive_Current_Limit | 16 | Signed |
+| Negative_Current_Limit | 16 | Signed |
+
+### Payload description
+
+#### Voltage { #B_Port_Applied_Setpoints-Voltage }
+
+The voltage target of the B port
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Unsigned | V | 0.1 | 0 |  | 6553.5 |
+
+#### Positive_Current_Limit { #B_Port_Applied_Setpoints-Positive_Current_Limit }
+
+The maximum current that the DC01 will source on the B Port
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 16 | Signed | A | 0.1 | 0 | -3276.8 | 3276.7 |
+
+#### Negative_Current_Limit { #B_Port_Applied_Setpoints-Negative_Current_Limit }
+
+The maximum amount of current that the DC01 will sink into the B port
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 32 | 16 | Signed | A | 0.1 | 0 | -3276.8 | 3276.7 |
+
+
+<a id="B_Port_Droop_Setpoints"></a>
+## B_Port_Droop_Setpoints { #B_Port_Droop_Setpoints }
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x820022 |
 | **Length [Bytes]** | 8 |
 | **Periodicity [ms]** |  |
 | **Direction** | IN |
 
 ### Description
 
-Readouts of the module temperature sensor
+Setpoints for applying Droop on the DC Port B. Droop is needed for paralleling multiple DC01
 
 ### Payload
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Temp_NTC_A_0_GC01 | 16 | Signed |
-| v_in_0_GC01 | 16 | Signed |
-| Voltage_prob_b_0_GC01 | 16 | Unsigned |
-| Voltage_prob_b_raw_0_GC01 | 16 | Unsigned |
+| Positive_Current_Droop | 16 | Unsigned |
+| Negative_Current_Droop | 16 | Unsigned |
+| Enable | 1 | Label set |
+| Reserved | 31 | Unsigned |
 
 ### Payload description
 
-#### Temp_NTC_A_0_GC01 { #GC01_Analog_0_GC01-Temp_NTC_A_0_GC01 }
+#### Positive_Current_Droop { #B_Port_Droop_Setpoints-Positive_Current_Droop }
 
-Temperature of the inductor
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 16 | Signed | °C | 0.01 | 0 | -327.68 | 327.67 |
-
-#### v_in_0_GC01 { #GC01_Analog_0_GC01-v_in_0_GC01 }
-
-Temperature of the inductor
+The droop resistance to apply for current flowing out of the DC port (DC current is positive)
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 16 | 16 | Signed | V | 0.1 | 0 | -3276.8 | 3276.7 |
+| 0 | 16 | Unsigned | Ohm | 0.01 | 0 |  | 655.35 |
 
-#### Voltage_prob_b_0_GC01 { #GC01_Analog_0_GC01-Voltage_prob_b_0_GC01 }
+#### Negative_Current_Droop { #B_Port_Droop_Setpoints-Negative_Current_Droop }
 
-Temperature of the inductor
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 32 | 16 | Unsigned | V | 0.1 | 0 |  | 6553.5 |
-
-#### Voltage_prob_b_raw_0_GC01 { #GC01_Analog_0_GC01-Voltage_prob_b_raw_0_GC01 }
-
-Temperature of the inductor
+The droop resistance to apply for current flowing in to the DC Port B (DC current is negative)
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 48 | 16 | Unsigned | V | 1 | 0 |  | 65535 |
+| 16 | 16 | Unsigned | Ohm | 0.01 | 0 |  | 655.35 |
 
+#### Enable { #B_Port_Droop_Setpoints-Enable }
 
-<a id="FAN_Speed_Control_0_GC01"></a>
-## FAN_Speed_Control_0_GC01 { #FAN_Speed_Control_0_GC01 }
-
-
-| * | * |
-|---|---|
-| **Frame ID** | 0x820022 |
-| **Length [Bytes]** | 1 |
-| **Periodicity [ms]** |  |
-| **Direction** | IN |
-
-### Description
-
-Manual control of fan speed pwm (for debug)
-
-### Payload
-
-| Signal | Length (bits) | Type |
-|--------|---------------|------|
-| FAN1_speed_0_GC01 | 8 | Unsigned |
-
-### Payload description
-
-#### FAN1_speed_0_GC01 { #FAN_Speed_Control_0_GC01-FAN1_speed_0_GC01 }
-
-Fan speed in percentage (0 to 100%)
+Enable DC Droop. If this feature is enabled the output voltage of the DC port  Bvaries with output current.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 8 | Unsigned |  | 1 | 0 |  | 255 |
+| 32 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Disabled | 0 |
+| Enabled | 1 |
+
+#### Reserved { #B_Port_Droop_Setpoints-Reserved }
+
+This space is reserved. This region should contain only &#x27;0&#x27;s
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 33 | 31 | Unsigned |  | 1 | 0 |  | 2147483647 |
 
 
-<a id="FAN_Enable_Control_0_GC01"></a>
-## FAN_Enable_Control_0_GC01 { #FAN_Enable_Control_0_GC01 }
+<a id="B_Port_Applied_Droop_Setpoints"></a>
+## B_Port_Applied_Droop_Setpoints { #B_Port_Applied_Droop_Setpoints }
 
 
 | * | * |
 |---|---|
 | **Frame ID** | 0x820023 |
-| **Length [Bytes]** | 1 |
+| **Length [Bytes]** | 5 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
-Manual control of enable/disable (for debug)
+Droop setpoints that are applied by the DC01 on port b
 
 ### Payload
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| FAN1_enable_0_GC01 | 1 | Single bit |
+| Positive_Current_Droop | 16 | Unsigned |
+| Negative_Current_Droop | 16 | Unsigned |
+| Enable | 1 | Label set |
 
 ### Payload description
 
-#### FAN1_enable_0_GC01 { #FAN_Enable_Control_0_GC01-FAN1_enable_0_GC01 }
+#### Positive_Current_Droop { #B_Port_Applied_Droop_Setpoints-Positive_Current_Droop }
 
-Fan enable/disable
+The droop resistance applied for current flowing out of the DC port B (DC current is positive)
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 1 | Single bit |  | 1 | 0 |  |  |
+| 0 | 16 | Unsigned | Ohm | 0.01 | 0 |  | 655.35 |
+
+#### Negative_Current_Droop { #B_Port_Applied_Droop_Setpoints-Negative_Current_Droop }
+
+The droop resistance applied for current flowing in to the DC Port B (DC current is negative)
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 16 | Unsigned | Ohm | 0.01 | 0 |  | 655.35 |
+
+#### Enable { #B_Port_Applied_Droop_Setpoints-Enable }
+
+Show is B port Droop is enabled.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 32 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Disabled | 0 |
+| Enabled | 1 |
 
 
-<a id="GC01_cont_main_ctrl_0_GC01"></a>
-## GC01_cont_main_ctrl_0_GC01 { #GC01_cont_main_ctrl_0_GC01 }
+<a id="B_Port_Measurements"></a>
+## B_Port_Measurements { #B_Port_Measurements }
 
 
 | * | * |
 |---|---|
 | **Frame ID** | 0x820024 |
-| **Length [Bytes]** | 1 |
+| **Length [Bytes]** | 4 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
-Control: contactors 1 and 2
+Measurements of the B port
 
 ### Payload
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| pwr_enable_0_GC01 | 1 | Single bit |
-| not_eco_0_GC01 | 1 | Single bit |
-| cont_1_2_en_0_GC01 | 1 | Single bit |
-| cont_1_close_0_GC01 | 1 | Single bit |
-| cont_2_close_0_GC01 | 1 | Single bit |
+| Voltage | 16 | Unsigned |
+| Current | 16 | Signed |
 
 ### Payload description
 
-#### pwr_enable_0_GC01 { #GC01_cont_main_ctrl_0_GC01-pwr_enable_0_GC01 }
+#### Voltage { #B_Port_Measurements-Voltage }
 
-enable power to contactors
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 1 | Single bit |  | 1 | 0 |  |  |
-
-#### not_eco_0_GC01 { #GC01_cont_main_ctrl_0_GC01-not_eco_0_GC01 }
-
-economised mode
+Voltage on the B Port
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 1 | 1 | Single bit |  | 1 | 0 |  |  |
+| 0 | 16 | Unsigned | V | 0.1 | 0 |  | 6553.5 |
 
-#### cont_1_2_en_0_GC01 { #GC01_cont_main_ctrl_0_GC01-cont_1_2_en_0_GC01 }
+#### Current { #B_Port_Measurements-Current }
 
-enable cont 1 and 2
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 2 | 1 | Single bit |  | 1 | 0 |  |  |
-
-#### cont_1_close_0_GC01 { #GC01_cont_main_ctrl_0_GC01-cont_1_close_0_GC01 }
-
-close cont 1
+Current through the B Port
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 3 | 1 | Single bit |  | 1 | 0 |  |  |
-
-#### cont_2_close_0_GC01 { #GC01_cont_main_ctrl_0_GC01-cont_2_close_0_GC01 }
-
-close cont 1
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 4 | 1 | Single bit |  | 1 | 0 |  |  |
+| 16 | 16 | Signed | A | 0.1 | 0 | -3276.8 | 3276.7 |
 
 
-<a id="GC01_cont_main_status_0_GC01"></a>
-## GC01_cont_main_status_0_GC01 { #GC01_cont_main_status_0_GC01 }
+<a id="A_Port_Setpoints"></a>
+## A_Port_Setpoints { #A_Port_Setpoints }
 
 
 | * | * |
 |---|---|
-| **Frame ID** | 0x820025 |
-| **Length [Bytes]** | 1 |
+| **Frame ID** | 0x820030 |
+| **Length [Bytes]** | 6 |
 | **Periodicity [ms]** |  |
 | **Direction** | IN |
 
 ### Description
 
-status of contactors 1 and 2
+The setpoints control the behaviour of the A Port of the DC01
 
 ### Payload
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| cont_1_good_0_GC01 | 1 | Label set |
-| cont_2_good_0_GC01 | 1 | Label set |
-| cont_1_aux_0_GC01 | 1 | Label set |
-| cont_2_aux_0_GC01 | 1 | Label set |
+| Voltage | 16 | Unsigned |
+| Source_Current_Limit | 16 | Unsigned |
+| Sink_Current_Limit | 16 | Unsigned |
 
 ### Payload description
 
-#### cont_1_good_0_GC01 { #GC01_cont_main_status_0_GC01-cont_1_good_0_GC01 }
+#### Voltage { #A_Port_Setpoints-Voltage }
+
+Control the target A port voltage. This voltage will be maintained as long as the current required to do so is smaller than the current limits specified in this message
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 1 | Label set |  | 1 | 0 |  |  |
+| 0 | 16 | Unsigned | V | 0.1 | 0 |  | 1500 |
 
-| Label name | Value |
-|------------|-------|
-| fault | 0 |
-| good | 1 |
+#### Source_Current_Limit { #A_Port_Setpoints-Source_Current_Limit }
 
-#### cont_2_good_0_GC01 { #GC01_cont_main_status_0_GC01-cont_2_good_0_GC01 }
+The maximum current that the DC01 will source on the A port
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 1 | 1 | Label set |  | 1 | 0 |  |  |
+| 16 | 16 | Unsigned | A | 0.1 | 0 |  | 220 |
 
-| Label name | Value |
-|------------|-------|
-| fault | 0 |
-| good | 1 |
+#### Sink_Current_Limit { #A_Port_Setpoints-Sink_Current_Limit }
 
-#### cont_1_aux_0_GC01 { #GC01_cont_main_status_0_GC01-cont_1_aux_0_GC01 }
+The maximum current that the AC01 will sink into the A port
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 2 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| open | 0 |
-| closed | 1 |
-
-#### cont_2_aux_0_GC01 { #GC01_cont_main_status_0_GC01-cont_2_aux_0_GC01 }
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 3 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| open | 0 |
-| closed | 1 |
+| 32 | 16 | Unsigned | A | 0.1 | 0 |  | 220 |
 
 
-<a id="GC01_cont_secondary_ctrl_0_GC01"></a>
-## GC01_cont_secondary_ctrl_0_GC01 { #GC01_cont_secondary_ctrl_0_GC01 }
+<a id="A_Port_Applied_Setpoints"></a>
+## A_Port_Applied_Setpoints { #A_Port_Applied_Setpoints }
 
 
 | * | * |
 |---|---|
-| **Frame ID** | 0x820026 |
-| **Length [Bytes]** | 1 |
+| **Frame ID** | 0x820031 |
+| **Length [Bytes]** | 8 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
-Control: contactors 3 and 4
+The setpoints that are currently used by the DC01. This message allows to validate that the setpoints have been properly applied.
 
 ### Payload
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| pwr_enable_0_GC01 | 1 | Single bit |
-| not_eco_0_GC01 | 1 | Single bit |
-| reserved_0_GC01 | 1 | Single bit |
-| cont_3_ctrl_0_GC01 | 1 | Single bit |
-| cont_4_ctrl_0_GC01 | 1 | Single bit |
+| Voltage | 16 | Unsigned |
+| Source_Current_Limit | 16 | Unsigned |
+| Sink_Current_Limit | 16 | Unsigned |
 
 ### Payload description
 
-#### pwr_enable_0_GC01 { #GC01_cont_secondary_ctrl_0_GC01-pwr_enable_0_GC01 }
+#### Voltage { #A_Port_Applied_Setpoints-Voltage }
 
-enable power to contactors
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 1 | Single bit |  | 1 | 0 |  |  |
-
-#### not_eco_0_GC01 { #GC01_cont_secondary_ctrl_0_GC01-not_eco_0_GC01 }
-
-economised mode
+The voltage target of the A port
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 1 | 1 | Single bit |  | 1 | 0 |  |  |
+| 0 | 16 | Unsigned | V | 0.1 | 0 |  | 6553.5 |
 
-#### reserved_0_GC01 { #GC01_cont_secondary_ctrl_0_GC01-reserved_0_GC01 }
+#### Source_Current_Limit { #A_Port_Applied_Setpoints-Source_Current_Limit }
 
-economised mode
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 2 | 1 | Single bit |  | 1 | 0 |  |  |
-
-#### cont_3_ctrl_0_GC01 { #GC01_cont_secondary_ctrl_0_GC01-cont_3_ctrl_0_GC01 }
-
-close cont 1
+The maximum current that the DC01 will source on the A Port
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 3 | 1 | Single bit |  | 1 | 0 |  |  |
+| 16 | 16 | Unsigned | A | 0.1 | 0 |  | 6553.5 |
 
-#### cont_4_ctrl_0_GC01 { #GC01_cont_secondary_ctrl_0_GC01-cont_4_ctrl_0_GC01 }
+#### Sink_Current_Limit { #A_Port_Applied_Setpoints-Sink_Current_Limit }
 
-close cont 1
+The maximum amount of current that the DC01 will sink into the A port
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 4 | 1 | Single bit |  | 1 | 0 |  |  |
+| 32 | 16 | Unsigned | A | 0.1 | 0 |  | 6553.5 |
 
 
-<a id="GC01_cont_secondary_status_0_GC01"></a>
-## GC01_cont_secondary_status_0_GC01 { #GC01_cont_secondary_status_0_GC01 }
+<a id="A_Port_Measurements"></a>
+## A_Port_Measurements { #A_Port_Measurements }
 
 
 | * | * |
 |---|---|
-| **Frame ID** | 0x820027 |
-| **Length [Bytes]** | 1 |
+| **Frame ID** | 0x820032 |
+| **Length [Bytes]** | 4 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
-status of contactors 1 and 2
+Measurements of the A port
 
 ### Payload
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| cont_3_aux_0_GC01 | 1 | Label set |
-| cont_4_aux_0_GC01 | 1 | Label set |
+| Voltage | 16 | Unsigned |
+| Current | 16 | Signed |
 
 ### Payload description
 
-#### cont_3_aux_0_GC01 { #GC01_cont_secondary_status_0_GC01-cont_3_aux_0_GC01 }
+#### Voltage { #A_Port_Measurements-Voltage }
+
+Voltage on the A Port
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 2 | 1 | Label set |  | 1 | 0 |  |  |
+| 0 | 16 | Unsigned | V | 0.1 | 0 |  | 6553.5 |
 
-| Label name | Value |
-|------------|-------|
-| open | 0 |
-| closed | 1 |
+#### Current { #A_Port_Measurements-Current }
 
-#### cont_4_aux_0_GC01 { #GC01_cont_secondary_status_0_GC01-cont_4_aux_0_GC01 }
+Current through the A Port
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 3 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| open | 0 |
-| closed | 1 |
+| 16 | 16 | Signed | A | 0.1 | 0 | -3276.8 | 3276.7 |
 
 
-<a id="contactors_cmd_0_GC01"></a>
-## contactors_cmd_0_GC01 { #contactors_cmd_0_GC01 }
+<a id="DC01_Mode_Set"></a>
+## DC01_Mode_Set { #DC01_Mode_Set }
 
 
 | * | * |
 |---|---|
-| **Frame ID** | 0x820028 |
-| **Length [Bytes]** | 1 |
+| **Frame ID** | 0x820040 |
+| **Length [Bytes]** | 2 |
 | **Periodicity [ms]** |  |
 | **Direction** | IN |
 
 ### Description
 
-status of contactors 1 and 2
+Set the mode of AC01
 
 ### Payload
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| conf_0_GC01 | 8 | Label set |
+| mode | 8 | Label set |
+| connection | 8 | Label set |
 
 ### Payload description
 
-#### conf_0_GC01 { #contactors_cmd_0_GC01-conf_0_GC01 }
+#### mode { #DC01_Mode_Set-mode }
 
-Enable the systeme
+require mode
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -1505,14 +1537,821 @@ Enable the systeme
 
 | Label name | Value |
 |------------|-------|
+| B_port_Controlled | 0 |
+| A_port_Controlled | 1 |
+| Bleeding | 2 |
+
+#### connection { #DC01_Mode_Set-connection }
+
+require connection
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 8 | 8 | Label set |  | 1 | 0 |  | 255 |
+
+| Label name | Value |
+|------------|-------|
+| forced_serial | 0 |
+| forced_parallel | 1 |
+| automatic | 2 |
+
+
+<a id="DC01_Mode_Applied"></a>
+## DC01_Mode_Applied { #DC01_Mode_Applied }
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x820041 |
+| **Length [Bytes]** | 2 |
+| **Periodicity [ms]** |  |
+| **Direction** | OUT |
+
+### Description
+
+read back the modes
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| mode | 8 | Label set |
+| connection | 8 | Label set |
+
+### Payload description
+
+#### mode { #DC01_Mode_Applied-mode }
+
+actual mode
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 8 | Label set |  | 1 | 0 |  | 255 |
+
+| Label name | Value |
+|------------|-------|
+| B_side_Controlled | 0 |
+| A_side_Controlled | 1 |
+| Bleeding | 2 |
+
+#### connection { #DC01_Mode_Applied-connection }
+
+connection mode
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 8 | 8 | Label set |  | 1 | 0 |  | 255 |
+
+| Label name | Value |
+|------------|-------|
 | open | 0 |
-| dc01_serial | 1 |
-| dc01_parallel | 2 |
-| manual | 3 |
+| serial | 1 |
+| parallel | 2 |
 
 
-<a id="Stack_Control_0_BASE"></a>
-## Stack_Control_0_BASE { #Stack_Control_0_BASE }
+<a id="DC01_faults"></a>
+## DC01_faults { #DC01_faults }
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x820042 |
+| **Length [Bytes]** | 8 |
+| **Periodicity [ms]** |  |
+| **Direction** | OUT |
+
+### Description
+
+DC01 Critical and Error Faults
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| CABLE_2_4_DC | 1 | Label set |
+| CABLE_1_2_DC | 1 | Label set |
+| CABLE_3_4_DC | 1 | Label set |
+| CABLE_1_L1_L2 | 1 | Label set |
+| CABLE_1_L2_L3 | 1 | Label set |
+| CABLE_3_L1_L2 | 1 | Label set |
+| CABLE_3_L2_L3 | 1 | Label set |
+| CABLE_1_3_L1 | 1 | Label set |
+| CABLE_2_IN_OUT | 1 | Label set |
+| CABLE_4_IN_OUT | 1 | Label set |
+| MODULE_1_RUNNING | 1 | Label set |
+| MODULE_2_RUNNING | 1 | Label set |
+| MODULE_3_RUNNING | 1 | Label set |
+| MODULE_4_RUNNING | 1 | Label set |
+| CONTACTOR_1_CLOSED | 1 | Label set |
+| CONTACTOR_2_CLOSED | 1 | Label set |
+| CONTACTOR_3_CLOSED | 1 | Label set |
+| CONTACTOR_4_CLOSED | 1 | Label set |
+| CONTACTOR_1_OPEN | 1 | Label set |
+| CONTACTOR_2_OPEN | 1 | Label set |
+| CONTACTOR_3_OPEN | 1 | Label set |
+| CONTACTOR_4_OPEN | 1 | Label set |
+| CONTACTOR_1_FAIL | 1 | Label set |
+| CONTACTOR_2_FAIL | 1 | Label set |
+| CONTACTOR_3_FAIL | 1 | Label set |
+| CONTACTOR_4_FAIL | 1 | Label set |
+| PORT_A_OVERVOLTAGE | 1 | Label set |
+| CS_REV_INCOMPATIBLE | 1 | Label set |
+| CONTACTORS_CONNECTION_UNDEFINED | 1 | Label set |
+| AFE_NOT_OFF | 1 | Label set |
+| AFE_PWM_NOT_RUNNING | 1 | Label set |
+| AFE_PWM_STOP_RUNNING | 1 | Label set |
+| BLEEDING_FAILED | 1 | Label set |
+| BI25_PWM_NOT_RUNNING | 1 | Label set |
+| CALIBRATION_ERROR | 1 | Label set |
+
+### Payload description
+
+#### CABLE_2_4_DC { #DC01_faults-CABLE_2_4_DC }
+
+BI25(2).DC -&gt; BI25(4).DC mismatch
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Critical | 1 |
+
+#### CABLE_1_2_DC { #DC01_faults-CABLE_1_2_DC }
+
+BI25(2).DC -&gt; BP25(1).DC mismatch
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 1 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Critical | 1 |
+
+#### CABLE_3_4_DC { #DC01_faults-CABLE_3_4_DC }
+
+BI25(4).DC -&gt; BI25(2).DC mismatch
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 2 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Critical | 1 |
+
+#### CABLE_1_L1_L2 { #DC01_faults-CABLE_1_L1_L2 }
+
+BP25(1).L1 -&gt; BI25(1).L2 mismatch
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 3 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Critical | 1 |
+
+#### CABLE_1_L2_L3 { #DC01_faults-CABLE_1_L2_L3 }
+
+BP25(1).L2 -&gt; BI25(1).L3 mismatch
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 4 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Critical | 1 |
+
+#### CABLE_3_L1_L2 { #DC01_faults-CABLE_3_L1_L2 }
+
+BP25(3).L1 -&gt; BI25(3).L2 mismatch
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 5 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Critical | 1 |
+
+#### CABLE_3_L2_L3 { #DC01_faults-CABLE_3_L2_L3 }
+
+BP25(3).L2 -&gt; BI25(3).L3 mismatch
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 6 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Critical | 1 |
+
+#### CABLE_1_3_L1 { #DC01_faults-CABLE_1_3_L1 }
+
+BP25(1).L1 -&gt; BI25(3).L1 mismatch
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 7 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Critical | 1 |
+
+#### CABLE_2_IN_OUT { #DC01_faults-CABLE_2_IN_OUT }
+
+BI25(2).IN -&gt; BI25(2).OUT mismatch
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 8 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Critical | 1 |
+
+#### CABLE_4_IN_OUT { #DC01_faults-CABLE_4_IN_OUT }
+
+BI25(4).IN -&gt; BI25(4).OUT mismatch
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 9 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Critical | 1 |
+
+#### MODULE_1_RUNNING { #DC01_faults-MODULE_1_RUNNING }
+
+Module 1 running error
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 10 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Error | 1 |
+
+#### MODULE_2_RUNNING { #DC01_faults-MODULE_2_RUNNING }
+
+Module 2 running error
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 11 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Error | 1 |
+
+#### MODULE_3_RUNNING { #DC01_faults-MODULE_3_RUNNING }
+
+Module 3 running error
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 12 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Error | 1 |
+
+#### MODULE_4_RUNNING { #DC01_faults-MODULE_4_RUNNING }
+
+Module 4 running error
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 13 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Error | 1 |
+
+#### CONTACTOR_1_CLOSED { #DC01_faults-CONTACTOR_1_CLOSED }
+
+Contactor 1 unexpectedly closed
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 14 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Error | 1 |
+
+#### CONTACTOR_2_CLOSED { #DC01_faults-CONTACTOR_2_CLOSED }
+
+Contactor 2 unexpectedly closed
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 15 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Error | 1 |
+
+#### CONTACTOR_3_CLOSED { #DC01_faults-CONTACTOR_3_CLOSED }
+
+Contactor 3 unexpectedly closed
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Error | 1 |
+
+#### CONTACTOR_4_CLOSED { #DC01_faults-CONTACTOR_4_CLOSED }
+
+Contactor 4 unexpectedly closed
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 17 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Error | 1 |
+
+#### CONTACTOR_1_OPEN { #DC01_faults-CONTACTOR_1_OPEN }
+
+Contactor 1 failed to close
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 18 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Error | 1 |
+
+#### CONTACTOR_2_OPEN { #DC01_faults-CONTACTOR_2_OPEN }
+
+Contactor 2 failed to close
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 19 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Error | 1 |
+
+#### CONTACTOR_3_OPEN { #DC01_faults-CONTACTOR_3_OPEN }
+
+Contactor 3 failed to close
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 20 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Error | 1 |
+
+#### CONTACTOR_4_OPEN { #DC01_faults-CONTACTOR_4_OPEN }
+
+Contactor 4 failed to close
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 21 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Error | 1 |
+
+#### CONTACTOR_1_FAIL { #DC01_faults-CONTACTOR_1_FAIL }
+
+Contactor 1 feedback failure
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 22 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Error | 1 |
+
+#### CONTACTOR_2_FAIL { #DC01_faults-CONTACTOR_2_FAIL }
+
+Contactor 2 feedback failure
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 23 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Error | 1 |
+
+#### CONTACTOR_3_FAIL { #DC01_faults-CONTACTOR_3_FAIL }
+
+Contactor 3 feedback failure
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 24 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Error | 1 |
+
+#### CONTACTOR_4_FAIL { #DC01_faults-CONTACTOR_4_FAIL }
+
+Contactor 4 feedback failure
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 25 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Error | 1 |
+
+#### PORT_A_OVERVOLTAGE { #DC01_faults-PORT_A_OVERVOLTAGE }
+
+Port A overvoltage detected
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 26 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Error | 1 |
+
+#### CS_REV_INCOMPATIBLE { #DC01_faults-CS_REV_INCOMPATIBLE }
+
+Controller board incompatible
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 27 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Critical | 1 |
+
+#### CONTACTORS_CONNECTION_UNDEFINED { #DC01_faults-CONTACTORS_CONNECTION_UNDEFINED }
+
+Contactors connection state undefined
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 28 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Error | 1 |
+
+#### AFE_NOT_OFF { #DC01_faults-AFE_NOT_OFF }
+
+AFE not off when expected
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 29 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Error | 1 |
+
+#### AFE_PWM_NOT_RUNNING { #DC01_faults-AFE_PWM_NOT_RUNNING }
+
+AFE PWM not running
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 30 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Error | 1 |
+
+#### AFE_PWM_STOP_RUNNING { #DC01_faults-AFE_PWM_STOP_RUNNING }
+
+AFE PWM stopped unexpectedly
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 31 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Error | 1 |
+
+#### BLEEDING_FAILED { #DC01_faults-BLEEDING_FAILED }
+
+Bleeding resistor discharge failed
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 32 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Error | 1 |
+
+#### BI25_PWM_NOT_RUNNING { #DC01_faults-BI25_PWM_NOT_RUNNING }
+
+Bleeding resistor discharge failed
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 33 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Error | 1 |
+
+#### CALIBRATION_ERROR { #DC01_faults-CALIBRATION_ERROR }
+
+Bleeding resistor discharge failed
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 34 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Error | 1 |
+
+
+<a id="DC01_warning"></a>
+## DC01_warning { #DC01_warning }
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x820043 |
+| **Length [Bytes]** | 8 |
+| **Periodicity [ms]** |  |
+| **Direction** | OUT |
+
+### Description
+
+DC01 Warnings
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| MODE_NOT_SUPPORTED | 1 | Label set |
+| V_A_LOW | 1 | Label set |
+| V_A_HIGH | 1 | Label set |
+| NEED_UPDATE | 1 | Label set |
+
+### Payload description
+
+#### MODE_NOT_SUPPORTED { #DC01_warning-MODE_NOT_SUPPORTED }
+
+Mode not supported
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Warning | 1 |
+
+#### V_A_LOW { #DC01_warning-V_A_LOW }
+
+voltage port a too low
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 10 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Warning | 1 |
+
+#### V_A_HIGH { #DC01_warning-V_A_HIGH }
+
+voltage port a too high
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 11 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Warning | 1 |
+
+#### NEED_UPDATE { #DC01_warning-NEED_UPDATE }
+
+power converter need update
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 12 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Warning | 1 |
+
+
+<a id="DC01_info"></a>
+## DC01_info { #DC01_info }
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x820044 |
+| **Length [Bytes]** | 8 |
+| **Periodicity [ms]** |  |
+| **Direction** | OUT |
+
+### Description
+
+DC01 Informational Flags
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| BLEEDING_DONE | 1 | Label set |
+| CONTACTORS_CONNECTION_SERIAL | 1 | Label set |
+| CONTACTORS_CONNECTION_PARALLEL | 1 | Label set |
+| CONTACTORS_CONNECTION_OPEN | 1 | Label set |
+| CONNECTION_MANAGER_RQ_CHANGE | 1 | Label set |
+| VB_LIMITED_BY_VA | 1 | Label set |
+| CURRENT_LIMIT | 1 | Label set |
+| VB_TO_HIGH_FOR_SELECTED_MODE | 1 | Label set |
+| CURRENT_LIMITED_BY_POWER | 1 | Label set |
+
+### Payload description
+
+#### BLEEDING_DONE { #DC01_info-BLEEDING_DONE }
+
+Bleeding completed successfully
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Info | 1 |
+
+#### CONTACTORS_CONNECTION_SERIAL { #DC01_info-CONTACTORS_CONNECTION_SERIAL }
+
+Contactors connected in series
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 1 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Info | 1 |
+
+#### CONTACTORS_CONNECTION_PARALLEL { #DC01_info-CONTACTORS_CONNECTION_PARALLEL }
+
+Contactors connected in parallel
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 2 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Info | 1 |
+
+#### CONTACTORS_CONNECTION_OPEN { #DC01_info-CONTACTORS_CONNECTION_OPEN }
+
+All contactors open
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 3 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Info | 1 |
+
+#### CONNECTION_MANAGER_RQ_CHANGE { #DC01_info-CONNECTION_MANAGER_RQ_CHANGE }
+
+Connection manager requests topology change
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 4 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Info | 1 |
+
+#### VB_LIMITED_BY_VA { #DC01_info-VB_LIMITED_BY_VA }
+
+VA is not high enough to reach targeted VB
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 5 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Info | 1 |
+
+#### CURRENT_LIMIT { #DC01_info-CURRENT_LIMIT }
+
+current limit reached
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 6 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Info | 1 |
+
+#### VB_TO_HIGH_FOR_SELECTED_MODE { #DC01_info-VB_TO_HIGH_FOR_SELECTED_MODE }
+
+cvb is too high for the current selected mode
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 7 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Info | 1 |
+
+#### CURRENT_LIMITED_BY_POWER { #DC01_info-CURRENT_LIMITED_BY_POWER }
+
+current is limited because max power is reached
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 8 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Info | 1 |
+
+
+<a id="Stack_Control"></a>
+## Stack_Control { #Stack_Control }
 
 
 | * | * |
@@ -1530,13 +2369,13 @@ Module stack control
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Stack_position_0_BASE | 8 | Unsigned |
-| reserved_0_BASE | 8 | Unsigned |
-| SN_number_0_BASE | 32 | Unsigned |
+| Stack_position | 8 | Unsigned |
+| reserved | 8 | Unsigned |
+| SN_number | 32 | Unsigned |
 
 ### Payload description
 
-#### Stack_position_0_BASE { #Stack_Control_0_BASE-Stack_position_0_BASE }
+#### Stack_position { #Stack_Control-Stack_position }
 
 The module position within the stack
 
@@ -1544,7 +2383,7 @@ The module position within the stack
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 0 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### reserved_0_BASE { #Stack_Control_0_BASE-reserved_0_BASE }
+#### reserved { #Stack_Control-reserved }
 
 was stack size before
 
@@ -1552,7 +2391,7 @@ was stack size before
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 8 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### SN_number_0_BASE { #Stack_Control_0_BASE-SN_number_0_BASE }
+#### SN_number { #Stack_Control-SN_number }
 
 Unique module serial number
 
@@ -1561,8 +2400,8 @@ Unique module serial number
 | 16 | 32 | Unsigned |  | 1 | 0 |  | 4294967295 |
 
 
-<a id="Fault_Control_0_BASE"></a>
-## Fault_Control_0_BASE { #Fault_Control_0_BASE }
+<a id="Fault_Control"></a>
+## Fault_Control { #Fault_Control }
 
 
 | * | * |
@@ -1580,14 +2419,14 @@ Fault Control: actions to clear faults and reset the system
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Clear_Interlock_0_BASE | 1 | Single bit |
-| Reset_Processor_0_BASE | 1 | Single bit |
-| Trip_Interlock_0_BASE | 1 | Single bit |
-| Reserved_0_BASE | 5 | Unsigned |
+| Clear_Interlock | 1 | Single bit |
+| Reset_Processor | 1 | Single bit |
+| Trip_Interlock | 1 | Single bit |
+| Reserved | 5 | Unsigned |
 
 ### Payload description
 
-#### Clear_Interlock_0_BASE { #Fault_Control_0_BASE-Clear_Interlock_0_BASE }
+#### Clear_Interlock { #Fault_Control-Clear_Interlock }
 
 Clears the converter interlock
 
@@ -1595,7 +2434,7 @@ Clears the converter interlock
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 0 | 1 | Single bit |  | 1 | 0 |  |  |
 
-#### Reset_Processor_0_BASE { #Fault_Control_0_BASE-Reset_Processor_0_BASE }
+#### Reset_Processor { #Fault_Control-Reset_Processor }
 
 Reset the converter DSP
 
@@ -1603,7 +2442,7 @@ Reset the converter DSP
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 1 | 1 | Single bit |  | 1 | 0 |  |  |
 
-#### Trip_Interlock_0_BASE { #Fault_Control_0_BASE-Trip_Interlock_0_BASE }
+#### Trip_Interlock { #Fault_Control-Trip_Interlock }
 
 Trip the inetrnal Interlock
 
@@ -1611,7 +2450,7 @@ Trip the inetrnal Interlock
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 2 | 1 | Single bit |  | 1 | 0 |  |  |
 
-#### Reserved_0_BASE { #Fault_Control_0_BASE-Reserved_0_BASE }
+#### Reserved { #Fault_Control-Reserved }
 
 Reserved space
 
@@ -1620,8 +2459,8 @@ Reserved space
 | 3 | 5 | Unsigned |  | 1 | 0 |  | 31 |
 
 
-<a id="_Factory_Config_0__BOX"></a>
-## _Factory_Config_0__BOX { #_Factory_Config_0__BOX }
+<a id="_Factory_Config"></a>
+## _Factory_Config { #_Factory_Config }
 
 
 | * | * |
@@ -1639,14 +2478,14 @@ factory setting of controller and boxs
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| select_0__BOX | 8 | Label set |
-| set_id_0__BOX | 8 | Unsigned |
-| set_revision_0__BOX | 8 | Unsigned |
-| set_variant_0__BOX | 8 | Unsigned |
+| select | 8 | Label set |
+| set_id | 8 | Unsigned |
+| set_revision | 8 | Unsigned |
+| set_variant | 8 | Unsigned |
 
 ### Payload description
 
-#### select_0__BOX { #_Factory_Config_0__BOX-select_0__BOX }
+#### select { #_Factory_Config-select }
 
 set ID, need factory mode = 1 (will change revision and variant as well)
 
@@ -1661,7 +2500,7 @@ set ID, need factory mode = 1 (will change revision and variant as well)
 | adb | 2 |
 | reset | 3 |
 
-#### set_id_0__BOX { #_Factory_Config_0__BOX-set_id_0__BOX }
+#### set_id { #_Factory_Config-set_id }
 
 set ID, need factory mode = 1 (will change revision and variant as well)
 
@@ -1669,7 +2508,7 @@ set ID, need factory mode = 1 (will change revision and variant as well)
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 8 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### set_revision_0__BOX { #_Factory_Config_0__BOX-set_revision_0__BOX }
+#### set_revision { #_Factory_Config-set_revision }
 
 set revision, need factory mode = 1 , applied if set_id is valid
 
@@ -1677,7 +2516,7 @@ set revision, need factory mode = 1 , applied if set_id is valid
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 16 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### set_variant_0__BOX { #_Factory_Config_0__BOX-set_variant_0__BOX }
+#### set_variant { #_Factory_Config-set_variant }
 
 set variant, need factory mode = 1, applied if set_id is valid
 
@@ -1686,8 +2525,8 @@ set variant, need factory mode = 1, applied if set_id is valid
 | 24 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
 
-<a id="Factory_Control_0_BASE"></a>
-## Factory_Control_0_BASE { #Factory_Control_0_BASE }
+<a id="Factory_Control"></a>
+## Factory_Control { #Factory_Control }
 
 
 | * | * |
@@ -1705,11 +2544,11 @@ Control the system flags
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Factory_mode_0_BASE | 1 | Single bit |
+| Factory_mode | 1 | Single bit |
 
 ### Payload description
 
-#### Factory_mode_0_BASE { #Factory_Control_0_BASE-Factory_mode_0_BASE }
+#### Factory_mode { #Factory_Control-Factory_mode }
 
 Customers MUST NOT USE this bit. If set to 1, module will enter in factory mode.
 
@@ -1718,8 +2557,8 @@ Customers MUST NOT USE this bit. If set to 1, module will enter in factory mode.
 | 0 | 1 | Single bit |  | 1 | 0 |  |  |
 
 
-<a id="_Calibration_writing_0__BOX"></a>
-## _Calibration_writing_0__BOX { #_Calibration_writing_0__BOX }
+<a id="_Calibration_writing"></a>
+## _Calibration_writing { #_Calibration_writing }
 
 
 | * | * |
@@ -1737,13 +2576,13 @@ Calibration control (factory mode need to be set)
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| index_0__BOX | 8 | Label set |
-| select_0__BOX | 8 | Label set |
-| value_0__BOX | 32 | Signed |
+| index | 8 | Label set |
+| select | 8 | Label set |
+| value | 32 | Signed |
 
 ### Payload description
 
-#### index_0__BOX { #_Calibration_writing_0__BOX-index_0__BOX }
+#### index { #_Calibration_writing-index }
 
 index of the device that nee calibration (0 is unvalid)
 
@@ -1756,7 +2595,7 @@ index of the device that nee calibration (0 is unvalid)
 | invalid | 0 |
 | voltage_sensor_b | 1 |
 
-#### select_0__BOX { #_Calibration_writing_0__BOX-select_0__BOX }
+#### select { #_Calibration_writing-select }
 
 select what value to set
 
@@ -1770,7 +2609,7 @@ select what value to set
 | prob_offset | 1 |
 | prob_scale_factor | 2 |
 
-#### value_0__BOX { #_Calibration_writing_0__BOX-value_0__BOX }
+#### value { #_Calibration_writing-value }
 
 require calibration valut
 
@@ -1779,8 +2618,8 @@ require calibration valut
 | 16 | 32 | Signed |  | 0.0001 | 0 | -214748.3648 | 214748.3647 |
 
 
-<a id="_Calibration_reading_cmd_0__BOX"></a>
-## _Calibration_reading_cmd_0__BOX { #_Calibration_reading_cmd_0__BOX }
+<a id="_Calibration_reading_cmd"></a>
+## _Calibration_reading_cmd { #_Calibration_reading_cmd }
 
 
 | * | * |
@@ -1798,12 +2637,12 @@ Calibration reading cmd (factory mode need to be set)
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| index_0__BOX | 8 | Label set |
-| select_0__BOX | 8 | Label set |
+| index | 8 | Label set |
+| select | 8 | Label set |
 
 ### Payload description
 
-#### index_0__BOX { #_Calibration_reading_cmd_0__BOX-index_0__BOX }
+#### index { #_Calibration_reading_cmd-index }
 
 index of the device that need reading
 
@@ -1816,7 +2655,7 @@ index of the device that need reading
 | invalid | 0 |
 | voltage_sensor_b | 1 |
 
-#### select_0__BOX { #_Calibration_reading_cmd_0__BOX-select_0__BOX }
+#### select { #_Calibration_reading_cmd-select }
 
 select what value to read
 
@@ -1832,8 +2671,8 @@ select what value to read
 | prob_scale_factor | 3 |
 
 
-<a id="_Calibration_reading_0__BOX"></a>
-## _Calibration_reading_0__BOX { #_Calibration_reading_0__BOX }
+<a id="_Calibration_reading"></a>
+## _Calibration_reading { #_Calibration_reading }
 
 
 | * | * |
@@ -1851,15 +2690,15 @@ Calibration reading cmd (factory mode need to be set)
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| index_0__BOX | 8 | Label set |
-| select_0__BOX | 8 | Label set |
-| calibration_status_0__BOX | 1 | Label set |
-| reserved_0__BOX | 7 | Unsigned |
-| value_0__BOX | 32 | Signed |
+| index | 8 | Label set |
+| select | 8 | Label set |
+| calibration_status | 1 | Label set |
+| reserved | 7 | Unsigned |
+| value | 32 | Signed |
 
 ### Payload description
 
-#### index_0__BOX { #_Calibration_reading_0__BOX-index_0__BOX }
+#### index { #_Calibration_reading-index }
 
 index of the device that need reading
 
@@ -1872,7 +2711,7 @@ index of the device that need reading
 | unvalid | 0 |
 | voltage_sensor_b | 1 |
 
-#### select_0__BOX { #_Calibration_reading_0__BOX-select_0__BOX }
+#### select { #_Calibration_reading-select }
 
 select what value to read
 
@@ -1887,7 +2726,7 @@ select what value to read
 | prob_offset | 2 |
 | prob_scale_factor | 3 |
 
-#### calibration_status_0__BOX { #_Calibration_reading_0__BOX-calibration_status_0__BOX }
+#### calibration_status { #_Calibration_reading-calibration_status }
 
 select what value to read
 
@@ -1900,7 +2739,7 @@ select what value to read
 | bad | 0 |
 | ok | 1 |
 
-#### reserved_0__BOX { #_Calibration_reading_0__BOX-reserved_0__BOX }
+#### reserved { #_Calibration_reading-reserved }
 
 select what value to read
 
@@ -1908,7 +2747,7 @@ select what value to read
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 17 | 7 | Unsigned |  | 1 | 0 |  | 127 |
 
-#### value_0__BOX { #_Calibration_reading_0__BOX-value_0__BOX }
+#### value { #_Calibration_reading-value }
 
 require calibration valut
 
@@ -1917,8 +2756,8 @@ require calibration valut
 | 24 | 32 | Signed |  | 0.0001 | 0 | -214748.3648 | 214748.3647 |
 
 
-<a id="_Factory_Debug_cmd_0__BOX"></a>
-## _Factory_Debug_cmd_0__BOX { #_Factory_Debug_cmd_0__BOX }
+<a id="_Factory_Debug_cmd"></a>
+## _Factory_Debug_cmd { #_Factory_Debug_cmd }
 
 
 | * | * |
@@ -1936,14 +2775,14 @@ factory debug cmd, need factory mode flag set to 1
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| god_mode_0__BOX | 1 | Single bit |
-| internal_power_a_0__BOX | 1 | Label set |
-| internal_power_b_0__BOX | 1 | Label set |
-| offset_stack_internal_0__BOX | 8 | Unsigned |
+| god_mode | 1 | Single bit |
+| internal_power_a | 1 | Label set |
+| internal_power_b | 1 | Label set |
+| offset_stack_internal | 8 | Unsigned |
 
 ### Payload description
 
-#### god_mode_0__BOX { #_Factory_Debug_cmd_0__BOX-god_mode_0__BOX }
+#### god_mode { #_Factory_Debug_cmd-god_mode }
 
 Customers MUST NOT USE this bit. If set to 1, module will enter in factory mode.
 
@@ -1951,7 +2790,7 @@ Customers MUST NOT USE this bit. If set to 1, module will enter in factory mode.
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 0 | 1 | Single bit |  | 1 | 0 |  |  |
 
-#### internal_power_a_0__BOX { #_Factory_Debug_cmd_0__BOX-internal_power_a_0__BOX }
+#### internal_power_a { #_Factory_Debug_cmd-internal_power_a }
 
 Customers MUST NOT USE this bit. If set to 1, module will enter in factory mode.
 
@@ -1964,7 +2803,7 @@ Customers MUST NOT USE this bit. If set to 1, module will enter in factory mode.
 | on | 0 |
 | off | 1 |
 
-#### internal_power_b_0__BOX { #_Factory_Debug_cmd_0__BOX-internal_power_b_0__BOX }
+#### internal_power_b { #_Factory_Debug_cmd-internal_power_b }
 
 Customers MUST NOT USE this bit. If set to 1, module will enter in factory mode.
 
@@ -1977,7 +2816,7 @@ Customers MUST NOT USE this bit. If set to 1, module will enter in factory mode.
 | on | 0 |
 | off | 1 |
 
-#### offset_stack_internal_0__BOX { #_Factory_Debug_cmd_0__BOX-offset_stack_internal_0__BOX }
+#### offset_stack_internal { #_Factory_Debug_cmd-offset_stack_internal }
 
 Customers MUST NOT USE this bit. need factory mode = 1
 
@@ -1986,8 +2825,8 @@ Customers MUST NOT USE this bit. need factory mode = 1
 | 8 | 8 | Unsigned | offset | 1 | 0 |  | 255 |
 
 
-<a id="info_adm_cs_0__BOX"></a>
-## info_adm_cs_0__BOX { #info_adm_cs_0__BOX }
+<a id="info_adm_cs"></a>
+## info_adm_cs { #info_adm_cs }
 
 
 | * | * |
@@ -2005,15 +2844,15 @@ Contains the Group ID of the device
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Type_0__BOX | 8 | Label set |
-| Revision_0__BOX | 8 | Unsigned |
-| Variant_0__BOX | 8 | Unsigned |
-| reserved_0__BOX | 8 | Unsigned |
-| serial_number_0__BOX | 32 | Unsigned |
+| Type | 8 | Label set |
+| Revision | 8 | Unsigned |
+| Variant | 8 | Unsigned |
+| reserved | 8 | Unsigned |
+| serial_number | 32 | Unsigned |
 
 ### Payload description
 
-#### Type_0__BOX { #info_adm_cs_0__BOX-Type_0__BOX }
+#### Type { #info_adm_cs-Type }
 
 The device identification field
 
@@ -2025,7 +2864,7 @@ The device identification field
 |------------|-------|
 | GC01 | 16 |
 
-#### Revision_0__BOX { #info_adm_cs_0__BOX-Revision_0__BOX }
+#### Revision { #info_adm_cs-Revision }
 
 The hardware revision numbere
 
@@ -2033,7 +2872,7 @@ The hardware revision numbere
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 8 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### Variant_0__BOX { #info_adm_cs_0__BOX-Variant_0__BOX }
+#### Variant { #info_adm_cs-Variant }
 
 Hardware variant
 
@@ -2041,7 +2880,7 @@ Hardware variant
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 16 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### reserved_0__BOX { #info_adm_cs_0__BOX-reserved_0__BOX }
+#### reserved { #info_adm_cs-reserved }
 
 Hardware variant
 
@@ -2049,7 +2888,7 @@ Hardware variant
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 24 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### serial_number_0__BOX { #info_adm_cs_0__BOX-serial_number_0__BOX }
+#### serial_number { #info_adm_cs-serial_number }
 
 Hardware variant
 
@@ -2058,8 +2897,8 @@ Hardware variant
 | 32 | 32 | Unsigned |  | 1 | 0 |  | 4294967295 |
 
 
-<a id="info_adm_pc_0__BOX"></a>
-## info_adm_pc_0__BOX { #info_adm_pc_0__BOX }
+<a id="info_adm_pc"></a>
+## info_adm_pc { #info_adm_pc }
 
 
 | * | * |
@@ -2077,14 +2916,14 @@ Contains the Group ID of the device
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| nb_detected_0__BOX | 8 | Unsigned |
-| nd_side_a_0__BOX | 8 | Unsigned |
-| nd_side_b_0__BOX | 8 | Unsigned |
-| Collision_0__BOX | 8 | Unsigned |
+| nb_detected | 8 | Unsigned |
+| nd_side_a | 8 | Unsigned |
+| nd_side_b | 8 | Unsigned |
+| Collision | 8 | Unsigned |
 
 ### Payload description
 
-#### nb_detected_0__BOX { #info_adm_pc_0__BOX-nb_detected_0__BOX }
+#### nb_detected { #info_adm_pc-nb_detected }
 
 number of modules detectedce
 
@@ -2092,7 +2931,7 @@ number of modules detectedce
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 0 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### nd_side_a_0__BOX { #info_adm_pc_0__BOX-nd_side_a_0__BOX }
+#### nd_side_a { #info_adm_pc-nd_side_a }
 
 number of modules detectedce
 
@@ -2100,7 +2939,7 @@ number of modules detectedce
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 8 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### nd_side_b_0__BOX { #info_adm_pc_0__BOX-nd_side_b_0__BOX }
+#### nd_side_b { #info_adm_pc-nd_side_b }
 
 number of modules detectedce
 
@@ -2108,7 +2947,7 @@ number of modules detectedce
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 16 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### Collision_0__BOX { #info_adm_pc_0__BOX-Collision_0__BOX }
+#### Collision { #info_adm_pc-Collision }
 
 collision between module
 
@@ -2117,8 +2956,8 @@ collision between module
 | 24 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
 
-<a id="info_adm_pc_id_1_0__BOX"></a>
-## info_adm_pc_id_1_0__BOX { #info_adm_pc_id_1_0__BOX }
+<a id="info_adm_pc_id_1"></a>
+## info_adm_pc_id_1 { #info_adm_pc_id_1 }
 
 
 | * | * |
@@ -2136,15 +2975,15 @@ Contains the Group ID of the device
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Type_0__BOX | 8 | Label set |
-| Revision_0__BOX | 8 | Unsigned |
-| Variant_0__BOX | 8 | Unsigned |
-| Stack_position_0__BOX | 8 | Unsigned |
-| serial_number_0__BOX | 32 | Unsigned |
+| Type | 8 | Label set |
+| Revision | 8 | Unsigned |
+| Variant | 8 | Unsigned |
+| Stack_position | 8 | Unsigned |
+| serial_number | 32 | Unsigned |
 
 ### Payload description
 
-#### Type_0__BOX { #info_adm_pc_id_1_0__BOX-Type_0__BOX }
+#### Type { #info_adm_pc_id_1-Type }
 
 The device identification field
 
@@ -2158,7 +2997,7 @@ The device identification field
 | BI25 | 8 |
 | DMF1 | 19 |
 
-#### Revision_0__BOX { #info_adm_pc_id_1_0__BOX-Revision_0__BOX }
+#### Revision { #info_adm_pc_id_1-Revision }
 
 The hardware revision numbere
 
@@ -2166,7 +3005,7 @@ The hardware revision numbere
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 8 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### Variant_0__BOX { #info_adm_pc_id_1_0__BOX-Variant_0__BOX }
+#### Variant { #info_adm_pc_id_1-Variant }
 
 Hardware variant
 
@@ -2174,7 +3013,7 @@ Hardware variant
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 16 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### Stack_position_0__BOX { #info_adm_pc_id_1_0__BOX-Stack_position_0__BOX }
+#### Stack_position { #info_adm_pc_id_1-Stack_position }
 
 Hardware variant
 
@@ -2182,7 +3021,7 @@ Hardware variant
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 24 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### serial_number_0__BOX { #info_adm_pc_id_1_0__BOX-serial_number_0__BOX }
+#### serial_number { #info_adm_pc_id_1-serial_number }
 
 Hardware variant
 
@@ -2191,8 +3030,8 @@ Hardware variant
 | 32 | 32 | Unsigned |  | 1 | 0 |  | 4294967295 |
 
 
-<a id="info_adm_pc_id_2_0__BOX"></a>
-## info_adm_pc_id_2_0__BOX { #info_adm_pc_id_2_0__BOX }
+<a id="info_adm_pc_id_2"></a>
+## info_adm_pc_id_2 { #info_adm_pc_id_2 }
 
 
 | * | * |
@@ -2210,15 +3049,15 @@ Contains the Group ID of the device
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Type_0__BOX | 8 | Label set |
-| Revision_0__BOX | 8 | Unsigned |
-| Variant_0__BOX | 8 | Unsigned |
-| Stack_position_0__BOX | 8 | Unsigned |
-| serial_number_0__BOX | 32 | Unsigned |
+| Type | 8 | Label set |
+| Revision | 8 | Unsigned |
+| Variant | 8 | Unsigned |
+| Stack_position | 8 | Unsigned |
+| serial_number | 32 | Unsigned |
 
 ### Payload description
 
-#### Type_0__BOX { #info_adm_pc_id_2_0__BOX-Type_0__BOX }
+#### Type { #info_adm_pc_id_2-Type }
 
 The device identification field
 
@@ -2232,7 +3071,7 @@ The device identification field
 | BI25 | 8 |
 | DMF1 | 19 |
 
-#### Revision_0__BOX { #info_adm_pc_id_2_0__BOX-Revision_0__BOX }
+#### Revision { #info_adm_pc_id_2-Revision }
 
 The hardware revision numbere
 
@@ -2240,7 +3079,7 @@ The hardware revision numbere
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 8 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### Variant_0__BOX { #info_adm_pc_id_2_0__BOX-Variant_0__BOX }
+#### Variant { #info_adm_pc_id_2-Variant }
 
 Hardware variant
 
@@ -2248,7 +3087,7 @@ Hardware variant
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 16 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### Stack_position_0__BOX { #info_adm_pc_id_2_0__BOX-Stack_position_0__BOX }
+#### Stack_position { #info_adm_pc_id_2-Stack_position }
 
 Hardware variant
 
@@ -2256,7 +3095,7 @@ Hardware variant
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 24 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### serial_number_0__BOX { #info_adm_pc_id_2_0__BOX-serial_number_0__BOX }
+#### serial_number { #info_adm_pc_id_2-serial_number }
 
 Hardware variant
 
@@ -2265,8 +3104,8 @@ Hardware variant
 | 32 | 32 | Unsigned |  | 1 | 0 |  | 4294967295 |
 
 
-<a id="info_adm_pc_id_3_0__BOX"></a>
-## info_adm_pc_id_3_0__BOX { #info_adm_pc_id_3_0__BOX }
+<a id="info_adm_pc_id_3"></a>
+## info_adm_pc_id_3 { #info_adm_pc_id_3 }
 
 
 | * | * |
@@ -2284,15 +3123,15 @@ Contains the Group ID of the device
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Type_0__BOX | 8 | Label set |
-| Revision_0__BOX | 8 | Unsigned |
-| Variant_0__BOX | 8 | Unsigned |
-| Stack_position_0__BOX | 8 | Unsigned |
-| serial_number_0__BOX | 32 | Unsigned |
+| Type | 8 | Label set |
+| Revision | 8 | Unsigned |
+| Variant | 8 | Unsigned |
+| Stack_position | 8 | Unsigned |
+| serial_number | 32 | Unsigned |
 
 ### Payload description
 
-#### Type_0__BOX { #info_adm_pc_id_3_0__BOX-Type_0__BOX }
+#### Type { #info_adm_pc_id_3-Type }
 
 The device identification field
 
@@ -2306,7 +3145,7 @@ The device identification field
 | BI25 | 8 |
 | DMF1 | 19 |
 
-#### Revision_0__BOX { #info_adm_pc_id_3_0__BOX-Revision_0__BOX }
+#### Revision { #info_adm_pc_id_3-Revision }
 
 The hardware revision numbere
 
@@ -2314,7 +3153,7 @@ The hardware revision numbere
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 8 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### Variant_0__BOX { #info_adm_pc_id_3_0__BOX-Variant_0__BOX }
+#### Variant { #info_adm_pc_id_3-Variant }
 
 Hardware variant
 
@@ -2322,7 +3161,7 @@ Hardware variant
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 16 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### Stack_position_0__BOX { #info_adm_pc_id_3_0__BOX-Stack_position_0__BOX }
+#### Stack_position { #info_adm_pc_id_3-Stack_position }
 
 Hardware variant
 
@@ -2330,7 +3169,7 @@ Hardware variant
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 24 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### serial_number_0__BOX { #info_adm_pc_id_3_0__BOX-serial_number_0__BOX }
+#### serial_number { #info_adm_pc_id_3-serial_number }
 
 Hardware variant
 
@@ -2339,8 +3178,8 @@ Hardware variant
 | 32 | 32 | Unsigned |  | 1 | 0 |  | 4294967295 |
 
 
-<a id="info_adm_pc_id_4_0__BOX"></a>
-## info_adm_pc_id_4_0__BOX { #info_adm_pc_id_4_0__BOX }
+<a id="info_adm_pc_id_4"></a>
+## info_adm_pc_id_4 { #info_adm_pc_id_4 }
 
 
 | * | * |
@@ -2358,15 +3197,15 @@ Contains the Group ID of the device
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Type_0__BOX | 8 | Label set |
-| Revision_0__BOX | 8 | Unsigned |
-| Variant_0__BOX | 8 | Unsigned |
-| Stack_position_0__BOX | 8 | Unsigned |
-| serial_number_0__BOX | 32 | Unsigned |
+| Type | 8 | Label set |
+| Revision | 8 | Unsigned |
+| Variant | 8 | Unsigned |
+| Stack_position | 8 | Unsigned |
+| serial_number | 32 | Unsigned |
 
 ### Payload description
 
-#### Type_0__BOX { #info_adm_pc_id_4_0__BOX-Type_0__BOX }
+#### Type { #info_adm_pc_id_4-Type }
 
 The device identification field
 
@@ -2380,7 +3219,7 @@ The device identification field
 | BI25 | 8 |
 | DMF1 | 19 |
 
-#### Revision_0__BOX { #info_adm_pc_id_4_0__BOX-Revision_0__BOX }
+#### Revision { #info_adm_pc_id_4-Revision }
 
 The hardware revision numbere
 
@@ -2388,7 +3227,7 @@ The hardware revision numbere
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 8 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### Variant_0__BOX { #info_adm_pc_id_4_0__BOX-Variant_0__BOX }
+#### Variant { #info_adm_pc_id_4-Variant }
 
 Hardware variant
 
@@ -2396,7 +3235,7 @@ Hardware variant
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 16 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### Stack_position_0__BOX { #info_adm_pc_id_4_0__BOX-Stack_position_0__BOX }
+#### Stack_position { #info_adm_pc_id_4-Stack_position }
 
 Hardware variant
 
@@ -2404,7 +3243,7 @@ Hardware variant
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 24 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### serial_number_0__BOX { #info_adm_pc_id_4_0__BOX-serial_number_0__BOX }
+#### serial_number { #info_adm_pc_id_4-serial_number }
 
 Hardware variant
 
@@ -2413,8 +3252,8 @@ Hardware variant
 | 32 | 32 | Unsigned |  | 1 | 0 |  | 4294967295 |
 
 
-<a id="info_adm_pc_id_5_0__BOX"></a>
-## info_adm_pc_id_5_0__BOX { #info_adm_pc_id_5_0__BOX }
+<a id="info_adm_pc_id_5"></a>
+## info_adm_pc_id_5 { #info_adm_pc_id_5 }
 
 
 | * | * |
@@ -2432,15 +3271,15 @@ Contains the Group ID of the device
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Type_0__BOX | 8 | Label set |
-| Revision_0__BOX | 8 | Unsigned |
-| Variant_0__BOX | 8 | Unsigned |
-| Stack_position_0__BOX | 8 | Unsigned |
-| serial_number_0__BOX | 32 | Unsigned |
+| Type | 8 | Label set |
+| Revision | 8 | Unsigned |
+| Variant | 8 | Unsigned |
+| Stack_position | 8 | Unsigned |
+| serial_number | 32 | Unsigned |
 
 ### Payload description
 
-#### Type_0__BOX { #info_adm_pc_id_5_0__BOX-Type_0__BOX }
+#### Type { #info_adm_pc_id_5-Type }
 
 The device identification field
 
@@ -2454,7 +3293,7 @@ The device identification field
 | BI25 | 8 |
 | DMF1 | 19 |
 
-#### Revision_0__BOX { #info_adm_pc_id_5_0__BOX-Revision_0__BOX }
+#### Revision { #info_adm_pc_id_5-Revision }
 
 The hardware revision numbere
 
@@ -2462,7 +3301,7 @@ The hardware revision numbere
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 8 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### Variant_0__BOX { #info_adm_pc_id_5_0__BOX-Variant_0__BOX }
+#### Variant { #info_adm_pc_id_5-Variant }
 
 Hardware variant
 
@@ -2470,7 +3309,7 @@ Hardware variant
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 16 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### Stack_position_0__BOX { #info_adm_pc_id_5_0__BOX-Stack_position_0__BOX }
+#### Stack_position { #info_adm_pc_id_5-Stack_position }
 
 Hardware variant
 
@@ -2478,7 +3317,7 @@ Hardware variant
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 24 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### serial_number_0__BOX { #info_adm_pc_id_5_0__BOX-serial_number_0__BOX }
+#### serial_number { #info_adm_pc_id_5-serial_number }
 
 Hardware variant
 
@@ -2487,8 +3326,8 @@ Hardware variant
 | 32 | 32 | Unsigned |  | 1 | 0 |  | 4294967295 |
 
 
-<a id="info_adm_pc_id_6_0__BOX"></a>
-## info_adm_pc_id_6_0__BOX { #info_adm_pc_id_6_0__BOX }
+<a id="info_adm_pc_id_6"></a>
+## info_adm_pc_id_6 { #info_adm_pc_id_6 }
 
 
 | * | * |
@@ -2506,15 +3345,15 @@ Contains the Group ID of the device
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Type_0__BOX | 8 | Label set |
-| Revision_0__BOX | 8 | Unsigned |
-| Variant_0__BOX | 8 | Unsigned |
-| Stack_position_0__BOX | 8 | Unsigned |
-| serial_number_0__BOX | 32 | Unsigned |
+| Type | 8 | Label set |
+| Revision | 8 | Unsigned |
+| Variant | 8 | Unsigned |
+| Stack_position | 8 | Unsigned |
+| serial_number | 32 | Unsigned |
 
 ### Payload description
 
-#### Type_0__BOX { #info_adm_pc_id_6_0__BOX-Type_0__BOX }
+#### Type { #info_adm_pc_id_6-Type }
 
 The device identification field
 
@@ -2528,7 +3367,7 @@ The device identification field
 | BI25 | 8 |
 | DMF1 | 19 |
 
-#### Revision_0__BOX { #info_adm_pc_id_6_0__BOX-Revision_0__BOX }
+#### Revision { #info_adm_pc_id_6-Revision }
 
 The hardware revision numbere
 
@@ -2536,7 +3375,7 @@ The hardware revision numbere
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 8 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### Variant_0__BOX { #info_adm_pc_id_6_0__BOX-Variant_0__BOX }
+#### Variant { #info_adm_pc_id_6-Variant }
 
 Hardware variant
 
@@ -2544,7 +3383,7 @@ Hardware variant
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 16 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### Stack_position_0__BOX { #info_adm_pc_id_6_0__BOX-Stack_position_0__BOX }
+#### Stack_position { #info_adm_pc_id_6-Stack_position }
 
 Hardware variant
 
@@ -2552,7 +3391,7 @@ Hardware variant
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 24 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### serial_number_0__BOX { #info_adm_pc_id_6_0__BOX-serial_number_0__BOX }
+#### serial_number { #info_adm_pc_id_6-serial_number }
 
 Hardware variant
 
@@ -2561,8 +3400,8 @@ Hardware variant
 | 32 | 32 | Unsigned |  | 1 | 0 |  | 4294967295 |
 
 
-<a id="info_adm_pc_status_1_0__BOX"></a>
-## info_adm_pc_status_1_0__BOX { #info_adm_pc_status_1_0__BOX }
+<a id="info_adm_pc_status_1"></a>
+## info_adm_pc_status_1 { #info_adm_pc_status_1 }
 
 
 | * | * |
@@ -2580,16 +3419,16 @@ Status of internal modules
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Available_0__BOX | 1 | Single bit |
-| Side_0__BOX | 2 | Label set |
-| Status_0__BOX | 2 | Label set |
-| Interlock_I_0__BOX | 1 | Single bit |
-| Interlock_E_0__BOX | 1 | Single bit |
-| mode_0__BOX | 16 | Unsigned |
+| Available | 1 | Single bit |
+| Side | 2 | Label set |
+| Status | 2 | Label set |
+| Interlock_I | 1 | Single bit |
+| Interlock_E | 1 | Single bit |
+| mode | 16 | Unsigned |
 
 ### Payload description
 
-#### Available_0__BOX { #info_adm_pc_status_1_0__BOX-Available_0__BOX }
+#### Available { #info_adm_pc_status_1-Available }
 
 The device available
 
@@ -2597,7 +3436,7 @@ The device available
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 0 | 1 | Single bit |  | 1 | 0 |  |  |
 
-#### Side_0__BOX { #info_adm_pc_status_1_0__BOX-Side_0__BOX }
+#### Side { #info_adm_pc_status_1-Side }
 
 The device is Ready
 
@@ -2611,7 +3450,7 @@ The device is Ready
 | side_a | 1 |
 | side_b | 2 |
 
-#### Status_0__BOX { #info_adm_pc_status_1_0__BOX-Status_0__BOX }
+#### Status { #info_adm_pc_status_1-Status }
 
 The device is Running
 
@@ -2625,7 +3464,7 @@ The device is Running
 | ready | 1 |
 | running | 2 |
 
-#### Interlock_I_0__BOX { #info_adm_pc_status_1_0__BOX-Interlock_I_0__BOX }
+#### Interlock_I { #info_adm_pc_status_1-Interlock_I }
 
 The device have interlock internal
 
@@ -2633,7 +3472,7 @@ The device have interlock internal
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 8 | 1 | Single bit |  | 1 | 0 |  |  |
 
-#### Interlock_E_0__BOX { #info_adm_pc_status_1_0__BOX-Interlock_E_0__BOX }
+#### Interlock_E { #info_adm_pc_status_1-Interlock_E }
 
 The device have interlock external
 
@@ -2641,7 +3480,7 @@ The device have interlock external
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 9 | 1 | Single bit |  | 1 | 0 |  |  |
 
-#### mode_0__BOX { #info_adm_pc_status_1_0__BOX-mode_0__BOX }
+#### mode { #info_adm_pc_status_1-mode }
 
 Mode
 
@@ -2650,8 +3489,8 @@ Mode
 | 16 | 16 | Unsigned |  | 1 | 0 |  | 65535 |
 
 
-<a id="info_adm_pc_status_2_0__BOX"></a>
-## info_adm_pc_status_2_0__BOX { #info_adm_pc_status_2_0__BOX }
+<a id="info_adm_pc_status_2"></a>
+## info_adm_pc_status_2 { #info_adm_pc_status_2 }
 
 
 | * | * |
@@ -2669,16 +3508,16 @@ Status of internal modules
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Available_0__BOX | 1 | Single bit |
-| Side_0__BOX | 2 | Label set |
-| Status_0__BOX | 2 | Label set |
-| Interlock_I_0__BOX | 1 | Single bit |
-| Interlock_E_0__BOX | 1 | Single bit |
-| mode_0__BOX | 16 | Unsigned |
+| Available | 1 | Single bit |
+| Side | 2 | Label set |
+| Status | 2 | Label set |
+| Interlock_I | 1 | Single bit |
+| Interlock_E | 1 | Single bit |
+| mode | 16 | Unsigned |
 
 ### Payload description
 
-#### Available_0__BOX { #info_adm_pc_status_2_0__BOX-Available_0__BOX }
+#### Available { #info_adm_pc_status_2-Available }
 
 The device available
 
@@ -2686,7 +3525,7 @@ The device available
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 0 | 1 | Single bit |  | 1 | 0 |  |  |
 
-#### Side_0__BOX { #info_adm_pc_status_2_0__BOX-Side_0__BOX }
+#### Side { #info_adm_pc_status_2-Side }
 
 The device is Ready
 
@@ -2700,7 +3539,7 @@ The device is Ready
 | side_a | 1 |
 | side_b | 2 |
 
-#### Status_0__BOX { #info_adm_pc_status_2_0__BOX-Status_0__BOX }
+#### Status { #info_adm_pc_status_2-Status }
 
 The device is Running
 
@@ -2714,7 +3553,7 @@ The device is Running
 | ready | 1 |
 | running | 2 |
 
-#### Interlock_I_0__BOX { #info_adm_pc_status_2_0__BOX-Interlock_I_0__BOX }
+#### Interlock_I { #info_adm_pc_status_2-Interlock_I }
 
 The device have interlock internal
 
@@ -2722,7 +3561,7 @@ The device have interlock internal
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 8 | 1 | Single bit |  | 1 | 0 |  |  |
 
-#### Interlock_E_0__BOX { #info_adm_pc_status_2_0__BOX-Interlock_E_0__BOX }
+#### Interlock_E { #info_adm_pc_status_2-Interlock_E }
 
 The device have interlock external
 
@@ -2730,7 +3569,7 @@ The device have interlock external
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 9 | 1 | Single bit |  | 1 | 0 |  |  |
 
-#### mode_0__BOX { #info_adm_pc_status_2_0__BOX-mode_0__BOX }
+#### mode { #info_adm_pc_status_2-mode }
 
 Mode
 
@@ -2739,8 +3578,8 @@ Mode
 | 16 | 16 | Unsigned |  | 1 | 0 |  | 65535 |
 
 
-<a id="info_adm_pc_status_3_0__BOX"></a>
-## info_adm_pc_status_3_0__BOX { #info_adm_pc_status_3_0__BOX }
+<a id="info_adm_pc_status_3"></a>
+## info_adm_pc_status_3 { #info_adm_pc_status_3 }
 
 
 | * | * |
@@ -2758,16 +3597,16 @@ Status of internal modules
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Available_0__BOX | 1 | Single bit |
-| Side_0__BOX | 2 | Label set |
-| Status_0__BOX | 2 | Label set |
-| Interlock_I_0__BOX | 1 | Single bit |
-| Interlock_E_0__BOX | 1 | Single bit |
-| mode_0__BOX | 16 | Unsigned |
+| Available | 1 | Single bit |
+| Side | 2 | Label set |
+| Status | 2 | Label set |
+| Interlock_I | 1 | Single bit |
+| Interlock_E | 1 | Single bit |
+| mode | 16 | Unsigned |
 
 ### Payload description
 
-#### Available_0__BOX { #info_adm_pc_status_3_0__BOX-Available_0__BOX }
+#### Available { #info_adm_pc_status_3-Available }
 
 The device available
 
@@ -2775,7 +3614,7 @@ The device available
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 0 | 1 | Single bit |  | 1 | 0 |  |  |
 
-#### Side_0__BOX { #info_adm_pc_status_3_0__BOX-Side_0__BOX }
+#### Side { #info_adm_pc_status_3-Side }
 
 The device is Ready
 
@@ -2789,7 +3628,7 @@ The device is Ready
 | side_a | 1 |
 | side_b | 2 |
 
-#### Status_0__BOX { #info_adm_pc_status_3_0__BOX-Status_0__BOX }
+#### Status { #info_adm_pc_status_3-Status }
 
 The device is Running
 
@@ -2803,7 +3642,7 @@ The device is Running
 | ready | 1 |
 | running | 2 |
 
-#### Interlock_I_0__BOX { #info_adm_pc_status_3_0__BOX-Interlock_I_0__BOX }
+#### Interlock_I { #info_adm_pc_status_3-Interlock_I }
 
 The device have interlock internal
 
@@ -2811,7 +3650,7 @@ The device have interlock internal
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 8 | 1 | Single bit |  | 1 | 0 |  |  |
 
-#### Interlock_E_0__BOX { #info_adm_pc_status_3_0__BOX-Interlock_E_0__BOX }
+#### Interlock_E { #info_adm_pc_status_3-Interlock_E }
 
 The device have interlock external
 
@@ -2819,7 +3658,7 @@ The device have interlock external
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 9 | 1 | Single bit |  | 1 | 0 |  |  |
 
-#### mode_0__BOX { #info_adm_pc_status_3_0__BOX-mode_0__BOX }
+#### mode { #info_adm_pc_status_3-mode }
 
 Mode
 
@@ -2828,8 +3667,8 @@ Mode
 | 16 | 16 | Unsigned |  | 1 | 0 |  | 65535 |
 
 
-<a id="info_adm_pc_status_4_0__BOX"></a>
-## info_adm_pc_status_4_0__BOX { #info_adm_pc_status_4_0__BOX }
+<a id="info_adm_pc_status_4"></a>
+## info_adm_pc_status_4 { #info_adm_pc_status_4 }
 
 
 | * | * |
@@ -2847,16 +3686,16 @@ Status of internal modules
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Available_0__BOX | 1 | Single bit |
-| Side_0__BOX | 2 | Label set |
-| Status_0__BOX | 2 | Label set |
-| Interlock_I_0__BOX | 1 | Single bit |
-| Interlock_E_0__BOX | 1 | Single bit |
-| mode_0__BOX | 16 | Unsigned |
+| Available | 1 | Single bit |
+| Side | 2 | Label set |
+| Status | 2 | Label set |
+| Interlock_I | 1 | Single bit |
+| Interlock_E | 1 | Single bit |
+| mode | 16 | Unsigned |
 
 ### Payload description
 
-#### Available_0__BOX { #info_adm_pc_status_4_0__BOX-Available_0__BOX }
+#### Available { #info_adm_pc_status_4-Available }
 
 The device available
 
@@ -2864,7 +3703,7 @@ The device available
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 0 | 1 | Single bit |  | 1 | 0 |  |  |
 
-#### Side_0__BOX { #info_adm_pc_status_4_0__BOX-Side_0__BOX }
+#### Side { #info_adm_pc_status_4-Side }
 
 The device is Ready
 
@@ -2878,7 +3717,7 @@ The device is Ready
 | side_a | 1 |
 | side_b | 2 |
 
-#### Status_0__BOX { #info_adm_pc_status_4_0__BOX-Status_0__BOX }
+#### Status { #info_adm_pc_status_4-Status }
 
 The device is Running
 
@@ -2892,7 +3731,7 @@ The device is Running
 | ready | 1 |
 | running | 2 |
 
-#### Interlock_I_0__BOX { #info_adm_pc_status_4_0__BOX-Interlock_I_0__BOX }
+#### Interlock_I { #info_adm_pc_status_4-Interlock_I }
 
 The device have interlock internal
 
@@ -2900,7 +3739,7 @@ The device have interlock internal
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 8 | 1 | Single bit |  | 1 | 0 |  |  |
 
-#### Interlock_E_0__BOX { #info_adm_pc_status_4_0__BOX-Interlock_E_0__BOX }
+#### Interlock_E { #info_adm_pc_status_4-Interlock_E }
 
 The device have interlock external
 
@@ -2908,7 +3747,7 @@ The device have interlock external
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 9 | 1 | Single bit |  | 1 | 0 |  |  |
 
-#### mode_0__BOX { #info_adm_pc_status_4_0__BOX-mode_0__BOX }
+#### mode { #info_adm_pc_status_4-mode }
 
 Mode
 
@@ -2917,8 +3756,8 @@ Mode
 | 16 | 16 | Unsigned |  | 1 | 0 |  | 65535 |
 
 
-<a id="info_adm_pc_status_5_0__BOX"></a>
-## info_adm_pc_status_5_0__BOX { #info_adm_pc_status_5_0__BOX }
+<a id="info_adm_pc_status_5"></a>
+## info_adm_pc_status_5 { #info_adm_pc_status_5 }
 
 
 | * | * |
@@ -2936,16 +3775,16 @@ Status of internal modules
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Available_0__BOX | 1 | Single bit |
-| Side_0__BOX | 2 | Label set |
-| Status_0__BOX | 2 | Label set |
-| Interlock_I_0__BOX | 1 | Single bit |
-| Interlock_E_0__BOX | 1 | Single bit |
-| mode_0__BOX | 16 | Unsigned |
+| Available | 1 | Single bit |
+| Side | 2 | Label set |
+| Status | 2 | Label set |
+| Interlock_I | 1 | Single bit |
+| Interlock_E | 1 | Single bit |
+| mode | 16 | Unsigned |
 
 ### Payload description
 
-#### Available_0__BOX { #info_adm_pc_status_5_0__BOX-Available_0__BOX }
+#### Available { #info_adm_pc_status_5-Available }
 
 The device available
 
@@ -2953,7 +3792,7 @@ The device available
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 0 | 1 | Single bit |  | 1 | 0 |  |  |
 
-#### Side_0__BOX { #info_adm_pc_status_5_0__BOX-Side_0__BOX }
+#### Side { #info_adm_pc_status_5-Side }
 
 The device is Ready
 
@@ -2967,7 +3806,7 @@ The device is Ready
 | side_a | 1 |
 | side_b | 2 |
 
-#### Status_0__BOX { #info_adm_pc_status_5_0__BOX-Status_0__BOX }
+#### Status { #info_adm_pc_status_5-Status }
 
 The device is Running
 
@@ -2981,7 +3820,7 @@ The device is Running
 | ready | 1 |
 | running | 2 |
 
-#### Interlock_I_0__BOX { #info_adm_pc_status_5_0__BOX-Interlock_I_0__BOX }
+#### Interlock_I { #info_adm_pc_status_5-Interlock_I }
 
 The device have interlock internal
 
@@ -2989,7 +3828,7 @@ The device have interlock internal
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 8 | 1 | Single bit |  | 1 | 0 |  |  |
 
-#### Interlock_E_0__BOX { #info_adm_pc_status_5_0__BOX-Interlock_E_0__BOX }
+#### Interlock_E { #info_adm_pc_status_5-Interlock_E }
 
 The device have interlock external
 
@@ -2997,7 +3836,7 @@ The device have interlock external
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 9 | 1 | Single bit |  | 1 | 0 |  |  |
 
-#### mode_0__BOX { #info_adm_pc_status_5_0__BOX-mode_0__BOX }
+#### mode { #info_adm_pc_status_5-mode }
 
 Mode
 
@@ -3006,8 +3845,8 @@ Mode
 | 16 | 16 | Unsigned |  | 1 | 0 |  | 65535 |
 
 
-<a id="info_adm_pc_status_6_0__BOX"></a>
-## info_adm_pc_status_6_0__BOX { #info_adm_pc_status_6_0__BOX }
+<a id="info_adm_pc_status_6"></a>
+## info_adm_pc_status_6 { #info_adm_pc_status_6 }
 
 
 | * | * |
@@ -3025,16 +3864,16 @@ Status of internal modules
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Available_0__BOX | 1 | Single bit |
-| Side_0__BOX | 2 | Label set |
-| Status_0__BOX | 2 | Label set |
-| Interlock_I_0__BOX | 1 | Single bit |
-| Interlock_E_0__BOX | 1 | Single bit |
-| mode_0__BOX | 16 | Unsigned |
+| Available | 1 | Single bit |
+| Side | 2 | Label set |
+| Status | 2 | Label set |
+| Interlock_I | 1 | Single bit |
+| Interlock_E | 1 | Single bit |
+| mode | 16 | Unsigned |
 
 ### Payload description
 
-#### Available_0__BOX { #info_adm_pc_status_6_0__BOX-Available_0__BOX }
+#### Available { #info_adm_pc_status_6-Available }
 
 The device available
 
@@ -3042,7 +3881,7 @@ The device available
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 0 | 1 | Single bit |  | 1 | 0 |  |  |
 
-#### Side_0__BOX { #info_adm_pc_status_6_0__BOX-Side_0__BOX }
+#### Side { #info_adm_pc_status_6-Side }
 
 The device is Ready
 
@@ -3056,7 +3895,7 @@ The device is Ready
 | side_a | 1 |
 | side_b | 2 |
 
-#### Status_0__BOX { #info_adm_pc_status_6_0__BOX-Status_0__BOX }
+#### Status { #info_adm_pc_status_6-Status }
 
 The device is Running
 
@@ -3070,7 +3909,7 @@ The device is Running
 | ready | 1 |
 | running | 2 |
 
-#### Interlock_I_0__BOX { #info_adm_pc_status_6_0__BOX-Interlock_I_0__BOX }
+#### Interlock_I { #info_adm_pc_status_6-Interlock_I }
 
 The device have interlock internal
 
@@ -3078,7 +3917,7 @@ The device have interlock internal
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 8 | 1 | Single bit |  | 1 | 0 |  |  |
 
-#### Interlock_E_0__BOX { #info_adm_pc_status_6_0__BOX-Interlock_E_0__BOX }
+#### Interlock_E { #info_adm_pc_status_6-Interlock_E }
 
 The device have interlock external
 
@@ -3086,7 +3925,7 @@ The device have interlock external
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 9 | 1 | Single bit |  | 1 | 0 |  |  |
 
-#### mode_0__BOX { #info_adm_pc_status_6_0__BOX-mode_0__BOX }
+#### mode { #info_adm_pc_status_6-mode }
 
 Mode
 
@@ -3095,8 +3934,8 @@ Mode
 | 16 | 16 | Unsigned |  | 1 | 0 |  | 65535 |
 
 
-<a id="cs_performance_0__BOX"></a>
-## cs_performance_0__BOX { #cs_performance_0__BOX }
+<a id="cs_performance"></a>
+## cs_performance { #cs_performance }
 
 
 | * | * |
@@ -3114,15 +3953,15 @@ Status of internal modules
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| cpu_1_usage_0__BOX | 8 | Unsigned |
-| cpu_2_usage_0__BOX | 8 | Unsigned |
-| can_bus_load_A_0__BOX | 8 | Unsigned |
-| can_bus_load_B_0__BOX | 8 | Unsigned |
-| main_loop_freq_0__BOX | 16 | Unsigned |
+| cpu_1_usage | 8 | Unsigned |
+| cpu_2_usage | 8 | Unsigned |
+| can_bus_load_A | 8 | Unsigned |
+| can_bus_load_B | 8 | Unsigned |
+| main_loop_freq | 16 | Unsigned |
 
 ### Payload description
 
-#### cpu_1_usage_0__BOX { #cs_performance_0__BOX-cpu_1_usage_0__BOX }
+#### cpu_1_usage { #cs_performance-cpu_1_usage }
 
 Controller cpu 1 usage
 
@@ -3130,7 +3969,7 @@ Controller cpu 1 usage
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 0 | 8 | Unsigned | % | 1 | 0 |  | 255 |
 
-#### cpu_2_usage_0__BOX { #cs_performance_0__BOX-cpu_2_usage_0__BOX }
+#### cpu_2_usage { #cs_performance-cpu_2_usage }
 
 Controller cpu 2 usage
 
@@ -3138,7 +3977,7 @@ Controller cpu 2 usage
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 8 | 8 | Unsigned | % | 1 | 0 |  | 255 |
 
-#### can_bus_load_A_0__BOX { #cs_performance_0__BOX-can_bus_load_A_0__BOX }
+#### can_bus_load_A { #cs_performance-can_bus_load_A }
 
 Controller cup 1 usage
 
@@ -3146,7 +3985,7 @@ Controller cup 1 usage
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 16 | 8 | Unsigned | % | 1 | 0 |  | 255 |
 
-#### can_bus_load_B_0__BOX { #cs_performance_0__BOX-can_bus_load_B_0__BOX }
+#### can_bus_load_B { #cs_performance-can_bus_load_B }
 
 Controller cpu 1 usage
 
@@ -3154,7 +3993,7 @@ Controller cpu 1 usage
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 24 | 8 | Unsigned | % | 1 | 0 |  | 255 |
 
-#### main_loop_freq_0__BOX { #cs_performance_0__BOX-main_loop_freq_0__BOX }
+#### main_loop_freq { #cs_performance-main_loop_freq }
 
 Controller cpu 1 usage
 
@@ -3163,8 +4002,8 @@ Controller cpu 1 usage
 | 32 | 16 | Unsigned | Hz | 1 | 0 |  | 65535 |
 
 
-<a id="info_can_api_error_0__BOX"></a>
-## info_can_api_error_0__BOX { #info_can_api_error_0__BOX }
+<a id="info_can_api_error"></a>
+## info_can_api_error { #info_can_api_error }
 
 
 | * | * |
@@ -3182,18 +4021,18 @@ debug - Allow to knwow  what module has wrong can api
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Type_0__BOX | 8 | Label set |
-| Stack_position_0__BOX | 8 | Unsigned |
-| Major_expected_0__BOX | 8 | Unsigned |
-| Minor_expected_0__BOX | 8 | Unsigned |
-| Patch_expected_0__BOX | 8 | Unsigned |
-| Major_actual_0__BOX | 8 | Unsigned |
-| Minor_actual_0__BOX | 8 | Unsigned |
-| Patch_actual_0__BOX | 8 | Unsigned |
+| Type | 8 | Label set |
+| Stack_position | 8 | Unsigned |
+| Major_expected | 8 | Unsigned |
+| Minor_expected | 8 | Unsigned |
+| Patch_expected | 8 | Unsigned |
+| Major_actual | 8 | Unsigned |
+| Minor_actual | 8 | Unsigned |
+| Patch_actual | 8 | Unsigned |
 
 ### Payload description
 
-#### Type_0__BOX { #info_can_api_error_0__BOX-Type_0__BOX }
+#### Type { #info_can_api_error-Type }
 
 The device identification field
 
@@ -3207,7 +4046,7 @@ The device identification field
 | BI25 | 8 |
 | DMF1 | 19 |
 
-#### Stack_position_0__BOX { #info_can_api_error_0__BOX-Stack_position_0__BOX }
+#### Stack_position { #info_can_api_error-Stack_position }
 
 Hardware variant
 
@@ -3215,7 +4054,7 @@ Hardware variant
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 8 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### Major_expected_0__BOX { #info_can_api_error_0__BOX-Major_expected_0__BOX }
+#### Major_expected { #info_can_api_error-Major_expected }
 
 The Major version number. This number increases if there are backwards incompatible changes
 
@@ -3223,7 +4062,7 @@ The Major version number. This number increases if there are backwards incompati
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 16 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### Minor_expected_0__BOX { #info_can_api_error_0__BOX-Minor_expected_0__BOX }
+#### Minor_expected { #info_can_api_error-Minor_expected }
 
 The minor version number. This number increases if there are backwards incompatible changes
 
@@ -3231,7 +4070,7 @@ The minor version number. This number increases if there are backwards incompati
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 24 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### Patch_expected_0__BOX { #info_can_api_error_0__BOX-Patch_expected_0__BOX }
+#### Patch_expected { #info_can_api_error-Patch_expected }
 
 The patch version number. This number increases if there are backwards incompatible changes
 
@@ -3239,7 +4078,7 @@ The patch version number. This number increases if there are backwards incompati
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 32 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### Major_actual_0__BOX { #info_can_api_error_0__BOX-Major_actual_0__BOX }
+#### Major_actual { #info_can_api_error-Major_actual }
 
 The Major version number. This number increases if there are backwards incompatible changes
 
@@ -3247,7 +4086,7 @@ The Major version number. This number increases if there are backwards incompati
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 40 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### Minor_actual_0__BOX { #info_can_api_error_0__BOX-Minor_actual_0__BOX }
+#### Minor_actual { #info_can_api_error-Minor_actual }
 
 The minor version number. This number increases if there are backwards incompatible changes
 
@@ -3255,7 +4094,7 @@ The minor version number. This number increases if there are backwards incompati
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 48 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### Patch_actual_0__BOX { #info_can_api_error_0__BOX-Patch_actual_0__BOX }
+#### Patch_actual { #info_can_api_error-Patch_actual }
 
 The patch version number. This number increases if there are backwards incompatible changes
 
@@ -3264,8 +4103,8 @@ The patch version number. This number increases if there are backwards incompati
 | 56 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
 
-<a id="_fms_state_0__BOX"></a>
-## _fms_state_0__BOX { #_fms_state_0__BOX }
+<a id="_fms_state"></a>
+## _fms_state { #_fms_state }
 
 
 | * | * |
@@ -3283,15 +4122,15 @@ FSm status for debug
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| init_0__BOX | 8 | Unsigned |
-| ready_0__BOX | 8 | Unsigned |
-| turned_on_0__BOX | 8 | Unsigned |
-| turned_off_0__BOX | 8 | Unsigned |
-| bleeding_0__BOX | 8 | Unsigned |
+| init | 8 | Unsigned |
+| ready | 8 | Unsigned |
+| turned_on | 8 | Unsigned |
+| turned_off | 8 | Unsigned |
+| bleeding | 8 | Unsigned |
 
 ### Payload description
 
-#### init_0__BOX { #_fms_state_0__BOX-init_0__BOX }
+#### init { #_fms_state-init }
 
 box state init
 
@@ -3299,7 +4138,7 @@ box state init
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 0 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### ready_0__BOX { #_fms_state_0__BOX-ready_0__BOX }
+#### ready { #_fms_state-ready }
 
 box state ready
 
@@ -3307,7 +4146,7 @@ box state ready
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 16 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### turned_on_0__BOX { #_fms_state_0__BOX-turned_on_0__BOX }
+#### turned_on { #_fms_state-turned_on }
 
 box state turned on
 
@@ -3315,7 +4154,7 @@ box state turned on
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 32 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### turned_off_0__BOX { #_fms_state_0__BOX-turned_off_0__BOX }
+#### turned_off { #_fms_state-turned_off }
 
 box state turned off
 
@@ -3323,7 +4162,7 @@ box state turned off
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 40 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
-#### bleeding_0__BOX { #_fms_state_0__BOX-bleeding_0__BOX }
+#### bleeding { #_fms_state-bleeding }
 
 box state bleeding
 
@@ -3332,8 +4171,8 @@ box state bleeding
 | 48 | 8 | Unsigned |  | 1 | 0 |  | 255 |
 
 
-<a id="_interlocks_status_0__BOX"></a>
-## _interlocks_status_0__BOX { #_interlocks_status_0__BOX }
+<a id="_interlocks_status"></a>
+## _interlocks_status { #_interlocks_status }
 
 
 | * | * |
@@ -3351,15 +4190,15 @@ BOX interlock status used for debug
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| e_0__BOX | 1 | Label set |
-| a_0__BOX | 1 | Label set |
-| b_0__BOX | 1 | Label set |
-| i_0__BOX | 1 | Label set |
-| x_0__BOX | 1 | Label set |
+| e | 1 | Label set |
+| a | 1 | Label set |
+| b | 1 | Label set |
+| i | 1 | Label set |
+| x | 1 | Label set |
 
 ### Payload description
 
-#### e_0__BOX { #_interlocks_status_0__BOX-e_0__BOX }
+#### e { #_interlocks_status-e }
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -3370,7 +4209,7 @@ BOX interlock status used for debug
 | Tripped | 0 |
 | Clear | 1 |
 
-#### a_0__BOX { #_interlocks_status_0__BOX-a_0__BOX }
+#### a { #_interlocks_status-a }
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -3381,7 +4220,7 @@ BOX interlock status used for debug
 | Tripped | 0 |
 | Clear | 1 |
 
-#### b_0__BOX { #_interlocks_status_0__BOX-b_0__BOX }
+#### b { #_interlocks_status-b }
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -3392,7 +4231,7 @@ BOX interlock status used for debug
 | Tripped | 0 |
 | Clear | 1 |
 
-#### i_0__BOX { #_interlocks_status_0__BOX-i_0__BOX }
+#### i { #_interlocks_status-i }
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -3403,7 +4242,7 @@ BOX interlock status used for debug
 | Tripped | 0 |
 | Clear | 1 |
 
-#### x_0__BOX { #_interlocks_status_0__BOX-x_0__BOX }
+#### x { #_interlocks_status-x }
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -3413,3 +4252,95 @@ BOX interlock status used for debug
 |------------|-------|
 | Tripped | 0 |
 | Clear | 1 |
+
+
+<a id="DC01_debug"></a>
+## DC01_debug { #DC01_debug }
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x8200f2 |
+| **Length [Bytes]** | 8 |
+| **Periodicity [ms]** |  |
+| **Direction** | IN |
+
+### Description
+
+The setpoints that are currently used by the DC01. This message allows to validate that the setpoints have been properly applied.
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| allow_close_contactor | 1 | Label set |
+
+### Payload description
+
+#### allow_close_contactor { #DC01_debug-allow_close_contactor }
+
+The voltage target of the A port
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Disabled | 0 |
+| Enabled | 1 |
+
+
+<a id="DC01_debug_connection"></a>
+## DC01_debug_connection { #DC01_debug_connection }
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x8200f3 |
+| **Length [Bytes]** | 8 |
+| **Periodicity [ms]** |  |
+| **Direction** | OUT |
+
+### Description
+
+The setpoints that are currently used by the DC01. This message allows to validate that the setpoints have been properly applied.
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| current_connection_mode | 8 | Label set |
+| new_connection_mode | 8 | Label set |
+
+### Payload description
+
+#### current_connection_mode { #DC01_debug_connection-current_connection_mode }
+
+The voltage target of the A port
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 8 | 8 | Label set |  | 1 | 0 |  | 255 |
+
+| Label name | Value |
+|------------|-------|
+| contactors_open | 0 |
+| contactors_serial | 1 |
+| contactors_parallel | 2 |
+| contactors_undefined | 3 |
+
+#### new_connection_mode { #DC01_debug_connection-new_connection_mode }
+
+The voltage target of the A port
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 8 | Label set |  | 1 | 0 |  | 255 |
+
+| Label name | Value |
+|------------|-------|
+| contactors_open | 0 |
+| contactors_serial | 1 |
+| contactors_parallel | 2 |
+| contactors_undefined | 3 |
