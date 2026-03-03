@@ -1,5 +1,3 @@
-> [!UPDATE] {docsify-updated}
-
 This guide shows how to establish a remote shell on the ADM-CS-SPCC via SSH using a 10base-T1S connection.
 The 10base-T1S interface used is EVB-LAN8670-USB from Microchip.
 
