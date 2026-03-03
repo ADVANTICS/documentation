@@ -45,4 +45,4 @@ If the ping was successful, you should be able to ssh in the controller. The def
 
 ## SSH From Linux
 
-There is no need to install any driver on Linux. Just connect the controller to your computer using the 10base-T1S interface and ping the controller using its mDNS hostname. You can find it [here](charge-controllers/advantics_os/connecting.md). It should work without further action.
+There is no need to install any driver on Linux. Just connect the controller to your computer using the 10base-T1S usb interface and ping the controller using its mDNS hostname. You can find it [here](charge-controllers/advantics_os/connecting.md). It should work without further action.
