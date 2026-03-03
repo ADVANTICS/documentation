@@ -16,6 +16,7 @@
     - [Examples of use](charge-controllers/ADM-CS-SPCC/examples.md)
     - [Versions](charge-controllers/spcc_versions.md)
     - [Configuration](charge-controllers/spcc_configuration.md)
+    - [SSH via 10base-T1S](charge-controllers/ADM-CS-SPCC/ssh-10base-t1s.md)
   - **Features**
       <!-- - [Features](charge-controllers/secc_features.md) -->
     - [MCS & BPT (ISO15118-20)](charge-controllers/secc_generic/sequences_v3.md)
