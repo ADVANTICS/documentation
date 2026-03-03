@@ -25,11 +25,11 @@ Recommended accessories are as follows:
 2. Apply the thermal grease lightly on the purple area.  
 3. Apply the construction glue on the capacitor (recommended for systems exposed to vibration as implementation on board of vehicles).  
 
-{{ figure('../assets/Figure6.png', 'Visual overview of step 5') }}
+    {{ figure('../assets/Figure6.png', 'Visual overview of step 5') }}
 
 4. Place the module on the cooler.
 
-{{ figure('../assets/Figure7.png', 'Visual overview of step 4') }}
+    {{ figure('../assets/Figure7.png', 'Visual overview of step 4') }}
 
 5. Place screws with washers into the holes.  
 
