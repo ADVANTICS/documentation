@@ -21,11 +21,11 @@
 | **Connectors** | 2x RADSOK Size 8mm Amphenol SurLock Plus (SLP-HIR-B) | - |
 
 
-### Maximum Power vs Input Voltage
+<!-- ### Maximum Power vs Input Voltage
 
 The following graph illustrates the relationship between the maximum achievable power output and the input voltage on the DC Bus Side (Port A). The maximum power is capped at 100 kW, with optimal performance within the specified voltage range of 750-950 V DC. Variations outside this range may result in derating to ensure safe and efficient operation.
 
-{{ figure('../assets/max_power_vs_input_voltage.png', 'Maximum Power vs Input Voltage') }}
+{{ figure('../assets/max_power_vs_input_voltage.png', 'Maximum Power vs Input Voltage') }} -->
 
 ## Port B (DC wide control side) specifications
 
@@ -48,11 +48,86 @@ The following graph illustrates the relationship between the maximum achievable 
 | **Protection** | Overvoltage, Undervoltage, Overcurrent, Overtemperature | - |
 | **Connectors DC** | 2x RADSOK Size 10.3mm Amphenol SurLock Plus (SLP-HIR-C) | - |
 
-### Maximum Power vs DC wide control side Voltage
+<!-- ### Maximum Power vs DC wide control side Voltage
 
 The following graph illustrates the relationship between the maximum achievable power output and the output voltage on the DC wide control side (Port B). The maximum power is capped at 100 kW, with optimal performance within the specified voltage range of 200-1500 VDC. Variations outside this range may result in derating to ensure safe and efficient operation.
 
-{{ figure('../assets/max_power_vs_output_voltage.png', 'Maximum Power vs Output Voltage') }}
+{{ figure('../assets/max_power_vs_output_voltage.png', 'Maximum Power vs Output Voltage') }} -->
+
+## Port A and Port B voltage relationship
+
+The module operates within a nominal voltage range of 750–950 V on Port A and 200–1500 V on Port B.
+
+These limits, however, cannot be considered independently. Not all voltage combinations between Port A and Port B are permissible. The allowable Port B voltage range depends on the actual Port A voltage.
+
+Figure 4 illustrates the valid operating region. The enclosed area defines the permitted combinations of Port A and Port B voltages. Operation outside this boundary is not supported and may result in protective limitation or shutdown.
+
+{{ figure('../assets/VoltageRangePortA_PortB.png', 'Permissible Port B voltage range vs. Port A voltage range') }}
+
+As it can be seen in Figure 4, Port B can not reach 1500V unless Port A voltage is at least ~770V. A closer look at the top left corner of the envelope is shown in Figure Y.
+
+{{ figure('../assets/VoltageRangePortA_PortB_zoomedIn.png', 'Closer look at the top left corner of Figure 4') }}
+
+## Maximum power vs. port A voltage
+
+The relationship between the maximum deliverable power and the Port A voltage is shown in Figure 6. The system output is limited to 100 kW, with a maximum Port A current of 120 A. The effective power ceiling is determined by whichever of these constraints is reached first. Operation beyond this defined envelope will trigger derating to maintain safe performance.
+
+{{ figure('../assets/MaximumOutputPowervsPortAvoltage.png', 'Maximum output power vs. Port A voltage') }}
+
+## Maximum power vs. port B voltage
+
+
+The maximum power capability is also influenced by the Port B voltage. Output is constrained by the lower of the following limits:
+
+- The maximum power permitted as a function of VA (refer to Figure 6), or
+- Port B current limit of 220 A.
+
+Whichever threshold is reached first defines the allowable operating point.
+
+Startup conditions further shape the power profile of the ADB-PC-DC01. Two startup modes are available: Quasi Parallel (QP) and Quasi Series (QS).
+
+The module dynamically reconfigures its internal connections according to the requested or actual VB, ensuring the highest possible deliverable power. The selected startup mode depends on the ratio between VB and VA:
+
+- If VB is less than 90 % of VA, the unit initializes in QP mode.
+- Otherwise, it initializes in QS mode.
+
+To prevent oscillation between configurations, a hysteresis mechanism governs the transition between QP and QS. The switchover behavior is depicted in Figure 7.
+
+{{ figure('../assets/hysteresis.png', 'Hysteresis switchover based on VB/VA ratio') }}
+
+
+**Example:**
+
+Assume VA=900V.
+
+- If the requested VB is below 810 V (90 % of VA), the module starts in QP mode.
+- In QP mode, Port B can source or sink up to 220 A between 200V and 855 V.
+- At 855 V, the system transitions to QS mode.
+- In QS mode, Port B can source or sink up to 110 A between 855 V and 1500 V.
+
+Depending on the application’s operating range, a transition between modes may not occur (see Figure A).
+
+Because of the hysteresis-controlled switchover, the power curves of the ADB-PC-DC01 vary with startup condition. Representative curves for VA=750, 850 V, and 950 V are shown in the figures below. These plots define the maximum achievable module power for a given startup condition, VA, and VB.
+
+For performance data at a specific VA, contact Advantics.
+
+**Port A = 750 V**
+
+{{ figure('../assets/750P.png', 'Maximum Power vs. Port B Voltage (VA = 750V, QP Mode)') }}
+
+{{ figure('../assets/750S.png', 'Maximum Power vs. Port B Voltage (VA = 750V, QS Mode)') }}
+
+**Port A = 850 V**
+
+{{ figure('../assets/850P.png', 'Maximum Power vs. Port B Voltage (VA = 850V, QP Mode)') }}
+
+{{ figure('../assets/850S.png', 'Maximum Power vs. Port B Voltage (VA = 850V, QS Mode)') }}
+
+**Port A = 950 V**
+
+{{ figure('../assets/950P.png', 'Maximum Power vs. Port B Voltage (VA = 950V, QP Mode)') }}
+
+{{ figure('../assets/950S.png', 'Maximum Power vs. Port B Voltage (VA = 950V, QS Mode)') }}
 
 
 ## Safe Operating Area
