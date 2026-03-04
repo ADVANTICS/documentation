@@ -120,8 +120,8 @@ markdown_extensions:
 # Navigation structure
 nav:
   - "Get Started here": "index.md"
+  - "Safety Instructions": "1_Safety_instructions.md"
   - "Overview": "overview.md"
-  - "Safety Instructions": '1_Safety_instructions.md"
   - "Electrical Specifications": "electrical_specs.md"
   - "Mechanical Specifications": "mechanical_specs.md"
   - "Connectors": "connectors.md"
@@ -135,7 +135,6 @@ nav:
       - "CAN bus overview": "can_bus_overview.md"
       - "CAN bus messages": "can_bus_interface.md"
     - "Maintenance and Troubleshooting": "maintenance_and_troubleshooting.md"
-    - "Safety Considerations": "safety.md"
     - "Appendix": "appendix.md"
 
 # Extra configurations
