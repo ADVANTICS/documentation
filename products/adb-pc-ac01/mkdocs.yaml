@@ -135,7 +135,6 @@ nav:
       - "CAN bus overview": "can_bus_overview.md"
       - "CAN bus messages": "can_bus_interface.md"
     - "Maintenance and Troubleshooting": "maintenance_and_troubleshooting.md"
-    - "Safety Considerations": "safety.md"
     - "Appendix": "appendix.md"
 
 # Extra configurations
