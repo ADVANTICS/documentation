@@ -101,7 +101,8 @@ The module includes redundant CAN bus & interlock line connections:
 | **Connector Type** | M12-P2T | Locking connector |
 | **Coding** | T code | According to IEC 61076 |
 | **Voltage Range** | 20-28 V DC | Nominal 24V |
-| **Current Draw** | Up to 12A | Peak during startup |
+| **Current Draw Max** | 6A Max | Peak current (internal fuse 10Amp) |
+| **Nominal Draw** | 3A | Nominal Current |
 | **Isolation** | Isolated interface | Safety isolation |
 
 {{ figure('../assets/24_connector.png', '24V Connector') }}

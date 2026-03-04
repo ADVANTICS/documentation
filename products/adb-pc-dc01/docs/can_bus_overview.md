@@ -40,4 +40,6 @@ CAN ID (24‑bit) — field layout
 | `0x82` | DC01 | 100 kW DC/DC (isolated) power module |
 | `0x83` | CH01 | 50 kW CCS EV charger power module |
 | `0x84` | DC02 | Non-isolated DC/DC |
-| `0x85` | GN01 | Genset |
+| `0x84` | GN01 | Genset |
+| `0x85` | DC91 | 50kW DC/DC (isolated) power converter |
+| `0x86` | GN91 | Genset |

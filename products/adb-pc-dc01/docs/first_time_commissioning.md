@@ -28,6 +28,7 @@ Before you begin, make sure you have the following:
 **Tools & Equipment:**  
 
 - Standard mechanics toolset (socket wrench, torque wrench, etc.)
+- Absence of Voltage Tester (AVT) rated for 1500V DC
 - Digital Multimeter (DMM) rated for 1500V DC
 - Personal Protective Equipment (PPE) (high-voltage insulated gloves, safety glasses, etc.)
 - lifting equipment rated for the converter’s weight (recommendation: Scissor-lift table or Hydraulic lift cart).
@@ -83,7 +84,7 @@ This step covers the essential connections to get the unit running.
 
 Now, let's verify the converter is "awake" and communicating.
 
-1.  **Apply Auxiliary Power:** Energize the converter's auxiliary 24 V power supply.
+1.  **Apply Auxiliary Power:** Energize the converter's auxiliary 24 V power supply (make sure to provide enough current)
 2.  **Connect Your Monitor:** Connect your CAN bus monitoring tool to the CAN bus lines.
 3.  **Set Baud Rate:** Ensure your monitor is set to the correct baud rate (e.g., 500 kbit/s).  
   
@@ -106,11 +107,50 @@ Your control system should be successfully connected at this stage.
 
 Let's confirm the unit can process power.
 
-1.  **Set to `STANDBY`:** Use ETKA tool to send the command to place the unit in `STANDBY` mode.
-2.  **Set Target Voltage/Current:** Send a simple command, for example, to regulate the output (Port B) at a nominal voltage with a 0A current limit.
-3.  **Enable Operation:** Send the CAN command to move from `STANDBY` to `OPERATE`.
-4.  **Apply a Small Load:** Using your external DC load, draw a small amount of current (e.g., 10% of the unit's rating).
+1.  **check `STANDBY`:** Use ETKA tool make sure that the unit is `STANDBY` mode. If the unit is in `ERROR` mode, make sure that no emergency stop is active. If the unit is in `CRITICAL` mode, please contact Advantics support.
+
+!!! tip
+    Errors can be cleared using `Clear_Interlock` signals from the `Fault_Control` message.
+
+2.  **Set operating Mode:** Send command to `DC01_Mode_Set` , to choose the  operating mode and connection topology
+
+!!! tip
+    Requested operating mode :
+    - B_port_Controlled (0): B-side voltage controlled to setpoint, requires VA input present
+    - A_port_Controlled (1): A-side voltage controlled (not yet supported)
+    - Bleeding (2): Discharge internal capacitors/remaining charge
+
+    Changing mode can only be done when the power converter is not "Enable"
+
+
+!!! tip
+    Requested internal contactor configuration :
+    - forced_serial (0): VB bellow (VA * 2) required
+    - forced_parallel (1): VB bellow VA required  
+    - automatic (2): Converter auto-selects topology (experimental)
+
+    Changing connection can only be done when the power converter is not "Enable"ge
+
+3.  **Set Target Voltage/Current:** Send command to the port that you want to control.
+
+!!! tip
+    If a set point is out of range, the unit will automatically clip it.
+    Don't hesitate to read back the applied setpoints reported by the unit.
+
+!!! warning
+    Minimun current will be -20Amp and 20Amp           
+
+4.  **Turning on:** Use `enable` signal from `Converter_Control` message to enable the unit.
+
+!!! tip
+    If some warnings are active, the unit won't go into `turning_on` mode.
+    Don't hesitate to read the status of `flag_ready` flag in `Status` message.
+
+
 5.  **Verify Output:** On ETKA tool and your external DMM, confirm that the voltage and current at Port B match your setpoints and that no faults are present.
+
+6.  **Turning off:** Use `enable` signal from `Converter_Control` message to turn off the unit.
+
 
 ### **Next Steps**
 

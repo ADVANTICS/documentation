@@ -14,11 +14,30 @@ ADB-PC-DC01 can regulate the voltage at either Port A or Port B, but not both at
 
 ## Module architecture
 
-To achieve the wide output voltage range required by charging standards, the ADB-PC-DC01 utilizes two power conversion subsystems that are automatically reconfigured depending on the voltage present at port A and port B. These subsystems are then connected either in a 'Quasi-Parallel (QP)' or in a 'Quasi-Series (QS)’ connection. The particular configuration has an impact on the voltage and current limits on the ports.
+To achieve the wide output voltage range required by charging standards, the ADB-PC-DC01 utilizes two power conversion subsystems that can automatically reconfigure themselves (in automatic connection mode) depending on the voltage present at port A and port B. These subsystems are then connected either in a 'Quasi-Parallel (QP)' or in a 'Quasi-Series (QS)' connection. The particular configuration has an impact on the voltage and current limits on the ports.
 
-ADB-PC-DC01 is automatically configured to operate in QP mode when the Port A voltage is higher than the Port B voltage. This mode increases the current capability of the converter while respecting the 100kW power limit. 
+### Serial
+The ADB-PC-DC01 is configured to operate in QS by default. This mode indeed offers the widest range of operation from 200V to 1500V. This mode operates respecting the power envelope of 100kW based on the voltage rating.
 
-For applications where Port B voltage is expected to be higher than Port A voltage, the unit reconfigures itself to be connected in QS. This voltage is limited to 195% of the voltage at Port A or 1500V, whichever is smaller. Again, this mode operates respecting the power envelope of 100kW based on the voltage rating. 
+The forced serial configuration can be used when:
+
+$$
+V_B<1.95*V_A
+$$
+
+
+### Parallel
+The ADB-PC-DC01 can be configured to operate in QP. This mode indeed offers the shorter range of operation (V_B<0.9*V_A) but it doubles the current versus QS operation mode. Again, this mode operates respecting the power envelope of 100kW based on the voltage rating.
+
+The forced parallel configuration can be used when:
+
+$$
+V_B<0.9*V_A
+$$
+
+
+### Automatic
+The ADB-PC-DC01 can also be configured to operate in Automatic mode. The mode is still experimental but it offers automatic switchover between QP and QS. While changing connection a power loss of a few seconds is expected.
 
 The QP configuration is used when:
 
@@ -45,6 +64,10 @@ When the converter is operating, Port B is actively controlled depending on the 
 When used as a power supply, the ADB-PC-DC01 can automatically precharge the Port B, without a need for external voltage matching.
 
 In battery-connected systems, Port B is first internally precharged to the actual Port B voltage. This is automatic, and the user doesn't need to do anything specific.
+
+!!! tip
+    Internal precharge of the ADB-PC-DC01 always precharges the unit to match the voltage on port B.  
+    Once precharge is complete, setpoints are applied.
 
 Power delivery towards Port B, in other words, ‘charging’, is possible to achieve by putting a voltage setpoint that is higher than the battery voltage until the desired battery voltage is reached. The converter will operate in constant current (CC) mode until the voltage setpoint is reached, and the current will always be limited by the setpoint defined by the user. Once the target voltage is reached, the operation switches to constant voltage mode (CV). An example CC/CV charging graph is shown below. The voltage and current setpoints in this example are set as 700V and 100A, respectively, when the battery was initially 500V. Charging continues in CC mode until the 700V setpoint is reached, then CV mode takes over until the end of charge.
 
