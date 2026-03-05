@@ -105,7 +105,7 @@ Assume VA=900V.
 - At 855 V, the system transitions to QS mode.
 - In QS mode, Port B can source or sink up to 110 A between 855 V and 1500 V.
 
-Depending on the application’s operating range, a transition between modes may not occur (see Figure A).
+Depending on the application’s operating range, a transition between modes may not occur (see Figure 7).
 
 Because of the hysteresis-controlled switchover, the power curves of the ADB-PC-DC01 vary with startup condition. Representative curves for VA=750, 850 V, and 950 V are shown in the figures below. These plots define the maximum achievable module power for a given startup condition, VA, and VB.
 
