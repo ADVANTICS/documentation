@@ -12,7 +12,7 @@
 
 {{ figure('../assets/Figure14.png', 'Chaining and termination diagram') }}
 
-* Input: A DC voltage source is connected to **the side A of the** BI25.  
+* Input: A DC voltage source is connected to **the side A of the BI25**.  
 * Intermediate Stage: The Output (Side B) is connected to a non isolated DC/DC converter which provides the output current limiting and voltage control range. An ADM-PC-BP25 may be used for this.The output of the non-isolated DC-DC is connected to the load.
 
 !!! warning 
@@ -78,10 +78,7 @@ The power module contains an on-board CAN termination resistor per each communic
 
 ### Interlock Line
 
-The interlock pin on the interface connector is used to put the system in a safe state, independent of the CAN communications, for user safety and in case of faults. The interlock line is normally pulled high by pull-up resistors to \+24 V on each individual module, and any module can pull the line low to put the whole system in a safe state (that is, to trigger the system-wide interlock). Each module has a 4k7 Ω pull-up resistor. Interlock is latching from the module causing it – it will be unlatched by the CPU request (CAN bus request from the user system). Other modules in the system will not latch external interlocks, they will simply act upon them. Interlock is a purely HW-based system, using logic gates and comparators. The CPU cannot overrule the interlock.
-
-!!! tip 
-    All modules start with tripped interlock after reset. The user must request interlock clearance over the CAN bus. Otherwise the module cannot be started.
+The interlock pin is used to put the system in a safe state independently of CAN communication. Each module contains a pull-up resistor to +24 V and can pull the interlock line low, triggering a system-wide shutdown. The interlock system is implemented in hardware using logic gates and comparators.
 
 ### Interface Power Supply
 
