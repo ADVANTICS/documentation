@@ -4,11 +4,11 @@ Generate Markdown documentation from a CAN bus .kcd database file.
 
 Usage:
     python tools/kcd_to_md.py --kcd /path/to/db.kcd --out /path/to/output.md \
-            [--reference-node NODE_NAME] [--generate-adb-ids --adb-device-type {GC01,AC01,DC01,CH01,DC02,GN01}]
+            [--reference-node NODE_NAME [NODE_NAME ...]] [--generate-adb-ids --adb-device-type {GC01,AC01,DC01,CH01,DC02,GN01}]
 
 If --reference-node is provided, message Direction will be computed relative to
-that node: messages produced by the node are marked OUT; messages received by
-the node are marked IN. If not provided or unknown, Direction is left blank.
+those nodes: messages produced by any of the nodes are marked OUT; messages received by
+any of the nodes are marked IN. If not provided or unknown, Direction is left blank.
 
 This script uses cantools to parse the KCD.
 """
@@ -66,28 +66,27 @@ def _format_num(val, default_blank: bool = True):
     return str(val)
 
 
-def _direction_for_message(msg, reference_node: Optional[str],
+def _direction_for_message(msg, reference_nodes: Optional[List[str]],
                            kcd_producers: Optional[Dict[str, List[str]]] = None) -> str:
-    if not reference_node:
+    if not reference_nodes:
         return ""
-    ref = reference_node
     # Prefer producers extracted from KCD to be robust to loader differences
     if kcd_producers is not None and msg.name in kcd_producers:
         prod = kcd_producers.get(msg.name, [])
-        if ref in prod:
+        if any(ref in prod for ref in reference_nodes):
             return "OUT"
         if prod:  # someone else produces it
             return "IN"
 
     senders = list(msg.senders or [])
     receivers = list(msg.receivers or [])
-    if ref in senders:
+    if any(ref in senders for ref in reference_nodes):
         return "OUT"
     # Some KCDs omit explicit receivers; if our node is not the sender and there is a sender,
     # treat as IN relative to our node.
-    if senders and ref not in senders:
+    if senders and not any(ref in senders for ref in reference_nodes):
         return "IN"
-    if ref in receivers:
+    if any(ref in receivers for ref in reference_nodes):
         return "IN"
     return ""
 
@@ -219,21 +218,148 @@ def _asciidoc_admonitions_to_mkdocs(s: str) -> str:
     return "\n".join(out)
 
 
-def _normalize_notes_text(text: Optional[str]) -> str:
+def _mkdocs_admonitions_to_github_callouts(s: str) -> str:
+    """Convert MkDocs admonitions:
+
+        !!! info
+            text
+
+    into GitHub callouts:
+
+        > [!INFO]
+        > text
+    """
+
+    # Accept common MkDocs tags; leave unknown tags as-is but uppercased.
+    tag_re = re.compile(
+        r'^\s*!!!\s+(?P<tag>[A-Za-z0-9_-]+)(?:\s+"(?P<title>[^"]+)")?\s*$'
+    )
+
+    lines = s.split("\n")
+    out: List[str] = []
+    i = 0
+    while i < len(lines):
+        m = tag_re.match(lines[i])
+        if not m:
+            out.append(lines[i])
+            i += 1
+            continue
+
+        tag = m.group("tag").upper()
+        title = m.group("title")
+
+        # Collect indented body lines following the '!!!' line.
+        i += 1
+        body: List[str] = []
+        while i < len(lines):
+            ln = lines[i]
+
+            # Stop if next admonition starts or we hit a non-indented line (end of block).
+            if tag_re.match(ln):
+                break
+
+            if ln.strip() == "":
+                body.append("")
+                i += 1
+                continue
+
+            if ln.startswith("\t"):
+                # Remove exactly one indent level; we'll dedent the remainder later.
+                body.append(ln[1:])
+                i += 1
+                continue
+
+            if ln.startswith("    "):
+                # Remove exactly one indent level; we'll dedent the remainder later.
+                body.append(ln[4:])
+                i += 1
+                continue
+
+            # Not indented => block ended.
+            break
+
+        # Dedent body in case it had deeper indentation than a single level.
+        body_text = "\n".join(body)
+        body_text = textwrap.dedent(body_text)
+        body = body_text.split("\n") if body_text else []
+
+        # Emit GitHub callout.
+        # Use Markdown hard line breaks (two trailing spaces) to preserve
+        # original newlines inside the callout in renderers that reflow text.
+        out.append(f"> [!{tag}]")
+        if title:
+            out.append(f"> {title}  ")
+        for bl in body:
+            if bl == "":
+                out.append(">")
+            else:
+                out.append(f"> {bl}  ")
+
+        # Add a blank line after the callout if the next line is normal text
+        # (keeps separation similar to MkDocs rendering).
+        if i < len(lines) and lines[i].strip() and out and out[-1].strip():
+            out.append("")
+
+    return "\n".join(out)
+
+
+def _convert_asciidoc_definition_lists(s: str) -> str:
+    """
+    Convert AsciiDoc definition lists:
+        Term:: Definition
+    to Markdown bullet lists:
+        - **Term**: Definition
+    """
+    lines = s.split("\n")
+    out = []
+    # Regex for "Term:: Definition"
+    # We want to capture the term and the rest of the line.
+    # We assume the term doesn't contain newlines (it's a single line match).
+    # We allow leading whitespace.
+    regex = re.compile(r"^(?P<indent>\s*)(?P<term>.+?)::\s+(?P<def>.*)$")
+
+    for line in lines:
+        m = regex.match(line)
+        if m:
+            indent = m.group("indent")
+            term = m.group("term")
+            definition = m.group("def")
+            # Convert to bullet point
+            out.append(f"{indent}- **{term}**: {definition}")
+        else:
+            out.append(line)
+    return "\n".join(out)
+
+
+def _normalize_notes_text(text: Optional[str], *, github_callouts: bool = False) -> str:
     """Normalize KCD Notes to be Markdown-friendly (remove leading indentation,
     trim trailing spaces, and collapse excessive blank lines)."""
     if not text:
         return ""
+    # Normalize newlines and dedent common leading indentation
     s = text.replace("\r\n", "\n").replace("\r", "\n")
     s = textwrap.dedent(s)
+    # Normalize exotic spaces often coming from XML editors (NBSP, narrow no-break)
     s = s.replace("\u00A0", " ").replace("\u2007", " ").replace("\u202F", " ")
+    # Dedent common indentation but preserve relative extra indentation (for code blocks)
     s = textwrap.dedent(s)
+    # Strip trailing spaces per line but keep leading spaces (to preserve relative indentation)
     lines = [ln.rstrip() for ln in s.split("\n")]
-    s = "\n".join(lines).strip("\n")
+    s = "\n".join(lines)
+    # Trim leading/trailing blank lines
+    s = s.strip("\n")
+    # Collapse 3+ consecutive blank lines to max 1
     s = re.sub(r"\n{3,}", "\n\n", s)
 
     # Convert Asciidoc-like admonitions to MkDocs admonitions
     s = _asciidoc_admonitions_to_mkdocs(s)
+
+    # Optionally convert MkDocs admonitions (!!!) to GitHub callouts (> [!TAG])
+    if github_callouts:
+        s = _mkdocs_admonitions_to_github_callouts(s)
+
+    # Convert AsciiDoc definition lists to Markdown bullet lists
+    s = _convert_asciidoc_definition_lists(s)
 
     # Final cleanup
     s = re.sub(r"\n{3,}", "\n\n", s).strip("\n")
@@ -278,12 +404,13 @@ def _parse_kcd_producers(kcd_path: str) -> Dict[str, List[str]]:
 def generate_markdown(
     kcd_path: str,
     out_path: str,
-    reference_node: Optional[str],
+    reference_nodes: Optional[List[str]],
     *,
     wrap_tables: bool = False,
     id_style: str = "braces",
     generate_adb_ids: bool = False,
     adb_device_type: Optional[str] = None,
+    github_callouts: bool = False,
 ) -> str:
     db = cantools.db.load_file(kcd_path)
     kcd_producers = _parse_kcd_producers(kcd_path)
@@ -313,7 +440,7 @@ def generate_markdown(
         id_num = _transform_adb_id(msg.frame_id, adb_device_value) if (generate_adb_ids and adb_device_value is not None) else msg.frame_id
         frame_id = _hex_id(id_num)
         length = msg.length
-        direction = _direction_for_message(msg, reference_node, kcd_producers)
+        direction = _direction_for_message(msg, reference_nodes, kcd_producers)
         cycle = msg.cycle_time  # may be None
         index_rows.append((name, frame_id, length, direction, cycle))
 
@@ -362,7 +489,7 @@ def generate_markdown(
         out_lines.append("| **Frame ID** | " + _hex_id(id_num) + " |")
         out_lines.append("| **Length [Bytes]** | " + str(msg.length) + " |")
         out_lines.append("| **Periodicity [ms]** | " + _format_num(msg.cycle_time) + " |")
-        out_lines.append("| **Direction** | " + _direction_for_message(msg, reference_node, kcd_producers) + " |")
+        out_lines.append("| **Direction** | " + _direction_for_message(msg, reference_nodes, kcd_producers) + " |")
         if wrap_tables:
             out_lines.append("\n</div>\n")
         out_lines.append("")
@@ -370,10 +497,9 @@ def generate_markdown(
         out_lines.append("### Description")
         out_lines.append("")
         if msg.comment:
-            normalized = _normalize_notes_text(msg.comment)
+            normalized = _normalize_notes_text(msg.comment, github_callouts=github_callouts)
             if normalized:
-                # IMPORTANT: don't html-escape, we want Markdown (admonitions, etc.) to render
-                out_lines.append(normalized)
+                out_lines.append(normalized if github_callouts else _escape(normalized))
                 out_lines.append("")
         else:
             out_lines.append("\n")
@@ -403,10 +529,9 @@ def generate_markdown(
                 out_lines.append(f"#### {sig.name} {{ #{sig_anchor} }}")
             out_lines.append("")
             if sig.comment:
-                normalized_sig = _normalize_notes_text(sig.comment)
+                normalized_sig = _normalize_notes_text(sig.comment, github_callouts=github_callouts)
                 if normalized_sig:
-                    # IMPORTANT: don't html-escape, we want Markdown to render
-                    out_lines.append(normalized_sig)
+                    out_lines.append(normalized_sig if github_callouts else _escape(normalized_sig))
                     out_lines.append("")
 
             # Per-signal parameter table
@@ -461,9 +586,10 @@ def main():
     ap.add_argument("--out", required=True, help="Path to output .md file")
     ap.add_argument(
         "--reference-node",
+        nargs="+",
         default=None,
         help=(
-            "Node name used to decide Direction (OUT if producer is this node, IN if receiver)."
+            "Node name(s) used to decide Direction (OUT if producer is one of these nodes, IN if receiver)."
         ),
     )
     ap.add_argument(
@@ -490,6 +616,11 @@ def main():
         default=None,
         help="ADB device type (one of GC01, AC01, DC01, CH01, DC02, GN01) or a numeric value like 0x80. Required when --generate-adb-ids is set.",
     )
+    ap.add_argument(
+        "--github-callouts",
+        action="store_true",
+        help="Convert MkDocs admonitions (!!! info/warning/...) found in Notes into GitHub callouts (> [!INFO]).",
+    )
     args = ap.parse_args()
 
     out = generate_markdown(
@@ -500,6 +631,7 @@ def main():
         id_style=args.id_style,
         generate_adb_ids=args.generate_adb_ids,
         adb_device_type=args.adb_device_type,
+        github_callouts=args.github_callouts,
     )
     print(f"Generated: {out}")
 
