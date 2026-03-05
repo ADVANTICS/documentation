@@ -4,19 +4,19 @@
 
 | Name | ID | Length | Direction | Cycle time |
 |------|----|--------|-----------|------------|
-| [Identification](#Identification) | 0x810000 | 8 | IN |  |
-| [Bootloader_UID](#Bootloader_UID) | 0x810001 | 8 | IN |  |
-| [Firmware_UID](#Firmware_UID) | 0x810002 | 8 | IN |  |
-| [ADB_CAN_API_Version](#ADB_CAN_API_Version) | 0x810003 | 3 | IN |  |
-| [Status](#Status) | 0x810010 | 8 | IN |  |
-| [Faults](#Faults) | 0x810011 | 8 | IN |  |
+| [Identification](#Identification) | 0x810000 | 8 | OUT |  |
+| [Bootloader_UID](#Bootloader_UID) | 0x810001 | 8 | OUT |  |
+| [Firmware_UID](#Firmware_UID) | 0x810002 | 8 | OUT |  |
+| [ADB_CAN_API_Version](#ADB_CAN_API_Version) | 0x810003 | 3 | OUT |  |
+| [Status](#Status) | 0x810010 | 8 | OUT |  |
+| [Faults](#Faults) | 0x810011 | 8 | OUT |  |
 | [Converter_Control](#Converter_Control) | 0x810012 | 1 | IN |  |
-| [Converter_Power_Info](#Converter_Power_Info) | 0x810013 | 6 | IN |  |
+| [Converter_Power_Info](#Converter_Power_Info) | 0x810013 | 6 | OUT |  |
 | [Broadcast_Group_Control](#Broadcast_Group_Control) | 0x810014 | 1 | IN |  |
-| [Interface_Status](#Interface_Status) | 0x810015 | 3 | IN |  |
+| [Interface_Status](#Interface_Status) | 0x810015 | 3 | OUT |  |
 | [Keep_Alive_Control](#Keep_Alive_Control) | 0x810016 | 2 | IN |  |
-| [Converter_Temperature](#Converter_Temperature) | 0x810017 | 8 | IN |  |
-| [Converter_Fans](#Converter_Fans) | 0x810018 | 6 | IN |  |
+| [Converter_Temperature](#Converter_Temperature) | 0x810017 | 8 | OUT |  |
+| [Converter_Fans](#Converter_Fans) | 0x810018 | 6 | OUT |  |
 | [Keep_Alive_Feed](#Keep_Alive_Feed) | 0x810019 | 1 | IN |  |
 | [DC_Ports_Setpoints](#DC_Ports_Setpoints) | 0x810020 | 6 | IN |  |
 | [DC_Port_Applied_Setpoints](#DC_Port_Applied_Setpoints) | 0x810021 | 8 | OUT |  |
@@ -40,26 +40,26 @@
 | [Factory_Control](#Factory_Control) | 0x810061 | 8 | IN |  |
 | [_Calibration_writing](#_Calibration_writing) | 0x810062 | 6 | IN |  |
 | [_Calibration_reading_cmd](#_Calibration_reading_cmd) | 0x810063 | 2 | IN |  |
-| [_Calibration_reading](#_Calibration_reading) | 0x810064 | 8 | IN |  |
+| [_Calibration_reading](#_Calibration_reading) | 0x810064 | 8 | OUT |  |
 | [_Factory_Debug_cmd](#_Factory_Debug_cmd) | 0x810065 | 8 | IN |  |
-| [info_adm_cs](#info_adm_cs) | 0x810080 | 8 | IN |  |
-| [info_adm_pc](#info_adm_pc) | 0x810081 | 4 | IN |  |
-| [info_adm_pc_id_1](#info_adm_pc_id_1) | 0x810082 | 8 | IN |  |
-| [info_adm_pc_id_2](#info_adm_pc_id_2) | 0x810083 | 8 | IN |  |
-| [info_adm_pc_id_3](#info_adm_pc_id_3) | 0x810084 | 8 | IN |  |
-| [info_adm_pc_id_4](#info_adm_pc_id_4) | 0x810085 | 8 | IN |  |
-| [info_adm_pc_id_5](#info_adm_pc_id_5) | 0x810086 | 8 | IN |  |
-| [info_adm_pc_id_6](#info_adm_pc_id_6) | 0x810087 | 8 | IN |  |
-| [info_adm_pc_status_1](#info_adm_pc_status_1) | 0x810088 | 8 | IN |  |
-| [info_adm_pc_status_2](#info_adm_pc_status_2) | 0x810089 | 8 | IN |  |
-| [info_adm_pc_status_3](#info_adm_pc_status_3) | 0x81008a | 8 | IN |  |
-| [info_adm_pc_status_4](#info_adm_pc_status_4) | 0x81008b | 8 | IN |  |
-| [info_adm_pc_status_5](#info_adm_pc_status_5) | 0x81008c | 8 | IN |  |
-| [info_adm_pc_status_6](#info_adm_pc_status_6) | 0x81008d | 8 | IN |  |
-| [cs_performance](#cs_performance) | 0x810090 | 8 | IN |  |
-| [info_can_api_error](#info_can_api_error) | 0x810091 | 8 | IN |  |
-| [_fms_state](#_fms_state) | 0x8100f0 | 8 | IN |  |
-| [_interlocks_status](#_interlocks_status) | 0x8100f1 | 3 | IN |  |
+| [info_adm_cs](#info_adm_cs) | 0x810080 | 8 | OUT |  |
+| [info_adm_pc](#info_adm_pc) | 0x810081 | 4 | OUT |  |
+| [info_adm_pc_id_1](#info_adm_pc_id_1) | 0x810082 | 8 | OUT |  |
+| [info_adm_pc_id_2](#info_adm_pc_id_2) | 0x810083 | 8 | OUT |  |
+| [info_adm_pc_id_3](#info_adm_pc_id_3) | 0x810084 | 8 | OUT |  |
+| [info_adm_pc_id_4](#info_adm_pc_id_4) | 0x810085 | 8 | OUT |  |
+| [info_adm_pc_id_5](#info_adm_pc_id_5) | 0x810086 | 8 | OUT |  |
+| [info_adm_pc_id_6](#info_adm_pc_id_6) | 0x810087 | 8 | OUT |  |
+| [info_adm_pc_status_1](#info_adm_pc_status_1) | 0x810088 | 8 | OUT |  |
+| [info_adm_pc_status_2](#info_adm_pc_status_2) | 0x810089 | 8 | OUT |  |
+| [info_adm_pc_status_3](#info_adm_pc_status_3) | 0x81008a | 8 | OUT |  |
+| [info_adm_pc_status_4](#info_adm_pc_status_4) | 0x81008b | 8 | OUT |  |
+| [info_adm_pc_status_5](#info_adm_pc_status_5) | 0x81008c | 8 | OUT |  |
+| [info_adm_pc_status_6](#info_adm_pc_status_6) | 0x81008d | 8 | OUT |  |
+| [cs_performance](#cs_performance) | 0x810090 | 8 | OUT |  |
+| [info_can_api_error](#info_can_api_error) | 0x810091 | 8 | OUT |  |
+| [_fms_state](#_fms_state) | 0x8100f0 | 8 | OUT |  |
+| [_interlocks_status](#_interlocks_status) | 0x8100f1 | 3 | OUT |  |
 
 
 <a id="Identification"></a>
@@ -71,7 +71,7 @@
 | **Frame ID** | 0x810000 |
 | **Length [Bytes]** | 8 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
@@ -156,7 +156,7 @@ Unique module serial number
 | **Frame ID** | 0x810001 |
 | **Length [Bytes]** | 8 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
@@ -186,7 +186,7 @@ Unique Identifier of the Bootloader used on this module
 | **Frame ID** | 0x810002 |
 | **Length [Bytes]** | 8 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
@@ -216,7 +216,7 @@ Unique Identifier of the Firmware used on this module
 | **Frame ID** | 0x810003 |
 | **Length [Bytes]** | 3 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
@@ -266,7 +266,7 @@ The Patch number. This number increases when changes to descriptions and documen
 | **Frame ID** | 0x810010 |
 | **Length [Bytes]** | 8 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
@@ -399,7 +399,7 @@ box function in degraded mode
 | **Frame ID** | 0x810011 |
 | **Length [Bytes]** | 8 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
@@ -742,7 +742,7 @@ Enable the system
 | **Frame ID** | 0x810013 |
 | **Length [Bytes]** | 6 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
@@ -833,7 +833,7 @@ Broadcast Group that the module should monitor
 | **Frame ID** | 0x810015 |
 | **Length [Bytes]** | 3 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
@@ -962,7 +962,7 @@ Set the maximum period of the Heartbeat message. If the time between two heart-b
 | **Frame ID** | 0x810017 |
 | **Length [Bytes]** | 8 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
@@ -1021,7 +1021,7 @@ Lowest measured temp internally
 | **Frame ID** | 0x810018 |
 | **Length [Bytes]** | 6 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
@@ -2884,7 +2884,7 @@ select what value to read
 | **Frame ID** | 0x810064 |
 | **Length [Bytes]** | 8 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
@@ -3038,7 +3038,7 @@ Customers MUST NOT USE this bit. need factory mode = 1
 | **Frame ID** | 0x810080 |
 | **Length [Bytes]** | 8 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
@@ -3110,7 +3110,7 @@ Hardware variant
 | **Frame ID** | 0x810081 |
 | **Length [Bytes]** | 4 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
@@ -3169,7 +3169,7 @@ collision between module
 | **Frame ID** | 0x810082 |
 | **Length [Bytes]** | 8 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
@@ -3243,7 +3243,7 @@ Hardware variant
 | **Frame ID** | 0x810083 |
 | **Length [Bytes]** | 8 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
@@ -3317,7 +3317,7 @@ Hardware variant
 | **Frame ID** | 0x810084 |
 | **Length [Bytes]** | 8 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
@@ -3391,7 +3391,7 @@ Hardware variant
 | **Frame ID** | 0x810085 |
 | **Length [Bytes]** | 8 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
@@ -3465,7 +3465,7 @@ Hardware variant
 | **Frame ID** | 0x810086 |
 | **Length [Bytes]** | 8 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
@@ -3539,7 +3539,7 @@ Hardware variant
 | **Frame ID** | 0x810087 |
 | **Length [Bytes]** | 8 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
@@ -3613,7 +3613,7 @@ Hardware variant
 | **Frame ID** | 0x810088 |
 | **Length [Bytes]** | 8 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
@@ -3702,7 +3702,7 @@ Mode
 | **Frame ID** | 0x810089 |
 | **Length [Bytes]** | 8 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
@@ -3791,7 +3791,7 @@ Mode
 | **Frame ID** | 0x81008a |
 | **Length [Bytes]** | 8 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
@@ -3880,7 +3880,7 @@ Mode
 | **Frame ID** | 0x81008b |
 | **Length [Bytes]** | 8 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
@@ -3969,7 +3969,7 @@ Mode
 | **Frame ID** | 0x81008c |
 | **Length [Bytes]** | 8 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
@@ -4058,7 +4058,7 @@ Mode
 | **Frame ID** | 0x81008d |
 | **Length [Bytes]** | 8 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
@@ -4147,7 +4147,7 @@ Mode
 | **Frame ID** | 0x810090 |
 | **Length [Bytes]** | 8 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
@@ -4215,7 +4215,7 @@ Controller cpu 1 usage
 | **Frame ID** | 0x810091 |
 | **Length [Bytes]** | 8 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
@@ -4316,7 +4316,7 @@ The patch version number. This number increases if there are backwards incompati
 | **Frame ID** | 0x8100f0 |
 | **Length [Bytes]** | 8 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
@@ -4384,7 +4384,7 @@ box state bleeding
 | **Frame ID** | 0x8100f1 |
 | **Length [Bytes]** | 3 |
 | **Periodicity [ms]** |  |
-| **Direction** | IN |
+| **Direction** | OUT |
 
 ### Description
 
