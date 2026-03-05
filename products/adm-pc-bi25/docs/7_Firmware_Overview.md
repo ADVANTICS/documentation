@@ -18,11 +18,7 @@
 !!! warning 
     Please take care to not operate the module close to the temperature limits, as it will reduce the lifetime of the unit.
 
-## **4.2.2. Control Modes**
-
-The Bi25 module is operated in PWM Mode at 300 kHz. In this mode, BI25 will provide the same voltage on Side B as it sees on Side A. As the load current increases, there may be up to 20 V voltage drop between the two sides of the converter. Additional operating modes, Voltage Follower Mode and Gain Mode, are under development and not yet ready to be used by customers, to support compensating the voltage drops at higher loads. 
-
-## **4.2.3. Operational Ranges**
+## **4.2.2. Operational Ranges**
 
 !!! warning 
     Exceeding the recommended range may lead to a deterioration of the device resulting in a shorter operational life span and reduced reliability.
@@ -39,7 +35,7 @@ Table 2\. Operating Specifications
 
 ## 
 
-## **4.2.4. Protection mechanisms**
+## **4.2.3. Protection mechanisms**
 
 ### Over-current protection
 
@@ -60,7 +56,7 @@ The BI25 module also monitors the voltage on both ports. If a voltage larger tha
 
 If the temperature of the power switches (Temp_Bar_In or Temp_Bar_Out) exceeds 90°C or the temperature of the transformers (Temp_Transformer or Temp_Magnetics) exceeds 110°C the module will cease operations. When detecting the overheating condition, the converter will stop operating but without tripping the interlock line. This means that other modules chained in the same bus will still continue normal operation.
 
-## **4.2.5. Communication Interface**
+## **4.2.4. Communication Interface**
 
 The BI25 communication interface consists of a CAN 2.0B interface configured at 500 kbit/s with extended address mode and an open collector interlock line (INTLK).
 
