@@ -64,7 +64,7 @@ Figure 4 illustrates the valid operating region. The enclosed area defines the p
 
 {{ figure('../assets/VoltageRangePortA_PortB.png', 'Permissible Port B voltage range vs. Port A voltage range') }}
 
-As it can be seen in Figure 4, Port B can not reach 1500V unless Port A voltage is at least ~770V. A closer look at the top left corner of the envelope is shown in Figure Y.
+As it can be seen in Figure 4, Port B can not reach 1500V unless Port A voltage is at least ~770V. A closer look at the top left corner of the envelope is shown in Figure 5.
 
 {{ figure('../assets/VoltageRangePortA_PortB_zoomedIn.png', 'Closer look at the top left corner of Figure 4') }}
 
