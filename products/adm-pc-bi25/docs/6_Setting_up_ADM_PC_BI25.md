@@ -108,7 +108,8 @@ If you are planning to deploy a large network of more than 24 nodes, consult wit
 
 ### Step 1 – Clear interlock
 
-Modules have two types of interlock signals: internal which is latched in a locked state until manually cleared. The external interlock is formed by combining the internal interlock signal with those from all other modules on the bus. The internal interlock is latched when the module goes outside of its operating range (e.g., over-current, over-voltage etc.). If any of the internal and external interlock signals is latched, the module will immediately stop operation and will not be able to operate until the interlock is cleared. When the module is power-cycled its internal interlock is latched  by default to avoid spurious operation. As all interlock signals of modules on the same bus are tied together, this will also inhibit all other modules on the bus from operating as their external signal will be asserted. Interlock state must be cleared for all modules that have their internal signal latched by setting the Clear\_Interlock signal in the BI25\_Fault\_Control message exactly once and sending this frame once.
+Modules have two types of interlock signals: internal (latched in a locked state until manually cleared) and external (formed by combining internal signals from all other modules on the bus). The internal interlock is latched when the module goes outside its operating range (e.g., over-current, over-voltage). If any internal or external interlock signal is latched, the module will immediately stop operation and cannot operate until cleared.
+Interlock state must be cleared for all affected modules by setting the <font color="#00A89D">**Clear_Interlock**</font> signal in the <font color="#00A89D">**BI25_Fault_Control**</font> message exactly once.
 
 !!! tip 
     All modules start with tripped interlock after reset. The user must request interlock clearance over the CAN bus. Otherwise the module cannot be started.
