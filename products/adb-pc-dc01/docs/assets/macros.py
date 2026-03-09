@@ -28,8 +28,10 @@ _PAGE_OFFSETS = {}     # rel_path -> starting figure number (0-based)
 _PAGE_TOTAL_COUNTS = {}# rel_path -> count of figure macros
 _LOCAL_PAGE_COUNTS = {}# src_path -> local counter during render
 _SCAN_DONE = False
+FIG_ID_MAP = {} # mapped id -> global_num
 
-FIGURE_CALL_RE = re.compile(r"\{\{\s*figure\s*\(")
+FIGURE_BLOCK_RE = re.compile(r"\{\{\s*figure\s*\((.*?)\)\s*\}\}", re.DOTALL)
+ID_RE = re.compile(r"id\s*=\s*['\"]([^'\"]+)['\"]")
 
 def _flatten(nav):
     for item in nav:
@@ -60,8 +62,14 @@ def _scan_sources(env):
             text = candidate.read_text(encoding='utf-8')
         except Exception:
             text = ''
-        count = len(FIGURE_CALL_RE.findall(text))
+        matches = FIGURE_BLOCK_RE.findall(text)
+        count = len(matches)
         _PAGE_OFFSETS[rel_path] = total
+        for i, match_content in enumerate(matches):
+            global_num = total + i + 1
+            id_match = ID_RE.search(match_content)
+            if id_match:
+                FIG_ID_MAP[id_match.group(1)] = global_num
         _PAGE_TOTAL_COUNTS[rel_path] = count
         total += count
     _SCAN_DONE = True
@@ -76,7 +84,7 @@ def define_env(env):
             return getattr(page.file,'src_path','')
         return ''
 
-    def figure(path: str, caption: str, alt: str = '') -> str:
+    def figure(path: str, caption: str, alt: str = '', id: str = '') -> str:
         pk = _page_key()  # e.g. 'overview.md'
         _LOCAL_PAGE_COUNTS[pk] = _LOCAL_PAGE_COUNTS.get(pk,0) + 1
         local_idx = _LOCAL_PAGE_COUNTS[pk]
@@ -85,7 +93,9 @@ def define_env(env):
         if offset is None:
             offset = _PAGE_OFFSETS.get(Path(pk).name, 0)
         global_num = offset + local_idx
-        fig_id = f'fig-{global_num}'
+        
+        # Use provided id or fallback to fig-global_num
+        fig_id = id if id else f'fig-{global_num}'
         href = quote(path)
         return (
             f'<figure id="{fig_id}">' \
@@ -93,6 +103,10 @@ def define_env(env):
             f'<figcaption>Figure {global_num}: {caption}</figcaption>' \
             f'</figure>'
         )
+
+    def figref(id: str) -> str:
+        num = FIG_ID_MAP.get(id, '?')
+        return f'<a href="#{id}">Figure {num}</a>'
 
     def figures_index() -> str:
         # Build index from offsets and counts
@@ -110,7 +124,9 @@ def define_env(env):
                 '</section>')
 
     env.macro('figure', figure)
+    env.macro('figref', figref)
     env.macro('figures_index', figures_index)
     # Provide variable access fallback
     env.variables['figure'] = figure
+    env.variables['figref'] = figref
     env.variables['figures_index'] = figures_index

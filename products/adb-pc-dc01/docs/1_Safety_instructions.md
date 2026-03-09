@@ -1,42 +1,80 @@
-# 1. Safety instructions
+# Safety instructions
 
 !!! warning 
     Please note that users must read the safety instructions before using this equipment. The most important general safety precautions are summarized     in this preface. Improper connection or operation could result in death, serious injury, fire, or equipment damage. Always read and understand the     full manual before installation and use, and follow all recommended procedures. The ADM-PC-BI25 contains high-voltage capacitors that store energy     and discharge slowly. Even when unplugged, lethal voltages may still be  present. The passive self-bleeding of the converter takes approximately       20 minutes, so always allow sufficient time before handling. Users should always treat the device as energized unless verified otherwise with a        volt meter.
 
-## 1.1. Qualified personnel only
+## Qualified personnel only
 
 The instrument may only be operated by personnel capable of recognizing contact hazards and implementing appropriate safety precautions. 
 
 Contact hazards are present anywhere where voltages of greater than 50 V exist. This is very important when the open-ended output signal cable is used or any OEM/PCB version of equipment is operated, tested or else used.
 
-## 1.2. Avoid working alone
+## Avoid working alone
 
 Do not perform measurements involving contact hazards alone; another person must always be present.
 
-## 1.3. Do Not Operate During Faults
+## Do Not Operate During Faults
 
 Do not use the equipment in case of sparking, short circuits or other discharge events with attached batteries, module or signal cable.
 
-## 1.4. Prohibit Use in Damp Conditions
+## Prohibit Use in Damp Conditions
 
 Operation under damp or wet ambient conditions is strictly prohibited.
 
-## 1.5. Maintain Cable and Lead Integrity
+## Maintain Cable and Lead Integrity
 
 Power and data cables must be kept in flawless condition, with no damage to insulation, plugs, or connectors.
 
-## 1.6. Remove Unsafe Equipment from Service
+## Remove Unsafe Equipment from Service
 
 If safe operation of the instrument can no longer be assumed, it must be removed from the factory, laboratory and secured against unintentional use. Safe operation can be no longer assumed if: 
 
-### 1.6.1. The module, power cables or any cables show visible damage  
-### 1.6.2. The module no longer functions  
-### 1.6.3. The module shows very dirty conditions because of dust etc.   
-### 1.6.4. After lengthy periods of storage under unfavorable conditions  
-### 1.6.5. After exposure to unusual transport stresses.
+- The module, power cables or any cables show visible damage  
+- The module no longer functions  
+- The module shows very dirty conditions because of dust etc.   
+- After lengthy periods of storage under unfavorable conditions  
+- After exposure to unusual transport stresses.
 
-## 1.7. Power Disconnection Before Work
+## Power disconnection before handling
 
-Maintenance, repair, or internal balancing may only be performed by trained personnel familiar with the dangers involved. As long as the module is connected, conducting parts may be exposed to the voltage. As far as possible, the instrument must be disconnected from all external power sources before performing maintenance and repair work. A waiting period of 20 minutes must be observed after the module has been disconnected to allow internal capacitors discharge to a safe voltage level.
+Maintenance, repair, or internal balancing may only be performed by trained personnel familiar with the dangers involved. As long as the module is connected, conducting parts may be exposed to the voltage. The instrument must be disconnected from all external power sources before performing maintenance and repair work. 
 
-[image1]: <data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAdCAYAAAAgqdWEAAABu0lEQVR4XsXUO1LDMBAGYOUQgZZwBS5CzTEYOhpuwSsQQyAYCBCeLeehoNkmpfBKu0JWtFg2TqyZv3HsyTe7v61UO0eHFzo58KE0J8+y7lDj/V8IvJvpaD2fdwPyIfBm08l0HIIhr5SX1YNECDzbdYUPLO34a3EIgsDMZiXTCSHKTsGEIfCk9Fe+gjL7a1EehIMQeCzysOTphP1QMQxBTKbLA0lFLWMIYXJvr7W+rlhRVQzjQeDOptXpxCB/YhhyS2mxzHsOwRAsaZGN9QgmAoGblqYjQbioKsREICaTf4J6PQ/BEETwGzONYBjBkAnl2v7eeF1VkBCzuy1D4Mqm0XSktTgIdoNeXU64FoNgyJhyqfQsz2uBkiDYD7yXkwKBC3d/2qmE0PcD+6F8TGQtDkEQyGyS1vWNfyr0I4TgWlSISYDASOmtQUKZ60DEogZrcZAR5bzIWcV0xLUIH7KUfkgQk6EMagTB5/yIEEQwZEg5tc8U69opSZquZQET6YcEgROb0nSaQnAtC5iaEDgucuSVuc5awn58HkQgQj8MgiGIIAgcetNpChH7URNSwuDZHAz0Wr/fSRCCa/oBFhI1S7MT7E8AAAAASUVORK5CYII=>
+Under the worst conditions (loss of supply voltage), a minimum waiting period of 36 minutes (2147 seconds) must be practiced after the module has been disconnected to allow internal capacitors to discharge to less than 0.5mJ. This duration takes system and component tolerances into account. Even if this time has passed, a voltage absence test is strongly recommended before handling the unit.
+
+## Safety symbols
+
+The module is equipped with relevant safety labels on the front panel. The explanation of these symbols are as below.
+
+### ISO 7010-0434: 2006-12
+
+This ISO 7010-W001: 2011-05 symbol indicates that caution is necessary when operating the device and the current situation needs operator awareness or operator action in order to avoid undesirable consequences. 
+
+{{ figure('../assets/ISO_7000_-_Ref-No_0434B.svg.png', 'Caution, refer to documentation') }}
+
+### ISO 7010-M002: 2011-05
+
+This ISO 7010-M002: 2011-05 symbol signifies that the instruction manual/booklet must be read before operating the module.
+
+{{ figure('../assets/ISO_7010_M002.svg.png', 'The user shall read the documentation') }}
+
+### IEC 60417-6042: 2010-11
+
+This IEC 60417-6042: 2010-11 symbol indicates that the equipment has a risk of electric shock.
+
+{{ figure('../assets/00caa820-937b-48f9-97b5-2c76a7efcfde_200.png', 'Caution, risk of electric shock') }}
+
+### IEC 60417-5416: 2015-04
+
+This IEC 60417-5416: 2015-04 symbol indicates the required capacitor self-discharge time at fault conditions. 
+
+The discharge time is defined as the duration required for the module to self-discharge its capacitors to 0.5 mJ, starting from the maximum allowable Port A voltage of 950 V, including the component tolerances.
+
+For this unit, the capacitors require 23 minutes to self-discharge at Port A and 36 minutes at Port B. Even though this time has passed, a voltage absence test is strongly recommended before handling the unit.
+
+{{ figure('../assets/8b9df904-6fed-4c7c-b61d-00f76192fd44_200.png', 'Capacitor discharge time') }}
+
+### IEC 60417-5041:2002-10
+
+This IEC 60417-5041:2002-10 indicates that the module can be hot and should not be touched without taking care. The cooling surfaces can reach up to the liquid temperature.
+
+{{ figure('../assets/3982ce31-e4b3-47dc-aae5-dbdaf4b15aa5_200.png', 'Caution, hot surface') }}

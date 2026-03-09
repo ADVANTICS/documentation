@@ -60,26 +60,26 @@ The module operates within a nominal voltage range of 750–950 V on Port A and 
 
 These limits, however, cannot be considered independently. Not all voltage combinations between Port A and Port B are permissible. The allowable Port B voltage range depends on the actual Port A voltage.
 
-Figure 4 illustrates the valid operating region. The enclosed area defines the permitted combinations of Port A and Port B voltages. Operation outside this boundary is not supported and may result in protective limitation or shutdown.
+{{ figref('fig-vrange') }} illustrates the valid operating region. The enclosed area defines the permitted combinations of Port A and Port B voltages. Operation outside this boundary is not supported and may result in protective limitation or shutdown.
 
-{{ figure('../assets/VoltageRangePortA_PortB.png', 'Permissible Port B voltage range vs. Port A voltage range') }}
+{{ figure('../assets/VoltageRangePortA_PortB.png', 'Permissible Port B voltage range vs. Port A voltage range', id='fig-vrange') }}
 
-As it can be seen in Figure 4, Port B can not reach 1500V unless Port A voltage is at least ~770V. A closer look at the top left corner of the envelope is shown in Figure 5.
+As it can be seen in {{ figref('fig-vrange') }}, Port B can not reach 1500V unless Port A voltage is at least ~770V. A closer look at the top left corner of the envelope is shown in {{ figref('fig-vrange-zoomed') }}.
 
-{{ figure('../assets/VoltageRangePortA_PortB_zoomedIn.png', 'Closer look at the top left corner of Figure 4') }}
+{{ figure('../assets/VoltageRangePortA_PortB_zoomedIn.png', 'Closer look at the top left corner of Figure 4', id='fig-vrange-zoomed') }}
 
 ## Maximum power vs. port A voltage
 
-The relationship between the maximum deliverable power and the Port A voltage is shown in Figure 6. The system output is limited to 100 kW, with a maximum Port A current of 120 A. The effective power ceiling is determined by whichever of these constraints is reached first. Operation beyond this defined envelope will trigger derating to maintain safe performance.
+The relationship between the maximum deliverable power and the Port A voltage is shown in {{ figref('fig-maxpower-va') }}. The system output is limited to 100 kW, with a maximum Port A current of 120 A. The effective power ceiling is determined by whichever of these constraints is reached first. Operation beyond this defined envelope will trigger derating to maintain safe performance.
 
-{{ figure('../assets/MaximumOutputPowervsPortAvoltage.png', 'Maximum output power vs. Port A voltage') }}
+{{ figure('../assets/MaximumOutputPowervsPortAvoltage.png', 'Maximum output power vs. Port A voltage', id='fig-maxpower-va') }}
 
 ## Maximum power vs. port B voltage
 
 
 The maximum power capability is also influenced by the Port B voltage. Output is constrained by the lower of the following limits:
 
-- The maximum power permitted as a function of VA (refer to Figure 6), or
+- The maximum power permitted as a function of VA (refer to {{ figref('fig-maxpower-va') }}), or
 - Port B current limit of 220 A.
 
 Whichever threshold is reached first defines the allowable operating point.
@@ -91,9 +91,9 @@ The module dynamically reconfigures its internal connections according to the re
 - If VB is less than 90 % of VA, the unit initializes in QP mode.
 - Otherwise, it initializes in QS mode.
 
-To prevent oscillation between configurations, a hysteresis mechanism governs the transition between QP and QS. The switchover behavior is depicted in Figure 7.
+To prevent oscillation between configurations, a hysteresis mechanism governs the transition between QP and QS. The switchover behavior is depicted in {{ figref('fig-hysteresis') }}.
 
-{{ figure('../assets/hysteresis.png', 'Hysteresis switchover based on VB/VA ratio') }}
+{{ figure('../assets/hysteresis.png', 'Hysteresis switchover based on VB/VA ratio', id='fig-hysteresis') }}
 
 
 **Example:**
