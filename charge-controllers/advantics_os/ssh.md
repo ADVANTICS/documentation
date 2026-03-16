@@ -128,3 +128,35 @@ Please note that here we're using the default profile (`default`), more steps mi
 ```bash
 docker image prune
 ```
+
+### Option 3 (does not requires internet): Loading the images from a .zip file
+
+This is for updating one or several of the application containers. Advantics provide you a _.zip_
+file. The process is to:
+
+1. Copy the update file to the controller following the guide here: [Copying files to the controller using SCP](#copying-files-to-the-controller-using-scp)
+
+2. [Login to the controller](#ssh-access)
+
+3. unzip the the file using:
+
+```bash
+$ unzip /path/to/zip/release.zip -d /path/to/your/release
+```
+
+(Replace `/path/to/zip/release.zip` with the actual path where you copied the _.zip_ release on the controller. And, replace`/path/to/your/release` with the actual path where you want to unzip the file on your controller. You can use the SD card `/mnt/sd`)
+
+4. access the release folder using the path you specified in the previous step:
+
+```bash
+$ cd /path/to/your/release
+```
+
+5. Apply the update using the update script `update-controller.sh` (the name of the update script can vary, you can use `ls` command on the directory where you unzipped the release to list the files and identify the update script)
+
+```bash
+$ ./path/to/your/release/update-controller.sh
+```
+ (Replace `/path/to/your/release` with the actual path to the release on your controller.)
+
+6. After the update is done, power cycle the controller
