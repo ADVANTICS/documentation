@@ -21,8 +21,8 @@
 | [EV_Energy_Request](#EV_Energy_Request) | 0x614 | 6 | IN | 100 |
 | [EV_V2X_Energy_Request](#EV_V2X_Energy_Request) | 0x615 | 4 | IN | 100 |
 | [EV_Extra_BPT_Information](#EV_Extra_BPT_Information) | 0x616 | 4 | IN | 100 |
-| [ADM_CS_EVCC_MEVC_Outputs](#ADM_CS_EVCC_MEVC_Outputs) | 0x617 | 8 | IN | 1000 |
-| [EV_Status](#EV_Status) | 0x618 | 8 | IN | 100 |
+| [ADM_CS_EVCC_MEVC_Outputs](#ADM_CS_EVCC_MEVC_Outputs) | 0x617 | 8 | IN |  |
+| [EV_Status](#EV_Status) | 0x618 | 8 | IN |  |
 
 </div>
 
@@ -2200,7 +2200,7 @@ The offset in seconds from the point in time of sending this message.
 |---|---|
 | **Frame ID** | 0x617 |
 | **Length [Bytes]** | 8 |
-| **Periodicity [ms]** | 1000 |
+| **Periodicity [ms]** |  |
 | **Direction** | IN |
 
 </div>
@@ -2210,6 +2210,7 @@ The offset in seconds from the point in time of sending this message.
 
 Controller (ADM-CS-EVCC and ADM-CS-MEVC hardware variant) has various outputs that
 can be controlled through this message.
+Only send when a change in the outputs is needed.
 
 ### Payload
 
@@ -2367,7 +2368,7 @@ Needs to be declared as monitored in `/srv/config.cfg`:
 |---|---|
 | **Frame ID** | 0x618 |
 | **Length [Bytes]** | 8 |
-| **Periodicity [ms]** | 100 |
+| **Periodicity [ms]** |  |
 | **Direction** | IN |
 
 </div>
@@ -2376,6 +2377,7 @@ Needs to be declared as monitored in `/srv/config.cfg`:
 ### Description
 
 Used to report the status of the EV (from BMS to charge controller)
+Only send when there is a change in the status.
 
 ### Payload
 

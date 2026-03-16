@@ -18,8 +18,8 @@
 | [AC_Status](#AC_Status) | 0x611 | 1 | IN | 100 |
 | [DC_Status1](#DC_Status1) | 0x612 | 4 | IN | 100 |
 | [DC_Status2](#DC_Status2) | 0x613 | 5 | IN | 100 |
-| [ADM_CS_EVCC_MEVC_Outputs](#ADM_CS_EVCC_MEVC_Outputs) | 0x617 | 8 | IN | 1000 |
-| [EV_Status](#EV_Status) | 0x618 | 8 | IN | 100 |
+| [ADM_CS_EVCC_MEVC_Outputs](#ADM_CS_EVCC_MEVC_Outputs) | 0x617 | 8 | IN |  |
+| [EV_Status](#EV_Status) | 0x618 | 8 | IN |  |
 
 </div>
 
@@ -1916,7 +1916,7 @@ Refer to <<CAN sensor>> documentation to know how the sensor should be wired.
 |---|---|
 | **Frame ID** | 0x617 |
 | **Length [Bytes]** | 8 |
-| **Periodicity [ms]** | 1000 |
+| **Periodicity [ms]** |  |
 | **Direction** | IN |
 
 </div>
@@ -1926,6 +1926,7 @@ Refer to <<CAN sensor>> documentation to know how the sensor should be wired.
 
 Controller (ADM-CS-EVCC and ADM-CS-MEVC hardware variant) has various outputs that
 can be controlled through this message.
+Only send when a change in the outputs is needed.
 
 ### Payload
 
@@ -2083,7 +2084,7 @@ Needs to be declared as monitored in `/srv/config.cfg`:
 |---|---|
 | **Frame ID** | 0x618 |
 | **Length [Bytes]** | 8 |
-| **Periodicity [ms]** | 100 |
+| **Periodicity [ms]** |  |
 | **Direction** | IN |
 
 </div>
@@ -2092,6 +2093,7 @@ Needs to be declared as monitored in `/srv/config.cfg`:
 ### Description
 
 Used to report the status of the EV (from BMS to charge controller)
+Only send when there is a change in the status.
 
 ### Payload
 
