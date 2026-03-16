@@ -279,5 +279,58 @@ Currently supported hardware are for `ADM-CS-MEVC`.
         </ul>
       </td>
     </tr>
+    <tr>
+      <td class="branch-col">Release 2.5</td>
+      <td class="date-col">2026-03-13</td>
+      <td>
+        <ul>
+          <li><strong>pev-controller 2.4.0</strong>
+            <ul>
+              <li>Fixed checking DC contactors state and DC messages during emergency while AC charging</li>
+              <li>Fixed inputs/outputs messages being incorrectly reset between sessions</li>
+              <li>Fixed inputs message being sent with wrong values before initialization completes (startup race condition)</li>
+              <li>Fixed channel reset and related miscellaneous state issues</li>
+              <li>Contactors opening: raised the current-below-limit threshold to 5 A; added a configurable timeout after which contactors open unconditionally if current doesn't drop below limit</li>
+              <li>Startup safety: inputs messages are now suppressed until hardware I/O initialization is fully complete</li>
+              <li>Temperature: median filter is now applied to temperature sensor inputs</li>
+              <li>GC performance: persistent objects are now untracked from the garbage collector to reduce GC overhead</li>
+            </ul>
+          </li>
+          <li><strong>ccs-evcc 2.5.0</strong>
+            <ul>
+              <li>Fixed bug where frontend did not send Closing_Communication stage to backend in EmergencyShutdownState</li>
+              <li>Improved power permit handling</li>
+              <li>Moved CP state reporting to the PLC reading level to eliminate wrong-state reports</li>
+              <li>Fixed alarm cancelled more than once on protocol reset (cancel only once per exit)</li>
+              <li>bcb_toggle_detected called from unexpected states now handled gracefully (no-op)</li>
+              <li>Skip CP filtering while resuming a paused session, to correctly detect the B1→B2 transition</li>
+              <li>Allow session resume only when the previous session is fully over</li>
+            </ul>
+          </li>
+          <li><strong>advantics-csm 1.7.0</strong>
+            <ul>
+              <li>Fix logic while exporting logs, server would respond with error code and nothing attached</li>
+              <li>Add the ability to generate sample config for every controller</li>
+              <li>Fix dynamic voltage meter bar in monitoring and use kW for power metering instead of W</li>
+              <li>Remove unused items from navigation side bar</li>
+              <li>Minor improvements</li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><strong>Dockerhub update:</strong> Pull from Docker hub — <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=option-1-requires-internet-pulling-the-update-from-docker-hub">Guide</a></li>
+          <li><strong>.zip update:</strong> <a href="https://pub-ec884f5e1c6b4942867b3ac199d79823.r2.dev/mevc/mevc-release-2.5.zip">Download .zip (Release 2.5)</a> — <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=option-3-does-not-requires-internet-loading-the-images-from-a-zip-file">Update instructions</a></li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><a href="https://hub.docker.com/r/advantics/pev-controller/tags">advantics/pev-controller:2.4.0</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/ccs-evcc/tags">advantics/ccs-evcc:2.5.0</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/advantics-csm/tags">advantics/advantics-csm:1.7.0</a></li>
+        </ul>
+      </td>
+    </tr>
   </tbody>
 </table>

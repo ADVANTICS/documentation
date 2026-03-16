@@ -230,5 +230,52 @@ They are slow paced because the release process is substantial.
         </ul>
       </td>
     </tr>
+    <tr>
+      <td class="branch-col">Release 4.3</td>
+      <td class="date-col">2026-03-13</td>
+      <td>
+        <ul>
+          <li><strong>evse-controller 3.5.0</strong>
+            <ul>
+              <li>Inputs messages are now suppressed until hardware I/O initialization is fully complete (startup safety)</li>
+              <li>Add CAN message ADM_CS_SPCC_Outputs to control the ADM-CS-SPCC outputs</li>
+              <li>Frontend is notified when a session ends while the pistol is still plugged in, so the CP oscillator can be disabled promptly</li>
+              <li>Temperature median filter window is now configurable (SECC/SPCC)</li>
+              <li>Fixed encoding of negative target_voltage values sent by the car</li>
+            </ul>
+          </li>
+          <li><strong>ccs-secc 2.5.0</strong>
+            <ul>
+              <li>Ignore spurious CE change to B0 when Ss3 is still closed (erroneous measurement during B→C transition)</li>
+              <li>Reset charger info and charger request-stop flag at the start of each new session</li>
+              <li>Disabled the CP oscillator at end of session</li>
+            </ul>
+          </li>
+          <li><strong>advantics-csm 1.7.0</strong>
+            <ul>
+              <li>Fix logic while exporting logs, server would respond with error code and nothing attached</li>
+              <li>Add the ability to generate sample config for every controller</li>
+              <li>Fix dynamic voltage meter bar in monitoring and use kW for power metering instead of W</li>
+              <li>Remove unused items from navigation side bar</li>
+              <li>Minor improvements</li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><strong>Dockerhub update:</strong> Pull from Docker Hub - <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=option-1-requires-internet-pulling-the-update-from-docker-hub">Guide</a></li>
+          <li><strong>.zip update:</strong> <a href="https://pub-ec884f5e1c6b4942867b3ac199d79823.r2.dev/spcc/spcc-release-4.3.zip">Download .zip</a> + <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=option-3-does-not-requires-internet-loading-the-images-from-a-zip-file">Update instructions</a></li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><a href="https://hub.docker.com/r/advantics/evse-controller/tags">advantics/evse-controller:3.6.0</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/ccs-secc/tags">advantics/ccs-secc:2.5.0</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/slac-evse/tags">advantics/slac-evse:2.3.2</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/advantics-csm/tags">advantics/advantics-csm:1.7.0</a></li>
+        </ul>
+      </td>
+    </tr>
   </tbody>
 </table>
