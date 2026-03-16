@@ -11,6 +11,7 @@
 | [DC_Power_Parameters](#DC_Power_Parameters) | 0x63001 | 8 | IN |  |
 | [Sequence_Control](#Sequence_Control) | 0x63002 | 3 | IN |  |
 | [ADM_CS_SECC_Outputs](#ADM_CS_SECC_Outputs) | 0x63201 | 8 | IN | 1000 |
+| [ADM_CS_SPCC_Outputs](#ADM_CS_SPCC_Outputs) | 0x63202 | 8 | IN | 1000 |
 | [Advantics_Controller_Status](#Advantics_Controller_Status) | 0x6b000 | 1 | OUT | 100 |
 | [New_Charge_Session](#New_Charge_Session) | 0x6b001 | 2 | OUT | 100 |
 | [Charge_Status_Change](#Charge_Status_Change) | 0x6b002 | 1 | OUT |  |
@@ -669,6 +670,94 @@ Reserved bits for future uses.
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 4 | 60 | Unsigned |  | 1 | 0 |  |  |
+
+</div>
+
+
+
+<a id="ADM_CS_SPCC_Outputs"></a>
+## ADM_CS_SPCC_Outputs
+
+
+<div class="noheader-table small-table compact-table">
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x63202 |
+| **Length [Bytes]** | 8 |
+| **Periodicity [ms]** | 1000 |
+| **Direction** | IN |
+
+</div>
+
+
+### Description
+
+Controller (ADM-CS-SPCC hardware variant) has various outputs that
+can be controlled through this message.
+
+### Payload
+
+
+<div class="small-table compact-table">
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Digital_Output1 | 1 | Single bit |
+| Digital_Output2 | 1 | Single bit |
+| Reserved | 62 | Unsigned |
+
+</div>
+
+
+### Payload description
+
+#### Digital_Output1 :id=ADM_CS_SPCC_Outputs-Digital_Output1
+
+Sets the logical state of DIG_OUT1 (CONN5, position 1).
+Needs to be declared as CAN Controlled in the config file:
+
+    [hardware]
+    dig_out1 = CAN_Controlled
+
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 1 | Single bit |  | 1 | 0 | 0 | 1 |
+
+</div>
+
+
+#### Digital_Output2 :id=ADM_CS_SPCC_Outputs-Digital_Output2
+
+Reports the logical state of DIG_OUT2 (CONN5, position 2).
+Needs to be declared as CAN Controlled in the config file:
+
+    [hardware]
+    dig_out2 = CAN_Controlled
+
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 1 | 1 | Single bit |  | 1 | 0 | 0 | 1 |
+
+</div>
+
+
+#### Reserved :id=ADM_CS_SPCC_Outputs-Reserved
+
+Reserved bits for future uses.
+
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 2 | 62 | Unsigned |  | 1 | 0 |  |  |
 
 </div>
 
