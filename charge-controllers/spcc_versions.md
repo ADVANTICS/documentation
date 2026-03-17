@@ -239,7 +239,6 @@ They are slow paced because the release process is substantial.
             <ul>
               <li>Inputs messages are now suppressed until hardware I/O initialization is fully complete (startup safety)</li>
               <li>Add CAN message ADM_CS_SPCC_Outputs to control the ADM-CS-SPCC outputs</li>
-              <li>Frontend is notified when a session ends while the pistol is still plugged in, so the CP oscillator can be disabled promptly</li>
               <li>Temperature median filter window is now configurable (SECC/SPCC)</li>
               <li>Fixed encoding of negative target_voltage values sent by the car</li>
             </ul>
@@ -247,7 +246,6 @@ They are slow paced because the release process is substantial.
           <li><strong>ccs-secc 2.5.0</strong>
             <ul>
               <li>Ignore spurious CE change to B0 when Ss3 is still closed (erroneous measurement during B→C transition)</li>
-              <li>Reset charger info and charger request-stop flag at the start of each new session</li>
               <li>Disabled the CP oscillator at end of session</li>
             </ul>
           </li>
