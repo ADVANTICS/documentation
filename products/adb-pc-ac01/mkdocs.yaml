@@ -31,8 +31,8 @@ theme:
 
     # Dark theme
     - scheme: slate
-      primary: black
-      accent: black
+      primary: white
+      accent: white
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
