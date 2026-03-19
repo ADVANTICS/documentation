@@ -43,19 +43,19 @@ Under the worst conditions (loss of supply voltage), a minimum waiting period of
 
 # Safety symbols
 
-ADB-PC-DC01 module is equipped with relevant safety labels on the front panel. The explanation of these symbols are as below.
+ADB-PC-DC01 module is equipped with relevant safety labels on the front panel. The explanation of each symbol is provided  below.
 
-### ISO 7010-0434: 2006-12
+### ISO 7010-W001: 2011-05
 
 The ISO 7010-0434: 2006-12 symbol indicates that caution is necessary when operating the device and the current situation needs operator awareness or operator action in order to avoid undesirable consequences. 
 
-{{ figure('../assets/ISO_7000_-_Ref-No_0434B.svg.png', 'Caution, refer to documentation') }}
+{{ figure('../assets/ISO_7000_-_Ref-No_0434B.svg.png', 'General safety warning') }}
 
 ### ISO 7010-M002: 2011-05
 
 The ISO 7010-M002: 2011-05 symbol signifies that the instruction manual/booklet must be read before operating the module.
 
-{{ figure('../assets/ISO_7010_M002.svg.png', 'The user shall read the documentation') }}
+{{ figure('../assets/ISO_7010_M002.svg.png', 'Refer to instruction manual/booklet') }}
 
 ### IEC 60417-6042: 2010-11
 
