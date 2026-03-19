@@ -47,25 +47,25 @@ The module is equipped with relevant safety labels on the front panel. The expla
 
 ### ISO 7010-0434: 2006-12
 
-This ISO 7010-W001: 2011-05 symbol indicates that caution is necessary when operating the device and the current situation needs operator awareness or operator action in order to avoid undesirable consequences. 
+The ISO 7010-0434: 2006-12 symbol indicates that caution is necessary when operating the device and the current situation needs operator awareness or operator action in order to avoid undesirable consequences. 
 
 {{ figure('../assets/ISO_7000_-_Ref-No_0434B.svg.png', 'Caution, refer to documentation') }}
 
 ### ISO 7010-M002: 2011-05
 
-This ISO 7010-M002: 2011-05 symbol signifies that the instruction manual/booklet must be read before operating the module.
+The ISO 7010-M002: 2011-05 symbol signifies that the instruction manual/booklet must be read before operating the module.
 
 {{ figure('../assets/ISO_7010_M002.svg.png', 'The user shall read the documentation') }}
 
 ### IEC 60417-6042: 2010-11
 
-This IEC 60417-6042: 2010-11 symbol indicates that the equipment has a risk of electric shock.
+The IEC 60417-6042: 2010-11 symbol indicates that the equipment has a risk of electric shock.
 
 {{ figure('../assets/00caa820-937b-48f9-97b5-2c76a7efcfde_200.png', 'Caution, risk of electric shock') }}
 
 ### IEC 60417-5416: 2015-04
 
-This IEC 60417-5416: 2015-04 symbol indicates the required capacitor self-discharge time at fault conditions. 
+The IEC 60417-5416: 2015-04 symbol indicates the required capacitor self-discharge time at fault conditions. 
 
 The discharge time is defined as the duration required for the module to self-discharge its capacitors to 0.5 mJ, starting from the maximum allowable Port A voltage of 950 V, including the component tolerances.
 
@@ -75,6 +75,6 @@ For this unit, the capacitors require 23 minutes to self-discharge at Port A and
 
 ### IEC 60417-5041:2002-10
 
-This IEC 60417-5041:2002-10 indicates that the module can be hot and should not be touched without taking care. The cooling surfaces can reach up to the liquid temperature.
+The IEC 60417-5041:2002-10 indicates that the module can be hot and should not be touched without taking care. The cooling surfaces can reach up to the liquid temperature.
 
 {{ figure('../assets/3982ce31-e4b3-47dc-aae5-dbdaf4b15aa5_200.png', 'Caution, hot surface') }}
