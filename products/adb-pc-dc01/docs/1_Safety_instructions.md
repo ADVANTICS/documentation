@@ -47,9 +47,9 @@ ADB-PC-DC01 module is equipped with relevant safety labels on the front panel. T
 
 ### ISO 7010-W001: 2011-05
 
-The ISO 7010-0434: 2006-12 symbol indicates that caution is necessary when operating the device and the current situation needs operator awareness or operator action in order to avoid undesirable consequences. 
+The ISO 7010-0434: 2006-12 symbol indicates that caution is necessary when operating the device and the current situation needs operator awareness and action to avoid undesirable consequences. 
 
-{{ figure('../assets/ISO_7000_-_Ref-No_0434B.svg.png', 'General safety warning') }}
+{{ figure('../assets/General warning.png', 'General safety warning') }}
 
 ### ISO 7010-M002: 2011-05
 
