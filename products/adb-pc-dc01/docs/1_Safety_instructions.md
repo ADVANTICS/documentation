@@ -32,8 +32,8 @@ If safe operation of the instrument can no longer be assumed, it must be removed
 - The module, power cables or any cables show visible damage  
 - The module no longer functions  
 - The module shows very dirty conditions because of dust etc.   
-- After lengthy periods of storage under unfavorable conditions  
-- After exposure to unusual transport stresses.
+- After lengthy periods of storage under unfavourable conditions  
+- After exposure to unusual transport stresses
 
 ## Power disconnection before handling
 
