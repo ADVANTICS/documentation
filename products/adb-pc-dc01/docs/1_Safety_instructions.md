@@ -43,41 +43,7 @@ Under the worst conditions (loss of supply voltage), a minimum waiting period of
 
 # Safety symbols
 
-ADB-PC-DC01 module is equipped with relevant safety labels on the front panel. The explanation of each symbol is provided  below.
-
-### ISO 7010-W001: 2011-05
-
-The ISO 7010-W001: 2011-05 symbol indicates that caution is necessary when operating the device and the current situation needs operator awareness and action to avoid undesirable consequences. 
-
-{{ figure('../assets/General warning.png', 'General safety warning') }}
-
-### ISO 7010-M002: 2011-05
-
-The ISO 7010-M002: 2011-05 symbol signifies that the instruction manual/booklet must be read before operating the module.
-
-{{ figure('../assets/Refer to instruction manualbooklet.png', 'Refer to instruction manual/booklet') }}
-
-### IEC 60417-6042: 2010-11
-
-The IEC 60417-6042: 2010-11 symbol indicates that the equipment has a risk of electric shock.
-
-{{ figure('../assets/Caution, risk of electric shock.png', 'Caution, risk of electric shock') }}
-
-### IEC 60417-5416: 2015-04
-
-The IEC 60417-5416: 2015-04 symbol indicates the required capacitor self-discharge time at fault conditions. 
-
-The discharge time is defined as the duration required for the module to self-discharge its capacitors to 0.5 mJ, starting from the maximum allowable Port A voltage of 950 V, including the component tolerances.
-
-For this unit, the capacitors require 23 minutes to self-discharge at Port A and 36 minutes at Port B. Even though this time has passed, a voltage absence test is strongly recommended before handling the unit.
-
-{{ figure('../assets/Remaining time display; processing.png', 'Capacitor discharge time') }}
-
-### IEC 60417-5041:2002-10
-
-The IEC 60417-5041:2002-10 indicates that the module can be hot and should not be touched without taking care. The cooling surfaces can reach up to the liquid temperature.
-
-{{ figure('../assets/Caution, hot surface.png', 'Caution, hot surface') }}
+ADB-PC-DC01 module is equipped with relevant safety labels on the front panel. A clear description of each symbol is provided  below.
 
 | Symbol | Standard | Description |
 |--------|----------|-------------|
