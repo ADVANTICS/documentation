@@ -41,6 +41,7 @@ Maintenance, repair, or internal balancing may only be performed by trained pers
 
 Under the worst conditions (loss of supply voltage), a minimum waiting period of 36 minutes (2147 seconds) must be practiced after the module has been disconnected to allow internal capacitors to discharge to less than 0.5mJ. This duration takes system and component tolerances into account. Even if this time has passed, a voltage absence test is strongly recommended before handling the unit.
 
+
 # Safety symbols
 
 ADB-PC-DC01 module is equipped with relevant safety labels on the front panel. A clear description of each symbol is provided  below.
