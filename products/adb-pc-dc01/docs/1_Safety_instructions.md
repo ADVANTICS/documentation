@@ -55,13 +55,13 @@ The ISO 7010-W001: 2011-05 symbol indicates that caution is necessary when opera
 
 The ISO 7010-M002: 2011-05 symbol signifies that the instruction manual/booklet must be read before operating the module.
 
-{{ figure('../assets/ISO_7010_M002.svg.png', 'Refer to instruction manual/booklet') }}
+{{ figure('../assets/Refer to instruction manualbooklet.png', 'Refer to instruction manual/booklet') }}
 
 ### IEC 60417-6042: 2010-11
 
 The IEC 60417-6042: 2010-11 symbol indicates that the equipment has a risk of electric shock.
 
-{{ figure('../assets/00caa820-937b-48f9-97b5-2c76a7efcfde_200.png', 'Caution, risk of electric shock') }}
+{{ figure('../assets/Caution, risk of electric shock.png', 'Caution, risk of electric shock') }}
 
 ### IEC 60417-5416: 2015-04
 
@@ -71,10 +71,10 @@ The discharge time is defined as the duration required for the module to self-di
 
 For this unit, the capacitors require 23 minutes to self-discharge at Port A and 36 minutes at Port B. Even though this time has passed, a voltage absence test is strongly recommended before handling the unit.
 
-{{ figure('../assets/8b9df904-6fed-4c7c-b61d-00f76192fd44_200.png', 'Capacitor discharge time') }}
+{{ figure('../assets/Remaining time display; processing.png', 'Capacitor discharge time') }}
 
 ### IEC 60417-5041:2002-10
 
 The IEC 60417-5041:2002-10 indicates that the module can be hot and should not be touched without taking care. The cooling surfaces can reach up to the liquid temperature.
 
-{{ figure('../assets/3982ce31-e4b3-47dc-aae5-dbdaf4b15aa5_200.png', 'Caution, hot surface') }}
+{{ figure('../assets/Caution, hot surface.png', 'Caution, hot surface') }}
