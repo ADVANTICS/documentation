@@ -1,11 +1,5 @@
 ---
-import {
-  contactText,
-  releaseStates,
-  releaseStatusMap,
-} from "@/assets/consts/products";
 import Button from "@/components/core/Button.astro";
-import Ribbon from "@/components/features/products/FoldedRibbon.astro";
 import { Image } from "astro:assets";
 import type { CollectionEntry } from "astro:content";
 
@@ -16,21 +10,11 @@ interface Props {
 
 const {
   product: {
-    id,
     data: {
-      releaseStatus,
       storeHref,
       codename,
-      techData,
-      card: {
-        keyPoints,
-        alt,
-        imgScale = "1",
-        imgRotation = "-10deg",
-        name,
-        img,
-        description,
-      },
+      docsHref,
+      card: { alt, imgScale = "1", imgRotation = "-10deg", name, img },
     },
   },
 } = Astro.props;
@@ -39,20 +23,11 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/img/products/*.{webp,jpeg,jpg,png}",
 );
 
-const hasVariants = Object.keys(techData).length > 1;
+const docsURL = docsHref ? docsHref : `/${codename.toLowerCase()}`;
 ---
 
 <article class="card">
   <div class="imgBx">
-    {
-      releaseStatus && (
-        <>
-          <Ribbon text={releaseStatusMap[releaseStatus].ribbon} />
-          <div class="h-12 w-full xl:hidden" />
-        </>
-      )
-    }
-
     <a href={`/${codename.toLowerCase()}`}>
       <Image src={images[img]()} {alt} />
     </a>
@@ -102,15 +77,21 @@ const hasVariants = Object.keys(techData).length > 1;
         "mt-6 mb-2 place-self-center self-end",
       ]}
     >
-      <Button
-        as="a"
-        href={`/${codename.toLowerCase()}`}
-        flavor="content"
-        class:list={[
-          // storeHref === "#" ? "justify-self-start" : "",
-          "rounded-md px-6 py-3 font-bold tracking-wide drop-shadow-md",
-        ]}>Details</Button
-      >
+      {
+        docsURL && (
+          <Button
+            as="a"
+            href={docsURL}
+            flavor="content"
+            class:list={[
+              // storeHref === "#" ? "justify-self-start" : "",
+              "rounded-md px-6 py-3 font-bold tracking-wide drop-shadow-md",
+            ]}
+          >
+            Details
+          </Button>
+        )
+      }
       <!-- { -->
       <!-- 	storeHref && ( -->
       <!-- 		<Button -->
