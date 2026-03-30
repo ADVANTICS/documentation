@@ -235,7 +235,7 @@ They are slow paced because the release process is substantial.
       <td class="date-col">2026-03-13</td>
       <td>
         <ul>
-          <li><strong>evse-controller 3.5.0</strong>
+          <li><strong>evse-controller 3.6.0</strong>
             <ul>
               <li>Inputs messages are now suppressed until hardware I/O initialization is fully complete (startup safety)</li>
               <li>Add CAN message ADM_CS_SPCC_Outputs to control the ADM-CS-SPCC outputs</li>
