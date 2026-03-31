@@ -76,7 +76,7 @@ In the example mentioned below, the MCS charger is built using:
 - 1MW AC/DC PFC Building block based on the ADB-PC-AC01 power module  
 - 1MW DC/DC isolated Building block based on the ADB-PC-DC01 power module
 
-{{ figure('../assets/ac01_dc01_mcs_example.webp', 'MCS charger system architecture using ADB-PC-AC01 and ADB-PC-DC01') }}
+{{ figure('../assets/ac01_dc01_mcs_example.webp', 'MCS charger system architecture using ADAVNTICS modules') }}
 
 ## Compliance and Standards
 
