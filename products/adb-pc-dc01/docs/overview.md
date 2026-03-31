@@ -1,5 +1,7 @@
 # Module Overview
 
+{{ figure('../assets/ADB-PC-DC01_9.jpg', 'Physical view of the ADB-PC-DC01 power converter') }}
+
 The ADVANTICS module, <span style="color:#00A89D;"><strong>ADB-PC-DC01</strong></span> is a high-performance 100kW 1500V DC/DC isolated power converter. Built with advanced Silicon Carbide (SiC) technology, this module delivers ultra-high efficiency and power quality in a compact, robust package.
 
 !!! info "Key Features"
@@ -54,7 +56,7 @@ The ADB-PC-DC01 is suitable for a wide range of applications requiring isolated 
 
 ## System Architecture
 
-The ADB-PC-DC01 is designed as part of the modular ADB Series system, allowing for flexible configuration and scaling to MW-level power systems.
+The ADB-PC-DC01 module allows flexible configuration and scaling to MW-level power systems.
 
 ### Key Architectural Features:
 
@@ -63,20 +65,22 @@ The ADB-PC-DC01 is designed as part of the modular ADB Series system, allowing f
 - **Integrated Gateway**: Enables firmware updates and cybersecurity features
 - **Intelligent Droop Technology**: Automatic load sharing in parallel configurations
 
-### Application example: MCS (Megawatt Charging System)
+### Application example: Megawatt Charging System (MCS)
 
-The modular design of ADVANTICS's ADB power modules series allows creating creating megawatt level systems using 1 MW building blocks in 100kW steps.  
-**These 1MW building block can be duplicated as much as needed to reach the targeted power level.**  
-In our example here, the MCS charger is built using:  
+The modular design of ADVANTICS's power modules allows creating creating megawatt level systems using 1 MW building blocks in 100 kW steps.  
+
+**These 1 MW building block can be duplicated as much as needed to reach the targeted power level.**  
+
+In the example mentioned below, the MCS charger is built using:  
 
 - 1MW AC/DC PFC Building block based on the ADB-PC-AC01 power module  
 - 1MW DC/DC isolated Building block based on the ADB-PC-DC01 power module
 
-{{ figure('../assets/ac01_dc01_mcs_example.webp', 'System Architecture') }}
+{{ figure('../assets/ac01_dc01_mcs_example.webp', 'MCS charger system architecture using ADB-PC-AC01 and ADB-PC-DC01') }}
 
 ## Compliance and Standards
 
-The ADB-PC-DC01 is designed to meet major international standards:
+The ADB-PC-DC01 module is designed to meet all major international standards:
 
 ### Safety Standards
 - IEC 61851-1 (Electric vehicle conductive charging system)
@@ -89,11 +93,11 @@ The ADB-PC-DC01 is designed to meet major international standards:
 
 
 ### Electromagnetic Compatibility
-- EMC Class A or B with external filter (depending on system size and requirements)
+EMC Class A or B with external filter (depending on system size and requirements)
 
 ## Design Philosophy
 
-As a vertically integrated company, Advantics maintains complete control over the design and manufacturing process:
+ADVANTICS maintains complete control over the design and manufacturing process:
 
 !!! note "Vertical Integration Benefits"
     - No reliance on third-party "black boxes" - software or hardware
@@ -103,11 +107,11 @@ As a vertically integrated company, Advantics maintains complete control over th
     - Comprehensive technical support
     - Long-term product availability
 
-All Advantics products are proudly designed and manufactured in the European Union, ensuring high quality standards and supply chain reliability.
+Our products are proudly designed and manufactured in the European Union, ensuring high quality standards and supply chain reliability.
 
 ## Environmental Responsibility
 
-The ADB-PC-DC01 is designed with environmental considerations:
+The ADB-PC-DC01 module is designed with environmental considerations:
 
 - High efficiency reduces energy consumption and carbon footprint
 - Liquid cooling lowers the ambient noise level and increases reliability
