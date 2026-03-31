@@ -1,6 +1,6 @@
 # Module Overview
 
-{{ figure('../assets/ADB-PC-DC01_9.jpg', 'Physical view of the ADB-PC-DC01 power converter') }}
+{{ figure('../assets/ADB-PC-DC01 9.jpg', 'Physical view of the ADB-PC-DC01 power converter') }}
 
 The ADVANTICS module, <span style="color:#00A89D;"><strong>ADB-PC-DC01</strong></span> is a high-performance 100kW 1500V DC/DC isolated power converter. Built with advanced Silicon Carbide (SiC) technology, this module delivers ultra-high efficiency and power quality in a compact, robust package.
 
