@@ -112,7 +112,7 @@ markdown_extensions:
 nav:
   - "Get Started here": "index.md"
   - "Safety Instructions": "1_Safety_instructions.md"
-  - "Overview": "overview.md"
+  - "Module Overview": "overview.md"
   - "Electrical Specifications": "electrical_specs.md"
   - "Mechanical Specifications": "mechanical_specs.md"
   - "Connectors": "connectors.md"
