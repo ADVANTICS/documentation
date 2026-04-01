@@ -4,10 +4,6 @@ The ADB-PC-DC01 is designed to be a building block of bidirectional battery char
 
 The module is able to operate over a very wide range of Port B voltages between 200V and 1500V, where Port A is kept within 750V and 950V.  This is achieved using a novel interconnection strategy that utilizes the galvanic isolation to boost the output voltage above the input voltage, thus reaching the voltages required for different applications, while maintaining excellent conversion efficiency.
 
-## Applications
-
-The ADB-PC-DC01 is suited for high power electric-vehicle DC charging, covering CCS1, CCS2, NACS, CHAdeMO and MCS. It integrates cleanly with energy-storage systems and supports full V2G operation thanks to it bidirectional topology that is designed to meet stringent reinforced insulation requirements. It can be used in any application that requires a large voltage regulation along with isolated bidirectionality, such as V2G systems. These applications require a wide voltage range to allow all kinds of vehicle types to be connected. Additionally, it functions effectively in EV chargers and charger simulators, DC voltage isolation and conversion aboard ships, mining equipment, or as a laboratory-grade isolated bidirectional power source. The design maintains reliability in harsh locations, including marine, coastal, and mining environments.
-
 Even though the module is fully bidirectional, port A and port B are not symmetrical due to the supported voltage ranges and use cases for each port. When deploying the DC01, this asymmetry should be kept in mind. 
 
 ADB-PC-DC01 can regulate the voltage at either Port A or Port B, but not both at the same time. It is up to the user’s discretion to choose which side needs regulation and make the connections accordingly.
