@@ -134,7 +134,7 @@ nav:
         - "CAN bus overview": "can_bus_overview.md"
         - "CAN bus messages": "can_bus_interface.md"
     - "Specification drawings": "specification_drawings.md"
-    - "ADVANTICS Flash Programming Utility (AFPU) User Manual": "AFPU_User_Manual.md"
+    - "AFPU User Manual": "AFPU_User_Manual.md"
     - "Datasheet": "ADM-PC-BI25_DATASHEET.md"
 
 # Extra configurations
