@@ -1,6 +1,4 @@
-# Mechanical Specifications
-
-## Dimentions
+# Mechanical Overview
 
 {{ figure('../assets/ADB-PC-DC01_3D.png', 'ADB-PC-DC01 3D model') }}
 
@@ -16,30 +14,31 @@
 
 ## Liquid Cooling
 
-The ADB-PC-XXXX are watercooled power converters.
+The ADB-PC-XXXX modules, including DC01 and AC01, are water cooled power converters.
 
-Each unit has 4 ports - two for top plate, two for bottom plate. To simplify the integration, the units come with the left-side top+bottom ports interconnected from the factory.
+Each unit has 4 ports: two for top plate, two for bottom plate. To simplify the integration, the units come with the left-side top and bottom ports interconnected from the factory.
 
-The recommended flow of water would look like this. Color indicates the temperature rise, arrows indicate flow direction
+The recommended flow of water would look as shown below. The red, blue and orange colours indicate the temperature rise and arrows indicate the flow direction.
 
 <!-- ![image.png](assets/ADB-PC-XXXX_liquid_flow.png) -->
-{{ figure('../assets/ADB-PC-XXXX_liquid_flow.png', 'Liquid flow') }}
+{{ figure('../assets/ADB-PC-XXXX_liquid_flow.png', 'Liquid flow in the water cooling process') }}
 
 ### Heat dissipation
 
-Thermal dissipation of each unit depends on operational conditions - voltage, current, power level. Typical head load can be calculated by multiplying the processed power by the efficiency figure at that operation point.
+Thermal dissipation of each unit depends on operational conditions such as voltage, current and power level. Its typical head load can be calculated by multiplying the processed power by the efficiency figure at that operation point.
 
-A typical loss would be: 100 kW * 0.98 = 2 kW
+A typical loss would be: 100 kW x 0.98 = 2 kW
+
 For the exact loss for a specific setpoint, please consult the efficiency map.
 2kW of heat generation per converter would result in 6.5 &deg;C temperature rise (inlet to outlet, 5 l/min).
 
 The system has a very high inertia, thanks to the aluminium heatsink and the liquid loop. That means it can take a long time (20 minutes in some cases) before you see a significant heat buildup.
-This can be used to improve noise profile - the heat exchanger (radiator) doesn't need to run at all times. However, **never switch off the coolant flow (pump) during operation.** You don't need to run the pump system if there is no power flowing.
+This can be used to improve noise profile - the heat exchanger (radiator) doesn't need to run at all times. However, **never switch off the coolant flow pump during operation.** You do not need to run the pump system if there is no power flowing.
 
 !!! tip
 
-    It is ok to run power converters on a testbench without any cooling at all, for prototyping or (supervised) testing scenarios.
-    However monitor the temperatures and don't push the system to it's limits if no cooling is present.
+    It is OK to run power converters on a testbench without any cooling at all, for prototyping or supervised testing scenarios.
+    However, monitor the temperatures and do not push the system to its limits if no cooling is present.
 
 
 ### Flow and temperature rise
@@ -73,5 +72,4 @@ The bottom-to-top cooling plate interconnect is handled by a pre-installed hose 
 
 ### No-drip alternatives
 
-There are a number of no-drip fittings that can be installed instead of the straight barbed fitting.
-However, given that the hose connects to the manifold (distributor), it makes more sense to place the no-drip fittings there (so the disconnection happens on the manifold side, not on the converter side).
+There are a number of no-drip fittings that can be installed instead of the straight barbed fitting. However, given that the hose connects to the manifold distributor, it is recommended to place the no-drip fittings there, so the disconnection happens on the manifold side, not on the converter side.
