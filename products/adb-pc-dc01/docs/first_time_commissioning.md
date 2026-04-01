@@ -2,7 +2,7 @@
 
 ### **Introduction**
 
-This tutorial is for first-time users, engineers, or technicians.
+This tutorial is for first-time users, engineers, and technicians operating the ADB-PC-DC01 module.
 
 **Our goal:** To guide you safely from unboxing your new converter to a successful first power-on. 
 
