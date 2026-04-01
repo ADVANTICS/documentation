@@ -113,17 +113,18 @@ nav:
   - "Get Started here": "index.md"
   - "1. Safety Instructions": "1_Safety_instructions.md"
   - "2. Module Overview": "overview.md"
-  - "3. Theory of Operation": "operation.md"
-  - "4. Technical Overview":
-    - "4.1. Electrical Overview": "electrical_specs.md"
-    - "4.2. Mechanical Overview": "mechanical_specs.md"
-  - "5. Connectors": "connectors.md"
-  - "6. First-Time Commissioning": "first_time_commissioning.md"
-  - "7. Installation": "installation.md"
-  - "8. Rack Design" : "rack_design.md"
-  - "9. Servicing" : "8. Servicing.md"
-  - "10. Disposal" : "9. Disposal.md"
-  - "11. References":
+  - "3. Applications": "4. Applications.md"
+  - "4. Theory of Operation": "operation.md"
+  - "5. Technical Overview":
+    - "5.1. Electrical Overview": "electrical_specs.md"
+    - "5.2. Mechanical Overview": "mechanical_specs.md"
+  - "6. Connectors": "connectors.md"
+  - "7. First-Time Commissioning": "first_time_commissioning.md"
+  - "8. Installation": "installation.md"
+  - "9. Rack Design" : "rack_design.md"
+  - "10. Servicing" : "8. Servicing.md"
+  - "11. Disposal" : "9. Disposal.md"
+  - "12. References":
     - "CAN Bus Interface":
       - "CAN bus overview": "can_bus_overview.md"
       - "CAN bus messages": "can_bus_interface.md"
