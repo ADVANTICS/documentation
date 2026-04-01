@@ -2,16 +2,9 @@
 
 ### **Introduction**
 
-Welcome to the ADB-PC-DC01! This tutorial is for first-time users, engineers, or technicians.
+This tutorial is for first-time users, engineers, or technicians.
 
 **Our goal:** To guide you safely from unboxing your new converter to a successful first power-on. 
-
-This document is intended only as a simplified introduction to the product. For complete technical specifications and advanced procedures, always refer to the main **Guides** section. This document is not exhaustive. Any safety information included here is provided solely for convenience and in good faith.
-
-You are responsible for ensuring full compliance with all applicable laws, standards, and safety regulations in your country or region. ADVANTICS assumes no liability for any injury, damage, or loss resulting from the installation, operation, or misuse of this equipment.
-
-High-voltage systems must only be handled by trained and qualified personnel. Do not perform any operation unless you are properly certified and fully understand the associated risks.
-
 
 ### **Prerequisites**
 
@@ -150,14 +143,3 @@ Let's confirm the unit can process power.
 5.  **Verify Output:** On ETKA tool and your external DMM, confirm that the voltage and current at Port B match your setpoints and that no faults are present.
 
 6.  **Turning off:** Use `enable` signal from `Converter_Control` message to turn off the unit.
-
-
-### **Next Steps**
-
-**Congratulations! Your ADB-PC-DC01 is installed, communicating, and operational.**
-
-You have successfully completed the first-time commissioning. You are now ready to move on to more advanced configuration and integration.
-
-* To perform specific tasks like firmware updates or fault diagnosis, see our **Guides**.
-* To understand the theory behind the operating modes or safety systems, see the [**Explanation**](../operation) section.
-* For a complete list of all CAN commands, fault codes, and technical specifications, see the [**CAN Bus Communication**](../can_bus_interface) section.
