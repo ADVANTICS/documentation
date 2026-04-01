@@ -113,20 +113,20 @@ nav:
   - "Get Started here": "index.md"
   - "Safety Instructions": "1_Safety_instructions.md"
   - "Module Overview": "overview.md"
-  - "Electrical Specifications": "electrical_specs.md"
-  - "Mechanical Specifications": "mechanical_specs.md"
-  - "Connectors": "connectors.md"
   - "Theory of Operation": "operation.md"
-  - "Guides":
-    - "First-Time Commissioning": "first_time_commissioning.md"
-    - "Installation Guide": "installation.md"
-    - "Rack Design" : "rack_design.md"
+  - "Technical Overview":
+    - "Electrical Overview": "electrical_specs.md"
+    - "Mechanical Overview": "mechanical_specs.md"
+  - "Connectors": "connectors.md"
+  - "First-Time Commissioning": "first_time_commissioning.md"
+  - "Installation": "installation.md"
+  - "Rack Design" : "rack_design.md"
   - "References":
     - "CAN Bus Interface":
       - "CAN bus overview": "can_bus_overview.md"
       - "CAN bus messages": "can_bus_interface.md"
     - "Maintenance and Troubleshooting": "maintenance_and_troubleshooting.md"
-    - "Appendix": "appendix.md"
+    - "Engineering Toolkit for ADVANTICS (ETKA)": "appendix.md"
 
 # Extra configurations
 extra:
