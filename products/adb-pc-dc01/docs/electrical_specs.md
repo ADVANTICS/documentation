@@ -1,8 +1,6 @@
 # Electrical Specifications
 
-## Port A (DC Bus Side) specifications
-
-### Characteristics
+## Port A (DC Bus Side)
 
 | **Parameter** | **Value** | **Notes** |
 |---------------|-----------|-----------|
@@ -27,9 +25,7 @@ The following graph illustrates the relationship between the maximum achievable 
 
 {{ figure('../assets/max_power_vs_input_voltage.png', 'Maximum Power vs Input Voltage') }} -->
 
-## Port B (DC wide control side) specifications
-
-### Characteristics
+## Port B (DC wide control side) 
 
 | **Parameter** | **Value** | **Notes** |
 |---------------|-----------|-----------|
@@ -109,7 +105,7 @@ Depending on the application’s operating range, a transition between modes may
 
 Because of the hysteresis-controlled switchover, the power curves of the ADB-PC-DC01 vary with startup condition. Representative curves for VA=750, 850 V, and 950 V are shown in the figures below. These plots define the maximum achievable module power for a given startup condition, VA, and VB.
 
-For performance data at a specific VA, contact Advantics.
+For performance data at a specific VA, contact ADVANTICS helpdesk.
 
 **Port A = 750 V**
 
@@ -134,7 +130,7 @@ For performance data at a specific VA, contact Advantics.
 
 The Safe Operating Area (SOA) graph provides a V-I plot illustrating the maximum allowable current versus voltage for the 100 kW power envelope. This boundary ensures safe operation without exceeding thermal or electrical limits.
 
-It's important to note that the system is fully bidirectional - graph therefore spans ±220 A.
+It's important to note that the system is fully bidirectional. The graph shown below therefore spans ±220 A.
 
 {{ figure('../assets/soa_outputs.png', 'Safe Operating Area') }}
 
@@ -186,7 +182,7 @@ The following graph shows the FFT spectrum of the output voltage ripple for the 
 - **Scalability**: Linear power scaling with additional modules
 - **Redundancy**: System continues operation with failed modules
 
-{{ figure('../assets/dc01_system_architecture.webp', 'System Architecture') }}
+{{ figure('../assets/dc01_system_architecture.webp', 'System Architecture using ADVANTICS modules') }}
 
 ## Control and Communication Specifications
 
