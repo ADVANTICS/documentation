@@ -54,7 +54,7 @@ The ADB-PC-DC01 is suitable for a wide range of applications requiring isolated 
 | **Protection** | IP67 | Dust and water resistant |
 | **Control** | CAN 2.0B | Industry-standard communication |
 
-### Key Architectural Features:
+## Key Architectural Features:
 
 - **Stackable Design**: Modules can be combined for higher power applications
 - **Common DC Bus**: Shared DC link for distributed DC-coupled systems
