@@ -111,17 +111,19 @@ markdown_extensions:
 # Navigation structure
 nav:
   - "Get Started here": "index.md"
-  - "Safety Instructions": "1_Safety_instructions.md"
-  - "Module Overview": "overview.md"
-  - "Theory of Operation": "operation.md"
-  - "Technical Overview":
-    - "Electrical Overview": "electrical_specs.md"
-    - "Mechanical Overview": "mechanical_specs.md"
-  - "Connectors": "connectors.md"
-  - "First-Time Commissioning": "first_time_commissioning.md"
-  - "Installation": "installation.md"
-  - "Rack Design" : "rack_design.md"
-  - "References":
+  - "1. Safety Instructions": "1_Safety_instructions.md"
+  - "2. Module Overview": "overview.md"
+  - "3. Theory of Operation": "operation.md"
+  - "4. Technical Overview":
+    - "4.1. Electrical Overview": "electrical_specs.md"
+    - "4.2. Mechanical Overview": "mechanical_specs.md"
+  - "5. Connectors": "connectors.md"
+  - "6. First-Time Commissioning": "first_time_commissioning.md"
+  - "7. Installation": "installation.md"
+  - "8. Rack Design" : "rack_design.md"
+  - "9. Servicing" : "8. Servicing.md"
+  - "10. Disposal" : "9. Disposal.md"
+  - "11. References":
     - "CAN Bus Interface":
       - "CAN bus overview": "can_bus_overview.md"
       - "CAN bus messages": "can_bus_interface.md"
