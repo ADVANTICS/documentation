@@ -1,4 +1,4 @@
-# AFPU User Manual
+# ADVANTICS Flash Programming Utility (AFPU) User Manual
 
 ## Before starting
 
