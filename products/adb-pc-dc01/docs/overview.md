@@ -14,32 +14,6 @@ The ADVANTICS module, <span style="color:#00A89D;"><strong>ADB-PC-DC01</strong><
     - **Scalable Design**: Up to 120 units can be paralleled for MW-level applications (up to 6MW)
     - **Harsh Environment Ready**: IP67 sealed design with liquid cooling, eliminating the need for air circulation
 
-## Applications
-
-The ADB-PC-DC01 is suitable for a wide range of applications requiring isolated bidirectional DC/DC conversion:
-
-### Electric Vehicle Charging
-- DC Fast Charge stations supporting MCS, R-MCS (up to 6MW), CCS, NACS and CHAdeMO standards
-- Battery-assisted charging systems
-- Vehicle-to-Grid (V2G) systems
-- Onboard charging for off-highway and heavy-duty machinery
-
-### Energy Storage Systems
-- Grid-tied and off-grid energy storage systems
-- AC and DC microgrids
-- Industrial energy management
-
-### Industrial Applications
-- Laboratory bidirectional power supplies
-- High-power DC bus management
-- Industrial power systems requiring galvanic isolation
-- Onboard charging for off-highway and heavy-duty machinery
-
-### Harsh Environments
-- Marine and coastal applications.
-- Mining operations.
-- Extreme temperature environments (-40°C to +70°C).
-
 ## Main Characteristics
 
 | **Characteristic** | **Value** | **Benefit** |
