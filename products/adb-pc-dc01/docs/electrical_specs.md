@@ -1,4 +1,4 @@
-# Electrical Specifications
+# Electrical Overview
 
 ## Port A (DC Bus Side)
 
