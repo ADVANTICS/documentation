@@ -1,7 +1,7 @@
 # 1. Safety instructions
 
 !!! warning 
-    Please note that users must read the safety instructions before using this equipment. The most important general safety precautions are summarized     in this preface. Improper connection or operation could result in death, serious injury, fire, or equipment damage. Always read and understand the     full manual before installation and use, and follow all recommended procedures. The ADM-PC-AC01 contains high-voltage capacitors that store energy     and discharge slowly. Even when unplugged, lethal voltages may still be  present. The passive self-bleeding of the converter takes approximately       20 minutes, so always allow sufficient time before handling. Users should always treat the device as energized unless verified otherwise with a        volt meter.
+    Please note that users must read the safety instructions before using this equipment. The most important general safety precautions are summarized     in this preface. Improper connection or operation could result in death, serious injury, fire, or equipment damage. Always read and understand the     full manual before installation and use, and follow all recommended procedures. ADM-PC-AC01 contains high-voltage capacitors that store energy     and discharge slowly. Even when unplugged, lethal voltages may still be  present. The passive self-bleeding of the converter takes approximately       20 minutes, so always allow sufficient time before handling. Users should always treat the device as energized unless verified otherwise with a        volt meter.
 
 ## 1.1. Qualified personnel only
 
