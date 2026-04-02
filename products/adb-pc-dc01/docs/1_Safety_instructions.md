@@ -1,7 +1,7 @@
 # Safety instructions
 
 !!! warning 
-    Please note that users must read the safety instructions before using this equipment. The most important general safety precautions are summarized     in this preface. Improper connection or operation could result in death, serious injury, fire, or equipment damage. Always read and understand the     full manual before installation and use, and follow all recommended procedures. The ADM-PC-BI25 contains high-voltage capacitors that store energy     and discharge slowly. Even when unplugged, lethal voltages may still be  present. The passive self-bleeding of the converter takes approximately       20 minutes, so always allow sufficient time before handling. Users should always treat the device as energized unless verified otherwise with a        volt meter.
+    Please note that users must read the safety instructions before using this equipment. The most important general safety precautions are summarized in this preface. Improper connection or operation could result in death, serious injury, fire, or equipment damage. Always read and understand the full manual before installation and use, and follow all recommended procedures. The ADB-PC-DC01 contains high-voltage capacitors that store energy and discharge slowly. Even when unplugged, lethal voltages may still be present. The passive self-bleeding of the converter takes approximately 23 minutes to discharge Port A and 36 minutes for Port B, so always allow sufficient time before handling. Users should always treat the device as energized unless verified otherwise with a volt meter.
 
 ## Qualified personnel only
 
@@ -37,9 +37,9 @@ If safe operation of the instrument can no longer be assumed, it must be removed
 
 ## Power disconnection before handling
 
-Maintenance, repair, or internal balancing may only be performed by trained personnel familiar with the dangers involved. As long as the module is connected, conducting parts may be exposed to the voltage. The instrument must be disconnected from all external power sources before performing maintenance and repair work. 
+Maintenance, repair, or internal balancing may only be performed by trained personnel familiar with the dangers involved. As long as the module is connected, conducting parts may be exposed to the voltage. The instrument must be disconnected from all external power sources before performing maintenance and repair work.
 
-Under the worst conditions (loss of supply voltage), a minimum waiting period of 36 minutes (2147 seconds) must be practiced after the module has been disconnected to allow internal capacitors to discharge to less than 0.5mJ. This duration takes system and component tolerances into account. Even if this time has passed, a voltage absence test is strongly recommended before handling the unit.
+Under the worst conditions (loss of supply voltage), a minimum waiting period of 36 minutes must be practiced after the module has been disconnected to allow internal capacitors to discharge to less than 0.5mJ. This duration takes system and component tolerances into account and considers the capacitors charged to 950V. Even if this time has passed, a voltage absence test is strongly recommended before handling the unit.
 
 <br>
 
