@@ -72,12 +72,7 @@ const docsURL = docsHref ? docsHref : `/${codename.toLowerCase()}`;
       <!-- 	) -->
       <!-- } -->
     </main>
-    <footer
-      class:list={[
-        storeHref ? "" : "w-full",
-        "mt-6 mb-2 place-self-center self-end",
-      ]}
-    >
+    <footer class:list={["mt-6 mb-2 flex w-full gap-x-2"]}>
       {
         docsURL && (
           <Button
@@ -86,7 +81,7 @@ const docsURL = docsHref ? docsHref : `/${codename.toLowerCase()}`;
             flavor="content"
             class:list={[
               // storeHref === "#" ? "justify-self-start" : "",
-              "rounded-md px-6 py-3 font-bold tracking-wide drop-shadow-md",
+              "h-fit w-fit rounded-md px-3 py-3 font-bold tracking-wide drop-shadow-md",
             ]}
           >
             User Manual
@@ -101,7 +96,7 @@ const docsURL = docsHref ? docsHref : `/${codename.toLowerCase()}`;
             flavor="content"
             class:list={[
               // storeHref === "#" ? "justify-self-start" : "",
-              "rounded-md px-6 py-3 font-bold tracking-wide drop-shadow-md",
+              "h-fit w-fit rounded-md px-3 py-3 font-bold tracking-wide drop-shadow-md",
             ]}
           >
             Datasheet
