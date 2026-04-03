@@ -34,7 +34,7 @@ const docsURL = docsHref ? docsHref : `/${codename.toLowerCase()}`;
   </div>
   <div class="details">
     <header>
-      <a href={`/${codename.toLowerCase()}`}>
+      <a href={docsURL}>
         <h2 set:html={name} class="hover:underline" />
       </a>
       <span class="codename">{codename}</span>
