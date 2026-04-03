@@ -2,6 +2,7 @@
   "keywords": "EVCC, MCS charge controller, Megawatt Charging System, MCS EVCC, Megawatt Charging System EVCC, Electric Vehicle Charge Controller, EV Charge Controller, vehicle charge controller, DC charge controller, DC fast charging, CCS, PLC to CAN gateway, Onboard charger, Bidirectional Charging, Bidirectional Power Transfer BPT, V2G, CCS V2G, V2G charge controller, V2X, V2H, V2L, NACS, North American Charging System, Plug’n’Charge, plug and charge, IEC61851-1, IEC61851-23, ISO15118-3, DIN SPEC 70121, ISO 15118-2, ISO 15118-20, SLAC, Orion BMS, Combo 1, CCS1, Combo 2, CCS2, CCS1 controller, CCS2 controller",
   "sortNumber": 4,
   "OGimg": "/src/assets/img/products/evcc-og.png",
+  "datasheet": "https://advantics.fr/pdf/ADM-CS-MEVC-DATASHEET.pdf",
   "codename": "ADM-CS-MEVC",
   "card": {
     "name": "MCS Charge Controller EVCC",

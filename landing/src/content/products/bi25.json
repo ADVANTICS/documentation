@@ -4,6 +4,7 @@
   "releaseStatus": "newRelease",
   "codename": "ADM-PC-BI25",
   "sortNumber": 4,
+  "datasheet": "https://advantics.fr/pdf/ADM-PC-BI25-DATASHEET.pdf",
   "OGimg": "/src/assets/img/products/bi25-og.png",
   "card": {
     "name": "Bidirectional Isolated DC/DC converter",

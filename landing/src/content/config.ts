@@ -75,6 +75,7 @@ const products = defineCollection({
     codename: z.string(),
     variantClarification: z.record(z.string()).optional(),
     OGimg: z.string().optional(),
+    datasheet: z.string().optional(),
     card: z.object({
       name: z.string(),
       imgScale: z.string().optional(),

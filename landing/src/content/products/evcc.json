@@ -5,6 +5,7 @@
   "storeHref": "https://store.advantics.fr/charge-controllers/24-ev-charge-controller-ccs.html",
   "docsHref": "https://advantics.github.io/documentation/#/charge-controllers/ADM-CS-EVCC/",
   "codename": "ADM-CS-EVCC",
+  "datasheet": "https://advantics.fr/pdf/ADM-CS-EVCC-DATASHEET.pdf",
   "OGimg": "/src/assets/img/products/evcc-og.png",
   "card": {
     "name": "Vehicle-side Charge Controller",

@@ -12,6 +12,7 @@ const {
   product: {
     data: {
       storeHref,
+      datasheet,
       codename,
       docsHref,
       card: { alt, imgScale = "1", imgRotation = "-10deg", name, img },
@@ -89,6 +90,21 @@ const docsURL = docsHref ? docsHref : `/${codename.toLowerCase()}`;
             ]}
           >
             User Manual
+          </Button>
+        )
+      }
+      {
+        datasheet && (
+          <Button
+            as="a"
+            href={docsURL}
+            flavor="content"
+            class:list={[
+              // storeHref === "#" ? "justify-self-start" : "",
+              "rounded-md px-6 py-3 font-bold tracking-wide drop-shadow-md",
+            ]}
+          >
+            Datasheet
           </Button>
         )
       }
