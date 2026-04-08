@@ -124,7 +124,9 @@ The other modes, Voltage Follower Mode and Gain Mode, are under development. We 
 
 Once setpoints and operating mode have been configured, the converter can be started by setting Converter\_ON in BI25\_Mode\_Control. The selected control mode must also be kept active in this message. Alternatively, you can combine Step 2 and Step 3 in a single step by sending only one message with Converter\_ON and selected control mode.
 
-The module will not start conversion if the bus voltage is below 200V. If the converter started above this voltage and at any point in time fell below 200V, conversion will stop to protect the converter from operating at low efficiency. A new Converter On command must be sent to restart the converter. It will not automatically start even if the voltage rises above 200V. If the application requires operation below 200V, please contact Advantics for the required commands, and expect efficiencies as low as 85%. 
+The module will not start conversion if the bus voltage is below 200V. If the converter started above this voltage and at any point in time fell below 195V, conversion will stop to protect the converter from operating at low efficiency. A new Converter On command must be sent to restart the converter as it is could be unsafe to automatically restart even if the voltage rises above 200V. 
+
+If the application requires operation below 200V, please contact Advantics for the required commands, and expect efficiencies as low as 85%. 
 
 ### Step 4 – Stop converter
 
