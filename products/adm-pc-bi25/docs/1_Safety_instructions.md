@@ -7,7 +7,7 @@
 
 The instrument may only be operated by personnel capable of recognizing contact hazards and implementing appropriate safety precautions. 
 
-Contact hazards are present anywhere where voltages of greater than 50 V exist. This is very important when the open-ended output signal cable is used or any OEM/PCB version of equipment is operated, tested or else used.
+Contact hazards are present anywhere where voltages of greater than 60 VDC in dry conditions or 15 VDC in wet conditions. This is very important when the open-ended output signal cable is used or any OEM/PCB version of equipment is operated, tested or else used.
 
 ## 1.2. Avoid working alone
 
