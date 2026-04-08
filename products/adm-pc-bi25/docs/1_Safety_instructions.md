@@ -29,15 +29,16 @@ Power and data cables must be kept in flawless condition, with no damage to insu
 
 If safe operation of the instrument can no longer be assumed, it must be removed from the factory, laboratory and secured against unintentional use. Safe operation can be no longer assumed if: 
 
-### 1.6.1. The module, power cables or any cables show visible damage  
-### 1.6.2. The module no longer functions  
-### 1.6.3. The module shows very dirty conditions because of dust etc.   
-### 1.6.4. After lengthy periods of storage under unfavourable conditions  
-### 1.6.5. After exposure to unusual transport stresses
+* The module, power cables or any cables show visible damage  
+* The module no longer functions  
+* The module shows very dirty conditions because of dust etc.   
+* After lengthy periods of storage under unfavourable conditions  
+* After exposure to unusual transport stresses
 
 ## 1.7. Power Disconnection Before Work
 
-Maintenance, repair, or internal balancing may only be performed by trained personnel familiar with the dangers involved. As long as the module is connected, conducting parts may be exposed to the voltage. As far as possible, the instrument must be disconnected from all external power sources before performing maintenance and repair work. A waiting period of 20 minutes must be observed after the module has been disconnected to allow internal capacitors discharge to a safe voltage level.
+Maintenance, repair, or internal balancing may only be performed by trained personnel familiar with the dangers involved. As long as the module is connected, conducting parts may be exposed to the voltage. As far as possible, the instrument must be disconnected from all external power sources before performing maintenance and repair work. If there is no active discharge circuit involved, a waiting period of 11 minutes must be observed after the module has been disconnected to allow internal capacitors to self-discharge to 60 VDC from 950 VDC. This duration is valid for both sides of the converter. 
+
 
 [image1]: <data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAdCAYAAAAgqdWEAAABu0lEQVR4XsXUO1LDMBAGYOUQgZZwBS5CzTEYOhpuwSsQQyAYCBCeLeehoNkmpfBKu0JWtFg2TqyZv3HsyTe7v61UO0eHFzo58KE0J8+y7lDj/V8IvJvpaD2fdwPyIfBm08l0HIIhr5SX1YNECDzbdYUPLO34a3EIgsDMZiXTCSHKTsGEIfCk9Fe+gjL7a1EehIMQeCzysOTphP1QMQxBTKbLA0lFLWMIYXJvr7W+rlhRVQzjQeDOptXpxCB/YhhyS2mxzHsOwRAsaZGN9QgmAoGblqYjQbioKsREICaTf4J6PQ/BEETwGzONYBjBkAnl2v7eeF1VkBCzuy1D4Mqm0XSktTgIdoNeXU64FoNgyJhyqfQsz2uBkiDYD7yXkwKBC3d/2qmE0PcD+6F8TGQtDkEQyGyS1vWNfyr0I4TgWlSISYDASOmtQUKZ60DEogZrcZAR5bzIWcV0xLUIH7KUfkgQk6EMagTB5/yIEEQwZEg5tc8U69opSZquZQET6YcEgROb0nSaQnAtC5iaEDgucuSVuc5awn58HkQgQj8MgiGIIAgcetNpChH7URNSwuDZHAz0Wr/fSRCCa/oBFhI1S7MT7E8AAAAASUVORK5CYII=>
 
@@ -52,5 +53,5 @@ ADM-PC-BI25 module is equipped with relevant safety labels on the front panel. A
 | ![General safety warning](../assets/General warning.png) | ISO 7010-W001: 2011-05 | Indicates a potential hazard requiring operator awareness and appropriate action to prevent harm or equipment damage. |
 | ![Refer to instruction manual/booklet](../assets/Refer to instruction manualbooklet.png) | ISO 7010-M002: 2011-05 | Refer to the instruction manual before operating the module. |
 | ![Caution, risk of electric shock](../assets/Caution, risk of electric shock.png) | IEC 60417-6042: 2010-11 | Contact with hazardous voltage may result in injury or death. |
-| ![Capacitor discharge time](../assets/Remaining time display; processing.png) | IEC 60417-5416: 2015-04 | Indicates required capacitor discharge time under fault conditions. Capacitors must discharge to a safe energy level before access. For this unit, the worst-case discharge time is 20 minutes at Side A and Side B (discharge to 0.5mJ from 950V). Verify the absence of voltage before handling. |
+| ![Capacitor discharge time](../assets/Remaining time display; processing.png) | IEC 60417-5416: 2015-04 | Indicates required capacitor discharge time under fault conditions. Capacitors must discharge to a safe energy level before access. For this unit, the worst-case discharge time is 11 minutes at Side A and Side B (discharge to 60 VDC from 950 VDC). Verify the absence of voltage before handling. |
 | ![Caution, hot surface](../assets/Caution, hot surface.png) | IEC 60417-5041: 2002-10 | Surfaces may reach high temperatures and cause burns. Allow adequate cooling before contact. |
