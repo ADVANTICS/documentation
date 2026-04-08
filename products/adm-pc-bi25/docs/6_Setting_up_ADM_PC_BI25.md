@@ -116,13 +116,15 @@ Interlock state must be cleared for all affected modules by setting the <font co
 
 ### Step 2 – Configure operating mode
 
-<font color="#00A89D">**PWM Mode**</font> is designated for normal user operation and should be used for standard system configuration. This mode operates in open loop with a user-defined frequency, which should be set to 300 kHz. As this mode does not compensate for voltage drops, there can be up to a 20 V difference between Side A and Side B at full load. Incorrect selection of frequency may result in irreversible damage to the module. If in doubt, please contact us for guidance.
+<font color="#00A89D">**PWM Mode**</font> is designated for normal user operation and should be used for standard system configuration. This mode operates in open loop with a fixed 300 kHz switching frequency. As this mode does not compensate for voltage drops, there can be up to a 20 V difference between Side A and Side B at full load. If in doubt, please contact us for guidance.
 
 The other modes, Voltage Follower Mode and Gain Mode, are under development. We do not recommend using this mode at this stage.
 
 ### Step 3 – Start converter
 
 Once setpoints and operating mode have been configured, the converter can be started by setting Converter\_ON in BI25\_Mode\_Control. The selected control mode must also be kept active in this message. Alternatively, you can combine Step 2 and Step 3 in a single step by sending only one message with Converter\_ON and selected control mode.
+
+The module will not start conversion if the bus voltage is below 200V. If the converter started above this voltage and at any point in time fell below 200V, conversion will stop to protect the converter from operating at low efficiency. A new Converter On command must be sent to restart the converter. It will not automatically start even if the voltage rises above 200V. If the application requires operation below 200V, please contact Advantics for the required commands, and expect efficiencies as low as 85%. 
 
 ### Step 4 – Stop converter
 
