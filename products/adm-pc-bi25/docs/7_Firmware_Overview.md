@@ -29,7 +29,7 @@ Table 2\. Operating Specifications
 
 | Parameters | Values |
 | :---- | :---- |
-| **Voltage Range** | Port A: **500 V** to **950 V**  Port B: **500 V** to **950 V** |
+| **Voltage Range** | Port A: **200 V** to **950 V**  Port B: **200 V** to **950 V** |
 | **Current Range** | Bidirectional current range: **60 A** |
 | **Thermal Range** | The temperature of the power transistors may not exceed **90°C**. The temperature of the Transformers may not exceed **110°C.** |
 
@@ -47,7 +47,7 @@ The BI25 module has two levels of protection controlled by its firmware and hard
     Excessive voltage on the input ports may lead to catastrophic failure of the BI25. It relies on the overall system to prevent these circumstances.
 
 
-The BI25 module also monitors the voltage on both ports. If a voltage larger than 1050 V is detected by the control system, the module will cease operation. A further transient protection is set to 1150 V. If the BI25 exceeds this voltage at any point in time operation will cease immediately as this limit is implemented with hardware comparators. The BI25 has no means of protecting itself against excessive voltage placed on its ports. Thus, a large voltage spike on either port A or B may destroy the device.
+The BI25 module also monitors the voltage on both ports. If a voltage larger than 1050 V is detected by the control system, the module will cease operation. A further transient protection is set to 1150 V. If the BI25 exceeds this voltage at any point in time, operation will cease immediately as this limit is implemented with hardware comparators. The BI25 has no means of protecting itself against excessive voltage placed on its ports. Thus, a large voltage spike on either port A or B may destroy the device.
 
 ### Over-temperature protection
 
