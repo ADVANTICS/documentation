@@ -31,10 +31,10 @@ Table 1\. Mechanical and Electrical Specifications
 
 |  Parameters |  Values |
 | :---- | :---- |
-| **Voltage Range** | 500 to 950 V |
+| **Voltage Range** | 200 to 950 V |
 | **Voltage Conversion Ratio** | 1:1 |
 | **Creepage and Clearance** | IEC 62477-1 and IEC 61851-23 |
-| **Overvoltage Category** | OVCII (up to 3000m altitude) |
+| **Overvoltage Category** | OVCIII (up to 3000m altitude) |
 | **Current Range** | ±60 A |
 | **Power** | 50 kW |
 | **Power Flow** | Bidirectional |
