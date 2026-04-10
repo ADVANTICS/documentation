@@ -321,7 +321,7 @@ Currently supported hardware are for `ADM-CS-MEVC`.
       <td>
         <ul>
           <li><strong>Dockerhub update:</strong> Pull from Docker hub — <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=option-1-requires-internet-pulling-the-update-from-docker-hub">Guide</a></li>
-          <li><strong>.zip update:</strong> <a href="https://pub-ec884f5e1c6b4942867b3ac199d79823.r2.dev/mevc/mevc-release-2.5.zip">Download .zip (Release 2.5)</a> — <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=option-3-does-not-requires-internet-loading-the-images-from-a-zip-file">Update instructions</a></li>
+          <li><strong>.zip update:</strong> <a href="">Download .zip (Release 2.5)</a> — <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=option-3-does-not-requires-internet-loading-the-images-from-a-zip-file">Update instructions</a></li>
         </ul>
       </td>
       <td>
@@ -329,6 +329,47 @@ Currently supported hardware are for `ADM-CS-MEVC`.
           <li><a href="https://hub.docker.com/r/advantics/pev-controller/tags">advantics/pev-controller:2.4.0</a></li>
           <li><a href="https://hub.docker.com/r/advantics/ccs-evcc/tags">advantics/ccs-evcc:2.5.0</a></li>
           <li><a href="https://hub.docker.com/r/advantics/advantics-csm/tags">advantics/advantics-csm:1.7.0</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
+      <td class="branch-col">Release 2.6</td>
+      <td class="date-col">2026-04-10</td>
+      <td>
+        <ul>
+          <li><strong>pev-controller 2.5.0</strong>
+            <ul>
+              <li>Fixed onefile mode folders not getting cleared properly on power cycle</li>
+              <li>Added advanced E-stop contactor handling options for unreliable current measurements</li>
+            </ul>
+          </li>
+          <li><strong>ccs-evcc 2.6.0</strong>
+            <ul>
+              <li>Fixed onefile mode folders not getting cleared properly on power cycle</li>
+              <li>MCS: Improved filtering on the CE line</li>
+            </ul>
+          </li>
+          <li><strong>advantics-csm 1.7.1</strong>
+            <ul>
+              <li>Fix temperature config section</li>
+              <li>Bring back controller type to header</li>
+              <li>Add CSM version on footer</li>
+              <li>Migrate from remix to react router 7</li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><strong>Dockerhub update:</strong> Pull from Docker hub — <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=option-1-requires-internet-pulling-the-update-from-docker-hub">Guide</a></li>
+          <li><strong>.zip update:</strong> <a href="https://pub-ec884f5e1c6b4942867b3ac199d79823.r2.dev/mevc/mevc-release-2.6.zip">Download .zip (Release 2.6)</a> — <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=option-3-does-not-requires-internet-loading-the-images-from-a-zip-file">Update instructions</a></li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><a href="https://hub.docker.com/r/advantics/pev-controller/tags">advantics/pev-controller:2.5.0</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/ccs-evcc/tags">advantics/ccs-evcc:2.6.0</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/advantics-csm/tags">advantics/advantics-csm:1.7.1</a></li>
         </ul>
       </td>
     </tr>
