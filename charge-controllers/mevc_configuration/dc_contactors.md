@@ -31,6 +31,90 @@ Some contactors don't have any feedback wireable on Advantics controller dedicat
 
 Default to true.
 
+## disable_e_stop_contactor_force_open_current_not_reliable
+
+> [!NOTE]
+> This is an advanced configuration option.
+
+<figcaption>Example</figcaption>
+
+    disable_e_stop_contactor_force_open_current_not_reliable = false
+
+Disables force opening the contactors during E-stop when the current measurement is not reliable
+(e.g. due to a CAN reporting failure).
+
+By default, when the current measurement is not reliable during an E-stop, the contactors are
+immediately force-opened to ensure safety. Setting this to `true` disables that behaviour.
+
+Default to false.
+
+## delay_e_stop_contactor_force_open_current_not_reliable
+
+> [!NOTE]
+> This is an advanced configuration option.
+
+<figcaption>Example</figcaption>
+
+    delay_e_stop_contactor_force_open_current_not_reliable = false
+
+Instead of immediately force-opening the contactors when the current measurement is not reliable
+during an E-stop, this option introduces a configurable delay to give time for the system to
+stabilize before opening.
+
+Only effective if `disable_e_stop_contactor_force_open_current_not_reliable` is set to `false`.
+
+Default to false.
+
+## contactor_force_open_current_not_reliable_delay_ms
+
+> [!NOTE]
+> This is an advanced configuration option.
+
+<figcaption>Example</figcaption>
+
+    contactor_force_open_current_not_reliable_delay_ms = 60000
+
+Delay in milliseconds before force-opening the contactors during E-stop when the current
+measurement is not reliable.
+
+Only effective if `delay_e_stop_contactor_force_open_current_not_reliable` is set to `true` and
+`disable_e_stop_contactor_force_open_current_not_reliable` is set to `false`.
+
+Default to 60000 ms (60 s).
+
+## enable_e_stop_contactor_force_open_timeout
+
+> [!NOTE]
+> This is an advanced configuration option.
+
+<figcaption>Example</figcaption>
+
+    enable_e_stop_contactor_force_open_timeout = false
+
+Enables a timeout after which the contactors are force-opened during E-stop even if the current is
+still above 5 A. This is a last-resort measure if the current does not drop after E-stop.
+
+By default, the contactors are not force-opened while current is still flowing, to avoid damaging
+them.
+
+Default to false.
+
+## contactor_force_open_timeout_ms
+
+> [!NOTE]
+> This is an advanced configuration option.
+
+<figcaption>Example</figcaption>
+
+    contactor_force_open_timeout_ms = 60000
+
+Timeout in milliseconds after which the contactors are force-opened during E-stop while current is
+still flowing (above 5 A).
+
+Only effective if `enable_e_stop_contactor_force_open_timeout` is set to `true`.
+
+Default to 60000 ms (60 s).
+
 # Possible Configurations
 
 <style>

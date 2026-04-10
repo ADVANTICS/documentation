@@ -199,6 +199,41 @@ trigger spuriously. Hence, we rather default to 2 seconds instead of 250 ms.
 
 Default to 2000 ms.
 
+
+## dynamic_target_voltage
+
+> [!NOTE]
+> This is an advanced configuration option.
+
+<figcaption>Example</figcaption>
+
+    dynamic_target_voltage = false
+
+When enabled, the target voltage sent to the charger during the current delivery loop is updated
+dynamically from the vehicle CAN interface (e.g. from a BMS signal), rather than using the static
+`target_voltage` config value. This allows the charger setpoint to track the actual battery voltage
+as the state of charge evolves, which can be useful for Constant Voltage phases or more sophisticated
+charge profiles.
+
+Default to false.
+
+## allow_bpt_at_full_soc
+
+> [!NOTE]
+> This is an advanced configuration option.
+
+<figcaption>Example</figcaption>
+
+    allow_bpt_at_full_soc = false
+
+When enabled, a bidirectional power transfer (BPT / V2G) session will not be terminated solely
+because the state of charge has reached 100 %. This allows the vehicle to keep cycling power
+(discharge followed by recharge) until the user or the charger explicitly stops the session.
+
+Only relevant when `is_bidirectional` is set to `true`.
+
+Default to false.
+
 ## Other expert settings
 
 Here are other expert settings with their default values. Someone with knowledge of the standards
