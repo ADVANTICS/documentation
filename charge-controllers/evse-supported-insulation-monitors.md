@@ -8,6 +8,8 @@ Our charge controller offers out-of-the-box support for the Bender isoCHA425HV i
 
 The Bender isoCHA425HV integration is intended for use exclusively with DC charging pistols, such as CCS and CHAdeMO.
 
+You don’t need to populate the `insulation_resistance` signal through the generic interface ([CAN bus generic interface](charge-controllers/secc_generic/can.md)), specifically the `Power_Modules_Status` signal ([Insulation_Resistance](charge-controllers/secc_generic/can.md#Insulation_Resistance)).
+
 You can check how to enable this feature in [configuration section](charge-controllers/secc_configuration).
 
 ### Serial communication configuration
