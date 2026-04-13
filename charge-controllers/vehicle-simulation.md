@@ -1,16 +1,56 @@
 # PEV Simulation
 
 <div style="background-color: teal; color: white; font-weight: bold; padding: 10px; text-align: center;">
-    🚨 IMPORTANT: This feature is not included in the standard software stack and has to be purchased separately. Please contact <a href="mailto:sales@advantics.fr">sales</a> for more information🚨
+    🚨 IMPORTANT: This feature is not included in the standard charge controller package and has to be purchased separately. Please contact <a href="mailto:sales@advantics.fr">sales</a> for more information🚨
 </div>
 
-The primary objective of this software is to simulate a battery and BMS on the EV charge controller, allowing users to observe and interact with the system without requiring an actual vehicle.
+The primary objective of this package is to simulate a battery and BMS on the EV charge controller, allowing users to observe and interact with the system without requiring an actual vehicle.
 
 <!-- This feature is designed to simulate EV behavior in a controlled environment, making it possible to test various scenarios and vehicle responses during a charging session. -->
 
-# UI
+# Hardware Components
+
+## Overview
+
+The PEV simulator package consists of:
+
+- **Vehicle-side charge controller** – An ADVANTICS charge controller (CCS or MCS version) loaded with additional software to emulate vehicle and BMS components, implementing the required CAN bus communication sequences for charge sessions.
+
+- **Connection box** – A practical hardware interface that emulates the vehicle inlet and charging pistol (including integrated resistances) with all necessary wired connectors, enabling realistic plug and unplug operations.
+
+- **Power Supply** – A 24V DC power supply unit that provides power to the connection box and simulator components.
+
+- **PCAN Adapter** – A CAN interface module that connects the simulator to a development computer or external testing equipment, enabling real-time CAN bus monitoring, data logging, and integration with third-party diagnostic tools or software frameworks.
+
+## Connection Box Details
+
+<div style="display: flex; gap: 20px; justify-content: center;">
+    <div style="flex: 1; text-align: center;">
+  <img src="charge-controllers/vehicle_side_emulator.jpg" alt="PEV simulator package" style="max-width: 100%; height: auto;">
+    </div>
+    <div style="flex: 1; text-align: center;">
+  <img src="charge-controllers/simulator_connection_box.jpg" alt="Connection Box" style="max-width: 100%; height: auto;">
+    </div>
+</div>
+
+
+# User Interface
 
 Simulation is primarily managed and controlled by the [CSM Web UI](charge-controllers/advantics_os/csm-web-ui.md). [Connect to your controller](charge-controllers/advantics_os/connecting) dashboard and head to `/dashboard/simulation`.
+
+<div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden;">
+  <iframe style="position:absolute; top:0; left:0; width:100%; height:100%;"
+    src="https://www.youtube.com/embed/vrKscGuP3-s"
+    frameborder="0" allowfullscreen>
+  </iframe>
+</div>
+
+
+# Control interface for the Simulator
+
+## Overview
+
+The simulator control interface provides comprehensive management of the PEV simulation. Users can enable or disable the simulator, configure vehicle parameters in real-time, toggle specific CAN message transmission, and trigger vehicle-side events. This modular design enables flexible testing of EV charging scenarios without requiring physical hardware, allowing developers to validate charger behavior against various vehicle states and responses.
 
 The interface allows enabling and disabling the simulator in real-time and editing parameters during a simulated charge session. It is divided into three main sections: **Parameters**, **Control**, and **Command**.
 
