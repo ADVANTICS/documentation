@@ -1,4 +1,3 @@
-
 # Charger Controller supported insulation monitors
 
 ## Bender isoCHA425HV
@@ -6,6 +5,8 @@
 Our charge controller offers out-of-the-box support for the Bender isoCHA425HV insulation monitoring device via RS485 communication. This seamless integration reduces development time and accelerates time to production for customers, ensuring reliable insulation monitoring and enhanced system safety.
 
 The Bender isoCHA425HV integration is intended for use exclusively with DC charging pistols, such as CCS and CHAdeMO.
+
+You don't need to populate the `insulation_resistance` signal via the generic interface [CAN bus generic interface](charge-controllers/secc_generic/can.md) signal [Power_Modules_Status](charge-controllers/secc_generic/can.md#Power_Modules_Status).[Insulation_Resistance](charge-controllers/secc_generic/can.md#Insulation_Resistance)
 
 You can check how to enable this feature in the configuration section.
 
