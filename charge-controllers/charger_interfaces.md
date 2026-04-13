@@ -47,7 +47,7 @@ voltage is stepped down to provide the Voltage and Current regulation.
 This interface can be also used to control only one AFE as a Buck.
 
 
-> Insolation resistance value measured via your insulation monitor should be provided to the charge controller using the [CAN bus generic interface](charge-controllers/secc_generic/can.md) signal [Power_Modules_Status](charge-controllers/secc_generic/can.md#Power_Modules_Status).[Insulation_Resistance](charge-controllers/secc_generic/can.md#Insulation_Resistance)
+> Insulation resistance value measured via your insulation monitor should be provided to the charge controller using the [CAN bus generic interface](charge-controllers/secc_generic/can.md) signal [Power_Modules_Status](charge-controllers/secc_generic/can.md#Power_Modules_Status).[Insulation_Resistance](charge-controllers/secc_generic/can.md#Insulation_Resistance)
 
 
 ![BOOST-BUCK charger](ADM-CS-SECC/images/ADM-CS-SECC_boost_buck.svg ':size=200%')
