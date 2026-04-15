@@ -16,6 +16,7 @@ As a courtesy we also provide our CAN DBs in the more usual DBC format. Note the
 
 | CAN API Version | .kcd file | .dbc file |
 |-----------------|-----------|-----------|
+| 4.0.0           | [**ADB_PC_AC01_4.0.0.kcd**](../assets/ADB_PC_AC01_4.0.0.kcd) | [**ADB_PC_AC01_4.0.0.dbc**](../assets/ADB_PC_AC01_4.0.0.dbc) |
 | 3.1.0           | [**ADB_PC_AC01_3.1.0.kcd**](../assets/ADB_PC_AC01_3.1.0.kcd) | [**ADB_PC_AC01_3.1.0.dbc**](../assets/ADB_PC_AC01_3.1.0.dbc) |
 
 
