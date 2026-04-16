@@ -95,7 +95,7 @@ After the startup connections and precharge are completed, respecting the limita
 
 An ADB-PC-DC01 can be a building block of a bidirectional battery charging system (e.g., G2V, V2G). The diagram below illustrates the connection diagram of such a system, where a 3-phase grid is connected to ADB-PC-DC01 through ADB-PC-AC01 (Advantics 100kW bidirectional active front end operating in PFC mode). In this system, Port B control mode would be used to regulate the power transfer.
 
-{{ figure('../assets/3-phase-bidir-charger.png', '3-phase bidirectional charger diagram that employs ADB-PC-DC01 and ADB-PC-AC01') }}
+{{ figure('../assets/image.png', '3-phase bidirectional charger diagram that employs ADB-PC-DC01 and ADB-PC-AC01') }}
 
 Let’s consider that a regulated 800V is connected to Port A of ADB-PC-DC01, and the actual battery voltage is 1100V, and the goal is to charge it to 1500V at the desired current. In this case, the user voltage setpoint will be 1500V, and the current setpoint will be the required charging current, not exceeding the 100kW power envelope. The power module will charge the battery in CC mode until the battery reaches 1500V. Then, the charging will continue in CV mode until the battery is fully charged. Conversely, if the goal is to discharge this battery to 850V, the voltage setpoint will be 850V along with the desired current limit, not exceeding the 100kW power envelope.
 
