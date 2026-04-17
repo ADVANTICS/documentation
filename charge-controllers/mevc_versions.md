@@ -362,7 +362,7 @@ Currently supported hardware are for `ADM-CS-MEVC`.
       <td>
         <ul>
           <li><strong>Dockerhub update:</strong> Pull from Docker hub — <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=option-1-requires-internet-pulling-the-update-from-docker-hub">Guide</a></li>
-          <li><strong>.zip update:</strong> <a href="https://pub-ec884f5e1c6b4942867b3ac199d79823.r2.dev/mevc/mevc-release-2.6.zip">Download .zip (Release 2.6)</a> — <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=option-3-does-not-requires-internet-loading-the-images-from-a-zip-file">Update instructions</a></li>
+          <li><strong>.zip update:</strong> <a href="">Download .zip (Release 2.6)</a> — <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=option-3-does-not-requires-internet-loading-the-images-from-a-zip-file">Update instructions</a></li>
         </ul>
       </td>
       <td>
@@ -388,7 +388,7 @@ Currently supported hardware are for `ADM-CS-MEVC`.
       <td>
         <ul>
           <li><strong>Dockerhub update:</strong> Pull from Docker hub — <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=option-1-requires-internet-pulling-the-update-from-docker-hub">Guide</a></li>
-          <li><strong>.zip update:</strong> <a href="https://pub-ec884f5e1c6b4942867b3ac199d79823.r2.dev/mevc/mevc-release-2.6.1.zip">Download .zip (Release 2.6.1)</a> — <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=option-3-does-not-requires-internet-loading-the-images-from-a-zip-file">Update instructions</a></li>
+          <li><strong>.zip update:</strong> <a href="">Download .zip (Release 2.6.1)</a> — <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=option-3-does-not-requires-internet-loading-the-images-from-a-zip-file">Update instructions</a></li>
         </ul>
       </td>
       <td>
