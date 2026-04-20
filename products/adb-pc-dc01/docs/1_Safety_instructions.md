@@ -41,7 +41,24 @@ Maintenance, repair, or internal balancing may only be performed by trained pers
 
 Under the worst conditions (loss of supply voltage), a minimum waiting period of 17 minutes must be observed after the module has been disconnected to allow internal capacitors to discharge to less than 60V. This duration takes system and component tolerances into account and considers the capacitors charged to 950V. Even if this time has passed, a voltage absence test is required before handling the unit.
 
+## Do not remove cover
+
+Do not remove the cover under any circumstances. There are no user-serviceable parts inside. Hazardous voltages may be present even after disconnection.
+Removal of the cover may result in serious injury or death.
+
+## Heavy equipment
+
+This module has an approximate mass of 40 kg. Installation at elevated locations is not recommended unless the supporting structure is specifically designed and verified to safely support the load. Failure to ensure adequate mechanical support may result in the unit falling, leading to serious injury or death.
 <br>
+
+## Protective earth connection
+
+This equipment must be connected to protective earth (PE) before operation. A protective earth conductor with a minimum cross-sectional area of 16 mm² shall be used. Failure to provide an adequate protective earth connection may result in electric shock, equipment damage, or death.
+
+## Thermal hazard
+
+Surfaces may reach high temperatures during operation. Allow sufficient cooling time before handling.
+
 
 # Safety symbols
 
