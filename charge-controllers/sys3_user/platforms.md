@@ -60,4 +60,4 @@ Complete license texts are available in the `licenses/` directory of relavent so
 None of the above libraries have been modified.
 
 The full list of components, their licenses, and attribution notices is
-[provided here in the `THIRD_PARTY_NOTICES.txt` file](./THIRD_PARTY_NOTICES.txt) included in this distribution.
+[provided here in the `THIRD_PARTY_NOTICES.txt` file](charge-controllers/sys3_user/THIRD_PARTY_NOTICES.txt) included in this distribution.
