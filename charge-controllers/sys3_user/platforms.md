@@ -50,11 +50,14 @@
 ### Open Source Software Notices
 
 This product incorporates open source software components. License texts
-and source code are available at the locations listed below. Copies of
-all applicable license texts are provided in Appendix X of this document.
+and source code are available at the locations listed below.
+Complete license texts are available in the `licenses/` directory of relavent software products.
 
   • python-can 4.6.1     — LGPLv3   — https://github.com/hardbyte/python-can
   
   • python-certifi        — MPL 2.0  — https://github.com/certifi/python-certifi
 
 None of the above libraries have been modified.
+
+The full list of components, their licenses, and attribution notices is
+[provided here in the `THIRD_PARTY_NOTICES.txt` file](./THIRD_PARTY_NOTICES.txt) included in this distribution.

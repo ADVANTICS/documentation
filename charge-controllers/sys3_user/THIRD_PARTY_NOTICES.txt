@@ -1,0 +1,74 @@
+================================================================================
+THIRD-PARTY SOFTWARE NOTICES
+================================================================================
+
+This product includes open-source software components. License texts are
+provided in the /licenses directory of this distribution.
+
+================================================================================
+SECTION 1 — GNU LESSER GENERAL PUBLIC LICENSE v3 (LGPLv3)
+License text: See licenses/LGPL-3.0.txt
+================================================================================
+
+The following components are licensed under the LGPLv3. They are dynamically
+linked and have not been modified. In accordance with the LGPLv3, you may
+obtain their source code at the URLs below and replace the version used in
+this product with a modified version.
+
+  Component : python-can
+  Version   : 4.6.1
+  Source    : https://github.com/hardbyte/python-can
+
+================================================================================
+SECTION 2 — MOZILLA PUBLIC LICENSE 2.0 (MPL 2.0)
+License text: See licenses/MPL-2.0.txt
+================================================================================
+
+  Component : python-certifi
+  Version   : 2025.4.26
+  Source    : https://github.com/certifi/python-certifi
+
+================================================================================
+SECTION 3 — APACHE LICENSE 2.0
+License text: https://www.apache.org/licenses/LICENSE-2.0
+================================================================================
+
+The following components are licensed under the Apache License 2.0:
+
+  @eslint/config-array 0.21.2, @eslint/config-helpers 0.4.2,
+  @eslint/core 0.17.0, @eslint/object-schema 2.1.7,
+  @eslint/plugin-kit 0.4.1, @humanfs/core 0.19.1,
+  @humanfs/node 0.16.7, @humanwhocodes/module-importer 1.0.1,
+  @humanwhocodes/retry 0.4.3, Cython 3.0.11, Packaging 26,
+  TypeScript 5.9.3, aria-query 5.3.2, axobject-query 4.1.0,
+  baseline-browser-mapping 2.10.0, class-variance-authority 0.7.1,
+  didyoumean.js 1.2.2, diskcache 5.6.3, docker 7.1.0,
+  doctrine v2.1.0, dominictarr/rc 1.2.8, eslint-visitor-keys 3.4.3,
+  eslint-visitor-keys 4.2.1, eslint-visitor-keys 5.0.1, orjson 3.11.7,
+  psf-requests 2.32.5, puppeteer 1.20.0, pyOpenSSL 25.3.0,
+  pyca/cryptography 46.0.5, ts-interface-checker 0.1.13, yargonaut 1.1.4
+
+================================================================================
+SECTION 4 — ATTRIBUTION NOTICE (MIT, ISC, BSD, AND SIMILAR PERMISSIVE LICENSES)
+================================================================================
+
+This product also includes software components distributed under permissive
+open-source licenses (MIT, ISC, BSD 2-clause, BSD 3-clause, Python Software
+Foundation License 2.0, Blue Oak Model License 1.0.0, and Expat). These
+licenses permit use, modification, and distribution with attribution.
+
+The complete list of these components, their versions, copyright holders, and
+license terms is available in the accompanying OSS scan report, and online at
+the respective project repositories.
+
+================================================================================
+SECTION 5 — CREATIVE COMMONS ATTRIBUTION 4.0 (CC BY 4.0)
+================================================================================
+
+  caniuse-lite 1.0.30001777
+  Copyright (C) Alexis Deveria and contributors, licensed under CC BY 4.0
+  https://creativecommons.org/licenses/by/4.0/
+
+================================================================================
+END OF THIRD-PARTY SOFTWARE NOTICES
+================================================================================
