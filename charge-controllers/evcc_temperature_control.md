@@ -26,7 +26,7 @@ Temperature channels are configured in the `/srv/config.cfg` file under `[temper
 
 - `[temperature]` can be a multi-line entry
 - Each line has the following format: `<CHANNEL> = <FUNCTION>`
-- `<FUNCTION>` has to correspond to another section of the config file named `[temperature:<FUNCTION>]`. Several sensible default functions are already provided (see below).
+- `<FUNCTION>` has to correspond to another section of the config file named `[temperature_function:<FUNCTION>]`. Several sensible default functions are already provided (see below).
 - `<CHANNEL>` corresponds to a temperature channel available on the controller.
 
 <figcaption>Example temperature channels configuration</figcaption>
@@ -41,7 +41,7 @@ ptc2 = monitor
 
 ## Channel functions configuration
 
-A `[temperature:<FUNCTION>]` section has only one possible entry, the action list.
+A `[temperature_function:<FUNCTION>]` section has only one possible entry, the action list.
 <br/><br/>
 
 - `actions` can be a multi-line entry of possible `<ACTION>`
@@ -50,7 +50,7 @@ A `[temperature:<FUNCTION>]` section has only one possible entry, the action lis
 <figcaption>Example temperature function configuration</figcaption>
 
 ```
-[temperature:cable]
+[temperature_function:cable]
 actions =
 		cable_derate_current
 		cable_stop_threshold
