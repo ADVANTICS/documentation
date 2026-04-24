@@ -88,6 +88,17 @@ operate. In most applications, the CONTACTOR_POWER pin will simply be wired to t
 the main power input. The only reason for it to be wired in a different way is to allow mixed 12V
 and 24V operation (24V trucks using 12V contactors, for example).
 
+> [!WARNING]
+> Economized contactors are **not recommended**. Their internal coil-switching
+> circuitry can produce inrush currents that exceed the contactor driver's capability. Instead,
+> wire the contactors through a standard automotive relay. The
+> charge controller drives the automotive relay, and the relay in turn drives the contactor coil.
+
+The contactor driver incorporates the following built-in protections:
+
+- **Overcurrent protection** – trips at 6 A to protect the driver and wiring.
+- **Undervoltage protection** – disables the driver when the CONTACTOR_POWER input falls at or below 8.2 V.
+
 <div class="bigger-300">
 
 ![DC fast charge contactors pinout](images/ADM-CS-EVCC_multipart_contactors.svg "DC fast charge contactors pinout")
