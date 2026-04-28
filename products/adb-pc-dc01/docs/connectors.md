@@ -79,7 +79,7 @@ The module includes redundant CAN bus & interlock line connections:
 
 | Name              | Pin | Description                                                                 |
 |-------------------|-----|-----------------------------------------------------------------------------|
-| Interlock         | 1   | Interlock input/output                                                      |
+| Interlock         | 1   | Interlock input                                                             |
 | CAN_GND           | 2   | Ground                                                                      |
 | CAN_L             | 3   | CAN bus low (differential)                                                  |
 | CAN_H             | 4   | CAN bus high (differential)                                                 |
