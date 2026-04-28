@@ -29,31 +29,69 @@ This allows the customer to reuse the same cooling and housing concept for ADVAN
 
 Table 1\. Mechanical and Electrical Specifications
 
-|  Parameters |  Values |
-| :---- | :---- |
-| **Voltage Range** | 200 to 950 V |
-| **Voltage Conversion Ratio** | 1:1 |
-| **Creepage and Clearance** | IEC 62477-1 and IEC 61851-23 |
-| **Overvoltage Category** | OVCIII (up to 3000m altitude) |
-| **Current Range** | ±60 A |
-| **Power** | 50 kW |
-| **Power Flow** | Bidirectional |
-| **Operating Mode** | 1:1 Voltage Following |
-| **Technology** | Silicon Carbide |
-| **Efficiency** | 98.7% peak |
-| **Assembly** | Flat plate for easy integration |
-| **Protection Features** | Overcurrent, overvoltage, overtemperature and external hardware interlock |
-| **Voltage and Current Measurement Accuracy** | ±2% (±1% typical) |
-| **Cooling** | Air and liquid cooling |
-| **Communication Chaining** | Up to 32 devices of the same type |
-| **Control Connector** | 8-pin JST CPT |
-| **Control System Power** | Max 15 W |
-| **Control System Voltage** | 24 V |
-| **HV Bus Capacitance** | 80 uF |
-| **Weight** | 6.65 kg |
-| **Power Density** | 7.52 kW/kg 8.48 kW/L |
-| **Operating Heat Sink Temperature Range** | \-20°C to 65°C |
-| **Design and Manufacturing** | European Union |
+## Electrical
+
+| Parameters | Values |
+|------------|--------|
+| Side A and Side B voltage range | 200 to 950 V |
+| Voltage Conversion Ratio | 1 to 1 |
+| Side A and Side B Current Range | -60 to 60 A |
+| Power Rating | Max 50 kW |
+| Protection Features | Overvoltage, overcurrent, overtemperature, external interlock |
+| Power flow | Bidirectional |
+| Efficiency | 98.7% peak at 950 V, 50 kW |
+| Measurement Accuracy | ±2% (±1% typical) |
+| Power Density | 7.52 kW/kg or 8.48 kW/L |
+| Operating Heatsink Temperature | -20 °C to 65 °C |
+| Side A Bus Capacitance | 80 µF ± 10% |
+| Side B Bus Capacitance | 80 µF ± 10% |
+| Y Capacitance (Side A to heatsink) | 29.7 nF |
+| Y Capacitance (Side B to heatsink) | 29.7 nF |
+
+## Control Interface
+
+| Parameters | Values |
+|------------|--------|
+| Connector | 8-Pin JST CPT |
+| Voltage Range | 20 to 28 V |
+| Power Consumption | 15 W max |
+| Communication | CAN bus at 500 kbps |
+| Chaining | Up to 32 devices of the same type |
+
+## Mechanical
+
+| Parameters | Values |
+|------------|--------|
+| Assembly | Flat plate for easy integration |
+| Cooling | Air and liquid |
+| Weight | 6.65 kg |
+| Volume | 5.9 L |
+| Dimensions | 260 x 350 x 65 mm |
+| Power Connectors | Würth 7466005R (M5) |
+
+## Standards and Isolation
+
+| Parameters | Values |
+|------------|--------|
+| Standards | Designed for IEC 62477-1 and IEC 61851-23 |
+| Overvoltage Category | OVC-III |
+| Altitude | Up to 3000 m |
+| Pollution Degree | PD2 |
+| Impulse Withstand Voltage | 6000 V for all the barriers |
+| Clearance Distance | Minimum 6.27 mm for all barriers |
+| Creepage Distance | Minimum 6.4 mm in PD1 microenvironment; minimum 10 mm otherwise |
+| Side A to Heatsink | Reinforced isolation (6 kV impulse) |
+| Side B to Heatsink | Reinforced isolation (6 kV impulse) |
+| Side A to Side B | Reinforced isolation (6 kV impulse) |
+| Side A to Control | Reinforced isolation (6 kV impulse) |
+| Side B to Control | Reinforced isolation (6 kV impulse) |
+| Control to Heatsink | Reinforced isolation (6 kV impulse) |
+
+## Design and Manufacturing
+
+| Parameters | Values |
+|------------|--------|
+| Origin | EU |
 
 ## **4.1.5. Efficiency Measurement**
 
