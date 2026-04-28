@@ -2,7 +2,7 @@
 
 ## **4.1.1. Content of package**
 
-Please check the content of the package and compare it with the Box Content List, provided with the shipped package. Verify that all components are intact and free from visible damage. In case of any doubt regarding the condition of the items, please contact our Sales Department: [**sales@advantics.fr**](mailto:sales@advantics.fr)
+Please check the content of the package and compare it with the Box Content List, provided with the shipped package. Verify that all components are intact and free from visible damage. In case of any doubt regarding the condition of the items, please contact our Sales Department: [**contact@advantics.fr**](mailto:contact@advantics.fr)
 
 ## **4.1.2. Storage Conditions**
 
@@ -26,8 +26,6 @@ This allows the customer to reuse the same cooling and housing concept for ADVAN
 ## 
 
 ## **4.1.4. Specifications**
-
-Table 1\. Mechanical and Electrical Specifications
 
 ## Electrical
 
