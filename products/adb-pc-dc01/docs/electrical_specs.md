@@ -1,22 +1,21 @@
 # Electrical Overview
 
-## Port A (DC Bus Side)
+## DC Bus Side (A)
 
-| **Parameter** | **Value** | **Notes** |
-|---------------|-----------|-----------|
-| **Voltage** | 750 - 950 V | Minimum voltage is limited to 52% of the voltage at port B or 750V, whichever is greater |
-| **Current** | ±120 A | - |
-| **Max Power** | 100 kW | - |
-| **Current Measurement Accuracy** | ±1 % | Of full-scale |
-| **Voltage Measurement Accuracy** | ±1 % | Of full-scale |
-| **Wiring** | DC+, DC- | - |
-| **DC Link Capacitance** | 160 uF | - |
-| **DC Link Precharge** | No | Must be precharged externally |
-| **DC Bus to PE Separation** | Basic safety isolation | - |
-| **Protection** | Overvoltage, Undervoltage, Overcurrent, Overtemperature | - |
-| **Fusing** | On the positive line | UL/IEC rated |
-| **Overvoltage Category** | OVC2 | - |
-| **Connectors** | 2x RADSOK Size 8mm Amphenol SurLock Plus (SLP-HIR-B) | - |
+| Parameters | Values |
+|------------|--------|
+| Voltage range | 750 – 950 V |
+| Current | ±120 A |
+| Max power | 100 kW |
+| Current measurement accuracy | ±1% of full-scale |
+| Voltage measurement accuracy | ±1% of full-scale |
+| Wiring | DC+, DC- |
+| DC link capacitance | 160 µF |
+| DC link precharge | No, must be precharged externally |
+| DC bus to PE separation | Reinforced isolation |
+| Protection | Overvoltage, undervoltage, overcurrent, overtemperature |
+| Fusing | On the positive line, UL/IEC rated |
+| Connectors | 2x RADSOK size 8 mm, Amphenol SurLock Plus (SLP-HIR-B) |
 
 
 <!-- ### Maximum Power vs Input Voltage
@@ -27,22 +26,22 @@ The following graph illustrates the relationship between the maximum achievable 
 
 ## Port B (DC wide control side) 
 
-| **Parameter** | **Value** | **Notes** |
-|---------------|-----------|-----------|
-| **Voltage Range** | 200 - 1500 V | Maximum voltage is limited to 195% of the voltage at port A or 1500V whichever is smaller |
-| **Current** | ±220 A | Bi-directional, limited by power envelope |
-| **Max Power** | 100 kW | - |
-| **Current Measurement Accuracy** | ±1 % | Of full-scale |
-| **Voltage Measurement Accuracy** | ±1 % | Of full-scale |
-| **Wiring** | DC+, DC- | - |
-| **DC Link Capacitance** | 80 uF | - |
-| **Primary-Secondary Separation** | Reinforced Isolation | - |
-| **Ripple Voltage/Current** | Fulfills IEC 61851-23-3 | - |
-| **Overvoltage Category** | OVC2 | - |
-| **Output Contactors** | No | - |
-| **Fusing** | No | - |
-| **Protection** | Overvoltage, Undervoltage, Overcurrent, Overtemperature | - |
-| **Connectors DC** | 2x RADSOK Size 10.3mm Amphenol SurLock Plus (SLP-HIR-C) | - |
+## DC Output Side (B)
+
+| Parameters | Values |
+|------------|--------|
+| Voltage range | 200 – 1500 V |
+| Current | ±220 A (bidirectional), limited by power envelope |
+| Max power | 100 kW |
+| Current measurement accuracy | ±1% of full-scale |
+| Voltage measurement accuracy | ±1% of full-scale |
+| Wiring | DC+, DC- |
+| DC link capacitance | 25.7 µF (QP), 6.4 µF (QS) |
+| Primary–secondary separation | Reinforced isolation |
+| Ripple voltage/current | Fulfills IEC 61851-23-3 |
+| Output contactors | No |
+| Protection | Overvoltage, undervoltage, overcurrent, overtemperature |
+| Connectors (DC) | 2x RADSOK size 10.3 mm, Amphenol SurLock Plus (SLP-HIR-C) |
 
 <!-- ### Maximum Power vs DC wide control side Voltage
 
@@ -217,8 +216,8 @@ The following graph shows the FFT spectrum of the output voltage ripple for the 
 
 | **Parameter** | **Range** | **Derating** |
 |---------------|-----------|--------------|
-| **Operating Temperature** | -40°C to +70°C | Power derating applies above 50°C |
-| **Storage Temperature** | -50°C to +85°C | No operation |
+| **Operating Temperature** | -40°C to 70°C | Power derating applies above 50°C |
+| **Storage Temperature** | -50°C to 85°C | No operation |
 | **Altitude** | Up to 3000m | |
 | **Pollution Degree** | 3 (external) | Sealed IP67 design |
 
