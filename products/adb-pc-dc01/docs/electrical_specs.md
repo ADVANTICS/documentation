@@ -24,8 +24,6 @@ The following graph illustrates the relationship between the maximum achievable 
 
 {{ figure('../assets/max_power_vs_input_voltage.png', 'Maximum Power vs Input Voltage') }} -->
 
-## Port B (DC wide control side) 
-
 ## DC Output Side (B)
 
 | Parameters | Values |
