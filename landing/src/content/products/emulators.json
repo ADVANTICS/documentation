@@ -1,0 +1,11 @@
+{
+  "docsReady": false,
+  "sortNumber": 5,
+  "codename": "ADM-CS-PK",
+  "datasheet": "https://advantics.fr/pdf/ADM-CS-PK.pdf",
+  "card": {
+    "name": "EV and Charger Emulator",
+    "img": "/src/assets/img/products/emulators-1.png",
+    "alt": "EV charge controller sub assembly ready to install in the car"
+  }
+}
