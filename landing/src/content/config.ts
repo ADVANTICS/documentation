@@ -82,29 +82,9 @@ const products = defineCollection({
       imgRotation: z.string().optional(),
       img: z.string(),
       alt: z.string(),
-      description: z.string(),
       keyPoints: z.record(z.record(z.string())).optional(),
     }),
-    header: z.object({
-      imgClasses: z.string().optional(),
-      name: z.string(),
-      title: z.string(),
-      img: z.string(),
-      alt: z.string(),
-      description: z.string(),
-    }),
-    hardwareDescription: z.array(z.string()),
-    techData: z.record(
-      z.array(z.object({ name: z.string(), value: z.string().nullable() })),
-    ),
 
-    carousel: z.array(
-      z.object({
-        path: z.string(),
-        alt: z.string(),
-        caption: z.string().optional(),
-      }),
-    ),
     attachments: z
       .array(
         z.object({
