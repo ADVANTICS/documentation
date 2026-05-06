@@ -14,6 +14,7 @@ const {
       datasheet,
       codename,
       docsHref,
+      docsReady,
       card: { alt, imgScale = "1", imgRotation = "-10deg", name, img },
     },
   },
@@ -28,15 +29,25 @@ const docsURL = docsHref ? docsHref : `/${codename.toLowerCase()}`;
 
 <article class="card">
   <div class="imgBx">
-    <a href={docsURL}>
-      <Image src={images[img]()} {alt} />
-    </a>
+    {
+      docsReady && (
+        <a href={docsURL}>
+          <Image src={images[img]()} {alt} />
+        </a>
+      )
+    }
+    {!docsReady && <Image src={images[img]()} {alt} />}
   </div>
   <div class="details">
     <header>
-      <a href={docsURL}>
-        <h2 set:html={name} class="hover:underline" />
-      </a>
+      {
+        docsReady && (
+          <a href={docsURL}>
+            <h2 set:html={name} class="hover:underline" />
+          </a>
+        )
+      }
+      {!docsReady && <h2 set:html={name} />}
       <span class="codename">{codename}</span>
     </header>
     <main class="content">
@@ -73,7 +84,7 @@ const docsURL = docsHref ? docsHref : `/${codename.toLowerCase()}`;
     </main>
     <footer class:list={["mt-6 mb-2 flex w-full gap-x-2"]}>
       {
-        docsURL && (
+        docsReady && (
           <Button
             as="a"
             href={docsURL}

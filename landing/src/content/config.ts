@@ -65,6 +65,7 @@ const products = defineCollection({
   type: "data",
   schema: z.object({
     docsReady: z.boolean().optional(),
+    listReady: z.boolean().optional(),
     keywords: z.string().optional(),
     isComingSoon: z.boolean().optional(),
     sortNumber: z.number().optional(),
