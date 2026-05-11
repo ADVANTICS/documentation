@@ -5,6 +5,7 @@
   "sortNumber": 4,
   "OGimg": "/src/assets/img/products/evcc-og.png",
   "datasheet": "https://advantics.fr/pdf/ADM-CS-MEVC-DATASHEET.pdf",
+  "docsHref": "https://advantics.github.io/documentation/#/charge-controllers/ADM-CS-MEVC/",
   "codename": "ADM-CS-MEVC",
   "card": {
     "name": "MCS Charge Controller EVCC",
