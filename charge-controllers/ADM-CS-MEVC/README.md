@@ -1,5 +1,5 @@
 > [!UPDATE] {docsify-updated}
-# ADM-CS-EVCC hardware manual
+# ADM-CS-MEVC hardware manual
 
 > [!FCC]
 > This device is considered a sub-assembly, and in accordance with CFR47 part 15.103 is exempted from
