@@ -39,7 +39,7 @@ jobs:
           PDF_EXPORT=1 mkdocs build --clean
 
       - name: Upload to FTP server
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_DOCS_USERNAME }}
