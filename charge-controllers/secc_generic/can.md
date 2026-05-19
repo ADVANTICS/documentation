@@ -526,7 +526,10 @@ can be controlled through this message.
 | Digital_Output2 | 1 | Single bit |
 | Digital_Output3 | 1 | Single bit |
 | Digital_Output4 | 1 | Single bit |
-| Reserved | 60 | Unsigned |
+| Led1 | 8 | Unsigned |
+| Led2 | 8 | Unsigned |
+| Led3 | 8 | Unsigned |
+| Reserved | 26 | Unsigned |
 
 </div>
 
@@ -605,6 +608,60 @@ Needs to be declared as CAN Controlled in `/srv/config.cfg`:
 </div>
 
 
+#### Led1 :id=ADM_CS_SECC_Outputs-Led1
+
+Sets the brightness of LED1 (CON5 5) in a scale from 1 to 100.
+Greater values than 100 will be treated as max brigthness.
+
+    [hardware]
+    led1 = CAN_Controlled
+
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 4 | 8 | Unsigned |  | 1 | 0 | 0 | 255 |
+
+</div>
+
+
+#### Led2 :id=ADM_CS_SECC_Outputs-Led2
+
+Sets the brightness of LED2 (CON 6) in a scale from 1 to 100.
+Greater values than 100 will be treated as max brigthness.
+
+    [hardware]
+    led2 = CAN_Controlled
+
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 12 | 8 | Unsigned |  | 1 | 0 | 0 | 255 |
+
+</div>
+
+
+#### Led3 :id=ADM_CS_SECC_Outputs-Led3
+
+Sets the brightness of LED3 (CON 7) in a scale from 1 to 100.
+Greater values than 100 will be treated as max brigthness.
+
+    [hardware]
+    led3 = CAN_Controlled
+
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 20 | 8 | Unsigned |  | 1 | 0 | 0 | 255 |
+
+</div>
+
+
 #### Reserved :id=ADM_CS_SECC_Outputs-Reserved
 
 Reserved bits for future uses.
@@ -614,7 +671,7 @@ Reserved bits for future uses.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 4 | 60 | Unsigned |  | 1 | 0 |  |  |
+| 28 | 26 | Unsigned |  | 1 | 0 |  |  |
 
 </div>
 
@@ -650,7 +707,10 @@ can be controlled through this message.
 |--------|---------------|------|
 | Digital_Output1 | 1 | Single bit |
 | Digital_Output2 | 1 | Single bit |
-| Reserved | 62 | Unsigned |
+| Led1 | 8 | Unsigned |
+| Led2 | 8 | Unsigned |
+| Led3 | 8 | Unsigned |
+| Reserved | 38 | Unsigned |
 
 </div>
 
@@ -693,6 +753,60 @@ Needs to be declared as CAN Controlled in the config file:
 </div>
 
 
+#### Led1 :id=ADM_CS_SPCC_Outputs-Led1
+
+Sets the brightness of LED1 (CON105 11) in a scale from 1 to 100.
+Greater values than 100 will be treated as max brigthness.
+
+    [hardware]
+    led1 = CAN_Controlled
+
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 2 | 8 | Unsigned |  | 1 | 0 | 0 | 255 |
+
+</div>
+
+
+#### Led2 :id=ADM_CS_SPCC_Outputs-Led2
+
+Sets the brightness of LED2 (CON105 12) in a scale from 1 to 100.
+Greater values than 100 will be treated as max brigthness.
+
+    [hardware]
+    led2 = CAN_Controlled
+
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 10 | 8 | Unsigned |  | 1 | 0 | 0 | 255 |
+
+</div>
+
+
+#### Led3 :id=ADM_CS_SPCC_Outputs-Led3
+
+Sets the brightness of LED3 (CON105 13) in a scale from 1 to 100.
+Greater values than 100 will be treated as max brigthness.
+
+    [hardware]
+    led3 = CAN_Controlled
+
+
+<div class="small-table compact-table">
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 18 | 8 | Unsigned |  | 1 | 0 | 0 | 255 |
+
+</div>
+
+
 #### Reserved :id=ADM_CS_SPCC_Outputs-Reserved
 
 Reserved bits for future uses.
@@ -702,7 +816,7 @@ Reserved bits for future uses.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 2 | 62 | Unsigned |  | 1 | 0 |  |  |
+| 26 | 38 | Unsigned |  | 1 | 0 |  |  |
 
 </div>
 

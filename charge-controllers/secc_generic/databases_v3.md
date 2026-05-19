@@ -5,8 +5,8 @@ See [all messages page](charge-controllers/secc_generic/can_v3).
 
 Download CAN DBs:
 
-- [Advantics Generic EVSE protocol v3.5 (Kayak format)](charge-controllers/secc_generic/Advantics_Generic_EVSE_protocol_v3.5.kcd ':ignore')
-- [Advantics Generic EVSE protocol v3.5 (DBC format)](charge-controllers/secc_generic/Advantics_Generic_EVSE_protocol_v3.5.dbc ':ignore')
+- [Advantics Generic EVSE protocol v3.6 (Kayak format)](charge-controllers/secc_generic/Advantics_Generic_EVSE_protocol_v3.6.kcd ':ignore')
+- [Advantics Generic EVSE protocol v3.6 (DBC format)](charge-controllers/secc_generic/Advantics_Generic_EVSE_protocol_v3.6.dbc ':ignore')
 
 ## CAN ID index field
 
