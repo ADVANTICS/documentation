@@ -316,5 +316,45 @@ They are slow paced because the release process is substantial.
         </ul>
       </td>
     </tr>
+    <tr>
+      <td class="branch-col">Release 4.5.0</td>
+      <td class="date-col">2026-05-19</td>
+      <td>
+        <ul>
+          <li><strong>evse-controller 3.7.0</strong>
+            <ul>
+              <li>LED control via CAN bus</li>
+              <li>fix: new controllers config parameter retrieval on Bender IMD interface</li>
+            </ul>
+          </li>
+          <li><strong>ccs-secc 2.7.0</strong>
+            <ul>
+              <li>fix: TLS certificate loader</li>
+              <li>Add a config option to force EVSE_Ready status in DC_EVSEStatus when charge parameter discovery processing is finished on DIN and ISO-2</li>
+            </ul>
+          </li>
+          <li><strong>advantics-csm 1.7.3</strong>
+            <ul>
+              <li>Add application version on UI</li>
+              <li>Minor bug fixes</li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><strong>Dockerhub update:</strong> Pull from Docker Hub - <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=option-1-requires-internet-pulling-the-update-from-docker-hub">Guide</a></li>
+          <li><strong>.zip update:</strong> <a href="https://pub-ec884f5e1c6b4942867b3ac199d79823.r2.dev/spcc/spcc-release-4.5.0.zip">Download .zip</a> + <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=option-3-does-not-requires-internet-loading-the-images-from-a-zip-file">Update instructions</a></li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><a href="https://hub.docker.com/r/advantics/evse-controller/tags">advantics/evse-controller:3.7.0</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/ccs-secc/tags">advantics/ccs-secc:2.7.0</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/slac-evse/tags">advantics/slac-evse:2.3.2</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/advantics-csm/tags">advantics/advantics-csm:1.7.3</a></li>
+        </ul>
+      </td>
+    </tr>
   </tbody>
 </table>
