@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - material
+    paths:
+      - "products/**"
+      - ".github/workflows/mkdocs.yml"
 
 jobs:
   build-and-upload:
