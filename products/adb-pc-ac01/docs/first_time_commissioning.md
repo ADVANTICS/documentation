@@ -106,7 +106,23 @@ Your control system should be successfully connected at this stage.
 
 Let's confirm the unit can process power.
 
-1.  **Set to `STANDBY`:** Use ETKA tool to send the command to place the unit in `STANDBY` mode.
+1.  **check `STANDBY`:** Use ETKA tool make sure that the unit is `STANDBY` mode. If the unit is in `ERROR` mode, make sure that no emergency stop is active. If the unit is in `CRITICAL` mode, please contact Advantics support.
+
+    !!! tip
+        Errors can be cleared using `Clear_Interlock` signals from the `Fault_Control` message.
+
+2.  **Set operating Mode:** Send command to `AC01_Mode_Set` , to choose the  operating mode 
+    !!! tip
+        Requested operating mode :
+
+            - DC_Controlled (0): DC side voltage controlled to setpoint, requires AC side input present
+            - AC_Controlled (1): AC side voltage controlled, will generate AC if not present
+            - Bleeding (2): Discharge internal capacitors/remaining charge
+
+
+        Changing mode can only be done when the power converter is not "Enable"
+
+
 2.  **Set Target Voltage/Current:** Send a simple command, for example, to regulate the DC side at a nominal voltage with a minimal current limit.
 3.  **Enable Operation:** Send the CAN command to move from `STANDBY` to `OPERATE`.
 4.  **Apply a Small Load:** Using your external DC load, draw a small amount of current (e.g., 10% of the unit's rating).
