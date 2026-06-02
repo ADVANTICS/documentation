@@ -86,9 +86,9 @@ The reference of the pin is composed of 3 characters:
 | [MCS Auxiliary Voltage](#MCS_Interface) | <center> - | <center> 3G2 |
 | [MCS_CE_Sv4_ext](#MCS_Interface) | <center> - | <center> 3H2 |
 | [GND](#MCS_Interface) | <center> - | <center> 1J2 |
-| [CAN_H_TEMP_SENSOR](#MCS_Interface) | <center>  1B1 | <center> - |
-| [CAN_L_TEMP_SENSOR](#MCS_Interface) | <center>  2B1 | <center> - |
-| [CAN_TEMP_SENSOR_GND](#MCS_Interface) | <center>  3B1 | <center> - |
+| [CAN1_H_TEMP_SENSOR](#MCS_Interface) | <center>  1B1 | <center> - |
+| [CAN1_L_TEMP_SENSOR](#MCS_Interface) | <center>  2B1 | <center> - |
+| [CAN1_TEMP_SENSOR_GND](#MCS_Interface) | <center>  3B1 | <center> - |
 | [CONTACTOR_POWER](#DC_fast_charge_contactors_control) | <center> - | <center> 2D2 |
 | [CONT_DC+_POS](#DC_fast_charge_contactors_control) | <center> - | <center> 3D2 |
 | [CONT_DC+_NEG](#DC_fast_charge_contactors_control) | <center> - | <center> 1E2 |

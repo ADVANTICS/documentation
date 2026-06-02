@@ -84,9 +84,9 @@ The reference of the pin is composed of 3 characters:
 | [PERM](#CHAdeMO_interface–NOT_USED) | <center> - | <center> 2H2 |
 | [PROXI](#CHAdeMO_interface–NOT_USED) | <center> - | <center> 3H2 |
 | [CHADEMO_GND](#CHAdeMO_interface–NOT_USED) | <center> - | <center> 1J2 |
-| [CAN_H_CHADEMO](#CHAdeMO_interface–NOT_USED) | <center>  1B1 | <center> - |
-| [CAN_L_CHADEMO](#CHAdeMO_interface–NOT_USED) | <center>  2B1 | <center> - |
-| [CAN_CHADEMO_GND](#CHAdeMO_interface–NOT_USED) | <center>  3B1 | <center> - |
+| [CAN1_H_CHADEMO](#CHAdeMO_interface–NOT_USED) | <center>  1B1 | <center> - |
+| [CAN1_L_CHADEMO](#CHAdeMO_interface–NOT_USED) | <center>  2B1 | <center> - |
+| [CAN1_CHADEMO_GND](#CHAdeMO_interface–NOT_USED) | <center>  3B1 | <center> - |
 | [CONTACTOR_POWER](#DC_fast_charge_contactors_control) | <center> - | <center> 2D2 |
 | [CONT_DC+_POS](#DC_fast_charge_contactors_control) | <center> - | <center> 3D2 |
 | [CONT_DC+_NEG](#DC_fast_charge_contactors_control) | <center> - | <center> 1E2 |
