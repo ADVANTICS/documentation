@@ -123,19 +123,19 @@ nav:
   - "1. Safety Instructions": "1_Safety_instructions.md"
   - "2. Overview": "overview.md"
   - "3. Technical Overview":
-    - "3.1. Electrical Specifications": "electrical_specs.md"
-    - "3.2. Mechanical Specifications": "mechanical_specs.md"
+      - "3.1. Electrical Specifications": "electrical_specs.md"
+      - "3.2. Mechanical Specifications": "mechanical_specs.md"
   - "4. Connectors": "connectors.md"
   - "5. Theory of Operation": "operation.md"
   - "6. First-Time Commissioning": "first_time_commissioning.md"
   - "7. Installation": "installation.md"
   - "8. References":
-    - "CAN Bus Interface":
-      - "CAN bus overview": "can_bus_overview.md"
-      - "CAN bus messages": "can_bus_interface.md"
-    - "Maintenance and Troubleshooting": "maintenance_and_troubleshooting.md"
-    - "Engineering Toolkit for Advantics (ETKA)": "appendix.md"
-    - "Datasheet": "DATASHEET COVER.md"
+      - "CAN Bus Interface":
+          - "CAN bus overview": "can_bus_overview.md"
+          - "CAN bus messages": "can_bus_interface.md"
+      - "Maintenance and Troubleshooting": "maintenance_and_troubleshooting.md"
+      - "Engineering Toolkit for Advantics (ETKA)": "appendix.md"
+      - "Datasheet": "DATASHEET COVER.md"
 
 # Extra configurations
 extra:
