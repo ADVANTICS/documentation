@@ -6,7 +6,7 @@
 |---------------|-----------|----------|
 | **Dimensions (L × W × H)** | 725 × 440 × 176 | mm |
 | **Dimensions with connectors** | 750 × 440 × 176 | mm |
-| **Weight** | 40 | kg |
+| **Weight** | 47 | kg |
 | **Mounting** | 4U rack or custom brackets | - |
 | **Cooling** | Liquid cooled | - |
 | **Ingress Protection** | IP67 | - |
