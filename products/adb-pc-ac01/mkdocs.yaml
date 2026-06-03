@@ -123,8 +123,8 @@ nav:
   - "1. Safety Instructions": "1_Safety_instructions.md"
   - "2. Overview": "overview.md"
   - "3. Technical Overview":
-   - "3.1. Electrical Specifications": "electrical_specs.md"
-   - "3.2. Mechanical Specifications": "mechanical_specs.md"
+    - "3.1. Electrical Specifications": "electrical_specs.md"
+    - "3.2. Mechanical Specifications": "mechanical_specs.md"
   - "4. Connectors": "connectors.md"
   - "5. Theory of Operation": "operation.md"
   - "6. First-Time Commissioning": "first_time_commissioning.md"
