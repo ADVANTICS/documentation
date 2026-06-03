@@ -130,7 +130,7 @@ nav:
       - "CAN bus messages": "can_bus_interface.md"
     - "Maintenance and Troubleshooting": "maintenance_and_troubleshooting.md"
     - "Engineering Toolkit for ADVANTICS (ETKA)": "appendix.md"
-    - "Datasheet": "ADM-PC-BI25_DATASHEET.md"
+    - "Datasheet": "DATASHEET COVER.md"
 
 # Extra configurations
 extra:
