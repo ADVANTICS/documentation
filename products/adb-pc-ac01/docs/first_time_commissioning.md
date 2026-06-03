@@ -2,11 +2,9 @@
 
 ### **Introduction**
 
-Welcome to the ADB-PC-AC01! This tutorial is for first-time users, engineers, or technicians.
+This section is for first-time users, engineers, or technicians.
 
 **Our goal:** To guide you safely from unboxing your new converter to a successful first power-on.
-
-This document is intended only as a simplified introduction to the product. For complete technical specifications and advanced procedures, always refer to the main **Guides** section. This document is not exhaustive. Any safety information included here is provided solely for convenience and in good faith.
 
 You are responsible for ensuring full compliance with all applicable laws, standards, and safety regulations in your country or region. ADVANTICS assumes no liability for any injury, damage, or loss resulting from the installation, operation, or misuse of this equipment.
 
