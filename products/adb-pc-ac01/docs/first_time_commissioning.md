@@ -125,13 +125,3 @@ Let's confirm the unit can process power.
 3.  **Enable Operation:** Send the CAN command to move from `STANDBY` to `OPERATE`.
 4.  **Apply a Small Load:** Using your external DC load, draw a small amount of current (e.g., 10% of the unit's rating).
 5.  **Verify Output:** On ETKA tool and your external DMM, confirm that the voltage and current at DC side match your setpoints and that no faults are present.
-
-### **Next Steps**
-
-**Congratulations! Your ADB-PC-AC01 is installed, communicating, and operational.**
-
-You have successfully completed the first-time commissioning. You are now ready to move on to more advanced configuration and integration.
-
-* To perform specific tasks like firmware updates or fault diagnosis, see our **Guides**.
-* To understand the theory behind the operating modes or safety systems, see the [**Explanation**](../operation) section.
-* For a complete list of all CAN commands, fault codes, and technical specifications, see the [**CAN Bus Communication**](../can_bus_interface) section.
