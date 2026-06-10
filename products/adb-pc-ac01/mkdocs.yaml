@@ -1,7 +1,7 @@
 site_name: ADB-PC-AC01 Documentation
 site_description: Technical documentation for Advantics ADB-PC-AC01 100kW AC/DC Active Frontend
-repo_url: https://github.com/ADVANTICS/documentation
-repo_name: gh:ADVANTICS/documentation
+# repo_url: https://github.com/ADVANTICS/documentation
+# repo_name: gh:ADVANTICS/documentation
 edit_uri: edit/material/docs/
 site_author: ADVANTICS SAS
 copyright: Copyright &copy; 2017-2025 ADVANTICS SAS

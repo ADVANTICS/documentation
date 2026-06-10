@@ -1,8 +1,8 @@
 site_name: ADM-CS-SPCC Documentation
 site_description: Technical documentation for Advantics ADM-CS-SPCC 100kW AC/DC Active Frontend
-site_url: https://documentation.advantics.fr/adm-cs-spcc
-repo_url: https://github.com/ADVANTICS/documentation
-repo_name: gh:ADVANTICS/documentation
+site_url: https://documentation.advantics.fr/adm-cs-secc
+# repo_url: https://github.com/ADVANTICS/documentation
+# repo_name: gh:ADVANTICS/documentation
 edit_uri: edit/material/docs/
 site_author: ADVANTICS SAS
 copyright: Copyright &copy; 2017-2025 ADVANTICS SAS
