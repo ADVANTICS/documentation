@@ -34,6 +34,20 @@ The PEV simulator package consists of:
 </div>
 
 
+# Prerequisites
+
+## CAN Bus Network Setup
+
+The simulator communicates over CAN bus, so a functional CAN bus network must be in place before running any tests. Choose one of the following options depending on your setup:
+
+- **PCAN Adapter**: Connect the PCAN USB adapter between the connection box and your development laptop. This is the most common setup for desktop development and monitoring.
+- **Virtual CAN on the EVCC/MEVC**: Configure a virtual CAN interface (`vcan`) directly on the controller. Every controller with simulator is shipped with a permanent `vcan0` interface already configured. In order to use it, the CAN interface config field on the main controller config and the simulator config BOTH must be set to `vcan0` instead of `can0`.
+
+> [!NOTE]
+> Before running any simulated charge session, verify that CAN bus traffic is visible in [PEAK-PCAN View](https://www.peak-system.com/PCAN-View.242.0.html) (or an equivalent CAN monitoring tool). If you configured a virtual CAN interface, traffic should be visible on the `vcan` interface instead. If no traffic appears, please do not proceed - the simulator will not function correctly without an active CAN bus network.
+>
+> If you are using the included PCAN adapter, make sure the [PCAN driver](https://www.peak-system.com/Home.59.0.html) is installed on your laptop before connecting.
+
 # User Interface
 
 Simulation is primarily managed and controlled by the [CSM Web UI](charge-controllers/advantics_os/csm-web-ui.md). [Connect to your controller](charge-controllers/advantics_os/connecting) dashboard and head to `/dashboard/simulation`.
@@ -129,34 +143,34 @@ If you prefer to wire a different hardware to one side of the simulator box, you
 ### Power Connector
 <div class="small-table compact-table">
 
-| Number | Label | Color |  
-|--------|-------|-------|
-| 1 | 24V | Red |
-| 2 | GND | Black |
+| Number | Label | Color |
+| ------ | ----- | ----- |
+| 1      | 24V   | Red   |
+| 2      | GND   | Black |
 
 </div>
 
 ### CAN Bus Connector
 <div class="small-table compact-table">
 
-| Number | Label | Color |  
-|--------|-------|-------|
-| 1 | CAN H | Brown |
-| 2 | CAN L | Blue |
-| 3 | CAN GND | Black |
+| Number | Label   | Color |
+| ------ | ------- | ----- |
+| 1      | CAN H   | Brown |
+| 2      | CAN L   | Blue  |
+| 3      | CAN GND | Black |
 
 </div>
 
 ### MCS Connector
 <div class="small-table compact-table">
 
-| Number | Label | Color |  
-|--------|-------|-------|
-| 1 | CE | Orange |
-| 2 | ID | White |
-| 3 | PHY1 | Purple |
-| 4 | PHY2 | Green |
-| 5 | PE | Yellow/Green |
+| Number | Label | Color        |
+| ------ | ----- | ------------ |
+| 1      | CE    | Orange       |
+| 2      | ID    | White        |
+| 3      | PHY1  | Purple       |
+| 4      | PHY2  | Green        |
+| 5      | PE    | Yellow/Green |
 
 </div>
 
