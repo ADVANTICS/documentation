@@ -1,0 +1,53 @@
+{
+"ADB_PC_AC01": {
+  "box": {
+    "ID": "0x81",
+    "stack_pos": 0,
+    "files": [
+      {"name": "ADB_PC_AC01"},
+      {"name": "ADB_PC_BASE"},
+      {"name": "ADB_PC_BOX"}
+    ]
+  },
+  "internal": [
+    {"name": "ADM_PC_DMF1", "stack_pos": 1, "branch": "ADM_PC_DMF1_alt"},
+    {"name": "ADM_PC_BP25", "stack_pos": 2},
+    {"name": "ADM_PC_BP25", "stack_pos": 3},
+    {"name": "ADM_PC_DMF1", "stack_pos": 4 , "branch": "ADM_PC_DMF1_alt"},
+    {"name": "ADM_PC_BP25", "stack_pos": 5},
+    {"name": "ADM_PC_BP25", "stack_pos": 6}
+  ]
+},
+
+"ADB_PC_DC01": {
+  "box": {
+    "ID": "0x82",
+    "stack_pos": 0,
+    "files": [
+      {"name": "ADB_PC_DC01"},
+      {"name": "ADB_PC_BASE"},
+      {"name": "ADB_PC_BOX"}
+    ]
+  }
+
+},
+
+
+"GC01": {
+  "box": {
+    "ID": "0x80",
+    "stack_pos": 0,
+    "files": [
+      {"name": "ADB_PC_DC01"},
+      {"name": "ADB_PC_BASE"},
+      {"name": "ADB_PC_BOX"}
+    ]
+  },
+  "internal": [
+    {"name": "ADM_PC_BP25", "stack_pos": 1},
+    {"name": "ADM_PC_BP25", "stack_pos": 2}
+  ]
+}
+
+}
+

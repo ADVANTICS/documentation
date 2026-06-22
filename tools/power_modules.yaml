@@ -1,0 +1,10 @@
+power_modules:
+  - ADB_PC_AC01
+  - ADB_PC_BASE
+  - ADB_PC_BOX
+  - ADB_PC_DC01
+  - ADC_GE_CO02_TT02
+  - ADM_CS_GC01
+  - ADM_PC_BI25
+  - ADM_PC_BP25
+  - ADM_PC_DMF1
