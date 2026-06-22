@@ -265,24 +265,129 @@ def _merge(kcd_paths: list[str], out_kcd: str) -> None:
 
 
 # ---------------------------------------------------------------------------
+# Downstream: DBC + Markdown
+# ---------------------------------------------------------------------------
+
+def _run_downstream(kcd_path: str, docs_dir: str, profile: str, config: dict) -> None:
+    """Run kcd_to_dbc and kcd_to_md on the combined KCD.
+
+    Reference nodes and device type are derived from the profile config so
+    no extra manifest fields are needed.
+    """
+    import subprocess
+
+    # DBC — IDs are already transformed; no --generate-adb-ids needed
+    dbc_path = kcd_path[:-4] + ".dbc"
+    subprocess.run(
+        [sys.executable, str(_TOOLS_DIR / "kcd_to_dbc.py"), "--kcd", kcd_path, "--out", dbc_path],
+        check=True,
+    )
+    print(f"  DBC → {dbc_path}")
+
+    # Markdown
+    ref_nodes = [e["name"] for e in config[profile].get("box", {}).get("files", [])]
+    device_type = profile.split("_")[-1]  # "ADB_PC_AC01" → "AC01"
+    md_out = os.path.join(docs_dir, "docs", "can_bus_interface.md")
+    subprocess.run(
+        [
+            sys.executable, str(_TOOLS_DIR / "kcd_to_md.py"),
+            "--kcd", kcd_path,
+            "--out", md_out,
+            "--reference-node", *ref_nodes,
+            "--generate-adb-ids",
+            "--adb-device-type", device_type,
+        ],
+        check=True,
+    )
+    print(f"  MD  → {md_out}")
+
+
+# ---------------------------------------------------------------------------
+# Core: single-profile run
+# ---------------------------------------------------------------------------
+
+def run_profile(
+    profile: str,
+    can_databases_path: str,
+    out_dir: str,
+    config: dict,
+    power_modules: set,
+    docs_dir: str | None = None,
+) -> str:
+    """Generate the combined KCD for *profile* and write it to *out_dir*.
+
+    If *docs_dir* is given, also produces the DBC and can_bus_interface.md.
+    Returns the path to the combined KCD.
+    """
+    if profile not in config:
+        sys.exit(
+            f"Profile '{profile}' not found in config.\n"
+            f"Available: {list(config.keys())}"
+        )
+
+    profile_data = config[profile]
+
+    with tempfile.TemporaryDirectory(prefix="adb_can_gen_") as tmp:
+        staging_dir = os.path.join(tmp, "staged")
+        work_dir = os.path.join(tmp, "per_module")
+        os.makedirs(staging_dir)
+        os.makedirs(work_dir)
+
+        print(f"\n[1/3] Staging KCDs for '{profile}'…")
+        _stage_kcds(profile_data, can_databases_path, power_modules, staging_dir)
+
+        primary_kcd = os.path.join(staging_dir, f"{profile}.kcd")
+        version = _read_version(primary_kcd) if os.path.exists(primary_kcd) else None
+        if not version:
+            print(f"  WARNING: could not read version; using 'unknown'")
+            version = "unknown"
+        print(f"  Version: {version}")
+
+        print(f"\n[2/3] Transforming IDs…")
+        generated = _generate_profile(profile_data, staging_dir, work_dir)
+        if not generated:
+            sys.exit("No KCDs generated — check staging output above.")
+
+        print(f"\n[3/3] Merging {len(generated)} file(s)…")
+        out_kcd = os.path.join(out_dir, f"{profile}_{version}.kcd")
+        _merge(generated, out_kcd)
+
+    print(f"\n  KCD → {out_kcd}")
+
+    if docs_dir is not None:
+        _run_downstream(out_kcd, docs_dir, profile, config)
+
+    return out_kcd
+
+
+# ---------------------------------------------------------------------------
 # CLI
 # ---------------------------------------------------------------------------
 
+_DEFAULT_DOCS_MANIFEST = _TOOLS_DIR / "adb_docs_manifest.json"
+
+
 def _build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(
-        description="Generate an ADB power module combined KCD + DBC from CAN_Databases branches."
+        description="Generate ADB power module CAN databases (KCD + DBC + Markdown)."
     )
-    p.add_argument(
-        "--profile", required=True,
-        help="Profile name from adb_generation_config.json, e.g. ADB_PC_AC01",
+    mode = p.add_mutually_exclusive_group(required=True)
+    mode.add_argument(
+        "--profile",
+        help="Single profile to generate, e.g. ADB_PC_AC01",
+    )
+    mode.add_argument(
+        "--all", action="store_true",
+        help="Generate all products listed in adb_docs_manifest.json",
     )
     p.add_argument(
         "--can-databases-path", required=True,
         help="Path to a local clone/submodule of the CAN_Databases git repo",
     )
     p.add_argument(
-        "--out-dir", required=True,
-        help="Directory where the combined KCD will be written",
+        "--out-dir",
+        help="Output directory for the KCD (single-profile mode only; "
+             "in --all mode the docs dir from the manifest is used)",
     )
     p.add_argument(
         "--config", default=str(_DEFAULT_CONFIG),
@@ -291,6 +396,10 @@ def _build_parser() -> argparse.ArgumentParser:
     p.add_argument(
         "--power-modules", default=str(_DEFAULT_POWER_MODULES),
         help=f"Path to power_modules.yaml (default: {_DEFAULT_POWER_MODULES})",
+    )
+    p.add_argument(
+        "--docs-manifest", default=str(_DEFAULT_DOCS_MANIFEST),
+        help=f"Path to adb_docs_manifest.json used by --all (default: {_DEFAULT_DOCS_MANIFEST})",
     )
     return p
 
@@ -303,47 +412,27 @@ def main() -> None:
     with open(args.power_modules) as f:
         power_modules: set = set(yaml.safe_load(f).get("power_modules", []))
 
-    if args.profile not in config:
-        sys.exit(
-            f"Profile '{args.profile}' not found in {args.config}.\n"
-            f"Available: {list(config.keys())}"
+    if args.all:
+        with open(args.docs_manifest) as f:
+            manifest: dict = json.load(f)
+        print(f"Generating {len(manifest)} product(s) from manifest…")
+        for profile, docs_dir in manifest.items():
+            print(f"\n{'='*60}")
+            print(f"Profile: {profile}  →  {docs_dir}")
+            print('='*60)
+            out_dir = os.path.join(docs_dir, "docs", "assets")
+            run_profile(profile, args.can_databases_path, out_dir, config, power_modules,
+                        docs_dir=docs_dir)
+        print("\nAll products done.")
+
+    else:
+        if not args.out_dir:
+            sys.exit("--out-dir is required in single-profile mode")
+        out_kcd = run_profile(
+            args.profile, args.can_databases_path, args.out_dir, config, power_modules
         )
-
-    profile_data = config[args.profile]
-
-    with tempfile.TemporaryDirectory(prefix="adb_can_gen_") as tmp:
-        staging_dir = os.path.join(tmp, "staged")
-        work_dir = os.path.join(tmp, "per_module")
-        os.makedirs(staging_dir)
-        os.makedirs(work_dir)
-
-        # 1. Stage: checkout per-module branches and copy KCDs
-        print(f"\n[1/3] Staging KCDs for profile '{args.profile}'…")
-        _stage_kcds(profile_data, args.can_databases_path, power_modules, staging_dir)
-
-        # 2. Read version from the primary module's KCD
-        primary_kcd = os.path.join(staging_dir, f"{args.profile}.kcd")
-        version = _read_version(primary_kcd) if os.path.exists(primary_kcd) else None
-        if not version:
-            print(f"  WARNING: could not read version from {primary_kcd}; using 'unknown'")
-            version = "unknown"
-        print(f"  Version: {version}")
-
-        # 3. Transform IDs per module/stack
-        print(f"\n[2/3] Transforming IDs…")
-        generated = _generate_profile(profile_data, staging_dir, work_dir)
-        if not generated:
-            sys.exit("No KCDs generated — check staging output above.")
-
-        # 4. Merge into combined KCD
-        print(f"\n[3/3] Merging {len(generated)} file(s)…")
-        out_stem = f"{args.profile}_{version}"
-        out_kcd = os.path.join(args.out_dir, f"{out_stem}.kcd")
-        _merge(generated, out_kcd)
-
-    print(f"\nCombined KCD → {out_kcd}")
-    # Print VERSION= so shell callers can capture it via grep/awk
-    print(f"VERSION={version}")
+        version = Path(out_kcd).stem.rsplit("_", 1)[1]
+        print(f"VERSION={version}")
 
 
 if __name__ == "__main__":
