@@ -43,52 +43,23 @@ jobs:
           source .venv/bin/activate
           pip install -r requirements.txt
 
-      - name: Generate ADB-PC-AC01 CAN database
+      - name: Generate all ADB CAN databases
         run: |
           source .venv/bin/activate
           python tools/generate_adb_can.py \
-            --profile ADB_PC_AC01 \
-            --can-databases-path CAN_Databases \
-            --out-dir products/adb-pc-ac01/docs/assets
-          # Capture the generated KCD path (latest version by sort)
-          KCD=$(ls products/adb-pc-ac01/docs/assets/ADB_PC_AC01_*.kcd | sort -V | tail -1)
-          python tools/kcd_to_dbc.py \
-            --kcd "$KCD" \
-            --out "${KCD%.kcd}.dbc"
-          python tools/kcd_to_md.py \
-            --kcd "$KCD" \
-            --out products/adb-pc-ac01/docs/can_bus_interface.md \
-            --reference-node ADB_PC_AC01 ADB_PC_BASE ADB_PC_BOX \
-            --generate-adb-ids --adb-device-type AC01
-
-      - name: Generate ADB-PC-DC01 CAN database
-        run: |
-          source .venv/bin/activate
-          python tools/generate_adb_can.py \
-            --profile ADB_PC_DC01 \
-            --can-databases-path CAN_Databases \
-            --out-dir products/adb-pc-dc01/docs/assets
-          KCD=$(ls products/adb-pc-dc01/docs/assets/ADB_PC_DC01_*.kcd | sort -V | tail -1)
-          python tools/kcd_to_dbc.py \
-            --kcd "$KCD" \
-            --out "${KCD%.kcd}.dbc"
-          python tools/kcd_to_md.py \
-            --kcd "$KCD" \
-            --out products/adb-pc-dc01/docs/can_bus_interface.md \
-            --reference-node ADB_PC_DC01 ADB_PC_BASE ADB_PC_BOX \
-            --generate-adb-ids --adb-device-type DC01
+            --all \
+            --can-databases-path CAN_Databases
 
       - name: Upload generated CAN artifacts
         uses: actions/upload-artifact@v4
         with:
           name: adb-can-artifacts
+          # Glob picks up all versioned KCDs/DBCs and the generated MDs.
+          # To add a new ADB product: add it to tools/adb_docs_manifest.json.
           path: |
-            products/adb-pc-ac01/docs/assets/ADB_PC_AC01_*.kcd
-            products/adb-pc-ac01/docs/assets/ADB_PC_AC01_*.dbc
-            products/adb-pc-ac01/docs/can_bus_interface.md
-            products/adb-pc-dc01/docs/assets/ADB_PC_DC01_*.kcd
-            products/adb-pc-dc01/docs/assets/ADB_PC_DC01_*.dbc
-            products/adb-pc-dc01/docs/can_bus_interface.md
+            products/adb-pc-*/docs/assets/ADB_PC_*.kcd
+            products/adb-pc-*/docs/assets/ADB_PC_*.dbc
+            products/adb-pc-*/docs/can_bus_interface.md
           retention-days: 1
 
   # ── Build and upload docs ──────────────────────────────────────────────────
