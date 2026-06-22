@@ -6,12 +6,96 @@ on:
       - material
     paths:
       - "products/**"
+      - "tools/**"
       - ".github/workflows/mkdocs.yml"
 
 jobs:
+  # ── Generate ADB CAN databases ─────────────────────────────────────────────
+  # Runs once (not per-product) because all ADB products share the same
+  # CAN_Databases submodule checkout. Uploads generated KCDs/DBCs/MDs as an
+  # artifact consumed by the build jobs below.
+  generate-adb-can:
+    if: github.ref == 'refs/heads/material'
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          submodules: false   # CAN_Databases handled separately below
+
+      - name: Checkout CAN_Databases submodule (all branches accessible)
+        uses: actions/checkout@v5
+        with:
+          repository: ADVANTICS/CAN_Databases
+          ssh-key: ${{ secrets.CAN_DATABASES_DEPLOY_KEY }}
+          path: CAN_Databases
+          # no ref — leaves repo in detached HEAD at default branch;
+          # generate_adb_can.py fetches individual branches on demand
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m venv .venv
+          source .venv/bin/activate
+          pip install -r requirements.txt
+
+      - name: Generate ADB-PC-AC01 CAN database
+        run: |
+          source .venv/bin/activate
+          python tools/generate_adb_can.py \
+            --profile ADB_PC_AC01 \
+            --can-databases-path CAN_Databases \
+            --out-dir products/adb-pc-ac01/docs/assets
+          # Capture the generated KCD path (latest version by sort)
+          KCD=$(ls products/adb-pc-ac01/docs/assets/ADB_PC_AC01_*.kcd | sort -V | tail -1)
+          python tools/kcd_to_dbc.py \
+            --kcd "$KCD" \
+            --out "${KCD%.kcd}.dbc"
+          python tools/kcd_to_md.py \
+            --kcd "$KCD" \
+            --out products/adb-pc-ac01/docs/can_bus_interface.md \
+            --reference-node ADB_PC_AC01 ADB_PC_BASE ADB_PC_BOX \
+            --generate-adb-ids --adb-device-type AC01
+
+      - name: Generate ADB-PC-DC01 CAN database
+        run: |
+          source .venv/bin/activate
+          python tools/generate_adb_can.py \
+            --profile ADB_PC_DC01 \
+            --can-databases-path CAN_Databases \
+            --out-dir products/adb-pc-dc01/docs/assets
+          KCD=$(ls products/adb-pc-dc01/docs/assets/ADB_PC_DC01_*.kcd | sort -V | tail -1)
+          python tools/kcd_to_dbc.py \
+            --kcd "$KCD" \
+            --out "${KCD%.kcd}.dbc"
+          python tools/kcd_to_md.py \
+            --kcd "$KCD" \
+            --out products/adb-pc-dc01/docs/can_bus_interface.md \
+            --reference-node ADB_PC_DC01 ADB_PC_BASE ADB_PC_BOX \
+            --generate-adb-ids --adb-device-type DC01
+
+      - name: Upload generated CAN artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: adb-can-artifacts
+          path: |
+            products/adb-pc-ac01/docs/assets/ADB_PC_AC01_*.kcd
+            products/adb-pc-ac01/docs/assets/ADB_PC_AC01_*.dbc
+            products/adb-pc-ac01/docs/can_bus_interface.md
+            products/adb-pc-dc01/docs/assets/ADB_PC_DC01_*.kcd
+            products/adb-pc-dc01/docs/assets/ADB_PC_DC01_*.dbc
+            products/adb-pc-dc01/docs/can_bus_interface.md
+          retention-days: 1
+
+  # ── Build and upload docs ──────────────────────────────────────────────────
   build-and-upload:
     if: github.ref == 'refs/heads/material'
     runs-on: ubuntu-latest
+    needs: generate-adb-can
 
     strategy:
       matrix:
@@ -23,6 +107,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v5
+
+      - name: Download generated CAN artifacts (ADB products only)
+        # adm-cs-spcc and adm-pc-bi25 don't need ADB CAN generation
+        if: startsWith(matrix.product, 'adb-pc-')
+        uses: actions/download-artifact@v4
+        with:
+          name: adb-can-artifacts
 
       - name: Set up Python
         uses: actions/setup-python@v5
