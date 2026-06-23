@@ -8,15 +8,15 @@ BS_:
 BU_: User ADB_PC_DC01 ADB_PC_BASE ADB_PC_BOX 
 
 
-BO_ 2155872320 DC01_Mode_Set: 2 User
+BO_ 2156003392 DC01_Mode_Set: 2 User
  SG_ mode : 0|8@1+ (1,0) [0|255] "" ADB_PC_DC01,User
  SG_ connection : 8|8@1+ (1,0) [0|255] "" ADB_PC_DC01,User
 
-BO_ 2155872321 DC01_Mode_Applied: 2 ADB_PC_DC01
+BO_ 2156003393 DC01_Mode_Applied: 2 ADB_PC_DC01
  SG_ mode : 0|8@1+ (1,0) [0|255] "" User
  SG_ connection : 8|8@1+ (1,0) [0|255] "" User
 
-BO_ 2155872322 DC01_faults: 8 ADB_PC_DC01
+BO_ 2156003394 DC01_faults: 8 ADB_PC_DC01
  SG_ CABLE_2_4_DC : 0|1@1+ (1,0) [0|1] "" User
  SG_ CABLE_1_2_DC : 1|1@1+ (1,0) [0|1] "" User
  SG_ CABLE_3_4_DC : 2|1@1+ (1,0) [0|1] "" User
@@ -52,14 +52,24 @@ BO_ 2155872322 DC01_faults: 8 ADB_PC_DC01
  SG_ BLEEDING_FAILED : 32|1@1+ (1,0) [0|1] "" User
  SG_ BI25_PWM_NOT_RUNNING : 33|1@1+ (1,0) [0|1] "" User
  SG_ CALIBRATION_ERROR : 34|1@1+ (1,0) [0|1] "" User
+ SG_ AFE_BUCK_NOT_RUNNING : 35|1@1+ (1,0) [0|1] "" User
+ SG_ AFE_BOOST_NOT_RUNNING : 36|1@1+ (1,0) [0|1] "" User
+ SG_ AFE_BOOST_STOP_RUNNING : 37|1@1+ (1,0) [0|1] "" User
+ SG_ AFE_BUCK_STOP_RUNNING : 38|1@1+ (1,0) [0|1] "" User
+ SG_ EXTERNAL_PRECHARGE_FAILED : 39|1@1+ (1,0) [0|1] "" User
+ SG_ V_B_MIN : 40|1@1+ (1,0) [0|1] "" User
+ SG_ reserved_2 : 41|1@1+ (1,0) [0|1] "" User
 
-BO_ 2155872323 DC01_warning: 8 ADB_PC_DC01
+BO_ 2156003395 DC01_warning: 8 ADB_PC_DC01
  SG_ MODE_NOT_SUPPORTED : 0|1@1+ (1,0) [0|1] "" User
  SG_ V_A_LOW : 10|1@1+ (1,0) [0|1] "" User
  SG_ V_A_HIGH : 11|1@1+ (1,0) [0|1] "" User
  SG_ NEED_UPDATE : 12|1@1+ (1,0) [0|1] "" User
+ SG_ EXTERNAL_PRECHARGE_NOT_DISABLED : 13|1@1+ (1,0) [0|1] "" User
+ SG_ V_B_NOT_ZERO : 14|1@1+ (1,0) [0|1] "" User
+ SG_ V_B_LOW : 15|1@1+ (1,0) [0|1] "" User
 
-BO_ 2155872324 DC01_info: 8 ADB_PC_DC01
+BO_ 2156003396 DC01_info: 8 ADB_PC_DC01
  SG_ BLEEDING_DONE : 0|1@1+ (1,0) [0|1] "" User
  SG_ CONTACTORS_CONNECTION_SERIAL : 1|1@1+ (1,0) [0|1] "" User
  SG_ CONTACTORS_CONNECTION_PARALLEL : 2|1@1+ (1,0) [0|1] "" User
@@ -70,114 +80,121 @@ BO_ 2155872324 DC01_info: 8 ADB_PC_DC01
  SG_ VB_TO_HIGH_FOR_SELECTED_MODE : 7|1@1+ (1,0) [0|1] "" User
  SG_ CURRENT_LIMITED_BY_POWER : 8|1@1+ (1,0) [0|1] "" User
 
-BO_ 2155872288 B_Port_Setpoints: 6 User
+BO_ 2156003360 B_Port_Setpoints: 6 User
  SG_ Voltage : 0|16@1+ (0.1,0) [0|6553.5] "V" ADB_PC_DC01,User
  SG_ Positive_Current_Limit : 16|16@1- (0.1,0) [-3276.8|3276.7] "A" ADB_PC_DC01,User
  SG_ Negative_Current_Limit : 32|16@1- (0.1,0) [-3276.8|3276.7] "A" ADB_PC_DC01,User
 
-BO_ 2155872289 B_Port_Applied_Setpoints: 8 ADB_PC_DC01
+BO_ 2156003361 B_Port_Applied_Setpoints: 8 ADB_PC_DC01
  SG_ Voltage : 0|16@1+ (0.1,0) [0|6553.5] "V" User
  SG_ Positive_Current_Limit : 16|16@1- (0.1,0) [-3276.8|3276.7] "A" User
  SG_ Negative_Current_Limit : 32|16@1- (0.1,0) [-3276.8|3276.7] "A" User
 
-BO_ 2155872290 B_Port_Droop_Setpoints: 8 User
+BO_ 2156003362 B_Port_Droop_Setpoints: 8 User
  SG_ Positive_Current_Droop : 0|16@1+ (0.01,0) [0.00|655.35] "Ohm" ADB_PC_DC01,User
  SG_ Negative_Current_Droop : 16|16@1+ (0.01,0) [0.00|655.35] "Ohm" ADB_PC_DC01,User
  SG_ Enable : 32|1@1+ (1,0) [0|1] "" ADB_PC_DC01,User,ADB_PC_BOX
  SG_ Reserved : 33|31@1+ (1,0) [0|2147483647] "" ADB_PC_DC01,ADB_PC_BASE
 
-BO_ 2155872291 B_Port_Applied_Droop_Setpoints: 5 ADB_PC_DC01
+BO_ 2156003363 B_Port_Applied_Droop_Setpoints: 5 ADB_PC_DC01
  SG_ Positive_Current_Droop : 0|16@1+ (0.01,0) [0.00|655.35] "Ohm" User
  SG_ Negative_Current_Droop : 16|16@1+ (0.01,0) [0.00|655.35] "Ohm" User
  SG_ Enable : 32|1@1+ (1,0) [0|1] "" User
 
-BO_ 2155872292 B_Port_Measurements: 4 ADB_PC_DC01
+BO_ 2156003364 B_Port_Measurements: 4 ADB_PC_DC01
  SG_ Voltage : 0|16@1+ (0.1,0) [0|6553.5] "V" User
  SG_ Current : 16|16@1- (0.1,0) [-3276.8|3276.7] "A" User
 
-BO_ 2155872306 A_Port_Measurements: 4 ADB_PC_DC01
+BO_ 2156003378 A_Port_Measurements: 4 ADB_PC_DC01
  SG_ Voltage : 0|16@1+ (0.1,0) [0|6553.5] "V" User
  SG_ Current : 16|16@1- (0.1,0) [-3276.8|3276.7] "A" User
 
-BO_ 2155872304 A_Port_Setpoints: 6 User
- SG_ Voltage : 0|16@1+ (0.1,0) [0|1500] "V" ADB_PC_DC01
- SG_ Source_Current_Limit : 16|16@1+ (0.1,0) [0|220] "A" ADB_PC_DC01,User
- SG_ Sink_Current_Limit : 32|16@1+ (0.1,0) [0|220] "A" ADB_PC_DC01,User
+BO_ 2156003376 A_Port_Setpoints: 6 User
+ SG_ Voltage : 0|16@1+ (0.1,0) [0|6553.5] "V" ADB_PC_DC01
+ SG_ Positive_Current_Limit : 16|16@1- (0.1,0) [-3276.8|3276.7] "A" ADB_PC_DC01
+ SG_ Negative_Current_Limit : 32|16@1- (0.1,0) [-3276.8|3276.7] "A" ADB_PC_DC01
 
-BO_ 2155872305 A_Port_Applied_Setpoints: 8 ADB_PC_DC01
+BO_ 2156003377 A_Port_Applied_Setpoints: 8 ADB_PC_DC01
  SG_ Voltage : 0|16@1+ (0.1,0) [0|6553.5] "V" User
- SG_ Source_Current_Limit : 16|16@1+ (0.1,0) [0|6553.5] "A" User
- SG_ Sink_Current_Limit : 32|16@1+ (0.1,0) [0|6553.5] "A" User
+ SG_ Positive_Current_Limit : 16|16@1- (0.1,0) [-3276.8|3276.7] "A" User
+ SG_ Negative_Current_Limit : 32|16@1- (0.1,0) [-3276.8|3276.7] "A" User
 
-BO_ 2155872498 DC01_debug: 8 User
+BO_ 2156003382 A_Port_Controls: 4 User
+ SG_ external_precharge_status : 0|16@1+ (1,0) [0|65535] "" ADB_PC_DC01
+
+BO_ 2156003383 A_Port_Feedback: 4 ADB_PC_DC01
+ SG_ precharge_status : 0|16@1+ (1,0) [0|65535] "" User
+
+BO_ 2156003570 DC01_debug: 8 User
  SG_ allow_close_contactor : 0|1@1+ (1,0) [0|1] "" ADB_PC_DC01
 
-BO_ 2155872499 DC01_debug_connection: 8 ADB_PC_DC01
+BO_ 2156003571 DC01_debug_connection: 8 ADB_PC_DC01
  SG_ current_connection_mode : 8|8@1+ (1,0) [0|255] "" User
  SG_ new_connection_mode : 16|8@1+ (1,0) [0|255] "" User
 
-BO_ 2155872256 Identification: 8 ADB_PC_BASE
+BO_ 2156003328 Identification: 8 ADB_PC_BASE
  SG_ Type : 0|8@1+ (1,0) [0|255] "" User
  SG_ Revision : 8|8@1+ (1,0) [0|255] "" User
  SG_ Variant : 16|8@1+ (1,0) [0|255] "" User
  SG_ Stack_position : 24|8@1+ (1,0) [0|255] "" User,ADB_PC_BASE
  SG_ serial_number : 32|32@1+ (1,0) [0|4294967295] "" User
 
-BO_ 2155872258 Firmware_UID: 8 ADB_PC_BASE
+BO_ 2156003330 Firmware_UID: 8 ADB_PC_BASE
  SG_ UID : 0|64@1+ (1,0) [0|1.844674407370955E+019] "" User
 
-BO_ 2155872257 Bootloader_UID: 8 ADB_PC_BASE
+BO_ 2156003329 Bootloader_UID: 8 ADB_PC_BASE
  SG_ UID : 0|64@1+ (1,0) [0|1.844674407370955E+019] "" User
 
-BO_ 2155872259 ADB_CAN_API_Version: 3 ADB_PC_BASE
+BO_ 2156003331 ADB_CAN_API_Version: 3 ADB_PC_BASE
  SG_ Major : 0|8@1+ (1,0) [0|255] "" User
  SG_ Minor : 8|8@1+ (1,0) [0|255] "" User
  SG_ Patch : 16|8@1+ (1,0) [0|255] "" User
 
-BO_ 2155872325 Stack_Control: 6 User
+BO_ 2156003397 Stack_Control: 6 User
  SG_ Stack_position : 0|8@1+ (1,0) [0|255] "" ADB_PC_BASE
  SG_ reserved : 8|8@1+ (1,0) [0|255] "" ADB_PC_BASE,User
  SG_ SN_number : 16|32@1+ (1,0) [0|4294967295] "" ADB_PC_BASE
 
-BO_ 2155872336 Fault_Control: 1 User
+BO_ 2156003408 Fault_Control: 1 User
  SG_ Clear_Interlock : 0|1@1+ (1,0) [0|1] "" ADB_PC_BASE
  SG_ Reset_Processor : 1|1@1+ (1,0) [0|1] "" ADB_PC_BASE
  SG_ Trip_Interlock : 2|1@1+ (1,0) [0|1] "" ADB_PC_BASE
  SG_ Reserved : 3|5@1+ (1,0) [0|31] "" ADB_PC_BASE
 
-BO_ 2155872353 Factory_Control: 8 User
+BO_ 2156003425 Factory_Control: 8 User
  SG_ Factory_mode : 0|1@1+ (1,0) [0|1] "" ADB_PC_BASE
 
-BO_ 2155872274 Converter_Control: 1 User
+BO_ 2156003346 Converter_Control: 1 User
  SG_ enable : 0|1@1+ (1,0) [0|1] "" ADB_PC_BOX
+ SG_ sleep : 1|1@1+ (1,0) [0|1] "" ADB_PC_BOX
 
-BO_ 2155872275 Converter_Power_Info: 6 ADB_PC_BOX
+BO_ 2156003347 Converter_Power_Info: 6 ADB_PC_BOX
  SG_ load : 0|8@1+ (1,0) [0|255] "%" User
  SG_ efficiency : 8|8@1+ (1,0) [0|255] "%" User
  SG_ Power_capability : 16|16@1- (0.1,0) [-3276.8|3276.7] "kw" User
  SG_ low_power_input : 32|16@1- (0.01,0) [-327.68|327.67] "v" User
 
-BO_ 2155872272 Status: 8 ADB_PC_BOX
+BO_ 2156003344 Status: 8 ADB_PC_BOX
  SG_ State : 0|16@1+ (1,0) [0|65535] "" User
  SG_ flag_enable : 16|1@1+ (1,0) [0|1] "" User
  SG_ flag_ready : 17|1@1+ (1,0) [0|1] "" User
  SG_ flag_energized : 18|1@1+ (1,0) [0|1] "" User
  SG_ flag_busy : 19|1@1+ (1,0) [0|1] "" User
- SG_ flag_eco : 20|1@1+ (1,0) [0|1] "" User
+ SG_ flag_sleep : 20|1@1+ (1,0) [0|1] "" User
  SG_ flag_warning : 24|1@1+ (1,0) [0|1] "" User
  SG_ flag_degraded : 25|1@1+ (1,0) [0|1] "" User
  SG_ flag_error : 26|1@1+ (1,0) [0|1] "" User
  SG_ flag_factory : 48|1@1+ (1,0) [0|1] "" User
  SG_ flag_god_mode : 49|1@1+ (1,0) [0|1] "" User
 
-BO_ 2155872496 _fms_state: 8 ADB_PC_BOX
+BO_ 2156003568 _fms_state: 8 ADB_PC_BOX
  SG_ init : 0|8@1+ (1,0) [0|255] "" User
  SG_ ready : 16|8@1+ (1,0) [0|255] "" User
  SG_ turned_on : 32|8@1+ (1,0) [0|255] "" User
  SG_ turned_off : 40|8@1+ (1,0) [0|255] "" User
  SG_ bleeding : 48|8@1+ (1,0) [0|255] "" User
 
-BO_ 2155872273 Faults: 8 ADB_PC_BOX
+BO_ 2156003345 Faults: 8 ADB_PC_BOX
  SG_ internal : 0|1@1+ (1,0) [0|1] "" User
  SG_ external : 1|1@1+ (1,0) [0|1] "" User
  SG_ system : 2|1@1+ (1,0) [0|1] "" User
@@ -200,99 +217,101 @@ BO_ 2155872273 Faults: 8 ADB_PC_BOX
  SG_ v_in_low : 19|1@1+ (1,0) [0|1] "" User
  SG_ v_in_critical : 20|1@1+ (1,0) [0|1] "" User
  SG_ keep_alive_not_serv : 21|1@1+ (1,0) [0|1] "" User
+ SG_ internal_a : 22|1@1+ (1,0) [0|1] "" User
+ SG_ internal_b : 23|1@1+ (1,0) [0|1] "" User
 
-BO_ 2155872277 Interface_Status: 3 ADB_PC_BOX
+BO_ 2156003349 Interface_Status: 3 ADB_PC_BOX
  SG_ Broadcast_Group : 0|8@1+ (1,0) [0|30] "" User
  SG_ keep_Alive : 8|4@1+ (1,0) [0|15] "" User
  SG_ reserved : 12|4@1+ (1,0) [0|15] "" User
  SG_ keep_Alive_Period : 16|8@1+ (0.1,0) [0|25.5] "s" User
 
-BO_ 2155872278 Keep_Alive_Control: 2 User
+BO_ 2156003350 Keep_Alive_Control: 2 User
  SG_ Enable : 0|1@1+ (1,0) [0|1] "" ADB_PC_BOX
  SG_ reserved : 1|1@1+ (1,0) [0|1] "" User
  SG_ Period : 8|8@1+ (0.1,0) [0|25.5] "s" User
 
-BO_ 2155872279 Converter_Temperature: 8 ADB_PC_BOX
+BO_ 2156003351 Converter_Temperature: 8 ADB_PC_BOX
  SG_ Cooling_plate : 0|16@1- (0.01,0) [-327.68|327.67] "°C" User
  SG_ Magnetics : 16|16@1- (0.01,0) [-327.68|327.67] "°C" User
  SG_ Transistors : 32|16@1- (0.01,0) [-327.68|327.67] "°C" User
- SG_ RESERVED : 48|16@1- (0.01,0) [-327.68|327.67] "°C" User
+ SG_ reserved : 48|16@1- (0.01,0) [-327.68|327.67] "°C" User
 
-BO_ 2155872280 Converter_Fans: 6 ADB_PC_BOX
+BO_ 2156003352 Converter_Fans: 6 ADB_PC_BOX
  SG_ A_rpm : 0|16@1+ (1,0) [0|65535] "rpm" User
  SG_ A_pwm : 16|8@1+ (1,0) [0|255] "%" User
  SG_ B_rpm : 24|16@1+ (1,0) [0|65535] "rpm" User
  SG_ B_pwm : 40|8@1+ (1,0) [0|255] "%" User
 
-BO_ 2155872281 Keep_Alive_Feed: 1 User
+BO_ 2156003353 Keep_Alive_Feed: 1 User
  SG_ feed : 0|1@1+ (1,0) [0|1] "" ADB_PC_BOX
 
-BO_ 2155872497 _interlocks_status: 3 ADB_PC_BOX
+BO_ 2156003569 _interlocks_status: 3 ADB_PC_BOX
  SG_ e : 0|1@1+ (1,0) [0|1] "" User
  SG_ a : 1|1@1+ (1,0) [0|1] "" User
  SG_ b : 2|1@1+ (1,0) [0|1] "" User
  SG_ i : 3|1@1+ (1,0) [0|1] "" User
  SG_ x : 4|1@1+ (1,0) [0|1] "" User
 
-BO_ 2155872276 Broadcast_Group_Control: 1 User
+BO_ 2156003348 Broadcast_Group_Control: 1 User
  SG_ Group_ID : 0|8@1+ (1,0) [0|255] "" ADB_PC_BOX
 
-BO_ 2155872384 info_adm_cs: 8 ADB_PC_BOX
+BO_ 2156003456 info_adm_cs: 8 ADB_PC_BOX
  SG_ Type : 0|8@1+ (1,0) [0|255] "" User
  SG_ Revision : 8|8@1+ (1,0) [0|255] "" User
  SG_ Variant : 16|8@1+ (1,0) [0|255] "" User
  SG_ reserved : 24|8@1+ (1,0) [0|255] "" User
  SG_ serial_number : 32|32@1+ (1,0) [0|4294967295] "" User
 
-BO_ 2155872385 info_adm_pc: 4 ADB_PC_BOX
+BO_ 2156003457 info_adm_pc: 4 ADB_PC_BOX
  SG_ nb_detected : 0|8@1+ (1,0) [0|255] "" User
  SG_ nd_side_a : 8|8@1+ (1,0) [0|255] "" User
  SG_ nd_side_b : 16|8@1+ (1,0) [0|255] "" User
  SG_ Collision : 24|8@1+ (1,0) [0|255] "" User
 
-BO_ 2155872386 info_adm_pc_id_1: 8 ADB_PC_BOX
+BO_ 2156003458 info_adm_pc_id_1: 8 ADB_PC_BOX
  SG_ Type : 0|8@1+ (1,0) [0|255] "" User
  SG_ Revision : 8|8@1+ (1,0) [0|255] "" User
  SG_ Variant : 16|8@1+ (1,0) [0|255] "" User
  SG_ Stack_position : 24|8@1+ (1,0) [0|255] "" User
  SG_ serial_number : 32|32@1+ (1,0) [0|4294967295] "" User
 
-BO_ 2155872387 info_adm_pc_id_2: 8 ADB_PC_BOX
+BO_ 2156003459 info_adm_pc_id_2: 8 ADB_PC_BOX
  SG_ Type : 0|8@1+ (1,0) [0|255] "" User
  SG_ Revision : 8|8@1+ (1,0) [0|255] "" User
  SG_ Variant : 16|8@1+ (1,0) [0|255] "" User
  SG_ Stack_position : 24|8@1+ (1,0) [0|255] "" User
  SG_ serial_number : 32|32@1+ (1,0) [0|4294967295] "" User
 
-BO_ 2155872388 info_adm_pc_id_3: 8 ADB_PC_BOX
+BO_ 2156003460 info_adm_pc_id_3: 8 ADB_PC_BOX
  SG_ Type : 0|8@1+ (1,0) [0|255] "" User
  SG_ Revision : 8|8@1+ (1,0) [0|255] "" User
  SG_ Variant : 16|8@1+ (1,0) [0|255] "" User
  SG_ Stack_position : 24|8@1+ (1,0) [0|255] "" User
  SG_ serial_number : 32|32@1+ (1,0) [0|4294967295] "" User
 
-BO_ 2155872389 info_adm_pc_id_4: 8 ADB_PC_BOX
+BO_ 2156003461 info_adm_pc_id_4: 8 ADB_PC_BOX
  SG_ Type : 0|8@1+ (1,0) [0|255] "" User
  SG_ Revision : 8|8@1+ (1,0) [0|255] "" User
  SG_ Variant : 16|8@1+ (1,0) [0|255] "" User
  SG_ Stack_position : 24|8@1+ (1,0) [0|255] "" User
  SG_ serial_number : 32|32@1+ (1,0) [0|4294967295] "" User
 
-BO_ 2155872390 info_adm_pc_id_5: 8 ADB_PC_BOX
+BO_ 2156003462 info_adm_pc_id_5: 8 ADB_PC_BOX
  SG_ Type : 0|8@1+ (1,0) [0|255] "" User
  SG_ Revision : 8|8@1+ (1,0) [0|255] "" User
  SG_ Variant : 16|8@1+ (1,0) [0|255] "" User
  SG_ Stack_position : 24|8@1+ (1,0) [0|255] "" User
  SG_ serial_number : 32|32@1+ (1,0) [0|4294967295] "" User
 
-BO_ 2155872391 info_adm_pc_id_6: 8 ADB_PC_BOX
+BO_ 2156003463 info_adm_pc_id_6: 8 ADB_PC_BOX
  SG_ Type : 0|8@1+ (1,0) [0|255] "" User
  SG_ Revision : 8|8@1+ (1,0) [0|255] "" User
  SG_ Variant : 16|8@1+ (1,0) [0|255] "" User
  SG_ Stack_position : 24|8@1+ (1,0) [0|255] "" User
  SG_ serial_number : 32|32@1+ (1,0) [0|4294967295] "" User
 
-BO_ 2155872392 info_adm_pc_status_1: 8 ADB_PC_BOX
+BO_ 2156003464 info_adm_pc_status_1: 8 ADB_PC_BOX
  SG_ Available : 0|1@1+ (1,0) [0|1] "" User
  SG_ Side : 1|2@1+ (1,0) [0|3] "" User
  SG_ Status : 3|2@1+ (1,0) [0|3] "" User
@@ -300,7 +319,7 @@ BO_ 2155872392 info_adm_pc_status_1: 8 ADB_PC_BOX
  SG_ Interlock_E : 9|1@1+ (1,0) [0|1] "" User
  SG_ mode : 16|16@1+ (1,0) [0|65535] "" User
 
-BO_ 2155872393 info_adm_pc_status_2: 8 ADB_PC_BOX
+BO_ 2156003465 info_adm_pc_status_2: 8 ADB_PC_BOX
  SG_ Available : 0|1@1+ (1,0) [0|1] "" User
  SG_ Side : 1|2@1+ (1,0) [0|3] "" User
  SG_ Status : 3|2@1+ (1,0) [0|3] "" User
@@ -308,7 +327,7 @@ BO_ 2155872393 info_adm_pc_status_2: 8 ADB_PC_BOX
  SG_ Interlock_E : 9|1@1+ (1,0) [0|1] "" User
  SG_ mode : 16|16@1+ (1,0) [0|65535] "" User
 
-BO_ 2155872394 info_adm_pc_status_3: 8 ADB_PC_BOX
+BO_ 2156003466 info_adm_pc_status_3: 8 ADB_PC_BOX
  SG_ Available : 0|1@1+ (1,0) [0|1] "" User
  SG_ Side : 1|2@1+ (1,0) [0|3] "" User
  SG_ Status : 3|2@1+ (1,0) [0|3] "" User
@@ -316,7 +335,7 @@ BO_ 2155872394 info_adm_pc_status_3: 8 ADB_PC_BOX
  SG_ Interlock_E : 9|1@1+ (1,0) [0|1] "" User
  SG_ mode : 16|16@1+ (1,0) [0|65535] "" User
 
-BO_ 2155872395 info_adm_pc_status_4: 8 ADB_PC_BOX
+BO_ 2156003467 info_adm_pc_status_4: 8 ADB_PC_BOX
  SG_ Available : 0|1@1+ (1,0) [0|1] "" User
  SG_ Side : 1|2@1+ (1,0) [0|3] "" User
  SG_ Status : 3|2@1+ (1,0) [0|3] "" User
@@ -324,7 +343,7 @@ BO_ 2155872395 info_adm_pc_status_4: 8 ADB_PC_BOX
  SG_ Interlock_E : 9|1@1+ (1,0) [0|1] "" User
  SG_ mode : 16|16@1+ (1,0) [0|65535] "" User
 
-BO_ 2155872396 info_adm_pc_status_5: 8 ADB_PC_BOX
+BO_ 2156003468 info_adm_pc_status_5: 8 ADB_PC_BOX
  SG_ Available : 0|1@1+ (1,0) [0|1] "" User
  SG_ Side : 1|2@1+ (1,0) [0|3] "" User
  SG_ Status : 3|2@1+ (1,0) [0|3] "" User
@@ -332,7 +351,7 @@ BO_ 2155872396 info_adm_pc_status_5: 8 ADB_PC_BOX
  SG_ Interlock_E : 9|1@1+ (1,0) [0|1] "" User
  SG_ mode : 16|16@1+ (1,0) [0|65535] "" User
 
-BO_ 2155872397 info_adm_pc_status_6: 8 ADB_PC_BOX
+BO_ 2156003469 info_adm_pc_status_6: 8 ADB_PC_BOX
  SG_ Available : 0|1@1+ (1,0) [0|1] "" User
  SG_ Side : 1|2@1+ (1,0) [0|3] "" User
  SG_ Status : 3|2@1+ (1,0) [0|3] "" User
@@ -340,14 +359,14 @@ BO_ 2155872397 info_adm_pc_status_6: 8 ADB_PC_BOX
  SG_ Interlock_E : 9|1@1+ (1,0) [0|1] "" User
  SG_ mode : 16|16@1+ (1,0) [0|65535] "" User
 
-BO_ 2155872400 cs_performance: 8 ADB_PC_BOX
+BO_ 2156003472 cs_performance: 8 ADB_PC_BOX
  SG_ cpu_1_usage : 0|8@1+ (1,0) [0|255] "%" User
  SG_ cpu_2_usage : 8|8@1+ (1,0) [0|255] "%" User
  SG_ can_bus_load_A : 16|8@1+ (1,0) [0|255] "%" User
  SG_ can_bus_load_B : 24|8@1+ (1,0) [0|255] "%" User
  SG_ main_loop_freq : 32|16@1+ (1,0) [0|65535] "Hz" User
 
-BO_ 2155872401 info_can_api_error: 8 ADB_PC_BOX
+BO_ 2156003473 info_can_api_error: 8 ADB_PC_BOX
  SG_ Type : 0|8@1+ (1,0) [0|255] "" User
  SG_ Stack_position : 8|8@1+ (1,0) [0|255] "" User
  SG_ Major_expected : 16|8@1+ (1,0) [0|255] "" User
@@ -357,466 +376,713 @@ BO_ 2155872401 info_can_api_error: 8 ADB_PC_BOX
  SG_ Minor_actual : 48|8@1+ (1,0) [0|255] "" User
  SG_ Patch_actual : 56|8@1+ (1,0) [0|255] "" User
 
-BO_ 2155872354 _Calibration_writing: 6 User
+BO_ 2156003426 _Calibration_writing: 6 User
  SG_ index : 0|8@1+ (1,0) [0|255] "" ADB_PC_BOX,User
  SG_ select : 8|8@1+ (1,0) [0|255] "" ADB_PC_BOX,User
  SG_ value : 16|32@1- (0.0001,0) [-214748.3648|214748.3647] "" ADB_PC_BOX,User
 
-BO_ 2155872355 _Calibration_reading_cmd: 2 User
+BO_ 2156003427 _Calibration_reading_cmd: 2 User
  SG_ index : 0|8@1+ (1,0) [0|255] "" ADB_PC_BOX
  SG_ select : 8|8@1+ (1,0) [0|255] "" ADB_PC_BOX
 
-BO_ 2155872356 _Calibration_reading: 8 ADB_PC_BOX
+BO_ 2156003428 _Calibration_reading: 8 ADB_PC_BOX
  SG_ index : 0|8@1+ (1,0) [0|255] "" User
  SG_ select : 8|8@1+ (1,0) [0|255] "" User
  SG_ calibration_status : 16|1@1+ (1,0) [0|1] "" User
  SG_ reserved : 17|7@1+ (1,0) [0|127] "" User
  SG_ value : 24|32@1- (0.0001,0) [-214748.3648|214748.3647] "" User
 
-BO_ 2155872352 _Factory_Config: 8 User
+BO_ 2156003424 _Factory_Config: 8 User
  SG_ select : 0|8@1+ (1,0) [0|255] "" ADB_PC_BOX
  SG_ set_id : 8|8@1+ (1,0) [0|255] "" ADB_PC_BOX
  SG_ set_revision : 16|8@1+ (1,0) [0|255] "" ADB_PC_BOX
  SG_ set_variant : 24|8@1+ (1,0) [0|255] "" ADB_PC_BOX
 
-BO_ 2155872357 _Factory_Debug_cmd: 8 User
+BO_ 2156003429 _Factory_Debug_cmd: 8 User
  SG_ god_mode : 0|1@1+ (1,0) [0|1] "" ADB_PC_BOX
  SG_ internal_power_a : 1|1@1+ (1,0) [0|1] "" ADB_PC_BOX
  SG_ internal_power_b : 2|1@1+ (1,0) [0|1] "" ADB_PC_BOX
  SG_ offset_stack_internal : 8|8@1+ (1,0) [0|255] "offset" ADB_PC_BOX
 
-
-CM_ BO_ 2155872320  "Set the mode of AC01";
-CM_ BO_ 2155872321  "read back the modes";
-CM_ BO_ 2155872322  "DC01 Critical and Error Faults";
-CM_ BO_ 2155872323  "DC01 Warnings";
-CM_ BO_ 2155872324  "DC01 Informational Flags";
-CM_ BO_ 2155872288  "The setpoints control the behaviour of the B Port of the DC01";
-CM_ BO_ 2155872289  "The setpoints that are currently used by the DC01. This message allows to validate that the setpoints have been properly applied.";
-CM_ BO_ 2155872290  "Setpoints for applying Droop on the DC Port B. Droop is needed for paralleling multiple DC01";
-CM_ BO_ 2155872291  "Droop setpoints that are applied by the DC01 on port b ";
-CM_ BO_ 2155872292  "Measurements of the B port";
-CM_ BO_ 2155872306  "Measurements of the A port";
-CM_ BO_ 2155872304  "The setpoints control the behaviour of the A Port of the DC01";
-CM_ BO_ 2155872305  "The setpoints that are currently used by the DC01. This message allows to validate that the setpoints have been properly applied.";
-CM_ BO_ 2155872498  "The setpoints that are currently used by the DC01. This message allows to validate that the setpoints have been properly applied.";
-CM_ BO_ 2155872499  "The setpoints that are currently used by the DC01. This message allows to validate that the setpoints have been properly applied.";
-CM_ BO_ 2155872256  "Identification of the device";
-CM_ BO_ 2155872258  "Unique Identifier of the Firmware used on this module";
-CM_ BO_ 2155872257  "Unique Identifier of the Bootloader used on this module";
-CM_ BO_ 2155872259  "This message declares the version of the API that is provided by the converter. The version follows newer convention, as this file is an API definition, patch does not apply";
-CM_ BO_ 2155872325  "Module stack control";
-CM_ BO_ 2155872336  "Fault Control: actions to clear faults and reset the system";
-CM_ BO_ 2155872353  "Control the system flags";
-CM_ BO_ 2155872274  "box commands";
-CM_ BO_ 2155872275  "Converter power info";
-CM_ BO_ 2155872272  "General Status of the converter";
-CM_ BO_ 2155872496  "FSm status for debug";
-CM_ BO_ 2155872273  "Fault bitfield";
-CM_ BO_ 2155872277  "interface status";
-CM_ BO_ 2155872278  "Configure the Heartbeat for the Module. The 'Trip interlock' and 'Heartbeat Period' only apply if the heartbeat signals are enabled";
-CM_ BO_ 2155872279  "Readouts of the converter temperature sensors";
-CM_ BO_ 2155872280  "Readouts of the converter fans";
-CM_ BO_ 2155872281  "keep alive feeding";
-CM_ BO_ 2155872497  "BOX interlock status used for debug ";
-CM_ BO_ 2155872276  "Configure the broadcast group that the module belongs to.";
-CM_ BO_ 2155872384  "Contains the Group ID of the device";
-CM_ BO_ 2155872385  "Contains the Group ID of the device";
-CM_ BO_ 2155872386  "Contains the Group ID of the device";
-CM_ BO_ 2155872387  "Contains the Group ID of the device";
-CM_ BO_ 2155872388  "Contains the Group ID of the device";
-CM_ BO_ 2155872389  "Contains the Group ID of the device";
-CM_ BO_ 2155872390  "Contains the Group ID of the device";
-CM_ BO_ 2155872391  "Contains the Group ID of the device";
-CM_ BO_ 2155872392  "Status of internal modules";
-CM_ BO_ 2155872393  "Status of internal modules";
-CM_ BO_ 2155872394  "Status of internal modules";
-CM_ BO_ 2155872395  "Status of internal modules";
-CM_ BO_ 2155872396  "Status of internal modules";
-CM_ BO_ 2155872397  "Status of internal modules";
-CM_ BO_ 2155872400  "Status of internal modules";
-CM_ BO_ 2155872401  "debug - Allow to knwow  what module has wrong can api";
-CM_ BO_ 2155872354  "Calibration control (factory mode need to be set)";
-CM_ BO_ 2155872355  "Calibration reading cmd (factory mode need to be set)";
-CM_ BO_ 2155872356  "Calibration reading cmd (factory mode need to be set)";
-CM_ BO_ 2155872352  "factory setting of controller and boxs";
-CM_ BO_ 2155872357  "factory debug cmd, need factory mode flag set to 1";
-
-CM_ SG_ 2155872320 mode "require mode";
-CM_ SG_ 2155872320 connection "require connection";
-CM_ SG_ 2155872321 mode "actual mode";
-CM_ SG_ 2155872321 connection "connection mode";
-CM_ SG_ 2155872322 CABLE_2_4_DC "BI25(2).DC -> BI25(4).DC mismatch";
-CM_ SG_ 2155872322 CABLE_1_2_DC "BI25(2).DC -> BP25(1).DC mismatch";
-CM_ SG_ 2155872322 CABLE_3_4_DC "BI25(4).DC -> BI25(2).DC mismatch";
-CM_ SG_ 2155872322 CABLE_1_L1_L2 "BP25(1).L1 -> BI25(1).L2 mismatch";
-CM_ SG_ 2155872322 CABLE_1_L2_L3 "BP25(1).L2 -> BI25(1).L3 mismatch";
-CM_ SG_ 2155872322 CABLE_3_L1_L2 "BP25(3).L1 -> BI25(3).L2 mismatch";
-CM_ SG_ 2155872322 CABLE_3_L2_L3 "BP25(3).L2 -> BI25(3).L3 mismatch";
-CM_ SG_ 2155872322 CABLE_1_3_L1 "BP25(1).L1 -> BI25(3).L1 mismatch";
-CM_ SG_ 2155872322 CABLE_2_IN_OUT "BI25(2).IN -> BI25(2).OUT mismatch";
-CM_ SG_ 2155872322 CABLE_4_IN_OUT "BI25(4).IN -> BI25(4).OUT mismatch";
-CM_ SG_ 2155872322 MODULE_1_RUNNING "Module 1 running error";
-CM_ SG_ 2155872322 MODULE_2_RUNNING "Module 2 running error";
-CM_ SG_ 2155872322 MODULE_3_RUNNING "Module 3 running error";
-CM_ SG_ 2155872322 MODULE_4_RUNNING "Module 4 running error";
-CM_ SG_ 2155872322 CONTACTOR_1_CLOSED "Contactor 1 unexpectedly closed";
-CM_ SG_ 2155872322 CONTACTOR_2_CLOSED "Contactor 2 unexpectedly closed";
-CM_ SG_ 2155872322 CONTACTOR_3_CLOSED "Contactor 3 unexpectedly closed";
-CM_ SG_ 2155872322 CONTACTOR_4_CLOSED "Contactor 4 unexpectedly closed";
-CM_ SG_ 2155872322 CONTACTOR_1_OPEN "Contactor 1 failed to close";
-CM_ SG_ 2155872322 CONTACTOR_2_OPEN "Contactor 2 failed to close";
-CM_ SG_ 2155872322 CONTACTOR_3_OPEN "Contactor 3 failed to close";
-CM_ SG_ 2155872322 CONTACTOR_4_OPEN "Contactor 4 failed to close";
-CM_ SG_ 2155872322 CONTACTOR_1_FAIL "Contactor 1 feedback failure";
-CM_ SG_ 2155872322 CONTACTOR_2_FAIL "Contactor 2 feedback failure";
-CM_ SG_ 2155872322 CONTACTOR_3_FAIL "Contactor 3 feedback failure";
-CM_ SG_ 2155872322 CONTACTOR_4_FAIL "Contactor 4 feedback failure";
-CM_ SG_ 2155872322 PORT_A_OVERVOLTAGE "Port A overvoltage detected";
-CM_ SG_ 2155872322 CS_REV_INCOMPATIBLE "Controller board incompatible";
-CM_ SG_ 2155872322 CONTACTORS_CONNECTION_UNDEFINED "Contactors connection state undefined";
-CM_ SG_ 2155872322 AFE_NOT_OFF "AFE not off when expected";
-CM_ SG_ 2155872322 AFE_PWM_NOT_RUNNING "AFE PWM not running";
-CM_ SG_ 2155872322 AFE_PWM_STOP_RUNNING "AFE PWM stopped unexpectedly";
-CM_ SG_ 2155872322 BLEEDING_FAILED "Bleeding resistor discharge failed";
-CM_ SG_ 2155872322 BI25_PWM_NOT_RUNNING "Bleeding resistor discharge failed";
-CM_ SG_ 2155872322 CALIBRATION_ERROR "Bleeding resistor discharge failed";
-CM_ SG_ 2155872323 MODE_NOT_SUPPORTED "Mode not supported";
-CM_ SG_ 2155872323 V_A_LOW "voltage port a too low";
-CM_ SG_ 2155872323 V_A_HIGH "voltage port a too high";
-CM_ SG_ 2155872323 NEED_UPDATE "power converter need update";
-CM_ SG_ 2155872324 BLEEDING_DONE "Bleeding completed successfully";
-CM_ SG_ 2155872324 CONTACTORS_CONNECTION_SERIAL "Contactors connected in series";
-CM_ SG_ 2155872324 CONTACTORS_CONNECTION_PARALLEL "Contactors connected in parallel";
-CM_ SG_ 2155872324 CONTACTORS_CONNECTION_OPEN "All contactors open";
-CM_ SG_ 2155872324 CONNECTION_MANAGER_RQ_CHANGE "Connection manager requests topology change";
-CM_ SG_ 2155872324 VB_LIMITED_BY_VA "VA is not high enough to reach targeted VB";
-CM_ SG_ 2155872324 CURRENT_LIMIT "current limit reached";
-CM_ SG_ 2155872324 VB_TO_HIGH_FOR_SELECTED_MODE "cvb is too high for the current selected mode";
-CM_ SG_ 2155872324 CURRENT_LIMITED_BY_POWER "current is limited because max power is reached";
-CM_ SG_ 2155872288 Voltage "Control the target B port voltage. This voltage will be maintained as long as the current required to do so is smaller than the current limits specified in this message";
-CM_ SG_ 2155872288 Positive_Current_Limit "The maximum current that the DC01 will source on the B port";
-CM_ SG_ 2155872288 Negative_Current_Limit "The maximum current that the AC01 will sink into the B port";
-CM_ SG_ 2155872289 Voltage "The voltage target of the B port";
-CM_ SG_ 2155872289 Positive_Current_Limit "The maximum current that the DC01 will source on the B Port";
-CM_ SG_ 2155872289 Negative_Current_Limit "The maximum amount of current that the DC01 will sink into the B port";
-CM_ SG_ 2155872290 Positive_Current_Droop "The droop resistance to apply for current flowing out of the DC port (DC current is positive)";
-CM_ SG_ 2155872290 Negative_Current_Droop "The droop resistance to apply for current flowing in to the DC Port B (DC current is negative)";
-CM_ SG_ 2155872290 Enable "Enable DC Droop. If this feature is enabled the output voltage of the DC port  Bvaries with output current.";
-CM_ SG_ 2155872290 Reserved "This space is reserved. This region should contain only '0's";
-CM_ SG_ 2155872291 Positive_Current_Droop "The droop resistance applied for current flowing out of the DC port B (DC current is positive)";
-CM_ SG_ 2155872291 Negative_Current_Droop "The droop resistance applied for current flowing in to the DC Port B (DC current is negative)";
-CM_ SG_ 2155872291 Enable "Show is B port Droop is enabled.";
-CM_ SG_ 2155872292 Voltage "Voltage on the B Port";
-CM_ SG_ 2155872292 Current "Current through the B Port";
-CM_ SG_ 2155872306 Voltage "Voltage on the A Port";
-CM_ SG_ 2155872306 Current "Current through the A Port";
-CM_ SG_ 2155872304 Voltage "Control the target A port voltage. This voltage will be maintained as long as the current required to do so is smaller than the current limits specified in this message";
-CM_ SG_ 2155872304 Source_Current_Limit "The maximum current that the DC01 will source on the A port";
-CM_ SG_ 2155872304 Sink_Current_Limit "The maximum current that the AC01 will sink into the A port";
-CM_ SG_ 2155872305 Voltage "The voltage target of the A port";
-CM_ SG_ 2155872305 Source_Current_Limit "The maximum current that the DC01 will source on the A Port";
-CM_ SG_ 2155872305 Sink_Current_Limit "The maximum amount of current that the DC01 will sink into the A port";
-CM_ SG_ 2155872498 allow_close_contactor "The voltage target of the A port";
-CM_ SG_ 2155872499 current_connection_mode "The voltage target of the A port";
-CM_ SG_ 2155872499 new_connection_mode "The voltage target of the A port";
-CM_ SG_ 2155872256 Type "The device identification field, uniquely identifies the sender in the network";
-CM_ SG_ 2155872256 Revision "The hardware revision number";
-CM_ SG_ 2155872256 Variant "The hardware variant";
-CM_ SG_ 2155872256 Stack_position "Position of the module within the stack";
-CM_ SG_ 2155872256 serial_number "Unique module serial number";
-CM_ SG_ 2155872259 Major "The Major version number. This number increases if there are backwards incompatible changes";
-CM_ SG_ 2155872259 Minor "The Minor version number. This number increases if there are backwards compatible changes, like new messages or the use of previously reserved space";
-CM_ SG_ 2155872259 Patch "The Patch number. This number increases when changes to descriptions and documentation/comments are made";
-CM_ SG_ 2155872325 Stack_position "The module position within the stack";
-CM_ SG_ 2155872325 reserved "was stack size before";
-CM_ SG_ 2155872325 SN_number "Unique module serial number";
-CM_ SG_ 2155872336 Clear_Interlock "Clears the converter interlock";
-CM_ SG_ 2155872336 Reset_Processor "Reset the converter DSP";
-CM_ SG_ 2155872336 Trip_Interlock "Trip the inetrnal Interlock";
-CM_ SG_ 2155872336 Reserved "Reserved space";
-CM_ SG_ 2155872353 Factory_mode "Customers MUST NOT USE this bit. If set to 1, module will enter in factory mode. ";
-CM_ SG_ 2155872274 enable "Enable the system";
-CM_ SG_ 2155872275 load "load in percent";
-CM_ SG_ 2155872275 efficiency "load in percent";
-CM_ SG_ 2155872275 Power_capability "Power capabilities in kw";
-CM_ SG_ 2155872275 low_power_input "low power iunput voltage";
-CM_ SG_ 2155872272 State "box state";
-CM_ SG_ 2155872272 flag_enable "flag to know if the system is Enable";
-CM_ SG_ 2155872272 flag_ready "box has receive correct set point and can be turned one ";
-CM_ SG_ 2155872272 flag_energized "the box is energized ";
-CM_ SG_ 2155872272 flag_busy "box is busy ";
-CM_ SG_ 2155872272 flag_eco "box is in eco mode";
-CM_ SG_ 2155872272 flag_warning "box has warning and might be in degraded mode ";
-CM_ SG_ 2155872272 flag_degraded "box function in degraded mode ";
-CM_ SG_ 2155872272 flag_error "box has error those need to ble cleared to allow operation ";
-CM_ SG_ 2155872272 flag_factory "box function in factory mode ";
-CM_ SG_ 2155872272 flag_god_mode "box function in degraded mode ";
-CM_ SG_ 2155872496 init "box state init";
-CM_ SG_ 2155872496 ready "box state ready";
-CM_ SG_ 2155872496 turned_on "box state turned on";
-CM_ SG_ 2155872496 turned_off "box state turned off";
-CM_ SG_ 2155872496 bleeding "box state bleeding";
-CM_ SG_ 2155872273 internal "This g is asserted if the interlock is open due to an internal fault condition (self-protection)";
-CM_ SG_ 2155872273 external "This flag is asserted if the interlock is open due to an external condition received in the module.";
-CM_ SG_ 2155872273 keep_alive_not_serv_internal " keep alive internal not served ";
-CM_ SG_ 2155872273 error_temperature "trigger when a temperature has an errror";
-CM_ SG_ 2155872273 internal_modules_can_api "internal module wrong API";
-CM_ SG_ 2155872273 internal_modules_missing "internal modules missing";
-CM_ SG_ 2155872273 internal_modules_wrong "internal modules wrong";
-CM_ SG_ 2155872273 internal_modules_stack "internal modules stack error";
-CM_ SG_ 2155872273 internal_modules_init "internal module failed init";
-CM_ SG_ 2155872273 v_in_low "24v input too low ";
-CM_ SG_ 2155872273 v_in_critical "24v input too low ";
-CM_ SG_ 2155872273 keep_alive_not_serv " keep alive not served ";
-CM_ SG_ 2155872277 Broadcast_Group "The broadcast group that the module belongs to. Broadcast group 0 implies that the module is not part of a broadcast group. ";
-CM_ SG_ 2155872277 keep_Alive "keep alive requires the supervisory controller to send a heartbeat message at regular intervals";
-CM_ SG_ 2155872277 reserved "If this signal and the 'keep alive' is enabled, violating the heartbeat will trip the interlock, shutting down all connected power converters";
-CM_ SG_ 2155872277 keep_Alive_Period "The maximum period of the keep alive message. If the time between two heart-beat messages is longer than this value, the module ceases operation. This only applies when the Heartbeat signal is Enabled";
-CM_ SG_ 2155872278 Enable "Enable/Disable the Heartbeat feature of the Module";
-CM_ SG_ 2155872278 reserved "Set if the external interlock should be tripped if a heartbeat is not received within the configured period. If this signal is enabled the interlock is triped and the module is disabled. If this signal is set to Disabled, the interlock like will not be tripped but the module will cease operation";
-CM_ SG_ 2155872278 Period "Set the maximum period of the Heartbeat message. If the time between two heart-beat messages is longer than this value, the module ceases operation.";
-CM_ SG_ 2155872279 Cooling_plate "Temperature of the cooling plate";
-CM_ SG_ 2155872279 Magnetics "Highest mesured temp of magnetics";
-CM_ SG_ 2155872279 Transistors "Highest mesured temp of transistors";
-CM_ SG_ 2155872279 RESERVED "Lowest measured temp internally";
-CM_ SG_ 2155872280 A_rpm "Measured speed of Fan 1";
-CM_ SG_ 2155872280 A_pwm "Fan speed in percentage (0 to 100%)";
-CM_ SG_ 2155872280 B_rpm "Measured speed of Fan 1";
-CM_ SG_ 2155872280 B_pwm "Fan speed in percentage (0 to 100%)";
-CM_ SG_ 2155872281 feed "the value don't matter her tin order to feed the alive";
-CM_ SG_ 2155872276 Group_ID "Broadcast Group that the module should monitor";
-CM_ SG_ 2155872384 Type "The device identification field";
-CM_ SG_ 2155872384 Revision "The hardware revision numbere";
-CM_ SG_ 2155872384 Variant "Hardware variant";
-CM_ SG_ 2155872384 reserved "Hardware variant";
-CM_ SG_ 2155872384 serial_number "Hardware variant";
-CM_ SG_ 2155872385 nb_detected "number of modules detectedce";
-CM_ SG_ 2155872385 nd_side_a "number of modules detectedce";
-CM_ SG_ 2155872385 nd_side_b "number of modules detectedce";
-CM_ SG_ 2155872385 Collision "collision between module";
-CM_ SG_ 2155872386 Type "The device identification field";
-CM_ SG_ 2155872386 Revision "The hardware revision numbere";
-CM_ SG_ 2155872386 Variant "Hardware variant";
-CM_ SG_ 2155872386 Stack_position "Hardware variant";
-CM_ SG_ 2155872386 serial_number "Hardware variant";
-CM_ SG_ 2155872387 Type "The device identification field";
-CM_ SG_ 2155872387 Revision "The hardware revision numbere";
-CM_ SG_ 2155872387 Variant "Hardware variant";
-CM_ SG_ 2155872387 Stack_position "Hardware variant";
-CM_ SG_ 2155872387 serial_number "Hardware variant";
-CM_ SG_ 2155872388 Type "The device identification field";
-CM_ SG_ 2155872388 Revision "The hardware revision numbere";
-CM_ SG_ 2155872388 Variant "Hardware variant";
-CM_ SG_ 2155872388 Stack_position "Hardware variant";
-CM_ SG_ 2155872388 serial_number "Hardware variant";
-CM_ SG_ 2155872389 Type "The device identification field";
-CM_ SG_ 2155872389 Revision "The hardware revision numbere";
-CM_ SG_ 2155872389 Variant "Hardware variant";
-CM_ SG_ 2155872389 Stack_position "Hardware variant";
-CM_ SG_ 2155872389 serial_number "Hardware variant";
-CM_ SG_ 2155872390 Type "The device identification field";
-CM_ SG_ 2155872390 Revision "The hardware revision numbere";
-CM_ SG_ 2155872390 Variant "Hardware variant";
-CM_ SG_ 2155872390 Stack_position "Hardware variant";
-CM_ SG_ 2155872390 serial_number "Hardware variant";
-CM_ SG_ 2155872391 Type "The device identification field";
-CM_ SG_ 2155872391 Revision "The hardware revision numbere";
-CM_ SG_ 2155872391 Variant "Hardware variant";
-CM_ SG_ 2155872391 Stack_position "Hardware variant";
-CM_ SG_ 2155872391 serial_number "Hardware variant";
-CM_ SG_ 2155872392 Available "The device available";
-CM_ SG_ 2155872392 Side "The device is Ready";
-CM_ SG_ 2155872392 Status "The device is Running";
-CM_ SG_ 2155872392 Interlock_I "The device have interlock internal";
-CM_ SG_ 2155872392 Interlock_E "The device have interlock external";
-CM_ SG_ 2155872392 mode "Mode";
-CM_ SG_ 2155872393 Available "The device available";
-CM_ SG_ 2155872393 Side "The device is Ready";
-CM_ SG_ 2155872393 Status "The device is Running";
-CM_ SG_ 2155872393 Interlock_I "The device have interlock internal";
-CM_ SG_ 2155872393 Interlock_E "The device have interlock external";
-CM_ SG_ 2155872393 mode "Mode";
-CM_ SG_ 2155872394 Available "The device available";
-CM_ SG_ 2155872394 Side "The device is Ready";
-CM_ SG_ 2155872394 Status "The device is Running";
-CM_ SG_ 2155872394 Interlock_I "The device have interlock internal";
-CM_ SG_ 2155872394 Interlock_E "The device have interlock external";
-CM_ SG_ 2155872394 mode "Mode";
-CM_ SG_ 2155872395 Available "The device available";
-CM_ SG_ 2155872395 Side "The device is Ready";
-CM_ SG_ 2155872395 Status "The device is Running";
-CM_ SG_ 2155872395 Interlock_I "The device have interlock internal";
-CM_ SG_ 2155872395 Interlock_E "The device have interlock external";
-CM_ SG_ 2155872395 mode "Mode";
-CM_ SG_ 2155872396 Available "The device available";
-CM_ SG_ 2155872396 Side "The device is Ready";
-CM_ SG_ 2155872396 Status "The device is Running";
-CM_ SG_ 2155872396 Interlock_I "The device have interlock internal";
-CM_ SG_ 2155872396 Interlock_E "The device have interlock external";
-CM_ SG_ 2155872396 mode "Mode";
-CM_ SG_ 2155872397 Available "The device available";
-CM_ SG_ 2155872397 Side "The device is Ready";
-CM_ SG_ 2155872397 Status "The device is Running";
-CM_ SG_ 2155872397 Interlock_I "The device have interlock internal";
-CM_ SG_ 2155872397 Interlock_E "The device have interlock external";
-CM_ SG_ 2155872397 mode "Mode";
-CM_ SG_ 2155872400 cpu_1_usage "Controller cpu 1 usage";
-CM_ SG_ 2155872400 cpu_2_usage "Controller cpu 2 usage";
-CM_ SG_ 2155872400 can_bus_load_A "Controller cup 1 usage";
-CM_ SG_ 2155872400 can_bus_load_B "Controller cpu 1 usage";
-CM_ SG_ 2155872400 main_loop_freq "Controller cpu 1 usage";
-CM_ SG_ 2155872401 Type "The device identification field";
-CM_ SG_ 2155872401 Stack_position "Hardware variant";
-CM_ SG_ 2155872401 Major_expected "The Major version number. This number increases if there are backwards incompatible changes";
-CM_ SG_ 2155872401 Minor_expected "The minor version number. This number increases if there are backwards incompatible changes";
-CM_ SG_ 2155872401 Patch_expected "The patch version number. This number increases if there are backwards incompatible changes";
-CM_ SG_ 2155872401 Major_actual "The Major version number. This number increases if there are backwards incompatible changes";
-CM_ SG_ 2155872401 Minor_actual "The minor version number. This number increases if there are backwards incompatible changes";
-CM_ SG_ 2155872401 Patch_actual "The patch version number. This number increases if there are backwards incompatible changes";
-CM_ SG_ 2155872354 index "index of the device that nee calibration (0 is unvalid) ";
-CM_ SG_ 2155872354 select "select what value to set";
-CM_ SG_ 2155872354 value "require calibration valut ";
-CM_ SG_ 2155872355 index "index of the device that need reading ";
-CM_ SG_ 2155872355 select "select what value to read";
-CM_ SG_ 2155872356 index "index of the device that need reading ";
-CM_ SG_ 2155872356 select "select what value to read";
-CM_ SG_ 2155872356 calibration_status "select what value to read";
-CM_ SG_ 2155872356 reserved "select what value to read";
-CM_ SG_ 2155872356 value "require calibration valut ";
-CM_ SG_ 2155872352 select "set ID, need factory mode = 1 (will change revision and variant as well)";
-CM_ SG_ 2155872352 set_id "set ID, need factory mode = 1 (will change revision and variant as well)";
-CM_ SG_ 2155872352 set_revision "set revision, need factory mode = 1 , applied if set_id is valid";
-CM_ SG_ 2155872352 set_variant "set variant, need factory mode = 1, applied if set_id is valid";
-CM_ SG_ 2155872357 god_mode "Customers MUST NOT USE this bit. If set to 1, module will enter in factory mode. ";
-CM_ SG_ 2155872357 internal_power_a "Customers MUST NOT USE this bit. If set to 1, module will enter in factory mode. ";
-CM_ SG_ 2155872357 internal_power_b "Customers MUST NOT USE this bit. If set to 1, module will enter in factory mode. ";
-CM_ SG_ 2155872357 offset_stack_internal "Customers MUST NOT USE this bit. need factory mode = 1 ";
+BO_ 2156003474 _error_code: 4 ADB_PC_BOX
+ SG_ error : 0|8@1- (1,0) [-128|127] "offset" User
 
 
+CM_ BO_ 2156003392  "Configure DC01 operating mode and connection topology";
+CM_ BO_ 2156003393  "DC01 actual operating mode (readback)";
+CM_ BO_ 2156003394  "DC01 Critical and error conditions";
+CM_ BO_ 2156003395  "DC01 warning flags, it need to be cleared to \"Enable\" the power converter";
+CM_ BO_ 2156003396  "DC01 info flags";
+CM_ BO_ 2156003360  "The setpoints control the behaviour of the B Port of the DC01";
+CM_ BO_ 2156003361  "The setpoints that are currently used by the DC01. This message allows to validate that the setpoints have been properly applied.";
+CM_ BO_ 2156003362  "Setpoints for applying Droop on the DC Port B. Droop is needed for paralleling multiple DC01
+
+            it is recommended to always have a bit of droop (0.4) and adjust it depending of the topology
+      ";
+CM_ BO_ 2156003363  "Droop setpoints that are applied by the DC01 on port B ";
+CM_ BO_ 2156003364  "Measurements of the B port";
+CM_ BO_ 2156003378  "Measurements of the A port";
+CM_ BO_ 2156003376  "The setpoints control the behaviour of the A Port of the DC01";
+CM_ BO_ 2156003377  "The setpoints that are currently used by the DC01. This message allows to validate that the setpoints have been properly applied.";
+CM_ BO_ 2156003382  "The control the behaviour of the A Port of the DC01";
+CM_ BO_ 2156003383  "Feedback on port A of the DC01";
+CM_ BO_ 2156003570  "INTERNAL DEBUG ONLY - Customer systems should NOT use this message";
+CM_ BO_ 2156003571  "INTERNAL DEBUG ONLY - Customer systems should NOT monitor or display this message";
+CM_ BO_ 2156003328  "Identification of the device";
+CM_ BO_ 2156003330  "Unique Identifier of the Firmware used on this device";
+CM_ BO_ 2156003329  "Unique Identifier of the Bootloader used on this device";
+CM_ BO_ 2156003331  "This message declares the version of the API that is provided by the device. The version follows newer convention, as this file is an API definition, patch does not apply";
+CM_ BO_ 2156003397  "Device stack control";
+CM_ BO_ 2156003408  "Fault Control: actions to clear faults and reset the system";
+CM_ BO_ 2156003425  "FACTORY USE ONLY - Control the device factory flags";
+CM_ BO_ 2156003346  "Converter control command";
+CM_ BO_ 2156003347  "Real-time power converter performance metrics
+
+                  Some signals are still experimental and may change in the future.
+            ";
+CM_ BO_ 2156003344  "General Status of the power converter";
+CM_ BO_ 2156003568  "FSM  status - DEBUG ONLY, not for customer visibility";
+CM_ BO_ 2156003345  "Fault status bitfield (1-bit flags per fault type)
+
+                    Severity levels and clearing:
+                    - Tripped: Can be cleared using \"Clear_Interlock\" signals from \"Fault_Control\" message.
+                    - Critical: Requires system reboot (contact Advantics support).
+                    - Error: Can be cleared using \"Clear_Interlock\" signals from \"Fault_Control\" message.
+
+                    State machine behavior:
+                    - Standby: All errors must be cleared before power-on is allowed. if \"Enable\"  is active, the converter will 
+                      turns on when all faults/warnings are cleared.
+                    - Running: Any Error fault triggers the turning-off sequence shutdown. And any Critical fault trigger immediate shutdown
+                
+            ";
+CM_ BO_ 2156003349  "interface status";
+CM_ BO_ 2156003350  "Configure the Heartbeat for the Module. The 'Heartbeat Period' signal only apply if the heartbeat signals are enabled";
+CM_ BO_ 2156003351  "Readouts of the power converter temperature sensors";
+CM_ BO_ 2156003352  "Readouts from the power converter's internal fans.";
+CM_ BO_ 2156003353  "keep alive feeding";
+CM_ BO_ 2156003569  "INTERNAL DEBUG ONLY - Customer systems should NOT monitor or display this message
+                    
+                    Split power converter interlock status
+            ";
+CM_ BO_ 2156003348  "Configure the broadcast group that the power converter belongs to.";
+CM_ BO_ 2156003456  "DEBUG/FACTORY USE ONLY - Not important for customers. 
+                
+                    Contains information about the ADM-CS (controller).
+            ";
+CM_ BO_ 2156003457  "DEBUG/FACTORY USE ONLY - Not important for customers. 
+                
+                    Contains information about detected ADM-PC.
+            ";
+CM_ BO_ 2156003458  "DEBUG/FACTORY USE ONLY - Not important for customers. 
+                
+                    Contains information about detected ADM-PC #1.
+            ";
+CM_ BO_ 2156003459  "DEBUG/FACTORY USE ONLY - Not important for customers. 
+                
+                    Contains information about detected ADM-PC #2.
+            ";
+CM_ BO_ 2156003460  "DEBUG/FACTORY USE ONLY - Not important for customers. 
+                
+                    Contains information about detected ADM-PC #3.
+            ";
+CM_ BO_ 2156003461  "DEBUG/FACTORY USE ONLY - Not important for customers. 
+                
+                    Contains information about detected ADM-PC #4.
+            ";
+CM_ BO_ 2156003462  "DEBUG/FACTORY USE ONLY - Not important for customers. 
+                
+                    Contains information about detected ADM-PC #5.
+            ";
+CM_ BO_ 2156003463  "DEBUG/FACTORY USE ONLY - Not important for customers. 
+                
+                    Contains information about detected ADM-PC #6.
+            ";
+CM_ BO_ 2156003464  "DEBUG/FACTORY USE ONLY - Not important for customers. 
+                
+                    Contains status information about detected ADM-PC #1.
+            ";
+CM_ BO_ 2156003465  "DEBUG/FACTORY USE ONLY - Not important for customers. 
+                
+                    Contains status information about detected ADM-PC #2.
+            ";
+CM_ BO_ 2156003466  "DEBUG/FACTORY USE ONLY - Not important for customers. 
+                
+                    Contains status information about detected ADM-PC #3.
+            ";
+CM_ BO_ 2156003467  "DEBUG/FACTORY USE ONLY - Not important for customers. 
+                
+                    Contains status information about detected ADM-PC #4.
+            ";
+CM_ BO_ 2156003468  "DEBUG/FACTORY USE ONLY - Not important for customers. 
+                
+                    Contains status information about detected ADM-PC #5.
+            ";
+CM_ BO_ 2156003469  "DEBUG/FACTORY USE ONLY - Not important for customers. 
+                
+                    Contains status information about detected ADM-PC #6.
+            ";
+CM_ BO_ 2156003472  "Performance status of the AMD-CS";
+CM_ BO_ 2156003473  "DEBUG - Allow to know  what ADM-PC has wrong can api";
+CM_ BO_ 2156003426  "FACTORY USE ONLY - Calibration control (requires factory mode)
+
+                    Should only be used in factory, not customers. For calibration issues, contact Advantics support.
+
+            ";
+CM_ BO_ 2156003427  "FACTORY USE ONLY - Calibration reading cmd (requires factory mode)
+
+                Should only be used in factory, not customers. For calibration issues, contact Advantics support.";
+CM_ BO_ 2156003428  "FACTORY USE ONLY - Calibration reading (requires factory mode)
+
+                Should only be used in factory, not customers. For calibration issues, contact Advantics support";
+CM_ BO_ 2156003424  "FACTORY USE ONLY - Factory configuration (requires factory mode)
+
+                    Should only be used in factory, not customers. In case of issues, contact Advantics support.
+            ";
+CM_ BO_ 2156003429  "FACTORY USE ONLY - Factory debug command (requires factory mode)
+
+                    Should only be used in factory, not customers. In case of issues, contact Advantics support.
+            ";
+CM_ BO_ 2156003474  "DEBUG";
+
+CM_ SG_ 2156003392 mode "Requested operating mode
+
+            B_port_Controlled (0): B-side voltage controlled to setpoint, requires VA input present
+            A_port_Controlled (1): A-side voltage controlled (not yet supported)
+            Bleeding (2): Discharge internal capacitors/remaining charge
+
+            changing mode can only be done when the power converter is not \"Enable\"
+        ";
+CM_ SG_ 2156003392 connection "Requested internal contactor configuration
+
+            forced_serial (0): VB bellow (VA * 2) required
+            forced_parallel (1): VB bellow VA required  
+            automatic (2): Converter auto-selects topology (experimental), automatic is 
+            not allowed on A side controlled
+
+            changing connection can only be done when the power converter is not \"Enable\"
+        ";
+CM_ SG_ 2156003393 mode "Currently applied operating mode
+
+                changing mode can only be done when the power converter is not \"Enable\"
+        ";
+CM_ SG_ 2156003393 connection "Currently applied contactor topology
+
+           changing connection can only be done when the power converter is not \"Enable\"
+        ";
+CM_ SG_ 2156003394 CABLE_2_4_DC "Critical: DC mismatch between BI25(2) and BI25(4)";
+CM_ SG_ 2156003394 CABLE_1_2_DC "Critical: DC mismatch between BI25(2) and AFE(1)";
+CM_ SG_ 2156003394 CABLE_3_4_DC "Critical: DC mismatch between BI25(4) and BI25(2)";
+CM_ SG_ 2156003394 CABLE_1_L1_L2 "Critical: Phase mismatch between AFE(1).L1 and BI25(1).L2";
+CM_ SG_ 2156003394 CABLE_1_L2_L3 "Critical: Phase mismatch between AFE(1).L2 and BI25(1).L3";
+CM_ SG_ 2156003394 CABLE_3_L1_L2 "Critical: Phase mismatch between AFE(3).L1 and BI25(3).L2";
+CM_ SG_ 2156003394 CABLE_3_L2_L3 "Critical: Phase mismatch between AFE(3).L2 and BI25(3).L3";
+CM_ SG_ 2156003394 CABLE_1_3_L1 "Critical: Phase mismatch between AFE(1).L1 and BI25(3).L1";
+CM_ SG_ 2156003394 CABLE_2_IN_OUT "Critical: Signal mismatch between BI25(2).IN and BI25(2).OUT";
+CM_ SG_ 2156003394 CABLE_4_IN_OUT "Critical: Signal mismatch between BI25(4).IN and BI25(4).OUT";
+CM_ SG_ 2156003394 MODULE_1_RUNNING "Error: Module 1 is running, but it should be off";
+CM_ SG_ 2156003394 MODULE_2_RUNNING "Error: Module 2 is running, but it should be off";
+CM_ SG_ 2156003394 MODULE_3_RUNNING "Error: Module 3 is running, but it should be off";
+CM_ SG_ 2156003394 MODULE_4_RUNNING "Error: Module 4 is running, but it should be off";
+CM_ SG_ 2156003394 CONTACTOR_1_CLOSED "Error: Contactor 1 did not open when commanded";
+CM_ SG_ 2156003394 CONTACTOR_2_CLOSED "Error: Contactor 2 did not open when commanded";
+CM_ SG_ 2156003394 CONTACTOR_3_CLOSED "Error: Contactor 3 did not open when commanded";
+CM_ SG_ 2156003394 CONTACTOR_4_CLOSED "Error: Contactor 4 did not open when commanded";
+CM_ SG_ 2156003394 CONTACTOR_1_OPEN "Error: Contactor 1 did not close when commanded";
+CM_ SG_ 2156003394 CONTACTOR_2_OPEN "Error: Contactor 2 did not close when commanded";
+CM_ SG_ 2156003394 CONTACTOR_3_OPEN "Error: Contactor 3 did not close when commanded";
+CM_ SG_ 2156003394 CONTACTOR_4_OPEN "Error: Contactor 4 did not close when commanded";
+CM_ SG_ 2156003394 CONTACTOR_1_FAIL "Error: Contactor 1 feedback signal is invalid or missing";
+CM_ SG_ 2156003394 CONTACTOR_2_FAIL "Error: Contactor 2 feedback signal is invalid or missing";
+CM_ SG_ 2156003394 CONTACTOR_3_FAIL "Error: Contactor 3 feedback signal is invalid or missing";
+CM_ SG_ 2156003394 CONTACTOR_4_FAIL "Error: Contactor 4 feedback signal is invalid or missing";
+CM_ SG_ 2156003394 PORT_A_OVERVOLTAGE "Error: Overvoltage detected on Port A";
+CM_ SG_ 2156003394 CS_REV_INCOMPATIBLE "Critical: Controller board revision is incompatible";
+CM_ SG_ 2156003394 CONTACTORS_CONNECTION_UNDEFINED "Error: Contactors connection state undefined";
+CM_ SG_ 2156003394 AFE_NOT_OFF "Error: AFE is not off, but it should be off";
+CM_ SG_ 2156003394 AFE_PWM_NOT_RUNNING "Error: AFE is not running , but it should";
+CM_ SG_ 2156003394 AFE_PWM_STOP_RUNNING "Error: AFE PWM stopped unexpectedly";
+CM_ SG_ 2156003394 BLEEDING_FAILED "Error: Bleeding failed";
+CM_ SG_ 2156003394 BI25_PWM_NOT_RUNNING "Error: BI25 is not running , but it should";
+CM_ SG_ 2156003394 CALIBRATION_ERROR "Error: Calibration incorrect or not available (contact Advantics support)";
+CM_ SG_ 2156003394 AFE_BUCK_NOT_RUNNING "Error: AFE is not running in buck , but it should";
+CM_ SG_ 2156003394 AFE_BOOST_NOT_RUNNING "Error: AFE is not running in boost, but it should";
+CM_ SG_ 2156003394 AFE_BOOST_STOP_RUNNING "Error: AFE Boost stopped unexpectedly";
+CM_ SG_ 2156003394 AFE_BUCK_STOP_RUNNING "Error: AFE buck stopped unexpectedly";
+CM_ SG_ 2156003394 EXTERNAL_PRECHARGE_FAILED "Error: External precharge as failed";
+CM_ SG_ 2156003394 V_B_MIN "Error: V on port B is bellow minimum";
+CM_ SG_ 2156003395 MODE_NOT_SUPPORTED "Warning: Requested operating mode is not supported";
+CM_ SG_ 2156003395 V_A_LOW "Warning: Port A voltage is below the minimum threshold";
+CM_ SG_ 2156003395 V_A_HIGH "Warning: Port A voltage exceeds the maximum threshold";
+CM_ SG_ 2156003395 NEED_UPDATE "Warning: Power converter firmware update is required";
+CM_ SG_ 2156003395 EXTERNAL_PRECHARGE_NOT_DISABLED "Warning: External precharge is expected to de disable bit isn't";
+CM_ SG_ 2156003395 V_B_NOT_ZERO "Warning: V measure on B side is expected to be 0V";
+CM_ SG_ 2156003395 V_B_LOW "Warning : voltage on b side is too low";
+CM_ SG_ 2156003396 BLEEDING_DONE "Info: Bleeding resistor discharge completed successfully";
+CM_ SG_ 2156003396 CONTACTORS_CONNECTION_SERIAL "Info: Contactors are connected in series";
+CM_ SG_ 2156003396 CONTACTORS_CONNECTION_PARALLEL "Info: Contactors are connected in parallel";
+CM_ SG_ 2156003396 CONTACTORS_CONNECTION_OPEN "Info: All contactors are open";
+CM_ SG_ 2156003396 CONNECTION_MANAGER_RQ_CHANGE "Info: Connection manager requests topology change";
+CM_ SG_ 2156003396 VB_LIMITED_BY_VA "Info: VA is not high enough to reach targeted VB";
+CM_ SG_ 2156003396 CURRENT_LIMIT "Info: Current limit has been reached";
+CM_ SG_ 2156003396 VB_TO_HIGH_FOR_SELECTED_MODE "Info:  vb is too high for the current selected mode";
+CM_ SG_ 2156003396 CURRENT_LIMITED_BY_POWER "Info: current is limited because max power is reached";
+CM_ SG_ 2156003360 Voltage "Control the target B port voltage. This voltage will be maintained as long as the current required to do so is smaller than the current limits specified in this message";
+CM_ SG_ 2156003360 Positive_Current_Limit "The maximum current that the DC01 will source on the B port";
+CM_ SG_ 2156003360 Negative_Current_Limit "The maximum current that the AC01 will sink into the B port";
+CM_ SG_ 2156003361 Voltage "The voltage target of the B port";
+CM_ SG_ 2156003361 Positive_Current_Limit "The maximum current that the DC01 will source on the B Port";
+CM_ SG_ 2156003361 Negative_Current_Limit "The maximum amount of current that the DC01 will sink into the B port";
+CM_ SG_ 2156003362 Positive_Current_Droop "The droop resistance to apply for current flowing out of the DC port (DC current is positive)";
+CM_ SG_ 2156003362 Negative_Current_Droop "The droop resistance to apply for current flowing in to the DC Port B (DC current is negative)";
+CM_ SG_ 2156003362 Enable "Enable DC Droop. If this feature is enabled the output voltage of the DC port  Bvaries with output current.";
+CM_ SG_ 2156003362 Reserved "This space is reserved. This region should contain only '0's";
+CM_ SG_ 2156003363 Positive_Current_Droop "The droop resistance applied for current flowing out of the DC port B (DC current is positive)";
+CM_ SG_ 2156003363 Negative_Current_Droop "The droop resistance applied for current flowing in to the DC Port B (DC current is negative)";
+CM_ SG_ 2156003363 Enable "Show is B port Droop is enabled.";
+CM_ SG_ 2156003364 Voltage "Voltage on the B Port";
+CM_ SG_ 2156003364 Current "Current through the B Port";
+CM_ SG_ 2156003378 Voltage "Voltage on the A Port";
+CM_ SG_ 2156003378 Current "Current through the A Port";
+CM_ SG_ 2156003376 Voltage "Control the target A port voltage. This voltage will be maintained as long as the current required to do so is smaller than the current limits specified in this message";
+CM_ SG_ 2156003376 Positive_Current_Limit "The maximum current that the DC01 will source on the A port";
+CM_ SG_ 2156003376 Negative_Current_Limit "The maximum current that the AC01 will sink into the A port";
+CM_ SG_ 2156003377 Voltage "The voltage target of the A port";
+CM_ SG_ 2156003377 Positive_Current_Limit "The maximum current that the DC01 will source on the A Port";
+CM_ SG_ 2156003377 Negative_Current_Limit "The maximum amount of current that the DC01 will sink into the A port";
+CM_ SG_ 2156003382 external_precharge_status " Inform the DC01 about the external precharge status
+
+                an external precharge is needed for A side control. 
+
+                External precharge should monitor for 'A_Port_Feedback' 'precharge_status' 
+
+                this flag should be set to off in other 'precharge_status'
+        ";
+CM_ SG_ 2156003383 precharge_status "Inform about the precharge status (A side)";
+CM_ SG_ 2156003570 allow_close_contactor "The voltage target of the A port";
+CM_ SG_ 2156003571 current_connection_mode "The voltage target of the A port";
+CM_ SG_ 2156003571 new_connection_mode "The voltage target of the A port";
+CM_ SG_ 2156003328 Type "Type of device";
+CM_ SG_ 2156003328 Revision "The hardware revision number";
+CM_ SG_ 2156003328 Variant "The hardware variant";
+CM_ SG_ 2156003328 Stack_position "Position of the device within the stack";
+CM_ SG_ 2156003328 serial_number "Unique device serial number";
+CM_ SG_ 2156003331 Major "The Major version number. This number increases if there are backwards incompatible changes";
+CM_ SG_ 2156003331 Minor "The Minor version number. This number increases if there are backwards compatible changes, like new messages or the use of previously reserved space";
+CM_ SG_ 2156003331 Patch "The Patch number. This number increases when changes to descriptions and documentation/comments are made";
+CM_ SG_ 2156003397 Stack_position "Device position within the stack";
+CM_ SG_ 2156003397 reserved "reserved";
+CM_ SG_ 2156003397 SN_number "Unique device serial number, that require change of stack address";
+CM_ SG_ 2156003408 Clear_Interlock "Clears the device interlock";
+CM_ SG_ 2156003408 Reset_Processor "Reset the device DSP";
+CM_ SG_ 2156003408 Trip_Interlock "Trip the internal Interlock";
+CM_ SG_ 2156003408 Reserved "Reserved";
+CM_ SG_ 2156003425 Factory_mode "If set to 1, module will enter in factory mode. ";
+CM_ SG_ 2156003346 enable "Enable the power converter 
+                       enable takes priority over sleep
+                ";
+CM_ SG_ 2156003346 sleep "Ask the converter to go to sleep mode 
+
+                        the converter will go to sleep mode only from standby mode
+                        enable  takes priority over sleep
+                ";
+CM_ SG_ 2156003347 load "Current load utilization 
+                        
+                    Actual power demand relative to Power_capability limit.
+                ";
+CM_ SG_ 2156003347 efficiency "Converter efficiency";
+CM_ SG_ 2156003347 Power_capability " Maximum deliverable power based on configured setpoints (V * A).
+             
+                    Examples:
+                        - 1000V * 50A = 50kW  (within limits)
+                        - 1500V * 200A = 300kW  capped at 100kW (converter maximum)
+                ";
+CM_ SG_ 2156003347 low_power_input "low-voltage input (typically 24V)";
+CM_ SG_ 2156003344 State "Current operating state of the power converter.
+
+                        Init: The converter is initializing. It will transition to Standby if initialization succeeds, 
+                        or to Critical/Error if it fails.
+                        Standby: The converter is idle and ready to be turned-on if conditions are met (no errors, no warnings).
+                        Turning_on: The converter is powering up.
+                        Running: The converter is actively operating.
+                        Turning_off: The converter is shutting down.
+                        Error: A recoverable fault has occurred.
+                        Critical: A critical fault has occurred, requiring reboot (please inform Advantics).
+                        God: For Developer (mode cannot be used by customers).
+                        Sleeping: The converter is in sleeping mode in order to save energy.
+                ";
+CM_ SG_ 2156003344 flag_enable "Indicates  that the converter is asked to be enabled.
+                        once condition are meet (no wanring nor error) the converter will do to turning-on
+                ";
+CM_ SG_ 2156003344 flag_ready "Indicates that a valid setpoint has been received and conditions are met to turn on the converter.";
+CM_ SG_ 2156003344 flag_energized "Indicates that the converter is energized (internal and external > 24V)";
+CM_ SG_ 2156003344 flag_busy "Indicates that the converter is in a transition state (init, turning on, or turning off). Some commands may be ignored during this step.";
+CM_ SG_ 2156003344 flag_sleep "Indicates that the converter is asked to operating in energy-saving (sleep) mode.
+
+                        the converter will go in sleeping mode
+                        Turning on the power converter in eco mode may take a little more time (feature not yet implemented).
+                ";
+CM_ SG_ 2156003344 flag_warning "Indicates that one or more warnings are active.
+
+                        When in standby mode, all warnings must be cleared before turning on the power converter.
+                        If \"Enable\" is set in \"Converter_Control\", the power converter will turn on as soon as all warnings are cleared.
+                        The system may be operating in degraded mode.
+                        During operation (Running), the power converter will continue to run, but degraded performance may be expected.
+                        Refer to the \"Warning\" message for more details.
+                ";
+CM_ SG_ 2156003344 flag_degraded "Indicates that the converter is running in degraded performance mode 
+
+                    This can be due to high temperature.
+                    Refer to the \"Warning\" message for more details.
+
+                ";
+CM_ SG_ 2156003344 flag_error "Indicates that one or more Errors are active.
+
+                    When in standby mode, all errors must be cleared before turning on the power converter.
+                    If \"Enable\" is set in \"Converter_Control\", the power converter will turn on as soon as all warnings are cleared.
+                    During operation (Running), the power converter will turn off.
+                    Errors can be cleared using \"Clear_Interlock\" signals from the \"Fault_Control\" message.
+                    The system may be operating in degraded mode.
+                    Refer to the \"Errors\" or \"Faults\" message for more details.
+                ";
+CM_ SG_ 2156003344 flag_factory "Indicates that the converter is operating in factory or service mode. 
+
+                        This flag should not be active for customers
+                ";
+CM_ SG_ 2156003344 flag_god_mode "Indicates that the converter is in special diagnostic or unrestricted mode (god mode).
+                    
+                        This flag should not be active for customers
+
+                ";
+CM_ SG_ 2156003568 init "state: INIT (initialization phase)";
+CM_ SG_ 2156003568 ready "state: READY ";
+CM_ SG_ 2156003568 turned_on "state: TURNED_ON";
+CM_ SG_ 2156003568 turned_off "state: TURNED_OFF";
+CM_ SG_ 2156003568 bleeding "state: BLEEDING";
+CM_ SG_ 2156003345 internal "Internal interlock trip 
+                    
+                    An internal issue has arisen.
+                ";
+CM_ SG_ 2156003345 external "External interlock trip
+
+                    Common causes:
+                    - External emergency stop button pressed
+                    - External safety interlock opened (door switch, guard, etc.)
+                ";
+CM_ SG_ 2156003345 system "Critical system fault detected (contact Advantics support)";
+CM_ SG_ 2156003345 EEPROM_failure "EEPROM read/write failure (contact Advantics support)";
+CM_ SG_ 2156003345 wrong_nfo "Invalid configuration detected (contact Advantics support)";
+CM_ SG_ 2156003345 Measurement_system_failure "Voltage/current measurement system fault (contact Advantics support)";
+CM_ SG_ 2156003345 PLL_not_locked "PLL not locked (contact Advantics support)";
+CM_ SG_ 2156003345 overtemperature "Over-temperature condition detected 
+
+                    Cooling plate temperature exceeded 75°C threshold
+                    Can be cleared once temperature is bellow 75°C. check message \"Converter_Temperature\"
+
+                ";
+CM_ SG_ 2156003345 fan_stuck "Cooling fan stalled or not running
+
+                        The system may overheat(contact Advantics support if the problem persist)
+                ";
+CM_ SG_ 2156003345 dead_module "Lost communication between the ADM-CS and one or more ADM-PC";
+CM_ SG_ 2156003345 keep_alive_not_serv_internal "Internal ADM-PC keep-alive watchdog timeout. Was not served in time by ADM-CS";
+CM_ SG_ 2156003345 error_temperature "Temperature sensor error. One or more sensors are unavailable or reporting invalid data.";
+CM_ SG_ 2156003345 internal_modules_ready "One or more internal modules (ADM-PC) are NOT ready";
+CM_ SG_ 2156003345 internal_modules_can_api "One or more internal modules (ADM-PC) have mismatched CAN API versions expected by ADM-CS
+                        
+                        check message \"info_can_api_error\" for more detail
+                ";
+CM_ SG_ 2156003345 internal_modules_missing "One or more internal modules (ADM-PC) are  missing (not detect on can bus)
+
+                        check message \"info_adm_pc\" for more detail
+                ";
+CM_ SG_ 2156003345 internal_modules_wrong "One or more internal modules (ADM-PC) are not compatible with the NFO of ADM-CS";
+CM_ SG_ 2156003345 internal_modules_stack "One or more internal modules (ADM-PC) don't respect the required stack position for the NFO of ADM-CS";
+CM_ SG_ 2156003345 internal_modules_init "One or more internal modules (ADM-PC) failed at init (ready flag)";
+CM_ SG_ 2156003345 wrong_revision "One or more internal modules (ADM-PC) don't have the required revision for the NFO of ADM-CS ";
+CM_ SG_ 2156003345 v_in_low "24V input voltage too low
+
+                        Increase voltage and/or current before clearing the error.
+                ";
+CM_ SG_ 2156003345 v_in_critical "24V input voltage critically low, 
+
+                        Increase voltage and/or current and reboot the power converter
+                ";
+CM_ SG_ 2156003345 keep_alive_not_serv "keep-alive watchdog timeout
+
+                    Upper controller did not service the keepalive watchdog in time.
+                    Check \"Interface_Status\" message and increase \"keep_Alive_Period\" if needed
+                ";
+CM_ SG_ 2156003345 internal_a "Internal interlock trip 
+                    
+                    An internal issue has arisen.
+                ";
+CM_ SG_ 2156003345 internal_b "Internal interlock trip 
+                    
+                    An internal issue has arisen.
+                ";
+CM_ SG_ 2156003349 Broadcast_Group "The broadcast group that the module belongs to. Broadcast group 0 implies that the module is not part of a broadcast group. ";
+CM_ SG_ 2156003349 keep_Alive "keep alive requires the supervisory/upper controller to send a heartbeat message at regular intervals";
+CM_ SG_ 2156003349 reserved "reserved for future usage";
+CM_ SG_ 2156003349 keep_Alive_Period "The maximum period of the keep alive message. If the time between two heart-beat messages is longer than this value, the power converter will go to Error. This only applies when the Heartbeat signal is Enabled";
+CM_ SG_ 2156003350 Enable "Enable/Disable the Heartbeat feature of the Module";
+CM_ SG_ 2156003350 reserved "Reserved for future usage";
+CM_ SG_ 2156003350 Period "Set the maximum period of the Heartbeat message. If the time between two heart-beat messages is longer than this value, the power converter will go to Error.";
+CM_ SG_ 2156003351 Cooling_plate "Temperature of the cooling plate";
+CM_ SG_ 2156003351 Magnetics "Highest measured temp of magnetics";
+CM_ SG_ 2156003351 Transistors "Highest measured temp of transistors";
+CM_ SG_ 2156003351 reserved "reserved for future usage";
+CM_ SG_ 2156003352 A_rpm "Measured speed of Fan A";
+CM_ SG_ 2156003352 A_pwm "Fan A target speed in percentage (0 to 100%)";
+CM_ SG_ 2156003352 B_rpm "Measured speed of Fan B";
+CM_ SG_ 2156003352 B_pwm "Fan B target speed in percentage (0 to 100%)";
+CM_ SG_ 2156003353 feed "The value doesn't matter here, it is only used to feed the keepalive";
+CM_ SG_ 2156003348 Group_ID "Broadcast Group that the power converter should monitor";
+CM_ SG_ 2156003456 Type "The device identification field";
+CM_ SG_ 2156003456 Revision "The hardware revision numbere";
+CM_ SG_ 2156003456 Variant "Hardware variant";
+CM_ SG_ 2156003456 reserved "Hardware variant";
+CM_ SG_ 2156003456 serial_number "Hardware variant";
+CM_ SG_ 2156003457 nb_detected "number of ADM-PC detected";
+CM_ SG_ 2156003457 nd_side_a "number of ADM-PC detected";
+CM_ SG_ 2156003457 nd_side_b "number of ADM-PC detected";
+CM_ SG_ 2156003457 Collision "collision between module";
+CM_ SG_ 2156003458 Type "The device identification field";
+CM_ SG_ 2156003458 Revision "The hardware revision number";
+CM_ SG_ 2156003458 Variant "Hardware variant";
+CM_ SG_ 2156003458 Stack_position "Hardware variant";
+CM_ SG_ 2156003458 serial_number "Hardware variant";
+CM_ SG_ 2156003459 Type "The device identification field";
+CM_ SG_ 2156003459 Revision "The hardware revision number";
+CM_ SG_ 2156003459 Variant "Hardware variant";
+CM_ SG_ 2156003459 Stack_position "Hardware variant";
+CM_ SG_ 2156003459 serial_number "Hardware variant";
+CM_ SG_ 2156003460 Type "The device identification field";
+CM_ SG_ 2156003460 Revision "The hardware revision number";
+CM_ SG_ 2156003460 Variant "Hardware variant";
+CM_ SG_ 2156003460 Stack_position "Hardware variant";
+CM_ SG_ 2156003460 serial_number "Hardware variant";
+CM_ SG_ 2156003461 Type "The device identification field";
+CM_ SG_ 2156003461 Revision "The hardware revision number";
+CM_ SG_ 2156003461 Variant "Hardware variant";
+CM_ SG_ 2156003461 Stack_position "Hardware variant";
+CM_ SG_ 2156003461 serial_number "Hardware variant";
+CM_ SG_ 2156003462 Type "The device identification field";
+CM_ SG_ 2156003462 Revision "The hardware revision number";
+CM_ SG_ 2156003462 Variant "Hardware variant";
+CM_ SG_ 2156003462 Stack_position "Hardware variant";
+CM_ SG_ 2156003462 serial_number "Hardware variant";
+CM_ SG_ 2156003463 Type "The device identification field";
+CM_ SG_ 2156003463 Revision "The hardware revision number";
+CM_ SG_ 2156003463 Variant "Hardware variant";
+CM_ SG_ 2156003463 Stack_position "Hardware variant";
+CM_ SG_ 2156003463 serial_number "Hardware variant";
+CM_ SG_ 2156003464 Available "The device available";
+CM_ SG_ 2156003464 Side "The device is Ready";
+CM_ SG_ 2156003464 Status "The device is Running";
+CM_ SG_ 2156003464 Interlock_I "The device have interlock internal";
+CM_ SG_ 2156003464 Interlock_E "The device have interlock external";
+CM_ SG_ 2156003464 mode "Mode";
+CM_ SG_ 2156003465 Available "The device available";
+CM_ SG_ 2156003465 Side "The device is Ready";
+CM_ SG_ 2156003465 Status "The device is Running";
+CM_ SG_ 2156003465 Interlock_I "The device have interlock internal";
+CM_ SG_ 2156003465 Interlock_E "The device have interlock external";
+CM_ SG_ 2156003465 mode "Mode";
+CM_ SG_ 2156003466 Available "The device available";
+CM_ SG_ 2156003466 Side "The device is Ready";
+CM_ SG_ 2156003466 Status "The device is Running";
+CM_ SG_ 2156003466 Interlock_I "The device have interlock internal";
+CM_ SG_ 2156003466 Interlock_E "The device have interlock external";
+CM_ SG_ 2156003466 mode "Mode";
+CM_ SG_ 2156003467 Available "The device available";
+CM_ SG_ 2156003467 Side "The device is Ready";
+CM_ SG_ 2156003467 Status "The device is Running";
+CM_ SG_ 2156003467 Interlock_I "The device have interlock internal";
+CM_ SG_ 2156003467 Interlock_E "The device have interlock external";
+CM_ SG_ 2156003467 mode "Mode";
+CM_ SG_ 2156003468 Available "The device available";
+CM_ SG_ 2156003468 Side "The device is Ready";
+CM_ SG_ 2156003468 Status "The device is Running";
+CM_ SG_ 2156003468 Interlock_I "The device have interlock internal";
+CM_ SG_ 2156003468 Interlock_E "The device have interlock external";
+CM_ SG_ 2156003468 mode "Mode";
+CM_ SG_ 2156003469 Available "The device available";
+CM_ SG_ 2156003469 Side "The device is Ready";
+CM_ SG_ 2156003469 Status "The device is Running";
+CM_ SG_ 2156003469 Interlock_I "The device have interlock internal";
+CM_ SG_ 2156003469 Interlock_E "The device have interlock external";
+CM_ SG_ 2156003469 mode "Mode";
+CM_ SG_ 2156003472 cpu_1_usage "Controller cpu 1 usage";
+CM_ SG_ 2156003472 cpu_2_usage "Controller cpu 2 usage";
+CM_ SG_ 2156003472 can_bus_load_A "Controller cup 1 usage";
+CM_ SG_ 2156003472 can_bus_load_B "Controller cpu 1 usage";
+CM_ SG_ 2156003472 main_loop_freq "Controller cpu 1 usage";
+CM_ SG_ 2156003473 Type "The ADM-PC identification field";
+CM_ SG_ 2156003473 Stack_position "Hardware variant";
+CM_ SG_ 2156003473 Major_expected "The Major version number. This number increases if there are backwards incompatible changes";
+CM_ SG_ 2156003473 Minor_expected "The minor version number. This number increases if there are backwards incompatible changes";
+CM_ SG_ 2156003473 Patch_expected "The patch version number. This number increases if there are backwards incompatible changes";
+CM_ SG_ 2156003473 Major_actual "The Major version number. This number increases if there are backwards incompatible changes";
+CM_ SG_ 2156003473 Minor_actual "The minor version number. This number increases if there are backwards incompatible changes";
+CM_ SG_ 2156003473 Patch_actual "The patch version number. This number increases if there are backwards incompatible changes";
+CM_ SG_ 2156003426 index "index of the device that nee calibration (0 is invalid) ";
+CM_ SG_ 2156003426 select "select what value to set";
+CM_ SG_ 2156003426 value "require calibration value ";
+CM_ SG_ 2156003427 index "index of the device that need reading ";
+CM_ SG_ 2156003427 select "select what value to read";
+CM_ SG_ 2156003428 index "index of the device that need reading ";
+CM_ SG_ 2156003428 select "select what value to read";
+CM_ SG_ 2156003428 calibration_status "select what value to read";
+CM_ SG_ 2156003428 reserved "select what value to read";
+CM_ SG_ 2156003428 value "require calibration valut ";
+CM_ SG_ 2156003424 select "set ID (will apply setted revision and variant as well)";
+CM_ SG_ 2156003424 set_id "set ID, need factory mode = 1 (will change revision and variant as well)";
+CM_ SG_ 2156003424 set_revision "set revision, need factory mode = 1 , applied if set_id is valid";
+CM_ SG_ 2156003424 set_variant "set variant, need factory mode = 1, applied if set_id is valid";
+CM_ SG_ 2156003429 god_mode "If set to 1, module will enter in god mode. ";
+CM_ SG_ 2156003429 internal_power_a "If set to 1, ADM-PC on side A will be turned off";
+CM_ SG_ 2156003429 internal_power_b "If set to 1, ADM-PC on side B will be turned off";
+CM_ SG_ 2156003429 offset_stack_internal "Allow to generate a virtual offset in the stack address for internal ADM-PC";
+CM_ SG_ 2156003474 error "error code";
 
 
 
 
-VAL_ 2155872320 mode 0 "B_port_Controlled" 1 "A_port_Controlled" 2 "Bleeding";
-VAL_ 2155872320 connection 0 "forced_serial" 1 "forced_parallel" 2 "automatic";
-VAL_ 2155872321 mode 0 "B_side_Controlled" 1 "A_side_Controlled" 2 "Bleeding";
-VAL_ 2155872321 connection 0 "open" 1 "serial" 2 "parallel";
-VAL_ 2155872322 CABLE_2_4_DC 0 "Clear" 1 "Critical";
-VAL_ 2155872322 CABLE_1_2_DC 0 "Clear" 1 "Critical";
-VAL_ 2155872322 CABLE_3_4_DC 0 "Clear" 1 "Critical";
-VAL_ 2155872322 CABLE_1_L1_L2 0 "Clear" 1 "Critical";
-VAL_ 2155872322 CABLE_1_L2_L3 0 "Clear" 1 "Critical";
-VAL_ 2155872322 CABLE_3_L1_L2 0 "Clear" 1 "Critical";
-VAL_ 2155872322 CABLE_3_L2_L3 0 "Clear" 1 "Critical";
-VAL_ 2155872322 CABLE_1_3_L1 0 "Clear" 1 "Critical";
-VAL_ 2155872322 CABLE_2_IN_OUT 0 "Clear" 1 "Critical";
-VAL_ 2155872322 CABLE_4_IN_OUT 0 "Clear" 1 "Critical";
-VAL_ 2155872322 MODULE_1_RUNNING 0 "Clear" 1 "Error";
-VAL_ 2155872322 MODULE_2_RUNNING 0 "Clear" 1 "Error";
-VAL_ 2155872322 MODULE_3_RUNNING 0 "Clear" 1 "Error";
-VAL_ 2155872322 MODULE_4_RUNNING 0 "Clear" 1 "Error";
-VAL_ 2155872322 CONTACTOR_1_CLOSED 0 "Clear" 1 "Error";
-VAL_ 2155872322 CONTACTOR_2_CLOSED 0 "Clear" 1 "Error";
-VAL_ 2155872322 CONTACTOR_3_CLOSED 0 "Clear" 1 "Error";
-VAL_ 2155872322 CONTACTOR_4_CLOSED 0 "Clear" 1 "Error";
-VAL_ 2155872322 CONTACTOR_1_OPEN 0 "Clear" 1 "Error";
-VAL_ 2155872322 CONTACTOR_2_OPEN 0 "Clear" 1 "Error";
-VAL_ 2155872322 CONTACTOR_3_OPEN 0 "Clear" 1 "Error";
-VAL_ 2155872322 CONTACTOR_4_OPEN 0 "Clear" 1 "Error";
-VAL_ 2155872322 CONTACTOR_1_FAIL 0 "Clear" 1 "Error";
-VAL_ 2155872322 CONTACTOR_2_FAIL 0 "Clear" 1 "Error";
-VAL_ 2155872322 CONTACTOR_3_FAIL 0 "Clear" 1 "Error";
-VAL_ 2155872322 CONTACTOR_4_FAIL 0 "Clear" 1 "Error";
-VAL_ 2155872322 PORT_A_OVERVOLTAGE 0 "Clear" 1 "Error";
-VAL_ 2155872322 CS_REV_INCOMPATIBLE 0 "Clear" 1 "Critical";
-VAL_ 2155872322 CONTACTORS_CONNECTION_UNDEFINED 0 "Clear" 1 "Error";
-VAL_ 2155872322 AFE_NOT_OFF 0 "Clear" 1 "Error";
-VAL_ 2155872322 AFE_PWM_NOT_RUNNING 0 "Clear" 1 "Error";
-VAL_ 2155872322 AFE_PWM_STOP_RUNNING 0 "Clear" 1 "Error";
-VAL_ 2155872322 BLEEDING_FAILED 0 "Clear" 1 "Error";
-VAL_ 2155872322 BI25_PWM_NOT_RUNNING 0 "Clear" 1 "Error";
-VAL_ 2155872322 CALIBRATION_ERROR 0 "Clear" 1 "Error";
-VAL_ 2155872323 MODE_NOT_SUPPORTED 0 "Clear" 1 "Warning";
-VAL_ 2155872323 V_A_LOW 0 "Clear" 1 "Warning";
-VAL_ 2155872323 V_A_HIGH 0 "Clear" 1 "Warning";
-VAL_ 2155872323 NEED_UPDATE 0 "Clear" 1 "Warning";
-VAL_ 2155872324 BLEEDING_DONE 0 "Clear" 1 "Info";
-VAL_ 2155872324 CONTACTORS_CONNECTION_SERIAL 0 "Clear" 1 "Info";
-VAL_ 2155872324 CONTACTORS_CONNECTION_PARALLEL 0 "Clear" 1 "Info";
-VAL_ 2155872324 CONTACTORS_CONNECTION_OPEN 0 "Clear" 1 "Info";
-VAL_ 2155872324 CONNECTION_MANAGER_RQ_CHANGE 0 "Clear" 1 "Info";
-VAL_ 2155872324 VB_LIMITED_BY_VA 0 "Clear" 1 "Info";
-VAL_ 2155872324 CURRENT_LIMIT 0 "Clear" 1 "Info";
-VAL_ 2155872324 VB_TO_HIGH_FOR_SELECTED_MODE 0 "Clear" 1 "Info";
-VAL_ 2155872324 CURRENT_LIMITED_BY_POWER 0 "Clear" 1 "Info";
-VAL_ 2155872290 Enable 0 "Disabled" 1 "Enabled";
-VAL_ 2155872291 Enable 0 "Disabled" 1 "Enabled";
-VAL_ 2155872498 allow_close_contactor 0 "Disabled" 1 "Enabled";
-VAL_ 2155872499 current_connection_mode 0 "contactors_open" 1 "contactors_serial" 2 "contactors_parallel" 3 "contactors_undefined";
-VAL_ 2155872499 new_connection_mode 0 "contactors_open" 1 "contactors_serial" 2 "contactors_parallel" 3 "contactors_undefined";
-VAL_ 2155872256 Type 128 "GC01" 129 "AC01" 130 "DC01";
-VAL_ 2155872256 Revision 0 "R0A" 1 "R0B" 2 "R0C";
-VAL_ 2155872256 Variant 0 "VA00" 1 "VA01";
-VAL_ 2155872272 State 0 "init" 1 "standby" 2 "turning_on" 3 "running" 4 "turning_off" 5 "error" 6 "critical" 7 "god";
-VAL_ 2155872273 internal 0 "Clear" 1 "Tripped";
-VAL_ 2155872273 external 0 "Clear" 1 "Tripped";
-VAL_ 2155872273 system 0 "Clear" 1 "Critical";
-VAL_ 2155872273 EEPROM_failure 0 "Clear" 1 "Critical";
-VAL_ 2155872273 wrong_nfo 0 "Clear" 1 "Critical";
-VAL_ 2155872273 Measurement_system_failure 0 "Clear" 1 "Warning";
-VAL_ 2155872273 PLL_not_locked 0 "Clear" 1 "Critical";
-VAL_ 2155872273 overtemperature 0 "Clear" 1 "Error";
-VAL_ 2155872273 fan_stuck 0 "Clear" 1 "Warning";
-VAL_ 2155872273 dead_module 0 "Clear" 1 "Error";
-VAL_ 2155872273 keep_alive_not_serv_internal 0 "Clear" 1 "Error";
-VAL_ 2155872273 error_temperature 0 "Clear" 1 "Info";
-VAL_ 2155872273 internal_modules_ready 0 "Clear" 1 "Error";
-VAL_ 2155872273 internal_modules_can_api 0 "Clear" 1 "Critical";
-VAL_ 2155872273 internal_modules_missing 0 "Clear" 1 "Critical";
-VAL_ 2155872273 internal_modules_wrong 0 "Clear" 1 "Critical";
-VAL_ 2155872273 internal_modules_stack 0 "Clear" 1 "Critical";
-VAL_ 2155872273 internal_modules_init 0 "Clear" 1 "Error";
-VAL_ 2155872273 wrong_revision 0 "Clear" 1 "Critical";
-VAL_ 2155872273 v_in_low 0 "Clear" 1 "Error";
-VAL_ 2155872273 v_in_critical 0 "Clear" 1 "Critical";
-VAL_ 2155872273 keep_alive_not_serv 0 "Clear" 1 "Error";
-VAL_ 2155872277 keep_Alive 0 "Disabled" 1 "Enabled";
-VAL_ 2155872277 reserved 0 "Disabled" 1 "Enabled";
-VAL_ 2155872278 Enable 0 "Disabled" 1 "Enabled";
-VAL_ 2155872278 reserved 0 "Disabled" 1 "Enabled";
-VAL_ 2155872497 e 0 "Tripped" 1 "Clear";
-VAL_ 2155872497 a 0 "Tripped" 1 "Clear";
-VAL_ 2155872497 b 0 "Tripped" 1 "Clear";
-VAL_ 2155872497 i 0 "Tripped" 1 "Clear";
-VAL_ 2155872497 x 0 "Tripped" 1 "Clear";
-VAL_ 2155872384 Type 16 "GC01";
-VAL_ 2155872386 Type 7 "BP25" 8 "BI25" 19 "DMF1";
-VAL_ 2155872387 Type 7 "BP25" 8 "BI25" 19 "DMF1";
-VAL_ 2155872388 Type 7 "BP25" 8 "BI25" 19 "DMF1";
-VAL_ 2155872389 Type 7 "BP25" 8 "BI25" 19 "DMF1";
-VAL_ 2155872390 Type 7 "BP25" 8 "BI25" 19 "DMF1";
-VAL_ 2155872391 Type 7 "BP25" 8 "BI25" 19 "DMF1";
-VAL_ 2155872392 Side 0 "side_unk" 1 "side_a" 2 "side_b";
-VAL_ 2155872392 Status 0 "off" 1 "ready" 2 "running";
-VAL_ 2155872393 Side 0 "side_unk" 1 "side_a" 2 "side_b";
-VAL_ 2155872393 Status 0 "off" 1 "ready" 2 "running";
-VAL_ 2155872394 Side 0 "side_unk" 1 "side_a" 2 "side_b";
-VAL_ 2155872394 Status 0 "off" 1 "ready" 2 "running";
-VAL_ 2155872395 Side 0 "side_unk" 1 "side_a" 2 "side_b";
-VAL_ 2155872395 Status 0 "off" 1 "ready" 2 "running";
-VAL_ 2155872396 Side 0 "side_unk" 1 "side_a" 2 "side_b";
-VAL_ 2155872396 Status 0 "off" 1 "ready" 2 "running";
-VAL_ 2155872397 Side 0 "side_unk" 1 "side_a" 2 "side_b";
-VAL_ 2155872397 Status 0 "off" 1 "ready" 2 "running";
-VAL_ 2155872401 Type 7 "BP25" 8 "BI25" 19 "DMF1";
-VAL_ 2155872354 index 0 "invalid" 1 "voltage_sensor_b";
-VAL_ 2155872354 select 0 "invalid" 1 "prob_offset" 2 "prob_scale_factor";
-VAL_ 2155872355 index 0 "invalid" 1 "voltage_sensor_b";
-VAL_ 2155872355 select 0 "raw" 1 "value" 2 "prob_offset" 3 "prob_scale_factor";
-VAL_ 2155872356 index 0 "unvalid" 1 "voltage_sensor_b";
-VAL_ 2155872356 select 0 "raw" 1 "value" 2 "prob_offset" 3 "prob_scale_factor";
-VAL_ 2155872356 calibration_status 0 "bad" 1 "ok";
-VAL_ 2155872352 select 0 "invalid" 1 "cs" 2 "adb" 3 "reset";
-VAL_ 2155872357 internal_power_a 0 "on" 1 "off";
-VAL_ 2155872357 internal_power_b 0 "on" 1 "off";
+
+
+VAL_ 2156003392 mode 0 "B_port_Controlled" 1 "A_port_Controlled" 2 "Bleeding";
+VAL_ 2156003392 connection 0 "forced_serial" 1 "forced_parallel" 2 "automatic";
+VAL_ 2156003393 mode 0 "B_side_Controlled" 1 "A_side_Controlled" 2 "Bleeding";
+VAL_ 2156003393 connection 0 "open" 1 "serial" 2 "parallel";
+VAL_ 2156003394 CABLE_2_4_DC 0 "Clear" 1 "Critical";
+VAL_ 2156003394 CABLE_1_2_DC 0 "Clear" 1 "Critical";
+VAL_ 2156003394 CABLE_3_4_DC 0 "Clear" 1 "Critical";
+VAL_ 2156003394 CABLE_1_L1_L2 0 "Clear" 1 "Critical";
+VAL_ 2156003394 CABLE_1_L2_L3 0 "Clear" 1 "Critical";
+VAL_ 2156003394 CABLE_3_L1_L2 0 "Clear" 1 "Critical";
+VAL_ 2156003394 CABLE_3_L2_L3 0 "Clear" 1 "Critical";
+VAL_ 2156003394 CABLE_1_3_L1 0 "Clear" 1 "Critical";
+VAL_ 2156003394 CABLE_2_IN_OUT 0 "Clear" 1 "Critical";
+VAL_ 2156003394 CABLE_4_IN_OUT 0 "Clear" 1 "Critical";
+VAL_ 2156003394 MODULE_1_RUNNING 0 "Clear" 1 "Error";
+VAL_ 2156003394 MODULE_2_RUNNING 0 "Clear" 1 "Error";
+VAL_ 2156003394 MODULE_3_RUNNING 0 "Clear" 1 "Error";
+VAL_ 2156003394 MODULE_4_RUNNING 0 "Clear" 1 "Error";
+VAL_ 2156003394 CONTACTOR_1_CLOSED 0 "Clear" 1 "Error";
+VAL_ 2156003394 CONTACTOR_2_CLOSED 0 "Clear" 1 "Error";
+VAL_ 2156003394 CONTACTOR_3_CLOSED 0 "Clear" 1 "Error";
+VAL_ 2156003394 CONTACTOR_4_CLOSED 0 "Clear" 1 "Error";
+VAL_ 2156003394 CONTACTOR_1_OPEN 0 "Clear" 1 "Error";
+VAL_ 2156003394 CONTACTOR_2_OPEN 0 "Clear" 1 "Error";
+VAL_ 2156003394 CONTACTOR_3_OPEN 0 "Clear" 1 "Error";
+VAL_ 2156003394 CONTACTOR_4_OPEN 0 "Clear" 1 "Error";
+VAL_ 2156003394 CONTACTOR_1_FAIL 0 "Clear" 1 "Error";
+VAL_ 2156003394 CONTACTOR_2_FAIL 0 "Clear" 1 "Error";
+VAL_ 2156003394 CONTACTOR_3_FAIL 0 "Clear" 1 "Error";
+VAL_ 2156003394 CONTACTOR_4_FAIL 0 "Clear" 1 "Error";
+VAL_ 2156003394 PORT_A_OVERVOLTAGE 0 "Clear" 1 "Error";
+VAL_ 2156003394 CS_REV_INCOMPATIBLE 0 "Clear" 1 "Critical";
+VAL_ 2156003394 CONTACTORS_CONNECTION_UNDEFINED 0 "Clear" 1 "Error";
+VAL_ 2156003394 AFE_NOT_OFF 0 "Clear" 1 "Error";
+VAL_ 2156003394 AFE_PWM_NOT_RUNNING 0 "Clear" 1 "Error";
+VAL_ 2156003394 AFE_PWM_STOP_RUNNING 0 "Clear" 1 "Error";
+VAL_ 2156003394 BLEEDING_FAILED 0 "Clear" 1 "Error";
+VAL_ 2156003394 BI25_PWM_NOT_RUNNING 0 "Clear" 1 "Error";
+VAL_ 2156003394 CALIBRATION_ERROR 0 "Clear" 1 "Error";
+VAL_ 2156003394 AFE_BUCK_NOT_RUNNING 0 "Clear" 1 "Error";
+VAL_ 2156003394 AFE_BOOST_NOT_RUNNING 0 "Clear" 1 "Error";
+VAL_ 2156003394 AFE_BOOST_STOP_RUNNING 0 "Clear" 1 "Error";
+VAL_ 2156003394 AFE_BUCK_STOP_RUNNING 0 "Clear" 1 "Error";
+VAL_ 2156003394 EXTERNAL_PRECHARGE_FAILED 0 "Clear" 1 "Error";
+VAL_ 2156003394 V_B_MIN 0 "Clear" 1 "Error";
+VAL_ 2156003394 reserved_2 0 "Clear" 1 "Error";
+VAL_ 2156003395 MODE_NOT_SUPPORTED 0 "Clear" 1 "Warning";
+VAL_ 2156003395 V_A_LOW 0 "Clear" 1 "Warning";
+VAL_ 2156003395 V_A_HIGH 0 "Clear" 1 "Warning";
+VAL_ 2156003395 NEED_UPDATE 0 "Clear" 1 "Warning";
+VAL_ 2156003395 EXTERNAL_PRECHARGE_NOT_DISABLED 0 "Clear" 1 "Warning";
+VAL_ 2156003395 V_B_NOT_ZERO 0 "Clear" 1 "Warning";
+VAL_ 2156003395 V_B_LOW 0 "Clear" 1 "Warning";
+VAL_ 2156003396 BLEEDING_DONE 0 "Clear" 1 "Info";
+VAL_ 2156003396 CONTACTORS_CONNECTION_SERIAL 0 "Clear" 1 "Info";
+VAL_ 2156003396 CONTACTORS_CONNECTION_PARALLEL 0 "Clear" 1 "Info";
+VAL_ 2156003396 CONTACTORS_CONNECTION_OPEN 0 "Clear" 1 "Info";
+VAL_ 2156003396 CONNECTION_MANAGER_RQ_CHANGE 0 "Clear" 1 "Info";
+VAL_ 2156003396 VB_LIMITED_BY_VA 0 "Clear" 1 "Info";
+VAL_ 2156003396 CURRENT_LIMIT 0 "Clear" 1 "Info";
+VAL_ 2156003396 VB_TO_HIGH_FOR_SELECTED_MODE 0 "Clear" 1 "Info";
+VAL_ 2156003396 CURRENT_LIMITED_BY_POWER 0 "Clear" 1 "Info";
+VAL_ 2156003362 Enable 0 "Disabled" 1 "Enabled";
+VAL_ 2156003363 Enable 0 "Disabled" 1 "Enabled";
+VAL_ 2156003382 external_precharge_status 0 "disabled" 1 "in_progress" 2 "done" 3 "failed";
+VAL_ 2156003383 precharge_status 0 "UNKNOWN" 1 "INITIALISING" 2 "IN_PROGRESS" 3 "DONE" 4 "FAILED";
+VAL_ 2156003570 allow_close_contactor 0 "Disabled" 1 "Enabled";
+VAL_ 2156003571 current_connection_mode 0 "contactors_open" 1 "contactors_serial" 2 "contactors_parallel" 3 "contactors_undefined";
+VAL_ 2156003571 new_connection_mode 0 "contactors_open" 1 "contactors_serial" 2 "contactors_parallel" 3 "contactors_undefined";
+VAL_ 2156003328 Type 128 "GC01" 129 "AC01" 130 "DC01" 131 "CH01" 132 "GN01" 133 "DC91" 134 "GN91" 135 "DC02" 136 "DC03";
+VAL_ 2156003328 Revision 0 "R0A" 1 "R0B" 2 "R0C" 3 "R0D" 4 "R0E";
+VAL_ 2156003328 Variant 0 "VA00" 1 "VA01";
+VAL_ 2156003344 State 0 "init" 1 "standby" 2 "turning_on" 3 "running" 4 "turning_off" 5 "error" 6 "critical" 7 "god" 8 "sleeping";
+VAL_ 2156003345 internal 0 "Clear" 1 "Tripped";
+VAL_ 2156003345 external 0 "Clear" 1 "Tripped";
+VAL_ 2156003345 system 0 "Clear" 1 "Critical";
+VAL_ 2156003345 EEPROM_failure 0 "Clear" 1 "Critical";
+VAL_ 2156003345 wrong_nfo 0 "Clear" 1 "Critical";
+VAL_ 2156003345 Measurement_system_failure 0 "Clear" 1 "Warning";
+VAL_ 2156003345 PLL_not_locked 0 "Clear" 1 "Critical";
+VAL_ 2156003345 overtemperature 0 "Clear" 1 "Error";
+VAL_ 2156003345 fan_stuck 0 "Clear" 1 "Warning";
+VAL_ 2156003345 dead_module 0 "Clear" 1 "Error";
+VAL_ 2156003345 keep_alive_not_serv_internal 0 "Clear" 1 "Error";
+VAL_ 2156003345 error_temperature 0 "Clear" 1 "Info";
+VAL_ 2156003345 internal_modules_ready 0 "Clear" 1 "Error";
+VAL_ 2156003345 internal_modules_can_api 0 "Clear" 1 "Critical";
+VAL_ 2156003345 internal_modules_missing 0 "Clear" 1 "Critical";
+VAL_ 2156003345 internal_modules_wrong 0 "Clear" 1 "Critical";
+VAL_ 2156003345 internal_modules_stack 0 "Clear" 1 "Critical";
+VAL_ 2156003345 internal_modules_init 0 "Clear" 1 "Error";
+VAL_ 2156003345 wrong_revision 0 "Clear" 1 "Critical";
+VAL_ 2156003345 v_in_low 0 "Clear" 1 "Error";
+VAL_ 2156003345 v_in_critical 0 "Clear" 1 "Critical";
+VAL_ 2156003345 keep_alive_not_serv 0 "Clear" 1 "Error";
+VAL_ 2156003345 internal_a 0 "Clear" 1 "Tripped";
+VAL_ 2156003345 internal_b 0 "Clear" 1 "Tripped";
+VAL_ 2156003349 keep_Alive 0 "Disabled" 1 "Enabled";
+VAL_ 2156003349 reserved 0 "Disabled" 1 "Enabled";
+VAL_ 2156003350 Enable 0 "Disabled" 1 "Enabled";
+VAL_ 2156003350 reserved 0 "Disabled" 1 "Enabled";
+VAL_ 2156003569 e 0 "Tripped" 1 "Clear";
+VAL_ 2156003569 a 0 "Tripped" 1 "Clear";
+VAL_ 2156003569 b 0 "Tripped" 1 "Clear";
+VAL_ 2156003569 i 0 "Tripped" 1 "Clear";
+VAL_ 2156003569 x 0 "Tripped" 1 "Clear";
+VAL_ 2156003456 Type 16 "GC01";
+VAL_ 2156003458 Type 7 "BP25" 8 "BI25" 19 "DMF1";
+VAL_ 2156003459 Type 7 "BP25" 8 "BI25" 19 "DMF1";
+VAL_ 2156003460 Type 7 "BP25" 8 "BI25" 19 "DMF1";
+VAL_ 2156003461 Type 7 "BP25" 8 "BI25" 19 "DMF1";
+VAL_ 2156003462 Type 7 "BP25" 8 "BI25" 19 "DMF1";
+VAL_ 2156003463 Type 7 "BP25" 8 "BI25" 19 "DMF1";
+VAL_ 2156003464 Side 0 "side_unk" 1 "side_a" 2 "side_b";
+VAL_ 2156003464 Status 0 "off" 1 "ready" 2 "running";
+VAL_ 2156003465 Side 0 "side_unk" 1 "side_a" 2 "side_b";
+VAL_ 2156003465 Status 0 "off" 1 "ready" 2 "running";
+VAL_ 2156003466 Side 0 "side_unk" 1 "side_a" 2 "side_b";
+VAL_ 2156003466 Status 0 "off" 1 "ready" 2 "running";
+VAL_ 2156003467 Side 0 "side_unk" 1 "side_a" 2 "side_b";
+VAL_ 2156003467 Status 0 "off" 1 "ready" 2 "running";
+VAL_ 2156003468 Side 0 "side_unk" 1 "side_a" 2 "side_b";
+VAL_ 2156003468 Status 0 "off" 1 "ready" 2 "running";
+VAL_ 2156003469 Side 0 "side_unk" 1 "side_a" 2 "side_b";
+VAL_ 2156003469 Status 0 "off" 1 "ready" 2 "running";
+VAL_ 2156003473 Type 7 "BP25" 8 "BI25" 19 "DMF1";
+VAL_ 2156003426 index 0 "invalid" 1 "voltage_sensor_b";
+VAL_ 2156003426 select 0 "invalid" 1 "prob_offset" 2 "prob_scale_factor";
+VAL_ 2156003427 index 0 "invalid" 1 "voltage_sensor_b";
+VAL_ 2156003427 select 0 "raw" 1 "value" 2 "prob_offset" 3 "prob_scale_factor";
+VAL_ 2156003428 index 0 "unvalid" 1 "voltage_sensor_b";
+VAL_ 2156003428 select 0 "raw" 1 "value" 2 "prob_offset" 3 "prob_scale_factor";
+VAL_ 2156003428 calibration_status 0 "bad" 1 "ok";
+VAL_ 2156003424 select 0 "invalid" 1 "cs" 2 "adb" 3 "reset";
+VAL_ 2156003429 internal_power_a 0 "on" 1 "off";
+VAL_ 2156003429 internal_power_b 0 "on" 1 "off";
