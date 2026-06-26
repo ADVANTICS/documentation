@@ -486,5 +486,47 @@ Currently supported hardware are for `ADM-CS-MEVC`.
         </ul>
       </td>
     </tr>
+    <tr>
+      <td class="branch-col">Release 2.8.0</td>
+      <td class="date-col">2026-06-26</td>
+      <td>
+        <ul>
+          <li><strong>pev-controller 2.7.0</strong>
+            <ul>
+              <li>ISO15118-20: cap energy requests based on config params</li>
+              <li>Always report the state of the digital inputs over CAN bus regardless of their configuration</li>
+              <li>Add possibility to use different CAN bus interfaces for IVT and Generic CAN interface using <code>can_sensor_if</code> config entry</li>
+              <li>Retry IVT sensor configuration until it powers up after init/sleep. Capped by configured timeout <code>ivt_init_timeout_s</code></li>
+              <li>Add possibility to assert HV hold-off until the BMS reports ready using config entry <code>hold_off_until_bms_ready</code></li>
+              <li>Enable current derate function based on temperature</li>
+            </ul>
+          </li>
+          <li><strong>ccs-evcc 2.7.1</strong>
+            <ul>
+              <li>Lower the sampling frequency of CE/ID lines since safety-critical functions are handled by dedicated HW logic. Exercise caution with SW filtering techniques such as median filters and debouncers, as they can introduce latency and cause missed or delayed state transitions.</li>
+            </ul>
+          </li>
+          <li><strong>advantics-csm 1.7.6</strong>
+            <ul>
+              <li>TLS certificates management</li>
+              <li>New configuration entries added</li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><strong>Dockerhub update:</strong> Pull from Docker hub — <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=option-1-requires-internet-pulling-the-update-from-docker-hub">Guide</a></li>
+          <li><strong>.zip update:</strong> <a href="https://pub-ec884f5e1c6b4942867b3ac199d79823.r2.dev/mevc/mevc-release-2.8.0.zip">Download .zip (Release 2.8.0)</a> — <a href="https://advantics.github.io/documentation/#/charge-controllers/advantics_os/ssh?id=option-3-does-not-requires-internet-loading-the-images-from-a-zip-file">Update instructions</a></li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><a href="https://hub.docker.com/r/advantics/pev-controller/tags">advantics/pev-controller:2.7.0</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/ccs-evcc/tags">advantics/ccs-evcc:2.7.1</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/advantics-csm/tags">advantics/advantics-csm:1.7.6</a></li>
+        </ul>
+      </td>
+    </tr>
   </tbody>
 </table>
