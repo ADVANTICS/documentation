@@ -53,7 +53,7 @@ This module has an approximate mass of 40 kg. Installation at elevated locations
 
 ## Protective earth connection
 
-This equipment must be connected to protective earth (PE) before operation. A protective earth conductor with a minimum cross-sectional area of 16 mm² shall be used. Failure to provide an adequate protective earth connection may result in electric shock, equipment damage, or death.
+This equipment must be connected to protective earth (PE) before operation. A protective earth conductor with a minimum cross-sectional area of 16 mm² shall be used connected to the front panel using an M8 thread, tightened to 6N.m torque. Failure to provide an adequate protective earth connection may result in electric shock, equipment damage, or death.
 
 ## Thermal hazard
 
