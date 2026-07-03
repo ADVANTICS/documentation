@@ -42,8 +42,25 @@ Maintenance, repair, or internal balancing may only be performed by trained pers
 [image1]: <data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAdCAYAAAAgqdWEAAABu0lEQVR4XsXUO1LDMBAGYOUQgZZwBS5CzTEYOhpuwSsQQyAYCBCeLeehoNkmpfBKu0JWtFg2TqyZv3HsyTe7v61UO0eHFzo58KE0J8+y7lDj/V8IvJvpaD2fdwPyIfBm08l0HIIhr5SX1YNECDzbdYUPLO34a3EIgsDMZiXTCSHKTsGEIfCk9Fe+gjL7a1EehIMQeCzysOTphP1QMQxBTKbLA0lFLWMIYXJvr7W+rlhRVQzjQeDOptXpxCB/YhhyS2mxzHsOwRAsaZGN9QgmAoGblqYjQbioKsREICaTf4J6PQ/BEETwGzONYBjBkAnl2v7eeF1VkBCzuy1D4Mqm0XSktTgIdoNeXU64FoNgyJhyqfQsz2uBkiDYD7yXkwKBC3d/2qmE0PcD+6F8TGQtDkEQyGyS1vWNfyr0I4TgWlSISYDASOmtQUKZ60DEogZrcZAR5bzIWcV0xLUIH7KUfkgQk6EMagTB5/yIEEQwZEg5tc8U69opSZquZQET6YcEgROb0nSaQnAtC5iaEDgucuSVuc5awn58HkQgQj8MgiGIIAgcetNpChH7URNSwuDZHAz0Wr/fSRCCa/oBFhI1S7MT7E8AAAAASUVORK5CYII=>
 
 <br>
+## Do not remove cover
 
-# Safety symbols
+Do not remove the cover under any circumstances. There are no user-serviceable parts inside. Hazardous voltages may be present even after disconnection.
+Removal of the cover may result in serious injury or death.
+
+## 1.8. Heavy equipment
+
+This module has an approximate mass of 40 kg. Installation at elevated locations is not recommended unless the supporting structure is specifically designed and verified to safely support the load. Failure to ensure adequate mechanical support may result in the unit falling, leading to serious injury or death.
+<br>
+
+## 1.9. Protective earth connection
+
+This equipment must be connected to protective earth (PE) before operation. A protective earth conductor with a minimum cross-sectional area of 16 mm² shall be used connected to the front panel using an M8 thread, tightened to 6N.m torque. Failure to provide an adequate protective earth connection may result in electric shock, equipment damage, or death.
+
+## 1.10 Thermal hazard
+
+Surfaces may reach high temperatures during operation. Allow sufficient cooling time before handling.
+
+# 1.11 Safety symbols
 
 ADB-PC-AC01 module is equipped with relevant safety labels on the front panel. A clear description of each symbol is provided  below.
 
