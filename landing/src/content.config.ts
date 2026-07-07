@@ -1,4 +1,5 @@
 import { reference, z, defineCollection } from "astro:content";
+import { glob } from "astro/loaders";
 
 const applicationsAndVacanciesBase = z.object({
   img: z.string(),
@@ -10,7 +11,7 @@ const applicationsAndVacanciesBase = z.object({
 });
 
 const careers = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/careers" }),
   schema: applicationsAndVacanciesBase.extend({
     offer: z.array(z.string()),
     tasks: z.array(z.string()),
@@ -21,7 +22,7 @@ const careers = defineCollection({
 });
 
 const applications = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/applications" }),
   schema: applicationsAndVacanciesBase.extend({
     description: z.string(),
     canonicalIndustry: reference("industries").optional(),
@@ -43,7 +44,7 @@ const applications = defineCollection({
 // 4. Each collection entry will have an unique id equal to the filename
 // There is no need to add an id field in the schema
 const industries = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/industries" }),
   schema: z.object({
     order: z.number(),
     products: z.array(reference("products")),
@@ -62,7 +63,7 @@ const industries = defineCollection({
 // method that will return an Astro component that we can use to show
 // the rendered markdown to html
 const products = defineCollection({
-  type: "data",
+  loader: glob({ pattern: "**/*.json", base: "./src/content/products" }),
   schema: z.object({
     docsReady: z.boolean().optional(),
     listReady: z.boolean().optional(),
@@ -99,7 +100,7 @@ const products = defineCollection({
 });
 
 const blog = defineCollection({
-  type: "content",
+  loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "./src/content/blog" }),
   schema: z
     .object({
       title: z.string(),
