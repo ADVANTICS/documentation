@@ -3,3 +3,5 @@
 
 # CAN database parsing for kcd_to_md.py
 cantools>=38.0
+canmatrix
+lxml  # required by canmatrix.formats.kcd for reading/writing KCD files
