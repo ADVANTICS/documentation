@@ -246,7 +246,7 @@ def _generate_profile(
 # Merge
 # ---------------------------------------------------------------------------
 
-def _merge(kcd_paths: list[str], out_kcd: str) -> None:
+def _merge(kcd_paths: list[str], out_kcd: str, version: str) -> None:
     """Merge all *kcd_paths* into a single combined KCD at *out_kcd*."""
     combined = canmatrix.CanMatrix()
     # Use the bare profile name (without version) so the Bus name in the KCD
@@ -262,6 +262,23 @@ def _merge(kcd_paths: list[str], out_kcd: str) -> None:
 
     os.makedirs(os.path.dirname(os.path.abspath(out_kcd)), exist_ok=True)
     canmatrix.formats.dumpp({combined.name: combined}, out_kcd)
+    _write_document_version(out_kcd, version)
+
+
+def _write_document_version(kcd_path: str, version: str) -> None:
+    """Set the <Document version="..."> attribute in *kcd_path*.
+
+    canmatrix's KCD writer hardcodes a placeholder <Document> element and
+    never writes a version, so the merged file needs this patched in
+    afterwards to keep the on-disk annotation in sync with the filename.
+    """
+    ET.register_namespace("", NAMESPACE)
+    tree = ET.parse(kcd_path)
+    root = tree.getroot()
+    doc_el = root.find(f"./{NS}Document")
+    if doc_el is not None:
+        doc_el.attrib["version"] = version
+        tree.write(kcd_path, xml_declaration=True, encoding="utf-8")
 
 
 # ---------------------------------------------------------------------------
@@ -350,7 +367,7 @@ def run_profile(
 
         print(f"\n[3/3] Merging {len(generated)} file(s)…")
         out_kcd = os.path.join(out_dir, f"{profile}_{version}.kcd")
-        _merge(generated, out_kcd)
+        _merge(generated, out_kcd, version)
 
     print(f"\n  KCD → {out_kcd}")
 
