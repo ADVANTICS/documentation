@@ -10,6 +10,58 @@ on:
       - ".github/workflows/mkdocs.yml"
 
 jobs:
+  # ── Detect which products changed ──────────────────────────────────────────
+  # Builds a dynamic matrix so build-and-upload only runs for products whose
+  # files changed. Changes to tools/** or this workflow file are treated as
+  # affecting every product, since they're shared build dependencies.
+  detect-changes:
+    if: github.ref == 'refs/heads/material'
+    runs-on: ubuntu-latest
+    outputs:
+      products: ${{ steps.set-matrix.outputs.products }}
+
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            workflow:
+              - '.github/workflows/mkdocs.yml'
+            adb-pc-ac01:
+              - 'products/adb-pc-ac01/**'
+              - 'tools/**'
+            adb-pc-dc01:
+              - 'products/adb-pc-dc01/**'
+              - 'tools/**'
+            adm-cs-spcc:
+              - 'products/adm-cs-spcc/**'
+            adm-pc-bi25:
+              - 'products/adm-pc-bi25/**'
+
+      - name: Compute product matrix
+        id: set-matrix
+        env:
+          WORKFLOW_CHANGED: ${{ steps.filter.outputs.workflow }}
+          AC01_CHANGED: ${{ steps.filter.outputs['adb-pc-ac01'] }}
+          DC01_CHANGED: ${{ steps.filter.outputs['adb-pc-dc01'] }}
+          SPCC_CHANGED: ${{ steps.filter.outputs['adm-cs-spcc'] }}
+          BI25_CHANGED: ${{ steps.filter.outputs['adm-pc-bi25'] }}
+        run: |
+          if [[ "$WORKFLOW_CHANGED" == "true" ]]; then
+            products=(adb-pc-ac01 adb-pc-dc01 adm-cs-spcc adm-pc-bi25)
+          else
+            products=()
+            [[ "$AC01_CHANGED" == "true" ]] && products+=(adb-pc-ac01)
+            [[ "$DC01_CHANGED" == "true" ]] && products+=(adb-pc-dc01)
+            [[ "$SPCC_CHANGED" == "true" ]] && products+=(adm-cs-spcc)
+            [[ "$BI25_CHANGED" == "true" ]] && products+=(adm-pc-bi25)
+          fi
+          json=$(printf '%s\n' "${products[@]}" | jq -R . | jq -sc .)
+          echo "products=$json" >> "$GITHUB_OUTPUT"
+          echo "Products to build: $json"
+
   # ── Generate ADB CAN databases ─────────────────────────────────────────────
   # Runs once (not per-product) because all ADB products share the same
   # CAN_Databases submodule checkout. Uploads generated KCDs/DBCs/MDs as an
@@ -64,17 +116,13 @@ jobs:
 
   # ── Build and upload docs ──────────────────────────────────────────────────
   build-and-upload:
-    if: github.ref == 'refs/heads/material'
+    if: github.ref == 'refs/heads/material' && needs.detect-changes.outputs.products != '[]'
     runs-on: ubuntu-latest
-    needs: generate-adb-can
+    needs: [detect-changes, generate-adb-can]
 
     strategy:
       matrix:
-        product:
-          - adb-pc-ac01
-          - adb-pc-dc01
-          - adm-cs-spcc
-          - adm-pc-bi25
+        product: ${{ fromJson(needs.detect-changes.outputs.products) }}
 
     steps:
       - uses: actions/checkout@v5
