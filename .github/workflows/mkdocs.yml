@@ -8,6 +8,18 @@ on:
       - "products/**"
       - "tools/**"
       - ".github/workflows/mkdocs.yml"
+  workflow_dispatch:
+    inputs:
+      product:
+        description: "Product to build (leave empty to build all)"
+        required: false
+        type: choice
+        options:
+          - ""
+          - adb-pc-ac01
+          - adb-pc-dc01
+          - adm-cs-spcc
+          - adm-pc-bi25
 
 jobs:
   # ── Detect which products changed ──────────────────────────────────────────
@@ -15,7 +27,7 @@ jobs:
   # files changed. Changes to tools/** or this workflow file are treated as
   # affecting every product, since they're shared build dependencies.
   detect-changes:
-    if: github.ref == 'refs/heads/material'
+    if: github.ref == 'refs/heads/material' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
     outputs:
       products: ${{ steps.set-matrix.outputs.products }}
@@ -25,6 +37,7 @@ jobs:
 
       - uses: dorny/paths-filter@v3
         id: filter
+        if: github.event_name != 'workflow_dispatch'
         with:
           filters: |
             workflow:
@@ -43,13 +56,16 @@ jobs:
       - name: Compute product matrix
         id: set-matrix
         env:
+          DISPATCH_PRODUCT: ${{ github.event.inputs.product }}
           WORKFLOW_CHANGED: ${{ steps.filter.outputs.workflow }}
           AC01_CHANGED: ${{ steps.filter.outputs['adb-pc-ac01'] }}
           DC01_CHANGED: ${{ steps.filter.outputs['adb-pc-dc01'] }}
           SPCC_CHANGED: ${{ steps.filter.outputs['adm-cs-spcc'] }}
           BI25_CHANGED: ${{ steps.filter.outputs['adm-pc-bi25'] }}
         run: |
-          if [[ "$WORKFLOW_CHANGED" == "true" ]]; then
+          if [[ -n "$DISPATCH_PRODUCT" ]]; then
+            products=("$DISPATCH_PRODUCT")
+          elif [[ "${{ github.event_name }}" == "workflow_dispatch" || "$WORKFLOW_CHANGED" == "true" ]]; then
             products=(adb-pc-ac01 adb-pc-dc01 adm-cs-spcc adm-pc-bi25)
           else
             products=()
@@ -67,7 +83,7 @@ jobs:
   # CAN_Databases submodule checkout. Uploads generated KCDs/DBCs/MDs as an
   # artifact consumed by the build jobs below.
   generate-adb-can:
-    if: github.ref == 'refs/heads/material'
+    if: github.ref == 'refs/heads/material' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
 
     steps:
@@ -116,7 +132,7 @@ jobs:
 
   # ── Build and upload docs ──────────────────────────────────────────────────
   build-and-upload:
-    if: github.ref == 'refs/heads/material' && needs.detect-changes.outputs.products != '[]'
+    if: (github.ref == 'refs/heads/material' || github.event_name == 'workflow_dispatch') && needs.detect-changes.outputs.products != '[]'
     runs-on: ubuntu-latest
     needs: [detect-changes, generate-adb-can]
 
@@ -159,7 +175,9 @@ jobs:
           password: ${{ secrets.FTP_DOCS_PASSWORD }}
           protocol: ftps
           local-dir: products/${{ matrix.product }}/site/
-          server-dir: public_html/${{ matrix.product }}/
+          # Manual runs (workflow_dispatch) deploy under public_html/staging/
+          # instead of the live product path, so testing never overwrites prod.
+          server-dir: ${{ github.event_name == 'workflow_dispatch' && format('public_html/staging/{0}/', matrix.product) || format('public_html/{0}/', matrix.product) }}
           exclude: |
             **/.git*
             **/.git*/**
