@@ -237,7 +237,7 @@ def _generate_profile(
         out = os.path.join(work_dir, f"{stem}.kcd")
         tree.write(out, xml_declaration=True, encoding="utf-8")
         generated.append(out)
-        print(f"  INT   {entry['name']} sp={sp} → {Path(out).name}")
+        print(f"  INTERNAL   {entry['name']} sp={sp} → {Path(out).name}")
 
     return generated
 
