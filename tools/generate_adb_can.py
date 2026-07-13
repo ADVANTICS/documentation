@@ -366,6 +366,8 @@ def run_profile(
             sys.exit("No KCDs generated — check staging output above.")
 
         print(f"\n[3/3] Merging {len(generated)} file(s)…")
+        pathlib_out_dir = Path(out_dir)
+        pathlib_out_dir.mkdir(parents=True, exist_ok=True)
         out_kcd = os.path.join(out_dir, f"{profile}_{version}.kcd")
         _merge(generated, out_kcd, version)
 
