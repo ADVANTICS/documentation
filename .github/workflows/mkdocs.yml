@@ -33,9 +33,9 @@ jobs:
       products: ${{ steps.set-matrix.outputs.products }}
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
 
-      - uses: dorny/paths-filter@v3
+      - uses: dorny/paths-filter@v4
         id: filter
         if: github.event_name != 'workflow_dispatch'
         with:
@@ -87,21 +87,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           submodules: false   # CAN_Databases handled separately below
 
       - name: Checkout CAN_Databases submodule (all branches accessible)
-        uses: actions/checkout@v5
+        uses: actions/checkout@v7
         with:
           repository: ADVANTICS/CAN_Databases
           ssh-key: ${{ secrets.CAN_DATABASES_DEPLOY_KEY }}
           path: CAN_Databases
-          # no ref — leaves repo in detached HEAD at default branch;
-          # generate_adb_can.py fetches individual branches on demand
+          # ref pinned explicitly: without it, actions/checkout looks up the
+          # default branch via the REST API using GITHUB_TOKEN, which has no
+          # access to this other repo, and the step fails with a 404 before
+          # the ssh-key is ever used. generate_adb_can.py fetches individual
+          # branches on demand regardless of what's checked out here.
+          ref: master
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -119,7 +123,7 @@ jobs:
             --can-databases-path CAN_Databases
 
       - name: Upload generated CAN artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: adb-can-artifacts
           # Glob picks up all versioned KCDs/DBCs and the generated MDs.
@@ -141,17 +145,17 @@ jobs:
         product: ${{ fromJson(needs.detect-changes.outputs.products) }}
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
 
       - name: Download generated CAN artifacts (ADB products only)
         # adm-cs-spcc and adm-pc-bi25 don't need ADB CAN generation
         if: startsWith(matrix.product, 'adb-pc-')
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: adb-can-artifacts
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -168,7 +172,7 @@ jobs:
           PDF_EXPORT=1 mkdocs build --clean
 
       - name: Upload to FTP server
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_DOCS_USERNAME }}
@@ -189,7 +193,7 @@ jobs:
           find products -type f -path "*/pdf/*.pdf" -print
 
       # - name: Upload PDFs as artifact
-      #   uses: actions/upload-artifact@v4
+      #   uses: actions/upload-artifact@v7
       #   with:
       #     name: product-pdfs
       #     path: |
