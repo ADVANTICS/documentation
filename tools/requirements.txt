@@ -5,3 +5,7 @@
 cantools>=38.0
 canmatrix
 lxml  # required by canmatrix.formats.kcd for reading/writing KCD files
+
+# generate_adb_can.py: staging KCDs from the CAN_Databases repo + config parsing
+pyyaml
+gitpython
