@@ -20,9 +20,9 @@ jobs:
       products: ${{ steps.set-matrix.outputs.products }}
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
 
-      - uses: dorny/paths-filter@v3
+      - uses: dorny/paths-filter@v4
         id: filter
         with:
           filters: |
@@ -72,10 +72,10 @@ jobs:
         product: ${{ fromJson(needs.detect-changes.outputs.products) }}
 
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -92,7 +92,7 @@ jobs:
           PDF_EXPORT=1 mkdocs build --clean
 
       - name: Upload to FTP server
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.6
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_DOCS_USERNAME }}
@@ -111,7 +111,7 @@ jobs:
           find products -type f -path "*/pdf/*.pdf" -print
 
       # - name: Upload PDFs as artifact
-      #   uses: actions/upload-artifact@v4
+      #   uses: actions/upload-artifact@v7
       #   with:
       #     name: product-pdfs
       #     path: |
