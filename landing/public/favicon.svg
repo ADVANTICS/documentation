@@ -1,24 +1,121 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <svg
-    id="svg8"
-    viewBox="0 0 28.82 22.11217"
-    version="1.1"
-    width="28.82"
-    height="22.112169"
-    xmlns="http://www.w3.org/2000/svg"
-    xmlns:svg="http://www.w3.org/2000/svg">
-    <defs
-        id="defs1" />
+   viewBox="0 0 664.88703 500.03899"
+   version="1.1"
+   id="svg11"
+   sodipodi:docname="A.svg"
+   width="664.88702"
+   height="500.039"
+   inkscape:version="1.3.2 (091e20e, 2023-11-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview11"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.7998894"
+     inkscape:cx="373.91186"
+     inkscape:cy="249.73757"
+     inkscape:window-width="2560"
+     inkscape:window-height="1408"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg11" />
+  <defs
+     id="defs5">
+    <clipPath
+       id="a">
+      <path
+         d="M 437.59,214.91 237.54,512.832 163.02,626.215 H 43.613 L 237.54,335.02 377.778,126.176 Z"
+         id="path1" />
+    </clipPath>
+    <clipPath
+       id="b">
+      <path
+         d="m 43.578,334.996 h 194.25 v 291 H 43.578 Z"
+         id="path2" />
+    </clipPath>
+    <clipPath
+       id="c">
+      <path
+         d="M 237.828,334.871 V 512.754 L 163.074,625.836 H 43.57 Z"
+         id="path3" />
+    </clipPath>
+    <linearGradient
+       id="d"
+       x1="-0.31999999"
+       x2="1.026"
+       y1="0"
+       y2="0"
+       gradientTransform="matrix(-165.278,198.599,-198.975,-164.965,234.439,439.583)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0"
+         stop-color="#C5C4C7"
+         id="stop3" />
+      <stop
+         offset="1"
+         stop-color="#868686"
+         id="stop4" />
+    </linearGradient>
+    <clipPath
+       id="e">
+      <path
+         d="m 247.965,280 h 460.5 v 346.465 h -460.5 z"
+         id="path4" />
+    </clipPath>
+    <clipPath
+       id="f">
+      <path
+         d="m 312.84,527.547 -64.934,98.617 460.93,-0.203 -231.633,-345.84 -56.176,86.34 130.766,189.121 -38.645,-27.973 z"
+         id="path5" />
+    </clipPath>
+  </defs>
+  <g
+     transform="translate(-43.578,-126.176)"
+     id="g7">
     <g
-        id="layer1"
-        transform="translate(-1.18,-1.6978312)">
-        <g
-            id="g92">
-            <path
-                id="flowRoot10"
-                d="M 15.58,1.7 C 15.197087,1.6810842 14.818299,1.786303 14.5,2 14.180335,2.2425924 13.914695,2.5490998 13.72,2.9 L 1.18,23.81 h 4.35 l 9.9,-16.74 4.86,8.16 H 13.6 l -1.8,3.09 h 10.32 l 3.27,5.49 H 30 L 17.41,2.93 C 17.215305,2.5790998 16.949665,2.2725924 16.63,2.03 16.328085,1.8030674 15.957454,1.6865832 15.58,1.7 Z"
-                style="fill:#00a99d;fill-opacity:1"
-            />
-        </g>
+       clip-path="url(#a)"
+       id="g6">
+      <path
+         fill="#12a99d"
+         d="M 43.613,126.176 H 437.59 V 626.344 H 43.613 Z"
+         id="path6" />
     </g>
+  </g>
+  <g
+     clip-path="url(#b)"
+     transform="translate(-43.578,-126.176)"
+     id="g9">
+    <g
+       clip-path="url(#c)"
+       id="g8">
+      <path
+         fill="url(#d)"
+         d="M 381.05,453.738 122.884,239.7 -99.645,507.094 158.52,721.133 Z"
+         id="path7"
+         style="fill:url(#d)" />
+    </g>
+  </g>
+  <g
+     clip-path="url(#e)"
+     transform="translate(-43.578,-126.176)"
+     id="g11">
+    <g
+       clip-path="url(#f)"
+       id="g10">
+      <path
+         fill="#12a99d"
+         d="M 758.715,618.703 698.539,213.25 197.715,287.578 257.887,693.031 Z"
+         id="path9" />
+    </g>
+  </g>
 </svg>
