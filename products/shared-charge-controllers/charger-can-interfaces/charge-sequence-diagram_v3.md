@@ -65,6 +65,7 @@ skinparam legend {
 
 hide footbox
 title Beginning of charge session
+skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2
 skinparam roundcorner 20
 
@@ -217,6 +218,7 @@ skinparam legend {
 
 hide footbox
 title Insulation test and precharge
+skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2
 skinparam roundcorner 20
 
@@ -397,6 +399,7 @@ skinparam legend {
 }
 
 hide footbox
+skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2
 skinparam roundcorner 20
 
@@ -487,6 +490,7 @@ skinparam legend {
 }
 
 hide footbox
+skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2
 skinparam roundcorner 20
 
@@ -581,6 +585,7 @@ skinparam legend {
 }
 
 hide footbox
+skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2
 skinparam roundcorner 20
 
@@ -686,6 +691,7 @@ skinparam legend {
 
 hide footbox
 title End of charge session
+skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2
 skinparam roundcorner 20
 
