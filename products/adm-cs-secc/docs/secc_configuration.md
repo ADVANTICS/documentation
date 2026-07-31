@@ -20,13 +20,13 @@ In Advantics controller the configuration file is accessible at this path: `/srv
 > - When modifying the `/srv/config.cfg` file, always remember that
 > Advantics charge controllers works in *fake read-writable mode* by
 > default. Ie. changes are only written in RAM, and not persisted to the
-> actual read-only partition. See section [**Read-only file system**](charge-controllers/sys3_user/read-only.md) to
+> actual read-only partition. See section [**Read-only file system**](buildroot-system/read-only.md) to
 > learn how to temporarily or permanently switch to real writable mode.
 
-> [!WARNING]
->  - Any line starting with the "#" sign will be treated as a commented line and will not be taken into account during execution.
-> - Remove the “#” at the beginning of every parameter you modify.
-> - Leave no white space at the beginning of the line.
+!!! warning
+     - Any line starting with the "#" sign will be treated as a commented line and will not be taken into account during execution.
+    - Remove the “#” at the beginning of every parameter you modify.
+    - Leave no white space at the beginning of the line.
 
 
 ## Applications
@@ -42,7 +42,7 @@ In this section, you can configure the controller version as well as the
 digital inputs and outputs.
 > **Note**
 >
-> Digital inputs and outputs can be interfaced via the generic interface. check section [**Controller IOs on CAN**](charge-controllers/secc_can_ios.md#controllers-ios-on-can)
+> Digital inputs and outputs can be interfaced via the generic interface. check section [**Controller IOs on CAN**](charger-features/secc_can_ios.md#controllers-ios-on-can)
 
 The following is an example:
 
@@ -88,24 +88,24 @@ The CAN ID index field serves as an identifier for each pistol (charging connect
 
 Users must include the index value configured for each pistol in the CAN message identifier. The index field in the CAN identifier is represented by bits [28:24].
 
-Please refer to [**CAN ID index field**](charge-controllers/secc_generic/databases.md#CAN_ID_index_field) for more information.
+Please refer to [**CAN ID index field**](charger-can-interfaces/databases_v2.md#can-id-index-field) for more information.
 
 `charger_type`
 
-This entry should indicate the type of charger interface to be used. It can be either a [**Generic Interface**](charge-controllers/secc_generic/overview.md#general-operation) or a specific [**Charger Interface**](charge-controllers/charger_interfaces.md)
+This entry should indicate the type of charger interface to be used. It can be either a [**Generic Interface**](charger-can-interfaces/overview.md#general-operation) or a specific [**Charger Interface**](charger-features/charger_interfaces.md)
 
 
 Example 1:
 
     charger_type = Advantics_Generic_DC_v3
 
-Check the following section for the Generic Interface V3 documentation:  [**Generic Interface V3**](charge-controllers/secc_generic/README_v3.md)
+Check the following section for the Generic Interface V3 documentation:  [**Generic Interface V3**](charger-can-interfaces/README_v3.md)
 
 Example 2:
 
     charger_type = Advantics_ADS_PC_BPUD
 
-The [**Advantics\_ADS\_PC\_BPUD**](charge-controllers/charger_interfaces.md#advantics-acdc-charger-interface) is a charger interface for an ADVANTICS charger composed of 3 Advantics power modules: Filter + AFE + LLC.
+The [**Advantics\_ADS\_PC\_BPUD**](charger-features/charger_interfaces.md#advantics-acdc-charger-interface) is a charger interface for an ADVANTICS charger composed of 3 Advantics power modules: Filter + AFE + LLC.
 
 `stack_pos`
 
@@ -308,7 +308,7 @@ or
     insulation_monitor_type = Not_Used
 
 `insulation_monitor_stopbits`
-Number of stop bits for the RS485 serial communication with the insulation monitor. The required number of stop bits depends on the selected parity. Check [ our documentation ](charge-controllers/supported-devices.md#Bender-isoCHA425HV) and the insulation monitor’s documentation for valid combinations.
+Number of stop bits for the RS485 serial communication with the insulation monitor. The required number of stop bits depends on the selected parity. Check  our documentation  and the insulation monitor’s documentation for valid combinations.
 
 Available:
 
@@ -345,7 +345,7 @@ Baud rate for the RS485 serial communication with the insulation monitor.
 
 Available:
 
-- [ Bender isoCHA425HV allowed baudrates ](charge-controllers/supported-devices.md#Bender-isoCHA425HV)
+- Bender isoCHA425HV allowed baudrates
 
 Example:
 
@@ -358,7 +358,7 @@ insulation_monitor_baudrate = 9600
 `insulation_monitor_address`
 RS485 address ID of the insulation monitor.
 
-- [ Bender isoCHA425HV allowed addresses ](charge-controllers/supported-devices.md#Bender-isoCHA425HV)
+- Bender isoCHA425HV allowed addresses
 
 Example:
 
@@ -368,7 +368,7 @@ insulation_monitor_address = 3
 
 ## OCPP Configuration
 
-Advantics charge controllers can provide OCPP functionality. Please refer to the [**OCPP documentation**](charge-controllers/ocpp16j.md) for more details on the application.
+Advantics charge controllers can provide OCPP functionality. Please refer to the [**OCPP documentation**](charger-features/ocpp16j.md) for more details on the application.
 &nbsp;
 
 By default, OCPP is disabled. To enable it, you need to at least set the `enabled`

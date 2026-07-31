@@ -79,7 +79,7 @@ For this you need to delete a special file on the current system. The auto updat
 know the current version of the system. It will force a full reflash of the system if it does not
 find this version file.
 
-1. [Login to the controller](charge-controllers/sys3_user/access.md)
+1. [Login to the controller](access.md)
 1. First, type this command: `mount -o remount,rw /mnt/old-root`
 1. Then, type this command: `rm /mnt/old-root/boot/current_version.img`
 1. Then reboot, either with a power cycle, or by typing `reboot`
@@ -106,7 +106,7 @@ file. The process is to:
 **WARNING:** As with the full system update, pay attention to correctly write all data to the SD card. See note above.
 <br/><br/>
 
-2. [Login to the controller](charge-controllers/sys3_user/access.md)
+2. [Login to the controller](access.md)
 
 3. Stop and clean all applications
 ```bash
@@ -161,7 +161,7 @@ file. The process is to:
 
     `<username>` – with the login user on the remote device **(use `root`)**
 
-    `<ip-address>` – Grab the IP address of the controller as documented in [SSH](charge-controllers/sys3_user/access.md#SSH).
+    `<ip-address>` – Grab the IP address of the controller as documented in [SSH](access.md#ssh).
 
     `<destination-path>` – with the target directory on the device **(example: `/tmp`)**
 
@@ -169,7 +169,7 @@ file. The process is to:
 
 - Enter the password for the device when prompted. (the default is _dev-only_)
 
-2. [Login to the controller](charge-controllers/sys3_user/access.md)
+2. [Login to the controller](access.md)
 
 3. Stop and clean all applications
 ```bash
@@ -220,7 +220,7 @@ file. The process is to:
 
     `<username>` – with the login user on the remote device **(use `root`)**
 
-    `<ip-address>` – Grab the IP address of the controller as documented in [SSH](charge-controllers/sys3_user/access.md#SSH).
+    `<ip-address>` – Grab the IP address of the controller as documented in [SSH](access.md#ssh).
 
     `<destination-path>` – with the target directory on the device **(example: `/tmp`)**
 
@@ -228,7 +228,7 @@ file. The process is to:
 
 - Enter the password for the device when prompted. (the default is _dev-only_) -->
 
-2. [Login to the controller](charge-controllers/sys3_user/access.md)
+2. [Login to the controller](access.md)
 
 3. Mount the SD card
 ```bash
@@ -261,4 +261,4 @@ $ ./path/to/your/release/update-controller.sh
 
 ## Updater tool
 
-For EVCC, see [EVCC Updater tool](charge-controllers/evcc_updater.md)
+For EVCC, see the **Updater tool** page under Features

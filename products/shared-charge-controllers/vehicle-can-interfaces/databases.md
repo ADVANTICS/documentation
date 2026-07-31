@@ -6,11 +6,19 @@ Kayak is an [open format](https://github.com/julietkilo/kcd) based on XML, and i
 readable (more than DBCs...). This is the main format for us. That is, we author the CAN DBs in this
 format, and our software and firmware use it directly.
 
-- [Advantics Generic PEV protocol v1](charge-controllers/evcc_generic/Advantics_Generic_PEV_protocol_v1.kcd ':ignore')
+### Default
+- [Advantics Generic PEV protocol v1](Advantics_Generic_PEV_protocol_v1.kcd)
+
+### Latest
+- [Advantics Generic PEV protocol v1.4](Advantics_Generic_PEV_protocol_v1.4.kcd)
 
 ## DBC format
 
 As a courtesy we also provide our CAN DBs in the more usual DBC format. Note these are automatically
 converted from the Kayak ones. Therefore, they are not the reference DBs.
 
-- [Advantics Generic PEV protocol v1](charge-controllers/evcc_generic/Advantics_Generic_PEV_protocol_v1.dbc ':ignore')
+### Default
+- [Advantics Generic PEV protocol v1](Advantics_Generic_PEV_protocol_v1.dbc)
+
+### Latest
+- [Advantics Generic PEV protocol v1.4](Advantics_Generic_PEV_protocol_v1.4.dbc)

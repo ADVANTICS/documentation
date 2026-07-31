@@ -45,14 +45,15 @@ The following steps will help access the controller successfully:
 
     ![SSH fingerprint](images/fingerprint.png "SSH fingerprint")
 
-    > [!TIP]
-    > The controller is also using the _Avahi/ZeroConf/Bonjour/mDNS_ protocol to advertise itself
-    > on the network. In particular, the `_ssh._tcp_` service is broadcasted.
-    >
-    > So, in the simplest case you would just have to do:
-    > ```bash
-    > $ ssh root@advantics.local
-    > ```
+    !!! tip
+        The controller is also using the _Avahi/ZeroConf/Bonjour/mDNS_ protocol to advertise itself
+        on the network. In particular, the `_ssh._tcp_` service is broadcasted.
+
+        So, in the simplest case you would just have to do:
+
+        ```bash
+        $ ssh root@advantics.local
+        ```
 
 3. Access the controller using Putty:
 
@@ -119,7 +120,7 @@ instance.
 Once connected with suitable software (eg. __PuTTY__ on Windows, __screen__ on Linux) you will see all
 system messages, in particular when the controller is booting up.
 
-Jump to [Login](#Login) for the next step.
+Jump to [Login](#login) for the next step.
 
 !!! tip
     A compatible console cable would be a TTL-232R-3V3 from FTDI. Wire it as such:

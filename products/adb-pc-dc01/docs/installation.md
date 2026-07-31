@@ -120,7 +120,7 @@ This section describes the procedure for connecting the **liquid cooling loop** 
 This procedure describes how to interconnect and configure multiple ADB-PC-AC01 units for parallel operation.
 
 <!-- <div style="text-align: center; margin: 4rem 0;">
-    <img src="assets/ac01_system_architecture.webp" alt="System Architecture" style="width: auto; height: auto;">
+    <img src="../assets/dc01_system_architecture.webp" alt="System Architecture" style="width: auto; height: auto;">
 </div> -->
 
 

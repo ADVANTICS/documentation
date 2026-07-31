@@ -8,7 +8,7 @@ The controller expects 24V power. Consult specification sheet for supply require
 
 
 <figure style="text-align: center">
-  <img src="images/ADM-CS-SECC_multipart_power.svg" alt="Power section - connector reference next to the pin" title="Power section - connector reference next to the pin">
+  <img src="assets/ADM-CS-SECC_multipart_power.svg" alt="Power section - connector reference next to the pin" title="Power section - connector reference next to the pin">
   <figcaption>Power section - connector reference next to the pin</figcaption>
 </figure>
 
@@ -21,12 +21,12 @@ The CCS and AC interface consists of CP, PP lines, inlet lock and temperature se
 
 
 <figure style="text-align: center">
-  <img src="images/ADM-CS-SECC_multipart_CCS_A.svg" alt="CCS A interface - DC charging" title="CCS A interface - DC charging">
+  <img src="assets/ADM-CS-SECC_multipart_CCS_A.svg" alt="CCS A interface - DC charging" title="CCS A interface - DC charging">
   <figcaption>CCS A interface - DC charging</figcaption>
 </figure>
 
 <figure style="text-align: center">
-  <img src="images/ADM-CS-SECC_multipart_CCS_B.svg" alt="CCS B interface - AC charging only" title="CCS B interface - AC charging only">
+  <img src="assets/ADM-CS-SECC_multipart_CCS_B.svg" alt="CCS B interface - AC charging only" title="CCS B interface - AC charging only">
   <figcaption>CCS B interface - AC charging only</figcaption>
 </figure>
 
@@ -44,7 +44,7 @@ Just like the CCS interface, CHAdeMO is under full control of the communication 
 
 
 <figure style="text-align: center">
-  <img src="images/ADM-CS-SECC_multipart_CHADEMO.svg" alt="CHAdeMO interface pinout" title="CHAdeMO interface pinout">
+  <img src="assets/ADM-CS-SECC_multipart_CHADEMO.svg" alt="CHAdeMO interface pinout" title="CHAdeMO interface pinout">
   <figcaption>CHAdeMO interface pinout</figcaption>
 </figure>
 
@@ -69,7 +69,7 @@ The CAN bus runs at speed of 500kbaud by default. There is no 120 Ohm terminatio
 
 
 <figure style="text-align: center">
-  <img src="images/ADM-CS-SECC_multipart_COMM.svg" alt="Communication pinout - CAN, RS485, Interlock, Current Loop, Ethernet, Antenna" title="Communication pinout - CAN, RS485, Interlock, Current Loop, Ethernet, Antenna">
+  <img src="assets/ADM-CS-SECC_multipart_COMM.svg" alt="Communication pinout - CAN, RS485, Interlock, Current Loop, Ethernet, Antenna" title="Communication pinout - CAN, RS485, Interlock, Current Loop, Ethernet, Antenna">
   <figcaption>Communication pinout - CAN, RS485, Interlock, Current Loop, Ethernet, Antenna</figcaption>
 </figure>
 
@@ -78,12 +78,12 @@ The CAN bus runs at speed of 500kbaud by default. There is no 120 Ohm terminatio
 There are four digital inputs and four digital outputs on the charge controller.
 The digital inputs and outputs are fully user-configurable and controllable.
 
-Por GPIO control, please refer to sections [**Manual GPIO control**](./buildroot-system/gpios.md#manual_gpio_control) and [**GPIO control in your application**](./buildroot-system/gpios.md#gpio_control_in_your_application)
+Por GPIO control, please refer to sections [**Manual GPIO control**](./buildroot-system/gpios.md#manual-gpio-control) and [**GPIO control in your application**](./buildroot-system/gpios.md#gpio-control-in-your-application)
 
 
 
 <figure style="text-align: center">
-  <img src="images/ADM-CS-SECC_multipart_dig_IO.svg" alt="Digital input/output pinout and fans" title="Digital input/output pinout and fans">
+  <img src="assets/ADM-CS-SECC_multipart_dig_IO.svg" alt="Digital input/output pinout and fans" title="Digital input/output pinout and fans">
   <figcaption>Digital input/output pinout and fans</figcaption>
 </figure>
 

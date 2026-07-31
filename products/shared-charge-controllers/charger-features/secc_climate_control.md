@@ -9,11 +9,13 @@
 The climate control integrated in `evse-controller` application is taking temperature channels as input and realise actions as output in reaction to the measured temperatures.
 
 The inputs are:
+
 - PTC 1000 analog inputs from the board connectors
 - Temperature signals reported over CAN
 - System temperatures (CPU and SoM)
 
 The output actions are:
+
 - Adapt fan speed
 - Add current derating
 - Stop the charge
@@ -64,6 +66,7 @@ temperatures =
 <br/>
 
 Note:
+
 - The typical application of each channel is just a suggestion. You are free to repurpose them for any other hot location.
 - The temperature input signals in the generic CAN interface `[0x60010] Power_Modules_Status` message (since version 2.2) are here for you to supply your own measured temperatures to the climate controller, such that it can trigger charging-related actions (ie. charge stop, current derating) or use the fan PWM channels of the charge controller.
 
@@ -159,6 +162,7 @@ Note that it can only report two PTC channels per pistol. Since each pistol can 
 #### Encoding of temperature signals in the generic CAN interface
 
 All temperature signals in the generic interface (ie. input and output ones) are encoded in the same way:
+
 - Length of 8 bits
 - Slope of 1 (ie. 1°C/bit)
 - Offset of -40

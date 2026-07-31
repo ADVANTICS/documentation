@@ -29,8 +29,7 @@ recent change on our side neither. Even worst, sometimes they appeared like it w
 initiating emergency stops, which made it difficult to discern them from real emergency stops...
 
 <div class="bigger-300">
-
-![CP noise event captured by a customer](evcc_noise_images/EVCC_CP_noise_event.png "CP noise event captured by a customer")
+<img src="evcc_noise_images/EVCC_CP_noise_event.png" alt="CP noise event captured by a customer">
 </div>
 <figcaption style="text-align: center">CP noise event captured by a customer, which clearly demonstrated it was not a charger E-Stop, and finally lead us on the noise track.</figcaption>
 
@@ -72,8 +71,7 @@ it provides a certain feedback to our users, as well as to the people on our sup
 Here is a depiction of noise effects on CP PWM measurements, with an increasing noise factor:
 
 <div class="bigger-1000">
-
-![Noise, baseline](evcc_noise_images/noise-base.png "Noise, baseline")
+<img src="evcc_noise_images/noise-base.png" alt="Noise, baseline">
 </div>
 
 From various studies, we can infer how noise tends to affect measurements. So the first step is to
@@ -81,8 +79,7 @@ introduce a compensation (or correction if you want) based on what was found acr
 conditions:
 
 <div class="bigger-1000">
-
-![Noise, compensated](evcc_noise_images/noise-compensated.png "Noise, compensated")
+<img src="evcc_noise_images/noise-compensated.png" alt="Noise, compensated">
 </div>
 
 Voltage is not shown here because we don't have yet an effective compensation strategy for it. And
@@ -98,8 +95,7 @@ for decision) using an optimized set of parameters.
 Here are the performances of the classifier with optimised parameters (ie. used for decision):
 
 <div class="bigger-900">
-
-![Noise filter confusion matrix](evcc_noise_images/noise-filter-cf-matrix.png "Noise filter confusion matrix")
+<img src="evcc_noise_images/noise-filter-cf-matrix.png" alt="Noise filter confusion matrix">
 </div>
 
 The most important is that such filter never decides a measurement is clean when actually it is not,

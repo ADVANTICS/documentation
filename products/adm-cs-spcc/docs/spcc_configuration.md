@@ -1,8 +1,8 @@
 # SPCC Configuration Documentation
 
-The SPCC is configurable via the Web UI. More information can be found [**here**](charge-controllers/advantics_os/csm-web-ui.md)
+The SPCC is configurable via the Web UI. More information can be found [**here**](advos-yocto-system/csm-web-ui.md)
 
-Alternatively, the configuration can be found in `/etc/advantics/default/config.cfg` file when accessing the controller via [ SSH ](charge-controllers/advantics_os/ssh.md).
+Alternatively, the configuration can be found in `/etc/advantics/default/config.cfg` file when accessing the controller via [ SSH ](advos-yocto-system/ssh.md).
 
 ## `Pistols` (default: MCS)
 As the name suggests, on the single pistol charge controller (the SPCC), only one pistol can be enabled at a time.
@@ -179,8 +179,80 @@ As the name suggests, on the single pistol charge controller (the SPCC), only on
 - **`allow No Tls For Iso Part20`**: Whether we should accept communications without TLS on -20This is prohibited by the standard, yet you should not expect this to be wideliy applied in the wild (default: `False`)
 - **`Current Ripple`**: No description (default: `1.0`)
 
+## mcs_ce_id_use_median_filter
 
+!!! warning
+    Using the median filter and the debouncer simultaneously, setting a large `mcs_ce_id_filter_buffer_size`,
+    or setting a high `mcs_ce_id_debouncer_count` will increase the latency of CE and ID state change
+    detection. This can cause the MCS state machine to miss time-sensitive transitions, potentially
+    triggering sequence timeouts and abnormal session terminations. Tune these parameters conservatively.
 
+!!! note
+    This is an advanced configuration option.
+
+Example:
+
+    mcs_ce_id_use_median_filter = false
+
+Enables a median filter on the CE and ID line readings. The median filter smooths
+out short glitches or noise spikes by returning the median value over a rolling window of samples,
+rather than acting on every raw reading immediately. The window size is controlled by
+`mcs_ce_id_filter_buffer_size`.
+
+Default to false.
+
+## mcs_ce_id_filter_buffer_size
+
+!!! note
+    This is an advanced configuration option.
+
+Example:
+
+    mcs_ce_id_filter_buffer_size = 5
+
+Number of samples in the rolling window used by the median filter on CE and ID line readings.
+A larger window provides stronger noise rejection at the cost of a slightly slower response to
+genuine state changes. Only effective when `mcs_ce_id_use_median_filter` is set to `true`.
+
+Default to 5.
+
+## mcs_ce_id_use_debouncer
+
+!!! warning
+    Using the median filter and the debouncer simultaneously, setting a large `mcs_ce_id_filter_buffer_size`,
+    or setting a high `mcs_ce_id_debouncer_count` will increase the latency of CE and ID state change
+    detection. This can cause the MCS state machine to miss time-sensitive transitions, potentially
+    triggering sequence timeouts and abnormal session terminations. Tune these parameters conservatively.
+
+!!! note
+    This is an advanced configuration option.
+
+Example:
+
+    mcs_ce_id_use_debouncer = false
+
+Enables a debouncer on the CE and ID line readings. Instead of accepting a new state on the first
+observation, the debouncer requires the same value to be seen a configurable number of times
+consecutively (see `mcs_ce_id_debouncer_count`) before the state change is accepted. This helps
+reject transient noise or bouncing on the physical lines.
+
+Default to false.
+
+## mcs_ce_id_debouncer_count
+
+!!! note
+    This is an advanced configuration option.
+
+Example:
+
+    mcs_ce_id_debouncer_count = 3
+
+Number of consecutive identical readings required before the debouncer accepts a CE or ID state
+change. A higher value makes the debouncer more conservative and resistant to noise, but also
+increases the latency before a genuine transition is acted upon. Only effective when
+`mcs_ce_id_use_debouncer` is set to `true`.
+
+Default to 3.
 
 
 
@@ -280,6 +352,7 @@ Allows configuration of the controller IOs.
 
   - **`enabled`**: Whether TLS is enabled. (default: `True`)
   - **`allow No Cert`**: Allow no certificate verification. (default: `True`)
+  - **`allow Iso_20 Without Tls`**: Allow ISO 20 communication without TLS. (default: `True`)
 
 ### `Server`
 - **`Ca File`**: Path to the CA certificate file. (default: `/app/certs/CA.pem`)
@@ -289,10 +362,11 @@ Allows configuration of the controller IOs.
 - **`keyfile Passphrase`**: Passphrase for your server certificate, if any (default: ``)
 
 ## `Temperature`
-Derate charge current option will apply a default profile for decreasing the output current depending on the temperature. The default profile can be found [**here**](charge-controllers/secc_climate_control.md#interpolate-modes) . Stop charge temp threshold will stop the charge session if the temperature raises above the given threshold.
+Derate charge current option will apply a default profile for decreasing the output current depending on the temperature. The default profile can be found [**here**](charger-features/secc_climate_control.md#interpolate-modes) . Stop charge temp threshold will stop the charge session if the temperature raises above the given threshold.
 
 ### Mode
 3 possible temperature monitoring functions can be enabled:
+
 - Cable derate current: Derate charge current option will apply a default profile for decreasing the output current depending on the temperature.
 - Cable stop threshold: Stop charge temp threshold will stop the charge session if the temperature raises above the given threshold
 - Monitor: allows monitoring of the temperature readings via CAN bus

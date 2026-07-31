@@ -59,7 +59,6 @@ description: 100kW 1500V DC/DC Isolated Power Converter - User Documentation
 - Product page: [ADB-PC-DC01](https://advantics.fr/products/ADB-PC-DC01/)  
 - Discover our portfolio: [ADVANTICS Products](https://advantics.fr/products/)  
 - Sales: [sales@advantics.fr](mailto:sales@advantics.fr)
-- Marketing: [marketing@advantics.fr](mailto:marketing@advantics.fr) 
 - Technical Support: [Support Desk](https://advantics.atlassian.net/servicedesk/customer/portal/1)
 
 ---

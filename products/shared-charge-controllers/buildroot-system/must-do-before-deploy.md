@@ -33,7 +33,7 @@ Unrestricted log growth can eventually consume all available disk space, leading
 
 ADVANTICS CSM is used manage system-level actions on Charge Controllers. It is designed for development purposes and should be disabled in production.
 
-[ SSH ](charge-controllers/sys3_user/access.md) to the controller.
+[ SSH ](access.md) to the controller.
 
 Stop and remove all containers:
 

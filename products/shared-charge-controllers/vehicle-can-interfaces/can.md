@@ -9,27 +9,27 @@ Copyright ADVANTICS 2017
 ## Message index
 
 
-<div class="compact-table">
+<div class="compact-table" markdown="1">
 
 | Name | ID | Length | Direction | Cycle time |
 |------|----|--------|-----------|------------|
-| [EVSE_Information](#EVSE_Information) | 0x600 | 6 | OUT | 100 |
-| [AC_Control](#AC_Control) | 0x601 | 1 | OUT | 100 |
-| [DC_Control](#DC_Control) | 0x602 | 1 | OUT | 100 |
-| [CCS_Extra_Information](#CCS_Extra_Information) | 0x603 | 6 | OUT | 100 |
-| [ADM_CS_EVCC_Inputs](#ADM_CS_EVCC_Inputs) | 0x604 | 6 | OUT | 1000 |
-| [EV_Information](#EV_Information) | 0x610 | 1 | IN | 100 |
-| [AC_Status](#AC_Status) | 0x611 | 1 | IN | 100 |
-| [DC_Status1](#DC_Status1) | 0x612 | 4 | IN | 100 |
-| [DC_Status2](#DC_Status2) | 0x613 | 5 | IN | 100 |
-| [ADM_CS_EVCC_MEVC_Outputs](#ADM_CS_EVCC_MEVC_Outputs) | 0x617 | 8 | IN | 1000 |
+| [EVSE_Information](#evse_information) | 0x600 | 6 | OUT | 100 |
+| [AC_Control](#ac_control) | 0x601 | 1 | OUT | 100 |
+| [DC_Control](#dc_control) | 0x602 | 1 | OUT | 100 |
+| [CCS_Extra_Information](#ccs_extra_information) | 0x603 | 6 | OUT | 100 |
+| [ADM_CS_EVCC_Inputs](#adm_cs_evcc_inputs) | 0x604 | 6 | OUT | 1000 |
+| [EV_Information](#ev_information) | 0x610 | 1 | IN | 100 |
+| [AC_Status](#ac_status) | 0x611 | 1 | IN | 100 |
+| [DC_Status1](#dc_status1) | 0x612 | 4 | IN | 100 |
+| [DC_Status2](#dc_status2) | 0x613 | 5 | IN | 100 |
+| [ADM_CS_EVCC_MEVC_Outputs](#adm_cs_evcc_mevc_outputs) | 0x617 | 8 | IN | 1000 |
 
 </div>
 
 
 ## EVSE_Information
 
-<div class="noheader-table small-table compact-table">
+<div class="noheader-table small-table compact-table" markdown="1">
 
 | * | * |
 |---|---|
@@ -48,7 +48,7 @@ Information about the EVSE (AC or DC source), when available.
 ### Payload
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
@@ -121,7 +121,7 @@ Current internal state of the charge controller, reflecting communication stage.
 
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -130,7 +130,7 @@ Current internal state of the charge controller, reflecting communication stage.
 </div>
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Label name | Value |
 |------------|-------|
@@ -153,7 +153,7 @@ Current internal state of the charge controller, reflecting communication stage.
 The charging protocol EVSE is using.
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -162,7 +162,7 @@ The charging protocol EVSE is using.
 </div>
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Label name | Value |
 |------------|-------|
@@ -179,7 +179,7 @@ The charging protocol EVSE is using.
 Pins on which current is supplied. *CCS_AC* corresponds to any AC pins.
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -188,7 +188,7 @@ Pins on which current is supplied. *CCS_AC* corresponds to any AC pins.
 </div>
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Label name | Value |
 |------------|-------|
@@ -213,7 +213,7 @@ In DC it corresponds to HLC data.
 
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -229,7 +229,7 @@ For information only.
 
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -238,7 +238,7 @@ For information only.
 </div>
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Label name | Value |
 |------------|-------|
@@ -252,7 +252,7 @@ For information only.
 Reserved bits for future uses.
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -265,7 +265,7 @@ Reserved bits for future uses.
 
 ## AC_Control
 
-<div class="noheader-table small-table compact-table">
+<div class="noheader-table small-table compact-table" markdown="1">
 
 | * | * |
 |---|---|
@@ -284,7 +284,7 @@ AC charging specific control (from charge controller to on-board charger).
 ### Payload
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
@@ -315,7 +315,7 @@ On-board charger should stop drawing current and THEN set its
 
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -324,7 +324,7 @@ On-board charger should stop drawing current and THEN set its
 </div>
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Label name | Value |
 |------------|-------|
@@ -338,7 +338,7 @@ On-board charger should stop drawing current and THEN set its
 Reserved bits for future uses.
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -351,7 +351,7 @@ Reserved bits for future uses.
 
 ## DC_Control
 
-<div class="noheader-table small-table compact-table">
+<div class="noheader-table small-table compact-table" markdown="1">
 
 | * | * |
 |---|---|
@@ -370,7 +370,7 @@ DC charging specific control (from charge controller to BMS).
 ### Payload
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
@@ -397,7 +397,7 @@ instead of this CAN signal, enable them in the `/srv/config.cfg` file:
 
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -406,7 +406,7 @@ instead of this CAN signal, enable them in the `/srv/config.cfg` file:
 </div>
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Label name | Value |
 |------------|-------|
@@ -420,7 +420,7 @@ instead of this CAN signal, enable them in the `/srv/config.cfg` file:
 Reserved bits for future uses.
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -433,7 +433,7 @@ Reserved bits for future uses.
 
 ## CCS_Extra_Information
 
-<div class="noheader-table small-table compact-table">
+<div class="noheader-table small-table compact-table" markdown="1">
 
 | * | * |
 |---|---|
@@ -452,7 +452,7 @@ Extra information from CCS (for information only).
 ### Payload
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
@@ -473,7 +473,7 @@ Extra information from CCS (for information only).
 Measured PWM duty cycle on the CP line.
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -486,7 +486,7 @@ Measured PWM duty cycle on the CP line.
 Measured PWM top voltage on the CP line.
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -499,7 +499,7 @@ Measured PWM top voltage on the CP line.
 Measured CP state.
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -508,7 +508,7 @@ Measured CP state.
 </div>
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Label name | Value |
 |------------|-------|
@@ -525,7 +525,7 @@ Measured CP state.
 Measured resistance from PP. 2550 Ohms means disconnected.
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -538,7 +538,7 @@ Measured resistance from PP. 2550 Ohms means disconnected.
 CCS Inlet lock state.
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -547,7 +547,7 @@ CCS Inlet lock state.
 </div>
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Label name | Value |
 |------------|-------|
@@ -562,7 +562,7 @@ CCS Inlet lock state.
 Reserved bits for future uses.
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -575,7 +575,7 @@ Reserved bits for future uses.
 
 ## ADM_CS_EVCC_Inputs
 
-<div class="noheader-table small-table compact-table">
+<div class="noheader-table small-table compact-table" markdown="1">
 
 | * | * |
 |---|---|
@@ -598,7 +598,7 @@ Or on change for other digital inputs.
 ### Payload
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
@@ -624,7 +624,7 @@ Or on change for other digital inputs.
 Reports the logical state of R-2E.
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -633,7 +633,7 @@ Reports the logical state of R-2E.
 </div>
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Label name | Value |
 |------------|-------|
@@ -647,7 +647,7 @@ Reports the logical state of R-2E.
 Reports the logical state of R-2F.
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -656,7 +656,7 @@ Reports the logical state of R-2F.
 </div>
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Label name | Value |
 |------------|-------|
@@ -676,7 +676,7 @@ Needs to be declared as monitored in `/srv/config.cfg`:
 
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -695,7 +695,7 @@ Needs to be declared as monitored in `/srv/config.cfg`:
 
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -710,7 +710,7 @@ Reports the logical state of R-3F (or any other input declared as Stop function)
 
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -719,7 +719,7 @@ Reports the logical state of R-3F (or any other input declared as Stop function)
 </div>
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Label name | Value |
 |------------|-------|
@@ -733,7 +733,7 @@ Reports the logical state of R-3F (or any other input declared as Stop function)
 Reserved bits for future uses.
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -746,7 +746,7 @@ Reserved bits for future uses.
 Measured temperature sensor on L-2D.
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -759,7 +759,7 @@ Measured temperature sensor on L-2D.
 Measured temperature sensor on L-1E.
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -772,7 +772,7 @@ Measured temperature sensor on L-1E.
 Measured temperature sensor on L-3E.
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -785,7 +785,7 @@ Measured temperature sensor on L-3E.
 Temperature reported by the CPU chip of the charge controller.
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -798,7 +798,7 @@ Temperature reported by the CPU chip of the charge controller.
 If using a CAN sensor, and it has a temperature channel.
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -811,7 +811,7 @@ If using a CAN sensor, and it has a temperature channel.
 
 ## EV_Information
 
-<div class="noheader-table small-table compact-table">
+<div class="noheader-table small-table compact-table" markdown="1">
 
 | * | * |
 |---|---|
@@ -830,7 +830,7 @@ Information provided by the vehicle.
 ### Payload
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
@@ -846,7 +846,7 @@ Information provided by the vehicle.
 Battery SoC in percent (only used in HLC mode).
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -859,7 +859,7 @@ Battery SoC in percent (only used in HLC mode).
 
 ## AC_Status
 
-<div class="noheader-table small-table compact-table">
+<div class="noheader-table small-table compact-table" markdown="1">
 
 | * | * |
 |---|---|
@@ -878,7 +878,7 @@ AC charging specific status (from on-board charger to charge controller).
 ### Payload
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
@@ -902,7 +902,7 @@ waiting for the current draw to stop beforehand.
 
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -911,7 +911,7 @@ waiting for the current draw to stop beforehand.
 </div>
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Label name | Value |
 |------------|-------|
@@ -925,7 +925,7 @@ waiting for the current draw to stop beforehand.
 Reserved bits for future uses.
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -938,7 +938,7 @@ Reserved bits for future uses.
 
 ## DC_Status1
 
-<div class="noheader-table small-table compact-table">
+<div class="noheader-table small-table compact-table" markdown="1">
 
 | * | * |
 |---|---|
@@ -957,7 +957,7 @@ DC charging specific status (from BMS to charge controller), message 1.
 ### Payload
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
@@ -975,7 +975,7 @@ DC charging specific status (from BMS to charge controller), message 1.
 Current target sent to EVSE.
 Will be capped by maximum current from config file and from EVSE data.
 
-Alternatively, use max_current in `/srv/config.cfg` when in [No BMS mode](charge-controllers/evcc_configuration/no_bms.md).
+Alternatively, use max_current in `/srv/config.cfg` when in [No BMS mode](../configuration/no_bms.md).
 When doing so, you should set a safe `max_charge_voltage` to terminate the
 charge earlier than at full pack (ie. bulk charging):
 
@@ -996,7 +996,7 @@ In no BMS mode, this signal will be ignored.
 
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -1016,7 +1016,7 @@ Declare it as such in `/srv/config.cfg`:
     use_can_sensor = Isabellenhutte IVT-S
 
 In such case, this signal will be ignored.
-Refer to [CAN sensor](charge-controllers/evcc_configuration/can_sensor.md) documentation to know how the sensor should be wired.
+Refer to [CAN sensor](../configuration/can_sensor.md) documentation to know how the sensor should be wired.
 
 !!! note
     Signal is of signed data type for compatibility with future bidirectional
@@ -1026,7 +1026,7 @@ Refer to [CAN sensor](charge-controllers/evcc_configuration/can_sensor.md) docum
 
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -1039,7 +1039,7 @@ Refer to [CAN sensor](charge-controllers/evcc_configuration/can_sensor.md) docum
 
 ## DC_Status2
 
-<div class="noheader-table small-table compact-table">
+<div class="noheader-table small-table compact-table" markdown="1">
 
 | * | * |
 |---|---|
@@ -1058,7 +1058,7 @@ DC charging specific status (from BMS to charge controller), message 2.
 ### Payload
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
@@ -1087,7 +1087,7 @@ the `/srv/config.cfg` file:
 
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -1096,7 +1096,7 @@ the `/srv/config.cfg` file:
 </div>
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Label name | Value |
 |------------|-------|
@@ -1117,7 +1117,7 @@ Alternatively, you can also use the 12V input (R-3F) on ADM-CS-EVCC unit.
 
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -1126,7 +1126,7 @@ Alternatively, you can also use the 12V input (R-3F) on ADM-CS-EVCC unit.
 </div>
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Label name | Value |
 |------------|-------|
@@ -1140,7 +1140,7 @@ Alternatively, you can also use the 12V input (R-3F) on ADM-CS-EVCC unit.
 Reserved bits for future uses.
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -1160,11 +1160,11 @@ Declare it as such in `/srv/config.cfg`:
     use_can_sensor = Isabellenhutte IVT-S
 
 In such case, this signal will be ignored.
-Refer to [CAN sensor](charge-controllers/evcc_configuration/can_sensor.md) documentation to know how the sensor should be wired.
+Refer to [CAN sensor](../configuration/can_sensor.md) documentation to know how the sensor should be wired.
 
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -1184,11 +1184,11 @@ Declare it as such in `/srv/config.cfg`:
     use_can_sensor = Isabellenhutte IVT-S
 
 In such case, this signal will be ignored.
-Refer to [CAN sensor](charge-controllers/evcc_configuration/can_sensor.md) documentation to know how the sensor should be wired.
+Refer to [CAN sensor](../configuration/can_sensor.md) documentation to know how the sensor should be wired.
 
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -1199,7 +1199,7 @@ Refer to [CAN sensor](charge-controllers/evcc_configuration/can_sensor.md) docum
 
 ## ADM_CS_EVCC_MEVC_Outputs
 
-<div class="noheader-table small-table compact-table">
+<div class="noheader-table small-table compact-table" markdown="1">
 | * | * |
 |---|---|
 | **Frame ID** | 0x617 |
@@ -1214,7 +1214,7 @@ Controller (ADM-CS-EVCC and ADM-CS-MEVC hardware variant) has various outputs th
 
 ### Payload
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
 | Digital_Output1 | 1 | Single bit |
@@ -1236,7 +1236,7 @@ Needs to be declared as monitored in `/srv/config.cfg`:
     [hardware]
     dig_out1 = CAN_Controlled
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 0 | Single bit | Single bit |   | 1 | 0 | 0 | 1 |
@@ -1250,7 +1250,7 @@ Needs to be declared as monitored in `/srv/config.cfg`:
     [hardware]
     dig_out2 = CAN_Controlled
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 1 | Single bit | Single bit |   | 1 | 0 | 0 | 1 |
@@ -1264,7 +1264,7 @@ Needs to be declared as monitored in `/srv/config.cfg`:
     [hardware]
     dig_out3 = CAN_Controlled
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 2 | Single bit | Single bit |   | 1 | 0 | 0 | 1 |
@@ -1274,7 +1274,7 @@ Needs to be declared as monitored in `/srv/config.cfg`:
 
 Padding bits between digital outputs and leds.
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 3 | 37 | Unsigned |   | 1 | 0 |   |   |
@@ -1288,7 +1288,7 @@ Needs to be declared as monitored in `/srv/config.cfg`:
     [hardware]
     led1 = CAN_Controlled
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 40 | 8 | Unsigned |   | 1 | 0 | 0 | 255 |
@@ -1302,7 +1302,7 @@ Needs to be declared as monitored in `/srv/config.cfg`:
     [hardware]
     led2 = CAN_Controlled
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 48 | 8 | Unsigned |   | 1 | 0 | 0 | 255 |
@@ -1316,7 +1316,7 @@ Needs to be declared as monitored in `/srv/config.cfg`:
     [hardware]
     led3 = CAN_Controlled
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 56 | 8 | Unsigned |   | 1 | 0 | 0 | 255 |

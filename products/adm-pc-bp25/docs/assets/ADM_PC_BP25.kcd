@@ -1,0 +1,1873 @@
+<?xml version="1.0" ?>
+<NetworkDefinition xmlns="http://kayak.2codeornot2code.org/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="KCD_Definition.xsd">
+  <Document name="ADM_PC_BP25" version="1.0" author="[...]" company="Advantics" date="2019-11-21"/>
+  <Node id="0" name="User"/>
+  <Node id="3" name="ADM_PC_LL25"/>
+  <Node id="4" name="ADM_PC_BC25"/>
+  <Node id="7" name="ADM_PC_BP25"/>
+  <Node id="8" name="ADM_PC_BI25"/>
+  <Bus name="ADM_PC_BP25" baudrate="500000">
+    <Message id="0x78000" length="8" name="AFE_Identification" interval="1000" format="extended">
+      <Notes>Identification of the device</Notes>
+      <Producer> <NodeRef id="7"/> </Producer>
+      <Signal name="Device_type" offset="0" length="8">
+        <Notes>The device identification field, uniquely identifies the sender in the network</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="AFE" value="7" />
+        </LabelSet>
+      </Signal>
+      <Signal name="HW_revision" offset="8" length="8">
+        <Notes>The hardware revision number</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="HW_variant" offset="16" length="8">
+        <Notes>The DSP firmware revision number</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="Stack_position" offset="24" length="8">
+        <Notes>Position of the module within the stack</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="SN_number" offset="32" length="32">
+        <Notes>Unique module serial number</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+    </Message>
+
+    <Message id="0x700F3" length="3" name="AFE_CAN_API_Version" interval="1000" format="extended">
+      <Notes>This message declares the version of the API that is provided by the converter. The version follows semver conventsion.</Notes>
+      <Producer> <NodeRef id="7"/> </Producer>
+      <Signal name="Major" offset="0" length="8" endianess="little">
+        <Notes>The Major version number. This number increases if there are backwards incompatible changes</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="unsigned"/>
+      </Signal>
+      <Signal name="Minor" offset="8" length="8" endianess="little">
+        <Notes>The Minor version number. This number increases if there are backwards compatible changes, like new messages or the use of previously reserved space</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="unsigned"/>
+      </Signal>
+      <Signal name="Patch" offset="16" length="8" endianess="little">
+        <Notes>The Patch number. This number increases when changes to descriptions and documentation/comments are made</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="unsigned"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x78001" length="8" name="AFE_FwInfo" interval="1000" format="extended">
+      <Notes>The Info about the firmware running on the AFE</Notes>
+      <Producer> <NodeRef id="7"/> </Producer>
+      <Multiplex name="FW_info_mux" offset="56" length="8">
+        <MuxGroup count="0">
+          <Signal name="FW_revision_0" offset="0" length="8">
+            <Notes>Character 0</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_1" offset="8" length="8">
+            <Notes>Character 1</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_2" offset="16" length="8">
+            <Notes>Character 2</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_3" offset="24" length="8">
+            <Notes>Character 3</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_4" offset="32" length="8">
+            <Notes>Character 3</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_5" offset="40" length="8">
+            <Notes>Character 3</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_6" offset="48" length="8">
+            <Notes>Character 3</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="1">
+          <Signal name="FW_revision_7" offset="0" length="8">
+            <Notes>Character 7</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_8" offset="8" length="8">
+            <Notes>Character 8</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_9" offset="16" length="8">
+            <Notes>Character 9</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_10" offset="24" length="8">
+            <Notes>Character 10</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_11" offset="32" length="8">
+            <Notes>Character 11</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_12" offset="40" length="8">
+            <Notes>Character 12</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_13" offset="48" length="8">
+            <Notes>Character 13</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="2">
+          <Signal name="FW_datecode_0" offset="0" length="8">
+            <Notes>Character 0</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_1" offset="8" length="8">
+            <Notes>Character 1</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_2" offset="16" length="8">
+            <Notes>Character 2</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_3" offset="24" length="8">
+            <Notes>Character 3</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_4" offset="32" length="8">
+          <Notes>Character 4</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_5" offset="40" length="8">
+            <Notes>Character 5</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_6" offset="48" length="8">
+            <Notes>Character 6</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="3">
+          <Signal name="FW_datecode_7" offset="0" length="8">
+            <Notes>Character 7</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_8" offset="8" length="8">
+            <Notes>Character 8</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_9" offset="16" length="8">
+            <Notes>Character 9</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_10" offset="24" length="8">
+            <Notes>Character 10</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_11" offset="32" length="8">
+            <Notes>Character 11</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_12" offset="40" length="8">
+            <Notes>Character 12</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_13" offset="48" length="8">
+            <Notes>Character 13</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+        </MuxGroup>
+      </Multiplex>
+    </Message>
+
+    <Message id="0x7800D" length="8" name="_AFE_Boot_FwInfo" interval="1000" format="extended">
+      <Notes>Git revision of the bootloader firmware.</Notes>
+      <Producer> <NodeRef id="7"/> </Producer>
+      <Multiplex name="Boot_FW_info_mux" offset="56" length="8">
+        <MuxGroup count="0">
+          <Signal name="FW_revision_0" offset="0" length="8">
+            <Notes>Character 0</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_1" offset="8" length="8">
+            <Notes>Character 1</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_2" offset="16" length="8">
+            <Notes>Character 2</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_3" offset="24" length="8">
+            <Notes>Character 3</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_4" offset="32" length="8">
+            <Notes>Character 3</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_5" offset="40" length="8">
+            <Notes>Character 3</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_6" offset="48" length="8">
+            <Notes>Character 3</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="1">
+          <Signal name="FW_revision_7" offset="0" length="8">
+            <Notes>Character 7</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_8" offset="8" length="8">
+            <Notes>Character 8</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_9" offset="16" length="8">
+            <Notes>Character 9</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_10" offset="24" length="8">
+            <Notes>Character 10</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_11" offset="32" length="8">
+            <Notes>Character 11</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_12" offset="40" length="8">
+            <Notes>Character 12</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_revision_13" offset="48" length="8">
+            <Notes>Character 13</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="2">
+          <Signal name="FW_datecode_0" offset="0" length="8">
+            <Notes>Character 0</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_1" offset="8" length="8">
+            <Notes>Character 1</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_2" offset="16" length="8">
+            <Notes>Character 2</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_3" offset="24" length="8">
+            <Notes>Character 3</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_4" offset="32" length="8">
+            <Notes>Character 3</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_5" offset="40" length="8">
+            <Notes>Character 3</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_6" offset="48" length="8">
+            <Notes>Character 3</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="3">
+          <Signal name="FW_datecode_7" offset="0" length="8">
+            <Notes>Character 7</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_8" offset="8" length="8">
+            <Notes>Character 8</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_9" offset="16" length="8">
+            <Notes>Character 9</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_10" offset="24" length="8">
+            <Notes>Character 10</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_11" offset="32" length="8">
+            <Notes>Character 11</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_12" offset="40" length="8">
+            <Notes>Character 12</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+          <Signal name="FW_datecode_13" offset="48" length="8">
+            <Notes>Character 13</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+          </Signal>
+        </MuxGroup>
+      </Multiplex>
+    </Message>
+
+    <Message id="0x78002" length="8" name="AFE_Debug" interval="1000" format="extended">
+      <Notes>Values for debugging of HW/SW problems</Notes>
+      <Producer> <NodeRef id="7"/> </Producer>
+      <Signal name="Status_Error_Code" offset="0" length="16">
+        <Notes>Main status / error code as defined in errno/errno.h</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="Data_1" offset="16" length="16">
+        <Notes>Additional information for the error/status</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="Data_2" offset="32" length="16">
+        <Notes>Additional information for the error/status</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="Data_3" offset="48" length="16">
+        <Notes>Additional information for the error/status</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+    </Message>
+
+    <Message id="0x78007" length="8" name="AFE_Status" interval="1000" format="extended">
+      <Notes>Status bitfield</Notes>
+      <Producer> <NodeRef id="7"/> </Producer>
+      <Signal name="Running" offset="0" length="1" endianess="little">
+        <Notes>Indicates if converter is running.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="PWM" offset="1" length="1" endianess="little">
+        <Notes>Indicates if converter is in PWM control mode.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="Current_dc_loop_mode" offset="2" length="1" endianess="little">
+        <Notes>Indicates if the current DC loop is enabled.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="Current_ac_loop_mode" offset="3" length="1" endianess="little">
+        <Notes>Indicates if the current AC loop is enabled.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="Buck" offset="5" length="1" endianess="little">
+        <Notes>Indicates if converter is in buck control mode.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="Boost" offset="6" length="1" endianess="little">
+        <Notes>Indicates if converter is in boost control mode.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="Precharge_dc_buck_mode" offset="7" length="1" endianess="little">
+        <Notes>Indicates if the precharge DC mode is enabled - buck direction.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="Precharge_dc_boost_mode" offset="8" length="1" endianess="little">
+        <Notes>Indicates if the precharge DC mode is enabled - boost direction.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="Rectifier_3ph" offset="9" length="1" endianess="little">
+        <Notes>Indicates if converter is in three-phase rectifier control mode.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="Stack_mode" offset="10" length="1" endianess="little">
+        <Notes>Indicates if converter is operating in stack mode.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="Master" offset="11" length="1" endianess="little">
+        <Notes>Indicates if converter is master in the stack.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="Slave" offset="12" length="1" endianess="little">
+        <Notes>Indicates if converter is slave in the stack.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="Inverter_1ph" offset="13" length="1" endianess="little">
+        <Notes>Indicates if converter is in single-phase inverter control mode.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="Boost_Neutral" offset="14" length="1" endianess="little">
+        <Notes>Indicates if converter is in boost control mode with neutral generation.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="Rectifier_1ph" offset="15" length="1" endianess="little">
+        <Notes>Indicates if converter is in single-phase rectifier control mode.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="Inverter_3ph" offset="16" length="1" endianess="little">
+        <Notes>Indicates if converter is in three-phase inverter control mode.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="Ready" offset="17" length="1" endianess="little">
+        <Notes>Indicates if converter is ready for operation.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="Inverter_1ph_Sync" offset="18" length="1" endianess="little">
+        <Notes>Single-phase inverter control mode with phase synchronization.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="Neutral" offset="19" length="1" endianess="little">
+        <Notes>Open-loop neutral generation.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="Rectifier_1ph_Buck" offset="20" length="1" endianess="little">
+        <Notes>Single-phase rectifier with buck on one leg.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="Inverter_1ph_Boost" offset="21" length="1" endianess="little">
+        <Notes>Single-phase inverter with boost on one leg.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="Rectifier_distributed" offset="22" length="1" endianess="little">
+        <Notes>Not available at the moment</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="MPPT_buck" offset="23" length="1" endianess="little">
+        <Notes>Not available at the moment</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="MPPT_boost" offset="24" length="1" endianess="little">
+        <Notes>Not available at the moment</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="Buck_2p_float" offset="25" length="1" endianess="little">
+        <Notes>Buck in phases L1 and L2. Phase L3 is left floating (high impedance)</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="Inverter_1ph_Distributed" offset="26" length="1" endianess="little">
+        <Notes>Single-phase inverter mode  distributed</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="Buck_Alternate_Setpoint" offset="27" length="1" endianess="little">
+        <Notes> Buck mode where the setpoint is referenced to VDC+ </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+    </Message>
+
+    <Message id="0x78006" length="3" name="AFE_Faults" interval="1000" format="extended">
+      <Notes>Fault bitfield</Notes>
+      <Producer> <NodeRef id="7"/> </Producer>
+      <Signal name="Protection_trip_internal" offset="0" length="1" endianess="little">
+        <Notes>The hardware protection of this module has been triggered by an overcurrent/overvoltage contdition</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Protection_trip_external" offset="1" length="1" endianess="little">
+        <Notes>The hardware protection of this module has been triggered by a signal coming from other modules in the system</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Phase_U_overcurrent" offset="2" length="1" endianess="little">
+        <Notes>Indicates an overcurrent event on Phase U. The overcurrent event is triggered when the measured phase current is over the programmed current limit.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Phase_U_overvoltage" offset="3" length="1" endianess="little">
+        <Notes>Indicates an overvoltage event on Phase U. The overvoltage event is triggered when the measured phase voltage is over the programmed voltage limit.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Phase_U_undervoltage" offset="4" length="1" endianess="little">
+        <Notes>Indicates an undervoltage event on Phase U. The overvoltage event is triggered when the measured phase voltage is over the programmed voltage limit.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Phase_V_overvoltage" offset="5" length="1" endianess="little">
+        <Notes>Indicates an overvoltage event on Phase V. The overvoltage event is triggered when the measured phase voltage is over the programmed voltage limit.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Phase_V_undervoltage" offset="6" length="1" endianess="little">
+        <Notes>Indicates an undervoltage event on Phase U. The overvoltage event is triggered when the measured phase voltage is over the programmed voltage limit.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Phase_V_overcurrent" offset="7" length="1" endianess="little">
+        <Notes>Indicates an overcurrent event on Phase U. The overcurrent event is triggered when the measured phase current is over the programmed current limit.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Phase_W_overvoltage" offset="8" length="1" endianess="little">
+        <Notes>Indicates an overvoltage event on Phase U. The overvoltage event is triggered when the measured phase voltage is over the programmed voltage limit.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Phase_W_undervoltage" offset="9" length="1" endianess="little">
+        <Notes>Indicates an undervoltage event on Phase U. The overvoltage event is triggered when the measured phase voltage is over the programmed voltage limit.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Phase_W_overcurrent" offset="10" length="1" endianess="little">
+        <Notes>Indicates an overcurrent event on Phase U. The overcurrent event is triggered when the measured phase current is over the programmed current limit.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="DC_undervoltage" offset="11" length="1" endianess="little">
+        <Notes>DC bus undervoltage condition. The undervoltage condition is asserted when the measured dc bus voltage is under the programmed voltage limit.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="DC_overvoltage" offset="12" length="1" endianess="little">
+        <Notes>DC bus overvoltage condition. The overvoltage condition is asserted when the measured dc bus voltage is over the programmed voltage limit.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="MOSFET_overtemperature" offset="13" length="1" endianess="little">
+        <Notes>This flag is asserted when the temperature of the MOSFET block is too high.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Inductor_overtemperature" offset="14" length="1" endianess="little">
+        <Notes>This flag is asserted when the temperature of the inductor block is too high.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Keep_Alive_not_served" offset="15" length="1" endianess="little">
+        <Notes>The Keep Alive feature is enabled but it was not served with the periodic message.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="PLL_not_locked" offset="16" length="1" endianess="little">
+        <Notes>Flag asserted when in rectifier modes, the PLL went out of lock condition</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="NFO" offset="20" length="1" endianess="little">
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Measurement_system_failure" offset="21" length="1" endianess="little">
+        <Notes>The voltages/currents measurement system is malfunctionning, and readouts are not guaranteed to be accurate.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="EEPROM_failure" offset="22" length="1" endianess="little">
+        <Notes> The configuration EEPROM failed to load or save the module configuration.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="System" offset="23" length="1" endianess="little">
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="fault" value="1"/>
+        </LabelSet>
+      </Signal>
+    </Message>
+
+    <Message id="0x78003" length="6" name="AFE_Currents" interval="100" format="extended">
+      <Notes> Current of flowing in U/L1, V/L2, W/L3 </Notes>
+      <Producer> <NodeRef id="7"/> </Producer>
+      <Signal name="Phase_U" offset="0" length="16" endianess="little">
+        <Notes> Current flowing through the Inductor of Phase U </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value slope="0.01" intercept="0" unit="A" type="signed"/>
+      </Signal>
+      <Signal name="Phase_V" offset="16" length="16" endianess="little">
+        <Notes> Current flowing through the Inductor of Phase V </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value slope="0.01" intercept="0" unit="A" type="signed"/>
+      </Signal>
+      <Signal name="Phase_W" offset="32" length="16" endianess="little">
+        <Notes> Current flowing through the Inductor of Phase W </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value slope="0.01" intercept="0" unit="A" type="signed"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x78010" length="2" name="AFE_DC_Bus_current" interval="100" format="extended">
+      <Notes>Current of of the DC Bus, this is a calculated value using the phase currents and voltage difference accross the converter </Notes>
+      <Producer> <NodeRef id="7"/> </Producer>
+      <Signal name="Bus_current" offset="0" length="16" endianess="little">
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value slope="0.01" unit="A" intercept="0" type="signed"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x78011" length="8" name="AFE_AC_Power" interval="1000" format="extended">
+      <Notes>AC measured power (only for Inverter modes)</Notes>
+      <Producer> <NodeRef id="7"/> </Producer>
+      <Multiplex name="Index" offset="56" length="8">
+        <MuxGroup count="0">
+          <Signal name="P_u" offset="0" length="16" endianess="little">
+            <Notes>Active power in phase U</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value slope="10" intercept="0" unit="W" type="signed"/>
+          </Signal>
+          <Signal name="P_v" offset="16" length="16" endianess="little">
+            <Notes>Active power in phase V</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value slope="10" intercept="0" unit="W" type="signed"/>
+          </Signal>
+          <Signal name="P_w" offset="32" length="16" endianess="little">
+            <Notes>Active power in phase W</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value slope="10" intercept="0" unit="W" type="signed"/>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="1">
+          <Signal name="Q_u" offset="0" length="16" endianess="little">
+          <Notes>Reactive power in phase U</Notes>
+          <Consumer> <NodeRef id="0"/> </Consumer>
+          <Value slope="10" intercept="0" unit="W" type="signed"/>
+          </Signal>
+          <Signal name="Q_v" offset="16" length="16" endianess="little">
+            <Notes>Reactive power in phase V</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value slope="10" intercept="0" unit="W" type="signed"/>
+          </Signal>
+          <Signal name="Q_w" offset="32" length="16" endianess="little">
+            <Notes>Reactive power in phase W</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value slope="10" intercept="0" unit="W" type="signed"/>
+          </Signal>
+        </MuxGroup>
+      </Multiplex>
+    </Message>
+
+    <Message id="0x7800E" length="8" name="_AFE_Broadcast" interval="50" format="extended">
+      <Notes>All AFEs will listen to this message</Notes>
+      <Producer> <NodeRef id="7"/> </Producer>
+      <Multiplex name="Diagnostics_Index" offset="56" length="8">
+        <MuxGroup count="1">
+          <Signal name="Phase_U" offset="8" length="16" endianess="little">
+            <Notes>Phase current is the MOSFET loop current, in the branch U of the converter.</Notes>
+            <Consumer>
+              <NodeRef id="0"/>
+              <NodeRef id="7"/>
+            </Consumer>
+            <Value slope="0.01" unit="A" type="signed"/>
+          </Signal>
+          <Signal name="Phase_V" offset="24" length="16" endianess="little">
+            <Notes>Phase current is the MOSFET loop current, in the branch V of the converter.</Notes>
+            <Consumer>
+              <NodeRef id="0"/>
+              <NodeRef id="7"/>
+            </Consumer>
+            <Value slope="0.01" unit="A" type="signed"/>
+          </Signal>
+          <Signal name="Phase_W" offset="40" length="16" endianess="little">
+            <Notes>Phase current is the MOSFET loop current, in the branch W of the converter.</Notes>
+            <Consumer>
+              <NodeRef id="0"/>
+              <NodeRef id="7"/>
+            </Consumer>
+            <Value slope="0.01" unit="A" type="signed"/>
+          </Signal>
+        </MuxGroup>
+      </Multiplex>
+      <Signal name="Stack_position" offset="0" length="5" endianess="little">
+        <Notes>Sender Stack position</Notes>
+        <Consumer>
+          <NodeRef id="0"/>
+          <NodeRef id="7"/>
+        </Consumer>
+      </Signal>
+      <Signal name="Group_ID" offset="5" length="3" endianess="little">
+        <Notes>Sender Group ID</Notes>
+        <Consumer>
+          <NodeRef id="0"/>
+          <NodeRef id="7"/>
+        </Consumer>
+      </Signal>
+    </Message>
+
+    <Message id="0x78004" length="8" name="AFE_Voltages" interval="100" format="extended">
+      <Producer> <NodeRef id="7"/> </Producer>
+      <Signal name="Phase_U" offset="0" length="16" endianess="little">
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value slope="0.1" intercept="0" unit="V" type="signed"/>
+      </Signal>
+      <Signal name="Phase_V" offset="16" length="16" endianess="little">
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value slope="0.1" intercept="0" unit="V" type="signed"/>
+      </Signal>
+      <Signal name="Phase_W" offset="32" length="16" endianess="little">
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value slope="0.1" intercept="0" unit="V" type="signed"/>
+      </Signal>
+      <Signal name="DC" offset="48" length="16" endianess="little">
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value slope="0.1" intercept="0" unit="V" type="signed"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x7800A" length="6" name="AFE_Voltages_RMS" interval="100" format="extended">
+      <Producer> <NodeRef id="7"/> </Producer>
+      <Signal name="Phase_U" offset="0" length="16" endianess="little">
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value slope="0.1" intercept="0" unit="V" type="unsigned"/>
+      </Signal>
+      <Signal name="Phase_V" offset="16" length="16" endianess="little">
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value slope="0.1" intercept="0" unit="V" type="unsigned"/>
+      </Signal>
+      <Signal name="Phase_W" offset="32" length="16" endianess="little">
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value slope="0.1" intercept="0" unit="V" type="unsigned"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x7800B" length="6" name="AFE_Currents_RMS" interval="100" format="extended">
+      <Notes>RMS Current of phases U, V, W</Notes>
+      <Producer> <NodeRef id="7"/> </Producer>
+      <Signal name="Phase_U" offset="0" length="16" endianess="little">
+        <Notes>RMS Phase current is the MOSFET loop current, in the branch U of the converter.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value slope="0.01" unit="A" type="unsigned"/>
+      </Signal>
+      <Signal name="Phase_V" offset="16" length="16" endianess="little">
+        <Notes>RMS Phase current is the MOSFET loop current, in the branch V of the converter.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value slope="0.01" unit="A" type="unsigned"/>
+      </Signal>
+      <Signal name="Phase_W" offset="32" length="16" endianess="little">
+        <Notes>RMS Phase current is the MOSFET loop current, in the branch W of the converter.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value slope="0.01" unit="A" type="unsigned"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x7800C" length="4" name="AFE_Mains" interval="100" format="extended">
+      <Notes>Three-Phase mains health (frequency, phase...)</Notes>
+      <Producer> <NodeRef id="7"/> </Producer>
+      <Signal name="Frequency" offset="0" length="16" endianess="little">
+        <Notes>Frequency of Three-Phase system</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value slope="0.01" intercept="0" unit="Hz" type="unsigned"/>
+      </Signal>
+      <Signal name="Phase" offset="16" length="16" endianess="little">
+        <Notes>Phase of Three-Phase system</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value slope="0.1" intercept="0" unit="Deg." type="signed"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x78005" length="4" name="AFE_Temperatures" interval="1000" format="extended">
+      <Notes>Readouts of the module temperature sensors</Notes>
+      <Producer> <NodeRef id="7"/> </Producer>
+      <Signal name="Temp_Bridge" offset="0" length="16">
+        <Notes>Temperature of the MOSFET block</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="signed" slope="0.01" intercept="0" unit="°C"/>
+      </Signal>
+      <Signal name="Temp_Inductors" offset="16" length="16">
+        <Notes>Temperature of the inductors</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="signed" slope="0.01" intercept="0" unit="°C"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x78008" length="6" name="AFE_Setpoints_PWM_Duty" interval="1000" format="extended">
+      <Notes>Setpoints for the PWM Mode</Notes>
+      <Producer> <NodeRef id="7"/> </Producer>
+      <Signal name="Phase_U" offset="0" length="16">
+        <Notes>The actual PWM duty cycle setpoint</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="unsigned" slope="0.001525902" unit="%"/>
+      </Signal>
+      <Signal name="Phase_V" offset="16" length="16">
+        <Notes>The actual PWM duty cycle setpoint</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="unsigned" slope="0.001525902" unit="%"/>
+      </Signal>
+      <Signal name="Phase_W" offset="32" length="16">
+        <Notes>The actual PWM duty cycle setpoint</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="unsigned" slope="0.001525902" unit="%"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x78009" length="6" name="AFE_Setpoints" interval="1000" format="extended">
+      <Notes>Setpoints</Notes>
+      <Producer> <NodeRef id="7"/> </Producer>
+      <Signal name="Current_setpoint" offset="0" length="16">
+        <Notes>The actual current setpoint</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="signed" slope="0.01" unit="A"/>
+      </Signal>
+      <Signal name="Voltage_setpoint" offset="16" length="16">
+        <Notes>The actual voltage setpoint</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="unsigned" slope="0.1" unit="V"/>
+      </Signal>
+      <Signal name="Frequency_setpoint" offset="32" length="16">
+        <Notes>The actual frequency setpoint</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="unsigned" slope="0.01" unit="Hz"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x70060" length="1" name="AFE_Keep_Alive" format="extended">
+      <Notes>Keep alive ping message.</Notes>
+      <!-- Keep alive disabled                             = 0x00 -->
+      <!-- Keep alive enabled without Interlock           = 0x01 -->
+      <!-- Keep alive disabled                            = 0x00 -->
+      <!-- KKeep alive enabled with Interlock Triggered    = 0x11 -->
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Signal name="Keep_Alive_Enable" offset="0" length="8" endianess="little">
+        <Notes>If set to 1, module will expect to receive this message every second repeatedly, or it will stop operation</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+    </Message>
+
+    <Message id="0x70039" length="4" name="AFE_Power_Setpoint_Control" format="extended">
+      <Notes>Set Power setpoints. Only used in Inverter 3-Phase mode! These setpoints are not
+      absolute power setpoints. Rather, they refer to an offset with respect to the equilibrium
+      position when sharing load with other inverters. Typically this number is kept to zero,
+      unless you want to move from the equilibrium position.</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Signal name="Active_Power" offset="0" length="16" endianess="little">
+        <Notes>Active power setpoint in Watts</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+        <Value type="signed" slope="10" unit="W"/>
+      </Signal>
+      <Signal name="Reactive_Power" offset="16" length="16" endianess="little">
+        <Notes>Reactive power setpoint in Watts</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+        <Value type="signed" slope="10" unit="W"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x70040" length="8" name="AFE_Mode_Control" interval="1000" format="extended">
+      <Notes>Operation Mode control: sets the converter operation mode</Notes>
+      <Producer>
+        <NodeRef id="0"/>
+        <NodeRef id="3"/>
+        <NodeRef id="4"/>
+        <NodeRef id="8"/>
+      </Producer>
+      <Signal name="Converter_ON" offset="0" length="1" endianess="little">
+        <Notes>Enable the converter.</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="PWM_ON" offset="1" length="1" endianess="little">
+        <Notes>Enable the PWM control mode.</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="DC_Current_feedback_ON" offset="2" length="1" endianess="little">
+        <Notes>Enable the DC current loop</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="AC_Current_feedback_ON" offset="3" length="1" endianess="little">
+        <Notes>Enable the AC current loop</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="Buck_ON" offset="5" length="1" endianess="little">
+        <Notes>Enable the buck control mode.</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="Boost_ON" offset="6" length="1" endianess="little">
+        <Notes>Enable the boost control mode.</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="Rectifier_3ph_ON" offset="9" length="1" endianess="little">
+        <Notes>Enable the three-phase rectifier control mode.</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="Inverter_1ph_ON" offset="10" length="1" endianess="little">
+        <Notes>Enable the single-phase inverter control mode.</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="Rectifier_1ph_ON" offset="11" length="1" endianess="little">
+        <Notes>Enable the single-phase rectifier control mode.</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="Boost_Neutral_ON" offset="12" length="1" endianess="little">
+        <Notes>Enable the boost control mode with neutral generation.</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="Inverter_3ph_ON" offset="13" length="1" endianess="little">
+        <Notes>Enable the three-phase inverter control mode.</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="Inverter_1ph_Sync_ON" offset="14" length="1" endianess="little">
+        <Notes>Single-phase inverter control mode with phase synchronization.</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="Neutral_ON" offset="15" length="1" endianess="little">
+        <Notes>Open-loop neutral generation.</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="Rectifier_1ph_Buck_ON" offset="16" length="1" endianess="little">
+        <Notes>Single-phase rectifier with buck on one leg.</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="Inverter_1ph_Boost_ON" offset="17" length="1" endianess="little">
+        <Notes>Single-phase inverter with boost on one leg.</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="Rectifier_Distributed_ON" offset="18" length="1" endianess="little">
+        <Notes>Single-phase (floating) distributed rectifier</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="MPPT_buck_ON" offset="19" length="1" endianess="little">
+        <Notes>MPPT buck</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="MPPT_boost_ON" offset="20" length="1" endianess="little">
+        <Notes>MPPT boost</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="Buck_2p_float_ON" offset="21" length="1" endianess="little">
+        <Notes>Boost on L1 and L2. Floating L3 (high-impedance)</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="Inverter_1ph_Distributed_ON" offset="22" length="1" endianess="little">
+        <Notes>Single-phase inverter mode distributed</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="Buck_Alternate_Setpoint_ON" offset="23" length="1" endianness="little">
+        <Notes> An alternate mode where the buck setpoint is in reference to VDC+ instead of in reference to VDC- </Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+    </Message>
+
+    <Message id="0x70050" length="1" name="AFE_Fault_Control" format="extended">
+      <Notes>Fault Control: actions to clear faults and reset the system</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Signal name="Clear_Interlock" offset="0" length="1" endianess="little">
+        <Notes>Clears the converter interlock</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+        </Signal>
+      <Signal name="Reset_Processor" offset="1" length="1" endianess="little">
+        <Notes>Reset the converter DSP</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="Trip_Interlock" offset="2" length="1" endianess="little">
+        <Notes>Trip the inetrnal Interlock</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+    </Message>
+
+    <Message id="0x70041" length="2" name="AFE_Reactive_Current_Setpoint_Control" interval="1000" format="extended">
+      <Notes>Reactive power setpoint control.</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Signal name="Reactive_current_setpoint" offset="0" length="16" endianess="little">
+        <Notes>This defines reactive current setpoint for 3-phase rectifier mode</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+        <Value type="signed" slope="0.01" unit="A" min="-150" max="150"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x70042" length="6" name="AFE_PWM_Duty_Control" format="extended">
+      <Notes>PWM duty cycle control</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Signal name="Phase_U" offset="0" length="16">
+        <Notes>The actual PWM duty cycle setpoint</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+        <Value type="unsigned" slope="0.001525902" unit="%"/>
+      </Signal>
+      <Signal name="Phase_V" offset="16" length="16">
+        <Notes>The actual PWM duty cycle setpoint</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+        <Value type="unsigned" slope="0.001525902" unit="%"/>
+      </Signal>
+      <Signal name="Phase_W" offset="32" length="16">
+        <Notes>The actual PWM duty cycle setpoint</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+        <Value type="unsigned" slope="0.001525902" unit="%"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x70043" length="2" name="AFE_Current_Setpoint_Control" interval="1000" format="extended">
+      <Notes>Current setpoint control</Notes>
+      <Producer>
+        <NodeRef id="0"/>
+        <NodeRef id="3"/>
+        <NodeRef id="4"/>
+        <NodeRef id="8"/>
+      </Producer>
+      <Signal name="Current_setpoint" offset="0" length="16" endianess="little">
+        <Notes>Sets the output current setpoint. Active only when the current loop is enabled</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+        <Value type="signed" slope="0.01" unit="A" min="-150" max="150"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x70044" length="2" name="AFE_Voltage_Setpoint_Control" interval="100" format="extended">
+      <Notes>Voltage setpoint control</Notes>
+      <Producer>
+        <NodeRef id="0"/>
+        <NodeRef id="3"/>
+        <NodeRef id="4"/>
+        <NodeRef id="8"/>
+      </Producer>
+      <Signal name="Voltage_setpoint" offset="0" length="16" endianess="little">
+        <Notes>Sets the output voltage setpoint. Active only when the voltage loop is enabled</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+        <Value type="unsigned" slope="0.1" unit="V" min="0" max="1500"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x70048" length="2" name="AFE_Frequency_Setpoint_Control" interval="100" format="extended">
+      <Notes>Frequency setpoint control</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Signal name="Frequency_setpoint" offset="0" length="16" endianess="little">
+        <Notes>Sets the frequency for single-phase and three-phase generator modes.</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+        <Value type="unsigned" slope="0.01" unit="Hz" min="40" max="70"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x70049" length="2" name="AFE_Phase_Setpoint_Control" interval="100" format="extended">
+      <Notes>Phase setpoint control</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Signal name="Phase_setpoint" offset="0" length="16" endianess="little">
+        <Notes>Sets the phase for inverter control modes.</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+        <Value type="unsigned" slope="1" unit="deg" min="0" max="360"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x70070" length="8" name="AFE_Rectifier_Setpoint_Control" interval="100" format="extended">
+      <Notes>Additional voltage and current setpoints in single-phase rectifier and inverter control modes.</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Signal name="Voltage_setpoint_2" offset="0" length="16" endianess="little">
+        <Consumer> <NodeRef id="7"/> </Consumer>
+        <Value type="unsigned" slope="0.1" min="0" max="1500" unit="V"/>
+      </Signal>
+      <Signal name="Current_setpoint_2" offset="16" length="16" endianess="little">
+        <Consumer> <NodeRef id="7"/> </Consumer>
+        <Value type="signed" slope="0.01" min="-150" max="150" unit="A"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x70045" length="6" name="AFE_Stack_Control" format="extended">
+      <Notes>PFC stack control</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Signal name="Stack_position" offset="0" length="8" endianess="little">
+        <Notes>The converter position within the stack</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+        <Value type="unsigned" slope="1"/>
+      </Signal>
+      <Signal name="Stack_size" offset="8" length="8" endianess="little">
+        <Notes>How many PFC converters are in stack in total</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+        <Value type="unsigned" slope="1"/>
+      </Signal>
+      <Signal name="SN_number" offset="16" length="32">
+        <Notes>Unique module serial number</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+    </Message>
+
+    <Message id="0x70030" length="8" name="AFE_Voltage_Limits" format="extended">
+      <Notes>Set the input and output voltage limits (minimum and maximum)</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Signal name="Phase_voltage_min" offset="0" length="16" endianess="little">
+        <Notes>Minimum tolerated phase voltage</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+        <Value type="signed" slope="0.1" unit="V" min="0"/>
+      </Signal>
+      <Signal name="Phase_voltage_max" offset="16" length="16" endianess="little">
+        <Notes>Maximum allowable phase voltage</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+        <Value type="signed" slope="0.1" unit="V" max="850"/>
+      </Signal>
+      <Signal name="DC_voltage_min" offset="32" length="16" endianess="little">
+        <Notes>Minimum allowable dc voltage</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+        <Value type="signed" slope="0.1" unit="V" min="0"/>
+      </Signal>
+      <Signal name="DC_voltage_max" offset="48" length="16" endianess="little">
+        <Notes>Maximum allowable dc voltage</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+        <Value type="signed" slope="0.1" unit="V" max="850"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x70031" length="4" name="AFE_Current_Limits" format="extended">
+      <Notes>Set the output current limits (mminimum and maximum)</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Signal name="Phase_current_min" offset="0" length="16" endianess="little">
+        <Notes>Minimum allowable output current</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+        <Value type="signed" slope="0.01" unit="A" min="-60" max="60"/>
+      </Signal>
+      <Signal name="Phase_current_max" offset="16" length="16" endianess="little">
+        <Notes>Maximum allowable output current</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+        <Value type="signed" slope="0.01" unit="A" min="-60" max="60"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x7004C" length="1" name="AFE_Group_Control" format="extended">
+      <Notes>Set the Group ID of the device. If a module is assigned a Group other than one It will coordinate it's output current with other modules in the same group to share load</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Signal name="Group_ID" offset="0" length="8" endianess="little">
+        <Notes>Desired group ID for the device</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+    </Message>
+
+    <Message id="0x7800F" length="1" name="AFE_Group_Info" interval="1000" format="extended">
+      <Notes>Contains the Group ID of the device</Notes>
+      <Producer> <NodeRef id="7"/> </Producer>
+      <Signal name="Group_ID" offset="0" length="8" endianess="little">
+          <Notes>Group ID of the device</Notes>
+          <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+    </Message>
+
+    <Message id="0x70061" length="8" name="AFE_System_Flags_Control" format="extended">
+      <Notes>Control the system flags</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Signal name="Factory_mode" offset="0" length="1" endianess="little">
+        <Notes>Customers MUST NOT USE this bit. If set to 1, module will enter in factory mode. </Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="Silent_CAN_mode" offset="1" length="1" endianess="little">
+        <Notes>Customers MUST NOT USE this bit. If set to 1, module will enter in factory mode. </Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="Disable_3rd_harmonic" offset="2" length="1" endianess="little">
+        <Notes> If set to true, then the module will not do 3rd harmonic injection. This only 
+        has an effect in Rectifier 3-phase mode.</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+    </Message>
+
+    <Message id="0x78020" length="8" name="_AFE_Currents_Raw" interval="100" format="extended">
+      <Notes> Raw ADC values of the ADC channels connected to the current sensors </Notes>
+      <Producer> <NodeRef id="7"/> </Producer>
+      <Signal name="Phase_U" offset="0" length="16" endianess="little">
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="signed"/>
+      </Signal>
+      <Signal name="Phase_V" offset="16" length="16" endianess="little">
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="signed"/>
+      </Signal>
+      <Signal name="Phase_W" offset="32" length="16" endianess="little">
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="signed"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x78021" length="8" name="_AFE_Voltages_Raw" interval="100" format="extended">
+      <Notes>Raw ADC values of the channels connected to the voltage sensors</Notes>
+      <Producer> <NodeRef id="7"/> </Producer>
+      <Signal name="Phase_U" offset="0" length="16" endianess="little">
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="signed" slope="1" intercept="0" unit="LSB"/>
+      </Signal>
+      <Signal name="Phase_V" offset="16" length="16" endianess="little">
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="signed" slope="1" intercept="0" unit="LSB"/>
+      </Signal>
+      <Signal name="Phase_W" offset="32" length="16" endianess="little">
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="signed" slope="1" intercept="0" unit="LSB"/>
+      </Signal>
+      <Signal name="DC" offset="48" length="16" endianess="little">
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="signed" slope="1" intercept="0" unit="LSB"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x7004A" length="1" name="_AFE_ADC_Calibration_Mode" format="extended">
+      <Notes>Automatic ADC calibration.</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Multiplex name="Calibration_Index" offset="2" length="5">
+        <MuxGroup count="1">
+          <Signal name="Current_U" offset="0" length="2" endianess="little">
+            <Consumer><NodeRef id="7"/></Consumer>
+            <Value type="unsigned" unit=""/>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="2">
+          <Signal name="Current_V" offset="0" length="2" endianess="little">
+            <Consumer><NodeRef id="7"/></Consumer>
+            <Value type="unsigned" unit=""/>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="3">
+          <Signal name="Current_W" offset="0" length="2" endianess="little">
+            <Consumer><NodeRef id="7"/></Consumer>
+            <Value type="unsigned" unit=""/>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="4">
+          <Signal name="Voltage_U" offset="0" length="2" endianess="little">
+            <Consumer><NodeRef id="7"/></Consumer>
+            <Value type="unsigned" unit=""/>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="5">
+          <Signal name="Voltage_V" offset="0" length="2" endianess="little">
+            <Consumer><NodeRef id="7"/></Consumer>
+            <Value type="unsigned" unit=""/>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="6">
+          <Signal name="Voltage_W" offset="0" length="2" endianess="little">
+            <Consumer><NodeRef id="7"/></Consumer>
+            <Value type="unsigned" unit=""/>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="7">
+          <Signal name="Voltage_DC" offset="0" length="2" endianess="little">
+            <Consumer><NodeRef id="7"/></Consumer>
+            <Value type="unsigned" unit=""/>
+          </Signal>
+        </MuxGroup>
+      </Multiplex>
+      <Signal name="start" offset="7" length="1" endianess="little">
+        <Notes>Start automatic calibration. Multiplexer index must be 0!</Notes>
+        <Consumer><NodeRef id="7"/></Consumer>
+        <Value type="unsigned" unit=""/>
+      </Signal>
+    </Message>
+
+    <Message id="0x7004B" length="3" name="_AFE_ADC_Calibration_Setpoint" format="extended">
+      <Notes>Setpoint for automatic ADC calibration.</Notes>
+      <Producer><NodeRef id="0"/></Producer>
+      <Multiplex name="Calibration_Index" offset="16" length="5">
+        <MuxGroup count="1">
+          <Signal name="Current_U" offset="0" length="16" endianess="little">
+            <Consumer><NodeRef id="7"/></Consumer>
+            <Value type="signed" slope="0.01" unit="A" min="-100" max="100"/>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="2">
+          <Signal name="Current_V" offset="0" length="16" endianess="little">
+            <Consumer><NodeRef id="7"/></Consumer>
+            <Value type="signed" slope="0.01" unit="A" min="-100" max="100"/>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="3">
+          <Signal name="Current_W" offset="0" length="16" endianess="little">
+            <Consumer><NodeRef id="7"/></Consumer>
+            <Value type="signed" slope="0.01" unit="A" min="-100" max="100"/>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="4">
+          <Signal name="Voltage_U" offset="0" length="16" endianess="little">
+            <Consumer><NodeRef id="7"/></Consumer>
+            <Value type="unsigned" slope="0.1" unit="V" min="0" max="1500"/>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="5">
+          <Signal name="Voltage_V" offset="0" length="16" endianess="little">
+            <Consumer><NodeRef id="7"/></Consumer>
+            <Value type="unsigned" slope="0.1" unit="V" min="0" max="1500"/>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="6">
+          <Signal name="Voltage_W" offset="0" length="16" endianess="little">
+            <Consumer><NodeRef id="7"/></Consumer>
+            <Value type="unsigned" slope="0.1" unit="V" min="0" max="1500"/>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="7">
+          <Signal name="Voltage_DC" offset="0" length="16" endianess="little">
+            <Consumer><NodeRef id="7"/></Consumer>
+            <Value type="unsigned" slope="0.1" unit="V" min="0" max="1500"/>
+          </Signal>
+        </MuxGroup>
+      </Multiplex>
+      <Signal name="point" offset="21" length="3" endianess="little">
+        <Notes>Calibration point index.</Notes>
+        <Consumer><NodeRef id="7"/></Consumer>
+        <Value type="unsigned" unit=""/>
+      </Signal>
+    </Message>
+
+    <Message id="0x70046" length="6" name="_AFE_Calibration_Offset_Update" format="extended">
+      <Notes>Update of the calibration table for offsets.</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Multiplex name="Calibration_Index" offset="16" length="16">
+        <MuxGroup count="0">
+          <Signal name="Current_U" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="7"/> </Consumer>
+            <Value type="signed" unit="ADC Counts"/>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="1">
+          <Signal name="Current_V" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="7"/> </Consumer>
+            <Value type="signed" unit="ADC Counts"/>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="2">
+          <Signal name="Current_W" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="7"/> </Consumer>
+            <Value type="signed" unit="ADC Counts"/>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="3">
+          <Signal name="Voltage_U" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="7"/> </Consumer>
+            <Value type="signed" unit="ADC Counts"/>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="4">
+          <Signal name="Voltage_V" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="7"/> </Consumer>
+            <Value type="signed" unit="ADC Counts"/>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="5">
+          <Signal name="Voltage_W" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="7"/> </Consumer>
+            <Value type="signed" unit="ADC Counts"/>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="6">
+          <Signal name="Voltage_DC" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="7"/> </Consumer>
+            <Value type="signed" unit="ADC Counts"/>
+           </Signal>
+        </MuxGroup>
+      </Multiplex>
+      <Signal name="CRC" offset="32" length="16" endianess="little">
+        <Notes>Checksum of bytes 0 to 3, CRC-CCITT, corresponding to qChecksum (www.qt.io)</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+        <Value type="unsigned" unit="-"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x70047" length="6" name="_AFE_Calibration_Scale_Update" format="extended">
+      <Notes>Update of the calibration table for scales.</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Multiplex name="Calibration_Index" offset="16" length="16">
+        <MuxGroup count="0">
+          <Signal name="Current_U" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="7"/> </Consumer>
+            <Value type="signed" slope="1.52587890625e-05" unit="scale = 1.0 + value"/>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="1">
+          <Signal name="Current_V" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="7"/> </Consumer>
+            <Value type="signed" slope="1.52587890625e-05" unit="scale = 1.0 + value"/>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="2">
+          <Signal name="Current_W" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="7"/> </Consumer>
+            <Value type="signed" slope="1.52587890625e-05" unit="scale = 1.0 + value"/>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="3">
+          <Signal name="Voltage_U" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="7"/> </Consumer>
+            <Value type="signed" slope="1.52587890625e-05" unit="scale = 1.0 + value"/>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="4">
+          <Signal name="Voltage_V" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="7"/> </Consumer>
+            <Value type="signed" slope="1.52587890625e-05" unit="scale = 1.0 + value"/>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="5">
+          <Signal name="Voltage_W" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="7"/> </Consumer>
+            <Value type="signed" slope="1.52587890625e-05" unit="scale = 1.0 + value"/>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="6">
+          <Signal name="Voltage_DC" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="7"/> </Consumer>
+            <Value type="signed" slope="1.52587890625e-05" unit="scale = 1.0 + value"/>
+          </Signal>
+        </MuxGroup>
+      </Multiplex>
+      <Signal name="CRC" offset="32" length="16" endianess="little">
+        <Notes>Checksum of bytes 0 to 3, CRC-CCITT, corresponding to qChecksum (www.qt.io)</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+        <Value type="unsigned" unit="-"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x78051" length="6" name="_AFE_Calibration_Adc_Scale" interval='1000' format="extended">
+      <Notes> Adc scale (resolution) value of readouts. </Notes>
+      <Producer> <NodeRef id="7"/> </Producer>
+      <Multiplex name="Adc_Index" offset="32" length="16">
+        <MuxGroup count="0">
+          <Signal name="Current_U" offset="0" length="32" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="single" unit="1 / adc_bins" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="1">
+          <Signal name="Current_V" offset="0" length="32" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="single" unit="1 / adc_bins" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="2">
+          <Signal name="Current_W" offset="0" length="32" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="single" unit="1 / adc_bins" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="3">
+          <Signal name="Voltage_U" offset="0" length="32" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="single" unit="1 / adc_bins" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="4">
+          <Signal name="Voltage_V" offset="0" length="32" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="single" unit="1 / adc_bins" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="5">
+          <Signal name="Voltage_W" offset="0" length="32" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="single" unit="1 / adc_bins" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="6">
+          <Signal name="Voltage_DC" offset="0" length="32" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="single" unit="1 / adc_bins" />
+          </Signal>
+        </MuxGroup>
+      </Multiplex>
+    </Message>
+
+    <Message id="0x78054" length="4" name="_AFE_Calibration_Adc_Gain" interval='1000' format="extended">
+      <Notes> Readout of ADC calibration data (gain) from EEPROM. </Notes>
+      <Producer> <NodeRef id="7"/> </Producer>
+      <Multiplex name="Adc_Index" offset="16" length="16">
+        <MuxGroup count="0">
+          <Signal name="Current_U" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="signed" unit="-" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="1">
+          <Signal name="Current_V" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="signed" unit="-" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="2">
+          <Signal name="Current_W" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="signed" unit="-" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="3">
+          <Signal name="Voltage_U" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="signed" unit="-" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="4">
+          <Signal name="Voltage_V" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="signed" unit="-" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="5">
+          <Signal name="Voltage_W" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="signed" unit="-" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="6">
+          <Signal name="Voltage_DC" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="signed" unit="-" />
+          </Signal>
+        </MuxGroup>
+      </Multiplex>
+    </Message>
+
+    <Message id="0x78052" length="6" name="_AFE_Calibration_Adc_Fs" interval='1000' format="extended">
+      <Notes> Adc fullscale value of readouts. </Notes>
+      <Producer> <NodeRef id="7"/> </Producer>
+      <Multiplex name="Adc_Index" offset="32" length="16">
+        <MuxGroup count="0">
+          <Signal name="Current_U" offset="0" length="32" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="single" unit="Fullscale" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="1">
+          <Signal name="Current_V" offset="0" length="32" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="single" unit="Fullscale" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="2">
+          <Signal name="Current_W" offset="0" length="32" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="single" unit="Fullscale" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="3">
+          <Signal name="Voltage_U" offset="0" length="32" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="single" unit="Fullscale" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="4">
+          <Signal name="Voltage_V" offset="0" length="32" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="single" unit="Fullscale" />
+          </Signal>
+       </MuxGroup>
+       <MuxGroup count="5">
+          <Signal name="Voltage_W" offset="0" length="32" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="single" unit="Fullscale" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="6">
+          <Signal name="Voltage_DC" offset="0" length="32" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="single" unit="Fullscale" />
+          </Signal>
+        </MuxGroup>
+      </Multiplex>
+    </Message>
+
+    <Message id="0x78053" length="4" name="_AFE_Calibration_Adc_Offset" interval='1000' format="extended">
+      <Notes> Readout of ADC calibration data (offset) from EEPROM. </Notes>
+      <Producer> <NodeRef id="7"/> </Producer>
+      <Multiplex name="Adc_Index" offset="16" length="16">
+        <MuxGroup count="0">
+          <Signal name="Current_U" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="signed" unit="-" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="1">
+          <Signal name="Current_V" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="signed" unit="-" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="2">
+          <Signal name="Current_W" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="signed" unit="-" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="3">
+          <Signal name="Voltage_U" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="signed" unit="-" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="4">
+          <Signal name="Voltage_V" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="signed" unit="-" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="5">
+          <Signal name="Voltage_W" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="signed" unit="-" />
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="6">
+          <Signal name="Voltage_DC" offset="0" length="16" endianess="little">
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value type="signed" unit="-" />
+          </Signal>
+        </MuxGroup>
+      </Multiplex>
+    </Message>
+
+    <Message id="0x78056" length="2" name="AFE_Interlock_Faults" interval="1000" format="extended">
+      <Notes>Fault bitfield</Notes>
+      <Producer> <NodeRef id="7"/> </Producer>
+      <Signal name="Current_U_High" offset="0" length="1" endianess="little">
+        <Notes>This flag is set if a hight current on U tripped the internal interlock</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+            <Label name="fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Current_U_Low" offset="1" length="1" endianess="little">
+        <Notes>This flag is set if a low current on U tripped the internal interlock</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+            <Label name="fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Current_V_High" offset="2" length="1" endianess="little">
+        <Notes>This flag is set if a hight current on V tripped the internal interlock</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+            <Label name="fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Current_V_Low" offset="3" length="1" endianess="little">
+        <Notes>This flag is set if a low current on V tripped the internal interlock</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+            <Label name="fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Current_W_High" offset="4" length="1" endianess="little">
+        <Notes>This flag is set if a hight current on W tripped the internal interlock</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+            <Label name="fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Current_W_Low" offset="5" length="1" endianess="little">
+        <Notes>This flag is set if a low current on W tripped the internal interlock</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+            <Label name="fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Voltage_DC" offset="6" length="1" endianess="little">
+        <Notes>This flag is set if a voltage on DC tripped the internal interlock</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+            <Label name="fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Reboot" offset="7" length="1" endianess="little">
+        <Notes>This flag is set if a reboot tripped the internal interlock</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+            <Label name="fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Unknown" offset="8" length="1" endianess="little">
+        <Notes>This flag the reason for the internal interlock is unknown</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+            <Label name="fault" value="1"/>
+        </LabelSet>
+      </Signal>
+    </Message>
+
+    <Message id="0x70051" length="6" name="AFE_Inverter_Droop_Control" format="extended">
+      <Notes> This message is used to define the droop characteristics of the module in Inverter 3-Phase operation. The droop curve for both voltage and frequency is 
+              defined as a symetric 3 linear segments. The 'nominal' segment is defined solely
+              by the slope (it intersects the zero). Then the other two segments, called
+              'auxiliary' are symetric around the zero, and they are defined by an intersection 
+              point and another slope. For more info, check the user manual.
+      </Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Multiplex name="Parameter_Index" offset="16" length="16">
+        <MuxGroup count="0">
+          <Signal name="Freq_droop_nominal" offset="0" length="16" endianess="little">
+            <Notes> Sets the nominal droop slope for the Frequency in Hz/MegaWatt. By default
+                    (i.e: after power cycle), this value is 40 Hz/MW </Notes>
+            <Consumer> <NodeRef id="7"/> </Consumer>
+            <Value type="signed" slope="0.01" unit="Hz/MegaWatt"/>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="1">
+          <Signal name="Volt_droop_nominal" offset="0" length="16" endianess="little">
+            <Notes> Sets the nominal droop slope for the Voltage in V/MegaWatt. By default
+                    (i.e: after power cycle), this value is 648 V/MW</Notes>
+            <Consumer> <NodeRef id="7"/> </Consumer>
+            <Value type="signed" slope="0.1" unit="V/MegaWatt"/>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="6">
+          <Signal name="Virtual_Impedance" offset="0" length="16" endianess="little">
+            <Notes> Sets the inductive virtual impedance in microhenries (uH). By default
+                    (i.e: after power cycle), this value is 8000 uH</Notes>
+            <Consumer> <NodeRef id="7"/> </Consumer>
+            <Value type="signed" unit="uH"/>
+          </Signal>
+        </MuxGroup>
+      </Multiplex>
+      <Signal name="Disable_Harmonic_Compensation" offset="32" length="1" endianess="little">
+        <Notes> Set this flag when harmonic compensation needs to be disabled (i.e, when 
+                the module is connected in parallel to the grid or to other diesel generators).
+                Harmonic compensation is enabled by default on startup. </Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="Enable_Integral_Action" offset="33" length="1" endianess="little">
+        <Notes> Enable integral action for the Power loops. Enable this only if connected
+                to the utility grid. If you go off-grid, this bit must be immediately cleared.
+                This is disabled by default on startup.</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="Enable_Legacy_Mode" offset="34" length="1" endianess="little">
+        <Notes> If legacy mode is enabled, module will behave as previous to the
+                introduction of the droop feature. It will generate the AC waveform in 
+                open loop, and will not be able to be paralleled.
+        </Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+    </Message>
+
+    <Message id="0x7004E" length="6" name="AFE_DC_setpoint_control" format="extended">
+      <Notes>Control of the setpoints in DC/DC modes (buck and boost)</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Signal name="Voltage_Setpoint" offset="0" length="16" endianess="little">
+        <Notes>The voltage setpoint in DC/DC modes. This message is an alternate way of defining the 'normal' voltage setpoint, but only applies in DC/DC modes. In boost mode this value needs to be larger than the low side voltage at all times.</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+        <Value slope="0.1" intercept="0" unit="V" type="unsigned" min="0" max="1500"/>
+      </Signal>
+      <Signal name="positive_current_limit" offset="16" length="16" endianess="little">
+        <Notes>The current limit for current in forward direction (DC->Phases in Buck, Phases->DC in Boost), this limit applies to the phase side currents</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+        <Value slope="0.01" intercept="0" unit="A" type="unsigned" min="0" max="150"/>
+      </Signal>
+      <Signal name="negative_current_limit" offset="32" length="16" endianess="little">
+        <Notes>The current limit in reverse direction. (Phases->DC in Buck, DC->Phases in Boost) This limit applies to the phase side currents</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+        <Value slope="0.01" intercept="0" unit="A" type="unsigned" min="0" max="150"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x7004D" length="4" name="AFE_DC_droop_control" format="extended">
+      <Notes>Set parameters for DC Droop control</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Multiplex name="Multiplex_Index" offset="8" length="8">
+        <MuxGroup count="1">
+            <Signal name="Droop_resistance_positive_current" offset="16" length="16" endianess="little">
+              <Notes>Virtual droop resistance in Ohms when current is positive. Its default
+              value after power cycling is 1 Ohm for VA08,VA01 and VA04 variants, and 3 Ohm for VA03
+              variant.</Notes>
+              <Consumer><NodeRef id="7"/></Consumer>
+              <Value slope="0.001" unit="Ohm" type="unsigned"/>
+            </Signal>
+        </MuxGroup>
+        <MuxGroup count="2">
+            <Signal name="Droop_resistance_negative_current" offset="16" length="16" endianess="little">
+                <Notes>Virtual droop resistance in Ohms when current is negative. Its default 
+                value after power cycling is 1 Ohm for VA08,VA01 and VA04 variants, and 3 Ohm for VA03
+                variant.</Notes>
+                <Consumer><NodeRef id="7"/></Consumer>
+                <Value slope="0.001" unit="Ohm" type="unsigned"/>
+            </Signal>
+        </MuxGroup>
+      </Multiplex>
+      <Signal name="Enable" offset="0" length="1" endianess="little">
+          <Notes>Flag to enable droop. If enabled, the voltage Setpoint
+          will be modified according to the following equation:
+          Vref' = Vref - I*Rdroop. Droop is disabled by default upon
+          power cycle.</Notes>
+          <Consumer><NodeRef id="7"/></Consumer>
+      </Signal>
+    </Message>
+
+    <Message id="0x70071" length="8" name="Rectifier_DC_Setpoints" format="extended">
+      <Notes>The setpoints that apply to the AFE in Rectifier Mode.
+            The rectifier mode operates a CV/CC control of the DC bus side,
+            with the Currents on the AC following the needs of the DC bus.
+            With the Real power defined by the needs of the AC bus the AFE may
+            still provide inductive or capacitive reactive power.
+      </Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Signal name="DC_Bus_Voltage_setpoint" offset="0" length="16" endianess="little">
+        <Notes>The voltage that the rectifier targets on the DC bus.</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+        <Value type="unsigned" slope="0.1" min="0" max="1500" unit="V"/>
+      </Signal>
+      <Signal name="DC_Source_current_limit" offset="16" length="16" endianess="little">
+        <Notes>The maximum current that the BP25 will provide to the DC Bus.
+              If the measured voltage is below the target voltage the BP25 will provide
+              current to the DC bus in order to raise it's voltage. This signal limits the
+                maximum current the BP25 may provide to the bus. If this current is reached
+                the Voltage of the Bus is no longer controlled by the BP25, as it now operates in
+                constant current mode (CC)
+        </Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+        <Value type="unsigned" slope="0.01" intercept="0" min="0" max="150" unit="A"/>
+      </Signal>
+      <Signal name="DC_Sink_current_limit" offset="32" length="16" endianness="little">
+        <Notes> The maximum current that BP25 will draw from the DC Bus.
+                If the measured DC bus voltage is above the target voltage the BP25 will draw
+                current from the DC bus in order to lower the voltage. This signal limits the
+                maximum current the BP25 may draw from the bus. If this current is reached
+                the Voltage of the Bus is no longer controlled by the BP25, as it now operates in
+                constant current mode (CC)
+        </Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+        <Value type="unsigned" slope="0.01" intercept="0" min="0" max="150" unit="A"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x78072" length="8" name="Rectifier_Applied_DC_Setpoints" format="extended" interval="100">
+      <Notes>The currently applied setpoints for the setpoints configured in AFE_Rectifier_Setpoints.
+            For details please see the signal descriptions in 'AFE_Rectifier_Setpoints'
+      </Notes>
+      <Producer> <NodeRef id="7"/> </Producer>
+      <Signal name="DC_Bus_Voltage_setpoint_applied" offset="0" length="16" endianess="little">
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="unsigned" slope="0.1" min="0" max="1500" unit="V"/>
+      </Signal>
+      <Signal name="DC_Source_current_limit_applied" offset="16" length="16" endianess="little">
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="unsigned" slope="0.1" intercept="0" min="0" max="150" unit="A"/>
+      </Signal>
+      <Signal name="DC_Sink_current_limit_applied" offset="32" length="16" endianness="little">
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="unsigned" slope="0.1" intercept="0" min="0" max="150" unit="A"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x78050" length="8" name="AFE_Droop_setpoints" interval="1000" format="extended">
+      <Notes> Reads the droop resistance values of user </Notes>
+      <Producer> <NodeRef id="7"/> </Producer>
+      <Signal name="Positive_droop" offset="0" length="16" endianess="little">
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value slope="0.001" unit="Ohm" type="signed"/>
+      </Signal>
+      <Signal name="Negative_droop" offset="16" length="16" endianess="little">
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value slope="0.001" unit="Ohm" type="signed"/>
+      </Signal>
+      <Signal name="droop_enable" offset="32" length="16" endianess="little">
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="signed"/>
+      </Signal>
+    </Message>
+  </Bus>
+</NetworkDefinition>

@@ -11,7 +11,7 @@ This document describes how to configure TLS and Plug’n’Charge (PnC) for con
 
 You need to provision the following certificates and keys inside `/app/certs` volume of `ccs-evcc` application:
 
-- [The V2G Root CA](../tls_pnc/pnc_primer.md#Certificates-and-certificate-chains), in `pem` format
+- [The V2G Root CA](../tls_pnc/pnc_primer.md#certificates-and-certificate-chains), in `pem` format
 - The PnC contract and its associated certificate chain, in `pkcs12` format
     <!-- - This is a single file that is usually not directly provided by the PKI, and therefore you need to build it yourself with the following command:
         
@@ -88,7 +88,7 @@ server_certificate_chain = /app/certs/.../cpoCertChain.pem
 
 You need to provision the following certificates and keys inside `/app/certs` volume of `ccs-evcc`:
 
-- [The V2G Root CA](../tls_pnc/pnc_primer.md#Certificates-and-certificate-chains), in `pem` format
+- [The V2G Root CA](../tls_pnc/pnc_primer.md#certificates-and-certificate-chains), in `pem` format
 - The vehicle leaf certificate, and its associated private key, in `pem` format (but private key can also be provided in `pkcs8` format directly)
 - The vehicle certificate chain of the the 2 vehicle Sub CAs plus the Root CA (which should be the V2G Root CA)
     <!-- - If the PKI provided only separate certificate files, you can build it with the following command (order matters):
@@ -132,8 +132,8 @@ server_certificate_chain = vehicleCertChain.pem
 
 You need to provision the following certificates and keys inside `/app/certs` volume of `ccs-secc`:
 
-- [The V2G Root CA](../tls_pnc/pnc_primer.md#Certificates-and-certificate-chains), in `pem` format
-- The [CSO EVSE leaf](../tls_pnc/pnc_primer.md#Certificates-and-certificate-chains) certificate, and its associated private key, in `pem` format (but private key can also be provided in `pkcs8` format directly)
+- [The V2G Root CA](../tls_pnc/pnc_primer.md#certificates-and-certificate-chains), in `pem` format
+- The [CSO EVSE leaf](../tls_pnc/pnc_primer.md#certificates-and-certificate-chains) certificate, and its associated private key, in `pem` format (but private key can also be provided in `pkcs8` format directly)
 - The CSO certificate chain of the the 2 CSO Sub CAs plus the Root CA (which should be the V2G Root CA)
     <!-- - If the PKI provided only separate certificate files, you can build it with the following command (order matters):
         

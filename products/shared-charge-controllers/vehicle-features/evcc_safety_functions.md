@@ -32,7 +32,7 @@ Fundamentally, the controller needs the following conditions to command an unloc
 - The reported inlet voltage is less than or equal to 60 V.
 - The information about contactor status, flowing current and inlet voltage are all reliable. That
   means it should have received them within the last
-  [can_timeout_ms](charge-controllers/evcc_configuration/generalities.md#can_timeout_ms) milliseconds.
+  [can_timeout_ms](../configuration/generalities.md#can_timeout_ms) milliseconds.
 
 During an abnormal event that persists outside of a normal communication session with a charger, the
 controller spawns an "emergency monitor" and will stay in that state until the situation resolves.

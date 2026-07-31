@@ -1,6 +1,6 @@
-site_name: ADB-PC-DC01 Documentation
-site_description: Technical documentation for Advantics ADB-PC-DC01 100kW AC/DC Active Frontend
-site_url: https://documentation.advantics.fr/adb-pc-dc01
+site_name: ADM-CS-EVCC Documentation
+site_description: Technical documentation for Advantics ADM-CS-EVCC Electric Vehicle Communication Controller
+site_url: https://documentation.advantics.fr/adm-cs-evcc
 # repo_url: https://github.com/ADVANTICS/documentation
 # repo_name: gh:ADVANTICS/documentation
 edit_uri: edit/material/docs/
@@ -18,16 +18,18 @@ theme:
   name: material
   language: en
   logo: assets/logo.webp
-  favicon: assets/logo.webp
+  favicon: assets/favicon.svg
 
-  # Color scheme
   palette:
-    - scheme: black
+    # Light theme
+    - scheme: default
       primary: black
       accent: black
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
+
+    # Dark theme
     - scheme: slate
       primary: black
       accent: black
@@ -42,24 +44,45 @@ theme:
 
   # Features
   features:
-    - navigation.tabs
-    - navigation.sections
-    - navigation.expand
-    - navigation.top
-    - search.suggest
-    - search.highlight
-    - content.code.copy
+    - navigation.instant  # No reload between pages, use XHR
+    - navigation.instant.progress  # Show progress-bar if longer than 400ms
+    # - navigation.tracking  # Update URL with scroll
+    # - navigation.tabs  # Top-level nav as tabs in header
+    - navigation.tabs.sticky  # Header tabs don't dissapear when scrolling down
+    - navigation.top  # Back-to-top button
+    # - navigation.sections  # Group sections in the sidebar
+    # - navigation.expand  # Expand all collapsible navigation sub-sections
+    # - navigation.prune  # all sections collapsed by default
+    - navigation.path  # Breadcrumb
+    - navigation.indexes  # Intermediate section levels can have their own pages
+    - navigation.footer  # Prev/Next links at the bottom
+    - toc.follow  # TOC sidebar follows scroll
+    # - toc.integrate  # Merge TOC into navigation sidebar
+    - search.suggest  # Suggest search completion
+    - search.highlight  # Highlight search results in the page
+    - search.share  # Can create/copy share link for searched
+    - header.autohide  # Collapse header entirely as scrolling down
+    # - content.action.edit  # Top-right (middle column) edit icon
+    # - content.action.view  # Top-right (middle column) view raw icon
+    - content.code.copy  # Enable copy button site-wise
     - content.tabs.link
 
 # Plugins
 plugins:
   - search
   - mermaid2
+  - plantuml:
+      render: "server"
+      puml_url: "https://www.plantuml.com/plantuml"
+      output_format: "svg"
+      theme_enabled: false
+      retries: 5
+      delay: 2
   - with-pdf:
       enabled_if_env: PDF_EXPORT
-      output_path: pdf/adb-pc-dc01-manual.pdf
-      cover_title: ADB-PC-DC01 User Manual
-      cover_subtitle: 100kW 1500V DC/DC Isolated
+      output_path: pdf/adm-cs-evcc-manual.pdf
+      cover_title: ADM-CS-EVCC User Manual
+      cover_subtitle: Electric Vehicle Communication Controller (EVCC)
       author: ADVANTICS SAS
       custom_template_path: docs/assets
 
@@ -85,17 +108,77 @@ markdown_extensions:
       baselevel: 1
   - tables
   - attr_list
+  - md_in_html
 
 # Navigation structure
 nav:
-  - "Document Information": "index.md"
-  - "Overview": "1_overview.md"
-  - "Electrical Specifications": "2_electrical_specs.md"
-  - "Connectors and Interfaces": "3_connectors_and_interfaces.md"
-  - "Operation": "4_operation.md"
-  - "Installation": "5_installation.md"
-  - "Safety and Warnings": "6_safety_and_warnings.md"
-  - "Appendix": "7_appendix.md"
+  - Document Information: "index.md"
+  - Technical data: "introduction.md"
+  - Interfaces: "interfaces.md"
+  # - Electric vehicle overview: "ev_overview.md"
+  - Examples of use: "examples.md"
+  # - Troubleshooting: "troubleshooting.md"
+  - Software Releases: "evcc_versions.md"
+  - Configuration:
+    - Overview: "configuration/README.md"
+    - Generalities: "configuration/generalities.md"
+    - CCS: "configuration/ccs.md"
+    - Current deviation: "configuration/current_deviation.md"
+    - Inlet lock: "configuration/inlet_lock.md"
+    - DC contactors: "configuration/dc_contactors.md"
+    - CAN sensor: "configuration/can_sensor.md"
+    - No BMS mode: "configuration/no_bms.md"
+  - Working with the EVCC:
+    - User guide: "buildroot-system/README.md"
+    - Platforms: "buildroot-system/platforms.md"
+    - Accessing the controller: "buildroot-system/access.md"
+    - Managing charging applications: "buildroot-system/applications.md"
+    - Getting started: "buildroot-system/secc_getting_stated.md"
+    - SSH and UART access: "buildroot-system/ssh-uart-access.md"
+    - Changing the IP address: "buildroot-system/set-different-ip.md"
+    - Managing Applications: "buildroot-system/manage-applications.md"
+    - Manual GPIO control: "buildroot-system/gpios.md"
+    - CAN Interface System Configuration: "buildroot-system/can-bus-configuration.md"
+    - Debugging: "buildroot-system/debugging.md"
+    - Read-only file system: "buildroot-system/read-only.md"
+    - Developing with the EVCC: "buildroot-system/developing.md"
+    - Developing in Python: "buildroot-system/python.md"
+    - Updating the Software: "buildroot-system/sys3_update.md"
+    - System 3.x branch: "buildroot-system/systems_branch3.md"
+    - Deployment Checklist: "buildroot-system/must-do-before-deploy.md"
+  - CAN bus Interfaces:
+    - Generic CAN interface: "vehicle-can-interfaces/README.md"
+    - Introduction: "vehicle-can-interfaces/introduction.md"
+    - Overview: "vehicle-can-interfaces/overview.md"
+    - Generic interface v1:
+      - About: "vehicle-can-interfaces/README_v1.md"
+      - Sequences of action: "vehicle-can-interfaces/sequences.md"
+      - CAN databases: "vehicle-can-interfaces/databases.md"
+      - CAN messages: "vehicle-can-interfaces/can.md"
+      - Charging sequence diagram: "vehicle-can-interfaces/appendix-a.md"
+      # - Changelog: "vehicle-can-interfaces/changelog.md"
+    - Generic interface v2:
+      - About: "vehicle-can-interfaces/README_v2.md"
+      - Sequences of action: "vehicle-can-interfaces/sequences_v2.md"
+      - CAN databases: "vehicle-can-interfaces/databases_v2.md"
+      - CAN messages: "vehicle-can-interfaces/can_v2.md"
+      # - Changelog: "vehicle-can-interfaces/changelog_v2.md"
+      - Power transfer sequence diagram: "vehicle-can-interfaces/power_transfer_sequence_diagram.md"
+    - J1939: "vehicle-can-interfaces/j1939.md"
+  - Features:
+    - Features overview: "vehicle-features/evcc_features.md"
+    - Temperature control: "vehicle-features/evcc_temperature_control.md"
+    - Sleep functions: "vehicle-features/evcc_sleep.md"
+    - Safety Functions: "vehicle-features/evcc_safety_functions.md"
+    - BPT (ISO15118-20): "vehicle-features/evcc_bidirectional.md"
+    - EVCC CP noise filtering: "vehicle-features/evcc_noise_developments.md"
+    - PEV Emulator: "vehicle-features/vehicle-simulation.md"
+    - Supported sensors: "vehicle-features/pev-supported-sensors.md"
+    - No code mode: "vehicle-features/evcc_no_code_mode.md"
+    - Special: 
+      - ORION BMS no code integration: "vehicle-features/evcc_special.md"
+      - Orion BMS setup: "vehicle-features/evcc_orion_bms/orion_bms_integration.md"
+      - Updater tool: "vehicle-features/evcc_updater.md"
 
 # Extra configurations
 extra:

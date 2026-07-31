@@ -6,7 +6,6 @@
   "sortNumber": 1,
   "datasheet": "https://advantics.fr/pdf/ADM-PC-BP25.pdf",
   "OGimg": "/src/assets/img/products/afe-og.png",
-  "docsHref": "https://advantics.github.io/documentation/#/power-modules/ADM-PC-BP25/",
   "codename": "ADM-PC-BP25",
   "card": {
     "imgScale": "90%",

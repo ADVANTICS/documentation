@@ -73,8 +73,8 @@ You can enable the list and set its maximum length with the OCPP
 configuration keys `LocalAuthListEnabled`, `LocalAuthListMaxLength` and
 `SendLocalListMaxLength`. You can use OCPP ChangeConfiguration requests
 from your central system to change the following options. Alternatively,
-add them to the ADVANTICS [**configuration file**](charge-controllers/secc_configuration.md#ocpp-configuration) under the
-`ocpp:1.6_local_auth` section.
+add them to the ADVANTICS configuration file (see the *OCPP configuration* section of this
+controller's Configuration page) under the `ocpp:1.6_local_auth` section.
 
     [ocpp:1.6_local_auth]
     LocalAuthListEnabled=True
@@ -357,7 +357,7 @@ complete implementation usable for testing in [Reference Implementation](#refere
 
 ## The ZeroMQ RPC Channel
 
-<div hidden>
+<div hidden markdown="1">
 @startuml /ocpp_images/zmq_rpc_channel
 left to right direction
 hide circle
