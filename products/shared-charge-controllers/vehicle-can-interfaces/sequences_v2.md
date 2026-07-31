@@ -80,6 +80,7 @@ skinparam legend {
 }
 
 hide footbox
+skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2
 skinparam roundcorner 20
 
@@ -204,6 +205,7 @@ skinparam legend {
 }
 
 hide footbox
+skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2
 skinparam roundcorner 20
 
@@ -417,6 +419,7 @@ skinparam legend {
 }
 
 hide footbox
+skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2
 skinparam roundcorner 20
 
@@ -537,6 +540,7 @@ skinparam legend {
 }
 
 hide footbox
+skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2
 skinparam roundcorner 20
 
@@ -702,6 +706,7 @@ skinparam legend {
 }
 
 hide footbox
+skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2
 skinparam roundcorner 20
 
@@ -838,6 +843,7 @@ skinparam legend {
 }
 
 hide footbox
+skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2
 skinparam roundcorner 20
 
@@ -958,6 +964,7 @@ skinparam legend {
 }
 
 hide footbox
+skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2
 skinparam roundcorner 20
 
@@ -1107,6 +1114,7 @@ skinparam legend {
 }
 
 hide footbox
+skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2
 skinparam roundcorner 20
 
@@ -1286,6 +1294,7 @@ skinparam legend {
 }
 
 hide footbox
+skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2
 skinparam roundcorner 20
 
@@ -1401,6 +1410,7 @@ skinparam legend {
 }
 
 hide footbox
+skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2
 skinparam roundcorner 20
 
