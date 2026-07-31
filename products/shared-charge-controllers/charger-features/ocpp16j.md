@@ -476,7 +476,6 @@ being executed by the OCPP Application..**
 @startuml /ocpp_images/customer_rcp_request_example
 hide footbox
 skinparam BoxPadding 10
-skinparam ParticipantPadding 35
 skinparam noteTextAlignment center
 
 box "Charge Point Vendor Application" #AquaMarine
@@ -528,7 +527,6 @@ by the Charge Point Vendor Application..**
 @startuml /ocpp_images/advantics_rcp_request_example
 hide footbox
 skinparam BoxPadding 10
-skinparam ParticipantPadding 35
 
 box "Charge Point Vendor Application" #AquaMarine
 participant "DEALER" as CPVA_ROUTER
