@@ -1,5 +1,5 @@
-site_name: ADM-CS-SPCC Documentation
-site_description: Technical documentation for Advantics ADM-CS-SPCC 100kW AC/DC Active Frontend
+site_name: ADM-CS-SECC Documentation
+site_description: Technical documentation for Advantics ADM-CS-SECC Supply Equipment Communication Controller
 site_url: https://documentation.advantics.fr/adm-cs-secc
 # repo_url: https://github.com/ADVANTICS/documentation
 # repo_name: gh:ADVANTICS/documentation
@@ -84,9 +84,9 @@ plugins:
       #     dark: advantics-theme-dark
   - with-pdf:
       enabled_if_env: PDF_EXPORT
-      output_path: pdf/adm-cs-spcc-manual.pdf
-      cover_title: ADM-CS-SPCC User Manual
-      cover_subtitle: Single Pistol Charge Controller (SPCC)
+      output_path: pdf/adm-cs-secc-manual.pdf
+      cover_title: ADM-CS-SECC User Manual
+      cover_subtitle: Supply Equipment Communication Controller (SECC)
       author: ADVANTICS SAS
       custom_template_path: docs/assets
 
@@ -112,6 +112,7 @@ markdown_extensions:
       baselevel: 1
   - tables
   - attr_list
+  - md_in_html
 
 # Navigation structure
 nav:
@@ -123,7 +124,10 @@ nav:
   - Configuration: "secc_configuration.md"
   - Working with the SECC:
     - SSH access: "buildroot-system/ssh-uart-access.md"
-    - Web UI Access: "csm-web-ui.md"
+    - Platforms: "buildroot-system/platforms.md"
+    - Accessing the controller: "buildroot-system/access.md"
+    - Managing charging applications: "buildroot-system/applications.md"
+    - Web UI Access: "advos-yocto-system/csm-web-ui.md"
     - Read-only file system: "buildroot-system/read-only.md"
     - Updating the Software: "buildroot-system/sys3_update.md"
     - Managing Applications: "buildroot-system/manage-applications.md"
@@ -135,6 +139,7 @@ nav:
     - Deployment Checklist: "buildroot-system/must-do-before-deploy.md"
   - CAN bus Interfaces:
     - Introduction: "charger-can-interfaces/introduction.md"
+    - Overview: "charger-can-interfaces/overview.md"
     - Generic interface v2:
       - Sequences of action: "charger-can-interfaces/sequences_v2.md"
       - CAN databases: "charger-can-interfaces/databases_v2.md"

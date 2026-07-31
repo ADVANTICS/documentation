@@ -6,7 +6,7 @@ Advantics CSM, short for Advantics Controller System Manager, handles all system
 
 The CSM Web UI is available at the IP address/hostname of the controller on port 80.
 
-<!-- The CSM Web UI is available at the IP address/hostname of the controller on port 80. Check [how to connect to the controller](charge-controllers/advantics_os/connecting.md). -->
+<!-- The CSM Web UI is available at the IP address/hostname of the controller on port 80. Check [how to connect to the controller](advos-yocto-system/connecting.md). -->
 
 !!! attention
     The CSM Web UI is designed for development purposes and should be disabled in production when deploying the controller. Even in development, access should be restricted to a secure private network, as there is no authentication mechanism.

@@ -8,14 +8,14 @@
 Before describing the CAN communication, let's take a detailed look at the sequences of actions,
 and what each actor in the charge process does.
 
-See the [Power transfer sequence diagram](charge-controllers/secc_generic/power_transfer_sequence_diagram.md) for the full sequence. Extracts of it will be
+See the [Power transfer sequence diagram](charge-sequence-diagram_v3.md) for the full sequence. Extracts of it will be
 given here.
 
 ## Controller starts-up
 
 When powering up the controller, the operating system starts-up, then a few application processes
 start. The main controller process is the first one to start, and will immediately start emitting
-the [Advantics_Controller_Status](charge-controllers/secc_generic/can_v3.md#Advantics_Controller_Status) message every
+the [Advantics_Controller_Status](can_v3.md#Advantics_Controller_Status) message every
 100 ms.
 
 At the beginning it reports a state of *Initialising* until all internal processes started-up and
@@ -24,8 +24,8 @@ are talking to each other.
 Afterwards, if the controller is configured to use the sequence flags, it will report a state of
 *Not_Available*. This state is meant for pre-start external charge authorisation. Once your
 controller/HMI has validated the user, it sends
-a [Sequence_Control](charge-controllers/secc_generic/can_v3.md#Sequence_Controls) message with signal
-[Start_Charge_Authorisation](charge-controllers/secc_generic/can_v3.md#Sequence_Control-Start_Charge_Authorisation) set
+a [Sequence_Control](can_v3.md#Sequence_Control) message with signal
+[Start_Charge_Authorisation](can_v3.md#Sequence_Control-Start_Charge_Authorisation) set
 to `Allowed` (value 1).
 
 Afterwards, or if the controller is configured to not use the sequence flags, it reports a state of
@@ -141,7 +141,7 @@ The content of this initialisation behaves differently from communication protoc
 rather quick, but requires the user to push a start button on the charger. In CCS it can be a few
 tens of seconds, especially if payment authorisation is carried on.
 
-[Advantics_Controller_Status](charge-controllers/secc_generic/can_v3.md#Advantics_Controller_Status) message reports a
+[Advantics_Controller_Status](can_v3.md#Advantics_Controller_Status) message reports a
 state of *Negotiating_Connection* at first.
 Once done with the negotiation, it reports *Connected_With_Full_Info*.
 
@@ -149,10 +149,10 @@ However, in CCS, if the charger is configured to use external authorisation, and
 the sequence flags, you will have an intermediate state *CCS_Authorisation_Process*.
 The controller, and the CCS communication itself, will stay in this state as long as the customer
 controller does not set the
-flag [CCS_Authorisation_Done](charge-controllers/secc_generic/can_v3.md#Sequence_Control-CCS_Authorisation_Done) to
+flag [CCS_Authorisation_Done](can_v3.md#Sequence_Control-CCS_Authorisation_Done) to
 `Done` (value 1).
 Once `Done` is set, the controller
-checks [CCS_Authorisation_Valid](charge-controllers/secc_generic/can_v3.md#Sequence_Control-CCS_Authorisation_Valid)
+checks [CCS_Authorisation_Valid](can_v3.md#Sequence_Control-CCS_Authorisation_Valid)
 flag. If set
 to `Valid` (value 1), the communication continue. If set to `Invalid` (value 0), the controller
 request a stop of communication to the vehicle (and it won't allow the vehicle to "force-through"
@@ -160,17 +160,17 @@ the sequence). If not using CCS external authorisation and sequence flags, the c
 consider user is always authorised and continues directly.
 
 When *Connected_With_Full_Info*, it also sends
-a [New_Charge_Session](charge-controllers/secc_generic/can_v3.md#New_Charge_Sessions) message alongside the other
+a [New_Charge_Session](can_v3.md#New_Charge_Session) message alongside the other
 messages carrying
 relevant information provided by the vehicle. If the controller is configured to use the sequence
 flags, it will wait
-that [Charge_Parameters_Done](charge-controllers/secc_generic/can_v3.md#Sequence_Control-Charge_Parameters_Done) is set
+that [Charge_Parameters_Done](can_v3.md#Sequence_Control-Charge_Parameters_Done) is set
 to `Done` (value 1) to
 continue to the next step (insulation test). Before that, as long as it is `Not_Done` (value 0), the
 customer controller can modify the content of
-the [DC_Power_Parameters](charge-controllers/secc_generic/can_v3.md#DC_Power_Parameters) message. If not using the
+the [DC_Power_Parameters](can_v3.md#DC_Power_Parameters) message. If not using the
 sequence flags then it continues directly with either the static limit values set in the config file,
-or whatever has been sent in [DC_Power_Parameters](charge-controllers/secc_generic/can_v3.md#DC_Power_Parameters) before
+or whatever has been sent in [DC_Power_Parameters](can_v3.md#DC_Power_Parameters) before
 that.
 
 !!! tip
@@ -316,58 +316,58 @@ The insulation resistance should be of at least 100 kΩ for CCS according to IE
 At first, the lock of the plug or inlet should be activated by now. Then the vehicle gives its
 permit to the charger to apply power. At this point, the Advantics controller has a mechanism to
 allow power modules to wake up and be ready for power before doing the actual insulation test.
-[New_Charge_Session](charge-controllers/secc_generic/can_v3.md#New_Charge_Sessions) will be sent periodically as long as
+[New_Charge_Session](can_v3.md#New_Charge_Session) will be sent periodically as long as
 customer controller is not sending a
-message [Power_Modules_Status](charge-controllers/secc_generic/can_v3.md#Power_Modules_Status)
-with [System_Enable](charge-controllers/secc_generic/can_v3.md#Power_Modules_Status-System_Enable) different from
+message [Power_Modules_Status](can_v3.md#Power_Modules_Status)
+with [System_Enable](can_v3.md#Power_Modules_Status-System_Enable) different from
 *Allowed* (value 1).
 
 !!! attention
-    This [System_Enable](charge-controllers/secc_generic/can_v3.md#Power_Modules_Status-System_Enable) flag will be used
+    This [System_Enable](can_v3.md#Power_Modules_Status-System_Enable) flag will be used
     even when the controller is
     configured to NOT use the sequence flags.
 
 
 !!! tip
     This allows power modules to be in sleep mode, only waking up on
-    incoming [New_Charge_Session](charge-controllers/secc_generic/can_v3.md#New_Charge_Session) messages, and gives it
+    incoming [New_Charge_Session](can_v3.md#New_Charge_Session) messages, and gives it
     some time to initialise. Internally, the controller manages to make the vehicle wait for cable insulation test while
     power modules wake up and
-    set [System_Enable](charge-controllers/secc_generic/can_v3.md#Power_Modules_Status-System_Enable) to *Allowed*.
+    set [System_Enable](can_v3.md#Power_Modules_Status-System_Enable) to *Allowed*.
     Therefore, you still have a limited time to wake-up as communication protocols may have long timeouts on these
     states (in the order of a few tens of seconds).
 
 
 !!! note
     Please note that once the power modules signal that they are ready, the controller emits one
-    [DC_Power_Control](charge-controllers/secc_generic/can_v3.md#DC_Power_Control)
-    message with [Target_Voltage](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Target_Voltage) == 0 V,
-    [Current_Range_Max](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Current_Range_Max) == 0 A,
-    [Current_Range_Min](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Current_Range_Min) == 0 A,
-    [Power_Function](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Power_Function) == `Standby`.
+    [DC_Power_Control](can_v3.md#DC_Power_Control)
+    message with [Target_Voltage](can_v3.md#DC_Power_Control-Target_Voltage) == 0 V,
+    [Current_Range_Max](can_v3.md#DC_Power_Control-Current_Range_Max) == 0 A,
+    [Current_Range_Min](can_v3.md#DC_Power_Control-Current_Range_Min) == 0 A,
+    [Power_Function](can_v3.md#DC_Power_Control-Power_Function) == `Standby`.
     This signifies a request for a "Standby", it will be used for this purpose across the charging session.
     When emitted, it's expected from the power electronics to be ready for any future request while not processing any
     power.
 
 
 Once ready for power, the controller will
-emit [DC_Power_Control](charge-controllers/secc_generic/can_v3.md#DC_Power_Control)
+emit [DC_Power_Control](can_v3.md#DC_Power_Control)
 with insulation target voltage
-as [Target_Voltage](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Target_Voltage)
-and [Power_Function](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Power_Function) == Insulation_Test.
+as [Target_Voltage](can_v3.md#DC_Power_Control-Target_Voltage)
+and [Power_Function](can_v3.md#DC_Power_Control-Power_Function) == Insulation_Test.
 Customer controller should be returning a meaningful value
-in [Insulation_Resistance](charge-controllers/secc_generic/can_v3.md#Power_Modules_Status-Insulation_Resistance)
-of [Power_Modules_Status](charge-controllers/secc_generic/can_v3.md#Power_Modules_Status) message. The controller will
-wait for the present voltage to be at least 90% of the requested test voltage. It then waits for the insulation resistance to be above the valid insulation resistance threshold (100 kΩ for CCS and 125 kΩ for MCS) for at least 10 iterations of the [DC_Power_Control](charge-controllers/secc_generic/can_v3.md#DC_Power_Control) message. This number of 10 is
+in [Insulation_Resistance](can_v3.md#Power_Modules_Status-Insulation_Resistance)
+of [Power_Modules_Status](can_v3.md#Power_Modules_Status) message. The controller will
+wait for the present voltage to be at least 90% of the requested test voltage. It then waits for the insulation resistance to be above the valid insulation resistance threshold (100 kΩ for CCS and 125 kΩ for MCS) for at least 10 iterations of the [DC_Power_Control](can_v3.md#DC_Power_Control) message. This number of 10 is
 an arbitrary choice from us, which we might change in the future if necessary.
 
 In case this criterion is not met (i.e. there is an electrical defect somewhere), the insulation test fails and the session will be terminated. The malfunction is reported to the vehicle.
 
 After successful insulation test and the sequence can proceed to the next stage, the controller will emit standby
-messages ([DC_Power_Control](charge-controllers/secc_generic/can_v3.md#DC_Power_Control)
-message with [Target_Voltage](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Target_Voltage) == 0 V,
-[Current_Range_Max](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Current_Range_Max) == 0 A,
-[Power_Function](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Power_Function) == Standby) as long as the
+messages ([DC_Power_Control](can_v3.md#DC_Power_Control)
+message with [Target_Voltage](can_v3.md#DC_Power_Control-Target_Voltage) == 0 V,
+[Current_Range_Max](can_v3.md#DC_Power_Control-Current_Range_Max) == 0 A,
+[Power_Function](can_v3.md#DC_Power_Control-Power_Function) == Standby) as long as the
 present voltage reported by power modules is above 20 V. It then reports to the vehicle the insulation test is finished and the
 charging process can continue to the next step.
 
@@ -536,11 +536,11 @@ adopted the precharge process, which consists in having the charger match the ba
 about 20 V prior to the vehicle closing its contactors.
 
 With CCS and MCS, the controller will start
-emitting [DC_Power_Control](charge-controllers/secc_generic/can_v3.md#DC_Power_Control)
-messages with [Target_Voltage](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Target_Voltage) == XXX V
-(battery voltage), [Current_Range_Max](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Current_Range_Max) ==
+emitting [DC_Power_Control](can_v3.md#DC_Power_Control)
+messages with [Target_Voltage](can_v3.md#DC_Power_Control-Target_Voltage) == XXX V
+(battery voltage), [Current_Range_Max](can_v3.md#DC_Power_Control-Current_Range_Max) ==
 0 A,
-[Power_Function](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Power_Function) == "Precharge" when the
+[Power_Function](can_v3.md#DC_Power_Control-Power_Function) == "Precharge" when the
 vehicle
 tells it to. These messages contain the target voltage corresponding to the present battery voltage. It also gives a
 maximum current limit to comply with (bear in mind some capacitors are still being charged in the process).
@@ -549,10 +549,10 @@ Once the vehicle decide the voltage is right (which it should do by its own meas
 it closes its contactors and continue with the charging sequence. While CCS and MCS does not explicitly tell when the vehicle is
 ending the precharge process, the controller is using the fact that the vehicle starts sending requests other than
 precharge to determine the end of precharge. At that point, the controller
-emits [DC_Power_Control](charge-controllers/secc_generic/can_v3.md#DC_Power_Control) standby message
-with [Target_Voltage](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Target_Voltage) == 0 V,
-[Current_Range_Max](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Current_Range_Max) == 0 A
-and [Power_Function](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Power_Function) == "Standby". However,
+emits [DC_Power_Control](can_v3.md#DC_Power_Control) standby message
+with [Target_Voltage](can_v3.md#DC_Power_Control-Target_Voltage) == 0 V,
+[Current_Range_Max](can_v3.md#DC_Power_Control-Current_Range_Max) == 0 A
+and [Power_Function](can_v3.md#DC_Power_Control-Power_Function) == "Standby". However,
 bear in mind that, as the
 battery voltage is now applied up to the charger output, the voltage will not go down, and the power
 electronics should not try to take the voltage to 0!
@@ -669,8 +669,8 @@ actual charge might be starting in several hours. It happens if the user of the 
 delayed charge or if there have been a negotiation of the charging schedule between the vehicle, the
 charger and the electricity provider (only in complex scenario of ISO).
 
-The [Charge_Status_Change](charge-controllers/secc_generic/can_v3.md#Charge_Status_Changes)
-and [DC_Power_Control](charge-controllers/secc_generic/can_v3.md#DC_Power_Control) messages are sent only once.
+The [Charge_Status_Change](can_v3.md#Charge_Status_Change)
+and [DC_Power_Control](can_v3.md#DC_Power_Control) messages are sent only once.
 
 ```puml
 @startuml
@@ -768,11 +768,11 @@ end note
 This happens as soon as the vehicle and the charger enter the actual power transfer phase. The process is
 very simple: the vehicle send its requests and limits to the controller, the controller
 forwards them to the customer controller, which can then send voltage and current setpoint to the power modules depending on
- the [Setpoints_Mode](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Setpoints_Mode) and power transfer direction specified by the car or the charger (determining the power transfer direction is explained later in this document).
+ the [Setpoints_Mode](can_v3.md#DC_Power_Control-Setpoints_Mode) and power transfer direction specified by the car or the charger (determining the power transfer direction is explained later in this document).
 
 While the vehicle can use its own voltage and current measurements, it is also required that the
 charger reports its own readings. Therefore, customer controller should update frequently the
-readings in [Power_Modules_Status](charge-controllers/secc_generic/can_v3.md#Power_Modules_Statuss) message.
+readings in [Power_Modules_Status](can_v3.md#Power_Modules_Status) message.
 
 However, the communication protocols are very demanding in terms of charger performances during this
 power transfer (CHAdeMO: 100 ms, ISO15118: 25 ms). In order to comply with these requirements (which
@@ -782,7 +782,7 @@ the loops are short, it should not create much lag anyway.
 
 !!! note
     A note about the periodicity at which
-    the [DC_Power_Control](charge-controllers/secc_generic/can_v3.md#DC_Power_Control)
+    the [DC_Power_Control](can_v3.md#DC_Power_Control)
     messages are emitted. In CHAdeMO they should be sent about every 100 ms. However, in CCS and MCS, the vehicle sets the pace,
     and the standards allows for periodicity of up to 60 s (afterwards it is considered a timeout and the charge stops).
 
@@ -911,7 +911,7 @@ end loop
 
 In this case, the voltage and current setpoints are defined by the vehicle, they are then sent to the charge controller which forwards them to the customer controller (taking into account the charger and cable limits), which sends them to power modules. The power modules should follow and not deviate from these requests, otherwise the vehicle could stop the charge abruptly.
 
-In this scenario, the controller sets [Setpoints_Mode](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Setpoints_Mode) to `Target_Mode` in the message [DC_Power_Control](charge-controllers/secc_generic/can_v3.md#DC_Power_Control) and provides the voltage and current setpoints. Both [Current_Range_Max](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Current_Range_Max) and [Current_Range_Min](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Current_Range_Min) signals will have the same value in `Target_Mode`
+In this scenario, the controller sets [Setpoints_Mode](can_v3.md#DC_Power_Control-Setpoints_Mode) to `Target_Mode` in the message [DC_Power_Control](can_v3.md#DC_Power_Control) and provides the voltage and current setpoints. Both [Current_Range_Max](can_v3.md#DC_Power_Control-Current_Range_Max) and [Current_Range_Min](can_v3.md#DC_Power_Control-Current_Range_Min) signals will have the same value in `Target_Mode`
 
 ### Power Transfer with Range Mode
 
@@ -920,17 +920,17 @@ This power transfer mode is used when the vehicle does not specify target power 
 
 The charger in this scenario has the liberty to cycle between charging and discharging the vehicle's battery within the provided limits depending on the application, as long as the target energy request of the vehicle is reached by the departure time. The power transfer direction and the power setpoints are determined by a third-party system, such as a Central System Management System (CSMS) via OCPP or a local control system on the charger. This decision-making process considers factors like real-time electricity pricing and grid requirements.
 
-In this scenario, the controller sets [Setpoints_Mode](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Setpoints_Mode) to Range_Mode in the message [DC_Power_Control](charge-controllers/secc_generic/can_v3.md#DC_Power_Control) and provides the voltage and current limits.
+In this scenario, the controller sets [Setpoints_Mode](can_v3.md#DC_Power_Control-Setpoints_Mode) to Range_Mode in the message [DC_Power_Control](can_v3.md#DC_Power_Control) and provides the voltage and current limits.
 
 The OCPP CSMS can define the power transfer direction and the charge/discharge current to be used within the limits of the current range.
-If this information is provided by the OCPP CSMS to the charge station, the generic interface forwards you this information over CAN bus via the signal [OCPP_Control](charge-controllers/secc_generic/can_v3.md#OCPP_Control-Dynamic_Target_Current) to be used as a current setpoint for the power modules.
+If this information is provided by the OCPP CSMS to the charge station, the generic interface forwards you this information over CAN bus via the signal [OCPP_Control](can_v3.md#OCPP_Control-Dynamic_Target_Current) to be used as a current setpoint for the power modules.
 
 !!! note
     A normal unidirectional power transfer process can be implemented in range mode by using the upper limit of the current range as a target current setpoint.
 
 
-> [More information about bidirectionality on EVSE](charge-controllers/secc_generic/secc_bidirectional)  
-> [More information about the Setpoints_Mode signal in DC_Power_Control](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Setpoints_Mode)
+> [More information about bidirectionality on EVSE](secc_bidirectional.md)  
+> [More information about the Setpoints_Mode signal in DC_Power_Control](can_v3.md#DC_Power_Control-Setpoints_Mode)
 
 ```puml
 @startuml
@@ -1037,14 +1037,14 @@ end loop
 @enduml
 ```
 
-In this scenario, the controller sets [Setpoints_Mode](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Setpoints_Mode) to `Range_Mode` in the message [DC_Power_Control](charge-controllers/secc_generic/can_v3.md#DC_Power_Control) and provides the voltage and current limits in the signals [Current_Range_Max](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Current_Range_Max) and [Current_Range_Min](charge-controllers/secc_generic/can_v3.md#DC_Power_Control-Current_Range_Min).
+In this scenario, the controller sets [Setpoints_Mode](can_v3.md#DC_Power_Control-Setpoints_Mode) to `Range_Mode` in the message [DC_Power_Control](can_v3.md#DC_Power_Control) and provides the voltage and current limits in the signals [Current_Range_Max](can_v3.md#DC_Power_Control-Current_Range_Max) and [Current_Range_Min](can_v3.md#DC_Power_Control-Current_Range_Min).
 
 
 ## End of charge
 
 This sequence comes at the end of a charge, when the charge has not been aborted irregularly. The
-[Charge_Status_Change](charge-controllers/secc_generic/can_v3.md#Charge_Status_Change) message is sent only once.
-Then three different [DC_Power_Control](charge-controllers/secc_generic/can_v3.md#DC_Power_Control) messages are
+[Charge_Status_Change](can_v3.md#Charge_Status_Change) message is sent only once.
+Then three different [DC_Power_Control](can_v3.md#DC_Power_Control) messages are
 being sent: First to stop the power output from the charger, then open the contactors, then lower the charger side
 output actively.
 
@@ -1257,10 +1257,10 @@ end loop
 When the charge session is over, the vehicle opens its contactors. Then, whoever owns the lock of plug/inlet waits for
 the voltage to lower to a safe level before unlocking the connector.
 
-The controller then emits [Charge_Session_Finished](charge-controllers/secc_generic/can_v3.md#Charge_Session_Finisheds)
+The controller then emits [Charge_Session_Finished](can_v3.md#Charge_Session_Finished)
 as a formal way to tell customer controller charging is done for now.
 
-However, state of [Advantics_Controller_Status](charge-controllers/secc_generic/can_v3.md#Advantics_Controller_Statuss)
+However, state of [Advantics_Controller_Status](can_v3.md#Advantics_Controller_Status)
 will continue to report *Closing_Communication* for some seconds as some communication protocols require to wait a bit
 before the charger becomes available again. Once that delay is passed, the controller goes back to *Waiting_For_PEV*
 state in
@@ -1383,8 +1383,8 @@ If this button is physical, then it can be wired to a free digital input on the 
 In that case, you should configure it in the charger config file.
 
 If this button is on an HMI screen, the customer controller can emulate the physical button input
-using the [User_Stop_Button](charge-controllers/secc_generic/can_v3.md#Sequence_Control-User_Stop_Button) flag
-in [Sequence_Control](charge-controllers/secc_generic/can_v3.md#Sequence_Control) message.
+using the [User_Stop_Button](can_v3.md#Sequence_Control-User_Stop_Button) flag
+in [Sequence_Control](can_v3.md#Sequence_Control) message.
 
 In practice, this only signals to the vehicle that the charger wants to do a normal charge stop.
 Vehicle should honor the request quickly. If the request happens during charging, it will behave

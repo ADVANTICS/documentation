@@ -232,6 +232,7 @@ to the vehicle. Which mean Maximum_Charge_Current can still reflect the true
 maximum charge current advertised to the vehicle.
 
 This signal does nothing in the following situations:
+
 - &lt;&lt;DC_Power_Control.Setpoints_Mode&gt;&gt; == __Target_Mode__.
 - Or you only use the generic interface, and manage power modules yourself.
 

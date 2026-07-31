@@ -15,7 +15,7 @@ An SSH server is running on the controller on the standard SSH port, 22. To acce
 
 In the present version, controllers are configured by default for a static IPv4 address:
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Variant | Static IP | Submask | Gateway |
 |---|---|---|---|
@@ -24,7 +24,8 @@ In the present version, controllers are configured by default for a static IPv4 
 
 </div>
 
-> [!NOTE] This will change in the future with DHCP addressing by default
+!!! note
+    This will change in the future with DHCP addressing by default
 
 The following steps will help access the controller successfully:
 <br/><br/>
@@ -58,14 +59,15 @@ The following steps will help access the controller successfully:
 
     <img src="images/fingerprint.png" alt="IP" width="600" height="70" />
 
-    > [!TIP]
-    > The controller is also using the _Avahi/ZeroConf/Bonjour/mDNS_ protocol to advertise itself
-    > on the network. In particular, the `_ssh._tcp_` service is broadcasted.
-    >
-    > So, in the simplest case you would just have to do:
-    > ```bash
-    > $ ssh root@advantics.local
-    > ```
+    !!! tip
+        The controller is also using the _Avahi/ZeroConf/Bonjour/mDNS_ protocol to advertise itself
+        on the network. In particular, the `_ssh._tcp_` service is broadcasted.
+
+        So, in the simplest case you would just have to do:
+
+        ```bash
+        $ ssh root@advantics.local
+        ```
 
 3. Access the controller using Putty:
 
@@ -79,7 +81,7 @@ The following steps will help access the controller successfully:
 
 On controllers sold for development and prototyping, the login credentials are:
 
-<div class="noheader-table small-table compact-table">
+<div class="noheader-table small-table compact-table" markdown="1">
 
 | * | *
 |---|---

@@ -12,30 +12,30 @@ It is possible to specify the absolute energy requests including the range for b
 In addition, the vehicle will be able to specify the time of departure which can be used in dynamic mode.
 
 !!! note
-    [Generic interface v2](charge-controllers/evcc_generic/README_v2.md) should be used for MCS and BPT applications
+    [Generic interface v2](../vehicle-can-interfaces/README_v2.md) should be used for MCS and BPT applications
 
 
 !!! note
     Bidirectionality is only available on a special development branch. You need update the containers
-    with the ones provided in the [Snapshots section](charge-controllers/evcc_versions.md#snapshots)
+    with the ones provided on this controller's **Software Releases** page
     of the download page.
 
 
 ## Relevant config entries
 
 - `[vehicle]` section
-  - [type](charge-controllers/evcc_configuration/generalities.md#type): Use `Advantics_Generic_v2`
-  - [is_bidirectional](charge-controllers/evcc_configuration/generalities.md#is_bidirectional): Set to `true`
-  - [dynamic_current_limit](charge-controllers/evcc_configuration/generalities.md#dynamic_current_limit): Set to `true`
-  - [energy_capacity](charge-controllers/evcc_configuration/generalities.md#energy_capacity): Becomes required
-  - [max_discharge_current](charge-controllers/evcc_configuration/generalities.md#max_discharge_current)
-  - [min_discharge_power](charge-controllers/evcc_configuration/generalities.md#min_discharge_power)
-  - [max_discharge_power](charge-controllers/evcc_configuration/generalities.md#max_discharge_power)
-  - [min_energy_request](charge-controllers/evcc_configuration/generalities.md#min_energy_request)
-  - [max_energy_request](charge-controllers/evcc_configuration/generalities.md#max_energy_request)
+  - [type](../configuration/generalities.md#type): Use `Advantics_Generic_v2`
+  - [is_bidirectional](../configuration/generalities.md#is_bidirectional): Set to `true`
+  - [dynamic_current_limit](../configuration/generalities.md#dynamic_current_limit): Set to `true`
+  - [energy_capacity](../configuration/generalities.md#energy_capacity): Becomes required
+  - [max_discharge_current](../configuration/generalities.md#max_discharge_current)
+  - [min_discharge_power](../configuration/generalities.md#min_discharge_power)
+  - [max_discharge_power](../configuration/generalities.md#max_discharge_power)
+  - [min_energy_request](../configuration/generalities.md#min_energy_request)
+  - [max_energy_request](../configuration/generalities.md#max_energy_request)
 - `[ccs]` section
-  - [enable_iso_part20](charge-controllers/evcc_configuration/ccs.md#enable_iso_part20)
-  - [iso_part20_dc_priority](charge-controllers/evcc_configuration/ccs.md#iso_part20_dc_priority)
+  - `enable_iso_part20`
+  - `iso_part20_dc_priority`
 
 !!! note
     When ISO 15118-20 is enabled in the `[ccs]` section, the `ccs-evcc` application takes much longer
@@ -44,25 +44,25 @@ to load. This performance point will be addressed later.
 
 ## Changes in the EVCC Generic CAN interface v2:
 
-<div class="compact-table">
+<div class="compact-table" markdown="1">
 
 | Name | ID | Length | Direction | Cycle time | Difference |
 |------|----|--------|-----------|------------| ----------- |
-| [EV_Information](#EV_Information) | 0x610 | 3 | IN | 100 | New signal |
-| [EV_Energy_Request](#EV_Energy_Request) | 0x614 | 6 | IN | 100 | New message |
-| [EV_V2X_Energy_Request](#EV_V2X_Energy_Request) | 0x615 | 4 | IN | 100 | New message |
-| [EV_Extra_BPT_Information](#EV_Extra_BPT_Information) | 0x616 | 4 | IN | Optional | New message |
+| [EV_Information](#ev_information) | 0x610 | 3 | IN | 100 | New signal |
+| [EV_Energy_Request](#ev_energy_request) | 0x614 | 6 | IN | 100 | New message |
+| [EV_V2X_Energy_Request](#ev_v2x_energy_request) | 0x615 | 4 | IN | 100 | New message |
+| [EV_Extra_BPT_Information](#ev_extra_bpt_information) | 0x616 | 4 | IN | Optional | New message |
 
 </div>
 
 Download CAN DBs:
 
-- [Advantics Generic PEV protocol v2 (Kayak format)](charge-controllers/evcc_generic/Advantics_Generic_PEV_protocol_v2.kcd ':ignore')
-- [Advantics Generic PEV protocol v2 (DBC format)](charge-controllers/evcc_generic/Advantics_Generic_PEV_protocol_v2.dbc ':ignore')
+- [Advantics Generic PEV protocol v2 (Kayak format)](../vehicle-can-interfaces/Advantics_Generic_PEV_protocol_v2.kcd)
+- [Advantics Generic PEV protocol v2 (DBC format)](../vehicle-can-interfaces/Advantics_Generic_PEV_protocol_v2.dbc)
 
 ## EV_Information
 
-<div class="noheader-table small-table compact-table">
+<div class="noheader-table small-table compact-table" markdown="1">
 
 | * | * |
 |---|---|
@@ -81,7 +81,7 @@ Information provided by the vehicle.
 ### Payload
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
@@ -98,7 +98,7 @@ Information provided by the vehicle.
 Battery SoC in percent (only used in HLC mode).
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -114,7 +114,7 @@ In case this value is 0 we default to the config file entry `energy_capacity`.
 Pleaase note that providing the energy capacity of the battery is mandatory if ISO15118-20 is used.
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -124,7 +124,7 @@ Pleaase note that providing the energy capacity of the battery is mandatory if I
 
 ## EV_Energy_Request
 
-<div class="noheader-table small-table compact-table">
+<div class="noheader-table small-table compact-table" markdown="1">
 
 | * | * |
 |---|---|
@@ -149,7 +149,7 @@ Minimum_Energy_Request ≤ Target_Energy_Request ≤ Maximum_Energy_Request
 ### Payload
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
@@ -168,7 +168,7 @@ The energy of the EV corresponding to the target SOC.
 The target energy request can be lower than the current energy level present in the battery represented by the SoC.
 This represents a discharge request. More details available in the ISO15118-20 documentation.
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -182,7 +182,7 @@ The energy of the EV corresponding to the minimum SOC.
 In case this message is not sent we default to the config file entry `min_energy_request`.
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -197,7 +197,7 @@ In case this message is not sent we default to the config file entry `max_energy
 This value will be capped by Energy_Capacity.
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -207,7 +207,7 @@ This value will be capped by Energy_Capacity.
 
 ## EV_V2X_Energy_Request
 
-<div class="noheader-table small-table compact-table">
+<div class="noheader-table small-table compact-table" markdown="1">
 
 | * | * |
 |---|---|
@@ -231,7 +231,7 @@ Maximum_V2X_Energy_Request ≤ Maximum_Energy_Request
 ### Payload
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
@@ -247,7 +247,7 @@ Maximum_V2X_Energy_Request ≤ Maximum_Energy_Request
 
 The minimum energy level for the bidirectional cycling activity range.
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -259,7 +259,7 @@ The minimum energy level for the bidirectional cycling activity range.
 
 The maximum energy level for the bidirectional cycling activity range.
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -269,7 +269,7 @@ The maximum energy level for the bidirectional cycling activity range.
 
 ## EV_Extra_BPT_Information
 
-<div class="noheader-table small-table compact-table">
+<div class="noheader-table small-table compact-table" markdown="1">
 
 | * | * |
 |---|---|
@@ -287,7 +287,7 @@ EV extra bidirectional power transfer information.
 ### Payload
 
 
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
@@ -302,7 +302,7 @@ EV extra bidirectional power transfer information.
 
 Indicate when the EV intends to finish the charging process.
 Represents the offset in seconds from the point in time of sending this message.
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|

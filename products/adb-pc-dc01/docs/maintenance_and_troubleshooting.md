@@ -116,6 +116,7 @@ Follow this guide to perform scheduled preventative maintenance to ensure long s
 **WARNING:** **RISK OF ELECTRIC SHOCK.** The unit must be fully powered off, de-energized, locked-out, and capacitors discharged before performing any maintenance. Wait at least 15 minutes after powering down the equipment.
 
 **Prerequisites:**  
+
 - Unit is fully de-energized.  
 - You have the required spare parts (filters, etc.).  
 

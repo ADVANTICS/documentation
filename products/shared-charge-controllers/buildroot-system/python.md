@@ -35,7 +35,7 @@ Here are the major packages installed on the host system and in container image 
 
 ## Installing other packages
 
-`pip` is available on both the host system as well as inside the `advantics/python:run` container. Therefore, it can be as simple as executing a `pip install <PACKAGE_NAME>` command on the host system (don't forget to switch your system to [writable mode](charge-controllers/sys3_user/read-only.md) beforehand) or in an instantiated container, or as a `RUN` command of a Dockerfile.
+`pip` is available on both the host system as well as inside the `advantics/python:run` container. Therefore, it can be as simple as executing a `pip install <PACKAGE_NAME>` command on the host system (don't forget to switch your system to [writable mode](read-only.md) beforehand) or in an instantiated container, or as a `RUN` command of a Dockerfile.
 
 ## Accessing a CAN bus
 

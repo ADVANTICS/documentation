@@ -177,6 +177,241 @@
     background-color: #f8fafc;
 }
 
+/* Figure sizing and captions (carried over from the docsify site)
+   Migrated pages wrap images in <div class="bigger-NNN"> and follow them with a
+   <figcaption>. Docsify styled these in index.html under .markdown-section; the
+   material equivalent is .md-typeset. max-width (not width) keeps them responsive. */
+.md-typeset .bigger-300 img,
+.md-typeset .bigger-300 svg {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+}
+
+.md-typeset .bigger-900 img,
+.md-typeset .bigger-900 svg {
+    max-width: 900px;
+    width: 100%;
+    height: auto;
+}
+
+.md-typeset .bigger-1000 img,
+.md-typeset .bigger-1000 svg {
+    max-width: 1000px;
+    width: 100%;
+    height: auto;
+}
+
+.md-typeset figcaption {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    color: var(--advantics-gray);
+    padding: 6px 0 6px 2px;
+}
+
+[data-md-color-scheme="slate"] .md-typeset figcaption {
+    color: var(--md-default-fg-color--light);
+}
+
+/* Docsify put the caption immediately after a code block in a few pages */
+.md-typeset figcaption + pre {
+    margin-top: 0;
+}
+
+/* Table modifier classes carried over from the docsify site.
+   Migrated pages wrap tables in <div class="small-table compact-table"> (and
+   sometimes noheader-table) — 400+ uses across the version-history, changelog and
+   CAN message pages. Docsify styled these in index.html under .markdown-section;
+   without the material equivalent they render as plain full-width tables. */
+/* these wrappers set white-space: nowrap on cells, so they need somewhere to overflow to;
+   without this the wide CAN message tables push the whole page sideways */
+.md-typeset .small-table,
+.md-typeset .compact-table,
+.md-typeset .noheader-table {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.md-typeset .small-table table {
+    width: auto;
+}
+
+.md-typeset .noheader-table thead {
+    display: none;
+}
+
+.md-typeset .noheader-table tbody {
+    border-top: 1px solid var(--md-typeset-table-color);
+}
+
+/* A bare <span> before the table acts as its caption on these pages */
+.md-typeset .compact-table > span {
+    font-weight: 600;
+    font-size: 1.25em;
+    line-height: 1.2;
+}
+
+.md-typeset .compact-table > span + div table {
+    margin-top: 5px !important;
+}
+
+.md-typeset .compact-table tbody tr {
+    border-bottom: 1px solid var(--md-typeset-table-color);
+}
+
+.md-typeset .compact-table thead tr {
+    border-top: 1px solid var(--md-typeset-table-color);
+    border-bottom: 1px solid var(--md-typeset-table-color);
+}
+
+.md-typeset .compact-table tbody td,
+.md-typeset .compact-table thead th {
+    border-color: var(--md-typeset-table-color);
+    border-style: solid;
+    border-width: 0 1px 0 1px;
+    font-size: 14px;
+    padding: 5px 8px 6px 8px;
+    white-space: nowrap;
+}
+
+/* opt back into wrapping inside an otherwise nowrap compact table */
+.md-typeset .wrap,
+.md-typeset .compact-table .wrap {
+    white-space: normal;
+}
+
+/* Release-history tables (the "Software Releases" page of every charge controller).
+   One definition for all four, replacing the per-page <style> blocks that had drifted apart.
+
+   Two things make these tables hard:
+
+   1. mkdocs-material scopes ALL of its table styling to `table:not([class])`, so a table
+      carrying a class (ours is `custom-table`) gets none of it -- including the
+      `th { min-width: 5rem }` that normally stops columns collapsing.
+   2. Column labels cannot be hard-coded per index, because the four tables differ:
+      SPCC/MEVC are Branch|Date|Changelog|Download|Docker Hub, SECC is
+      Version|Release date|Changelog|Full system image|Notes, EVCC adds an Updater tool
+      column. So SPCC's old card layout (labels via `td::before`) was not portable.
+
+   Hence `table-layout: fixed`: column widths come from the rules below rather than from the
+   content, so a long image tag or URL can never crush a column. The first two columns get a
+   fixed width and the remaining ones split the rest evenly. `min-width` in px (not rem --
+   Material rescales the root font size) makes the wrapper scroll on a narrow viewport
+   instead of the table being squashed.
+
+   Do NOT use `overflow-wrap: anywhere` on the cells: unlike `break-word` it feeds into
+   min-content intrinsic sizing, which lets the browser shrink every column to one
+   character -- the exact bug this replaced.
+
+   Because the table is wider than the ~688px content column, the four release pages carry
+   `hide: [toc]` front matter. Dropping the right-hand table-of-contents (which lists only
+   Hardware / Software / Major releases on those pages, so nothing of value is lost) widens
+   the content column to ~938px and the table then fits whole at laptop widths. Without it
+   the last column is clipped and reachable only by scrolling the wrapper.
+
+   Applies to plain Markdown tables wrapped in <div class="release-table" markdown="1">
+   (SECC, EVCC) and to the hand-written <table class="custom-table"> (SPCC, MEVC).
+
+   The `custom-table` half MUST stay scoped to `.custom-table-wrapper`: the name is not
+   unique. configuration/dc_contactors.md uses `class="custom-table"` for an unrelated
+   3-column configuration matrix that brings its own <style> with a 20/40/40 colgroup.
+   Unscoped, `.md-typeset table.custom-table` (0,2,1) outranks that page's
+   `table.custom-table` (0,1,1) and forced min-width:900px onto a 688px column, clipping it
+   -- found by tools/check_overflow.py, not by any build warning. */
+.md-typeset .release-table,
+.md-typeset .custom-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.md-typeset .release-table table,
+.md-typeset .custom-table-wrapper table.custom-table {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    min-width: 900px;
+    max-width: none;
+    border-collapse: collapse;
+    font-size: 0.62rem;
+    line-height: 1.5;
+}
+
+.md-typeset .release-table th,
+.md-typeset .release-table td,
+.md-typeset .custom-table-wrapper table.custom-table th,
+.md-typeset .custom-table-wrapper table.custom-table td {
+    border: 1px solid var(--md-typeset-table-color);
+    padding: 0.5rem 0.6rem;
+    vertical-align: top;
+    text-align: left;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: normal;
+}
+
+.md-typeset .release-table th,
+.md-typeset .custom-table-wrapper table.custom-table th {
+    font-weight: 700;
+    background-color: var(--md-default-fg-color--lightest);
+}
+
+/* version and date columns stay narrow; the prose columns share what is left */
+.md-typeset .release-table th:nth-child(1),
+.md-typeset .release-table td:nth-child(1),
+.md-typeset .custom-table-wrapper table.custom-table th:nth-child(1),
+.md-typeset .custom-table-wrapper table.custom-table td:nth-child(1) {
+    width: 7.5rem;
+}
+
+.md-typeset .release-table th:nth-child(2),
+.md-typeset .release-table td:nth-child(2),
+.md-typeset .custom-table-wrapper table.custom-table th:nth-child(2),
+.md-typeset .custom-table-wrapper table.custom-table td:nth-child(2) {
+    width: 6rem;
+}
+
+.md-typeset .release-table ul,
+.md-typeset .custom-table-wrapper table.custom-table ul {
+    margin: 0;
+    padding-left: 1.1rem;
+}
+
+.md-typeset .release-table li,
+.md-typeset .custom-table-wrapper table.custom-table li {
+    margin: 0.15rem 0;
+}
+
+/* break long image tags / URLs inside a cell without affecting column sizing */
+.md-typeset .release-table a,
+.md-typeset .custom-table-wrapper table.custom-table a {
+    word-break: break-word;
+}
+
+.md-typeset .release-table tbody tr:nth-child(even),
+.md-typeset .custom-table-wrapper table.custom-table tbody tr:nth-child(even) {
+    background-color: var(--md-default-fg-color--lightest);
+}
+
+/* PlantUML: always show the light diagram, never the "dark" one.
+   mkdocs_puml emits a light and a dark <div> per diagram and switches between them in
+   assets/mkdocs_puml/puml.css based on data-md-color-scheme. Our diagrams carry the
+   Advantics palette inline (light background, dark text) because the plugin's theme:
+   option cannot be used here -- it injects "!include <url>" which the *plantuml.com
+   server* has to fetch, so the prepared docs/_puml/advantics-theme-*.puml files are
+   unreachable with render: "server". The dark <div> is therefore the same light-styled
+   source with the plugin's dark post-processing on top: white text on our light
+   background, i.e. unreadable. Pin the light variant in both page modes.
+   !important is required because puml.css is appended to extra_css *after* this file. */
+.md-typeset .puml.light {
+    display: block !important;
+}
+
+.md-typeset .puml.dark {
+    display: none !important;
+}
+
 /* Define logical A4 margins */
 @page {
   size: A4 !important;

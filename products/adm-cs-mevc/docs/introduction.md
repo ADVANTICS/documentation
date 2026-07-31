@@ -3,6 +3,7 @@
 ## Characteristics
 
 The ADM-CS-MEVC is an EV charge controller for onboard vehicle charging. The main features include:
+
 - Linux system, running on iMX7 ARM platform
 - MCS charging IEC 61851-23-3 and ISO 15118-20
 - Bidirectional Power Transfer (BPT) Capable
@@ -53,7 +54,7 @@ new EV applications like rescue vehicles, and charge emulation for development p
 
 ## Accessing the controller
 
-Please see the [Accessing and interacting with the controller](charge-controllers/advantics_os/connecting.md) section for details.
+Please see the [Accessing and interacting with the controller](advos-yocto-system/connecting.md) section for details.
 
 ## Pinout Table
 The reference of the pin is composed of 3 characters:
@@ -62,51 +63,51 @@ The reference of the pin is composed of 3 characters:
 - The second character is a letter indicating the column 
 - The third character indicates the connector: "1" is the small connector (on the left in figure 2 above) and 2 indicates the big one (the one on the right)
 
-| Name | ![connector 1](images/PEV_connector1.png "connector 1") | ![connector 2](images/PEV_connector2.png "connector 2") |
+| Name | ![connector 1](assets/PEV_connector1.png "connector 1") | ![connector 2](assets/PEV_connector2.png "connector 2") |
 |------|----|--------|
-| [SWITCHED_POWER](#Power_input) | <center> - | <center> 2C2 |
-| [PERMANENT_POWER](#Power_input) | <center> - | <center> 3C2 |
-| [POWER_GND](#Power_input) | <center> - | <center> 1D2 |
-| [TRXP (MCS PHY1)](#MCS_Interface) | <center> - | <center> 1A2 |
-| [TRXN (MCS PHY2)](#MCS_Interface) | <center> - | <center> 2A2 |
-| [MCS_GND](#MCS_Interface) | <center> - | <center> 3A2 |
-| [CE (MCS)](#MCS_Interface) | <center> - | <center> 1H2 |
-| [ID (MCS)](#MCS_Interface) | <center> - | <center> 2H2 |
-| [MCS_LOCK_POWER](#MCS_Interface) | <center> - | <center> 3B2 |
-| [MCS_LOCK+](#MCS_Interface) | <center> - | <center> 1B2 |
-| [MCS_LOCK-](#MCS_Interface) | <center> - | <center> 2B2 |
-| [MCS_LOCK_FB](#MCS_Interface) | <center> was 3E1 only on ADM-CS-MEVC-PB01-R0A Engineering Units | <center> 2J2 (starting from ADM-CS-MEVC-PB01-R0B) |
-| [PTC0](#Temperature_monitoring) | <center>  2D1 | <center> - |
-| [PTC1](#Temperature_monitoring) | <center>  1E1 | <center> - |
-| [PTC2](#Temperature_monitoring) | <center>  3E1 (starting from ADM-CS-MEVC-PB01-R0B) | <center> - |
-| [PTC_GND](#Temperature_monitoring) | <center>  3D1 | <center> - |
-| [PTC_GND](#Temperature_monitoring) | <center>  2E1 | <center> - |
-| [PTC_GND](#Temperature_monitoring) | <center>  1F1 | <center> - |
-| [MCS Auxiliary Voltage](#MCS_Interface) | <center> - | <center> 3G2 |
-| [MCS_CE_Sv4_ext](#MCS_Interface) | <center> - | <center> 3H2 |
-| [GND](#MCS_Interface) | <center> - | <center> 1J2 |
-| [CAN_H_TEMP_SENSOR](#MCS_Interface) | <center>  1B1 | <center> - |
-| [CAN_L_TEMP_SENSOR](#MCS_Interface) | <center>  2B1 | <center> - |
-| [CAN_TEMP_SENSOR_GND](#MCS_Interface) | <center>  3B1 | <center> - |
-| [CONTACTOR_POWER](#DC_fast_charge_contactors_control) | <center> - | <center> 2D2 |
-| [CONT_DC+_POS](#DC_fast_charge_contactors_control) | <center> - | <center> 3D2 |
-| [CONT_DC+_NEG](#DC_fast_charge_contactors_control) | <center> - | <center> 1E2 |
-| [CONT_DC+_FB](#DC_fast_charge_contactors_control) | <center> - | <center> 2E2 |
-| [CONT_DC-_POS](#DC_fast_charge_contactors_control) | <center> - | <center> 3E2 |
-| [CONT_DC-_NEG](#DC_fast_charge_contactors_control) | <center> - | <center> 1F2 |
-| [CONT_DC-_FB](#DC_fast_charge_contactors_control) | <center> - | <center> 2F2 |
-| [CHARGE_STOP](#Vehicle_CAN_bus) | <center> - | <center> 3F2 |
-| [CAN_H_CONTROL](#Vehicle_CAN_bus) | <center>  1A1 | <center> - |
-| [CAN_L_CONTROL](#Vehicle_CAN_bus) | <center>  2A1 | <center> - |
-| [CAN_CONTROL_GND](#Vehicle_CAN_bus) | <center>  3A1 | <center> - |
-| [UNUSED_GND](#Vehicle_CAN_bus) | <center> - | <center> 1C2 |
-| [ETHERNET_RJ45](#Ethernet) | <center>  ETH | <center> ETH |
-| [DIGITAL_IN1](#Digital_inputs_and_outputs) | <center> - | <center> 1G2 |
-| [DIGITAL_IN2](#Digital_inputs_and_outputs) | <center> - | <center> 2G2 |
-| [DIGITAL_OUT1](#Digital_inputs_and_outputs) | <center> - | <center> 1K2 |
-| [DIGITAL_OUT2](#Digital_inputs_and_outputs) | <center> - | <center> 2K2 |
-| [DIGITAL_OUT3](#Digital_inputs_and_outputs) | <center> - | <center> 3K2 |
-| [DIGITAL_GND](#Digital_inputs_and_outputs) | <center> - | <center> 3J2 |
+| [SWITCHED_POWER](interfaces.md#power-input) | <center> - | <center> 2C2 |
+| [PERMANENT_POWER](interfaces.md#power-input) | <center> - | <center> 3C2 |
+| [POWER_GND](interfaces.md#power-input) | <center> - | <center> 1D2 |
+| [TRXP (MCS PHY1)](interfaces.md#mcs-interface) | <center> - | <center> 1A2 |
+| [TRXN (MCS PHY2)](interfaces.md#mcs-interface) | <center> - | <center> 2A2 |
+| [MCS_GND](interfaces.md#mcs-interface) | <center> - | <center> 3A2 |
+| [CE (MCS)](interfaces.md#mcs-interface) | <center> - | <center> 1H2 |
+| [ID (MCS)](interfaces.md#mcs-interface) | <center> - | <center> 2H2 |
+| [MCS_LOCK_POWER](interfaces.md#mcs-interface) | <center> - | <center> 3B2 |
+| [MCS_LOCK+](interfaces.md#mcs-interface) | <center> - | <center> 1B2 |
+| [MCS_LOCK-](interfaces.md#mcs-interface) | <center> - | <center> 2B2 |
+| [MCS_LOCK_FB](interfaces.md#mcs-interface) | <center> was 3E1 only on ADM-CS-MEVC-PB01-R0A Engineering Units | <center> 2J2 (starting from ADM-CS-MEVC-PB01-R0B) |
+| [PTC0](interfaces.md#temperature-monitoring) | <center>  2D1 | <center> - |
+| [PTC1](interfaces.md#temperature-monitoring) | <center>  1E1 | <center> - |
+| [PTC2](interfaces.md#temperature-monitoring) | <center>  3E1 (starting from ADM-CS-MEVC-PB01-R0B) | <center> - |
+| [PTC_GND](interfaces.md#temperature-monitoring) | <center>  3D1 | <center> - |
+| [PTC_GND](interfaces.md#temperature-monitoring) | <center>  2E1 | <center> - |
+| [PTC_GND](interfaces.md#temperature-monitoring) | <center>  1F1 | <center> - |
+| [MCS Auxiliary Voltage](interfaces.md#mcs-interface) | <center> - | <center> 3G2 |
+| [MCS_CE_Sv4_ext](interfaces.md#mcs-interface) | <center> - | <center> 3H2 |
+| [GND](interfaces.md#mcs-interface) | <center> - | <center> 1J2 |
+| [CAN_H_TEMP_SENSOR](interfaces.md#mcs-interface) | <center>  1B1 | <center> - |
+| [CAN_L_TEMP_SENSOR](interfaces.md#mcs-interface) | <center>  2B1 | <center> - |
+| [CAN_TEMP_SENSOR_GND](interfaces.md#mcs-interface) | <center>  3B1 | <center> - |
+| [CONTACTOR_POWER](interfaces.md#dc-fast-charge-contactors-control) | <center> - | <center> 2D2 |
+| [CONT_DC+_POS](interfaces.md#dc-fast-charge-contactors-control) | <center> - | <center> 3D2 |
+| [CONT_DC+_NEG](interfaces.md#dc-fast-charge-contactors-control) | <center> - | <center> 1E2 |
+| [CONT_DC+_FB](interfaces.md#dc-fast-charge-contactors-control) | <center> - | <center> 2E2 |
+| [CONT_DC-_POS](interfaces.md#dc-fast-charge-contactors-control) | <center> - | <center> 3E2 |
+| [CONT_DC-_NEG](interfaces.md#dc-fast-charge-contactors-control) | <center> - | <center> 1F2 |
+| [CONT_DC-_FB](interfaces.md#dc-fast-charge-contactors-control) | <center> - | <center> 2F2 |
+| [CHARGE_STOP](interfaces.md#vehicle-can-bus) | <center> - | <center> 3F2 |
+| [CAN_H_CONTROL](interfaces.md#vehicle-can-bus) | <center>  1A1 | <center> - |
+| [CAN_L_CONTROL](interfaces.md#vehicle-can-bus) | <center>  2A1 | <center> - |
+| [CAN_CONTROL_GND](interfaces.md#vehicle-can-bus) | <center>  3A1 | <center> - |
+| [UNUSED_GND](interfaces.md#vehicle-can-bus) | <center> - | <center> 1C2 |
+| [ETHERNET_RJ45](interfaces.md#ethernet) | <center>  ETH | <center> ETH |
+| [DIGITAL_IN1](interfaces.md#digital-inputs-and-outputs) | <center> - | <center> 1G2 |
+| [DIGITAL_IN2](interfaces.md#digital-inputs-and-outputs) | <center> - | <center> 2G2 |
+| [DIGITAL_OUT1](interfaces.md#digital-inputs-and-outputs) | <center> - | <center> 1K2 |
+| [DIGITAL_OUT2](interfaces.md#digital-inputs-and-outputs) | <center> - | <center> 2K2 |
+| [DIGITAL_OUT3](interfaces.md#digital-inputs-and-outputs) | <center> - | <center> 3K2 |
+| [DIGITAL_GND](interfaces.md#digital-inputs-and-outputs) | <center> - | <center> 3J2 |
 
 ## Typical use case
 
@@ -115,8 +116,7 @@ The reference of the pin is composed of 3 characters:
 - [Bidirectional charging](https://advantics.fr/applications/emobility/bidirectional-charging/)
 
 <div class="bigger-1000">
-
-![Functionality overview](images/mevc_functionalities_overview.png "Functionality overview")
+<img src="assets/mevc_functionalities_overview.png" alt="Functionality overview">
 </div>
 <figcaption style="text-align: center">Figure 1: Functionality overview</figcaption>
 

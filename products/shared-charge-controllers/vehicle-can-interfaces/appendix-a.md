@@ -1,6 +1,68 @@
-# Appendix A
+# Charging sequence diagram
 
-```plantuml
+```puml
+@startuml
+!define ADVANTICS_GREEN #00A99D
+!define ADVANTICS_DARK_BLUE #1a365d
+!define ADVANTICS_LIGHT_BLUE #2d5aa0
+!define ADVANTICS_GRAY #4a5568
+!define ADVANTICS_LIGHT_GRAY #e2e8f0
+
+' General diagram style
+skinparam backgroundColor ADVANTICS_LIGHT_GRAY
+skinparam shadowing false
+
+' Fonts
+skinparam defaultFontName Roboto
+skinparam defaultFontSize 13
+skinparam defaultTextAlignment center
+
+' Lines and borders
+skinparam ArrowColor ADVANTICS_DARK_BLUE
+skinparam ArrowThickness 2
+
+' Participants, classes, and boxes
+skinparam participant {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_DARK_BLUE
+}
+
+skinparam sequence {
+  LifeLineBorderColor ADVANTICS_GREEN
+  LifeLineBackgroundColor ADVANTICS_LIGHT_GRAY
+  ParticipantBorderThickness 1
+  BoxLineColor ADVANTICS_GREEN
+}
+
+' Notes
+skinparam note {
+  BackgroundColor #f7fafc
+  BorderColor ADVANTICS_LIGHT_BLUE
+  FontColor ADVANTICS_GRAY
+}
+
+' Titles and headers
+skinparam title {
+  FontColor ADVANTICS_DARK_BLUE
+  FontSize 16
+  FontStyle bold
+}
+
+' Groups and frames
+skinparam package {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_DARK_BLUE
+}
+
+' Legends and text
+skinparam legend {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_GRAY
+}
+
 hide footbox
 skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2
@@ -67,8 +129,69 @@ deactivate EVCC
 @enduml
 ```
 
-```plantuml
+```puml
 @startuml
+!define ADVANTICS_GREEN #00A99D
+!define ADVANTICS_DARK_BLUE #1a365d
+!define ADVANTICS_LIGHT_BLUE #2d5aa0
+!define ADVANTICS_GRAY #4a5568
+!define ADVANTICS_LIGHT_GRAY #e2e8f0
+
+' General diagram style
+skinparam backgroundColor ADVANTICS_LIGHT_GRAY
+skinparam shadowing false
+
+' Fonts
+skinparam defaultFontName Roboto
+skinparam defaultFontSize 13
+skinparam defaultTextAlignment center
+
+' Lines and borders
+skinparam ArrowColor ADVANTICS_DARK_BLUE
+skinparam ArrowThickness 2
+
+' Participants, classes, and boxes
+skinparam participant {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_DARK_BLUE
+}
+
+skinparam sequence {
+  LifeLineBorderColor ADVANTICS_GREEN
+  LifeLineBackgroundColor ADVANTICS_LIGHT_GRAY
+  ParticipantBorderThickness 1
+  BoxLineColor ADVANTICS_GREEN
+}
+
+' Notes
+skinparam note {
+  BackgroundColor #f7fafc
+  BorderColor ADVANTICS_LIGHT_BLUE
+  FontColor ADVANTICS_GRAY
+}
+
+' Titles and headers
+skinparam title {
+  FontColor ADVANTICS_DARK_BLUE
+  FontSize 16
+  FontStyle bold
+}
+
+' Groups and frames
+skinparam package {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_DARK_BLUE
+}
+
+' Legends and text
+skinparam legend {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_GRAY
+}
+
 hide footbox
 skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2
@@ -127,8 +250,69 @@ end loop
 @enduml
 ```
 
-```plantuml
+```puml
 @startuml
+!define ADVANTICS_GREEN #00A99D
+!define ADVANTICS_DARK_BLUE #1a365d
+!define ADVANTICS_LIGHT_BLUE #2d5aa0
+!define ADVANTICS_GRAY #4a5568
+!define ADVANTICS_LIGHT_GRAY #e2e8f0
+
+' General diagram style
+skinparam backgroundColor ADVANTICS_LIGHT_GRAY
+skinparam shadowing false
+
+' Fonts
+skinparam defaultFontName Roboto
+skinparam defaultFontSize 13
+skinparam defaultTextAlignment center
+
+' Lines and borders
+skinparam ArrowColor ADVANTICS_DARK_BLUE
+skinparam ArrowThickness 2
+
+' Participants, classes, and boxes
+skinparam participant {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_DARK_BLUE
+}
+
+skinparam sequence {
+  LifeLineBorderColor ADVANTICS_GREEN
+  LifeLineBackgroundColor ADVANTICS_LIGHT_GRAY
+  ParticipantBorderThickness 1
+  BoxLineColor ADVANTICS_GREEN
+}
+
+' Notes
+skinparam note {
+  BackgroundColor #f7fafc
+  BorderColor ADVANTICS_LIGHT_BLUE
+  FontColor ADVANTICS_GRAY
+}
+
+' Titles and headers
+skinparam title {
+  FontColor ADVANTICS_DARK_BLUE
+  FontSize 16
+  FontStyle bold
+}
+
+' Groups and frames
+skinparam package {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_DARK_BLUE
+}
+
+' Legends and text
+skinparam legend {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_GRAY
+}
+
 hide footbox
 skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2
@@ -198,8 +382,69 @@ EVCC -> VCU: [0x600] EVSE_Information.Communication_Stage == Waiting_For_EVSE
 @enduml
 ```
 
-```plantuml
+```puml
 @startuml
+!define ADVANTICS_GREEN #00A99D
+!define ADVANTICS_DARK_BLUE #1a365d
+!define ADVANTICS_LIGHT_BLUE #2d5aa0
+!define ADVANTICS_GRAY #4a5568
+!define ADVANTICS_LIGHT_GRAY #e2e8f0
+
+' General diagram style
+skinparam backgroundColor ADVANTICS_LIGHT_GRAY
+skinparam shadowing false
+
+' Fonts
+skinparam defaultFontName Roboto
+skinparam defaultFontSize 13
+skinparam defaultTextAlignment center
+
+' Lines and borders
+skinparam ArrowColor ADVANTICS_DARK_BLUE
+skinparam ArrowThickness 2
+
+' Participants, classes, and boxes
+skinparam participant {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_DARK_BLUE
+}
+
+skinparam sequence {
+  LifeLineBorderColor ADVANTICS_GREEN
+  LifeLineBackgroundColor ADVANTICS_LIGHT_GRAY
+  ParticipantBorderThickness 1
+  BoxLineColor ADVANTICS_GREEN
+}
+
+' Notes
+skinparam note {
+  BackgroundColor #f7fafc
+  BorderColor ADVANTICS_LIGHT_BLUE
+  FontColor ADVANTICS_GRAY
+}
+
+' Titles and headers
+skinparam title {
+  FontColor ADVANTICS_DARK_BLUE
+  FontSize 16
+  FontStyle bold
+}
+
+' Groups and frames
+skinparam package {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_DARK_BLUE
+}
+
+' Legends and text
+skinparam legend {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_GRAY
+}
+
 hide footbox
 skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2
@@ -278,8 +523,69 @@ deactivate EVCC
 @enduml
 ```
 
-```plantuml
+```puml
 @startuml
+!define ADVANTICS_GREEN #00A99D
+!define ADVANTICS_DARK_BLUE #1a365d
+!define ADVANTICS_LIGHT_BLUE #2d5aa0
+!define ADVANTICS_GRAY #4a5568
+!define ADVANTICS_LIGHT_GRAY #e2e8f0
+
+' General diagram style
+skinparam backgroundColor ADVANTICS_LIGHT_GRAY
+skinparam shadowing false
+
+' Fonts
+skinparam defaultFontName Roboto
+skinparam defaultFontSize 13
+skinparam defaultTextAlignment center
+
+' Lines and borders
+skinparam ArrowColor ADVANTICS_DARK_BLUE
+skinparam ArrowThickness 2
+
+' Participants, classes, and boxes
+skinparam participant {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_DARK_BLUE
+}
+
+skinparam sequence {
+  LifeLineBorderColor ADVANTICS_GREEN
+  LifeLineBackgroundColor ADVANTICS_LIGHT_GRAY
+  ParticipantBorderThickness 1
+  BoxLineColor ADVANTICS_GREEN
+}
+
+' Notes
+skinparam note {
+  BackgroundColor #f7fafc
+  BorderColor ADVANTICS_LIGHT_BLUE
+  FontColor ADVANTICS_GRAY
+}
+
+' Titles and headers
+skinparam title {
+  FontColor ADVANTICS_DARK_BLUE
+  FontSize 16
+  FontStyle bold
+}
+
+' Groups and frames
+skinparam package {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_DARK_BLUE
+}
+
+' Legends and text
+skinparam legend {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_GRAY
+}
+
 hide footbox
 skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2
@@ -331,8 +637,69 @@ end loop
 @enduml
 ```
 
-```plantuml
+```puml
 @startuml
+!define ADVANTICS_GREEN #00A99D
+!define ADVANTICS_DARK_BLUE #1a365d
+!define ADVANTICS_LIGHT_BLUE #2d5aa0
+!define ADVANTICS_GRAY #4a5568
+!define ADVANTICS_LIGHT_GRAY #e2e8f0
+
+' General diagram style
+skinparam backgroundColor ADVANTICS_LIGHT_GRAY
+skinparam shadowing false
+
+' Fonts
+skinparam defaultFontName Roboto
+skinparam defaultFontSize 13
+skinparam defaultTextAlignment center
+
+' Lines and borders
+skinparam ArrowColor ADVANTICS_DARK_BLUE
+skinparam ArrowThickness 2
+
+' Participants, classes, and boxes
+skinparam participant {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_DARK_BLUE
+}
+
+skinparam sequence {
+  LifeLineBorderColor ADVANTICS_GREEN
+  LifeLineBackgroundColor ADVANTICS_LIGHT_GRAY
+  ParticipantBorderThickness 1
+  BoxLineColor ADVANTICS_GREEN
+}
+
+' Notes
+skinparam note {
+  BackgroundColor #f7fafc
+  BorderColor ADVANTICS_LIGHT_BLUE
+  FontColor ADVANTICS_GRAY
+}
+
+' Titles and headers
+skinparam title {
+  FontColor ADVANTICS_DARK_BLUE
+  FontSize 16
+  FontStyle bold
+}
+
+' Groups and frames
+skinparam package {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_DARK_BLUE
+}
+
+' Legends and text
+skinparam legend {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_GRAY
+}
+
 hide footbox
 skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2

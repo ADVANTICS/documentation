@@ -9,7 +9,7 @@ Version 3 of the interface provides improvements that made it easier to integrat
 
 !!! note
     Generic interface v3, CCS ISO 15118-20 and CHAdeMO V2G are available in version 4 of the software (from version 4.x.dev10 and newer).
-    Software releases can be found here: [Software Releases](../spcc_versions.md).
+    Software releases are listed on this controller's **Software Releases** page.
 
 
 ## Relevant config entries

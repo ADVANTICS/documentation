@@ -112,6 +112,7 @@ markdown_extensions:
       baselevel: 1
   - tables
   - attr_list
+  - md_in_html
 
 # Navigation structure
 nav:
@@ -132,6 +133,7 @@ nav:
     - Deployment Checklist: "advos-yocto-system/must-do-before-deploy.md"
   - CAN bus Interfaces:
     - Introduction: "charger-can-interfaces/introduction.md"
+    - Overview: "charger-can-interfaces/overview.md"
     - Generic interface v2:
       - Sequences of action: "charger-can-interfaces/sequences_v2.md"
       - CAN databases: "charger-can-interfaces/databases_v2.md"

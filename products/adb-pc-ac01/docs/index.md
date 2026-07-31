@@ -60,7 +60,6 @@ description: 100kW AC/DC Active Frontend (PFC) - User Documentation
 - Product page: [ADB-PC-AC01](https://advantics.fr/products/ADB-PC-AC01/)
 - Discover our portfolio: [ADVANTICS Products](https://advantics.fr/products/)
 - Sales: [sales@advantics.fr](mailto:sales@advantics.fr)
-- Marketing: [marketing@advantics.fr](mailto:marketing@advantics.fr) 
 - Technical Support: [Support Desk](https://advantics.atlassian.net/servicedesk/customer/portal/1)
 
 ---

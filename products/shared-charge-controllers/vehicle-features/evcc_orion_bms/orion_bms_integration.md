@@ -8,7 +8,7 @@ Integrating the Orion BMS with ADVANTICS EVCC is possible using the CAN Bus PEV 
 
 To make the communication possible, you only need to configure the BMS to send the messages needed by the PEV CAN Bus Generic interface using the CANBUS settings of the BMS.
 
-2 messages need to be configured. Please refer to [Generic PEV CAN interface](charge-controllers/evcc_generic/README.md) for detailed information:
+2 messages need to be configured. Please refer to [Generic PEV CAN interface](../../vehicle-can-interfaces/README.md) for detailed information:
 
 - EV_INFORMATION
 - DC_STATUS1
@@ -39,9 +39,9 @@ Some signals are not supported by the BMS. The solution for that is to provide t
 
 __*Use Isabellenhutte Sensor:*__
 
-Please refer to [CAN sensor](charge-controllers/evcc_configuration/can_sensor.md) to know how the sensor should be wired.
+Please refer to [CAN sensor](../../configuration/can_sensor.md) to know how the sensor should be wired.
 
-- Inlet Voltage: According to charging standards, Inlet Voltage should be measured from the vehicle side just before the contactors. It's used mainly during Precharge to close contactors on the correct voltage. Please check [CAN sensor](charge-controllers/evcc_configuration/can_sensor.md) to configure the controller to use the Isabellenhutte Sensor.
+- Inlet Voltage: According to charging standards, Inlet Voltage should be measured from the vehicle side just before the contactors. It's used mainly during Precharge to close contactors on the correct voltage. Please check [CAN sensor](../../configuration/can_sensor.md) to configure the controller to use the Isabellenhutte Sensor.
 
 The following signals should be provided by the sensor even though the BMS can provide them:
 
@@ -54,4 +54,4 @@ Use the input "Charge Stop" (3F2) on the ADM-CS-EVCC unit to indicate the end of
 
 __*Contactors with feedback:*__
 
-The ADM-CS-EVCC unit has optional DC contactors feedback inputs. Check [DC contactors](charge-controllers/evcc_configuration/dc_contactors.md) to configure the controller to use contactors with the feedback inputs.
+The ADM-CS-EVCC unit has optional DC contactors feedback inputs. Check [DC contactors](../../configuration/dc_contactors.md) to configure the controller to use contactors with the feedback inputs.

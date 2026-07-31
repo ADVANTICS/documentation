@@ -106,6 +106,7 @@ Please see the [Accessing and interacting with the controller](advos-yocto-syste
 - [Bi-directional charging](https://advantics.fr/applications/ev-charging/bidirectional-charging/)
 
 Each EV charging station design is different – requiring a different set of interfaces or equipment. To gain some understanding about the minimum requirements, you can study the following documents:
+
 - Standard IEC 61851-1, Electric vehicle conductive charging system – Part 1: General requirements
 - Standard IEC 61851-21-2, Electric vehicle requirements for conductive connection to an AC/DC supply
 - CharIN association – [CCS implementation guide](https://www.charinev.org/ccs-at-a-glance/ccs-implementation-guideline/)

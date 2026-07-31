@@ -2,8 +2,8 @@
 
 ## Application logs
 
-Please, refer to [EVSE applications control](charge-controllers/sys3_user/applications.md#individual-control) or
-[PEV applications control](charge-controllers/sys3_user/applications.md#individual-control-1) to learn how to access text logs of each application.
+Please, refer to [EVSE applications control](applications.md#individual-control) or
+[PEV applications control](applications.md#individual-control-1) to learn how to access text logs of each application.
 
 These might be useful to understand where a blocking point can be. You may also find clues to know
 if the problem comes from your side, Advantics side, or the vehicle/charger side.
@@ -13,14 +13,14 @@ if the problem comes from your side, Advantics side, or the vehicle/charger side
 Some CAN tools are already installed on the system. Here are a few examples.
 
 <br/>
-<div class="compact-table">
+<div class="compact-table" markdown="1">
 <span>Available CAN interfaces</span>
 
 | *CAN_IF* | Decription
 | --- | ---
 | can0 | Power modules CAN bus
 | can1 | CHAdeMO CAN bus
-| vcanX | Virtual internal CAN buses. Not activated by default (see [Virtual CAN buses](charge-controllers/sys3_user/developing.md#virtual-can-buses)).
+| vcanX | Virtual internal CAN buses. Not activated by default (see [Virtual CAN buses](developing.md#virtual-can-buses)).
 
 </div>
 

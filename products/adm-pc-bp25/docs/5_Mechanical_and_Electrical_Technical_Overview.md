@@ -1,0 +1,46 @@
+# **4.1. Mechanical and Electrical Overview**
+
+## Electrical characteristics
+
+The ADM-PC-BP25 ships in three variants. They differ only in the four ratings below;
+everything else is common to all three.
+
+### Variant-specific ratings
+
+|Field|VA08|VA01|VA04|
+|-----|----|----|----|
+|**Voltage range**|800 V<sub>DC</sub> bus max|950 V<sub>DC</sub> bus max|950 V<sub>DC</sub> bus max|
+|**Current range**|DC/DC: 111 A (37 A per phase)  <br /> AC/DC: 111 A<sub>rms</sub> (37 A<sub>rms</sub> per phase)<br />Derating depends on heatsink design, cooling and ambient conditions|DC/DC: 100 A (33 A per phase)  <br /> AC/DC: 90 A<sub>rms</sub> (30 A<sub>rms</sub> per phase) <br />Derating depends on heatsink design, cooling and ambient conditions|DC/DC: 111 A (37 A per phase)  <br /> AC/DC: 111 A<sub>rms</sub> (37 A<sub>rms</sub> per phase)<br />Derating depends on heatsink design, cooling and ambient conditions|
+|**AC rated voltage**|400 V<sub>AC</sub>|480 V<sub>AC</sub>|480 V<sub>AC</sub>|
+|**AC 3-phase grid support**|208 V<sub>AC</sub> to 400 V<sub>AC</sub>, neutral wire not used|208 V<sub>AC</sub> to 480 V<sub>AC</sub>, neutral wire not used|208 V<sub>AC</sub> to 480 V<sub>AC</sub>, neutral wire not used|
+
+### Common to all variants
+
+|Field|Value|
+|-----|-----|
+|**Power**|DC/DC: 50 kW max  <br /> AC/DC: 25 kW max|
+|**Efficiency**|>99% peak|
+|**Power factor**|3-phase mode: >0.995 @ 20 kW, >0.99 @ 9 kW  <br />1-phase mode: 0.997 @ 8 kW, >0.99 @ 2500 W|
+|**Power flow**|Bidirectional|
+|**Power conversion modes**|Step-down (Buck)<br />Step-up (Boost)<br />Grid attached (Rectification) <br /> AC generation (Inverter) <br />|
+|**AC mains frequency**|45 - 65 Hz|
+|**AC 1-phase grid support**|110 V<sub>AC</sub> to 480 V<sub>AC</sub>, one phase, split phase (external capacitors required)|
+|**Protection features**|Overcurrent<br />Overvoltage<br />Overheating <br /> Common interlock line<br />'Keep alive' periodic message (optional)|
+|**Voltage and current accuracy**|+/-2% (+/-1% typical)|
+|**Communication protocol**|CAN bus 2.0B, 500kbit/s with extended addressing|
+|**Communication chaining**|Possible. Up to 32 devices of the same type. More if different module types are chained.|
+|**Logic interface**|8 pin JST CPT automotive series|
+|**Logic power**|24V nominal (Min: 20V, Max: 28V), max 450 mA current per module|
+|**Interlock**|Open collector, hardware interlock|
+
+
+## Mechanical characteristics
+
+|Field|ADM-PC-BP25|
+|-----|-----------|
+|**Dimensions**| 230 x 60 x 255 mm (without cooling)|
+|**Weight**| 4.0 Kg (without cooling)|
+|**Power connectors**| Screw terminals, M5 thread|
+|**Operating temperature**| -20 to 50 degrees Celsius (ambient)|
+|**Storage temperature**| -20 to 75 degrees Celsius|
+|**Storage relative humidity**| 20 to 80% without condensation|

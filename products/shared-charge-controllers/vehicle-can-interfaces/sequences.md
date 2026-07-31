@@ -3,7 +3,7 @@
 Before describing the CAN communication, let's take a detailed look at the sequences of actions,
 and what each actor in the charge process does.
 
-See [Appendix A](charge-controllers/evcc_generic/appendix-a.md) for the full sequence diagram. Extracts of it will be given here.
+See [Appendix A](appendix-a.md) for the full sequence diagram. Extracts of it will be given here.
 
 ## Controller starts-up
 
@@ -11,12 +11,74 @@ When powering up Advantics controller, the operating system starts-up, then a fe
 processes start. The main controller process is the first one to start, and will immediately start
 emitting its messages every 100 ms (1s for the controller inputs feedback message).
 
-At the beginning it reports a state of _Initialising_ in signal [EVSE_Information.Communication_Stage](charge-controllers/evcc_generic/can.md#EVSE_Information-Communication_Stage) until all internal processes started-up and are talking to
+At the beginning it reports a state of _Initialising_ in signal [EVSE_Information.Communication_Stage](can.md#EVSE_Information-Communication_Stage) until all internal processes started-up and are talking to
 each other.
 
-Afterwards, [EVSE_Information.Communication_Stage](charge-controllers/evcc_generic/can.md#EVSE_Information-Communication_Stage) reports a state of *Waiting_For_EVSE*.
+Afterwards, [EVSE_Information.Communication_Stage](can.md#EVSE_Information-Communication_Stage) reports a state of *Waiting_For_EVSE*.
 
-```plantuml
+```puml
+@startuml
+!define ADVANTICS_GREEN #00A99D
+!define ADVANTICS_DARK_BLUE #1a365d
+!define ADVANTICS_LIGHT_BLUE #2d5aa0
+!define ADVANTICS_GRAY #4a5568
+!define ADVANTICS_LIGHT_GRAY #e2e8f0
+
+' General diagram style
+skinparam backgroundColor ADVANTICS_LIGHT_GRAY
+skinparam shadowing false
+
+' Fonts
+skinparam defaultFontName Roboto
+skinparam defaultFontSize 13
+skinparam defaultTextAlignment center
+
+' Lines and borders
+skinparam ArrowColor ADVANTICS_DARK_BLUE
+skinparam ArrowThickness 2
+
+' Participants, classes, and boxes
+skinparam participant {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_DARK_BLUE
+}
+
+skinparam sequence {
+  LifeLineBorderColor ADVANTICS_GREEN
+  LifeLineBackgroundColor ADVANTICS_LIGHT_GRAY
+  ParticipantBorderThickness 1
+  BoxLineColor ADVANTICS_GREEN
+}
+
+' Notes
+skinparam note {
+  BackgroundColor #f7fafc
+  BorderColor ADVANTICS_LIGHT_BLUE
+  FontColor ADVANTICS_GRAY
+}
+
+' Titles and headers
+skinparam title {
+  FontColor ADVANTICS_DARK_BLUE
+  FontSize 16
+  FontStyle bold
+}
+
+' Groups and frames
+skinparam package {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_DARK_BLUE
+}
+
+' Legends and text
+skinparam legend {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_GRAY
+}
+
 hide footbox
 skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2
@@ -44,6 +106,7 @@ EVCC -> VCU: [0x600] EVSE_Information.Communication_Stage == Initialising
 EVCC -> VCU: [0x600] EVSE_Information.Communication_Stage == Waiting_For_EVSE
 
 |||
+@enduml
 ```
 
 ## Charge initialisation
@@ -58,13 +121,13 @@ In CCS it can take a few tens of seconds, especially if payment authorisation is
     for this particular function. Refer to `/srv/config.cfg` file for more details.
 
 
-[EVSE_Information.Communication_Stage](charge-controllers/evcc_generic/can.md#EVSE_Information-Communication_Stage) reports a state of *Negotiating_Connection* at first.
-During this exchange of parameters, [EVSE_Information](charge-controllers/evcc_generic/can.md#EVSE_Information) message will also update its other signals
+[EVSE_Information.Communication_Stage](can.md#EVSE_Information-Communication_Stage) reports a state of *Negotiating_Connection* at first.
+During this exchange of parameters, [EVSE_Information](can.md#evse_information) message will also update its other signals
 with information it got from the charger. Within that time, the only piece of information customer
 VCU needs to provide is the present battery state of charge. It should do so by sending
-[EV_Information](charge-controllers/evcc_generic/can.md#EV_Information) message early on.
+[EV_Information](can.md#ev_information) message early on.
 
-Once done with the negotiation, [EVSE_Information.Communication_Stage](charge-controllers/evcc_generic/can.md#EVSE_Information-Communication_Stage) reports
+Once done with the negotiation, [EVSE_Information.Communication_Stage](can.md#EVSE_Information-Communication_Stage) reports
 *Connected_With_Full_Info*. Advantics controller will also activate the inlet lock, such that
 charge pistol cannot be pulled-out from that moment.
 
@@ -74,8 +137,69 @@ charge pistol cannot be pulled-out from that moment.
     configure the controller for the right type of lock used in the inlet port.
 
 
-```plantuml
+```puml
 @startuml
+!define ADVANTICS_GREEN #00A99D
+!define ADVANTICS_DARK_BLUE #1a365d
+!define ADVANTICS_LIGHT_BLUE #2d5aa0
+!define ADVANTICS_GRAY #4a5568
+!define ADVANTICS_LIGHT_GRAY #e2e8f0
+
+' General diagram style
+skinparam backgroundColor ADVANTICS_LIGHT_GRAY
+skinparam shadowing false
+
+' Fonts
+skinparam defaultFontName Roboto
+skinparam defaultFontSize 13
+skinparam defaultTextAlignment center
+
+' Lines and borders
+skinparam ArrowColor ADVANTICS_DARK_BLUE
+skinparam ArrowThickness 2
+
+' Participants, classes, and boxes
+skinparam participant {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_DARK_BLUE
+}
+
+skinparam sequence {
+  LifeLineBorderColor ADVANTICS_GREEN
+  LifeLineBackgroundColor ADVANTICS_LIGHT_GRAY
+  ParticipantBorderThickness 1
+  BoxLineColor ADVANTICS_GREEN
+}
+
+' Notes
+skinparam note {
+  BackgroundColor #f7fafc
+  BorderColor ADVANTICS_LIGHT_BLUE
+  FontColor ADVANTICS_GRAY
+}
+
+' Titles and headers
+skinparam title {
+  FontColor ADVANTICS_DARK_BLUE
+  FontSize 16
+  FontStyle bold
+}
+
+' Groups and frames
+skinparam package {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_DARK_BLUE
+}
+
+' Legends and text
+skinparam legend {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_GRAY
+}
+
 hide footbox
 skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2
@@ -138,30 +262,30 @@ regarded as _informational_, the other one as _imperative_.
 
 
 !!! note
-    While the generic interface provides a [CCS_Extra_Information](charge-controllers/evcc_generic/can.md#CCS_Extra_Information) message, it should NOT be
+    While the generic interface provides a [CCS_Extra_Information](can.md#ccs_extra_information) message, it should NOT be
     regarded as a way to implement charge sequences on your side. The Advantics controller is already
     doing that for you, including all kinds of protocol and safety checks! These are literally meant as
     _Extra_ information.
 
 
-The informational way is by looking at [EVSE_Information.Pins](charge-controllers/evcc_generic/can.md#EVSE_Information-Pins) signal. It will contain which pins
+The informational way is by looking at [EVSE_Information.Pins](can.md#EVSE_Information-Pins) signal. It will contain which pins
 of the inlet will be energised as soon as that information is definitely known. As combo inlet ports
 use separate pins for AC and DC, this can be seen as a discriminant factor.
 
-The imperative way is to listen to [AC_Control](charge-controllers/evcc_generic/can.md#AC_Control) and [DC_Control](charge-controllers/evcc_generic/can.md#DC_Control) messages. Their signals will
+The imperative way is to listen to [AC_Control](can.md#ac_control) and [DC_Control](can.md#dc_control) messages. Their signals will
 be used only at the right moment.
 
 ## AC Charging
 
 In case of AC charging, when *Connected_With_Full_Info* state is reached,
-[EVSE_Information.Pins](charge-controllers/evcc_generic/can.md#EVSE_Information-Pins) will contain one of the value valid for AC charging (ie. the corresponding
-label starts with "*CCS_AC*"). [EVSE_Information.Max_Current](charge-controllers/evcc_generic/can.md#EVSE_Information-Max_Current) will also contain valid information
+[EVSE_Information.Pins](can.md#EVSE_Information-Pins) will contain one of the value valid for AC charging (ie. the corresponding
+label starts with "*CCS_AC*"). [EVSE_Information.Max_Current](can.md#EVSE_Information-Max_Current) will also contain valid information
 that has been either detected from the cable rating (PP resistance), charger CP PWM duty cycle, or
 negotiated during CCS High Level Communication.
 
 ### Getting to charge
 
-As soon as the charger send us it is ready to do AC charging, [AC_Control.Ready_To_Deliver_Power](charge-controllers/evcc_generic/can.md#AC_Control-Ready_To_Deliver_Power)
+As soon as the charger send us it is ready to do AC charging, [AC_Control.Ready_To_Deliver_Power](can.md#AC_Control-Ready_To_Deliver_Power)
 is set to _Ready_.
 
 !!! note
@@ -170,13 +294,13 @@ is set to _Ready_.
     vehicle to signal it also wants power.
 
 
-When the vehicle on-board charger is ready to take power in, set [AC_Status.Ready_To_Charge](charge-controllers/evcc_generic/can.md#AC_Status-Ready_To_Charge) to
+When the vehicle on-board charger is ready to take power in, set [AC_Status.Ready_To_Charge](can.md#AC_Status-Ready_To_Charge) to
 _Ready_. Charger will close its AC relays. Only then can on-board charger proceed to draw current.
 Advantics controller will then emit a state of _Charging_ in
-[EVSE_Information.Communication_Stage](charge-controllers/evcc_generic/can.md#EVSE_Information-Communication_Stage).
+[EVSE_Information.Communication_Stage](can.md#EVSE_Information-Communication_Stage).
 
 !!! tip
-    You can have [AC_Status.Ready_To_Charge](charge-controllers/evcc_generic/can.md#AC_Status-Ready_To_Charge) always set to _Ready_, even before a charge
+    You can have [AC_Status.Ready_To_Charge](can.md#AC_Status-Ready_To_Charge) always set to _Ready_, even before a charge
     session starts. Like so, Advantics controller will go to _Charging_ state, and power will be
     available as soon as possible. In all cases, Advantics controller will NOT signal vehicle readiness
     (ie. CP State C) to charger before the inlet lock confirmed its locked state. Therefore, it is safe
@@ -184,47 +308,108 @@ Advantics controller will then emit a state of _Charging_ in
     *Waiting_For_EVSE* state, and even if the charge session ends up being a DC charge).
 
 
-During charging, you only have to regularly update [EV_Information.State_of_Charge](charge-controllers/evcc_generic/can.md#EV_Information-State_of_Charge).
+During charging, you only have to regularly update [EV_Information.State_of_Charge](can.md#EV_Information-State_of_Charge).
 
 !!! attention
     During charging you should not exceed current limit provided in
-    [EVSE_Information.Max_Current](charge-controllers/evcc_generic/can.md#EVSE_Information-Max_Current). Be aware that charger can also change its maximum current during
+    [EVSE_Information.Max_Current](can.md#EVSE_Information-Max_Current). Be aware that charger can also change its maximum current during
     charging!
 
 
 ### Charger-initiated end of charge
 
-When EVSE wants to stop charging, it is signaled by [AC_Control.Ready_To_Deliver_Power](charge-controllers/evcc_generic/can.md#AC_Control-Ready_To_Deliver_Power) set to
-*Not_Ready*. [EVSE_Information.Communication_Stage](charge-controllers/evcc_generic/can.md#EVSE_Information-Communication_Stage) will also go to *Ending_Charge* state.
+When EVSE wants to stop charging, it is signaled by [AC_Control.Ready_To_Deliver_Power](can.md#AC_Control-Ready_To_Deliver_Power) set to
+*Not_Ready*. [EVSE_Information.Communication_Stage](can.md#EVSE_Information-Communication_Stage) will also go to *Ending_Charge* state.
 On-board charger should stop drawing current within 3 seconds. Only then you should set
-[AC_Status.Ready_To_Charge](charge-controllers/evcc_generic/can.md#AC_Status-Ready_To_Charge) to *Not_Ready*. [EVSE_Information.Communication_Stage](charge-controllers/evcc_generic/can.md#EVSE_Information-Communication_Stage) will then
+[AC_Status.Ready_To_Charge](can.md#AC_Status-Ready_To_Charge) to *Not_Ready*. [EVSE_Information.Communication_Stage](can.md#EVSE_Information-Communication_Stage) will then
 go to state *Closing_Communication*, and Advantics controller waits 100ms for charger to open
 its AC relays before unlocking the pistol from the inlet port.
 
 ### Vehicle-initiated end of charge
 
 When EV wants to stop charging, on-board charger should stop drawing current. Only then you should
-set [AC_Status.Ready_To_Charge](charge-controllers/evcc_generic/can.md#AC_Status-Ready_To_Charge) to *Not_Ready* (unless this is an emergency stop, in which case
+set [AC_Status.Ready_To_Charge](can.md#AC_Status-Ready_To_Charge) to *Not_Ready* (unless this is an emergency stop, in which case
 you are allowed to set it to *Not_Ready* irrespective of when the on-board charger stops its
 current draw).
 
-[EVSE_Information.Communication_Stage](charge-controllers/evcc_generic/can.md#EVSE_Information-Communication_Stage) will then go to state *Ending_Charge*. When
-charger confirmed it is no longer ready to deliver power, [EVSE_Information.Communication_Stage](charge-controllers/evcc_generic/can.md#EVSE_Information-Communication_Stage)
+[EVSE_Information.Communication_Stage](can.md#EVSE_Information-Communication_Stage) will then go to state *Ending_Charge*. When
+charger confirmed it is no longer ready to deliver power, [EVSE_Information.Communication_Stage](can.md#EVSE_Information-Communication_Stage)
 will go to state *Closing_Communication*, and Advantics controller waits 100ms for charger to
 open its AC relays before unlocking the pistol from the inlet port.
 
 ### Charge termination and restart
 
 As soon as pistol is plugged out, IO configured as *Plugged_In* is set to *LOW* state, all
-signals of all messages are re-initialised, and [EVSE_Information.Communication_Stage](charge-controllers/evcc_generic/can.md#EVSE_Information-Communication_Stage) goes back
+signals of all messages are re-initialised, and [EVSE_Information.Communication_Stage](can.md#EVSE_Information-Communication_Stage) goes back
 to *Waiting_For_EVSE*.
 
 If pistol is still plugged in, charger can also decide to restart a charge. In which case,
-[EVSE_Information.Communication_Stage](charge-controllers/evcc_generic/can.md#EVSE_Information-Communication_Stage) goes to *Connected_With_Full_Info* state directly, inlet
+[EVSE_Information.Communication_Stage](can.md#EVSE_Information-Communication_Stage) goes to *Connected_With_Full_Info* state directly, inlet
 is locked again, and the process can repeat.
 
-```plantuml
+```puml
 @startuml
+!define ADVANTICS_GREEN #00A99D
+!define ADVANTICS_DARK_BLUE #1a365d
+!define ADVANTICS_LIGHT_BLUE #2d5aa0
+!define ADVANTICS_GRAY #4a5568
+!define ADVANTICS_LIGHT_GRAY #e2e8f0
+
+' General diagram style
+skinparam backgroundColor ADVANTICS_LIGHT_GRAY
+skinparam shadowing false
+
+' Fonts
+skinparam defaultFontName Roboto
+skinparam defaultFontSize 13
+skinparam defaultTextAlignment center
+
+' Lines and borders
+skinparam ArrowColor ADVANTICS_DARK_BLUE
+skinparam ArrowThickness 2
+
+' Participants, classes, and boxes
+skinparam participant {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_DARK_BLUE
+}
+
+skinparam sequence {
+  LifeLineBorderColor ADVANTICS_GREEN
+  LifeLineBackgroundColor ADVANTICS_LIGHT_GRAY
+  ParticipantBorderThickness 1
+  BoxLineColor ADVANTICS_GREEN
+}
+
+' Notes
+skinparam note {
+  BackgroundColor #f7fafc
+  BorderColor ADVANTICS_LIGHT_BLUE
+  FontColor ADVANTICS_GRAY
+}
+
+' Titles and headers
+skinparam title {
+  FontColor ADVANTICS_DARK_BLUE
+  FontSize 16
+  FontStyle bold
+}
+
+' Groups and frames
+skinparam package {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_DARK_BLUE
+}
+
+' Legends and text
+skinparam legend {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_GRAY
+}
+
 hide footbox
 skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2
@@ -283,8 +468,69 @@ end loop
 @enduml
 ```
 
-```plantuml
+```puml
 @startuml
+!define ADVANTICS_GREEN #00A99D
+!define ADVANTICS_DARK_BLUE #1a365d
+!define ADVANTICS_LIGHT_BLUE #2d5aa0
+!define ADVANTICS_GRAY #4a5568
+!define ADVANTICS_LIGHT_GRAY #e2e8f0
+
+' General diagram style
+skinparam backgroundColor ADVANTICS_LIGHT_GRAY
+skinparam shadowing false
+
+' Fonts
+skinparam defaultFontName Roboto
+skinparam defaultFontSize 13
+skinparam defaultTextAlignment center
+
+' Lines and borders
+skinparam ArrowColor ADVANTICS_DARK_BLUE
+skinparam ArrowThickness 2
+
+' Participants, classes, and boxes
+skinparam participant {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_DARK_BLUE
+}
+
+skinparam sequence {
+  LifeLineBorderColor ADVANTICS_GREEN
+  LifeLineBackgroundColor ADVANTICS_LIGHT_GRAY
+  ParticipantBorderThickness 1
+  BoxLineColor ADVANTICS_GREEN
+}
+
+' Notes
+skinparam note {
+  BackgroundColor #f7fafc
+  BorderColor ADVANTICS_LIGHT_BLUE
+  FontColor ADVANTICS_GRAY
+}
+
+' Titles and headers
+skinparam title {
+  FontColor ADVANTICS_DARK_BLUE
+  FontSize 16
+  FontStyle bold
+}
+
+' Groups and frames
+skinparam package {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_DARK_BLUE
+}
+
+' Legends and text
+skinparam legend {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_GRAY
+}
+
 hide footbox
 skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2
@@ -357,8 +603,8 @@ EVCC -> VCU: [0x600] EVSE_Information.Communication_Stage == Waiting_For_EVSE
 ## DC Charging
 
 In case of DC charging, when *Connected_With_Full_Info* state is reached,
-[EVSE_Information.Pins](charge-controllers/evcc_generic/can.md#EVSE_Information-Pins) will contain one of the value valid for DC charging (ie. the corresponding
-label starts with "*CCS_DC*"). [EVSE_Information.Max_Current](charge-controllers/evcc_generic/can.md#EVSE_Information-Max_Current) will also contain valid information
+[EVSE_Information.Pins](can.md#EVSE_Information-Pins) will contain one of the value valid for DC charging (ie. the corresponding
+label starts with "*CCS_DC*"). [EVSE_Information.Max_Current](can.md#EVSE_Information-Max_Current) will also contain valid information
 that has been negotiated during CCS High Level Communication.
 
 !!! note
@@ -377,7 +623,7 @@ By electrical safety standards, the insulation resistance should be of at least 
 500 V test voltage that means an insulation resistance >= 50 kOhms.
 
 Inlet lock should be activated by now. Therefore, Advantics controller gives its permit to charger to
-apply power. [EVSE_Information.Communication_Stage](charge-controllers/evcc_generic/can.md#EVSE_Information-Communication_Stage) goes to *Insulation_Test* state. Vehicle
+apply power. [EVSE_Information.Communication_Stage](can.md#EVSE_Information-Communication_Stage) goes to *Insulation_Test* state. Vehicle
 only has to wait as this step is fully happening on charger side.
 
 !!! attention
@@ -388,8 +634,69 @@ only has to wait as this step is fully happening on charger side.
 When charger is done and reports no insulation error or malfunction, the charging process can
 continue to next step.
 
-```plantuml
+```puml
 @startuml
+!define ADVANTICS_GREEN #00A99D
+!define ADVANTICS_DARK_BLUE #1a365d
+!define ADVANTICS_LIGHT_BLUE #2d5aa0
+!define ADVANTICS_GRAY #4a5568
+!define ADVANTICS_LIGHT_GRAY #e2e8f0
+
+' General diagram style
+skinparam backgroundColor ADVANTICS_LIGHT_GRAY
+skinparam shadowing false
+
+' Fonts
+skinparam defaultFontName Roboto
+skinparam defaultFontSize 13
+skinparam defaultTextAlignment center
+
+' Lines and borders
+skinparam ArrowColor ADVANTICS_DARK_BLUE
+skinparam ArrowThickness 2
+
+' Participants, classes, and boxes
+skinparam participant {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_DARK_BLUE
+}
+
+skinparam sequence {
+  LifeLineBorderColor ADVANTICS_GREEN
+  LifeLineBackgroundColor ADVANTICS_LIGHT_GRAY
+  ParticipantBorderThickness 1
+  BoxLineColor ADVANTICS_GREEN
+}
+
+' Notes
+skinparam note {
+  BackgroundColor #f7fafc
+  BorderColor ADVANTICS_LIGHT_BLUE
+  FontColor ADVANTICS_GRAY
+}
+
+' Titles and headers
+skinparam title {
+  FontColor ADVANTICS_DARK_BLUE
+  FontSize 16
+  FontStyle bold
+}
+
+' Groups and frames
+skinparam package {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_DARK_BLUE
+}
+
+' Legends and text
+skinparam legend {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_GRAY
+}
+
 hide footbox
 skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2
@@ -440,32 +747,93 @@ arcing in vehicle contactors if some current is allowed to flow, and severely de
 To handle this situation, CCS adopted the precharge process, which consists in having charger
 matches battery voltage prior to vehicle closing its DC contactors.
 
-When [EVSE_Information.Communication_Stage](charge-controllers/evcc_generic/can.md#EVSE_Information-Communication_Stage) goes to *Precharge* state, Advantics controller will
+When [EVSE_Information.Communication_Stage](can.md#EVSE_Information-Communication_Stage) goes to *Precharge* state, Advantics controller will
 frequently probe charger with precharge requests, setting as target voltage the voltage provided
-in [DC_Status2.Battery_Voltage](charge-controllers/evcc_generic/can.md#DC_Status2-Battery_Voltage).
+in [DC_Status2.Battery_Voltage](can.md#DC_Status2-Battery_Voltage).
 
-Advantics controller then waits that [DC_Status2.Inlet_Voltage](charge-controllers/evcc_generic/can.md#DC_Status2-Inlet_Voltage) matches
-[DC_Status2.Battery_Voltage](charge-controllers/evcc_generic/can.md#DC_Status2-Battery_Voltage) to +/- 20 V. Once reached, [DC_Control.Close_Contactors](charge-controllers/evcc_generic/can.md#DC_Control-Close_Contactors) is emitted
-with value *Close*. It then waits that [DC_Status2.Contactors_Closed](charge-controllers/evcc_generic/can.md#DC_Status2-Contactors_Closed) is set to *Close* as
+Advantics controller then waits that [DC_Status2.Inlet_Voltage](can.md#DC_Status2-Inlet_Voltage) matches
+[DC_Status2.Battery_Voltage](can.md#DC_Status2-Battery_Voltage) to +/- 20 V. Once reached, [DC_Control.Close_Contactors](can.md#DC_Control-Close_Contactors) is emitted
+with value *Close*. It then waits that [DC_Status2.Contactors_Closed](can.md#DC_Status2-Contactors_Closed) is set to *Close* as
 well before continuing to the next step.
 
 !!! tip
     Advantics controller can also support certain CAN sensors measuring battery voltage, inlet
     voltage and flowing current. This can be configured in `/srv/config.cfg`. If you use one of those,
-    then you will not need to provide valid values for [DC_Status2.Battery_Voltage](charge-controllers/evcc_generic/can.md#DC_Status2-Battery_Voltage) and
-    [DC_Status2.Inlet_Voltage](charge-controllers/evcc_generic/can.md#DC_Status2-Inlet_Voltage).
+    then you will not need to provide valid values for [DC_Status2.Battery_Voltage](can.md#DC_Status2-Battery_Voltage) and
+    [DC_Status2.Inlet_Voltage](can.md#DC_Status2-Inlet_Voltage).
 
 
 !!! tip
     Advantics controller can also support driving contactors directly with its own H-Bridge
     outputs and feedback input. This can be configured in `/srv/config.cfg`. If you use the controller
-    IOs to drive contactors, you do not need to provide feedback on [DC_Status2.Contactors_Closed](charge-controllers/evcc_generic/can.md#DC_Status2-Contactors_Closed).
-    For your information, [DC_Control.Close_Contactors](charge-controllers/evcc_generic/can.md#DC_Control-Close_Contactors) will still be emitted when it closes the
+    IOs to drive contactors, you do not need to provide feedback on [DC_Status2.Contactors_Closed](can.md#DC_Status2-Contactors_Closed).
+    For your information, [DC_Control.Close_Contactors](can.md#DC_Control-Close_Contactors) will still be emitted when it closes the
     contactors by itself though.
 
 
-```plantuml
+```puml
 @startuml
+!define ADVANTICS_GREEN #00A99D
+!define ADVANTICS_DARK_BLUE #1a365d
+!define ADVANTICS_LIGHT_BLUE #2d5aa0
+!define ADVANTICS_GRAY #4a5568
+!define ADVANTICS_LIGHT_GRAY #e2e8f0
+
+' General diagram style
+skinparam backgroundColor ADVANTICS_LIGHT_GRAY
+skinparam shadowing false
+
+' Fonts
+skinparam defaultFontName Roboto
+skinparam defaultFontSize 13
+skinparam defaultTextAlignment center
+
+' Lines and borders
+skinparam ArrowColor ADVANTICS_DARK_BLUE
+skinparam ArrowThickness 2
+
+' Participants, classes, and boxes
+skinparam participant {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_DARK_BLUE
+}
+
+skinparam sequence {
+  LifeLineBorderColor ADVANTICS_GREEN
+  LifeLineBackgroundColor ADVANTICS_LIGHT_GRAY
+  ParticipantBorderThickness 1
+  BoxLineColor ADVANTICS_GREEN
+}
+
+' Notes
+skinparam note {
+  BackgroundColor #f7fafc
+  BorderColor ADVANTICS_LIGHT_BLUE
+  FontColor ADVANTICS_GRAY
+}
+
+' Titles and headers
+skinparam title {
+  FontColor ADVANTICS_DARK_BLUE
+  FontSize 16
+  FontStyle bold
+}
+
+' Groups and frames
+skinparam package {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_DARK_BLUE
+}
+
+' Legends and text
+skinparam legend {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_GRAY
+}
+
 hide footbox
 skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2
@@ -519,16 +887,16 @@ deactivate EVCC
 ### Charging
 
 Advantics controller makes a small transition through *Waiting_For_Charge* state in
-[EVSE_Information.Communication_Stage](charge-controllers/evcc_generic/can.md#EVSE_Information-Communication_Stage). This is matching CCS initial PowerDelivery
-request/response. You don't have too much to do here. Just keep refreshing [DC_Status1](charge-controllers/evcc_generic/can.md#DC_Status1),
-[DC_Status2](charge-controllers/evcc_generic/can.md#DC_Status2) and [EV_Information](charge-controllers/evcc_generic/can.md#EV_Information).
+[EVSE_Information.Communication_Stage](can.md#EVSE_Information-Communication_Stage). This is matching CCS initial PowerDelivery
+request/response. You don't have too much to do here. Just keep refreshing [DC_Status1](can.md#dc_status1),
+[DC_Status2](can.md#dc_status2) and [EV_Information](can.md#ev_information).
 
 Then the actual charging loop starts. The process is very simple: you send current requests to
 Advantics controller, which forward them to charger, which forward them to power modules. Power
 modules deliver power into the battery. From voltage, current and temperature readouts we check
 everything is fine. Rinse and repeat.
 
-You should send regularly [DC_Status1](charge-controllers/evcc_generic/can.md#DC_Status1), [DC_Status2](charge-controllers/evcc_generic/can.md#DC_Status2) and [EV_Information](charge-controllers/evcc_generic/can.md#EV_Information) (it is actually a
+You should send regularly [DC_Status1](can.md#dc_status1), [DC_Status2](can.md#dc_status2) and [EV_Information](can.md#ev_information) (it is actually a
 good idea to always send them, and not wait for some controller states explicitly needing them).
 
 Target voltage sent to charger is the one defined as `target_voltage` entry in the config file. This
@@ -542,6 +910,7 @@ Advantics controller will overwrite BMS current request with various static and 
 any case, current request that is send to charger can never be above BMS current request.
 
 Current request limits, in order applied:
+
 * `max_current` entry in config file [static]
 * Charger negotiated maximum current [dynamic]
 * `max_power` entry in config file, divided by present battery voltage [dynamic]
@@ -550,13 +919,14 @@ Current request limits, in order applied:
 * Ramp-up rate limit (see `current_ramp` entry in config file, default to 20 A/s) [dynamic]
 
 Advantics controller will stop charging in following conditions:
+
 * DC contactors feedback (through CAN or controller IO) says they are open
 * If `max_charge_voltage` entry is defined in config file and present battery voltage is greater
 or equal to this value
-* If `max_soc` entry is defined in config file, and [EV_Information.State_of_Charge](charge-controllers/evcc_generic/can.md#EV_Information-State_of_Charge) is greater or
+* If `max_soc` entry is defined in config file, and [EV_Information.State_of_Charge](can.md#EV_Information-State_of_Charge) is greater or
 equal to this value
 * Advantics controller IO for charge stop is activated
-* [DC_Status2.Normal_End_of_Charge](charge-controllers/evcc_generic/can.md#DC_Status2-Normal_End_of_Charge) is set to *Stop_Requested*
+* [DC_Status2.Normal_End_of_Charge](can.md#DC_Status2-Normal_End_of_Charge) is set to *Stop_Requested*
 * A temperature sensor reached a configured stop threshold value
 * Inlet voltage has more than 20 V deviation from battery voltage
 * Amount of current flowing is deviating too far from requested setpoint (configurable in config
@@ -565,15 +935,76 @@ file)
 !!! tip
     As during precharge, if you use a supported CAN sensor to measure battery and inlet voltage,
 
-and controller IO to drive contactors, you do not need to send [DC_Status2](charge-controllers/evcc_generic/can.md#DC_Status2).
+and controller IO to drive contactors, you do not need to send [DC_Status2](can.md#dc_status2).
 
 !!! note
-    See also [No code mode](charge-controllers/evcc_no_code_mode.md) section for special mode requiring no message to be sent from you to
+    See also [No code mode](../vehicle-features/evcc_no_code_mode.md) section for special mode requiring no message to be sent from you to
     reach a working charge.
 
 
-```plantuml
+```puml
 @startuml
+!define ADVANTICS_GREEN #00A99D
+!define ADVANTICS_DARK_BLUE #1a365d
+!define ADVANTICS_LIGHT_BLUE #2d5aa0
+!define ADVANTICS_GRAY #4a5568
+!define ADVANTICS_LIGHT_GRAY #e2e8f0
+
+' General diagram style
+skinparam backgroundColor ADVANTICS_LIGHT_GRAY
+skinparam shadowing false
+
+' Fonts
+skinparam defaultFontName Roboto
+skinparam defaultFontSize 13
+skinparam defaultTextAlignment center
+
+' Lines and borders
+skinparam ArrowColor ADVANTICS_DARK_BLUE
+skinparam ArrowThickness 2
+
+' Participants, classes, and boxes
+skinparam participant {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_DARK_BLUE
+}
+
+skinparam sequence {
+  LifeLineBorderColor ADVANTICS_GREEN
+  LifeLineBackgroundColor ADVANTICS_LIGHT_GRAY
+  ParticipantBorderThickness 1
+  BoxLineColor ADVANTICS_GREEN
+}
+
+' Notes
+skinparam note {
+  BackgroundColor #f7fafc
+  BorderColor ADVANTICS_LIGHT_BLUE
+  FontColor ADVANTICS_GRAY
+}
+
+' Titles and headers
+skinparam title {
+  FontColor ADVANTICS_DARK_BLUE
+  FontSize 16
+  FontStyle bold
+}
+
+' Groups and frames
+skinparam package {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_DARK_BLUE
+}
+
+' Legends and text
+skinparam legend {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_GRAY
+}
+
 hide footbox
 skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2
@@ -629,7 +1060,7 @@ end loop
 
 This sequence comes at the end of a charge, when the charge has not been aborted irregularly.
 Advantics controller makes a small transition through *Ending_Charge* state in
-[EVSE_Information.Communication_Stage](charge-controllers/evcc_generic/can.md#EVSE_Information-Communication_Stage).
+[EVSE_Information.Communication_Stage](can.md#EVSE_Information-Communication_Stage).
 
 It then goes to *Welding_Detection* state, during which it waits for current to lower below 1 A
 before opening contactors. It then waits for inlet voltage to lower below 60 V before unlocking the
@@ -638,10 +1069,71 @@ pistol.
 When the charge session is over, Advantics controller emits a *Closing_Communication* state until
 pistol is unplugged. As soon as pistol is plugged out, IO configured as *Plugged_In* is set to
 *LOW* state, all signals of all messages are re-initialised, and
-[EVSE_Information.Communication_Stage](charge-controllers/evcc_generic/can.md#EVSE_Information-Communication_Stage) goes back to *Waiting_For_EVSE*.
+[EVSE_Information.Communication_Stage](can.md#EVSE_Information-Communication_Stage) goes back to *Waiting_For_EVSE*.
 
-```plantuml
+```puml
 @startuml
+!define ADVANTICS_GREEN #00A99D
+!define ADVANTICS_DARK_BLUE #1a365d
+!define ADVANTICS_LIGHT_BLUE #2d5aa0
+!define ADVANTICS_GRAY #4a5568
+!define ADVANTICS_LIGHT_GRAY #e2e8f0
+
+' General diagram style
+skinparam backgroundColor ADVANTICS_LIGHT_GRAY
+skinparam shadowing false
+
+' Fonts
+skinparam defaultFontName Roboto
+skinparam defaultFontSize 13
+skinparam defaultTextAlignment center
+
+' Lines and borders
+skinparam ArrowColor ADVANTICS_DARK_BLUE
+skinparam ArrowThickness 2
+
+' Participants, classes, and boxes
+skinparam participant {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_DARK_BLUE
+}
+
+skinparam sequence {
+  LifeLineBorderColor ADVANTICS_GREEN
+  LifeLineBackgroundColor ADVANTICS_LIGHT_GRAY
+  ParticipantBorderThickness 1
+  BoxLineColor ADVANTICS_GREEN
+}
+
+' Notes
+skinparam note {
+  BackgroundColor #f7fafc
+  BorderColor ADVANTICS_LIGHT_BLUE
+  FontColor ADVANTICS_GRAY
+}
+
+' Titles and headers
+skinparam title {
+  FontColor ADVANTICS_DARK_BLUE
+  FontSize 16
+  FontStyle bold
+}
+
+' Groups and frames
+skinparam package {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_DARK_BLUE
+}
+
+' Legends and text
+skinparam legend {
+  BackgroundColor #ffffff
+  BorderColor ADVANTICS_GREEN
+  FontColor ADVANTICS_GRAY
+}
+
 hide footbox
 skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2

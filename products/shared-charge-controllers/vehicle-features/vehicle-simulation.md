@@ -10,7 +10,7 @@ The primary objective of this software is to simulate a battery and BMS on the E
 
 # UI
 
-Simulation is primarily managed and controlled by the [CSM Web UI](charge-controllers/advantics_os/csm-web-ui.md). [Connect to your controller](charge-controllers/advantics_os/connecting) dashboard and head to `/dashboard/simulation`.
+Simulation is primarily managed and controlled by the [CSM Web UI](../advos-yocto-system/csm-web-ui.md). [Connect to your controller](../advos-yocto-system/connecting.md) dashboard and head to `/dashboard/simulation`.
 
 The interface allows enabling and disabling the simulator in real-time and editing parameters during a simulated charge session. It is divided into three main sections: **Parameters**, **Control**, and **Command**.
 
@@ -49,12 +49,12 @@ Changes are only applied after the user clicks the **“Send”** button at the 
 
 This section provides toggle switches to **enable or disable sending of specific CAN messages** sent by the simulated BMS. These toggles can be used to test partial PEV Generic Interface v2 implementations by disabling the corresponding and giving control to the software under development. Each toggle controls sending of a specific message as listed below.
 
-- **EV Information**: [EV_Information](https://advantics.github.io/documentation/#/charge-controllers/evcc_generic/can_v2?id=ev_information)
-- **DC Status1**: [DC_Status1](https://advantics.github.io/documentation/#/charge-controllers/evcc_generic/can_v2?id=dc_status1)
-- **DC Status2**: [DC_Status2](https://advantics.github.io/documentation/#/charge-controllers/evcc_generic/can_v2?id=dc_status2)
-- **EV Energy Request** [EV_Energy_Request](https://advantics.github.io/documentation/#/charge-controllers/evcc_generic/can_v2?id=ev_energy_request)
-- **EV V2X Energy Request** [EV_V2X_Energy_Request](https://advantics.github.io/documentation/#/charge-controllers/evcc_generic/can_v2?id=ev_v2x_energy_request)
-- **EV Extra BPT Information** [EV_Extra_BPT_Information](https://advantics.github.io/documentation/#/charge-controllers/evcc_generic/can_v2?id=ev_extra_bpt_information)
+- **EV Information**: [EV_Information](../vehicle-can-interfaces/can_v2.md#ev_information)
+- **DC Status1**: [DC_Status1](../vehicle-can-interfaces/can_v2.md#dc_status1)
+- **DC Status2**: [DC_Status2](../vehicle-can-interfaces/can_v2.md#dc_status2)
+- **EV Energy Request** [EV_Energy_Request](../vehicle-can-interfaces/can_v2.md#ev_energy_request)
+- **EV V2X Energy Request** [EV_V2X_Energy_Request](../vehicle-can-interfaces/can_v2.md#ev_v2x_energy_request)
+- **EV Extra BPT Information** [EV_Extra_BPT_Information](../vehicle-can-interfaces/can_v2.md#ev_extra_bpt_information)
 
 These toggles apply immediately when switched and determine which data types the simulator sends to the system.
 
@@ -73,11 +73,20 @@ Each action is performed by clicking the corresponding **“Stop”** button.
 
 ## Simulating a bidirectional MCS charge session (ISO151180-20) with simulated charger and vehicle, using ADM-CS-SPCC, ADM-CS-MEVC and simulator software stack
 
-1. Update the charge controller configuration for bidirectional power transfer. [Relevant Config Entries](https://advantics.github.io/documentation/#/charge-controllers/secc_generic/secc_bidirectional?id=relevant-config-entries)
-2. Enable the [EVSE simulator](charge-controllers/charger-simulation#enabling-the-simulator) with sending all CAN messages enabled. The default simulation configuration can be used.
-3. Enable the [PEV simulator](charge-controllers/vehicle-simulation#enabling-the-simulator) with sending all CAN messages enabled.
-4. Make sure ADVANTICS vehicle controller configuration option [No BMS mode](charge-controllers/evcc_configuration/no_bms) is **disabled** (set to false).
-5. Set the [relevant configuration entries in the vehicle controller](charge-controllers/evcc_bidirectional?id=relevant-config-entries) and [charge station controller](charge-controllers/secc_generic/secc_bidirectional?id=relevant-config-entries) for ISO151180-20.
+This procedure spans both controllers. The charge-station-controller steps below are
+documented on the ADM-CS-SPCC site, under *CAN bus Interfaces → V2G* and
+*Features → Charger Emulator*.
+
+1. Update the charge controller configuration for bidirectional power transfer — see
+   *Relevant config entries* in the charge-station-controller V2G documentation.
+2. Enable the EVSE simulator (*Enabling the simulator* in the charge-station-controller
+   Charger Emulator documentation) with sending all CAN messages enabled. The default
+   simulation configuration can be used.
+3. Enable the [PEV simulator](vehicle-simulation.md#enabling-the-simulator) with sending all CAN messages enabled.
+4. Make sure the ADVANTICS vehicle controller configuration option **No BMS mode** is
+   **disabled** (set to false).
+5. Set the [relevant configuration entries in the vehicle controller](evcc_bidirectional.md#relevant-config-entries)
+   for ISO151180-20, and the matching entries on the charge station controller.
 6. Connect the plug.
 7. Head to `dashboard/monitoring` and follow the charge session.
 
@@ -97,7 +106,7 @@ Each action is performed by clicking the corresponding **“Stop”** button.
 If you prefer to wire a different hardware to one side of the simulator box, you can follow the connection table below:
 
 ### Power Connector
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Number | Label | Color |  
 |--------|-------|-------|
@@ -107,7 +116,7 @@ If you prefer to wire a different hardware to one side of the simulator box, you
 </div>
 
 ### CAN Bus Connector
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Number | Label | Color |  
 |--------|-------|-------|
@@ -118,7 +127,7 @@ If you prefer to wire a different hardware to one side of the simulator box, you
 </div>
 
 ### MCS Connector
-<div class="small-table compact-table">
+<div class="small-table compact-table" markdown="1">
 
 | Number | Label | Color |  
 |--------|-------|-------|
@@ -221,34 +230,34 @@ These options enable or disable specific EV-related messages sent by the simulat
 
 - **Description:** Whether to enable the `EV_Information` message from the simulator.
 - **Default:** `True`
-- Message description: [`ev_information`](charge-controllers/evcc_generic/can_v2?id=ev_information)
+- Message description: [`ev_information`](../vehicle-can-interfaces/can_v2.md#ev_information)
 
 ## `enable_dc_status_1` (bool)
 
 - **Description:** Whether to enable the `DC_Status1` message from the simulator.
 - **Default:** `True`
-- Message description: [`dc_status1`](charge-controllers/evcc_generic/can_v2?id=dc_status1)
+- Message description: [`dc_status1`](../vehicle-can-interfaces/can_v2.md#dc_status1)
 
 ## `enable_dc_status_2` (bool)
 
 - **Description:** Whether to enable the `DC_Status2` message from the simulator.
 - **Default:** `True`
-- Message description: [`dc_status2`](charge-controllers/evcc_generic/can_v2?id=dc_status2)
+- Message description: [`dc_status2`](../vehicle-can-interfaces/can_v2.md#dc_status2)
 
 ## `enable_ev_energy_request` (bool)
 
 - **Description:** Whether to enable the `EV_Energy_Request` message from the simulator.
 - **Default:** `True`
-- Message description: [`ev_v2x_energy_request`](charge-controllers/evcc_generic/can_v2?id=ev_energy_request)
+- Message description: [`ev_v2x_energy_request`](../vehicle-can-interfaces/can_v2.md#ev_energy_request)
 
 ## `enable_ev_v2x_energy_request` (bool)
 
 - **Description:** Whether to enable the `EV_V2X_Energy_Request` message from the simulator.
 - **Default:** `True`
-- Message description: [`ev_v2x_energy_request`](charge-controllers/evcc_generic/can_v2?id=ev_v2x_energy_request)
+- Message description: [`ev_v2x_energy_request`](../vehicle-can-interfaces/can_v2.md#ev_v2x_energy_request)
 
 ## `enable_ev_extra_bpt_info` (bool)
 
 - **Description:** Whether to enable the `EV_Extra_BPT_Information` message from the simulator.
 - **Default:** `True`
-- Message description: [`ev_extra_bpt_information`](charge-controllers/evcc_generic/can_v2?id=ev_extra_bpt_information)
+- Message description: [`ev_extra_bpt_information`](../vehicle-can-interfaces/can_v2.md#ev_extra_bpt_information)
