@@ -147,18 +147,18 @@ nav:
     - System 3.x branch: "buildroot-system/systems_branch3.md"
     - Deployment Checklist: "buildroot-system/must-do-before-deploy.md"
   - CAN bus Interfaces:
-    - Generic CAN interface: "vehicle-can-interfaces/README.md"
+    # - Generic CAN interface: "vehicle-can-interfaces/README.md"
     - Introduction: "vehicle-can-interfaces/introduction.md"
     - Overview: "vehicle-can-interfaces/overview.md"
     - Generic interface v1:
-      - About: "vehicle-can-interfaces/README_v1.md"
+      # - About: "vehicle-can-interfaces/README_v1.md"
       - Sequences of action: "vehicle-can-interfaces/sequences.md"
       - CAN databases: "vehicle-can-interfaces/databases.md"
       - CAN messages: "vehicle-can-interfaces/can.md"
       - Charging sequence diagram: "vehicle-can-interfaces/appendix-a.md"
       # - Changelog: "vehicle-can-interfaces/changelog.md"
     - Generic interface v2:
-      - About: "vehicle-can-interfaces/README_v2.md"
+      # - About: "vehicle-can-interfaces/README_v2.md"
       - Sequences of action: "vehicle-can-interfaces/sequences_v2.md"
       - CAN databases: "vehicle-can-interfaces/databases_v2.md"
       - CAN messages: "vehicle-can-interfaces/can_v2.md"
