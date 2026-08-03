@@ -115,9 +115,9 @@ nav:
   - Document Information: "index.md"
   - Technical data: "introduction.md"
   - Interfaces: "interfaces.md"
-  - Electric vehicle overview: "ev_overview.md"
+  # - Electric vehicle overview: "ev_overview.md"
   - Examples of use: "examples.md"
-  - Troubleshooting: "troubleshooting.md"
+  # - Troubleshooting: "troubleshooting.md"
   - Software Releases: "mevc_versions.md"
   - Configuration:
     - Overview: "configuration/README.md"
