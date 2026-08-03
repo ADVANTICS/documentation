@@ -71,22 +71,24 @@ The following figures show the main mechanical dimensions four mounting of the m
 
 ### Process <!-- {docsify-ignore} -->
 1. Clean the surface of the cooler (degrease).
-2. Place plastic stud (spacer) Thora AB-IA-M5-SW10, AR.N: 100 32 47 into the holes of the cooler.
-3. Place the ACC silicone on the top of magnetic components (approx. 5 mm thick).
-4. Place thermal paste on the cooling bar on the module.
-![heat flow](assets/assembly_step_1.png){ width="50%" }
-<figcaption style="text-align: center">Steps 1,2,3,4</figcaption>
+1. Place plastic stud (spacer) Thora AB-IA-M5-SW10, AR.N: 100 32 47 into the holes of the cooler.
+1. Place the ACC silicone on the top of magnetic components (approx. 5 mm thick).
+1. Place thermal paste on the cooling bar on the module.
 
-5. Place the module on the cooler.
-![heat flow](assets/assembly_step_2.png){ width="50%" }
-<figcaption style="text-align: center">Step 5</figcaption>
+    ![heat flow](assets/assembly_step_1.png){ width="50%" }
+    <figcaption style="text-align: center">Steps 1,2,3,4</figcaption>
 
-6. Place screws with washers into the holes.
-![heat flow](assets/assembly_step_3.png){ width="50%" }
-<figcaption style="text-align: center">Step 6</figcaption>
+1. Place the module on the cooler.
 
+    ![heat flow](assets/assembly_step_2.png){ width="50%" }
+    <figcaption style="text-align: center">Step 5</figcaption>
 
-7. Apply initial tightening torque on screws. Torque A: 0.5 Nm (Plastic studs), Torque B: 2.5 Nm (Aluminium base)
+1. Place screws with washers into the holes.
+
+    ![heat flow](assets/assembly_step_3.png){ width="50%" }
+    <figcaption style="text-align: center">Step 6</figcaption>
+
+1. Apply initial tightening torque on screws. Torque A: 0.5 Nm (Plastic studs), Torque B: 2.5 Nm (Aluminium base)
 
 !!! warning
     Torque B is necessary to be applied again after the first heat up cycle. Make sure the circuit is off, cooled down and free from any
