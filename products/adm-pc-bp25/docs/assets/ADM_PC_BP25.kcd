@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <NetworkDefinition xmlns="http://kayak.2codeornot2code.org/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="KCD_Definition.xsd">
-  <Document name="ADM_PC_BP25" version="1.0" author="[...]" company="Advantics" date="2019-11-21"/>
+  <Document name="ADM_PC_BP25" version="2.9.0" author="[...]" company="Advantics" date="2026-07-10"/>
   <Node id="0" name="User"/>
   <Node id="3" name="ADM_PC_LL25"/>
   <Node id="4" name="ADM_PC_BC25"/>
@@ -330,7 +330,7 @@
       </Signal>
     </Message>
 
-    <Message id="0x78007" length="8" name="AFE_Status" interval="1000" format="extended">
+    <Message id="0x78007" length="8" name="AFE_Status" interval="100" format="extended">
       <Notes>Status bitfield</Notes>
       <Producer> <NodeRef id="7"/> </Producer>
       <Signal name="Running" offset="0" length="1" endianess="little">
@@ -435,10 +435,6 @@
       </Signal>
       <Signal name="Inverter_1ph_Distributed" offset="26" length="1" endianess="little">
         <Notes>Single-phase inverter mode  distributed</Notes>
-        <Consumer> <NodeRef id="0"/> </Consumer>
-      </Signal>
-      <Signal name="Buck_Alternate_Setpoint" offset="27" length="1" endianess="little">
-        <Notes> Buck mode where the setpoint is referenced to VDC+ </Notes>
         <Consumer> <NodeRef id="0"/> </Consumer>
       </Signal>
     </Message>
@@ -628,6 +624,15 @@
       </Signal>
     </Message>
 
+    <Message id="0x78012" length="2" name="AFE_DC_Power" interval="10" format="extended">
+      <Notes>DC measured power</Notes>
+      <Producer> <NodeRef id="7"/> </Producer>
+      <Signal name="DC_Power" offset="0" length="16" endianess="little">
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value slope="10" unit="W" intercept="0" type="signed"/>
+      </Signal>
+    </Message>
+
     <Message id="0x78011" length="8" name="AFE_AC_Power" interval="1000" format="extended">
       <Notes>AC measured power (only for Inverter modes)</Notes>
       <Producer> <NodeRef id="7"/> </Producer>
@@ -666,10 +671,22 @@
             <Value slope="10" intercept="0" unit="W" type="signed"/>
           </Signal>
         </MuxGroup>
+        <MuxGroup count="2">
+          <Signal name="P_total" offset="0" length="16" endianess="little">
+            <Notes>Total active power (W)</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value slope="1" intercept="0" unit="W" type="signed"/>
+          </Signal>
+          <Signal name="Q_total" offset="16" length="16" endianess="little">
+            <Notes>Total reactive power (VAr)</Notes>
+            <Consumer> <NodeRef id="0"/> </Consumer>
+            <Value slope="1" intercept="0" unit="VAr" type="signed"/>
+          </Signal>
+        </MuxGroup>
       </Multiplex>
     </Message>
 
-    <Message id="0x7800E" length="8" name="_AFE_Broadcast" interval="50" format="extended">
+    <Message id="0x7800E" length="8" name="_AFE_Broadcast" interval="10" format="extended">
       <Notes>All AFEs will listen to this message</Notes>
       <Producer> <NodeRef id="7"/> </Producer>
       <Multiplex name="Diagnostics_Index" offset="56" length="8">
@@ -699,6 +716,24 @@
             <Value slope="0.01" unit="A" type="signed"/>
           </Signal>
         </MuxGroup>
+        <MuxGroup count="2">
+          <Signal name="Phase" offset="8" length="16" endianess="little">
+            <Notes>Phase sampled on low-latency trigger (rad)</Notes>
+            <Consumer>
+              <NodeRef id="0"/>
+              <NodeRef id="7"/>
+            </Consumer>
+            <Value slope="0.0001" unit="rad" type="unsigned"/>
+          </Signal>
+          <Signal name="Voltage" offset="24" length="16" endianess="little">
+            <Notes>Output from Q/V droop</Notes>
+            <Consumer>
+              <NodeRef id="0"/>
+              <NodeRef id="7"/>
+            </Consumer>
+            <Value slope="0.01" unit="V" type="signed"/>
+          </Signal>
+        </MuxGroup>
       </Multiplex>
       <Signal name="Stack_position" offset="0" length="5" endianess="little">
         <Notes>Sender Stack position</Notes>
@@ -716,7 +751,7 @@
       </Signal>
     </Message>
 
-    <Message id="0x78004" length="8" name="AFE_Voltages" interval="100" format="extended">
+    <Message id="0x78004" length="8" name="AFE_Voltages" interval="10" format="extended">
       <Producer> <NodeRef id="7"/> </Producer>
       <Signal name="Phase_U" offset="0" length="16" endianess="little">
         <Consumer> <NodeRef id="0"/> </Consumer>
@@ -961,10 +996,6 @@
         <Notes>Single-phase inverter mode distributed</Notes>
         <Consumer> <NodeRef id="7"/> </Consumer>
       </Signal>
-      <Signal name="Buck_Alternate_Setpoint_ON" offset="23" length="1" endianness="little">
-        <Notes> An alternate mode where the buck setpoint is in reference to VDC+ instead of in reference to VDC- </Notes>
-        <Consumer> <NodeRef id="7"/> </Consumer>
-      </Signal>
     </Message>
 
     <Message id="0x70050" length="1" name="AFE_Fault_Control" format="extended">
@@ -1011,6 +1042,35 @@
         <Notes>The actual PWM duty cycle setpoint</Notes>
         <Consumer> <NodeRef id="7"/> </Consumer>
         <Value type="unsigned" slope="0.001525902" unit="%"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x7004F" length="4" name="AFE_Power_Limit_Control" format="extended">
+      <Notes>Power limit control in DC/DC buck and boost modes.</Notes>
+      <Producer><NodeRef id="0"/></Producer>
+      <Signal name="Positive_power_limit" offset="0" length="16" endianess="little">
+        <Notes>Sets the positive power limit.</Notes>
+        <Consumer><NodeRef id="7"/></Consumer>
+        <Value type="signed" slope="10" unit="W"/>
+      </Signal>
+      <Signal name="Negative_power_limit" offset="16" length="16" endianess="little">
+        <Notes>Sets the negative power limit.</Notes>
+        <Consumer><NodeRef id="7"/></Consumer>
+        <Value type="signed" slope="10" unit="W"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x7005F" length="4" name="AFE_Power_Limit_Control_Readback" interval="100" format="extended">
+      <Producer><NodeRef id="7"/></Producer>
+      <Signal name="Positive_power_limit" offset="0" length="16" endianess="little">
+        <Notes>Sets the positive power limit.</Notes>
+        <Consumer><NodeRef id="0"/></Consumer>
+        <Value type="signed" slope="10" unit="W"/>
+      </Signal>
+      <Signal name="Negative_power_limit" offset="16" length="16" endianess="little">
+        <Notes>Sets the negative power limit.</Notes>
+        <Consumer><NodeRef id="0"/></Consumer>
+        <Value type="signed" slope="10" unit="W"/>
       </Signal>
     </Message>
 
@@ -1168,6 +1228,42 @@
       <Signal name="Disable_3rd_harmonic" offset="2" length="1" endianess="little">
         <Notes> If set to true, then the module will not do 3rd harmonic injection. This only 
         has an effect in Rectifier 3-phase mode.</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="Enable_current_limit_setpoints" offset="3" length="1" endianess="little">
+        <Notes>When enabled, 3-phase rectifier, DC/DC buck, and DC/DC boost control modes will use negative current setpoint.</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="Enable_voltage_setpoint_as_difference" offset="4" length="1" endianess="little">
+        <Notes>When enabled, voltage setpoint means relative difference to input voltage in DC/DC buck and boost control modes.</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="Enable_VF_droop_mode" offset="5" length="1" endianess="little">
+        <Notes>Enables V-f droop in inverter control modes</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="Enable_PQ_droop_mode" offset="6" length="1" endianess="little">
+        <Notes>Enables P-Q droop in inverter control modes</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="Enable_DC_droop_mode" offset="7" length="1" endianess="little">
+        <Notes>Enables droop in DC/DC and rectifier modes</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="Legacy_DC_control" offset="8" length="1" endianess="little">
+        <Notes>Legacy control for DC/DC modes (buck and boost)</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="Enable_high_side_current_setpoint" offset="9" length="1" endianess="little">
+        <Notes>Current setpoint is give for the high side (DC link)</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="Enable_DC_power_limits" offset="10" length="1" endianess="little">
+        <Notes>Enables power limits in DC/DC Buck and Boost modes</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
+      <Signal name="Differential_power" offset="11" length="1" endianess="little">
+        <Notes>Power measurements and setpoints are calculated using differential voltage (high-side minus low-side voltage)</Notes>
         <Consumer> <NodeRef id="7"/> </Consumer>
       </Signal>
     </Message>
@@ -1690,6 +1786,95 @@
       </Signal>
     </Message>
 
+    <Message id="0x78151" length="8" name="AFE_Inverter_Droop_Readback" interval="100" format="extended">
+      <Notes>
+        Readback for droop control parameters set in the 0x70051
+      </Notes>
+      <Producer>
+        <NodeRef id="7"/>
+      </Producer>
+      <Signal name="Freq_droop_nominal" offset="0" length="16" endianess="little">
+        <Consumer>
+          <NodeRef id="0"/>
+        </Consumer>
+        <Value type="signed" slope="0.01" unit="Hz/MW"/>
+      </Signal>
+      <Signal name="Volt_droop_nominal" offset="16" length="16" endianess="little">
+        <Consumer>
+          <NodeRef id="0"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" unit="V/MVAr"/>
+      </Signal>
+      <Signal name="Virtual_Impedance" offset="32" length="16" endianess="little">
+        <Consumer>
+          <NodeRef id="0"/>
+        </Consumer>
+        <Value type="signed" slope="1" unit="uH"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x70052" length="6" name="AFE_Firmware_Dev" format="extended">
+      <Notes>Used for firmware development</Notes>
+      <Producer>
+        <NodeRef id="0"/>
+      </Producer>
+      <Multiplex name="Data_Type" offset="32" length="4">
+        <MuxGroup count="0">
+          <Signal name="Flag" offset="0" length="1" endianess="little">
+            <Consumer>
+              <NodeRef id="7"/>
+            </Consumer>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="1">
+          <Signal name="U16" offset="0" length="16" endianess="little">
+            <Consumer>
+              <NodeRef id="7"/>
+            </Consumer>
+            <Value type="unsigned"/>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="2">
+          <Signal name="I16" offset="0" length="16" endianess="little">
+            <Consumer>
+              <NodeRef id="7"/>
+            </Consumer>
+            <Value type="signed"/>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="3">
+          <Signal name="U32" offset="0" length="32" endianess="little">
+            <Consumer>
+              <NodeRef id="7"/>
+            </Consumer>
+            <Value type="unsigned"/>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="4">
+          <Signal name="I32" offset="0" length="32" endianess="little">
+            <Consumer>
+              <NodeRef id="7"/>
+            </Consumer>
+            <Value type="signed"/>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="5">
+          <Signal name="F32" offset="0" length="32" endianess="little">
+            <Consumer>
+              <NodeRef id="7"/>
+            </Consumer>
+            <Value type="unsigned"/>
+          </Signal>
+        </MuxGroup>
+      </Multiplex>
+      <Signal name="Index" offset="36" length="12" endianess="little">
+        <Consumer>
+          <NodeRef id="7"/>
+        </Consumer>
+        <Value type="unsigned"/>
+      </Signal>
+    </Message>
+
     <Message id="0x70051" length="6" name="AFE_Inverter_Droop_Control" format="extended">
       <Notes> This message is used to define the droop characteristics of the module in Inverter 3-Phase operation. The droop curve for both voltage and frequency is 
               defined as a symetric 3 linear segments. The 'nominal' segment is defined solely
@@ -1701,18 +1886,23 @@
       <Multiplex name="Parameter_Index" offset="16" length="16">
         <MuxGroup count="0">
           <Signal name="Freq_droop_nominal" offset="0" length="16" endianess="little">
-            <Notes> Sets the nominal droop slope for the Frequency in Hz/MegaWatt. By default
+            <Notes> Sets the nominal droop slope for the Frequency in Hz/MW. By default
                     (i.e: after power cycle), this value is 40 Hz/MW </Notes>
             <Consumer> <NodeRef id="7"/> </Consumer>
-            <Value type="signed" slope="0.01" unit="Hz/MegaWatt"/>
+            <Value type="signed" slope="0.01" unit="Hz/MW"/>
           </Signal>
         </MuxGroup>
         <MuxGroup count="1">
           <Signal name="Volt_droop_nominal" offset="0" length="16" endianess="little">
-            <Notes> Sets the nominal droop slope for the Voltage in V/MegaWatt. By default
-                    (i.e: after power cycle), this value is 648 V/MW</Notes>
+            <Notes> Sets the nominal droop slope for the Voltage in V/MVAr. By default
+                    (i.e: after power cycle), this value is 630 V/MVAr</Notes>
             <Consumer> <NodeRef id="7"/> </Consumer>
-            <Value type="signed" slope="0.1" unit="V/MegaWatt"/>
+            <Value type="signed" slope="0.1" unit="V/MVAr"/>
+          </Signal>
+        </MuxGroup>
+        <MuxGroup count="2">
+          <Signal name="Reserved" offset="0" length="16" endianess="little">
+            <Consumer><NodeRef id="7"/></Consumer>
           </Signal>
         </MuxGroup>
         <MuxGroup count="6">
@@ -1720,7 +1910,7 @@
             <Notes> Sets the inductive virtual impedance in microhenries (uH). By default
                     (i.e: after power cycle), this value is 8000 uH</Notes>
             <Consumer> <NodeRef id="7"/> </Consumer>
-            <Value type="signed" unit="uH"/>
+            <Value type="signed" slope="1" unit="uH"/>
           </Signal>
         </MuxGroup>
       </Multiplex>
@@ -1743,6 +1933,10 @@
         </Notes>
         <Consumer> <NodeRef id="7"/> </Consumer>
       </Signal>
+      <Signal name="Enable_Droop" offset="35" length="1" endianess="little">
+        <Notes>Enables droop control extension for INVERTER_1PH_SYNC control mode.</Notes>
+        <Consumer> <NodeRef id="7"/> </Consumer>
+      </Signal>
     </Message>
 
     <Message id="0x7004E" length="6" name="AFE_DC_setpoint_control" format="extended">
@@ -1756,12 +1950,12 @@
       <Signal name="positive_current_limit" offset="16" length="16" endianess="little">
         <Notes>The current limit for current in forward direction (DC->Phases in Buck, Phases->DC in Boost), this limit applies to the phase side currents</Notes>
         <Consumer> <NodeRef id="7"/> </Consumer>
-        <Value slope="0.01" intercept="0" unit="A" type="unsigned" min="0" max="150"/>
+        <Value slope="0.01" intercept="0" unit="A" type="signed" min="0" max="150"/>
       </Signal>
       <Signal name="negative_current_limit" offset="32" length="16" endianess="little">
         <Notes>The current limit in reverse direction. (Phases->DC in Buck, DC->Phases in Boost) This limit applies to the phase side currents</Notes>
         <Consumer> <NodeRef id="7"/> </Consumer>
-        <Value slope="0.01" intercept="0" unit="A" type="unsigned" min="0" max="150"/>
+        <Value slope="0.01" intercept="0" unit="A" type="signed" min="-150" max="0"/>
       </Signal>
     </Message>
 
@@ -1769,6 +1963,14 @@
       <Notes>Set parameters for DC Droop control</Notes>
       <Producer> <NodeRef id="0"/> </Producer>
       <Multiplex name="Multiplex_Index" offset="8" length="8">
+        <MuxGroup count="0">
+            <Signal name="Reserved" offset="16" length="16" endianess="little">
+              <Notes>Reserved for future use. Makes it possible to Enable or
+              Disable DC droop without affecting resistance values</Notes>
+              <Consumer><NodeRef id="7"/></Consumer>
+              <Value slope="1" unit="-" type="unsigned"/>
+            </Signal>
+        </MuxGroup>
         <MuxGroup count="1">
             <Signal name="Droop_resistance_positive_current" offset="16" length="16" endianess="little">
               <Notes>Virtual droop resistance in Ohms when current is positive. Its default
@@ -1787,6 +1989,13 @@
                 <Value slope="0.001" unit="Ohm" type="unsigned"/>
             </Signal>
         </MuxGroup>
+        <MuxGroup count="3">
+            <Signal name="Droop_voltage_offset" offset="16" length="16" endianess="little">
+              <Notes>Direct voltage offset on the voltage reference.</Notes>
+              <Consumer><NodeRef id="7"/></Consumer>
+              <Value slope="0.001" unit="V" type="signed" min="-30" max="30"/>
+            </Signal>
+        </MuxGroup>
       </Multiplex>
       <Signal name="Enable" offset="0" length="1" endianess="little">
           <Notes>Flag to enable droop. If enabled, the voltage Setpoint
@@ -1797,77 +2006,46 @@
       </Signal>
     </Message>
 
-    <Message id="0x70071" length="8" name="Rectifier_DC_Setpoints" format="extended">
-      <Notes>The setpoints that apply to the AFE in Rectifier Mode.
-            The rectifier mode operates a CV/CC control of the DC bus side,
-            with the Currents on the AC following the needs of the DC bus.
-            With the Real power defined by the needs of the AC bus the AFE may
-            still provide inductive or capacitive reactive power.
-      </Notes>
-      <Producer> <NodeRef id="0"/> </Producer>
-      <Signal name="DC_Bus_Voltage_setpoint" offset="0" length="16" endianess="little">
-        <Notes>The voltage that the rectifier targets on the DC bus.</Notes>
-        <Consumer> <NodeRef id="7"/> </Consumer>
-        <Value type="unsigned" slope="0.1" min="0" max="1500" unit="V"/>
-      </Signal>
-      <Signal name="DC_Source_current_limit" offset="16" length="16" endianess="little">
-        <Notes>The maximum current that the BP25 will provide to the DC Bus.
-              If the measured voltage is below the target voltage the BP25 will provide
-              current to the DC bus in order to raise it's voltage. This signal limits the
-                maximum current the BP25 may provide to the bus. If this current is reached
-                the Voltage of the Bus is no longer controlled by the BP25, as it now operates in
-                constant current mode (CC)
-        </Notes>
-        <Consumer> <NodeRef id="7"/> </Consumer>
-        <Value type="unsigned" slope="0.01" intercept="0" min="0" max="150" unit="A"/>
-      </Signal>
-      <Signal name="DC_Sink_current_limit" offset="32" length="16" endianness="little">
-        <Notes> The maximum current that BP25 will draw from the DC Bus.
-                If the measured DC bus voltage is above the target voltage the BP25 will draw
-                current from the DC bus in order to lower the voltage. This signal limits the
-                maximum current the BP25 may draw from the bus. If this current is reached
-                the Voltage of the Bus is no longer controlled by the BP25, as it now operates in
-                constant current mode (CC)
-        </Notes>
-        <Consumer> <NodeRef id="7"/> </Consumer>
-        <Value type="unsigned" slope="0.01" intercept="0" min="0" max="150" unit="A"/>
-      </Signal>
-    </Message>
-
-    <Message id="0x78072" length="8" name="Rectifier_Applied_DC_Setpoints" format="extended" interval="100">
-      <Notes>The currently applied setpoints for the setpoints configured in AFE_Rectifier_Setpoints.
-            For details please see the signal descriptions in 'AFE_Rectifier_Setpoints'
-      </Notes>
-      <Producer> <NodeRef id="7"/> </Producer>
-      <Signal name="DC_Bus_Voltage_setpoint_applied" offset="0" length="16" endianess="little">
-        <Consumer> <NodeRef id="0"/> </Consumer>
-        <Value type="unsigned" slope="0.1" min="0" max="1500" unit="V"/>
-      </Signal>
-      <Signal name="DC_Source_current_limit_applied" offset="16" length="16" endianess="little">
-        <Consumer> <NodeRef id="0"/> </Consumer>
-        <Value type="unsigned" slope="0.1" intercept="0" min="0" max="150" unit="A"/>
-      </Signal>
-      <Signal name="DC_Sink_current_limit_applied" offset="32" length="16" endianness="little">
-        <Consumer> <NodeRef id="0"/> </Consumer>
-        <Value type="unsigned" slope="0.1" intercept="0" min="0" max="150" unit="A"/>
-      </Signal>
-    </Message>
-
     <Message id="0x78050" length="8" name="AFE_Droop_setpoints" interval="1000" format="extended">
       <Notes> Reads the droop resistance values of user </Notes>
       <Producer> <NodeRef id="7"/> </Producer>
       <Signal name="Positive_droop" offset="0" length="16" endianess="little">
         <Consumer> <NodeRef id="0"/> </Consumer>
-        <Value slope="0.001" unit="Ohm" type="signed"/>
+        <Value slope="0.001" unit="Ohm" type="unsigned"/>
       </Signal>
       <Signal name="Negative_droop" offset="16" length="16" endianess="little">
         <Consumer> <NodeRef id="0"/> </Consumer>
-        <Value slope="0.001" unit="Ohm" type="signed"/>
+        <Value slope="0.001" unit="Ohm" type="unsigned"/>
       </Signal>
-      <Signal name="droop_enable" offset="32" length="16" endianess="little">
+      <Signal name="droop_enable" offset="32" length="1" endianess="little">
         <Consumer> <NodeRef id="0"/> </Consumer>
-        <Value type="signed"/>
+      </Signal>
+      <Signal name="droop_enable_2" offset="33" length="1" endianess="little">
+        <Consumer> <NodeRef id="0"/> </Consumer>
       </Signal>
     </Message>
+
+    <Message id="0x78069" length="6" name="AFE_DC_Setpoints" interval="1000" format="extended">
+      <Notes>Setpoints</Notes>
+      <Producer> <NodeRef id="7"/> </Producer>
+      <Signal name="Voltage_Setpoint" offset="0" length="16">
+        <Notes>The actual negative current setpoint</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="unsigned" slope="0.1" unit="V"/>
+      </Signal>
+      <Producer> <NodeRef id="7"/> </Producer>
+      <Signal name="positive_Current_setpoint" offset="16" length="16">
+        <Notes>The actual negative current setpoint</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="signed" slope="0.01" unit="A"/>
+      </Signal>
+      <Producer> <NodeRef id="7"/> </Producer>
+      <Signal name="negative_Current_setpoint" offset="32" length="16">
+        <Notes>The actual negative current setpoint</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <Value type="signed" slope="0.01" unit="A"/>
+      </Signal>
+    </Message>
+    
   </Bus>
 </NetworkDefinition>

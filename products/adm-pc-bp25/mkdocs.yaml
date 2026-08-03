@@ -73,16 +73,15 @@ plugins:
   - mermaid2
   - autorefs
   - plantuml:
-      render: "server"
       puml_url: "https://www.plantuml.com/plantuml"
-      output_format: "svg"
-      theme_enabled: false
-      retries: 5
-      delay: 2
-      # theme:
-      #     url: _puml  # Path to custom themes, must contain advantics-theme-light.puml and advantics-theme-dark.puml
-      #     light: advantics-theme-light
-      #     dark: advantics-theme-dark
+      puml_keyword: "puml"
+      # Styling is carried INLINE by each diagram (the Advantics skinparam prelude), so the
+      # plugin must not inject its own theme: with theme.enabled true it prepends an
+      # `!include <github raw url>` that the plantuml server has to fetch, and it cannot.
+      # Disabled also means one diagram per block (class "puml light", display:block) instead
+      # of a light/dark pair -- which is what products/css/custom.css expects.
+      theme:
+        enabled: false
   - with-pdf:
       enabled_if_env: PDF_EXPORT
       output_path: pdf/ADM-PC-BP25-manual.pdf
@@ -121,18 +120,20 @@ markdown_extensions:
 # Navigation structure
 nav:
   - "Get Started here": "index.md"
-  - "1. Safety Instructions": "1_Safety_instructions.md"
-  - "2. Module Overview": "3_Module_Overview.md"
-  - "3. Applications": "4_Applications.md"
-  - "4. Technical Overview":
-    - "4.1. Mechanical and Electrical Overview": "5_Mechanical_and_Electrical_Technical_Overview.md"
-    - "4.2. Control System Overview": "7_Firmware_Overview.md"
-  - "5. Installation": "6_Setting_up_ADM_PC_BP25.md"
-  - "6. Servicing": "8_Servicing.md"
-  - "7. Reference":
+  - "Safety Instructions": "safety_hazards.md"
+  - "Module Overview": "introduction.md"
+  - "Electrical and Mechanical Overview": "specifications.md"
+  - "Theory of operation": "theory_of_operation.md"
+  - "Communication Interface": "comm_interface.md"
+  - "Application examples": "application_examples.md"
+  - Guides:
+    - "Quick Start Guide": "quick_start.md"
+    - "Installation Guide": "installation.md"
+    - "Servicing Guide": "servicing.md"
+  - References:
     - "CAN Bus Interface":
-        - "CAN bus overview": "can_bus_overview.md"
-        - "CAN bus messages": "can_bus_interface.md"
+      - "CAN bus overview": "can_bus_overview.md"
+      - "CAN bus messages": "can_bus_interface.md"
 # Extra configurations
 extra:
   social:

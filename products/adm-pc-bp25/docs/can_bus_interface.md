@@ -27,31 +27,34 @@ hide:
 | [AFE_Group_Control](#AFE_Group_Control) | 0x7004c | 1 |  |  |
 | [AFE_DC_droop_control](#AFE_DC_droop_control) | 0x7004d | 4 |  |  |
 | [AFE_DC_setpoint_control](#AFE_DC_setpoint_control) | 0x7004e | 6 |  |  |
+| [AFE_Power_Limit_Control](#AFE_Power_Limit_Control) | 0x7004f | 4 |  |  |
 | [AFE_Fault_Control](#AFE_Fault_Control) | 0x70050 | 1 |  |  |
 | [AFE_Inverter_Droop_Control](#AFE_Inverter_Droop_Control) | 0x70051 | 6 |  |  |
+| [AFE_Firmware_Dev](#AFE_Firmware_Dev) | 0x70052 | 6 |  |  |
+| [AFE_Power_Limit_Control_Readback](#AFE_Power_Limit_Control_Readback) | 0x7005f | 4 |  | 100 |
 | [AFE_Keep_Alive](#AFE_Keep_Alive) | 0x70060 | 1 |  |  |
 | [AFE_System_Flags_Control](#AFE_System_Flags_Control) | 0x70061 | 8 |  |  |
 | [AFE_Rectifier_Setpoint_Control](#AFE_Rectifier_Setpoint_Control) | 0x70070 | 8 |  | 100 |
-| [Rectifier_DC_Setpoints](#Rectifier_DC_Setpoints) | 0x70071 | 8 |  |  |
 | [AFE_CAN_API_Version](#AFE_CAN_API_Version) | 0x700f3 | 3 |  | 1000 |
 | [AFE_Identification](#AFE_Identification) | 0x78000 | 8 |  | 1000 |
 | [AFE_FwInfo](#AFE_FwInfo) | 0x78001 | 8 |  | 1000 |
 | [AFE_Debug](#AFE_Debug) | 0x78002 | 8 |  | 1000 |
 | [AFE_Currents](#AFE_Currents) | 0x78003 | 6 |  | 100 |
-| [AFE_Voltages](#AFE_Voltages) | 0x78004 | 8 |  | 100 |
+| [AFE_Voltages](#AFE_Voltages) | 0x78004 | 8 |  | 10 |
 | [AFE_Temperatures](#AFE_Temperatures) | 0x78005 | 4 |  | 1000 |
 | [AFE_Faults](#AFE_Faults) | 0x78006 | 3 |  | 1000 |
-| [AFE_Status](#AFE_Status) | 0x78007 | 8 |  | 1000 |
+| [AFE_Status](#AFE_Status) | 0x78007 | 8 |  | 100 |
 | [AFE_Setpoints_PWM_Duty](#AFE_Setpoints_PWM_Duty) | 0x78008 | 6 |  | 1000 |
 | [AFE_Setpoints](#AFE_Setpoints) | 0x78009 | 6 |  | 1000 |
 | [AFE_Voltages_RMS](#AFE_Voltages_RMS) | 0x7800a | 6 |  | 100 |
 | [AFE_Currents_RMS](#AFE_Currents_RMS) | 0x7800b | 6 |  | 100 |
 | [AFE_Mains](#AFE_Mains) | 0x7800c | 4 |  | 100 |
 | [_AFE_Boot_FwInfo](#_AFE_Boot_FwInfo) | 0x7800d | 8 |  | 1000 |
-| [_AFE_Broadcast](#_AFE_Broadcast) | 0x7800e | 8 |  | 50 |
+| [_AFE_Broadcast](#_AFE_Broadcast) | 0x7800e | 8 |  | 10 |
 | [AFE_Group_Info](#AFE_Group_Info) | 0x7800f | 1 |  | 1000 |
 | [AFE_DC_Bus_current](#AFE_DC_Bus_current) | 0x78010 | 2 |  | 100 |
 | [AFE_AC_Power](#AFE_AC_Power) | 0x78011 | 8 |  | 1000 |
+| [AFE_DC_Power](#AFE_DC_Power) | 0x78012 | 2 |  | 10 |
 | [_AFE_Currents_Raw](#_AFE_Currents_Raw) | 0x78020 | 8 |  | 100 |
 | [_AFE_Voltages_Raw](#_AFE_Voltages_Raw) | 0x78021 | 8 |  | 100 |
 | [AFE_Droop_setpoints](#AFE_Droop_setpoints) | 0x78050 | 8 |  | 1000 |
@@ -60,7 +63,8 @@ hide:
 | [_AFE_Calibration_Adc_Offset](#_AFE_Calibration_Adc_Offset) | 0x78053 | 4 |  | 1000 |
 | [_AFE_Calibration_Adc_Gain](#_AFE_Calibration_Adc_Gain) | 0x78054 | 4 |  | 1000 |
 | [AFE_Interlock_Faults](#AFE_Interlock_Faults) | 0x78056 | 2 |  | 1000 |
-| [Rectifier_Applied_DC_Setpoints](#Rectifier_Applied_DC_Setpoints) | 0x78072 | 8 |  | 100 |
+| [AFE_DC_Setpoints](#AFE_DC_Setpoints) | 0x78069 | 6 |  | 1000 |
+| [AFE_Inverter_Droop_Readback](#AFE_Inverter_Droop_Readback) | 0x78151 | 8 |  | 100 |
 
 
 <a id="AFE_Voltage_Limits"></a>
@@ -246,7 +250,6 @@ Operation Mode control: sets the converter operation mode
 | MPPT_boost_ON | 1 | Single bit |
 | Buck_2p_float_ON | 1 | Single bit |
 | Inverter_1ph_Distributed_ON | 1 | Single bit |
-| Buck_Alternate_Setpoint_ON | 1 | Single bit |
 
 ### Payload description
 
@@ -409,14 +412,6 @@ Single-phase inverter mode distributed
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 22 | 1 | Single bit |  | 1 | 0 |  |  |
-
-#### Buck_Alternate_Setpoint_ON { #AFE_Mode_Control-Buck_Alternate_Setpoint_ON }
-
-An alternate mode where the buck setpoint is in reference to VDC+ instead of in reference to VDC-
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 23 | 1 | Single bit |  | 1 | 0 |  |  |
 
 
 <a id="AFE_Reactive_Current_Setpoint_Control"></a>
@@ -1084,8 +1079,10 @@ Set parameters for DC Droop control
 |--------|---------------|------|
 | Enable | 1 | Single bit |
 | Multiplex_Index | 8 | Unsigned |
+| Reserved | 16 | Unsigned |
 | Droop_resistance_positive_current | 16 | Unsigned |
 | Droop_resistance_negative_current | 16 | Unsigned |
+| Droop_voltage_offset | 16 | Signed |
 
 ### Payload description
 
@@ -1106,6 +1103,15 @@ Flag to enable droop. If enabled, the voltage Setpoint
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 8 | 8 | Unsigned |  | 1 | 0 |  |  |
 
+#### Reserved { #AFE_DC_droop_control-Reserved }
+
+Reserved for future use. Makes it possible to Enable or
+              Disable DC droop without affecting resistance values
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 16 | Unsigned | - | 1 | 0 |  |  |
+
 #### Droop_resistance_positive_current { #AFE_DC_droop_control-Droop_resistance_positive_current }
 
 Virtual droop resistance in Ohms when current is positive. Its default
@@ -1125,6 +1131,14 @@ Virtual droop resistance in Ohms when current is negative. Its default
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 16 | 16 | Unsigned | Ohm | 0.001 | 0 |  |  |
+
+#### Droop_voltage_offset { #AFE_DC_droop_control-Droop_voltage_offset }
+
+Direct voltage offset on the voltage reference.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 16 | Signed | V | 0.001 | 0 | -30 | 30 |
 
 
 <a id="AFE_DC_setpoint_control"></a>
@@ -1147,8 +1161,8 @@ Control of the setpoints in DC/DC modes (buck and boost)
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
 | Voltage_Setpoint | 16 | Unsigned |
-| positive_current_limit | 16 | Unsigned |
-| negative_current_limit | 16 | Unsigned |
+| positive_current_limit | 16 | Signed |
+| negative_current_limit | 16 | Signed |
 
 ### Payload description
 
@@ -1166,7 +1180,7 @@ The current limit for current in forward direction (DC-&gt;Phases in Buck, Phase
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 16 | 16 | Unsigned | A | 0.01 | 0 | 0 | 150 |
+| 16 | 16 | Signed | A | 0.01 | 0 | 0 | 150 |
 
 #### negative_current_limit { #AFE_DC_setpoint_control-negative_current_limit }
 
@@ -1174,7 +1188,48 @@ The current limit in reverse direction. (Phases-&gt;DC in Buck, DC-&gt;Phases in
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 32 | 16 | Unsigned | A | 0.01 | 0 | 0 | 150 |
+| 32 | 16 | Signed | A | 0.01 | 0 | -150 | 0 |
+
+
+<a id="AFE_Power_Limit_Control"></a>
+## AFE_Power_Limit_Control { #AFE_Power_Limit_Control }
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x7004f |
+| **Length [Bytes]** | 4 |
+| **Periodicity [ms]** |  |
+| **Direction** |  |
+
+### Description
+
+Power limit control in DC/DC buck and boost modes.
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Positive_power_limit | 16 | Signed |
+| Negative_power_limit | 16 | Signed |
+
+### Payload description
+
+#### Positive_power_limit { #AFE_Power_Limit_Control-Positive_power_limit }
+
+Sets the positive power limit.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Signed | W | 10 | 0 |  |  |
+
+#### Negative_power_limit { #AFE_Power_Limit_Control-Negative_power_limit }
+
+Sets the negative power limit.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 16 | Signed | W | 10 | 0 |  |  |
 
 
 <a id="AFE_Fault_Control"></a>
@@ -1252,31 +1307,39 @@ This message is used to define the droop characteristics of the module in Invert
 |--------|---------------|------|
 | Freq_droop_nominal | 16 | Signed |
 | Volt_droop_nominal | 16 | Signed |
+| Reserved | 16 | Unsigned |
 | Virtual_Impedance | 16 | Signed |
 | Parameter_Index | 16 | Unsigned |
 | Disable_Harmonic_Compensation | 1 | Single bit |
 | Enable_Integral_Action | 1 | Single bit |
 | Enable_Legacy_Mode | 1 | Single bit |
+| Enable_Droop | 1 | Single bit |
 
 ### Payload description
 
 #### Freq_droop_nominal { #AFE_Inverter_Droop_Control-Freq_droop_nominal }
 
-Sets the nominal droop slope for the Frequency in Hz/MegaWatt. By default
+Sets the nominal droop slope for the Frequency in Hz/MW. By default
                    (i.e: after power cycle), this value is 40 Hz/MW
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 16 | Signed | Hz/MegaWatt | 0.01 | 0 |  |  |
+| 0 | 16 | Signed | Hz/MW | 0.01 | 0 |  |  |
 
 #### Volt_droop_nominal { #AFE_Inverter_Droop_Control-Volt_droop_nominal }
 
-Sets the nominal droop slope for the Voltage in V/MegaWatt. By default
-                   (i.e: after power cycle), this value is 648 V/MW
+Sets the nominal droop slope for the Voltage in V/MVAr. By default
+                   (i.e: after power cycle), this value is 630 V/MVAr
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 16 | Signed | V/MegaWatt | 0.1 | 0 |  |  |
+| 0 | 16 | Signed | V/MVAr | 0.1 | 0 |  |  |
+
+#### Reserved { #AFE_Inverter_Droop_Control-Reserved }
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Unsigned |  | 1 | 0 |  |  |
 
 #### Virtual_Impedance { #AFE_Inverter_Droop_Control-Virtual_Impedance }
 
@@ -1322,6 +1385,134 @@ If legacy mode is enabled, module will behave as previous to the
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 34 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### Enable_Droop { #AFE_Inverter_Droop_Control-Enable_Droop }
+
+Enables droop control extension for INVERTER_1PH_SYNC control mode.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 35 | 1 | Single bit |  | 1 | 0 |  |  |
+
+
+<a id="AFE_Firmware_Dev"></a>
+## AFE_Firmware_Dev { #AFE_Firmware_Dev }
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x70052 |
+| **Length [Bytes]** | 6 |
+| **Periodicity [ms]** |  |
+| **Direction** |  |
+
+### Description
+
+Used for firmware development
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Flag | 1 | Single bit |
+| U16 | 16 | Unsigned |
+| I16 | 16 | Signed |
+| U32 | 32 | Unsigned |
+| I32 | 32 | Signed |
+| F32 | 32 | Unsigned |
+| Data_Type | 4 | Unsigned |
+| Index | 12 | Unsigned |
+
+### Payload description
+
+#### Flag { #AFE_Firmware_Dev-Flag }
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### U16 { #AFE_Firmware_Dev-U16 }
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Unsigned |  | 1 | 0 |  |  |
+
+#### I16 { #AFE_Firmware_Dev-I16 }
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Signed |  | 1 | 0 |  |  |
+
+#### U32 { #AFE_Firmware_Dev-U32 }
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 32 | Unsigned |  | 1 | 0 |  |  |
+
+#### I32 { #AFE_Firmware_Dev-I32 }
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 32 | Signed |  | 1 | 0 |  |  |
+
+#### F32 { #AFE_Firmware_Dev-F32 }
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 32 | Unsigned |  | 1 | 0 |  |  |
+
+#### Data_Type { #AFE_Firmware_Dev-Data_Type }
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 32 | 4 | Unsigned |  | 1 | 0 |  |  |
+
+#### Index { #AFE_Firmware_Dev-Index }
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 36 | 12 | Unsigned |  | 1 | 0 |  |  |
+
+
+<a id="AFE_Power_Limit_Control_Readback"></a>
+## AFE_Power_Limit_Control_Readback { #AFE_Power_Limit_Control_Readback }
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x7005f |
+| **Length [Bytes]** | 4 |
+| **Periodicity [ms]** | 100 |
+| **Direction** |  |
+
+### Description
+
+
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Positive_power_limit | 16 | Signed |
+| Negative_power_limit | 16 | Signed |
+
+### Payload description
+
+#### Positive_power_limit { #AFE_Power_Limit_Control_Readback-Positive_power_limit }
+
+Sets the positive power limit.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Signed | W | 10 | 0 |  |  |
+
+#### Negative_power_limit { #AFE_Power_Limit_Control_Readback-Negative_power_limit }
+
+Sets the negative power limit.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 16 | Signed | W | 10 | 0 |  |  |
 
 
 <a id="AFE_Keep_Alive"></a>
@@ -1378,6 +1569,15 @@ Control the system flags
 | Factory_mode | 1 | Single bit |
 | Silent_CAN_mode | 1 | Single bit |
 | Disable_3rd_harmonic | 1 | Single bit |
+| Enable_current_limit_setpoints | 1 | Single bit |
+| Enable_voltage_setpoint_as_difference | 1 | Single bit |
+| Enable_VF_droop_mode | 1 | Single bit |
+| Enable_PQ_droop_mode | 1 | Single bit |
+| Enable_DC_droop_mode | 1 | Single bit |
+| Legacy_DC_control | 1 | Single bit |
+| Enable_high_side_current_setpoint | 1 | Single bit |
+| Enable_DC_power_limits | 1 | Single bit |
+| Differential_power | 1 | Single bit |
 
 ### Payload description
 
@@ -1405,6 +1605,78 @@ If set to true, then the module will not do 3rd harmonic injection. This only
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 2 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### Enable_current_limit_setpoints { #AFE_System_Flags_Control-Enable_current_limit_setpoints }
+
+When enabled, 3-phase rectifier, DC/DC buck, and DC/DC boost control modes will use negative current setpoint.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 3 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### Enable_voltage_setpoint_as_difference { #AFE_System_Flags_Control-Enable_voltage_setpoint_as_difference }
+
+When enabled, voltage setpoint means relative difference to input voltage in DC/DC buck and boost control modes.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 4 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### Enable_VF_droop_mode { #AFE_System_Flags_Control-Enable_VF_droop_mode }
+
+Enables V-f droop in inverter control modes
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 5 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### Enable_PQ_droop_mode { #AFE_System_Flags_Control-Enable_PQ_droop_mode }
+
+Enables P-Q droop in inverter control modes
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 6 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### Enable_DC_droop_mode { #AFE_System_Flags_Control-Enable_DC_droop_mode }
+
+Enables droop in DC/DC and rectifier modes
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 7 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### Legacy_DC_control { #AFE_System_Flags_Control-Legacy_DC_control }
+
+Legacy control for DC/DC modes (buck and boost)
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 8 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### Enable_high_side_current_setpoint { #AFE_System_Flags_Control-Enable_high_side_current_setpoint }
+
+Current setpoint is give for the high side (DC link)
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 9 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### Enable_DC_power_limits { #AFE_System_Flags_Control-Enable_DC_power_limits }
+
+Enables power limits in DC/DC Buck and Boost modes
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 10 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### Differential_power { #AFE_System_Flags_Control-Differential_power }
+
+Power measurements and setpoints are calculated using differential voltage (high-side minus low-side voltage)
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 11 | 1 | Single bit |  | 1 | 0 |  |  |
 
 
 <a id="AFE_Rectifier_Setpoint_Control"></a>
@@ -1442,70 +1714,6 @@ Additional voltage and current setpoints in single-phase rectifier and inverter 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 16 | 16 | Signed | A | 0.01 | 0 | -150 | 150 |
-
-
-<a id="Rectifier_DC_Setpoints"></a>
-## Rectifier_DC_Setpoints { #Rectifier_DC_Setpoints }
-
-
-| * | * |
-|---|---|
-| **Frame ID** | 0x70071 |
-| **Length [Bytes]** | 8 |
-| **Periodicity [ms]** |  |
-| **Direction** |  |
-
-### Description
-
-The setpoints that apply to the AFE in Rectifier Mode.
-            The rectifier mode operates a CV/CC control of the DC bus side,
-            with the Currents on the AC following the needs of the DC bus.
-            With the Real power defined by the needs of the AC bus the AFE may
-            still provide inductive or capacitive reactive power.
-
-### Payload
-
-| Signal | Length (bits) | Type |
-|--------|---------------|------|
-| DC_Bus_Voltage_setpoint | 16 | Unsigned |
-| DC_Source_current_limit | 16 | Unsigned |
-| DC_Sink_current_limit | 16 | Unsigned |
-
-### Payload description
-
-#### DC_Bus_Voltage_setpoint { #Rectifier_DC_Setpoints-DC_Bus_Voltage_setpoint }
-
-The voltage that the rectifier targets on the DC bus.
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 16 | Unsigned | V | 0.1 | 0 | 0 | 1500 |
-
-#### DC_Source_current_limit { #Rectifier_DC_Setpoints-DC_Source_current_limit }
-
-The maximum current that the BP25 will provide to the DC Bus.
-              If the measured voltage is below the target voltage the BP25 will provide
-              current to the DC bus in order to raise it&#x27;s voltage. This signal limits the
-                maximum current the BP25 may provide to the bus. If this current is reached
-                the Voltage of the Bus is no longer controlled by the BP25, as it now operates in
-                constant current mode (CC)
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 16 | 16 | Unsigned | A | 0.01 | 0 | 0 | 150 |
-
-#### DC_Sink_current_limit { #Rectifier_DC_Setpoints-DC_Sink_current_limit }
-
-The maximum current that BP25 will draw from the DC Bus.
-               If the measured DC bus voltage is above the target voltage the BP25 will draw
-               current from the DC bus in order to lower the voltage. This signal limits the
-               maximum current the BP25 may draw from the bus. If this current is reached
-               the Voltage of the Bus is no longer controlled by the BP25, as it now operates in
-               constant current mode (CC)
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 32 | 16 | Unsigned | A | 0.01 | 0 | 0 | 150 |
 
 
 <a id="AFE_CAN_API_Version"></a>
@@ -2029,7 +2237,7 @@ Current flowing through the Inductor of Phase W
 |---|---|
 | **Frame ID** | 0x78004 |
 | **Length [Bytes]** | 8 |
-| **Periodicity [ms]** | 100 |
+| **Periodicity [ms]** | 10 |
 | **Direction** |  |
 
 ### Description
@@ -2419,7 +2627,7 @@ The configuration EEPROM failed to load or save the module configuration.
 |---|---|
 | **Frame ID** | 0x78007 |
 | **Length [Bytes]** | 8 |
-| **Periodicity [ms]** | 1000 |
+| **Periodicity [ms]** | 100 |
 | **Direction** |  |
 
 ### Description
@@ -2456,7 +2664,6 @@ Status bitfield
 | MPPT_boost | 1 | Single bit |
 | Buck_2p_float | 1 | Single bit |
 | Inverter_1ph_Distributed | 1 | Single bit |
-| Buck_Alternate_Setpoint | 1 | Single bit |
 
 ### Payload description
 
@@ -2667,14 +2874,6 @@ Single-phase inverter mode  distributed
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 26 | 1 | Single bit |  | 1 | 0 |  |  |
-
-#### Buck_Alternate_Setpoint { #AFE_Status-Buck_Alternate_Setpoint }
-
-Buck mode where the setpoint is referenced to VDC+
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 27 | 1 | Single bit |  | 1 | 0 |  |  |
 
 
 <a id="AFE_Setpoints_PWM_Duty"></a>
@@ -3202,7 +3401,7 @@ Character 13
 |---|---|
 | **Frame ID** | 0x7800e |
 | **Length [Bytes]** | 8 |
-| **Periodicity [ms]** | 50 |
+| **Periodicity [ms]** | 10 |
 | **Direction** |  |
 
 ### Description
@@ -3216,7 +3415,9 @@ All AFEs will listen to this message
 | Stack_position | 5 | Unsigned |
 | Group_ID | 3 | Unsigned |
 | Phase_U | 16 | Signed |
+| Phase | 16 | Unsigned |
 | Phase_V | 16 | Signed |
+| Voltage | 16 | Signed |
 | Phase_W | 16 | Signed |
 | Diagnostics_Index | 8 | Unsigned |
 
@@ -3246,6 +3447,14 @@ Phase current is the MOSFET loop current, in the branch U of the converter.
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 8 | 16 | Signed | A | 0.01 | 0 |  |  |
 
+#### Phase { #_AFE_Broadcast-Phase }
+
+Phase sampled on low-latency trigger (rad)
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 8 | 16 | Unsigned | rad | 0.0001 | 0 |  |  |
+
 #### Phase_V { #_AFE_Broadcast-Phase_V }
 
 Phase current is the MOSFET loop current, in the branch V of the converter.
@@ -3253,6 +3462,14 @@ Phase current is the MOSFET loop current, in the branch V of the converter.
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 24 | 16 | Signed | A | 0.01 | 0 |  |  |
+
+#### Voltage { #_AFE_Broadcast-Voltage }
+
+Output from Q/V droop
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 24 | 16 | Signed | V | 0.01 | 0 |  |  |
 
 #### Phase_W { #_AFE_Broadcast-Phase_W }
 
@@ -3352,8 +3569,10 @@ AC measured power (only for Inverter modes)
 |--------|---------------|------|
 | P_u | 16 | Signed |
 | Q_u | 16 | Signed |
+| P_total | 16 | Signed |
 | P_v | 16 | Signed |
 | Q_v | 16 | Signed |
+| Q_total | 16 | Signed |
 | P_w | 16 | Signed |
 | Q_w | 16 | Signed |
 | Index | 8 | Unsigned |
@@ -3376,6 +3595,14 @@ Reactive power in phase U
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 0 | 16 | Signed | W | 10 | 0 |  |  |
 
+#### P_total { #AFE_AC_Power-P_total }
+
+Total active power (W)
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Signed | W | 1 | 0 |  |  |
+
 #### P_v { #AFE_AC_Power-P_v }
 
 Active power in phase V
@@ -3391,6 +3618,14 @@ Reactive power in phase V
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 16 | 16 | Signed | W | 10 | 0 |  |  |
+
+#### Q_total { #AFE_AC_Power-Q_total }
+
+Total reactive power (VAr)
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 16 | Signed | VAr | 1 | 0 |  |  |
 
 #### P_w { #AFE_AC_Power-P_w }
 
@@ -3413,6 +3648,36 @@ Reactive power in phase W
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 56 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+
+<a id="AFE_DC_Power"></a>
+## AFE_DC_Power { #AFE_DC_Power }
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x78012 |
+| **Length [Bytes]** | 2 |
+| **Periodicity [ms]** | 10 |
+| **Direction** |  |
+
+### Description
+
+DC measured power
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| DC_Power | 16 | Signed |
+
+### Payload description
+
+#### DC_Power { #AFE_DC_Power-DC_Power }
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Signed | W | 10 | 0 |  |  |
 
 
 <a id="_AFE_Currents_Raw"></a>
@@ -3529,9 +3794,10 @@ Reads the droop resistance values of user
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Positive_droop | 16 | Signed |
-| Negative_droop | 16 | Signed |
-| droop_enable | 16 | Signed |
+| Positive_droop | 16 | Unsigned |
+| Negative_droop | 16 | Unsigned |
+| droop_enable | 1 | Single bit |
+| droop_enable_2 | 1 | Single bit |
 
 ### Payload description
 
@@ -3539,19 +3805,25 @@ Reads the droop resistance values of user
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 16 | Signed | Ohm | 0.001 | 0 |  |  |
+| 0 | 16 | Unsigned | Ohm | 0.001 | 0 |  |  |
 
 #### Negative_droop { #AFE_Droop_setpoints-Negative_droop }
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 16 | 16 | Signed | Ohm | 0.001 | 0 |  |  |
+| 16 | 16 | Unsigned | Ohm | 0.001 | 0 |  |  |
 
 #### droop_enable { #AFE_Droop_setpoints-droop_enable }
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 32 | 16 | Signed |  | 1 | 0 |  |  |
+| 32 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### droop_enable_2 { #AFE_Droop_setpoints-droop_enable_2 }
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 33 | 1 | Single bit |  | 1 | 0 |  |  |
 
 
 <a id="_AFE_Calibration_Adc_Scale"></a>
@@ -4010,46 +4282,95 @@ This flag the reason for the internal interlock is unknown
 | fault | 1 |
 
 
-<a id="Rectifier_Applied_DC_Setpoints"></a>
-## Rectifier_Applied_DC_Setpoints { #Rectifier_Applied_DC_Setpoints }
+<a id="AFE_DC_Setpoints"></a>
+## AFE_DC_Setpoints { #AFE_DC_Setpoints }
 
 
 | * | * |
 |---|---|
-| **Frame ID** | 0x78072 |
+| **Frame ID** | 0x78069 |
+| **Length [Bytes]** | 6 |
+| **Periodicity [ms]** | 1000 |
+| **Direction** |  |
+
+### Description
+
+Setpoints
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Voltage_Setpoint | 16 | Unsigned |
+| positive_Current_setpoint | 16 | Signed |
+| negative_Current_setpoint | 16 | Signed |
+
+### Payload description
+
+#### Voltage_Setpoint { #AFE_DC_Setpoints-Voltage_Setpoint }
+
+The actual negative current setpoint
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Unsigned | V | 0.1 | 0 |  |  |
+
+#### positive_Current_setpoint { #AFE_DC_Setpoints-positive_Current_setpoint }
+
+The actual negative current setpoint
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 16 | Signed | A | 0.01 | 0 |  |  |
+
+#### negative_Current_setpoint { #AFE_DC_Setpoints-negative_Current_setpoint }
+
+The actual negative current setpoint
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 32 | 16 | Signed | A | 0.01 | 0 |  |  |
+
+
+<a id="AFE_Inverter_Droop_Readback"></a>
+## AFE_Inverter_Droop_Readback { #AFE_Inverter_Droop_Readback }
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x78151 |
 | **Length [Bytes]** | 8 |
 | **Periodicity [ms]** | 100 |
 | **Direction** |  |
 
 ### Description
 
-The currently applied setpoints for the setpoints configured in AFE_Rectifier_Setpoints.
-            For details please see the signal descriptions in &#x27;AFE_Rectifier_Setpoints&#x27;
+Readback for droop control parameters set in the 0x70051
 
 ### Payload
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| DC_Bus_Voltage_setpoint_applied | 16 | Unsigned |
-| DC_Source_current_limit_applied | 16 | Unsigned |
-| DC_Sink_current_limit_applied | 16 | Unsigned |
+| Freq_droop_nominal | 16 | Signed |
+| Volt_droop_nominal | 16 | Signed |
+| Virtual_Impedance | 16 | Signed |
 
 ### Payload description
 
-#### DC_Bus_Voltage_setpoint_applied { #Rectifier_Applied_DC_Setpoints-DC_Bus_Voltage_setpoint_applied }
+#### Freq_droop_nominal { #AFE_Inverter_Droop_Readback-Freq_droop_nominal }
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 16 | Unsigned | V | 0.1 | 0 | 0 | 1500 |
+| 0 | 16 | Signed | Hz/MW | 0.01 | 0 |  |  |
 
-#### DC_Source_current_limit_applied { #Rectifier_Applied_DC_Setpoints-DC_Source_current_limit_applied }
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 16 | 16 | Unsigned | A | 0.1 | 0 | 0 | 150 |
-
-#### DC_Sink_current_limit_applied { #Rectifier_Applied_DC_Setpoints-DC_Sink_current_limit_applied }
+#### Volt_droop_nominal { #AFE_Inverter_Droop_Readback-Volt_droop_nominal }
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 32 | 16 | Unsigned | A | 0.1 | 0 | 0 | 150 |
+| 16 | 16 | Signed | V/MVAr | 0.1 | 0 |  |  |
+
+#### Virtual_Impedance { #AFE_Inverter_Droop_Readback-Virtual_Impedance }
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 32 | 16 | Signed | uH | 1 | 0 |  |  |
