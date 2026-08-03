@@ -58,6 +58,7 @@ The following figures show the main mechanical dimensions for mounting of the mo
 - Washer spring DIN 7980 5 mm		8 pcs	
 - Washer plate DIN 433 5.3 mm		11 pcs (19 pcs)
 - Tool: Screwdriver bits ¼”, Torx, Size X25
+
 ![3phase charging](assets/accessories.png){ width="40%" }
 <figcaption style="text-align: center">Recommended accessories</figcaption>
 
@@ -68,12 +69,13 @@ The following figures show the main mechanical dimensions for mounting of the mo
 2. Place plastic stud (spacer) Thora AB-IA-M5-SW10, AR.N: 100 32 47 in to holes in the cooler.
 3. Place thermal paste on the cooling bars and cover of magnetic part on the module.
 
-![3phase charging](assets/thermal_paste_areas.png){ width="40%" }
-<figcaption style="text-align: center">Areas to apply thermal paste</figcaption>
+    ![3phase charging](assets/thermal_paste_areas.png){ width="40%" }
+    <figcaption style="text-align: center">Areas to apply thermal paste</figcaption>
 
 4. Place the module on the cooler.
-![3phase charging](assets/llc_with_cooler.png){ width="40%" }
-<figcaption style="text-align: center">Module on cooler</figcaption>
+
+    ![3phase charging](assets/llc_with_cooler.png){ width="40%" }
+    <figcaption style="text-align: center">Module on cooler</figcaption>
 
 5. Place screws with washers into the holes. The module is designed for screws M5, but M4 are possible to use as well, if the design of the cooler request it. Apply initial tightening torque on screws of 2.5 Nm. After a thermal cycle, retight all screws to the nominal torque. 
 
