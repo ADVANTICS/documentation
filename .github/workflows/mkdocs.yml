@@ -25,7 +25,7 @@ jobs:
           - adm-pc-bi25
           - adm-pc-bp25
           - adm-pc-ll25
-          - adm-pc-lf45
+          - adm-pc-lf46
 
     steps:
       - uses: actions/checkout@v5

@@ -64,16 +64,15 @@ plugins:
   - search
   - mermaid2
   - plantuml:
-      render: "server"
       puml_url: "https://www.plantuml.com/plantuml"
-      output_format: "svg"
-      theme_enabled: false
-      retries: 5
-      delay: 2
-      # theme:
-      #     url: _puml  # Path to custom themes, must contain advantics-theme-light.puml and advantics-theme-dark.puml
-      #     light: advantics-theme-light
-      #     dark: advantics-theme-dark
+      puml_keyword: "puml"
+      # Styling is carried INLINE by each diagram (the Advantics skinparam prelude), so the
+      # plugin must not inject its own theme: with theme.enabled true it prepends an
+      # `!include <github raw url>` that the plantuml server has to fetch, and it cannot.
+      # Disabled also means one diagram per block (class "puml light", display:block) instead
+      # of a light/dark pair -- which is what products/css/custom.css expects.
+      theme:
+        enabled: false
   - with-pdf:
       enabled_if_env: PDF_EXPORT
       output_path: pdf/adb-pc-dc01-manual.pdf

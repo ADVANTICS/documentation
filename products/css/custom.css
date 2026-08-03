@@ -577,3 +577,48 @@
   .page-break { page-break-after: always; break-after: page; }
   .pdf-page { page-break-inside: avoid; break-inside: avoid; }
 }
+
+/* Centre content images.
+   Applied here rather than in the pages: the same images appear across products through the
+   shared-charge-controllers symlinks, and there are ~370 of them.
+
+   Deliberately NOT `.md-typeset img`, which would also centre images used inline in a sentence
+   (turning them into block elements and breaking the text flow) and images inside table cells.
+   The survey of the built HTML found images in these containers:
+
+     218  <p><img></p>                 image alone in its paragraph        -> centre
+      75  <figure><img><figcaption>    the power modules' figure() macro   -> centre
+      35  <div class="bigger-N">       docsify's sizing wrapper            -> centre
+      39  <p>text <img> text</p>       inline in a sentence                -> leave
+      25  <td>/<th>/<li>               inside a table cell or list item    -> leave
+
+   `:only-child` is what distinguishes the first case from the fourth: a Markdown image on its
+   own line becomes the sole child of its <p>, whereas an inline one has text siblings. */
+.md-typeset p > img:only-child,
+.md-typeset p > a:only-child > img:only-child,
+.md-typeset figure > img,
+.md-typeset [class^="bigger-"] > img,
+.md-typeset [class*=" bigger-"] > img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* the sizing wrappers and figures themselves must be full width for the auto margins to bite */
+.md-typeset [class^="bigger-"],
+.md-typeset [class*=" bigger-"],
+.md-typeset figure {
+    display: block;
+    width: 100%;
+    text-align: center;
+}
+
+/* captions sit under the image, centred with it. Many migrated pages carry an inline
+   style="text-align: center" on the <figcaption>; this makes that redundant rather than
+   conflicting, and covers the ones that lack it. */
+.md-typeset figcaption {
+    text-align: center;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+}

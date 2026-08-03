@@ -73,8 +73,6 @@ Payload length:: The payload is always measured in Bytes. The length is specifie
 
 Each message is described using two main tables. The first table describes the general characteristics of the message:
 
-<div class="small-table compact-table" markdown="1">
-
 |Field|Value|
 |--------------|---------|
 | **Frame ID** | 0x78000 |
@@ -82,15 +80,11 @@ Each message is described using two main tables. The first table describes the g
 | **Periodicity [ms]** | 1000 |
 | **Direction** | IN |
 
-</div>
-
 
 The message direction is always relative to the device, therefore **OUT** messages are messages sent *from* the device to the CAN bus, while **IN** messages
 are messages coming *from* the CAN bus to the device.
 
 A second table lists the payload:
-
-<div class="small-table compact-table" markdown="1">
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
@@ -100,29 +94,21 @@ A second table lists the payload:
 | Stack_position | 8 | Unsigned |
 | SN_number | 32 | Unsigned |
 
-</div>
-
 #### Payload description
 
 The payload in a CAN message can be up to 8 bytes, which are used as a flat 64 bit payload organized as the previous table (payload contents index) indicates.
 
 An example description table is as follows:
 
-<div class="small-table compact-table" markdown="1">
-
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 0 | 8 | Unsigned | Amps | 0.01 | 0 |   |   |
-
-</div>
 
 Which describes a 16bit element, of type **unsigned**, starting at the payload offset 0.
 
 #### Types
 
 The type field indicates the format of the data in the payload item. Possible types are:
-
-<div class="small-table compact-table" markdown="1">
 
 | Type | Description | Example|
 |------|-------------|--------|
@@ -131,8 +117,6 @@ The type field indicates the format of the data in the payload item. Possible ty
 | Single | IEEE754 Single precision floating point | float|
 | Double | IEEE754 Double precision floating point | double|
 | Single bit | A single bit (typically a flag) | bool |
-
-</div>
 
 #### Variables and scale factors
 
