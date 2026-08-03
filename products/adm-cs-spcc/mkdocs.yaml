@@ -107,7 +107,8 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.arithmatex
   - toc:
-      permalink: false
+      permalink: true
+      permalink_title: "Link to this section"
       baselevel: 1
   - tables
   - attr_list

@@ -1067,7 +1067,7 @@ charging is done for now.
 However, state of [Advantics_Controller_Status](can_v2.md#Advantics_Controller_Status) will continue to report *Closing_Communication*
 for some seconds as some communication protocols require to wait a bit before the charger becomes
 available again. Once that delay is passed, the controller goes back to *Waiting_For_PEV* state in
-[Controller starts-up](#Controller starts-up).
+[Controller starts-up](#controller-starts-up).
 
 ```puml
 @startuml
