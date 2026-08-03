@@ -111,7 +111,8 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
   - toc:
-      permalink: false
+      permalink: true
+      permalink_title: "Link to this section"
       baselevel: 1
   - tables
   - attr_list
