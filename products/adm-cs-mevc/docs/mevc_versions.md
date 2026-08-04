@@ -161,7 +161,7 @@ Currently supported hardware are for `ADM-CS-MEVC`.
         <ul>
           <li><strong>pev-controller 2.2.5</strong>
             <ul>
-              <li>New CAN bus message <a href="vehicle-can-interfaces/can_v2.md#evcc-mevc-diagnostic-status">EVCC_MEVC_Diagnostic_Status</a><br/> Diagnostic status of the charge controller:<br/> - Shows active faults and errors detected by the charge controller.<br/>- Status signals received from the charger over High-Level Communication (HLC).</li>
+              <li>New CAN bus message <a href="vehicle-can-interfaces/can_v2.md#evcc_mevc_diagnostic_status">EVCC_MEVC_Diagnostic_Status</a><br/> Diagnostic status of the charge controller:<br/> - Shows active faults and errors detected by the charge controller.<br/>- Status signals received from the charger over High-Level Communication (HLC).</li>
             </ul>
           </li>
           <li><strong>ccs-evcc 2.3.5</strong>
@@ -205,7 +205,7 @@ Currently supported hardware are for `ADM-CS-MEVC`.
           <li><strong>pev-controller 2.3.0 / ccs-evcc 2.4.0</strong>
             <ul>
               <li>Add possibility of dynamic target voltage control (configurable)</li>
-              <li>Report CE and ID state via new message <a href="vehicle-can-interfaces/can_v2.md#mcs-extra-information">MCS_Extra_Information</a> (informational only)</li>
+              <li>Report CE and ID state via new message <a href="vehicle-can-interfaces/can_v2.md#mcs_extra_information">MCS_Extra_Information</a> (informational only)</li>
               <li>Add software filtering capability on CE and ID lines (experimental)</li>
               <li>Allow bidirectional cycling at full SOC (configurable)</li>
               <li>Disable current deviation check against target current in range mode (dynamic mode)</li>
