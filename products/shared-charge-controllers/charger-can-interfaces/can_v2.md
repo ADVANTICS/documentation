@@ -1,4 +1,11 @@
+---
+hide:
+  - toc
+---
+
 # CAN messages
+
+_Generated from Advantics Generic EVSE protocol 2.7 ([`Advantics_Generic_EVSE_protocol_v2.7.kcd`](Advantics_Generic_EVSE_protocol_v2.7.kcd))._
 
 ## Message index
 
@@ -49,8 +56,8 @@ be sent all the time when power modules are running.
     Therefore, it is NOT evaluated when waiting for a PEV to plug-in, or when
     negotiating the connection with the PEV.
 
-    Power modules should be alive from the moment &lt;&lt;New_Charge_Session&gt;&gt; is sent, until
-    &lt;&lt;Charge_Session_Finished&gt;&gt; is sent. At any other time, power modules are allowed to
+    Power modules should be alive from the moment [New_Charge_Session](#New_Charge_Session) is sent, until
+    [Charge_Session_Finished](#Charge_Session_Finished) is sent. At any other time, power modules are allowed to
     sleep and not send this message.
 
 ### Payload
@@ -102,10 +109,10 @@ Top temperature sensed in the enclosure.
 
 Tells if charging is allowed.
 
-When &lt;&lt;New_Charge_Session&gt;&gt; is sent, the controller waits for this signal
+When [New_Charge_Session](#New_Charge_Session) is sent, the controller waits for this signal
 to be 1 to continue the charge sequence.
 
-If 0 is emitted between &lt;&lt;New_Charge_Session&gt;&gt; and before the charging loop
+If 0 is emitted between [New_Charge_Session](#New_Charge_Session) and before the charging loop
 starts, the charge controller tells the vehicle the charging service is
 unavailable.
 
@@ -125,12 +132,14 @@ emergency shutdown requested by power modules.
 
 Reports the current insulation resistance, in multiple of 2 kOhms.
 
-TIP: If the RCD sensor only gives a boolean value, then 255 correspond to a __Valid__
-insulation, and 0 to an __Invalid__ insulation.
+!!! tip
+    If the RCD sensor only gives a boolean value, then 255 correspond to a __Valid__
+    insulation, and 0 to an __Invalid__ insulation.
 
-IMPORTANT: Whenever a power function is used after the insulation test, if this
-signal reports an insulation resistance below the limit of 100 Ohms/V, then this
-is considered as an interlock condition and an emergency stop is carried out.
+!!! important
+    Whenever a power function is used after the insulation test, if this
+    signal reports an insulation resistance below the limit of 100 Ohms/V, then this
+    is considered as an interlock condition and an emergency stop is carried out.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -211,8 +220,8 @@ The second byte is for flags having effect during parameters negotiation.
 The third byte is for flags having effect during power stages (insulation test,
 precharge and charging).
 
-The controller config file should have the entry &quot;use_sequence_flags = true&quot; in the
-&quot;[charger]&quot; section in order to take them into account.
+The controller config file should have the entry "use_sequence_flags = true" in the
+"[charger]" section in order to take them into account.
 
 To make sure the controller is taking a first message as initialisation of these
 flags, send this first message after Advantics_Controller_Status message reports a
@@ -335,7 +344,7 @@ Simulate a press on the user stop button (for normal charge termination). Only a
 
 ### Description
 
-Controller (ADM-CS-SECC hardware variant, ie. &quot;DIN rail&quot;) has various outputs that
+Controller (ADM-CS-SECC hardware variant, ie. "DIN rail") has various outputs that
 can be controlled through this message.
 
 ### Payload
@@ -346,7 +355,10 @@ can be controlled through this message.
 | Digital_Output2 | 1 | Single bit |
 | Digital_Output3 | 1 | Single bit |
 | Digital_Output4 | 1 | Single bit |
-| Reserved | 60 | Unsigned |
+| Led1 | 8 | Unsigned |
+| Led2 | 8 | Unsigned |
+| Led3 | 8 | Unsigned |
+| Reserved | 26 | Unsigned |
 
 ### Payload description
 
@@ -398,13 +410,49 @@ Needs to be declared as CAN Controlled in `/srv/config.cfg`:
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 3 | 1 | Single bit |  | 1 | 0 | 0 | 1 |
 
+#### Led1 { #ADM_CS_SECC_Outputs-Led1 }
+
+Sets the brightness of LED1 (CON5 5) in a scale from 1 to 100.
+Greater values than 100 will be treated as max brigthness.
+
+    [hardware]
+    led1 = CAN_Controlled
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 4 | 8 | Unsigned |  | 1 | 0 | 0 | 255 |
+
+#### Led2 { #ADM_CS_SECC_Outputs-Led2 }
+
+Sets the brightness of LED2 (CON 6) in a scale from 1 to 100.
+Greater values than 100 will be treated as max brigthness.
+
+    [hardware]
+    led2 = CAN_Controlled
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 12 | 8 | Unsigned |  | 1 | 0 | 0 | 255 |
+
+#### Led3 { #ADM_CS_SECC_Outputs-Led3 }
+
+Sets the brightness of LED3 (CON 7) in a scale from 1 to 100.
+Greater values than 100 will be treated as max brigthness.
+
+    [hardware]
+    led3 = CAN_Controlled
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 20 | 8 | Unsigned |  | 1 | 0 | 0 | 255 |
+
 #### Reserved { #ADM_CS_SECC_Outputs-Reserved }
 
 Reserved bits for future uses.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 4 | 60 | Unsigned |  | 1 | 0 |  |  |
+| 28 | 26 | Unsigned |  | 1 | 0 |  |  |
 
 
 <a id="ADM_CS_SPCC_Outputs"></a>
@@ -429,7 +477,10 @@ can be controlled through this message.
 |--------|---------------|------|
 | Digital_Output1 | 1 | Single bit |
 | Digital_Output2 | 1 | Single bit |
-| Reserved | 62 | Unsigned |
+| Led1 | 8 | Unsigned |
+| Led2 | 8 | Unsigned |
+| Led3 | 8 | Unsigned |
+| Reserved | 38 | Unsigned |
 
 ### Payload description
 
@@ -457,13 +508,49 @@ Needs to be declared as CAN Controlled in the config file:
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 1 | 1 | Single bit |  | 1 | 0 | 0 | 1 |
 
+#### Led1 { #ADM_CS_SPCC_Outputs-Led1 }
+
+Sets the brightness of LED1 (CON105 11) in a scale from 1 to 100.
+Greater values than 100 will be treated as max brigthness.
+
+    [hardware]
+    led1 = CAN_Controlled
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 2 | 8 | Unsigned |  | 1 | 0 | 0 | 255 |
+
+#### Led2 { #ADM_CS_SPCC_Outputs-Led2 }
+
+Sets the brightness of LED2 (CON105 12) in a scale from 1 to 100.
+Greater values than 100 will be treated as max brigthness.
+
+    [hardware]
+    led2 = CAN_Controlled
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 10 | 8 | Unsigned |  | 1 | 0 | 0 | 255 |
+
+#### Led3 { #ADM_CS_SPCC_Outputs-Led3 }
+
+Sets the brightness of LED3 (CON105 13) in a scale from 1 to 100.
+Greater values than 100 will be treated as max brigthness.
+
+    [hardware]
+    led3 = CAN_Controlled
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 18 | 8 | Unsigned |  | 1 | 0 | 0 | 255 |
+
 #### Reserved { #ADM_CS_SPCC_Outputs-Reserved }
 
 Reserved bits for future uses.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 2 | 62 | Unsigned |  | 1 | 0 |  |  |
+| 26 | 38 | Unsigned |  | 1 | 0 |  |  |
 
 
 <a id="New_Charge_Session"></a>
@@ -481,7 +568,7 @@ Reserved bits for future uses.
 
 Information about an incoming vehicle. Sent periodically from the moment a car is
 plugged in and all the information are known. Until power modules send a
-&lt;&lt;Power_Modules_Status.System_Enable&gt;&gt; with value  __Allowed__.
+[Power_Modules_Status.System_Enable](#Power_Modules_Status-System_Enable) with value  __Allowed__.
 
 ### Payload
 
@@ -578,8 +665,8 @@ Battery SoC in percent.
 ### Description
 
 Test the insulation of the cable by applying a voltage from the charger. The battery
-is not connected yet. Power modules report &lt;&lt;Power_Modules_Status.Present_Voltage&gt;&gt;
-and &lt;&lt;Power_Modules_Status.Insulation_Resistance&gt;&gt; and the controller decides when
+is not connected yet. Power modules report [Power_Modules_Status.Present_Voltage](#Power_Modules_Status-Present_Voltage)
+and [Power_Modules_Status.Insulation_Resistance](#Power_Modules_Status-Insulation_Resistance) and the controller decides when
 the test passes or fails.
 
 Safety standards require a minimum of 100 Ohms/V insulation resistance. With a
@@ -622,7 +709,7 @@ when it senses voltage on its inlet to be close at 20 V to battery voltage.
 
 Charger is expected to match battery voltage at its output while having no load,
 apart from the capacitors on the line. When charging this capacitive load, it shall
-not output more current than &lt;&lt;Precharge.Maximum_Current&gt;&gt;.
+not output more current than [Precharge.Maximum_Current](#Precharge-Maximum_Current).
 
 ### Payload
 
@@ -643,7 +730,7 @@ Voltage to apply.
 
 #### Maximum_Current { #Precharge-Maximum_Current }
 
-Maximum current allowed by the vehicle (shouldn&#x27;t be more than 2A).
+Maximum current allowed by the vehicle (shouldn't be more than 2A).
 
 Will be set back to 0 at the end of the precharge procedure.
 
@@ -712,13 +799,15 @@ Note that while the request is expressed in both voltage and current, it is up t
 power modules to determine which control mode they should run (ie. constant current,
 constant voltage or constant power).
 
-WARNING: The vehicle might not necessarily ramps up or down its requests.
+!!! warning
+    The vehicle might not necessarily ramps up or down its requests.
 
-IMPORTANT: It is also sent at few other moments in the charging process with values
-&lt;&lt;Charging_Loop.Target_Voltage&gt;&gt; == 0 and &lt;&lt;Charging_Loop.Target_Current&gt;&gt; == 0.
-This has the meaning of telling the power modules to go into a sort of &quot;Standby&quot;
-mode. The power modules should turn off any power processing function, while remaning
-ready to receive future requests.
+!!! important
+    It is also sent at few other moments in the charging process with values
+    [Charging_Loop.Target_Voltage](#Charging_Loop-Target_Voltage) == 0 and [Charging_Loop.Target_Current](#Charging_Loop-Target_Current) == 0.
+    This has the meaning of telling the power modules to go into a sort of "Standby"
+    mode. The power modules should turn off any power processing function, while remaning
+    ready to receive future requests.
 
 ### Payload
 
@@ -849,10 +938,11 @@ Was the session terminated cleanly or not.
 Periodic message reporting the current status of the controller. This message is
 sent all the time as soon as the application on the controller is running.
 
-IMPORTANT: Power modules should implement a timeout on the reception of this message.
-If the controller does not send this message within 200 ms, then power modules
-should consider the controller to be in a defective state and stop any power function
-as soon as possible.
+!!! important
+    Power modules should implement a timeout on the reception of this message.
+    If the controller does not send this message within 200 ms, then power modules
+    should consider the controller to be in a defective state and stop any power function
+    as soon as possible.
 
 ### Payload
 
@@ -866,7 +956,7 @@ as soon as possible.
 
 Current internal state. For information only.
 
-- **Initialising**: Controller&#x27;s applications are starting up.
+- **Initialising**: Controller's applications are starting up.
 - **Waiting_For_PEV**: Controller is idle and ready for a plug-in.
 - **Negotiating_Connection**: Controller is plugged to a car and the connection is
     being initialised. Important charge information are exchanged.
@@ -921,7 +1011,7 @@ Current internal state. For information only.
 
 ### Description
 
-Controller (ADM-CO-CUI1 hardware variant, ie. &quot;generic/mobile&quot;) is reporting various
+Controller (ADM-CO-CUI1 hardware variant, ie. "generic/mobile") is reporting various
 information about its inputs. It is sent every seconds (for temperature channels).
 Or on change for other digital inputs.
 
@@ -1069,7 +1159,7 @@ Measured temperature sensor on second PTC channel associated to this pistol.
 
 ### Description
 
-Controller (ADM-CS-SECC hardware variant, ie. &quot;DIN rail&quot;) is reporting various
+Controller (ADM-CS-SECC hardware variant, ie. "DIN rail") is reporting various
 information about its inputs. It is sent every seconds (for temperature channels).
 Or on change for other digital inputs.
 
@@ -1404,7 +1494,7 @@ Measured temperature sensor on PT1KS_D input.
 
 Extra information from CCS (for information only).
 !!! info
-        Available since version 4.2
+    Available since version 4.2
 
 ### Payload
 
@@ -1464,7 +1554,7 @@ Reserved bits for future uses.
 
 Extra information from MCS (for information only).
 !!! info
-        Available since version 4.2
+    Available since version 4.2
 
 ### Payload
 

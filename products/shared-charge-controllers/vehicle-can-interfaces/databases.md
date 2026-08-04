@@ -10,7 +10,7 @@ format, and our software and firmware use it directly.
 - [Advantics Generic PEV protocol v1](Advantics_Generic_PEV_protocol_v1.kcd)
 
 ### Latest
-- [Advantics Generic PEV protocol v1.4](Advantics_Generic_PEV_protocol_v1.4.kcd)
+- [Advantics Generic PEV protocol v1.5](Advantics_Generic_PEV_protocol_v1.5.kcd)
 
 ## DBC format
 
@@ -21,4 +21,4 @@ converted from the Kayak ones. Therefore, they are not the reference DBs.
 - [Advantics Generic PEV protocol v1](Advantics_Generic_PEV_protocol_v1.dbc)
 
 ### Latest
-- [Advantics Generic PEV protocol v1.4](Advantics_Generic_PEV_protocol_v1.4.dbc)
+- [Advantics Generic PEV protocol v1.5](Advantics_Generic_PEV_protocol_v1.5.dbc)
