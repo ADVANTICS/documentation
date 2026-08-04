@@ -162,10 +162,6 @@ nav:
     - PEV Emulator: "vehicle-features/vehicle-simulation.md"
     - Supported sensors: "vehicle-features/pev-supported-sensors.md"
     - No code mode: "vehicle-features/evcc_no_code_mode.md"
-    - Special:
-      - ORION BMS no code integration: "vehicle-features/evcc_special.md"
-      - Orion BMS setup: "vehicle-features/evcc_orion_bms/orion_bms_integration.md"
-      - Updater tool: "vehicle-features/evcc_updater.md"
 
 # Extra configurations
 extra:
