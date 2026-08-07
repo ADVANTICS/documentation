@@ -45,10 +45,7 @@ Applicable only for DC charging. Ground fault monitoring is performed by injecti
 If power modules do not come equipped with a built-in ground fault monitor, an external one must be purchased and installed.
 
 
-<div class="bigger-1000">
-<img src="assets/IMD.PNG" alt="Ground fault monitor installation - Sendyne SIM100MOD sensor">
-</div>
-<figcaption style="text-align: center">Figure 8: Ground fault monitor installation - Sendyne SIM100MOD sensor</figcaption>
+{{ figure('assets/IMD.PNG', 'Ground fault monitor installation - Sendyne SIM100MOD sensor', size='1000px') }}
 
 ## Output DC contactors
 
@@ -77,13 +74,10 @@ A majority of CCS cables on the market are identical in their wiring. The follow
 
 ## CHAdeMO charging cable
 
-CHAdeMO charging cables vary to a much greater degree, mostly because of different ways of solenoid control and different temperature sensing technology. Often, CHAdeMO cable wiring has labeled pins as 1-10 (see  Figure 9: CHAdeMO pinout). The solenoid is not shown on this diagram.
+CHAdeMO charging cables vary to a much greater degree, mostly because of different ways of solenoid control and different temperature sensing technology. Often, CHAdeMO cable wiring has labeled pins as 1-10 (see {{ figref('fig-chademo-pinout') }}). The solenoid is not shown on this diagram.
 
 
-<div class="bigger-1000">
-<img src="assets/Description-of-the-CHAdeMO-connector-pinout-and-schematic.jpg" alt="CHAdeMO pinout">
-</div>
-<figcaption style="text-align: center">Figure 9: CHAdeMO pinout</figcaption>
+{{ figure('assets/Description-of-the-CHAdeMO-connector-pinout-and-schematic.jpg', 'CHAdeMO connector pinout and schematic', id='fig-chademo-pinout', size='1000px') }}
 
 ## HMI (Human Machine Interface)
 

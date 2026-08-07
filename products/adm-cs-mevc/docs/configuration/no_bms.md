@@ -40,8 +40,25 @@ would be 380 V. The current can be something like 20 A.
     max_voltage = 450
     target_voltage = 410
 
-`no_bms` default to false.
+## no_bms
 
-`max_charge_voltage` is optional (ie. default to 0) when `no_bms` is false. However, it becomes
-required (ie. non-zero value) if `no_bms` is true. Advantics controller also checks that
-`max_charge_voltage` is not configured to a value greater than `max_voltage`.
+<figcaption>Example</figcaption>
+
+    no_bms = true
+
+Enables No BMS mode, in which the controller charges at a fixed current and cuts off on a voltage
+threshold rather than following a BMS request.
+
+Default to false.
+
+## max_charge_voltage
+
+<figcaption>Example</figcaption>
+
+    max_charge_voltage = 380
+
+The voltage at which the charge is cut off immediately.
+
+Optional (ie. default to 0) when `no_bms` is false. It becomes required -- a non-zero value -- if
+`no_bms` is true. Advantics controller also checks that `max_charge_voltage` is not configured to a
+value greater than [max_voltage](generalities.md#max_voltage).

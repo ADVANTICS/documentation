@@ -1139,7 +1139,20 @@ end loop
 @enduml
 ```
 
-### Bidirectional Power Transfer - Dynamic Mode
+### Power Transfer with ISO 15118-20
+
+ISO 15118-20 supports 2 control modes: the scheduled mode and the dynamic mode.
+
+What separates [Scheduled Mode](#power-transfer-scheduled-mode) from
+[Dynamic Mode](#power-transfer-dynamic-mode) is **who decides the setpoint**:
+
+| | Dynamic mode | Scheduled mode |
+|---|---|---|
+| Who chooses the power and the direction | The charger, freely, within the limits you publish | **The vehicle**, on every `DC_ChargeLoopReq` |
+| What the vehicle sends each loop | Limits and energy requests — a *range* | A **setpoint**, plus limits |
+| What the charger contributes | decides the setpoints within the agreed range based on factors like (electricity price, grid needs, OCPP/CSMS, etc.) | A schedule for the power transfer agreed apon with the vehicle once, up front, which then gets followed |
+
+### Power Transfer - Dynamic Mode
 
 With the support of ISO 15118-20, bidirectional power transfer became possible through the dynamic modes defined by the protocol.
 In Dynamic control mode, besides the static power transfer parameters, vehicle provides the Energy requests and the range for bidirectional cycling (V2X energy requests).
@@ -1321,6 +1334,100 @@ end loop
 |||
 @enduml
 ```
+
+### Power Transfer - Scheduled Mode
+
+Scheduled mode is the other control mode ISO 15118-20 defines.
+
+Ask for it by setting `preferred_control_mode = Scheduled` in the `[ccs]` section of the
+configuration file. Everything else on this page — the insulation test, precharge, the stop
+conditions, the limits the controller applies — behaves as described for the other modes.
+
+!!! note "It is a preference, not a demand"
+    A charger advertises one or more parameter sets, each with a control mode and a connector type.
+    The controller selects the first set whose connector matches yours **and** whose control mode
+    matches your preference. If the charger offers no set with your preferred mode, the controller
+    falls back to the first compatible set and the session runs in the *other* mode rather than
+    failing. The outcome is logged at service selection as
+    `Selected <mode> control mode (preferred was <mode>)`.
+
+<!-- #### Choosing the schedule
+
+During `ScheduleExchange` the vehicle sends its energy requests — the same
+[EV_Energy_Request](can_v2.md#ev_energy_request) signals as in dynamic mode, converted from absolute
+to relative energy using the state of charge and the battery capacity — and the charger answers with
+a list of schedule tuples.
+
+The controller then selects the first tuple in the list, which [V2G20-298] defines as the default,
+and echoes its power schedule entries back in the `PowerDelivery` request. If the selected schedule
+carries a power tolerance, the controller accepts it (`PowerToleranceConfirmed`).
+
+The limits you publish in [DC_Status1](can_v2.md#dc_status1) continue to apply throughout, exactly as
+in the other modes. -->
+
+#### Controlling voltage or current, never both
+
+[V2G20-2183] requires the vehicle to provide **either** `EVTargetVoltage` **or** `EVTargetCurrent` in
+a `DC_ChargeLoopReq`, never both. Which one you control is selected with
+[EV_Status.ISO15118_Part20_Scheduled_Mode_Control](can_v2.md#EV_Status-ISO15118_Part20_Scheduled_Mode_Control):
+
+| Value | `EVTargetCurrent` | `EVTargetVoltage` |
+|---|---|---|
+| `Current_Control` (default) | [DC_Status1.Max_Charge_Current](can_v2.md#DC_Status1-Max_Charge_Current) | 0 V -- the max voltage is used as target |
+| `Voltage_Control` | 0 A -- the max current is used as target | [DC_Status1.Target_Voltage](can_v2.md#DC_Status1-Target_Voltage), or `target_voltage` from the config file |
+
+The signal can be changed at any point during a session, and resets to `Current_Control` whenever
+[EVSE_Information.Communication_Stage](can_v2.md#EVSE_Information-Communication_Stage) cycles back to
+*Waiting_For_EVSE*.
+
+Current control is the usual choice, for the same reason as in unidirectional charging: charging a
+battery is a constant-current process, the charger's power modules regulate current, and the voltage
+follows the battery chemistry. Voltage control exists for the cases where you want the charger to
+hold a voltage instead — a constant-voltage phase, for example.
+
+In a unidirectional session the target current is clamped to be non-negative; in a BPT session it may
+be negative, which is how discharge is requested. When the vehicle asks for a normal stop, the
+controller requests 0 A.
+
+#### What the vehicle sends in the charge loop
+
+Alongside the setpoint, every request carries the envelope the charger must stay inside:
+
+* `EVMaximumChargePower`, `EVMinimumChargePower`
+* `EVMaximumChargeCurrent`
+* `EVMaximumVoltage`, `EVMinimumVoltage`
+
+and in a bidirectional session also:
+
+* `EVMaximumDischargePower`, `EVMinimumDischargePower`
+* `EVMaximumDischargeCurrent`
+
+These come from the same configuration entries and CAN signals as in the other modes, so the current
+and power capping rules described under
+[Dynamic Mode](#power-transfer-dynamic-mode) apply unchanged.
+
+#### Current deviation is measured differently
+
+The [current deviation](../configuration/current_deviation.md) check means something different in the
+two modes, because the vehicle asks for something different:
+
+| Mode | What is compared |
+|---|---|
+| Scheduled | Present current against the **setpoint** the controller last requested |
+| Dynamic | How far present current falls **outside the advertised range** `[-max_discharge_current, max_charge_current]` |
+
+In both cases the deviation has to persist for `current_deviation_t` before the charge is stopped, and
+`current_deviation_accept_less` still suppresses the error when the charger delivers *less* than asked.
+
+#### Relevant config entries
+
+  - [is_bidirectional](../configuration/generalities.md#is_bidirectional): Set to `true` for BPT
+  - `preferred_control_mode`: Set to `Scheduled`
+  - [energy_capacity](../configuration/generalities.md#energy_capacity): Becomes required
+  - [target_voltage](../configuration/generalities.md#target_voltage): Used as `EVTargetVoltage` under
+    `Voltage_Control`
+  - The discharge and energy-request entries listed under
+    [Dynamic Mode](#power-transfer-dynamic-mode)
 
 ### End of charge and terminating charge session
 

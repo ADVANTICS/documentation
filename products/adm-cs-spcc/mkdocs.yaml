@@ -88,6 +88,11 @@ plugins:
       cover_subtitle: Single Pistol Charge Controller (SPCC)
       author: ADVANTICS SAS
       custom_template_path: docs/assets
+  # Numbered figures: {{ figure('assets/x.svg', 'caption', id='fig-x') }} and {{ figref('fig-x') }}.
+  # Same module as the power-module manuals; here it is a symlink to the single shared copy at
+  # products/shared-charge-controllers/macros.py.
+  - macros:
+      module_name: docs/assets/macros
 
 # Markdown extensions
 markdown_extensions:
@@ -119,9 +124,20 @@ nav:
   - Document Information: "index.md"
   - Technical data: "introduction.md"
   - Interfaces: "interfaces.md"
+  - Integration Guide: "integration-guide.md"
   - Examples of use: "examples.md"
   - Software Releases: "spcc_versions.md"
-  - Configuration: "spcc_configuration.md"
+  - Configuration:
+    - Overview: "configuration/README.md"
+    - Pistols: "configuration/pistols.md"
+    - MCS pistol: "configuration/pistol-mcs.md"
+    - CCS DC pistol: "configuration/pistol-ccs-dc.md"
+    - CCS AC pistol: "configuration/pistol-ccs-ac.md"
+    - CHAdeMO pistol: "configuration/pistol-chademo.md"
+    - TLS: "configuration/tls.md"
+    - OCPP: "configuration/ocpp.md"
+    - Temperature: "configuration/temperature.md"
+    - Applications, logging, hardware and system: "configuration/generalities.md"
   - Working with the SPCC:
     - Connecting to the SPCC: "advos-yocto-system/connecting.md"
     - Web UI Access: "advos-yocto-system/csm-web-ui.md"
@@ -158,7 +174,7 @@ nav:
       - Plug'n'Charge overview: "charger-features/tls_pnc/pnc_primer.md"
       - TLS & Plug'n'Charge configuration: "charger-features/tls_pnc/tls_pnc_config.md"
     - Supported Insulation Monitors: "charger-features/evse-supported-insulation-monitors.md"
-    - Charger Emulator: "charger-features/charger-simulation.md"
+    - Charger simulator: "charger-features/charger-simulation.md"
 
 # Extra configurations
 extra:

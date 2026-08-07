@@ -121,10 +121,7 @@ Please see the Software [Development Guide document](buildroot-system/README.md)
 - [EV  simulation, development and testing](https://advantics.fr/applications/emobility/eol-tester-ev-fast-charger/)
 - [Bidirectional charging](https://advantics.fr/applications/emobility/bidirectional-charging/)
 
-<div class="bigger-1000">
-<img src="assets/functionalities.jpg" alt="Functionality overview">
-</div>
-<figcaption style="text-align: center">Figure 1: Functionality overview</figcaption>
+{{ figure('assets/functionalities.jpg', 'Functionality overview of the ADM-CS-EVCC', size='1000px') }}
 
 ## Mechanical housing
 

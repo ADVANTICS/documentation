@@ -88,6 +88,11 @@ plugins:
       cover_subtitle: Electric Vehicle Communication Controller (EVCC)
       author: ADVANTICS SAS
       custom_template_path: docs/assets
+  # Numbered figures: {{ figure('assets/x.svg', 'caption', id='fig-x') }} and {{ figref('fig-x') }}.
+  # Same module as the power-module manuals; here it is a symlink to the single shared copy at
+  # products/shared-charge-controllers/macros.py.
+  - macros:
+      module_name: docs/assets/macros
 
 # Markdown extensions
 markdown_extensions:
@@ -119,6 +124,7 @@ nav:
   - Document Information: "index.md"
   - Technical data: "introduction.md"
   - Interfaces: "interfaces.md"
+  - Integration Guide: "integration-guide.md"
   # - Electric vehicle overview: "ev_overview.md"
   - Examples of use: "examples.md"
   # - Troubleshooting: "troubleshooting.md"
@@ -127,11 +133,14 @@ nav:
     - Overview: "configuration/README.md"
     - Generalities: "configuration/generalities.md"
     - CCS: "configuration/ccs.md"
+    - TLS: "configuration/tls.md"
     - Current deviation: "configuration/current_deviation.md"
     - Inlet lock: "configuration/inlet_lock.md"
     - DC contactors: "configuration/dc_contactors.md"
     - CAN sensor: "configuration/can_sensor.md"
     - No BMS mode: "configuration/no_bms.md"
+    - Hardware, applications and system: "configuration/hardware.md"
+    - SAE J1939: "configuration/j1939.md"
   - Working with the EVCC:
     - User guide: "buildroot-system/README.md"
     - Platforms: "buildroot-system/platforms.md"
@@ -170,13 +179,13 @@ nav:
       - Power transfer sequence diagram: "vehicle-can-interfaces/power_transfer_sequence_diagram.md"
     - J1939: "vehicle-can-interfaces/j1939.md"
   - Features:
-    - Features overview: "vehicle-features/evcc_features.md"
+    # - Features overview: "vehicle-features/evcc_features.md"
     - Temperature control: "vehicle-features/evcc_temperature_control.md"
     - Sleep functions: "vehicle-features/evcc_sleep.md"
     - Safety Functions: "vehicle-features/evcc_safety_functions.md"
     - BPT (ISO15118-20): "vehicle-features/evcc_bidirectional.md"
     - EVCC CP noise filtering: "vehicle-features/evcc_noise_developments.md"
-    - PEV Emulator: "vehicle-features/vehicle-simulation.md"
+    - Vehicle simulator: "vehicle-features/vehicle-simulation.md"
     - Supported sensors: "vehicle-features/pev-supported-sensors.md"
     - No code mode: "vehicle-features/evcc_no_code_mode.md"
     - Special: 

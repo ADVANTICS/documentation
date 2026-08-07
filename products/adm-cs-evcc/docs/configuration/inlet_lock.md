@@ -3,7 +3,7 @@
 These configuration entries are all under the `[vehicle]` section.
 
 !!! note
-    See also section [Features/Lock safety](../vehicle-features/evcc_safety_functions.md#Lock_safety).
+    See also section [Features/Lock safety](../vehicle-features/evcc_safety_functions.md#lock-safety-avoid-inlet-disconnection-on-load).
 
 ## locking_pulse_ms
 

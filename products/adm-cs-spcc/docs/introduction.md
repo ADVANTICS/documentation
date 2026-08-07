@@ -82,7 +82,7 @@ Please see the [Accessing and interacting with the controller](advos-yocto-syste
 
 ## Pinout
 
-![Pinout](assets/SPCC_pinout3.png "Pinout")
+{{ figure('assets/SPCC_pinout3.png', 'Pinout of the ADM-CS-SPCC') }}
 
 ## SPCC Connectors
 

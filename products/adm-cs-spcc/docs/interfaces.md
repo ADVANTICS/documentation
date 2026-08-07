@@ -14,12 +14,7 @@ The MCS interface consists of
 
 All of these signals are fully controlled by the communication stack – the user does not have to interact with them in any way. They simply need to be wired properly to the inlet cable.
 
-<div class="bigger-300">
-
-<img src="assets/MCS_inlet.svg" alt="MCS Interface">
-
-</div>
-<figcaption style="text-align: center">Figure 4: MCS Interface</figcaption>
+{{ figure('assets/MCS_inlet.svg', 'Pinout of the MCS interface', size='300px') }}
 
 ## CCS and AC interfaces
 

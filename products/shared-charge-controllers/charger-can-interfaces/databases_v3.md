@@ -34,6 +34,6 @@ The following is an example:
     # Used to offset CAN addressing as well.
     index = 1
 
-Based on this configuration, the CAN IDs of the generic interface used for the CCS DC pistol should be offset by the index value (01). The CAN message [**New_Charge_Session**](can_v3.md#new_charge_session) declaration in the CAN database should become as follows:
+Based on this configuration, the CAN IDs of the generic interface used for the CCS DC pistol should be offset by the index value (01). The CAN message [**New_Charge_Session**](can_v3.md#New_Charge_Session) declaration in the CAN database should become as follows:
 
     <Message id="0x0106B001" length="8" name="New_Charge_Session" interval="100" format="extended">
