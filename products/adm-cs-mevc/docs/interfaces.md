@@ -5,10 +5,7 @@ in a vehicle, it will provide AC and DC charging abstraction through a simple CA
 Thanks to charge inlet monitoring and control, as well as DC contactor control, very little is
 required from the vehicle to get the system up and running.
 
-<div class="bigger-1000">
-<img src="assets/PEV_connector.png" alt="CINCH ModICE connectors">
-</div>
-<figcaption style="text-align: center">Figure 2: CINCH ModICE connectors</figcaption>
+{{ figure('assets/PEV_connector.png', 'The two CINCH ModICE connectors of the controller', size='1000px') }}
 
 ## Power input
 
@@ -18,10 +15,7 @@ contactors/inlets in a 24V system, as the contactor drivers are powered from a s
 
 Consult the specifications sheet for current requirements.
 
-<div class="bigger-300">
-<img src="assets/ADM-CS-EVCC_multipart_power.svg" alt="Power section - connector reference next to the pin">
-</div>
-<figcaption style="text-align: center">Figure 3: Power section - connector reference next to the pin</figcaption>
+{{ figure('assets/ADM-CS-EVCC_multipart_power.svg', 'Power section - connector reference next to the pin', size='300px') }}
 
 ## MCS interface
 
@@ -37,10 +31,7 @@ The MCS interface consists of
 All of these signals are fully controlled by the communication stack – the user does not have to
 interact with them in any way. They simply need to be wired properly to the inlet cable.
 
-<div class="bigger-300">
-<img src="assets/MCS_inlet.png" alt="MCS Inlet">
-</div>
-<figcaption style="text-align: center">Figure 4: MCS Inlet</figcaption>
+{{ figure('assets/MCS_inlet.png', 'Pinout of the MCS inlet signals', size='300px') }}
 
 ## Inlet locking
 
@@ -85,10 +76,18 @@ operate. In most applications, the CONTACTOR_POWER pin will simply be wired to t
 the main power input. The only reason for it to be wired in a different way is to allow mixed 12V
 and 24V operation (24V trucks using 12V contactors, for example).
 
-<div class="bigger-300">
-<img src="assets/ADM-CS-EVCC_multipart_contactors.svg" alt="DC fast charge contactors pinout">
-</div>
-<figcaption style="text-align: center">Figure 7: DC fast charge contactors pinout</figcaption>
+!!! warning
+    Economized contactors are **not recommended**. Their internal coil-switching
+    circuitry can produce inrush currents that exceed the contactor driver's capability. Instead,
+    wire the contactors through a standard automotive relay. The
+    charge controller drives the automotive relay, and the relay in turn drives the contactor coil.
+
+The contactor driver incorporates the following built-in protections:
+
+- **Overcurrent protection** – trips at 6 A to protect the driver and wiring.
+- **Undervoltage protection** – disables the driver when the CONTACTOR_POWER input falls at or below 8.2 V.
+
+{{ figure('assets/ADM-CS-EVCC_multipart_contactors.svg', 'DC fast charge contactors pinout', size='300px') }}
 
 ## Vehicle CAN bus
 
@@ -101,18 +100,14 @@ default, but it can be easily enabled by switching the DIP switch on the PCB int
 will connect a 120 Ohm termination resistor between CAN high and low. There should only be 2
 terminations on the CAN bus – ideally on both end-points of the CAN chain.
 
-![Location of the CAN bus termination enable switch](assets/CAN_term.jpg "Location of the CAN bus termination enable switch")
-<figcaption style="text-align: center">Figure 8: Location of the CAN bus termination enable switch</figcaption>
+{{ figure('assets/CAN_term.jpg', 'Location of the CAN bus termination enable switch') }}
 
 !!! tip "CAN bus tip"
     If you don’t see all the CAN messages you were expecting on the bus, the periodicity is wrong, or
     no messages are shown at all, the CAN bus termination could be missing. CAN bus should have two
     terminations, but on the bench will also typically work with just one, or three.
 
-<div class="bigger-300">
-<img src="assets/ADM-CS-EVCC_multipart_COMM.svg" alt="CAN bus, Charge STOP and Ethernet">
-</div>
-<figcaption style="text-align: center">Figure 9: CAN bus, Charge STOP and Ethernet</figcaption>
+{{ figure('assets/ADM-CS-EVCC_multipart_COMM.svg', 'CAN bus, Charge STOP and Ethernet', size='300px') }}
 
 ## Charge stop
 
@@ -129,10 +124,7 @@ There are two digital inputs and three digital outputs on the charge controller.
 The digital inputs and outputs are fully user-configurable and controllable (provided the user
 writes an application for their control).
 
-<div class="bigger-300">
-<img src="assets/ADM-CS-EVCC_multipart_dig.svg" alt="Digital IO">
-</div>
-<figcaption style="text-align: center">Figure 10: Digital IO</figcaption>
+{{ figure('assets/ADM-CS-EVCC_multipart_dig.svg', 'Pinout of the digital inputs and outputs', size='300px') }}
 
 ### Digital Outputs
 The outputs are push-pull capable, supplied from the input power of the controller (so are either 12V or 24V). Can be used to drive loads up to 100mA.
@@ -173,7 +165,4 @@ used. ADVANTICS supplies the IVT-S-1k-U3-I-CAN2-12/24 model, as the same unit ca
 current applications (like main battery current sensor), and the loss of resolution with higher
 current full-scale is not critical in this application.
 
-<div class="bigger-300">
-<img src="assets/IVT-S.JPG" alt="Isabellenhutte IVT-S current sensor">
-</div>
-<figcaption style="text-align: center">Figure 11: Isabellenhutte IVT-S current sensor</figcaption>
+{{ figure('assets/IVT-S.JPG', 'Isabellenhutte IVT-S current sensor', size='300px') }}

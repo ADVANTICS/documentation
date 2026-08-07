@@ -16,6 +16,13 @@ To use an Isabellenhutte IVT-S sensor, configure it in the following way:
 
     use_can_sensor = Isabellenhutte IVT-S
 
+- **`use_can_sensor`**: Which CAN sensor the controller should read the voltages and current from
+{: #use_can_sensor }
+- **`can_sensor_if`**: CAN interface the sensor is wired to (default: `can0`) **advanced**
+{: #can_sensor_if }
+- **`ivt_init_timeout_s`**: How long to wait for the sensor to answer during start-up reconfiguration before faulting **advanced**
+{: #ivt_init_timeout_s }
+
 It is currently not possible to configure which channel correspond to which voltage, or the current
 reading polarity. Here is how you should wire this sensor:
 

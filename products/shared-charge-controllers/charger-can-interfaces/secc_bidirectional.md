@@ -152,8 +152,7 @@ In a CHAdeMO bidirectional setup, it is necessary to replace the CHAdeMO diode w
 
 To implement this, you will need two relays and one precharge resistance:
 
-![CHAdeMO V2G Precharge Stage](../assets/chademo_precharge.jpg ':size=200%')
-<figcaption style="text-align: center">CHAdeMO V2G Precharge Stage</figcaption>
+{{ figure('../assets/chademo_precharge.jpg', 'CHAdeMO V2G Precharge Stage', size='200%') }}
 
 
 Precharge Relay and Resistance:

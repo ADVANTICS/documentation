@@ -1,6 +1,7 @@
 # CCS/MCS
 
-These configuration entries are all under the `[ccs]` section.
+These configuration entries are under the `[ccs]` section. The two exceptions are marked as such
+below.
 
 ## enable_din
 
@@ -201,6 +202,10 @@ Default to 2000 ms.
 
 ## dynamic_target_voltage
 
+!!! warning "This entry is in the `[vehicle]` section"
+    Despite being documented here with the rest of the charge-session settings, this entry belongs to
+    `[vehicle]`, not `[ccs]`. Put it under `[ccs]` and it is silently ignored.
+
 !!! note
     This is an advanced configuration option.
 
@@ -217,6 +222,10 @@ charge profiles.
 Default to false.
 
 ## allow_bpt_at_full_soc
+
+!!! warning "This entry is in the `[vehicle]` section"
+    Despite being documented here with the rest of the charge-session settings, this entry belongs to
+    `[vehicle]`, not `[ccs]`. Put it under `[ccs]` and it is silently ignored.
 
 !!! note
     This is an advanced configuration option.
@@ -268,3 +277,54 @@ can understand them.
     session_stop_timeout_ms = 2000
     certificate_installation_timeout_ms = 5000
     certificate_update_timeout_ms = 5000
+
+## Other entries
+
+The rest of the `[ccs]` section, generated from the controller software so that names,
+defaults and units cannot drift from it. Most of these are protocol timeouts you will not
+need to touch; they exist for interoperability work against a stubborn vehicle or charger.
+
+Entries marked **advanced** are hidden in the Web UI until you switch to expert mode.
+
+- **`ac_enabled`**: Whether the AC charging interface is allowed to operate (default: `true`)
+{: #ac_enabled }
+- **`allow_tls_for_din`**: Whether TLS should be allowed for DIN charging (default: `false`) **advanced**
+{: #allow_tls_for_din }
+- **`authorization_setup_timeout_ms`**: default `2000` ms **advanced**
+{: #authorization_setup_timeout_ms }
+- **`authorization_timeout_ms`**: default `2000` ms **advanced**
+{: #authorization_timeout_ms }
+- **`cable_check_process_timeout_s`**: default `40` s **advanced**
+{: #cable_check_process_timeout_s }
+- **`communication_setup_timeout_s`**: default `20` s **advanced**
+{: #communication_setup_timeout_s }
+- **`enable_pnc`**: Whether Plug and Charge (PnC) should be enabled (default: `false`) **advanced**
+{: #enable_pnc }
+- **`hold_off_until_bms_ready`**: When True, the session will always be held off at Connected_With_Full_Info stage until the vehicle BMS starts sending CAN messages and explicitly clears the hold-off signal (using EV_Status message). This prevents proceeding to the powered states before the vehicle internal equipment has finished preparing/waking up after init/sleep. The wait is bounded by wait_hv_ready_timeout_ms (default: `false`) **advanced**
+{: #hold_off_until_bms_ready }
+- **`invert_pp_b1`**: default `false` **advanced**
+{: #invert_pp_b1 }
+- **`iso_ed1_priority`**: Priority of the different protocols. The priority is used to determine which protocol is used to charge the EV, among DIN, ISO 15118-2 and ISO15118-20. Protocols with the lowest priority value gets picked first whenever possible (default: `2`)
+{: #iso_ed1_priority }
+- **`log_signature_details`**: default `false` **advanced**
+{: #log_signature_details }
+- **`payment_details_timeout_ms`**: default `5000` ms **advanced**
+{: #payment_details_timeout_ms }
+- **`pnc_contract_p12`**: default *(empty)* **advanced**
+{: #pnc_contract_p12 }
+- **`pnc_contract_p12_passphrase`**: default *(empty)* **advanced**
+{: #pnc_contract_p12_passphrase }
+- **`precharge_process_timeout_s`**: default `7` s **advanced**
+{: #precharge_process_timeout_s }
+- **`preferred_control_mode`**: One of `Dynamic`, `Scheduled` (default: `Dynamic`) **advanced**
+{: #preferred_control_mode }
+- **`service_detail_timeout_ms`**: default `5000` ms **advanced**
+{: #service_detail_timeout_ms }
+- **`service_discovery_timeout_ms`**: default `2000` ms **advanced**
+{: #service_discovery_timeout_ms }
+- **`service_selection_timeout_ms`**: default `2000` ms **advanced**
+{: #service_selection_timeout_ms }
+- **`session_setup_timeout_ms`**: default `2000` ms **advanced**
+{: #session_setup_timeout_ms }
+- **`supported_app_protocol_timeout_ms`**: default `2000` ms **advanced**
+{: #supported_app_protocol_timeout_ms }

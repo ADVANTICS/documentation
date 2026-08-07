@@ -115,10 +115,7 @@ The reference of the pin is composed of 3 characters:
 - [EV  simulation, development and testing](https://advantics.fr/applications/emobility/eol-tester-ev-fast-charger/)
 - [Bidirectional charging](https://advantics.fr/applications/emobility/bidirectional-charging/)
 
-<div class="bigger-1000">
-<img src="assets/mevc_functionalities_overview.png" alt="Functionality overview">
-</div>
-<figcaption style="text-align: center">Figure 1: Functionality overview</figcaption>
+{{ figure('assets/mevc_functionalities_overview.png', 'Functionality overview of the ADM-CS-MEVC', size='1000px') }}
 
 ## Mechanical housing
 

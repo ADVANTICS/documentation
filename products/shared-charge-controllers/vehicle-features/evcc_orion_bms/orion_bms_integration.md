@@ -17,16 +17,17 @@ To edit the CAN messages sent by the Orion BMS, follow these steps:
 
 1. Launch OrionBMS 2 Utility:
 
-![Edit_CANbus_messages.PNG](images/Edit_CANbus_messages.png)
+{{ figure('images/Edit_CANbus_messages.png', 'The OrionBMS 2 Utility, with "Edit CANBUS Messages" highlighted') }}
+
 <br/>
 
 2. Press "Edit CANBUS Messages", and configure the signals as shown in the following figure:
 
-![CAN_Settings.PNG](images/CAN_Settings.png)
+{{ figure('images/CAN_Settings.png', 'Signal configuration in the Orion BMS CANBUS message editor') }}
 
 The messages that you should add are:
 
-![messages_to_add.PNG](images/messages_to_add.png)
+{{ figure('images/messages_to_add.png', 'The CAN messages to add to the Orion BMS configuration') }}
 
 
 !!! note

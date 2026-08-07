@@ -7,4 +7,4 @@ The SECC is compatible with the North American Charging Standard (NACS) protocol
 
 The Wiring of the NACS cable is the same as CCS. The following is a wiring example:
 
-![NACS Wiring](../charger-features/SECC_25kW_Wallbox-SECC_25kW_Wallbox.svg "NACS Wiring")
+{{ figure('../charger-features/SECC_25kW_Wallbox-SECC_25kW_Wallbox.svg', 'Wiring example for a NACS cable, identical to CCS') }}

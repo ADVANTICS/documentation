@@ -1,6 +1,8 @@
 # MCS
 
-These configuration entries are all under the `[ccs]` section.
+These configuration entries are under the `[ccs]` section — the MCS stack reuses the CCS
+configuration section, so there is no `[mcs]` section. The two exceptions are marked as such below.
+
 MCS requires using [Generic EVCC CAN Interface 2](../vehicle-can-interfaces/README_v2.md) in [vehicle type](generalities.md).
 
 ## full_soc
@@ -78,6 +80,10 @@ Timeout (milliseconds) for waiting for high-voltage system readiness. If exceede
 
 ## dynamic_target_voltage
 
+!!! warning "This entry is in the `[vehicle]` section"
+    Despite being documented here with the rest of the charge-session settings, this entry belongs to
+    `[vehicle]`, not `[ccs]`. Put it under `[ccs]` and it is silently ignored.
+
 !!! note
     This is an advanced configuration option.
 
@@ -94,6 +100,10 @@ charge profiles.
 Default to false.
 
 ## allow_bpt_at_full_soc
+
+!!! warning "This entry is in the `[vehicle]` section"
+    Despite being documented here with the rest of the charge-session settings, this entry belongs to
+    `[vehicle]`, not `[ccs]`. Put it under `[ccs]` and it is silently ignored.
 
 !!! note
     This is an advanced configuration option.
@@ -185,3 +195,59 @@ increases the latency before a genuine transition is acted upon. Only effective 
 `mcs_ce_id_use_debouncer` is set to `true`.
 
 Default to 3.
+
+## `[t1s_driver]`
+
+On controllers fitted with a 10BASE-T1S interface, this section configures it.
+
+- **`mac_address`**: default `advantics-serial` **advanced**
+{: #mac_address }
+
+## Other entries
+
+The rest of the `[ccs]` section, generated from the controller software so that names,
+defaults and units cannot drift from it. Most of these are protocol timeouts you will not
+need to touch; they exist for interoperability work against a stubborn vehicle or charger.
+
+Entries marked **advanced** are hidden in the Web UI until you switch to expert mode.
+
+- **`ac_enabled`**: Whether the AC charging interface is allowed to operate (default: `true`)
+{: #ac_enabled }
+- **`authorization_setup_timeout_ms`**: default `2000` ms **advanced**
+{: #authorization_setup_timeout_ms }
+- **`authorization_timeout_ms`**: default `2000` ms **advanced**
+{: #authorization_timeout_ms }
+- **`cable_check_process_timeout_s`**: default `40` s **advanced**
+{: #cable_check_process_timeout_s }
+- **`communication_setup_timeout_s`**: default `20` s **advanced**
+{: #communication_setup_timeout_s }
+- **`enable_pnc`**: Whether Plug and Charge (PnC) should be enabled (default: `false`) **advanced**
+{: #enable_pnc }
+- **`hold_off_until_bms_ready`**: When True, the session will always be held off at Connected_With_Full_Info stage until the vehicle BMS starts sending CAN messages and explicitly clears the hold-off signal (using EV_Status message). This prevents proceeding to the powered states before the vehicle internal equipment has finished preparing/waking up after init/sleep. The wait is bounded by wait_hv_ready_timeout_ms (default: `false`) **advanced**
+{: #hold_off_until_bms_ready }
+- **`ignore_id_change`**: Whether to ignore changes in the ID line (which can be caused by noise) only for testing purposes. Supported only for MCS (default: `false`) **advanced**
+{: #ignore_id_change }
+- **`log_signature_details`**: default `false` **advanced**
+{: #log_signature_details }
+- **`mcs_ce_id_enable_extended_logging`**: Whether to enable extended logging for CE ID readings (default: `false`) **advanced**
+{: #mcs_ce_id_enable_extended_logging }
+- **`payment_details_timeout_ms`**: default `5000` ms **advanced**
+{: #payment_details_timeout_ms }
+- **`pnc_contract_p12`**: default *(empty)* **advanced**
+{: #pnc_contract_p12 }
+- **`pnc_contract_p12_passphrase`**: default *(empty)* **advanced**
+{: #pnc_contract_p12_passphrase }
+- **`precharge_process_timeout_s`**: default `7` s **advanced**
+{: #precharge_process_timeout_s }
+- **`preferred_control_mode`**: One of `Dynamic`, `Scheduled` (default: `Dynamic`) **advanced**
+{: #preferred_control_mode }
+- **`service_detail_timeout_ms`**: default `5000` ms **advanced**
+{: #service_detail_timeout_ms }
+- **`service_discovery_timeout_ms`**: default `2000` ms **advanced**
+{: #service_discovery_timeout_ms }
+- **`service_selection_timeout_ms`**: default `2000` ms **advanced**
+{: #service_selection_timeout_ms }
+- **`session_setup_timeout_ms`**: default `2000` ms **advanced**
+{: #session_setup_timeout_ms }
+- **`supported_app_protocol_timeout_ms`**: default `2000` ms **advanced**
+{: #supported_app_protocol_timeout_ms }

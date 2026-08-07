@@ -28,10 +28,7 @@ our own power modules could not produce the same effects). And it could not be c
 recent change on our side neither. Even worst, sometimes they appeared like it was chargers
 initiating emergency stops, which made it difficult to discern them from real emergency stops...
 
-<div class="bigger-300">
-<img src="evcc_noise_images/EVCC_CP_noise_event.png" alt="CP noise event captured by a customer">
-</div>
-<figcaption style="text-align: center">CP noise event captured by a customer, which clearly demonstrated it was not a charger E-Stop, and finally lead us on the noise track.</figcaption>
+{{ figure('evcc_noise_images/EVCC_CP_noise_event.png', 'CP noise event captured by a customer, which clearly demonstrated it was not a charger E-Stop, and finally lead us on the noise track.', alt='CP noise event captured by a customer', size='300px') }}
 
 Turns out this type of noise was of much lower frequencies than usual. High frequency noise
 disturbing the CP line mostly affects the high level communication with PLC. Typical symptoms are
@@ -70,17 +67,13 @@ it provides a certain feedback to our users, as well as to the people on our sup
 
 Here is a depiction of noise effects on CP PWM measurements, with an increasing noise factor:
 
-<div class="bigger-1000">
-<img src="evcc_noise_images/noise-base.png" alt="Noise, baseline">
-</div>
+{{ figure('evcc_noise_images/noise-base.png', 'Effect of an increasing noise factor on raw CP PWM measurements', size='1000px') }}
 
 From various studies, we can infer how noise tends to affect measurements. So the first step is to
 introduce a compensation (or correction if you want) based on what was found across various
 conditions:
 
-<div class="bigger-1000">
-<img src="evcc_noise_images/noise-compensated.png" alt="Noise, compensated">
-</div>
+{{ figure('evcc_noise_images/noise-compensated.png', 'The same measurements after noise compensation is applied', size='1000px') }}
 
 Voltage is not shown here because we don't have yet an effective compensation strategy for it. And
 anyway it seems less affected by noise (up to a certain point). But both frequency and duty cycle
@@ -94,9 +87,7 @@ for decision) using an optimized set of parameters.
 
 Here are the performances of the classifier with optimised parameters (ie. used for decision):
 
-<div class="bigger-900">
-<img src="evcc_noise_images/noise-filter-cf-matrix.png" alt="Noise filter confusion matrix">
-</div>
+{{ figure('evcc_noise_images/noise-filter-cf-matrix.png', 'Noise filter confusion matrix', size='900px') }}
 
 The most important is that such filter never decides a measurement is clean when actually it is not,
 even in the slightest. We want to be *informed* that there is currently some noise and as such the

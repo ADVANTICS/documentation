@@ -7,10 +7,7 @@ The ADM-CS-SECC should be considered as a development platform – experience wi
 The controller expects 24V power. Consult specification sheet for supply requirements.
 
 
-<figure style="text-align: center">
-  <img src="assets/ADM-CS-SECC_multipart_power.svg" alt="Power section - connector reference next to the pin" title="Power section - connector reference next to the pin">
-  <figcaption>Power section - connector reference next to the pin</figcaption>
-</figure>
+{{ figure('assets/ADM-CS-SECC_multipart_power.svg', 'Power section - connector reference next to the pin') }}
 
 ## CCS and AC interfaces
 
@@ -20,15 +17,9 @@ The CCS and AC interface consists of CP, PP lines, inlet lock and temperature se
     There are many different CCS and AC inlets and cables. Suitable cables are manufactured by typical suppliers such as Phoenix Contact, and are available in a wide price-range. However, beware of potential wiring differences. Consult your choice of cable with ADVANTICS.
 
 
-<figure style="text-align: center">
-  <img src="assets/ADM-CS-SECC_multipart_CCS_A.svg" alt="CCS A interface - DC charging" title="CCS A interface - DC charging">
-  <figcaption>CCS A interface - DC charging</figcaption>
-</figure>
+{{ figure('assets/ADM-CS-SECC_multipart_CCS_A.svg', 'CCS A interface - DC charging') }}
 
-<figure style="text-align: center">
-  <img src="assets/ADM-CS-SECC_multipart_CCS_B.svg" alt="CCS B interface - AC charging only" title="CCS B interface - AC charging only">
-  <figcaption>CCS B interface - AC charging only</figcaption>
-</figure>
+{{ figure('assets/ADM-CS-SECC_multipart_CCS_B.svg', 'CCS B interface - AC charging only') }}
 
 ## Inlet locking of AC interface
 
@@ -43,10 +34,7 @@ Just like the CCS interface, CHAdeMO is under full control of the communication 
     CHAdeMO cables have even higher variance in wiring than CCS. Datasheets often miss critical information about solenoid control for example. There are two types of CHAdeMO solenoids – bistable ones, requiring having the solenoid wired between SOLENOID_P and SOLENOID_N outputs, and then monostable ones – requiring connection between SOLENOID_P and GROUND.
 
 
-<figure style="text-align: center">
-  <img src="assets/ADM-CS-SECC_multipart_CHADEMO.svg" alt="CHAdeMO interface pinout" title="CHAdeMO interface pinout">
-  <figcaption>CHAdeMO interface pinout</figcaption>
-</figure>
+{{ figure('assets/ADM-CS-SECC_multipart_CHADEMO.svg', 'Pinout of the CHAdeMO interface') }}
 
 ## Output contactor control
 
@@ -68,10 +56,7 @@ The charge controller has one dedicated CAN bus for connection to the customer�
 The CAN bus runs at speed of 500kbaud by default. There is no 120 Ohm termination on this bus, but it can be easily enabled by installing a wire jumper between pins CAN_TERM_BRIDGE1 and CAN_TERM_BRIDGE2. A built-in 120 Ohm resistor will then be automatically placed between CAN High and Low.
 
 
-<figure style="text-align: center">
-  <img src="assets/ADM-CS-SECC_multipart_COMM.svg" alt="Communication pinout - CAN, RS485, Interlock, Current Loop, Ethernet, Antenna" title="Communication pinout - CAN, RS485, Interlock, Current Loop, Ethernet, Antenna">
-  <figcaption>Communication pinout - CAN, RS485, Interlock, Current Loop, Ethernet, Antenna</figcaption>
-</figure>
+{{ figure('assets/ADM-CS-SECC_multipart_COMM.svg', 'Communication pinout - CAN, RS485, Interlock, Current Loop, Ethernet, Antenna') }}
 
 ## Digital inputs and outputs
 
@@ -82,10 +67,7 @@ Por GPIO control, please refer to sections [**Manual GPIO control**](./buildroot
 
 
 
-<figure style="text-align: center">
-  <img src="assets/ADM-CS-SECC_multipart_dig_IO.svg" alt="Digital input/output pinout and fans" title="Digital input/output pinout and fans">
-  <figcaption>Digital input/output pinout and fans</figcaption>
-</figure>
+{{ figure('assets/ADM-CS-SECC_multipart_dig_IO.svg', 'Digital input/output pinout and fans') }}
 
 ### Digital Inputs
 The inputs are 24V tolerant but are also compatible with 12V logic level, the maximum voltage on this pin is about 30V, and have a weak 10 kOhm pulldown.

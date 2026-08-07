@@ -68,8 +68,7 @@ Manufacturers of stationary and portable charging stations, integrators, researc
 
 ## Pinout
 
-![Pinout](assets/charge-station-controller-pinout.jpg "Pinout")
-<figcaption style="text-align: center">Pinout</figcaption>
+{{ figure('assets/charge-station-controller-pinout.jpg', 'Pinout of the ADM-CS-SECC') }}
 
 ## Typical use case
 
@@ -88,5 +87,4 @@ Each EV charging station design is different – requiring a different set of in
 - CharIN association – [CCS implementation guide](https://www.charinev.org/ccs-at-a-glance/ccs-implementation-guideline/)
 
 
-![Functionality overview](assets/functionalities.jpg "Functionality overview")
-<figcaption style="text-align: center">Functionality overview</figcaption>
+{{ figure('assets/functionalities.jpg', 'Functionality overview of the ADM-CS-SECC') }}

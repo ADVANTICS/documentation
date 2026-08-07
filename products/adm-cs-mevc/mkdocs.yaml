@@ -88,6 +88,11 @@ plugins:
       cover_subtitle: MCS Electric Vehicle Communication Controller (MEVC)
       author: ADVANTICS SAS
       custom_template_path: docs/assets
+  # Numbered figures: {{ figure('assets/x.svg', 'caption', id='fig-x') }} and {{ figref('fig-x') }}.
+  # Same module as the power-module manuals; here it is a symlink to the single shared copy at
+  # products/shared-charge-controllers/macros.py.
+  - macros:
+      module_name: docs/assets/macros
 
 # Markdown extensions
 markdown_extensions:
@@ -119,6 +124,7 @@ nav:
   - Document Information: "index.md"
   - Technical data: "introduction.md"
   - Interfaces: "interfaces.md"
+  - Integration Guide: "integration-guide.md"
   # - Electric vehicle overview: "ev_overview.md"
   - Examples of use: "examples.md"
   # - Troubleshooting: "troubleshooting.md"
@@ -127,11 +133,14 @@ nav:
     - Overview: "configuration/README.md"
     - Generalities: "configuration/generalities.md"
     - MCS: "configuration/mcs.md"
+    - TLS: "configuration/tls.md"
     - Current deviation: "configuration/current_deviation.md"
     - Inlet lock: "configuration/inlet_lock.md"
     - DC contactors: "configuration/dc_contactors.md"
     - CAN sensor: "configuration/can_sensor.md"
     - No BMS mode: "configuration/no_bms.md"
+    - Hardware, applications and system: "configuration/hardware.md"
+    - SAE J1939: "configuration/j1939.md"
   - Working with the MEVC:
     - Connecting to the MEVC: "advos-yocto-system/connecting.md"
     - Web UI Access: "advos-yocto-system/csm-web-ui.md"
@@ -158,8 +167,8 @@ nav:
     - Temperature control: "vehicle-features/evcc_temperature_control.md"
     - Sleep functions: "vehicle-features/evcc_sleep.md"
     - Safety Functions: "vehicle-features/evcc_safety_functions.md"
-    - MCS & BPT (ISO15118-20): "vehicle-features/evcc_bidirectional.md"
-    - PEV Emulator: "vehicle-features/vehicle-simulation.md"
+    - BPT (ISO15118-20): "vehicle-features/evcc_bidirectional.md"
+    - Vehicle simulator: "vehicle-features/vehicle-simulation.md"
     - Supported sensors: "vehicle-features/pev-supported-sensors.md"
     - No code mode: "vehicle-features/evcc_no_code_mode.md"
 

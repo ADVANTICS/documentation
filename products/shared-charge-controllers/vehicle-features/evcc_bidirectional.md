@@ -1,4 +1,4 @@
-# MCS & BPT (ISO15118-20)
+# BPT (ISO15118-20)
 
 ## Introduction
 

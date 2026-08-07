@@ -36,15 +36,17 @@ The following steps will help access the controller successfully:
     ```bash
     $ ping <your IP address>
     ```
-    <img src="images/unreachable.png" alt="Unreachable" width="470" height="150" />
+
+    {{ figure('images/unreachable.png', 'A ping to an unused IP address times out, confirming it is free', size='470px') }}
 
     The following example is for windows users:
 
-    <img src="images/EthernetStatus.png" alt="Ethernet status" width="600" height="300" />
+    {{ figure('images/EthernetStatus.png', 'Windows Ethernet status, the way in to the adapter properties', size='600px') }}
 
-    <img src="images/EthernetProperties.png" alt="Ethernet properties" width="250" height="300" />
+    {{ figure('images/EthernetProperties.png', 'Windows Ethernet properties, selecting Internet Protocol Version 4 (TCP/IPv4)', size='250px') }}
 
-    <img src="images/ip.png" alt="IP" width="250" height="300" />
+    {{ figure('images/ip.png', 'Setting a static IP address on the Windows adapter', size='250px') }}
+
 <br/><br/>
 
 2. Access the controller using ssh:
@@ -57,7 +59,7 @@ The following steps will help access the controller successfully:
 
     - If you're connecting for the first time, you should accept adding the fingerprint of the controller to the known hosts list, by typing "yes" and pressing enter after this message is shown:
 
-    <img src="images/fingerprint.png" alt="IP" width="600" height="70" />
+    {{ figure('images/fingerprint.png', 'Accepting the controller\'s SSH fingerprint on the first connection', size='600px') }}
 
     !!! tip
         The controller is also using the _Avahi/ZeroConf/Bonjour/mDNS_ protocol to advertise itself
@@ -75,7 +77,7 @@ The following steps will help access the controller successfully:
 
     To access the controller you simply need to introduce the IP address then click Open:
 
-    <img src="images/PuttyConfig.png" alt="IP" width="400" height="300" />
+    {{ figure('images/PuttyConfig.png', 'PuTTY configured with the controller\'s IP address', size='400px') }}
 
 ### Login
 
