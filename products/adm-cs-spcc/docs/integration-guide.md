@@ -59,10 +59,9 @@ Whatever else you choose, these are **always** required:
 
 !!! tip "You do not need a real vehicle to develop against"
     You are building a charger, so what you need on the bench is **a vehicle**. An ADVANTICS vehicle
-    controller (ADM-CS-EVCC for CCS, ADM-CS-MEVC for MCS) running the **vehicle simulator** is exactly that: it
+    controller (ADM-CS-EVCC for CCS, ADM-CS-MEVC for MCS) running the [vehicle simulator](https://documentation.advantics.fr/adm-cs-mevc/vehicle-features/vehicle-simulation.html)** is exactly that: it
     requests power and follows the sequence as a car's BMS would, against a simulated battery.
-    Simulated power is enough to validate the sequence, which is the part that takes the time. It is
-    documented on those products' sites, under *Features → Vehicle simulator*.
+    Simulated power is enough to validate the sequence, which is the part that takes the time.
 
     Its parameters exist to let you force the branches you would otherwise wait months to meet: a
     nearly full pack, a vehicle asking for more than you can deliver, slow contactors, a
@@ -74,15 +73,12 @@ Whatever else you choose, these are **always** required:
     to plug into.
 
     The mirror-image tool, the **[charger simulator](charger-features/charger-simulation.md)**, runs on
-    *this* controller and stands in for the power stage you have not built or wired yet — switch off
-    `Power_Modules_Status`, `DC_Power_Parameters` or `Sequence_Control` one at a time as your own
-    software starts sending them. That is the documented way to bring up a partial implementation of
-    the generic interface.
+    *this* controller and stands in for the charger components you have not built or wired yet — switch off
+    the CAN messages sent by the simulator one at a time as your own software starts sending them.
 
     !!! warning "Not part of the standard software stack"
         The simulators are purchased separately — contact
-        [sales@advantics.fr](mailto:sales@advantics.fr). When only one side is simulated, make sure the
-        real controller on the other side is configured to deliver no power.
+        [sales@advantics.fr](mailto:sales@advantics.fr).
 
 ## 2. The active pistol
 
