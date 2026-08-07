@@ -51,10 +51,9 @@ Whatever else you choose, these are **always** required:
 
 !!! tip "You do not need a real vehicle to develop against"
     You are building a charger, so what you need on the bench is **a vehicle**. An ADVANTICS vehicle
-    controller (ADM-CS-EVCC for CCS, ADM-CS-MEVC for MCS) running the **vehicle simulator** is exactly that: it
+    controller (ADM-CS-EVCC for CCS, ADM-CS-MEVC for MCS) running the **[vehicle simulator](https://documentation.advantics.fr/adm-cs-evcc/vehicle-features/vehicle-simulation.html)** is exactly that: it
     requests power and follows the sequence as a car's BMS would, against a simulated battery.
-    Simulated power is enough to validate the sequence, which is the part that takes the time. It is
-    documented on those products' sites, under *Features → Vehicle simulator*.
+    Simulated power is enough to validate the sequence, which is the part that takes the time.
 
     Its parameters exist to let you force the branches you would otherwise wait months to meet: a
     nearly full pack, a vehicle asking for more than you can deliver, slow contactors, a
@@ -66,15 +65,12 @@ Whatever else you choose, these are **always** required:
     to plug into.
 
     The mirror-image tool, the **[charger simulator](charger-features/charger-simulation.md)**, runs on
-    *this* controller and stands in for the power stage you have not built or wired yet — switch off
-    `Power_Modules_Status`, `DC_Power_Parameters` or `Sequence_Control` one at a time as your own
-    software starts sending them. That is the documented way to bring up a partial implementation of
-    the generic interface.
+    *this* controller and stands in for the charger components you have not built or wired yet — switch off
+    the CAN messages sent by the simulator one at a time as your own software starts sending them.
 
     !!! warning "Not part of the standard software stack"
         The simulators are purchased separately — contact
-        [sales@advantics.fr](mailto:sales@advantics.fr). When only one side is simulated, make sure the
-        real controller on the other side is configured to deliver no power.
+        [sales@advantics.fr](mailto:sales@advantics.fr)
 
 ## 2. Pistols: one section per connector
 
@@ -241,7 +237,7 @@ Backend-driven limits reach the power stage through
 | [Web UI Access](advos-yocto-system/csm-web-ui.md) | Status, logs and configuration from a browser |
 | [Charger simulator](charger-features/charger-simulation.md) | Run a session with a simulated power stack, and hand messages over to your own code one at a time |
 
-## 11. Bringing it up, in order
+<!-- ## 11. Bringing it up, in order
 
 1. Read [Interfaces](interfaces.md) and wire power, the connector harness, the CAN bus, the
    contactor relays, the interlock and the current loop.
@@ -257,27 +253,17 @@ Backend-driven limits reach the power stage through
    [Advantics_Controller_Status](charger-can-interfaces/can_v3.md#Advantics_Controller_Status).
 6. Add the backend last: OCPP, then Plug & Charge if you need it.
 7. Work through the [Deployment Checklist](buildroot-system/must-do-before-deploy.md) before
-   shipping.
+   shipping. -->
 
 ## 12. Frequently hit questions
 
 **The session stops before the insulation test.** The controller is waiting for
-`Power_Modules_Status`, or for a plausible `Insulation_Resistance` in it. See
-[§4](#4-power-modules-the-central-choice) and [§6](#6-insulation-monitoring).
+`Power_Modules_Status`. See [§4](#4-power-modules-the-central-choice).
 
 **The output contactors never close.** They are hard-wired: check the interlock line, then the
 protocol condition (CP state for CCS, PERMIT for CHAdeMO). Software cannot override either. See
 [§5](#5-output-contactors-and-cabinet-safety).
 
-**Do I have to write power module software?** Not if your stage is one of the supported
-architectures in [§4](#4-power-modules-the-central-choice) — pick the [`charger_type`](configuration/pistol-ccs-dc.md#charger_type) and configure
-[`stack_pos`](configuration/pistol-ccs-dc.md#stack_pos).
+**The CCS session never starts, or drops at random.** Check the CP and its return path PE, make sure they are a twisted pair, routed away from any switching noise. Avoid ground loops and unnecessary long paths.
 
-**Where do I put [`charger_type`](configuration/pistol-ccs-dc.md#charger_type)?** In the pistol's section, not a global one. Each connector has its
-own power module interface.
-
-**Can I stack modules in parallel?** Yes, with a list in [`stack_pos`](configuration/pistol-ccs-dc.md#stack_pos); stack `0` is the one
-connected directly to the charger output.
-
-**Interlock or current loop for my E-STOP?** Current loop — it stops the session cleanly. The
-interlock is for faults that must bypass software entirely.
+**Can I run two CCS connectors with one SECC?** No. The SECC serves 1x CCS + 1x CHAdeMO + 1x AC pistol in parallel. 
