@@ -9,7 +9,7 @@ description: 90 kVA Bidirectional Four-Wire DC/AC Converter - User Manual
       ADB-PC-GN01
     </div>
     <div role="heading" aria-level="2" style="color: #1a1a1a; font-size: 1.25rem; margin-bottom: 0.5rem; font-weight: 600;">
-      90kVA Bidirectional Four-Wire DC/AC Converter
+      90 kVA Bidirectional Four-Wire DC/AC Converter
     </div>
     <p style="font-size: 1rem; color: #666; margin: 0 0 1rem 0;">User Manual</p>
     <div style="margin-top: 1rem;">
@@ -50,7 +50,7 @@ description: 90 kVA Bidirectional Four-Wire DC/AC Converter - User Manual
 
 ## Trademarks and Copyright
 
-© 2025 ADVANTICS SAS. All rights reserved.
+© 2026 ADVANTICS SAS. All rights reserved.
 
 ---
 
