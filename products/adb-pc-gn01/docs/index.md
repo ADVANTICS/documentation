@@ -1,6 +1,6 @@
 ---
-title: ADB-PC-GN01 User Manual
-description: 90kVA Bidirectional Four-Wire DC/AC Converter - User Documentation
+title: ADB-PC-GN01 
+description: 90 kVA Bidirectional Four-Wire DC/AC Converter - User Manual
 ---
 
 <div class="keep-on-one-page" style="page-break-inside: avoid; break-inside: avoid; -webkit-column-break-inside: avoid; -webkit-page-break-inside: avoid; page-break-after: avoid;">
@@ -13,7 +13,7 @@ description: 90kVA Bidirectional Four-Wire DC/AC Converter - User Documentation
     </div>
     <p style="font-size: 1rem; color: #666; margin: 0 0 1rem 0;">User Manual</p>
     <div style="margin-top: 1rem;">
-      <img src="assets/ADB-PC-GN01.webp" alt="ADB-PC-GN01" style="max-width: 600px; width: 100%; height: auto; max-height: 300px; object-fit: contain;">
+      <img src="assets/gn01.png" alt="ADB-PC-GN01" style="max-width: 600px; width: 100%; height: auto; max-height: 300px; object-fit: contain;">
     </div>
   </div>
 
@@ -41,10 +41,10 @@ description: 90kVA Bidirectional Four-Wire DC/AC Converter - User Documentation
 | **Property** | **Value** |
 |--------------|-----------|
 | **Product** | ADB-PC-GN01 |
-| **Description** | 90kVA Bidirectional Four-Wire DC/AC Converter |
+| **Description** | 90 kVA Bidirectional Four-Wire DC/AC Converter |
 | **Document Type** | User Manual |
 | **Version** | 1.0 |
-| **Last Updated** | June 2026 |
+| **Last Updated** | August 2026 |
 
 ---
 
