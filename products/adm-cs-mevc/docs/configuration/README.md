@@ -1,26 +1,8 @@
-# EVCC Configuration
+# Configuration
 
-In Advantics controller configuration file `/srv/config.cfg`. To edit the file, `nano` and `vi` editors are already installed on the system.
+This document provides details about the configuration of the MEVC.
+To modify the configuration, please access the [web UI](../advos-yocto-system/csm-web-ui.md) and navigate to the configuration section.
 
-&nbsp;
-Options related to the generic interface as well as other controller behaviors reside in the `[vehicle]` section.
-
-!!! note
-    When modifying the `/srv/config.cfg` file, always remember that Advantics charge controllers
-    works in __fake read-writable mode__ by default. Ie. changes are only written in RAM, and not
-    persisted to the actual read-only partition. See our [Updating the Software guide](../advos-yocto-system/updating.md) to learn how to temporarily or
-    permanently switch to real writable mode.
-
-!!! note
-    Depending on the application the customer can add configuration entries relevant to the specific use case.
-
-!!! warning
-     - Any line starting with the "#" sign will be treated as a commented line and will not be taken into account during execution.
-    - Remove the “#” at the beginning of every parameter you modify.
-    - Leave no white space at the beginning of the line.
-
-
-</br>
 
 1. [Generalities](generalities.md)
 1. [MCS](mcs.md)

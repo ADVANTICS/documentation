@@ -265,7 +265,7 @@ Backend-driven limits reach the power stage through
 | [Connecting to the SPCC](advos-yocto-system/connecting.md) / [SSH access](advos-yocto-system/ssh.md) | Shell access for logs; also available [over 10BASE-T1S](advos-yocto-system/ssh-10base-t1s.md) |
 | [Charger simulator](charger-features/charger-simulation.md) | Run a session with a simulated power stack, and hand messages over to your own code one at a time |
 
-## 11. Bringing it up, in order
+<!-- ## 11. Bringing it up, in order
 
 1. Read [Interfaces](interfaces.md) and wire power, the connector harness, the CAN bus,
    `CONTACTOR_ENABLE`, the interlock and the current loop. **Ground unused PT1K inputs.**
@@ -281,7 +281,7 @@ Backend-driven limits reach the power stage through
    [Advantics_Controller_Status](charger-can-interfaces/can_v3.md#Advantics_Controller_Status).
 6. Add the backend last: OCPP, then Plug & Charge if you need it.
 7. Work through the [Deployment Checklist](advos-yocto-system/must-do-before-deploy.md) before
-   shipping.
+   shipping. -->
 
 ## 12. Frequently hit questions
 
@@ -290,18 +290,11 @@ unused PT1K inputs left floating, the current loop not closed, the interlock tri
 condition (CE/CP state C, or PERM) not met. Software cannot override any of them.
 
 **The session stops before the insulation test.** The controller is waiting for
-`Power_Modules_Status`, or for a plausible `Insulation_Resistance` in it. See
-[§4](#4-power-modules-the-central-choice) and [§6](#6-insulation-monitoring).
+`Power_Modules_Status`. See [§4](#4-power-modules-the-central-choice).
+
+**The CCS session never starts, or drops at random.** Check the CP and its return path PE, make sure they are a twisted pair, routed away from any switching noise. Avoid ground loops and unnecessary long paths.
 
 **The MCS session never starts, or drops at random.** Check the CE and ID lines first, and consider
 the median filter and debouncer in [§2.1](#21-mcs-ce-and-id-lines).
 
-**Do I have to write power module software?** Not if your stage is one of the supported
-architectures in [§4](#4-power-modules-the-central-choice) — pick the [`charger_type`](configuration/pistol-mcs.md#charger_type) and configure
-[`stack_pos`](configuration/pistol-mcs.md#stack_pos).
-
-**Can I run two connectors?** No. The SPCC serves one pistol at a time. A charger with several
-outlets needs a multi-pistol charge station controller — ask ADVANTICS which variant fits.
-
-**Interlock or current loop for my E-STOP?** Current loop — it stops the session cleanly. The
-interlock is for faults that must bypass software entirely.
+**Can I run two connectors?** No. The SPCC serves one pistol at a time. You need one SPCC per connector.
