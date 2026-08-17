@@ -1,4 +1,13 @@
-# EVCC Configuration
+# Configuration
+
+This document provides details about the configuration of the EVCC.
+
+
+## Configuration via the web UI
+
+Please access the [web UI](../buildroot-system/access.md#web-ui) and navigate to the configuration section.
+
+## Configuration via SSH access
 
 In Advantics controller configuration file `/srv/config.cfg`. To edit the file, `nano` and `vi` editors are already installed on the system.
 

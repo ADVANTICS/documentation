@@ -95,6 +95,36 @@ For controllers meant for series production, the following hardening methods are
     refuse to provide series production orders with system having simple, always the same, default
 password. Even if you don't plan to have the module connected to Internet.
 
+## Web UI
+
+Over the same ethernet connection, the controller also serves a web interface: the ADVANTICS
+Controller System Manager, or CSM. It covers most of the day-to-day work without a terminal —
+controller status, live monitoring of a charge session, editing the configuration, managing the
+applications, and reading and exporting the logs.
+
+Reach it with the controller's **IP address**, on port 80:
+
+<div class="small-table compact-table" markdown="1">
+
+| Variant | Web UI address |
+|---|---|
+| **ADM-CS-SECC** | `http://192.168.1.51` |
+| **ADM-CS-EVCC** | `http://192.168.1.49` |
+
+</div>
+
+Those are the default static addresses from the [SSH](#ssh) section above; if you have changed the
+controller's address, use the new one. Your computer has to be on the same subnet, so step 1 of
+that section applies here too — give your own adapter a free address on `192.168.1.x` before
+opening the page.
+
+!!! attention
+    Because there is no authentication, anyone who can reach the controller on the network can
+    read its configuration and change it. The web interface is meant for development and
+    commissioning: keep the controller on a private network, and disable the interface for
+    production by setting `enable_web_interface = false` in the `[system]` section of the
+    configuration file.
+
 ## UART Console
 
 The default console of the system is mapped to the UART port accessible through connector J4.
