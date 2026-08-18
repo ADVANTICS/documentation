@@ -236,7 +236,7 @@ end
 
 @enduml -->
 
-<!-- ```puml
+<!--
 @startuml hlc_overview
 hide footbox
 skinparam BoxPadding 10
@@ -283,7 +283,7 @@ CAR <-> EVSE: handle charging process
 end
 
 @enduml
-``` -->
+-->
 
 
 
