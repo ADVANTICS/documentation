@@ -238,10 +238,10 @@ $ mount -t auto /dev/mmcblk0p1 /mnt/sd
 
 4. unzip the the file using:
 
-<!-- ```bash
+<!--
 $ unzip /path/to/your/release.zip
-```
- (Replace `/path/to/your/release.zip` with the actual path to the file on your controller. In the example above, we used `/tmp`) -->
+ (Replace `/path/to/your/release.zip` with the actual path to the file on your controller. In the example above, we used `/tmp`) 
+-->
 
 ```bash
 $ unzip /mnt/sd/release.zip -d /path/to/your/release
