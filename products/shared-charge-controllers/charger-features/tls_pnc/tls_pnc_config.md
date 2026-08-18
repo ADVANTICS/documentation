@@ -9,7 +9,7 @@ This document describes how to configure TLS and Plug’n’Charge (PnC) for con
 
 ### Certificates
 
-You need to provision the following certificates and keys inside `/app/certs` volume of `ccs-evcc` application:
+You need to provision the following certificates and keys in the directory that is bind-mounted into the `ccs-evcc` container as `/app/certs` — `/srv/certs` on the ADM-CS-SECC and ADM-CS-EVCC, or `certs` under the Docker Compose profile in use (default `/etc/advantics/default/certs`) on the ADM-CS-SPCC and ADM-CS-MEVC. The paths written in `config.cfg` stay `/app/certs/...`, because the application reads them inside the container:
 
 - [The V2G Root CA](../tls_pnc/pnc_primer.md#certificates-and-certificate-chains), in `pem` format
 - The PnC contract and its associated certificate chain, in `pkcs12` format
@@ -45,11 +45,11 @@ allow_no_cert = true
 ca_file = /app/certs/.../V2G Root CA.pem
 ```
 
-## SECC
+## SECC/SPCC
 
 ### Certificates
 
-You need to provision the following certificates and keys inside `/app/certs` volume of `ccs-secc`:
+You need to provision the following certificates and keys in the directory that is bind-mounted into the `ccs-secc` container as `/app/certs` — `/srv/certs` on the ADM-CS-SECC and ADM-CS-EVCC, or `certs` under the Docker Compose profile in use (default `/etc/advantics/default/certs`) on the ADM-CS-SPCC and ADM-CS-MEVC. The paths written in `config.cfg` stay `/app/certs/...`, because the application reads them inside the container:
 
 - [The V2G Root CA](../tls_pnc/pnc_primer.md#certificates-and-certificate-chains), in `pem` format
 - The MO Root CA, if different from the V2G Root CA
@@ -86,11 +86,11 @@ server_certificate_chain = /app/certs/.../cpoCertChain.pem
 
 # For ISO 15118-20
 
-## EVCC
+## EVCC/MEVC
 
 ### Certificates
 
-You need to provision the following certificates and keys inside `/app/certs` volume of `ccs-evcc`:
+You need to provision the following certificates and keys in the directory that is bind-mounted into the `ccs-evcc` container as `/app/certs` — `/srv/certs` on the ADM-CS-SECC and ADM-CS-EVCC, or `certs` under the Docker Compose profile in use (default `/etc/advantics/default/certs`) on the ADM-CS-SPCC and ADM-CS-MEVC. The paths written in `config.cfg` stay `/app/certs/...`, because the application reads them inside the container:
 
 - [The V2G Root CA](../tls_pnc/pnc_primer.md#certificates-and-certificate-chains), in `pem` format
 - The vehicle leaf certificate, and its associated private key, in `pem` format (but private key can also be provided in `pkcs8` format directly)
@@ -131,11 +131,11 @@ keyfile = /app/certs/.../Vehicle Leaf private key.pem
 server_certificate_chain = vehicleCertChain.pem
 ```
 
-## SECC
+## SECC/SPCC
 
 ### Certificates
 
-You need to provision the following certificates and keys inside `/app/certs` volume of `ccs-secc`:
+You need to provision the following certificates and keys in the directory that is bind-mounted into the `ccs-secc` container as `/app/certs` — `/srv/certs` on the ADM-CS-SECC and ADM-CS-EVCC, or `certs` under the Docker Compose profile in use (default `/etc/advantics/default/certs`) on the ADM-CS-SPCC and ADM-CS-MEVC. The paths written in `config.cfg` stay `/app/certs/...`, because the application reads them inside the container:
 
 - [The V2G Root CA](../tls_pnc/pnc_primer.md#certificates-and-certificate-chains), in `pem` format
 - The [CSO EVSE leaf](../tls_pnc/pnc_primer.md#certificates-and-certificate-chains) certificate, and its associated private key, in `pem` format (but private key can also be provided in `pkcs8` format directly)

@@ -57,7 +57,26 @@ reads them while `enabled` is `false`.
 
 ### 1. Provision the certificates
 
-Put the following in the `/app/certs` volume of the `ccs-evcc` container:
+Copy the certificates onto the controller, into the directory that is bind-mounted into the
+`ccs-evcc` container as `/app/certs`. Where that directory is
+depends on which system the controller runs:
+
+<div class="small-table compact-table" markdown="1">
+
+| Controller | Directory on the controller |
+|---|---|
+| **ADM-CS-EVCC** | `/srv/certs` |
+| **ADM-CS-MEVC** | `certs` under the Docker Compose profile in use — by default `/etc/advantics/default/certs` |
+
+</div>
+
+!!! note "The paths in the configuration file stay `/app/certs/...`"
+    `config.cfg` is read by the application *inside* the container, so `ca_file`, `keyfile`,
+    `client_certificate` and `client_certificate_chain` must all use the container path
+    `/app/certs/<file>` — not the directory you copied the files into. The bind mount is what
+    connects the two.
+
+Provide these files:
 
 - The **V2G Root CA**, in `pem` format.
 - The **vehicle leaf certificate** and its **private key**, in `pem` format.
