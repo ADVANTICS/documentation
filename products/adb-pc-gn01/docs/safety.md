@@ -5,7 +5,7 @@
 
 ## Qualified Personnel
 
-Installation, operation, and maintenance of the ADB-PC-AC01 must be performed by personnel who:
+Installation, operation, and maintenance of the ADB-PC-GN01 must be performed by personnel who:
 
 - Are trained and authorized to work on high voltage electrical equipment.
 - Understand the risks associated with power electronics, especially high voltage DC systems.
@@ -18,14 +18,14 @@ Installation, operation, and maintenance of the ADB-PC-AC01 must be performed by
 #### High Voltage Hazards
 
 !!! warning "High Voltage Danger"
-    The ADB-PC-AC01 operates with DC voltages up to 1000 VDC. These voltages can cause severe electrical shock, burns, or death.
+    The ADB-PC-GN01 operates with DC voltages up to 1000 VDC. These voltages can cause severe electrical shock, burns, or death.
 
 #### Voltage Levels Present
 
 | **Circuit Type** | **Voltage Range** | **Hazard Level** |
 |------------------|-------------------|------------------|
 | **AC Side (Port A)** | 208 - 480 V<sub>rms</sub> | High |
-| **DC Bus (Port B)** | 650 - 950 V DC | High |
+| **DC Bus (Port B)** | 360 - 950 V DC | High |
 | **Control Power** | 24V DC | Low |
 
 #### Electrical Safety Requirements
@@ -111,7 +111,7 @@ The liquid cooling system operates under pressure and with hot fluids:
 #### Heavy Equipment
 
 !!! warning "Lifting Hazard"
-    The ADB-PC-AC01 weighs around 40kg. Use proper lifting techniques and equipment.
+    The ADB-PC-GN01 weighs around 40kg. Use proper lifting techniques and equipment.
 
 **Lifting Safety**
 

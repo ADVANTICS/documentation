@@ -1,4 +1,4 @@
-# Installation Guide for ADB-PC-AC01
+# Installation Guide for ADB-PC-GN01
 
 ## Connector Installation Guidelines
 
@@ -6,7 +6,7 @@
 
 1. **Polarity / Phase Verification**
 
-      * Verify **Phase (L1, L2, L3)** and **Protective Earth (PE)** connections before mating.
+      * Verify **Phase (L1, L2, L3)** , **Neutral (N)**  and **Protective Earth (PE)** connections before mating.
       * Confirm that the **supply voltage and frequency** in your installation matches the converter’s specifications.
 
 2. **Cable Requirements**
@@ -19,7 +19,7 @@
 
       * Ensure the AC supply is **fully disconnected** before installation.
       * Connect **PE (Protective Earth)** first.
-      * Connect **Phase (L1, L2, L3)** conductors.
+      * Connect **Phase and Neutral (L1, L2, L3)** conductors, depending on whether you want to generate power or connect to the grid. Be aware that the device may not start if the lines are swapped. (See the reported warning or info messages.)
 
 
 ### DC Connector Installation (Port B - DC bus)
@@ -59,7 +59,7 @@
 
 ## Install the Converter (Mechanical)
 
-This section covers the physical installation, mounting, and handling of the **ADB-PC-AC01** unit.
+This section covers the physical installation, mounting, and handling of the **ADB-PC-GN01** unit.
 
 **Prerequisites:**
 
@@ -100,7 +100,7 @@ This section covers the electrical connection of all AC, DC, and control cables.
 2. **Connect AC Input (Port A):**
 
       - Verify correct voltage, frequency, and phase.
-      - Connect **L (Live)** and **PE** to the AC input terminal.
+      - Connect **L (Live)** , **N (Neutral)** and **PE** to the AC input terminal.
       - Ensure all Connectors are properly connected and locked.
 
 3. **Connect DC Output (Port B):**
@@ -139,10 +139,10 @@ This section describes the procedure for connecting the **liquid cooling loop** 
 
 ### Parallel Configuration Example
 
-This procedure describes how to interconnect and configure multiple ADB-PC-AC01 units for parallel operation.
+This procedure describes how to interconnect and configure multiple ADB-PC-GN01 units for parallel operation.
 
 <!-- <div style="text-align: center; margin: 4rem 0;">
-    <img src="assets/ac01_system_architecture.webp" alt="System Architecture" style="width: auto; height: auto;">
+    <img src="assets/GN01_system_architecture.webp" alt="System Architecture" style="width: auto; height: auto;">
 </div> -->
 
 

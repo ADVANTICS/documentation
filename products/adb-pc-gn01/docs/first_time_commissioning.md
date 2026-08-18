@@ -109,19 +109,19 @@ Let's confirm the unit can process power.
     !!! tip
         Errors can be cleared using `Clear_Interlock` signals from the `Fault_Control` message.
 
-2.  **Set operating Mode:** Send command to `AC01_Mode_Set` , to choose the  operating mode 
+2.  **Set operating Mode:** Send command to `GN01_Mode_Set` , to choose the  operating mode 
     !!! tip
         Requested operating mode :
 
             - DC_Controlled (0): DC side voltage controlled to setpoint, requires AC side input present
-            - AC_Controlled (1): AC side voltage controlled, will generate AC if not present
+            - AC_Controlled (1): AC side voltage controlled, will generate AC if not present 
             - Bleeding (2): Discharge internal capacitors/remaining charge
 
 
         Changing mode can only be done when the power converter is not "Enable"
 
 
-2.  **Set Target Voltage/Current:** Send a simple command, for example, to regulate the DC side at a nominal voltage with a minimal current limit.
+2.  **Set AC_Port_Setpoints:** Send a simple command, with the kind of grid you want to create
 3.  **Enable Operation:** Send the CAN command to move from `STANDBY` to `OPERATE`.
 4.  **Apply a Small Load:** Using your external DC load, draw a small amount of current (e.g., 10% of the unit's rating).
-5.  **Verify Output:** On ETKA tool and your external DMM, confirm that the voltage and current at DC side match your setpoints and that no faults are present.
+5.  **Verify Output:** On ETKA tool and your external DMM, confirm that the voltage, current and Frequency match your setpoints and that no faults are present.

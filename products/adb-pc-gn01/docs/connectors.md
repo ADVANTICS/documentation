@@ -18,7 +18,7 @@ The ADB-PC-AC01 features high-current Amphenol Surlok Plus connectors designed f
 | **Connector Type** | RADSOK Size 8mm | High-current contact technology |
 | **Manufacturer** | Amphenol | Industry-leading reliability |
 | **Series** | SurLock Plus (SLP-HIR-B) | Locking mechanism for safety |
-| **Quantity** | 3 | One per phase (L1, L2, L3) |
+| **Quantity** | 4 | One per phase + Neutral (L1, L2, L3 , N) |
 | **Colour and Keyway** | Orange | 20&deg; |
 | **Connector Current Rating** | 200 A | Continuous operation |
 | **Connector Voltage Rating** | 1500 VDC | |
@@ -32,7 +32,7 @@ The DC side features bidirectional connectors for the high voltage DC link:
 | **Connector Type** | RADSOK Size 8mm | Same technology as AC side |
 | **Manufacturer** | Amphenol | SurLok Plus series |
 | **Series** | SLP-HIR-B | High-current locking design |
-| **Quantity** | 2x Port A | Positive and negative connections |
+| **Quantity** | 2x Port DC | Positive and negative connections |
  **Colour and Keyway** | Red, Black | 20&deg; (Red), 30&deg; (Black) |
 | **Connector Current Rating** | 200 A | Continuous operation |
 | **Connector Voltage Rating** | 1500 VDC | |
@@ -50,6 +50,7 @@ Here's a table showing the individual connector part numbers, taking into consid
 | **L1** | 35 mm2 | SLPHPB35BSO1 | Orange, 20&deg;, IP rated |
 | **L2** | 35 mm2 | SLPHPB35BSO1 | Orange, 20&deg;, IP rated |
 | **L3** | 35 mm2 | SLPHPB35BSO1 | Orange, 20&deg;, IP rated |
+| **N** | 35 mm2 | SLPHPB35BSO1 | Orange, 20&deg;, IP rated |
 | **DC+** | 35 mm2 | SLPHPB35BSR1 | Red, 20&deg;, IP rated |
 | **DC-** | 35 mm2 | SLPHPB35BSB2 | Black, 30&deg;, IP rated |
 

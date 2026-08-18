@@ -16,8 +16,8 @@ As a courtesy we also provide our CAN DBs in the more usual DBC format. Note the
 
 | CAN API Version | .kcd file | .dbc file |
 |-----------------|-----------|-----------|
-| 4.0.0           | [**ADB_PC_AC01_4.0.0.kcd**](../assets/ADB_PC_AC01_4.0.0.kcd) | [**ADB_PC_AC01_4.0.0.dbc**](../assets/ADB_PC_AC01_4.0.0.dbc) |
-| 3.1.0           | [**ADB_PC_AC01_3.1.0.kcd**](../assets/ADB_PC_AC01_3.1.0.kcd) | [**ADB_PC_AC01_3.1.0.dbc**](../assets/ADB_PC_AC01_3.1.0.dbc) |
+| 2.0.0           | [**ADB_PC_GN01_2.0.0.kcd**](../assets/ADB_PC_GN01_2.0.0.kcd) | [**ADB_PC_AC01_4.0.0.dbc**](../assets/ADB_PC_GN01_2.0.0.dbc) |
+
 
 
 # CAN frame ID format
@@ -31,7 +31,8 @@ CAN ID (24‑bit) — field layout
 | Register address | [7:0] | 8 bits | Register within the base frame (0x00–0xFF). |
 | stack Position | [15:8] | 8 bits | Device position in a stacked/parallel system. 0 = master/upper controller. |
 | Device type | [23:16] | 8 bits | Device type identifier (0–255). Bit 23 is reserved as a CAN‑format flag — ADB series converters use IDs ≥ `0x80`. |
-
+| Broadcast group | [24:28] | 5 bits |  Allow talking to multiple devices at the same time if they belong to the same group.|
+ 
 **Device Type**
 
 | ID   | Name | Function |
@@ -39,5 +40,7 @@ CAN ID (24‑bit) — field layout
 | `0x81` | AC01 | 100 kW AC/DC (PFC) power module |
 | `0x82` | DC01 | 100 kW DC/DC (isolated) power module |
 | `0x83` | CH01 | 50 kW CCS EV charger power module |
-| `0x84` | DC02 | Non-isolated DC/DC |
-| `0x85` | GN01 | Genset |
+| `0x84` | GN01 | Genset |
+| `0x87` | DC02 | Non-isolated DC/DC |
+| `0x88` | DC02 | 00kW DC/DC (isolated) power converter 3ports|
+

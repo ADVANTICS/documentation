@@ -2,7 +2,7 @@
 
 ## Product Description
 
-The **ADB-PC-AC01** is a high-performance 100kW bidirectional AC/DC Active Frontend (PFC) power module designed for demanding industrial applications. Built with advanced Silicon Carbide (SiC) technology, this module delivers exceptional efficiency and power quality in a compact, robust package.
+The **ADB-PC-GN01** is a high-performance 100kW bidirectional AC/DC Active Frontend (PFC) power module designed for demanding industrial applications. Built with advanced Silicon Carbide (SiC) technology, this module delivers exceptional efficiency and power quality in a compact, robust package.
 
 !!! info "Key Features"
     - **Bidirectional Operation**: Supports both AC-to-DC and DC-to-AC power conversion
@@ -15,12 +15,8 @@ The **ADB-PC-AC01** is a high-performance 100kW bidirectional AC/DC Active Front
 
 ## Applications
 
-The ADB-PC-AC01 is suitable for a wide range of applications requiring bidirectional AC/DC rectification with excellent power factor:
+The ADB-PC-GN01 is suitable for a wide range of applications requiring generating AC grid:
 
-### Electric Vehicle Charging
-- DC Fast Charge stations supporting CCS1, CCS2, NACS, MCS, and CHAdeMO standards
-- Battery assisted charging systems
-- Vehicle-to-Grid (V2G) applications
 
 ### Energy Storage Systems
 - Grid-tied energy storage systems
@@ -28,10 +24,7 @@ The ADB-PC-AC01 is suitable for a wide range of applications requiring bidirecti
 - Industrial energy management
 
 ### Industrial Applications
-- Industrial PFC rectifiers
 - Laboratory bidirectional power supplies
-- EV and charge simulators
-- Onboard charging for off-highway and heavy-duty machinery
 
 ### Harsh Environments
 - Marine and coastal applications
@@ -43,7 +36,7 @@ The ADB-PC-AC01 is suitable for a wide range of applications requiring bidirecti
 | **Characteristic** | **Value** | **Benefit** |
 |-------------------|-----------|-------------|
 | **Technology** | Silicon Carbide (SiC) | Higher efficiency, reduced losses |
-| **Power Rating** | 100kW | Suitable for high-power applications |
+| **Power Rating** | 93kW | Suitable for high-power applications |
 | **Efficiency** | 98.5% peak | Energy savings, reduced cooling requirements |
 | **Power Factor** | ≥0.99 | Excellent grid compatibility |
 | **THDi** | ≤5% | Low harmonic distortion |
@@ -53,7 +46,7 @@ The ADB-PC-AC01 is suitable for a wide range of applications requiring bidirecti
 
 ## System Architecture
 
-The ADB-PC-AC01 is designed as part of the modular ADB Series system, allowing for flexible configuration and scaling to MW-level power systems.
+The ADB-PC-GN01 is designed as part of the modular ADB Series system, allowing for flexible configuration and scaling to MW-level power systems.
 
 ### Key Architectural Features:
 
@@ -68,14 +61,14 @@ The modular design of ADVANTICS's ADB power modules series allows creating creat
 **These 1MW building block can be duplicated as much as needed to reach the targeted power level.**  
 In our example here, the MCS charger is built using:  
 
-- 1MW AC/DC PFC Building block based on the ADB-PC-AC01 power module
+- 1MW AC/DC PFC Building block based on the ADB-PC-GN01 power module
 - 1MW DC/DC isolated Building block based on the ADB-PC-DC01 power module
 
-{{ figure('../assets/ac01_dc01_mcs_example.webp', 'MCS Example') }}
+{{ figure('../assets/GN01_dc01_mcs_example.webp', 'MCS Example') }}
 
 ## Compliance and Standards
 
-The ADB-PC-AC01 is designed to meet major international standards:
+The ADB-PC-GN01 is designed to meet major international standards:
 
 ### Safety Standards
 - IEC 61851-1 (Electric vehicle conductive charging system)
@@ -110,7 +103,7 @@ All Advantics products are proudly designed and manufactured in the European Uni
 
 ## Environmental Responsibility
 
-The ADB-PC-AC01 is designed with environmental considerations:
+The ADB-PC-GN01 is designed with environmental considerations:
 
 - High efficiency reduces energy consumption and carbon footprint
 - Liquid cooling lowers the ambient noise level and increases reliability

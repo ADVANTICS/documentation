@@ -14,82 +14,76 @@ This guide provides the procedure for updating the converter's firmware.
 **Steps:**  
   
 1.  Connect your CAN-to-USB adapter to the CAN bus.  
-2.  Launch the firmware flashing tool.  
-3.  Use the tool to "discover" the converter on the bus.  
-4.  Load the new firmware file into the tool.  
-5.  Initiate the "Flash" or "Update" process.  
-6.  **WARNING:** Do not power off the unit or disconnect the CAN bus during this process.  
-7.  The tool will indicate when the flash is 100% complete and verified.  
-8.  Power-cycle the unit (see `Power On and Off`).  
-9.  Verify the new firmware version by reading the appropriate CAN message.  
+2.  Make sure that your computer and the power converter has a reliable power source during the update process
+3.  Launch the firmware flashing tool by running the command "boxupdater.exe -p package_DD.MM.YYYY.zip"
+4.  **WARNING:** Do not power off the unit or disconnect the CAN bus during this process.  
+5.  The tool will indicate when the flash is 100% complete and verified.  
+6.  Power-cycle the unit (see `Power On and Off`).  
+7.  Verify the new firmware version by reading the appropriate CAN message.  
 
 
 ## Troubleshooting Faults
 
 This guide provides a step-by-step process for diagnosing and resolving faults.
 
-### Protection Levels
-
-| **Protection Level** | **Response Time** | **Action** | **Recovery** |
-|---------------------|-------------------|------------|--------------|
-| **Level 1** | <1ms | Immediate shutdown | Manual reset required |
-| **Level 2** | <10ms | Graceful shutdown | Automatic retry after delay |
-| **Level 3** | <100ms | Power limiting | Automatic recovery |
-| **Level 4** | <1s | Warning/alarm | No action required |
 
 ### Fault Categories
 
-#### Critical Faults (Level 1)
-- Overcurrent protection activation (Port A or B)
-- Overtemperature shutdown
-- Hardware interlock activation
+#### Critical (Level 1)
 
-#### Serious Faults (Level 2)
-- DC overvoltage/undervoltage (Port A or B)
-- Communication loss timeout
-- Internal component failure
+Requires system reboot (contact Advantics support).
 
-#### Minor Faults (Level 3)
-- Power derating due to temperature
-- Current limiting activation
-- Efficiency below expected
+- Wrong firmware for internal module  
+- Hardware error  
 
-#### Informational (Level 4)
-- Maintenance reminders
-- Performance warnings
-- Configuration mismatches
-- Environmental alerts
+#### Error (Level 2)
 
-### Fault Recovery Procedures
+Can be cleared using the `Clear_Interlock` signals from the `Fault_Control` message.  
+All errors must be cleared before power-on is allowed. If `Enable` is active, the converter will turn on once all faults and warnings are cleared.
 
-- **Fault Detection** *(Level 2)* → **Graceful Shutdown**
-- **Fault Detection** *(Level 3)* → **Power Limiting**
-- **Fault Detection** *(Level 4)* → **Alarm Only**
-- **Immediate Shutdown** → **Fault Latch**
-- **Graceful Shutdown** → **Auto Retry Timer**
-- **Power Limiting** → **Monitor Recovery**
-- **Alarm Only** → **Log Event**
-- **Fault Latch** *(Manual Reset)* → **Restart Sequence**
-- **Auto Retry Timer** *(Timer Expired)* → **Automatic Restart**
-- **Monitor Recovery** *(Condition Cleared)* → **Normal Operation**
-- **Log Event** → **Continue Operation**
+When an error occurs, the converter will attempt a graceful shutdown, depending on the severity level.
+
+- DC overvoltage / undervoltage (Port A or B)  
+- Overcurrent protection activation (Port A or B)  
+- Overtemperature shutdown  
+- Communication loss timeout  
+- Hardware interlock activation  
+- Internal component failure  
+
+#### Warning (Level 3)
+
+Warnings canindicate that a voltage is missing, a voltage is too low, or that operating conditions are suboptimal. All warnings must be cleared before power-on is allowed. If `Enable` is active, the converter will turn on once all faults and warnings are cleared.
+
+When a warning appears during operation, performance may not be met.
+
+- Overtemperature  
+- Power derating due to temperature  
+- Current limiting activation  
+- Too low input voltage  
+- Bad setpoints  
+
+#### Info (Level 4)
+
+When an info event appears, the power converter will continue normal operation without any issue.
+
+- Maintenance reminders  
+- Performance info  
+- Environmental info  
+
 
 ### Troubleshooting
 
 **Procedure:**  
   
-1.  **Identify the Fault:** Read the active fault code from the "Fault" CAN message.  
-2.  **Look Up the Code:** Find the code in the `Reference: Fault Code Directory`.  
-3.  **Understand the Cause:** The directory will state the cause (e.g., "Output Over-Voltage").  
-4.  **Take Corrective Action:**  
+1.  **Identify the Fault:** Read the active fault code from the "Fault" CAN message and the "GN01_faults"
+2.  **Understand the Cause:**  The notes from the KCD explain the fault
+3.  **Take Corrective Action:**  
     * **Example (Over-Voltage):** Check your load. Is it a battery that is already full? Is there another source pushing voltage back?  
     * **Example (Over-Temperature):** Check coolant flow, check for blocked filters, and check ambient temperature.  
     * **Example (CAN Timeout):** Check CAN bus wiring, termination resistors, and your master controller.  
-5.  **Resolve the Condition:** Fix the external or internal condition that caused the fault.  
-6.  **Clear the Fault:** Once the condition is resolved, send the "Clear Fault" command via CAN. The unit should return to `STANDBY` mode.  
-7.  If the fault re-occurs immediately, do not operate the unit and contact technical support.  
-
-<!-- ***See Also:*** `Reference: Fault Code Directory` (for a complete list of all codes) -->
+4.  **Resolve the Condition:** Fix the external or internal condition that caused the fault.  
+5.  **Clear the Fault:** Once the condition is resolved, send the "Clear Fault" command via CAN. The unit should return to `STANDBY` mode.  
+6.  If the fault re-occurs immediately, do not operate the unit and contact technical support.  
 
 
 ## Connector Maintenance
