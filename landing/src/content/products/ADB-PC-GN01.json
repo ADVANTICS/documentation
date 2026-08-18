@@ -1,0 +1,279 @@
+{
+  "docsReady": false,
+  "listReady": true,
+  "keywords": "AC/DC, ACDC, AC to DC, AC-to-DC, DC/AC, DCAC, DC to AC, DC-to-AC, DC/DC, DCDC, DC-to-DC, Inverter, Converter, bi-directional, bidirectional, active front end, rectifier step up, boost, boost converter, step down, buck, buck converter, step down converter, step up, boost, boost converter, step up converter, active neutral, non-isolated, hybrid, hybrid genset, hybrid generator, hybrid generator inverter, grid-tie, off-grid, pass thru, ac pass thru, ac coupling, paralleling, inverter-charger, inverter/charger, inverter charger, transformerless, transformer less, 3 phase, split phase, single phase, frequency control, phase shift, high voltage, hv, high voltage dc, hvdc, ev, electric vehicle, ev battery, CAN, UL, CE, Certified, high efficiency, 24V, 100V, 200V, 300V, 400V, 500V, 600V, 700V, 800V, 900V, 1000V, 1kV, SiC, Silicon Carbide, ev charge station, fast charger",
+  "codename": "ADB-PC-GN01",
+  "datasheet": "https://advantics.fr/pdf/ADB-PC-GN01.pdf",
+  "releaseStatus": "newRelease",
+  "sortNumber": 1,
+  "OGimg": "/src/assets/img/products/ADB-PC-GN01-og.png",
+  "card": {
+    "imgScale": "90%",
+    "imgRotation": "-3deg",
+    "name": "90kVA Bidirectional Four-Wire DC/AC Converter",
+    "img": "/src/assets/img/products/ADB-PC-GN01.png",
+    "alt": "ADB-PC-GN01 90kVA bidirectional DC/AC converter — front panel showing DC+/DC− and three-phase AC (L1, L2, L3, N) RADSOK high-current connectors, 24V control power input, and CAN link ports, in a sealed liquid-cooled enclosure",
+    "description": "Made with modern silicon carbide technology, GN01 is capable of operating as a grid-forming or grid-support inverter, which is custom built for environments most inverters won’t survive. "
+  },
+  "header": {
+    "title": "90kVA Bidirectional Four-Wire DC/AC Converter",
+    "name": "ADB-PC-GN01",
+    "description": "Made with modern silicon carbide technology, GN01 is capable of operating as a grid-forming or grid-support inverter, which is custom built for environments most inverters won’t survive. ",
+    "img": "/src/assets/img/products/ADB-PC-GN01.png",
+    "imgClasses": "scale-135",
+    "alt": "ADB-PC-GN01 90kVA bidirectional DC/AC converter — front panel showing DC+/DC− and three-phase AC (L1, L2, L3, N) RADSOK high-current connectors, 24V control power input, and CAN link ports, in a sealed liquid-cooled enclosure"
+  },
+  "hardwareDescription": [
+    "<span class='text-accent font-bold' >The Silicon Carbide (SiC) topology delivers 98.5% peak efficiency over a broad operating range and yields a more compact package through higher power density. The system is fully sealed and liquid cooled, ready to deploy in harsh environments, including off-highway applications.</span>",
+
+    "The GN01 inverter operates on-grid, off-grid, or as part of a smart microgrid. Its active neutral supports load imbalances up to 100% per phase, ensuring stable performance even under highly uneven load distributions. The unit is fully user-configurable for any standard voltage up to 480 VAC and frequencies up to 400 Hz, making it compatible to a wide range of power grids across industries globally. It functions to stabilize voltage and frequency, balancing demand peaks, and delivering cleaner, more reliable power to the grid.",
+
+    "AC Droop control lets the user set target voltage and frequency, then overlay bidirectional active and reactive power control — useful for storage regulation, seamless AC synchronization, AC hot swaps, and generator hybridization. Droop parameters are exposed for real-time tuning by integrators, rather than locked behind firmware. Each unit takes CAN control locally, but coordination across units happen on the AC waveform itself. Voltage and frequency carry the signal, so any number of units can run in parallel on a shared AC grid without an additional communications layer between them.",
+
+    "When connected to a grid, GN01 can idle alongside the mains while the battery handles other duties, such as peak shaving, frequency regulation, or standing by. If an upstream breaker opens, including during islanding events, the inverter assumes the load with no transfer interruption. This delivers reliable ride-through performance equivalent to a uninterruptible power supply (UPS) as a native function of the grid-forming control, without a dedicated UPS in the system."
+  ],
+  "characteristics": [
+    "Power up to megawatt levels through paralleling",
+    "Full bidirectional operation for charging through the same converters",
+    "Support for all common grid standards up to 480 V, single-, split- and three-phase inverters, 50 - 400 Hz"
+  ],
+  "applications": [
+    "Portable battery gensets (90 kW up to megawatt levels)",
+    "Off-grid and on-grid operation",
+    "Balancing microgrids",
+    "Microgrid capable BESS",
+    "Integration with other power sources such as solar and diesel generation",
+    "Portable DC fast charging, by integrating [ADM-PC-DC01](https://advantics.fr/products/ADB-PC-DC01/)"
+  ],
+
+  "techData": {
+    "VA01": [
+      {
+        "name": "Rated AC voltage (L-L)",
+        "value": "208 - 480 V<sub>rms</sub>, reduced power below 380 V<sub>rms</sub>"
+      },
+      {
+        "name": "Rated AC frequency",
+        "value": "50 / 60 / 400 Hz"
+      },
+      {
+        "name": "Maximum AC current",
+        "value": "±135 A<sub>rms</sub>, per phase"
+      },
+      {
+        "name": "Maximum neutral current",
+        "value": "±135 A<sub>rms</sub>"
+      },
+      {
+        "name": "Power factor (PF)",
+        "value": "≥0.99"
+      },
+      {
+        "name": "Total Harmonic Distortion THDI",
+        "value": "≤5 %, for loads above 20%"
+      },
+      {
+        "name": "Power Control",
+        "value": "±0.9 inductive-capacitive"
+      },
+      {
+        "name": "Wiring",
+        "value": "L1, L2, L3, N"
+      },
+      {
+        "name": "Startup",
+        "value": "Internal soft start"
+      },
+      {
+        "name": "Inrush current",
+        "value": "Less than nominal current"
+      },
+      {
+        "name": "Phase to PE separation",
+        "value": "Basic isolation"
+      },
+      {
+        "name": "Protection",
+        "value": "Overvoltage, undervoltage, overcurrent, overtemperature"
+      },
+      {
+        "name": "Fusing",
+        "value": "Yes, UL/IEC rated"
+      },
+      {
+        "name": "Overvoltage category",
+        "value": "OVC2"
+      },
+      {
+        "name": "Grid generation",
+        "value": "Forming, following, microgrid"
+      },
+      {
+        "name": "Connectors AC",
+        "value": "4x RADSOK Size 8mm Amphenol SurLock Plus (SLP-HIR-B)"
+      },
+      {
+        "name": "DC Voltage range",
+        "value": "360 - 950 V (min DC voltage depends on the mains voltage)"
+      },
+      {
+        "name": "DC Current",
+        "value": "±160 A bidirectional limited by power envelope"
+      },
+      {
+        "name": "Max power (400V/50Hz)",
+        "value": "93kW"
+      },
+      {
+        "name": "Current measurement accuracy",
+        "value": "±1 % of full-scale"
+      },
+      {
+        "name": "Voltage measurement accuracy",
+        "value": "±1 % of full-scale"
+      },
+      {
+        "name": "Primary-Secondary separation",
+        "value": "Non-isolated"
+      },
+      {
+        "name": "Fusing",
+        "value": "Yes, on positive line, UL/IEC rated"
+      },
+      {
+        "name": "Output contactors",
+        "value": "Yes"
+      },
+      {
+        "name": "Connectors DC",
+        "value": "2x port A, RADSOK Size 8mm Amphenol SurLock Plus (SLP-HIR-B)"
+      },
+      {
+        "name": "Low voltage and communication",
+        "value": null
+      },
+      {
+        "name": "Communication interface",
+        "value": "CAN 2.0B"
+      },
+      {
+        "name": "External control power supply voltage",
+        "value": "24 V nominal (20-28 V)"
+      },
+      {
+        "name": "Control power consumption",
+        "value": "50 W"
+      },
+      {
+        "name": "Standby power consumption",
+        "value": "5 W"
+      },
+      {
+        "name": "Isolation concept",
+        "value": "CAN and 24V isolated from PE CAN bus isolated from 24V Basic isolation, reinforced towards HV"
+      },
+      {
+        "name": "Connectors",
+        "value": "2x for CAN, 1x for power"
+      },
+      {
+        "name": "Paralleling of converters",
+        "value": "Up to 120 units in parallel"
+      },
+      {
+        "name": "Mechanical",
+        "value": null
+      },
+      {
+        "name": "Dimensions",
+        "value": "700 x 400 x 165 mm"
+      },
+      {
+        "name": "Weight",
+        "value": "45 kg"
+      },
+      {
+        "name": "Cooling",
+        "value": "50/50 Water Ethylene Glycol Mix"
+      },
+      {
+        "name": "Noise",
+        "value": "Small internal fan"
+      },
+      {
+        "name": "Mounting",
+        "value": "4U rack, or custom brackets"
+      },
+      {
+        "name": "Environment",
+        "value": null
+      },
+      {
+        "name": "Operating temperature range",
+        "value": "-40 to 70 °C, derating applies"
+      },
+      {
+        "name": "Ingress protection code",
+        "value": "IP67"
+      },
+      {
+        "name": "Allowed pollution degree",
+        "value": "3 external environment"
+      },
+      {
+        "name": "Altitude",
+        "value": "3000 m"
+      },
+      {
+        "name": "Shock",
+        "value": "Pending"
+      },
+      {
+        "name": "Vibrations",
+        "value": "Designed for harsh environments"
+      },
+      {
+        "name": "Standards",
+        "value": null
+      },
+      {
+        "name": "Designed to following standards",
+        "value": "IEC 61851-1, 61851-23 ED2, IEC 62477-1, UL2202, UL1741"
+      },
+      {
+        "name": "Grid code support",
+        "value": "EN50549-1, IEEE 1547, VDE-AR-N 4100, UK G99, AS 4777.2"
+      },
+      {
+        "name": "Electromagnetics compatibility",
+        "value": "EMC class B possible with an external filter"
+      },
+      {
+        "name": "General",
+        "value": null
+      },
+      {
+        "name": "Support",
+        "value": "ADVANTICS Helpdesk included"
+      },
+      {
+        "name": "Design and Manufacturing",
+        "value": "EU"
+      }
+    ]
+  },
+  "carousel": [
+    {
+      "path": "/src/assets/img/products/ADB-PC-GN01.png",
+      "alt": "Isometric view of the converter box"
+    },
+    {
+      "path": "/src/assets/img/products/ADB-PC-GN01-2.png",
+      "alt": "Opposite side view of the converter box"
+    },
+    {
+      "path": "/src/assets/img/products/GN01-real-table.jpg",
+      "alt": "Isometric view of the converter box"
+    }
+  ]
+}
