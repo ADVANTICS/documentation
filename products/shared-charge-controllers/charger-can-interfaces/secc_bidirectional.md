@@ -67,7 +67,7 @@ have been entirely removed.
 
 The `Lower_Output_Voltage` and `Output_Contactors` command signals have been added to signal
 explicitly when the charger should actively stop presenting an output voltage using one way or
-another. You should definitely read [their](DC_Power_Control-Output_Contactors)
+another. You should definitely read [their](../charger-can-interfaces/can_v3.md#DC_Power_Control-Output_Contactors)
 [documentations](../charger-can-interfaces/can_v3.md#DC_Power_Control-Lower_Output_Voltage)
 as it can be a bit tricky to use correctly.
 
