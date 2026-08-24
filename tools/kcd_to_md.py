@@ -608,15 +608,33 @@ def generate_markdown(
     definition_list_style: str = "bullets",
     page_xrefs: Optional[Dict[str, str]] = None,
     front_matter: Optional[str] = None,
+    exclude_messages: Optional[List[str]] = None,
 ) -> str:
     db = cantools.db.load_file(kcd_path)
     kcd_producers = _parse_kcd_producers(kcd_path)
+
+    # One database serves several controllers, and a controller that cannot do AC charging should
+    # not be handed the AC messages: the MCS vehicle controller has no AC at all. The database is
+    # shared and stays complete -- the filtering is a property of the *page*, not of the .kcd.
+    #
+    # A name listed here that the database does not have is an error, not a no-op: if a message is
+    # renamed upstream, silently dropping the filter would republish AC messages on a page that
+    # must not carry them, and nothing would say so.
+    excluded = list(exclude_messages or [])
+    present = {m.name for m in db.messages}
+    missing = [name for name in excluded if name not in present]
+    if missing:
+        raise SystemExit(
+            f"--exclude-message: not in {kcd_path}: {', '.join(sorted(missing))}. "
+            "The database may have renamed them; update the exclusion list."
+        )
+    messages = [m for m in db.messages if m.name not in set(excluded)]
 
     # How a message section is addressed. "explicit" gives '## Name { #Name }', matching the
     # power modules and the charger pages. "slug" leaves the heading bare and lets the toc
     # extension slugify it (lowercased, underscores kept), which is what KCDDOC produced and
     # what the ~40 inbound links to the vehicle pages already point at.
-    message_names = {m.name for m in db.messages}
+    message_names = {m.name for m in messages}
 
     def message_anchor(name: str) -> str:
         return name.lower() if message_id_style == "slug" else _anchorize(name)
@@ -652,7 +670,7 @@ def generate_markdown(
             except Exception as e:
                 raise SystemExit(f"Unknown --adb-device-type '{adb_device_type}'. Expected one of {list(ADB_DEVICE_TYPE_MAP.keys())} or a hex value.")
 
-    for msg in db.messages:
+    for msg in messages:
         name = msg.name
         # Apply optional ADB ID transformation
         id_num = _transform_adb_id(msg.frame_id, adb_device_value) if (generate_adb_ids and adb_device_value is not None) else msg.frame_id
@@ -688,7 +706,7 @@ def generate_markdown(
     out_lines.append("")
 
     # Details per message
-    for msg in sorted(db.messages, key=lambda m: m.frame_id):
+    for msg in sorted(messages, key=lambda m: m.frame_id):
         m_anchor = _anchorize(msg.name)
         out_lines.append("")
         if message_id_style == "slug":
@@ -876,6 +894,17 @@ def main():
         ),
     )
     ap.add_argument(
+        "--exclude-message",
+        action="append",
+        default=[],
+        metavar="NAME",
+        help=(
+            "Leave a message out of the page entirely -- index, body and cross-reference "
+            "targets. For a controller the message does not apply to (the MCS vehicle "
+            "controller has no AC charging). Repeatable. Errors if NAME is not in the database."
+        ),
+    )
+    ap.add_argument(
         "--front-matter",
         default=None,
         help="YAML front matter to prepend, e.g. $'---\\nhide:\\n  - toc\\n---'",
@@ -900,6 +929,7 @@ def main():
         definition_list_style=args.definition_list_style,
         page_xrefs=dict(x.split("=", 1) for x in args.page_xref),
         front_matter=args.front_matter,
+        exclude_messages=args.exclude_message,
     )
     print(f"Generated: {out}")
 
