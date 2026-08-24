@@ -165,7 +165,7 @@ nav:
   - Features:
     # - Features overview: "vehicle-features/evcc_features.md"
     - Temperature control: "vehicle-features/evcc_temperature_control.md"
-    - Sleep functions: "vehicle-features/evcc_sleep.md"
+    # - Sleep functions: "vehicle-features/evcc_sleep.md"
     - Safety Functions: "vehicle-features/evcc_safety_functions.md"
     - BPT (ISO15118-20): "vehicle-features/evcc_bidirectional.md"
     - Vehicle simulator: "vehicle-features/vehicle-simulation.md"
