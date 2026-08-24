@@ -79,13 +79,32 @@ ADDENDA = {
         ],
     },
 }
+# Both vehicle v2 pages come from the same database, so they carry the same addenda. The
+# signals they attach to (EV_Information, EV_Energy_Request) are not AC, so both pages have them.
+ADDENDA["vehicle-v2-mcs"] = ADDENDA["vehicle-v2"]
 
 VERSIONS = {
-    # name          kcd on master           page                             version
-    "vehicle-v1": (VEHICLE, "vehicle-can-interfaces/can.md", "v1.5"),
-    "vehicle-v2": (VEHICLE, "vehicle-can-interfaces/can_v2.md", "v2.5"),
-    "charger-v2": (CHARGER, "charger-can-interfaces/can_v2.md", "v2.7"),
-    "charger-v3": (CHARGER, "charger-can-interfaces/can_v3.md", "v3.6"),
+    # name              kcd on master       page                                     version
+    "vehicle-v1":     (VEHICLE, "vehicle-can-interfaces/can.md", "v1.5"),
+    "vehicle-v2":     (VEHICLE, "vehicle-can-interfaces/can_v2.md", "v2.5"),
+    "vehicle-v2-mcs": (VEHICLE, "vehicle-can-interfaces/can_v2_mcs.md", "v2.5"),
+    "charger-v2":     (CHARGER, "charger-can-interfaces/can_v2.md", "v2.7"),
+    "charger-v3":     (CHARGER, "charger-can-interfaces/can_v3.md", "v3.6"),
+}
+
+# The vehicle v2 database is shared by the CCS and the MCS vehicle controllers, and it is the
+# CAN database a customer downloads -- so it stays complete, AC messages included. But an MCS
+# controller has no AC charging (its config class has no `enable_din`, no `pp_mode`, and MCS is
+# ISO 15118-20 DC only), so its page must not document AC. Hence two pages from one database:
+# `can_v2.md` for CCS, `can_v2_mcs.md` for MCS with these messages left out.
+#
+# `CCS_Extra_Information` goes too: it carries only Control Pilot and Proximity Pilot readings,
+# which do not exist on an MCS connector.
+#
+# Keep this next to VERSIONS rather than in the page: the page is regenerated, so anything
+# written into it by hand is lost on the next sync.
+EXCLUDE_MESSAGES = {
+    "vehicle-v2-mcs": ["AC_Control", "AC_Status", "CCS_Extra_Information"],
 }
 
 PROTOCOL = {"vehicle": "Advantics Generic PEV protocol", "charger": "Advantics Generic EVSE protocol"}
@@ -125,6 +144,8 @@ def generate(name: str, out: Path) -> None:
         "--reference-node", NODE,
         "--front-matter", FRONT_MATTER,
     ]
+    for message in EXCLUDE_MESSAGES.get(name, []):
+        cmd += ["--exclude-message", message]
     if side == "vehicle":
         # KCDDOC's conventions, which the vehicle pages and their inbound links still follow
         cmd += ["--wrap-tables-in-divs", "--message-id-style", "slug",
@@ -179,9 +200,11 @@ def sync(name: str, check_only: bool) -> bool:
 
     tmp = page.with_suffix(".md.new")
     generate(name, tmp)
-    new, old = tmp.read_text(encoding="utf-8"), page.read_text(encoding="utf-8")
+    new = tmp.read_text(encoding="utf-8")
+    old = page.read_text(encoding="utf-8") if page.exists() else ""
     changed = new != old
-    print(f"    status   : {'DIFFERS' if changed else 'up to date'}"
+    state = "NEW" if not page.exists() else ("DIFFERS" if changed else "up to date")
+    print(f"    status   : {state}"
           f" ({len(old.splitlines())} -> {len(new.splitlines())} lines)")
 
     if check_only or not changed:
