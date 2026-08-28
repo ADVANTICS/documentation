@@ -134,7 +134,7 @@ nav:
           - "CAN bus overview": "can_bus_overview.md"
           - "CAN bus messages": "can_bus_interface.md"
       - "Maintenance and Troubleshooting": "maintenance_and_troubleshooting.md"
-      - "Engineering Toolkit for Advantics (ETKA)": "appendix.md"
+      # - "Engineering Toolkit for Advantics (ETKA)": "appendix.md"  # doesn't support GN01 yet
       - "Datasheet": "DATASHEET COVER.md"
 
 # Extra configurations

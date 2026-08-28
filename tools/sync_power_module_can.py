@@ -5,17 +5,6 @@ Confirmed source of truth: **the tip of the module's own branch in
 `Applications/CAN_Databases`** (github.com/ADVANTICS/CAN_Databases). Each documented module has
 a single-file branch named after it, e.g. `ADM_PC_BP25` containing only `ADM_PC_BP25.kcd`.
 
-Do NOT take these from anywhere else. In particular `Applications/db-generator/CAN_Databases`
-is a *different clone of the same repo*, checked out as the input folder of `db_generator.py`
-(which reads it and writes `Generated_DBs/`). It sits on whatever branch someone last used --
-it was on `temp/dc01`, five weeks stale -- so reading it silently documented the wrong database.
-That is how BP25 shipped with `Rectifier_DC_Setpoints` after it had been renamed
-`AFE_DC_Setpoints`. Neither is `Applications/CAN_Databases`'s *working tree* the truth: it is
-also parked on a branch. Always read the ref, never the checkout.
-
-The docs repo itself has no power-module `.kcd`/`.dbc` on either branch, so there is nothing to
-copy from there -- `master` publishes only a KCDDOC-generated Markdown page.
-
 For each module this script:
   1. fetches the CAN_Databases repo (never touching its checked-out branch or working tree)
   2. extracts the .kcd from the branch tip into `docs/assets/`
