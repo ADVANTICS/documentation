@@ -10,7 +10,7 @@
     "imgScale": "90%",
     "imgRotation": "-3deg",
     "name": "50kW AC/DC Power Converter V2G",
-    "img": "/src/assets/img/products/ADB-PC-CH01.png",
+    "img": "/src/assets/img/products/CH01.png",
     "alt": "Active front end sub-assembly",
     "description": "This module is suitable for any application that requires a bidirectional AC/DC converter with isolation and wide output (0 - 950V) range."
   },
