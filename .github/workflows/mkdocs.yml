@@ -17,6 +17,7 @@ jobs:
       matrix:
         product:
           - adb-pc-ac01
+          - adb-pc-gn01
           - adb-pc-dc01
           - adm-cs-spcc
           - adm-cs-secc
