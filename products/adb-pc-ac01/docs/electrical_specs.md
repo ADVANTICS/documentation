@@ -142,7 +142,7 @@ The ADB-PC-AC01 Active Frontend achieves its peak of 98.5% at full load (100 kW)
 
 ## Power Factor & THDi
 
-The Power Factor (PF) maintains a near-unity value of ≥0.99 for all output loads above 50%, guaranteeing minimal reactive power draw. 
+The Power Factor is near unity (≥0.99) for loads above 50%.
 Similarly, Total Harmonic Current Distortion (THDi) remaining below the 5% limit for all loads greater than 25%, fully complying with major harmonic standards. Full load THDi is below 3%.
 
 {{ figure('../assets/afe_pf_thdi_plots.webp', 'Power Factor & THDi vs Load') }}
