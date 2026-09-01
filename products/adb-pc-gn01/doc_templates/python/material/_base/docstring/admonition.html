@@ -1,0 +1,14 @@
+{{ log.debug("Rendering admonition") }}
+{% if section.value.kind in ('since', 'modified', 'deprecated', 'removed') %}
+<div class="admonition {{ section.value.kind }}">
+  <p class="admonition-title">{{ section.title|convert_markdown(heading_level, html_id, strip_paragraph=True) }} {{ section.value.contents.split("\n", maxsplit=1)[0]|convert_markdown(heading_level, html_id, strip_paragraph=True) }}</p>
+  {% if (section.value.contents.split("\n", maxsplit=1) | length) > 1 %}
+  {{ section.value.contents.split("\n", maxsplit=1)[1]|convert_markdown(heading_level, html_id) }}
+  {% endif %}
+</div>
+{% else %}
+  <div class="admonition {{ section.value.kind }}">
+    <p class="admonition-title">{{ section.title|convert_markdown(heading_level, html_id, strip_paragraph=True) }}</p>
+    <p>{{ section.value.contents|convert_markdown(heading_level, html_id) }}</p>
+  </div>
+{% endif %}
