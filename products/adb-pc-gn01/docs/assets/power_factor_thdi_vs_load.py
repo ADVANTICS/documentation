@@ -15,7 +15,7 @@ df_plot = pd.DataFrame(data)
 
 # --- Plot Generation ---
 fig, axes = plt.subplots(1, 2, figsize=(14, 5))
-fig.suptitle('ADB-PC-AC01 Power Factor and THDi vs. Load', fontsize=16)
+fig.suptitle('ADB-PC-GN01 Power Factor and THDi vs. Load', fontsize=16)
 
 # --- Subplot 1: Power Factor ---
 axes[0].plot(df_plot['Output Power (%)'], df_plot['Power Factor (PF)'], marker='o', color='C0')

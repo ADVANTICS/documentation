@@ -6,9 +6,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # --- 1. Define Parameters (Updated based on operational constraints) ---
-P_rated = 100000  # 100 kW
-I_limit = 170     # A (Used for current limit region)
-V_min_op = 650    # V (Minimum DC operating voltage)
+P_rated = 93000  # 100 kW
+I_limit = 160     # A (Used for current limit region)
+V_min_op = 360    # V (Minimum DC operating voltage)
 V_max_op = 950    # V (Maximum DC operating voltage - used for nominal limit)
 V_max_abs = 1000  # V (Absolute maximum system voltage, kept for context but not in SOA)
 
@@ -41,12 +41,12 @@ plt.axvline(0, color='gray', linestyle='--', linewidth=0.8) # Zero current line
 ax.fill_betweenx(V_power_curve, I_power_curve_neg, I_power_curve_pos, color='green', alpha=0.1, label='Safe Operating Area')
 
 # --- 4. Annotations and Labels ---
-plt.title('ADB-PC-AC01 Safe Operating Area (SOA)', fontsize=16)
+plt.title('ADB-PC-GN01 Safe Operating Area (SOA)', fontsize=16)
 plt.xlabel('DC Current (A)', fontsize=14)
 plt.ylabel('DC Voltage (V)', fontsize=14)
 plt.xlim(-200, 200)
 # Set Y-axis view to the actual operating range plus margin
-plt.ylim(600, 1000) 
+plt.ylim(300, 1000) 
 
 plt.grid(True, linestyle='--', alpha=0.7)
 plt.legend(loc='lower left', fontsize=10)
@@ -55,7 +55,7 @@ plt.legend(loc='lower left', fontsize=10)
 plt.text(0, 970, f'Max DC Voltage ({V_max_op} VDC)', fontsize=10, horizontalalignment='center', color='darkblue')
 
 # Annotation for Min Voltage Limit
-plt.text(120, 630, f'Min DC Voltage ({V_min_op} VDC)', fontsize=10, horizontalalignment='center', color='darkblue')
+plt.text(120, 350, f'Min DC Voltage ({V_min_op} VDC)', fontsize=10, horizontalalignment='center', color='darkblue')
 
 # Annotation for Constant Power Limit
 # Since I_max at 650V is 153.85A, the current is always power limited.

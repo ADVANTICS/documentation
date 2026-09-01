@@ -28,9 +28,9 @@ plt.plot(df_plot['Output Power (%)'], df_plot['Efficiency_480V (%)'], marker='^'
 
 # Add grid and labels
 plt.grid(True, linestyle='--', alpha=0.6)
-plt.xlabel('Output Power (% of 100 kW Rated Load)', fontsize=14)
+plt.xlabel('Output Power (% of 93 kW Rated Load)', fontsize=14)
 plt.ylabel('Efficiency (%)', fontsize=14)
-plt.title('ADB-PC-AC01 100 kW AC/DC Active Frontend Efficiency Map', fontsize=16)
+plt.title('ADB-PC-GN01 93 kW AC/DC Active Frontend Efficiency Map', fontsize=16)
 
 # Set y-axis limits to clearly show the range of efficiency
 plt.ylim(90, 100)

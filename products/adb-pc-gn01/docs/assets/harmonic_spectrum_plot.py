@@ -40,7 +40,7 @@ ax.text(0.98, 0.90, f'Overall THDi: {thdi_calculated:.2f}%', transform=ax.transA
         fontsize=12, verticalalignment='top', horizontalalignment='right',
         bbox=dict(boxstyle='round,pad=0.5', fc='white', alpha=0.8, ec='gray'))
 
-ax.set_title('AC Input Current Harmonic Spectrum at 100% Rated Power (ADB-PC-AC01)', fontsize=16)
+ax.set_title('AC Input Current Harmonic Spectrum at 100% Rated Power (ADB-PC-GN01)', fontsize=16)
 ax.set_xlabel('Harmonic Order', fontsize=14)
 ax.set_ylabel('Magnitude (% of Fundamental Current)', fontsize=14)
 ax.set_xticks(df_harmonics['Harmonic_Order'])
@@ -48,7 +48,7 @@ ax.set_xticks(df_harmonics['Harmonic_Order'])
 # KEY FIX: Setting Y-axis limit to 110% to fully display the 100% fundamental
 ax.set_ylim(0, 110) 
 ax.set_yticks(np.arange(0, 101, 20)) # Set ticks for the 0-100 range
-
+Z
 ax.grid(axis='y', linestyle='--', alpha=0.7)
 ax.legend(loc='upper right')
 plt.tight_layout()
