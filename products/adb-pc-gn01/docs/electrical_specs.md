@@ -124,7 +124,7 @@ The DC bus side doesn't really contribute to the power envelope - even at 650 VD
     As the module is inherently bidirectional, which side is input and which side is output depends only on the direction of the current.
 
 
-{{ figure('../assets/afe_soa_plot.webp', 'Safe Operating Area for 400 VAC') }}
+<!-- {{ figure('../assets/afe_soa_plot.webp', 'Safe Operating Area for 400 VAC') }} -->
 
 ## Efficiency Characteristics
 
@@ -138,14 +138,14 @@ The DC bus side doesn't really contribute to the power envelope - even at 650 VD
 
 The ADB-PC-GN01 Active Frontend achieves its peak of 98.5% at full load (100 kW) when using the highest input voltage (480 V). The unit maintains strong performance across the operational range as illustraited in the following efficiency curve:
 
-{{ figure('../assets/afe_efficiency_plot.webp', 'Efficiency Curve') }}
+<!-- {{ figure('../assets/afe_efficiency_plot.webp', 'Efficiency Curve') }} -->
 
 ## Power Factor & THDi
 
 The Power Factor (PF) maintains a near-unity value of ≥0.99 for all output loads above 50%, guaranteeing minimal reactive power draw. 
 Similarly, Total Harmonic Current Distortion (THDi) remaining below the 5% limit for all loads greater than 25%, fully complying with major harmonic standards. Full load THDi is below 3%.
 
-{{ figure('../assets/afe_pf_thdi_plots.webp', 'Power Factor & THDi vs Load') }}
+<!-- {{ figure('../assets/afe_pf_thdi_plots.webp', 'Power Factor & THDi vs Load') }} -->
 
 ## Harmonic Spectrum
 
@@ -153,7 +153,7 @@ The ADB-PC-GN01 employs a three-phase active Power Factor Correction (PFC) stage
 
 Due to the fundamental nature of balanced three-phase systems, the PFC action naturally minimizes even-order harmonics (2nd, 4th, etc.). The remaining distortion is dominated by low-level, odd-order characteristic harmonics (5th, 7th, 11th, etc.) that originate primarily from switching ripple and slight imbalances in the grid voltage or control loops. As confirmed by the plot, the overall harmonic content is maintained well below industry standards (e.g., IEEE 519), with THDi typically remaining ≤5% at full power.
 
-{{ figure('../assets/afe_harmonic_spectrum.webp', 'Harmonic Spectrum at full load') }}
+<!-- {{ figure('../assets/afe_harmonic_spectrum.webp', 'Harmonic Spectrum at full load') }} -->
 
 
 ## Parallel Operation Capability
@@ -164,7 +164,7 @@ Due to the fundamental nature of balanced three-phase systems, the PFC action na
 - **Scalability**: Linear power scaling with additional modules
 - **Redundancy**: System continues operation with failed modules
 
-{{ figure('../assets/GN01_system_architecture.webp', 'Parallel System') }}
+<!-- {{ figure('../assets/GN01_system_architecture.webp', 'Parallel System') }} -->
 
 ## Environmental Electrical Specifications
 

@@ -2,7 +2,7 @@
 
 ## Dimentions
 
-{{ figure('../assets/ADB-PC-GN01_3D.png', 'ADB-PC-GN01 3D model') }}
+{{ figure('../assets/ADB-PC-GN01.webp', 'ADB-PC-GN01 3D model') }}
 
 | **Parameter** | **Value** | **Unit** |
 |---------------|-----------|----------|
