@@ -14,12 +14,7 @@ The MCS interface consists of
 
 All of these signals are fully controlled by the communication stack – the user does not have to interact with them in any way. They simply need to be wired properly to the inlet cable.
 
-<div class="bigger-300">
-
-<img src="assets/MCS_inlet.svg" alt="MCS Interface">
-
-</div>
-<figcaption style="text-align: center">Figure 4: MCS Interface</figcaption>
+{{ figure('assets/MCS_inlet.svg', 'Pinout of the MCS interface', size='300px') }}
 
 ## CCS and AC interfaces
 
@@ -87,7 +82,7 @@ The digital inputs and outputs are fully user-configurable and controllable.
 
 The digital outputs can be configurable via CAN bus. For that refer to the configuration and CAN bus generic interface sections. (not available yet)
 
-For manual GPIO control, please refer to sections [**Manual GPIO control**](charge-controllers/sys3_user/gpios.md#manual_gpio_control) and [**GPIO control in your application**](charge-controllers/sys3_user/gpios.md#gpio_control_in_your_application)
+For manual GPIO control, please refer to sections [**Manual GPIO control**](buildroot-system/gpios.md#manual_gpio_control) and [**GPIO control in your application**](buildroot-system/gpios.md#gpio_control_in_your_application)
 
 ### Digital Inputs
 The inputs are 24V tolerant but are also compatible with 12V logic level, the maximum voltage on this pin is about 30V, and have a weak 10 kOhm pulldown.

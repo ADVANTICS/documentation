@@ -22,15 +22,17 @@ The following steps will help access the controller successfully:
     ```bash
     $ ping <your IP address>
     ```
-    ![Unreachable](images/unreachable.png "Unreachable")
+
+    {{ figure('images/unreachable.png', 'A ping to an unused IP address times out, confirming it is free') }}
 
     The following example is for windows users:
 
-    ![Ethernet status](images/EthernetStatus.png "Ethernet status")
+    {{ figure('images/EthernetStatus.png', 'Windows Ethernet status, the way in to the adapter properties') }}
 
-    ![Ethernet properties](images/EthernetProperties.png "Ethernet properties")
+    {{ figure('images/EthernetProperties.png', 'Windows Ethernet properties, selecting Internet Protocol Version 4 (TCP/IPv4)') }}
 
-    ![IP](images/ip.png "IP")
+    {{ figure('images/ip.png', 'Setting a static IP address on the Windows adapter') }}
+
 <br/><br/>
 
 2. Access the controller using ssh:
@@ -43,16 +45,17 @@ The following steps will help access the controller successfully:
 
     - If you're connecting for the first time, you should accept adding the fingerprint of the controller to the known hosts list, by typing "yes" and pressing enter after this message is shown:
 
-    ![SSH fingerprint](images/fingerprint.png "SSH fingerprint")
+    {{ figure('images/fingerprint.png', 'Accepting the controller\'s SSH fingerprint on the first connection') }}
 
-    > [!TIP]
-    > The controller is also using the _Avahi/ZeroConf/Bonjour/mDNS_ protocol to advertise itself
-    > on the network. In particular, the `_ssh._tcp_` service is broadcasted.
-    >
-    > So, in the simplest case you would just have to do:
-    > ```bash
-    > $ ssh root@advantics.local
-    > ```
+    !!! tip
+        The controller is also using the _Avahi/ZeroConf/Bonjour/mDNS_ protocol to advertise itself
+        on the network. In particular, the `_ssh._tcp_` service is broadcasted.
+
+        So, in the simplest case you would just have to do:
+
+        ```bash
+        $ ssh root@advantics.local
+        ```
 
 3. Access the controller using Putty:
 
@@ -60,7 +63,7 @@ The following steps will help access the controller successfully:
 
     To access the controller you simply need to introduce the IP address then click Open:
 
-    ![Putty config](images/PuttyConfig.png "Putty config")
+    {{ figure('images/PuttyConfig.png', 'PuTTY configured with the controller\'s IP address') }}
 
 ## Login
 
@@ -90,13 +93,16 @@ The default console of the system is mapped to the UART port accessible through 
 The UART console is available on All ADVANTICS charge controllers.
 
 On the SECC:
-![UART](images/secc-uart.jpg "UART")
+
+{{ figure('images/secc-uart.jpg', 'Location of the UART console on the ADM-CS-SECC') }}
 
 On the EVCC:
-![UART](images/evcc-uart.jpg "UART")
+
+{{ figure('images/evcc-uart.jpg', 'Location of the UART console on the ADM-CS-EVCC') }}
 
 On the Generic Controller:
-![UART](images/UART.png "UART")
+
+{{ figure('images/UART.png', 'Location of the UART console on the generic controller') }}
 
 <span>UART configuration</span>
 
@@ -119,7 +125,7 @@ instance.
 Once connected with suitable software (eg. __PuTTY__ on Windows, __screen__ on Linux) you will see all
 system messages, in particular when the controller is booting up.
 
-Jump to [Login](#Login) for the next step.
+Jump to [Login](#login) for the next step.
 
 !!! tip
     A compatible console cable would be a TTL-232R-3V3 from FTDI. Wire it as such:

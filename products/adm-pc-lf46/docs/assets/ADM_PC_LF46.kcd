@@ -1,0 +1,937 @@
+<?xml version="1.0" ?>
+<NetworkDefinition xmlns="http://kayak.2codeornot2code.org/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="KCD_Definition.xsd">
+    <Document name="ADM_PC_LF45" version="1" author="[...]" company="Advantics" date="2019-11-19"/>
+
+    <Node id="0" name="User"/>
+    <Node id="1" name="ADM_PC_LF45"/>
+
+    <Bus name="ADM_PC_LF45" baudrate="500000">
+        <Message id="0x18000" length="8" name="Filter_Identification" interval="1000" format="extended">
+            <Notes>Identification of the device</Notes>
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+
+            <Signal name="Device_type" offset="0" length="8">
+                <Notes>The device identification field, uniquely identifies the sender in the network</Notes>
+                <LabelSet>
+                    <Label name="Filter" value="1" />
+                </LabelSet>
+            </Signal>
+            <Signal name="HW_revision" offset="8" length="8">
+                <Notes>The hardware revision number</Notes>
+            </Signal>
+            <Signal name="HW_variant" offset="16" length="8">
+                <Notes>The DSP firmware revision number</Notes>
+            </Signal>
+            <Signal name="Stack_position" offset="24" length="8">
+                <Notes>Position of the module within the stack</Notes>
+            </Signal>
+            <Signal name="SN_number" offset="32" length="32">
+                <Notes>Unique module serial number</Notes>
+            </Signal>
+        </Message>
+
+        <Message id="0x18001" length="8" name="Filter_FwInfo" interval="1000" format="extended">
+            <Notes>Git revision of the DSP firmware</Notes>
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+
+            <Multiplex name="FW_info_mux" offset="56" length="8">
+                <MuxGroup count="0">
+                    <Signal name="FW_revision_0" offset="0" length="8">
+                        <Notes>Character 0</Notes>
+                    </Signal>
+                    <Signal name="FW_revision_1" offset="8" length="8">
+                        <Notes>Character 1</Notes>
+                    </Signal>
+                    <Signal name="FW_revision_2" offset="16" length="8">
+                        <Notes>Character 2</Notes>
+                    </Signal>
+                    <Signal name="FW_revision_3" offset="24" length="8">
+                        <Notes>Character 3</Notes>
+                    </Signal>
+                    <Signal name="FW_revision_4" offset="32" length="8">
+                        <Notes>Character 3</Notes>
+                    </Signal>
+                    <Signal name="FW_revision_5" offset="40" length="8">
+                        <Notes>Character 3</Notes>
+                    </Signal>
+                    <Signal name="FW_revision_6" offset="48" length="8">
+                        <Notes>Character 3</Notes>
+                    </Signal>
+                </MuxGroup>
+                <MuxGroup count="1">
+                    <Signal name="FW_revision_7" offset="0" length="8">
+                        <Notes>Character 7</Notes>
+                    </Signal>
+                    <Signal name="FW_revision_8" offset="8" length="8">
+                        <Notes>Character 8</Notes>
+                    </Signal>
+                    <Signal name="FW_revision_9" offset="16" length="8">
+                        <Notes>Character 9</Notes>
+                    </Signal>
+                    <Signal name="FW_revision_10" offset="24" length="8">
+                        <Notes>Character 10</Notes>
+                    </Signal>
+                    <Signal name="FW_revision_11" offset="32" length="8">
+                        <Notes>Character 11</Notes>
+                    </Signal>
+                    <Signal name="FW_revision_12" offset="40" length="8">
+                        <Notes>Character 12</Notes>
+                    </Signal>
+                    <Signal name="FW_revision_13" offset="48" length="8">
+                        <Notes>Character 13</Notes>
+                    </Signal>
+                </MuxGroup>
+                <MuxGroup count="2">
+                    <Signal name="FW_datecode_0" offset="0" length="8">
+                        <Notes>Character 0</Notes>
+                    </Signal>
+                    <Signal name="FW_datecode_1" offset="8" length="8">
+                        <Notes>Character 1</Notes>
+                    </Signal>
+                    <Signal name="FW_datecode_2" offset="16" length="8">
+                        <Notes>Character 2</Notes>
+                    </Signal>
+                    <Signal name="FW_datecode_3" offset="24" length="8">
+                        <Notes>Character 3</Notes>
+                    </Signal>
+                    <Signal name="FW_datecode_4" offset="32" length="8">
+                        <Notes>Character 3</Notes>
+                    </Signal>
+                    <Signal name="FW_datecode_5" offset="40" length="8">
+                        <Notes>Character 3</Notes>
+                    </Signal>
+                    <Signal name="FW_datecode_6" offset="48" length="8">
+                        <Notes>Character 3</Notes>
+                    </Signal>
+                </MuxGroup>
+                <MuxGroup count="3">
+                    <Signal name="FW_datecode_7" offset="0" length="8">
+                        <Notes>Character 7</Notes>
+                    </Signal>
+                    <Signal name="FW_datecode_8" offset="8" length="8">
+                        <Notes>Character 8</Notes>
+                    </Signal>
+                    <Signal name="FW_datecode_9" offset="16" length="8">
+                        <Notes>Character 9</Notes>
+                    </Signal>
+                    <Signal name="FW_datecode_10" offset="24" length="8">
+                        <Notes>Character 10</Notes>
+                    </Signal>
+                    <Signal name="FW_datecode_11" offset="32" length="8">
+                        <Notes>Character 11</Notes>
+                    </Signal>
+                    <Signal name="FW_datecode_12" offset="40" length="8">
+                        <Notes>Character 12</Notes>
+                    </Signal>
+                    <Signal name="FW_datecode_13" offset="48" length="8">
+                        <Notes>Character 13</Notes>
+                    </Signal>
+                </MuxGroup>
+            </Multiplex>
+        </Message>
+
+        <Message id="0x1800D" length="8" name="_Filter_Boot_FwInfo" interval="1000" format="extended">
+            <Notes>Git revision of the bootloader firmware.</Notes>
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+
+            <Multiplex name="Boot_FW_info_mux" offset="56" length="8">
+                <MuxGroup count="0">
+                    <Signal name="FW_revision_0" offset="0" length="8">
+                        <Notes>Character 0</Notes>
+                    </Signal>
+                    <Signal name="FW_revision_1" offset="8" length="8">
+                        <Notes>Character 1</Notes>
+                    </Signal>
+                    <Signal name="FW_revision_2" offset="16" length="8">
+                        <Notes>Character 2</Notes>
+                    </Signal>
+                    <Signal name="FW_revision_3" offset="24" length="8">
+                        <Notes>Character 3</Notes>
+                    </Signal>
+                    <Signal name="FW_revision_4" offset="32" length="8">
+                        <Notes>Character 3</Notes>
+                    </Signal>
+                    <Signal name="FW_revision_5" offset="40" length="8">
+                        <Notes>Character 3</Notes>
+                    </Signal>
+                    <Signal name="FW_revision_6" offset="48" length="8">
+                        <Notes>Character 3</Notes>
+                    </Signal>
+                </MuxGroup>
+                <MuxGroup count="1">
+                    <Signal name="FW_revision_7" offset="0" length="8">
+                        <Notes>Character 7</Notes>
+                    </Signal>
+                    <Signal name="FW_revision_8" offset="8" length="8">
+                        <Notes>Character 8</Notes>
+                    </Signal>
+                    <Signal name="FW_revision_9" offset="16" length="8">
+                        <Notes>Character 9</Notes>
+                    </Signal>
+                    <Signal name="FW_revision_10" offset="24" length="8">
+                        <Notes>Character 10</Notes>
+                    </Signal>
+                    <Signal name="FW_revision_11" offset="32" length="8">
+                        <Notes>Character 11</Notes>
+                    </Signal>
+                    <Signal name="FW_revision_12" offset="40" length="8">
+                        <Notes>Character 12</Notes>
+                    </Signal>
+                    <Signal name="FW_revision_13" offset="48" length="8">
+                        <Notes>Character 13</Notes>
+                    </Signal>
+                </MuxGroup>
+                <MuxGroup count="2">
+                    <Signal name="FW_datecode_0" offset="0" length="8">
+                        <Notes>Character 0</Notes>
+                    </Signal>
+                    <Signal name="FW_datecode_1" offset="8" length="8">
+                        <Notes>Character 1</Notes>
+                    </Signal>
+                    <Signal name="FW_datecode_2" offset="16" length="8">
+                        <Notes>Character 2</Notes>
+                    </Signal>
+                    <Signal name="FW_datecode_3" offset="24" length="8">
+                        <Notes>Character 3</Notes>
+                    </Signal>
+                    <Signal name="FW_datecode_4" offset="32" length="8">
+                        <Notes>Character 3</Notes>
+                    </Signal>
+                    <Signal name="FW_datecode_5" offset="40" length="8">
+                        <Notes>Character 3</Notes>
+                    </Signal>
+                    <Signal name="FW_datecode_6" offset="48" length="8">
+                        <Notes>Character 3</Notes>
+                    </Signal>
+                </MuxGroup>
+                <MuxGroup count="3">
+                    <Signal name="FW_datecode_7" offset="0" length="8">
+                        <Notes>Character 7</Notes>
+                    </Signal>
+                    <Signal name="FW_datecode_8" offset="8" length="8">
+                        <Notes>Character 8</Notes>
+                    </Signal>
+                    <Signal name="FW_datecode_9" offset="16" length="8">
+                        <Notes>Character 9</Notes>
+                    </Signal>
+                    <Signal name="FW_datecode_10" offset="24" length="8">
+                        <Notes>Character 10</Notes>
+                    </Signal>
+                    <Signal name="FW_datecode_11" offset="32" length="8">
+                        <Notes>Character 11</Notes>
+                    </Signal>
+                    <Signal name="FW_datecode_12" offset="40" length="8">
+                        <Notes>Character 12</Notes>
+                    </Signal>
+                    <Signal name="FW_datecode_13" offset="48" length="8">
+                        <Notes>Character 13</Notes>
+                    </Signal>
+                </MuxGroup>
+            </Multiplex>
+        </Message>
+
+        <Message id="0x18002" length="8" name="Filter_Debug" interval="1000" format="extended">
+            <Notes>Values for debugging of HW/SW problems</Notes>
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+
+            <Signal name="Status_Error_Code" offset="0" length="16">
+                <Notes>Main status / error code as defined in errno/errno.h</Notes>
+            </Signal>
+            <Signal name="Data_1" offset="16" length="16">
+                <Notes>Additional information for the error/status</Notes>
+            </Signal>
+            <Signal name="Data_2" offset="32" length="16">
+                <Notes>Additional information for the error/status</Notes>
+            </Signal>
+            <Signal name="Data_3" offset="48" length="16">
+                <Notes>Additional information for the error/status</Notes>
+            </Signal>
+        </Message>
+
+        <Message id="0x18003" length="6" name="Filter_Input_Voltages" interval="100" format="extended">
+            <Notes>Input voltages readout. Realtime RMS readouts of the sensed variables. The voltage measured before the contactors.</Notes>
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+
+            <Signal name="Voltage_Input_L1" offset="0" length="16" endianess="little">
+                <Notes>Voltage measured at the filter input, phase 1</Notes>
+                <Value slope="0.1" unit="V"/>
+            </Signal>
+            <Signal name="Voltage_Input_L2" offset="16" length="16" endianess="little">
+                <Notes>Voltage measured at the filter input, phase 2</Notes>
+                <Value slope="0.1" unit="V"/>
+            </Signal>
+            <Signal name="Voltage_Input_L3" offset="32" length="16" endianess="little">
+                <Notes>Voltage measured at the filter input, phase 3</Notes>
+                <Value slope="0.1" unit="V"/>
+            </Signal>
+        </Message>
+
+        <Message id="0x18004" length="6" name="Filter_Output_Voltages" interval="100" format="extended">
+            <Notes>Output voltages readout. Realtime RMS readouts of the sensed variables. The voltage measured after the contactors.</Notes>
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+
+            <Signal name="Voltage_Output_L1" offset="0" length="16" endianess="little">
+                <Notes>Voltage measured at the filter output, phase 1</Notes>
+                <Value slope="0.1" unit="V"/>
+            </Signal>
+            <Signal name="Voltage_Output_L2" offset="16" length="16" endianess="little">
+                <Notes>Voltage measured at the filter output, phase 2</Notes>
+                <Value slope="0.1" unit="V"/>
+            </Signal>
+            <Signal name="Voltage_Output_L3" offset="32" length="16" endianess="little">
+                <Notes>Voltage measured at the filter output, phase 3</Notes>
+                <Value slope="0.1" unit="V"/>
+            </Signal>
+        </Message>
+
+        <Message id="0x18005" length="6" name="Filter_Input_Frequencies" interval="100" format="extended">
+            <Notes>Input voltage frequencies></Notes>
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+
+            <Signal name="L1_Freq" offset="0" length="16" endianess="little">
+                <Notes>Frequency measured at the filter input, phase 1</Notes>
+                <Value slope="0.1" unit="Hz"/>
+            </Signal>
+            <Signal name="L2_Freq" offset="16" length="16" endianess="little">
+                <Notes>Frequency measured at the filter input, phase 2</Notes>
+                <Value slope="0.1" unit="Hz"/>
+            </Signal>
+            <Signal name="L3_Freq" offset="32" length="16" endianess="little">
+                <Notes>Frequency measured at the filter input, phase 3</Notes>
+                <Value slope="0.1" unit="Hz"/>
+            </Signal>
+        </Message>
+
+        <Message id="0x18009" length="6" name="Filter_Input_Phases" interval="100" format="extended">
+            <Notes>Input voltage frequencies></Notes>
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+
+            <Signal name="L1L2_Phase" offset="0" length="16" endianess="little">
+                <Notes>Phase advance measured at the filter input, phase 1 to phase 2</Notes>
+                <Value slope="0.1" unit="°"/>
+            </Signal>
+            <Signal name="L2L3_Phase" offset="16" length="16" endianess="little">
+                <Notes>Phase advance measured at the filter input, phase 2 to phase 3</Notes>
+                <Value slope="0.1" unit="°"/>
+            </Signal>
+            <Signal name="L3L1_Phase" offset="32" length="16" endianess="little">
+                <Notes>Phase advance measured at the filter input, phase 3 to phase 1</Notes>
+                <Value slope="0.1" unit="°"/>
+            </Signal>
+        </Message>
+
+        <Message id="0x18006" length="2" name="Filter_Temperature" interval="1000" format="extended">
+            <Notes>Readouts of the module temperature sensor</Notes>
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+
+            <Signal name="Temp_Inductor" offset="0" length="16">
+                <Notes>Temperature of the inductor</Notes>
+                <Value type="signed" slope="0.01" unit="°C"/>
+            </Signal>
+        </Message>
+
+        <Message id="0x1800A" length="2" name="Filter_Supply_24V" interval="1000" format="extended">
+            <Notes>Readouts of the 24-V supply voltage</Notes>
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+
+            <Signal name="Supply_Voltage" offset="0" length="16">
+                <Value type="unsigned" slope="0.1" unit="V"/>
+            </Signal>
+        </Message>
+
+        <Message id="0x18007" length="1" name="Filter_Relays_Status" interval="100" format="extended">
+            <Notes>State of the filter relays.</Notes>
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+
+            <Signal name="Off" offset="0" length="1" endianess="little">
+                <Notes></Notes>
+            </Signal>
+            <Signal name="Precharge" offset="1" length="1" endianess="little">
+                <Notes></Notes>
+            </Signal>
+            <Signal name="Monitor" offset="2" length="1" endianess="little">
+                <Notes></Notes>
+            </Signal>
+            <Signal name="Main" offset="3" length="1" endianess="little">
+                <Notes></Notes>
+            </Signal>
+            <Signal name="On" offset="4" length="1" endianess="little">
+                <Notes></Notes>
+            </Signal>
+            <Signal name="Fail" offset="5" length="1" endianess="little">
+                <Notes></Notes>
+            </Signal>
+        </Message>
+
+        <Message id="0x1800B" length="2" name="Filter_Status_and_Fault" interval="100" format="extended">
+            <Notes>Status and fault bitfield</Notes>
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+
+            <Signal name="Ready" offset="0" length="1" endianess="little">
+                <Notes></Notes>
+            </Signal>
+            <Signal name="Running" offset="1" length="1" endianess="little">
+                <Notes></Notes>
+            </Signal>
+            <Signal name="Master" offset="2" length="1" endianess="little">
+                <Notes></Notes>
+            </Signal>
+            <Signal name="Slave" offset="3" length="1" endianess="little">
+                <Notes></Notes>
+            </Signal>
+            <Signal name="NFO" offset="4" length="1" endianess="little">
+                <Notes></Notes>
+                <LabelSet>
+                    <Label name="fault" value="1" type="error"/>
+                </LabelSet>
+            </Signal>
+            <Signal name="Measurement_system_failure" offset="5" length="1" endianess="little">
+                <Notes></Notes>
+                <LabelSet>
+                    <Label name="fault" value="1" type="error"/>
+                </LabelSet>
+            </Signal>
+            <Signal name="EEPROM_failure" offset="6" length="1" endianess="little">
+                <Notes></Notes>
+                <LabelSet>
+                    <Label name="fault" value="1" type="error"/>
+                </LabelSet>
+            </Signal>
+            <Signal name="System" offset="7" length="1" endianess="little">
+                <Notes></Notes>
+                <LabelSet>
+                    <Label name="fault" value="1" type="error"/>
+                </LabelSet>
+            </Signal>
+        </Message>
+
+        <Message id="0x18008" length="1" name="Filter_Faults" interval="100" format="extended">
+            <Notes>Fault bitfield</Notes>
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+
+            <Signal name="Protection_trip_internal" offset="0" length="1" endianess="little">
+                <Notes>This flagg is asserted if the interlock is open due to an internal fault condition (self-protection)</Notes>
+                <LabelSet>
+                    <Label name="fault" value="1" type="error"/>
+                </LabelSet>
+            </Signal>
+            <Signal name="Protection_trip_external" offset="1" length="1" endianess="little">
+                <Notes>This flag is asserted if the interlock is open due to an external condition received in the module.</Notes>
+                <LabelSet>
+                    <Label name="fault" value="1" type="error"/>
+                </LabelSet>
+            </Signal>
+            <Signal name="Mains_Voltage" offset="2" length="1" endianess="little">
+                <Notes>Mains voltage out of tolerance</Notes>
+                <LabelSet>
+                    <Label name="fault" value="1" type="error"/>
+                </LabelSet>
+            </Signal>
+            <Signal name="Mains_Frequency" offset="3" length="1" endianess="little">
+                <Notes>Mains frequency out of tolerance</Notes>
+                <LabelSet>
+                    <Label name="fault" value="1" type="error"/>
+                </LabelSet>
+            </Signal>
+            <Signal name="Mains_Phase" offset="4" length="1" endianess="little">
+                <Notes>Mains phase advance out of tolerance</Notes>
+                <LabelSet>
+                    <Label name="fault" value="1" type="error"/>
+                </LabelSet>
+            </Signal>
+            <Signal name="Precharge" offset="5" length="1" endianess="little">
+                <Notes>Precharge failed (check output voltage)</Notes>
+                <LabelSet>
+                    <Label name="fault" value="1" type="error"/>
+                </LabelSet>
+            </Signal>
+            <Signal name="Mains_Monitor" offset="6" length="1" endianess="little">
+                <Notes>Grid health monitor is not ready</Notes>
+                <LabelSet>
+                    <Label name="fault" value="1" type="error"/>
+                </LabelSet>
+            </Signal>
+        </Message>
+
+        <Message id="0x18021" length="6" name="_Filter_Input_Voltages_Raw" interval="100" format="extended">
+            <Notes>Input voltages readout. Debug only values, for calibration</Notes>
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+
+            <Signal name="Voltage_Input_L1_Raw" offset="0" length="16" endianess="little">
+                <Notes>Voltage measured at the filter input, phase 1</Notes>
+                <Value unit="ADC Counts"/>
+            </Signal>
+            <Signal name="Voltage_Input_L2_Raw" offset="16" length="16" endianess="little">
+                <Notes>Voltage measured at the filter input, phase 2</Notes>
+                <Value unit="ADC Counts"/>
+            </Signal>
+            <Signal name="Voltage_Input_L3_Raw" offset="32" length="16" endianess="little">
+                <Notes>Voltage measured at the filter input, phase 3</Notes>
+                <Value unit="ADC Counts"/>
+            </Signal>
+        </Message>
+
+        <Message id="0x18022" length="6" name="_Filter_Output_Voltages_Raw" interval="100" format="extended">
+            <Notes>Output voltages readout. Debug only values, for calibration</Notes>
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+
+            <Signal name="Voltage_Output_L1_Raw" offset="0" length="16" endianess="little">
+                <Notes>Voltage measured at the filter output, phase 1</Notes>
+                <Value unit="ADC Counts"/>
+            </Signal>
+            <Signal name="Voltage_Output_L2_Raw" offset="16" length="16" endianess="little">
+                <Notes>Voltage measured at the filter output, phase 2</Notes>
+                <Value unit="ADC Counts"/>
+            </Signal>
+            <Signal name="Voltage_Output_L3_Raw" offset="32" length="16" endianess="little">
+                <Notes>Voltage measured at the filter output, phase 3</Notes>
+                <Value unit="ADC Counts"/>
+            </Signal>
+        </Message>
+
+        <Message id="0x18040" length="1" name="Filter_Relays" interval="100" format="extended">
+            <Notes>Close or open Filter relays. Strobe controlled.</Notes>
+            <Producer>
+                <NodeRef id="0"/>
+            </Producer>
+
+            <Signal name="Close_Relays" offset="0" length="1">
+                <Notes>Command to close the relays.</Notes>
+                <Consumer>
+                    <NodeRef id="1"/>
+                </Consumer>
+            </Signal>
+            <Signal name="Open_Relays" offset="1" length="1">
+                <Notes>Command to open the relays.</Notes>
+                <Consumer>
+                    <NodeRef id="1"/>
+                </Consumer>
+            </Signal>
+        </Message>
+
+        <Message id="0x10049" length="1" name="Filter_Independent_Relay_Control" format="extended">
+            <Notes>INTERNAL USE. User MUST NOT use this message under any circumstance. The user should instead
+            use the "Filter_Relays" message to operate the LF45.</Notes>
+            <Producer>
+                <NodeRef id="0"/>
+            </Producer>
+            <Signal name="Precharge_Relay_ON" offset="0" length="1" endianess="little">
+                <Notes>Internal use. User MUST NOT modify this</Notes>
+                <Consumer>
+                    <NodeRef id="1"/>
+                </Consumer>
+            </Signal>
+            <Signal name="Grid_Relay_ON" offset="1" length="1" endianess="little">
+                <Notes>Internal use. User MUST NOT modify this</Notes>
+                <Consumer>
+                    <NodeRef id="1"/>
+                </Consumer>
+            </Signal>
+        </Message>
+
+        <Message id="0x10050" length="1" name="Filter_Fault_Control" format="extended">
+            <Notes>Fault Control: actions to clear faults and reset the system</Notes>
+            <Producer>
+                <NodeRef id="0"/>
+            </Producer>
+            <Signal name="Clear_Interlock" offset="0" length="1" endianess="little">
+                <Notes>Clears the filter interlock</Notes>
+                <Consumer>
+                    <NodeRef id="1"/>
+                </Consumer>
+            </Signal>
+            <Signal name="Reset_Processor" offset="1" length="1" endianess="little">
+                <Notes>Reset the filter DSP</Notes>
+                <Consumer>
+                    <NodeRef id="1"/>
+                </Consumer>
+            </Signal>
+        </Message>
+
+        <Message id="0x10043" length="6" name="_Filter_Calibration_Offset_Update" format="extended">
+            <Notes>Update of the calibration table for offsets.</Notes>
+            <Producer>
+                <NodeRef id="0"/>
+            </Producer>
+            <Multiplex name="Calibration_Index" offset="16" length="16">
+                <!--
+                    Index of the calibration value in the calibration table.
+                -->
+                <MuxGroup count="0">
+                    <Signal name="Voltage_Input_L1_Calib" offset="0" length="16" endianess="little">
+                        <Notes>Voltage offset at the converter input, phase 1</Notes>
+                        <Consumer>
+                            <NodeRef id="1"/>
+                        </Consumer>
+                        <Value type="signed" unit="ADC Counts"/>
+                    </Signal>
+                </MuxGroup>
+                <MuxGroup count="1">
+                    <Signal name="Voltage_Input_L2_Calib" offset="0" length="16" endianess="little">
+                        <Notes>Voltage offset at the converter input, phase 2</Notes>
+                        <Consumer>
+                            <NodeRef id="1"/>
+                        </Consumer>
+                        <Value type="signed" unit="ADC Counts"/>
+                    </Signal>
+                </MuxGroup>
+                <MuxGroup count="2">
+                    <Signal name="Voltage_Input_L3_Calib" offset="0" length="16" endianess="little">
+                        <Notes>Voltage offset at the converter input, phase 3</Notes>
+                        <Consumer>
+                            <NodeRef id="1"/>
+                        </Consumer>
+                        <Value type="signed" unit="ADC Counts"/>
+                    </Signal>
+                </MuxGroup>
+                <MuxGroup count="3">
+                    <Signal name="Voltage_Output_L1_Calib" offset="0" length="16" endianess="little">
+                        <Notes>Voltage offset at the converter output, phase 1</Notes>
+                        <Consumer>
+                            <NodeRef id="1"/>
+                        </Consumer>
+                        <Value type="signed" unit="ADC Counts"/>
+                    </Signal>
+                </MuxGroup>
+                <MuxGroup count="4">
+                    <Signal name="Voltage_Output_L2_Calib" offset="0" length="16" endianess="little">
+                        <Notes>Voltage offset at the converter output, phase 2</Notes>
+                        <Consumer>
+                            <NodeRef id="1"/>
+                        </Consumer>
+                        <Value type="signed" unit="ADC Counts"/>
+                    </Signal>
+                </MuxGroup>
+                <MuxGroup count="5">
+                    <Signal name="Voltage_Output_L3_Calib" offset="0" length="16" endianess="little">
+                        <Notes>Voltage offset at the converter output, phase 3</Notes>
+                        <Consumer>
+                            <NodeRef id="1"/>
+                        </Consumer>
+                        <Value type="signed" unit="ADC Counts"/>
+                    </Signal>
+                </MuxGroup>
+            </Multiplex>
+            <Signal name="CRC" offset="32" length="16" endianess="little">
+                <Notes>
+                    Checksum of bytes 0 to 5, CRC-CCITT, corresponding to qChecksum (www.qt.io)
+                </Notes>
+                <Consumer>
+                    <NodeRef id="1"/>
+                </Consumer>
+                <Value type="unsigned" unit="-"/>
+            </Signal>
+        </Message>
+
+        <Message id="0x10044" length="6" name="_Filter_Calibration_Scale_Update" format="extended">
+            <Notes>Update of the calibration table for offsets.</Notes>
+            <Producer>
+                <NodeRef id="0"/>
+            </Producer>
+            <Multiplex name="Calibration_Index" offset="16" length="16">
+                <!--
+                    Index of the calibration value in the calibration table.
+                -->
+                <MuxGroup count="0">
+                    <Signal name="Voltage_Input_L1_Calib" offset="0" length="16" endianess="little">
+                        <Notes>Voltage offset at the converter input, phase 1</Notes>
+                        <Consumer>
+                            <NodeRef id="1"/>
+                        </Consumer>
+                        <Value type="signed" slope="1.52587890625e-05" unit="scale = 1.0 + value"/>
+                    </Signal>
+                </MuxGroup>
+                <MuxGroup count="1">
+                    <Signal name="Voltage_Input_L2_Calib" offset="0" length="16" endianess="little">
+                        <Notes>Voltage offset at the converter input, phase 2</Notes>
+                        <Consumer>
+                            <NodeRef id="1"/>
+                        </Consumer>
+                        <Value type="signed" slope="1.52587890625e-05" unit="scale = 1.0 + value"/>
+                    </Signal>
+                </MuxGroup>
+                <MuxGroup count="2">
+                    <Signal name="Voltage_Input_L3_Calib" offset="0" length="16" endianess="little">
+                        <Notes>Voltage offset at the converter input, phase 3</Notes>
+                        <Consumer>
+                            <NodeRef id="1"/>
+                        </Consumer>
+                        <Value type="signed" slope="1.52587890625e-05" unit="scale = 1.0 + value"/>
+                    </Signal>
+                </MuxGroup>
+                <MuxGroup count="3">
+                    <Signal name="Voltage_Output_L1_Calib" offset="0" length="16" endianess="little">
+                        <Notes>Voltage offset at the converter output, phase 1</Notes>
+                        <Consumer>
+                            <NodeRef id="1"/>
+                        </Consumer>
+                        <Value type="signed" slope="1.52587890625e-05" unit="scale = 1.0 + value"/>
+                    </Signal>
+                </MuxGroup>
+                <MuxGroup count="4">
+                    <Signal name="Voltage_Output_L2_Calib" offset="0" length="16" endianess="little">
+                        <Notes>Voltage offset at the converter output, phase 2</Notes>
+                        <Consumer>
+                            <NodeRef id="1"/>
+                        </Consumer>
+                        <Value type="signed" slope="1.52587890625e-05" unit="scale = 1.0 + value"/>
+                    </Signal>
+                </MuxGroup>
+                <MuxGroup count="5">
+                    <Signal name="Voltage_Output_L3_Calib" offset="0" length="16" endianess="little">
+                        <Notes>Voltage offset at the converter output, phase 3</Notes>
+                        <Consumer>
+                            <NodeRef id="1"/>
+                        </Consumer>
+                        <Value type="signed" slope="1.52587890625e-05" unit="scale = 1.0 + value"/>
+                    </Signal>
+                </MuxGroup>
+            </Multiplex>
+            <Signal name="CRC" offset="32" length="16" endianess="little">
+                <Notes>
+                    Checksum of bytes 0 to 5, CRC-CCITT, corresponding to qChecksum (www.qt.io)
+                </Notes>
+                <Consumer>
+                    <NodeRef id="1"/>
+                </Consumer>
+                <Value type="unsigned" unit="-"/>
+            </Signal>
+        </Message>
+
+        <Message id="0x18043" length="6" name="_Filter_Calibration_Adc_Scale" interval='1000' format="extended">
+            <Notes>
+                Adc scale (resolution) value of readouts.
+            </Notes>
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Multiplex name="Adc_Index" offset="32" length="16">
+                <!--
+                    Index of the calibration value in the calibration table.
+                -->
+                <MuxGroup count="0">
+                    <Signal name="Voltage_Input_L1" offset="0" length="32" endianess="little">
+                        <Consumer>
+                            <NodeRef id="0"/>
+                        </Consumer>
+                        <Value type="single" unit="1 / adc_bins" />
+                    </Signal>
+                </MuxGroup>
+                <MuxGroup count="1">
+                    <Signal name="Voltage_Input_L2" offset="0" length="32" endianess="little">
+                        <Consumer>
+                            <NodeRef id="0"/>
+                        </Consumer>
+                        <Value type="single" unit="1 / adc_bins" />
+                    </Signal>
+                </MuxGroup>
+                <MuxGroup count="2">
+                    <Signal name="Voltage_Input_L3" offset="0" length="32" endianess="little">
+                        <Consumer>
+                            <NodeRef id="0"/>
+                        </Consumer>
+                        <Value type="single" unit="1 / adc_bins" />
+                    </Signal>
+                </MuxGroup>
+                <MuxGroup count="3">
+                    <Signal name="Voltage_Output_L1" offset="0" length="32" endianess="little">
+                        <Consumer>
+                            <NodeRef id="0"/>
+                        </Consumer>
+                        <Value type="single" unit="1 / adc_bins" />
+                    </Signal>
+                </MuxGroup>
+                <MuxGroup count="4">
+                    <Signal name="Voltage_Output_L2" offset="0" length="32" endianess="little">
+                        <Consumer>
+                            <NodeRef id="0"/>
+                        </Consumer>
+                        <Value type="single" unit="1 / adc_bins" />
+                    </Signal>
+                </MuxGroup>
+                <MuxGroup count="5">
+                    <Signal name="Voltage_Output_L3" offset="0" length="32" endianess="little">
+                        <Consumer>
+                            <NodeRef id="0"/>
+                        </Consumer>
+                        <Value type="single" unit="1 / adc_bins" />
+                    </Signal>
+                </MuxGroup>
+            </Multiplex>
+        </Message>
+
+        <Message id="0x18044" length="6" name="_Filter_Calibration_Adc_Fs" interval='1000' format="extended">
+            <Notes>
+                Adc fullscale value of readouts.
+            </Notes>
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+            <Multiplex name="Adc_Index" offset="32" length="16">
+                <!--
+                    Index of the calibration value in the calibration table.
+                -->
+                <MuxGroup count="0">
+                    <Signal name="Voltage_Input_L1" offset="0" length="32" endianess="little">
+                        <Consumer>
+                            <NodeRef id="0"/>
+                        </Consumer>
+                        <Value type="single" unit="Fullscale" />
+                    </Signal>
+                </MuxGroup>
+                <MuxGroup count="1">
+                    <Signal name="Voltage_Input_L2" offset="0" length="32" endianess="little">
+                        <Consumer>
+                            <NodeRef id="0"/>
+                        </Consumer>
+                        <Value type="single" unit="Fullscale" />
+                    </Signal>
+                </MuxGroup>
+                <MuxGroup count="2">
+                    <Signal name="Voltage_Input_L3" offset="0" length="32" endianess="little">
+                        <Consumer>
+                            <NodeRef id="0"/>
+                        </Consumer>
+                        <Value type="single" unit="Fullscale" />
+                    </Signal>
+                </MuxGroup>
+                <MuxGroup count="3">
+                    <Signal name="Voltage_Output_L1" offset="0" length="32" endianess="little">
+                        <Consumer>
+                            <NodeRef id="0"/>
+                        </Consumer>
+                        <Value type="single" unit="Fullscale" />
+                    </Signal>
+                </MuxGroup>
+                <MuxGroup count="4">
+                    <Signal name="Voltage_Output_L2" offset="0" length="32" endianess="little">
+                        <Consumer>
+                            <NodeRef id="0"/>
+                        </Consumer>
+                        <Value type="single" unit="Fullscale" />
+                    </Signal>
+                </MuxGroup>
+                <MuxGroup count="5">
+                    <Signal name="Voltage_Output_L3" offset="0" length="32" endianess="little">
+                        <Consumer>
+                            <NodeRef id="0"/>
+                        </Consumer>
+                        <Value type="single" unit="Fullscale" />
+                    </Signal>
+                </MuxGroup>
+            </Multiplex>
+        </Message>
+
+        <Message id="0x10045" length="6" name="Filter_Stack_Control" format="extended">
+            <Notes>Filter stack control</Notes>
+            <Producer>
+                <NodeRef id="0"/>
+            </Producer>
+
+            <Signal name="Stack_position" offset="0" length="8" endianess="little">
+                <Notes>The converter position within the stack</Notes>
+                <Consumer>
+                    <NodeRef id="1"/>
+                </Consumer>
+                <Value type="unsigned" slope="1"/>
+            </Signal>
+            <Signal name="Stack_size" offset="8" length="8" endianess="little">
+                <Notes>How many Filter converters are in stack in total</Notes>
+                <Consumer>
+                    <NodeRef id="1"/>
+                </Consumer>
+                <Value type="unsigned" slope="1"/>
+            </Signal>
+            <Signal name="SN_number" offset="16" length="32">
+                <Notes>Unique module serial number</Notes>
+                <Consumer>
+                    <NodeRef id="1"/>
+                </Consumer>
+            </Signal>
+        </Message>
+
+        <Message id="0x10061" length="8" name="Filter_System_Flags_Control" format="extended">
+            <Notes>Control the system flags</Notes>
+            <Producer>
+                <NodeRef id="0"/>
+            </Producer>
+
+            <Signal name="Factory_mode" offset="0" length="1" endianess="little">
+                <Notes>Customers MUST NOT USE this bit. If set to 1, module will enter in factory mode. </Notes>
+                <Consumer>
+                    <NodeRef id="1"/>
+                </Consumer>
+            </Signal>
+        </Message>	
+
+        <Message id="0x18053" length="6" name="_Filter_Input_Voltages_DC" interval="100" format="extended">
+            <Notes>Input voltages readout. Realtime readouts of the sensed variables. The voltage measured before the contactors.</Notes>
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+
+            <Signal name="Voltage_Input_L1" offset="0" length="16" endianess="little">
+                <Notes>Voltage measured at the filter input, phase 1</Notes>
+                <Value slope="0.1" unit="V"/>
+            </Signal>
+            <Signal name="Voltage_Input_L2" offset="16" length="16" endianess="little">
+                <Notes>Voltage measured at the filter input, phase 2</Notes>
+                <Value slope="0.1" unit="V"/>
+            </Signal>
+            <Signal name="Voltage_Input_L3" offset="32" length="16" endianess="little">
+                <Notes>Voltage measured at the filter input, phase 3</Notes>
+                <Value slope="0.1" unit="V"/>
+            </Signal>
+        </Message>
+
+        <Message id="0x18054" length="6" name="_Filter_Output_Voltages_DC" interval="100" format="extended">
+            <Notes>Output voltages readout. Realtime RMS readouts of the sensed variables. The voltage measured after the contactors.</Notes>
+            <Producer>
+                <NodeRef id="1"/>
+            </Producer>
+
+            <Signal name="Voltage_Output_L1" offset="0" length="16" endianess="little">
+                <Notes>Voltage measured at the filter output, phase 1</Notes>
+                <Value slope="0.1" unit="V"/>
+            </Signal>
+            <Signal name="Voltage_Output_L2" offset="16" length="16" endianess="little">
+                <Notes>Voltage measured at the filter output, phase 2</Notes>
+                <Value slope="0.1" unit="V"/>
+            </Signal>
+            <Signal name="Voltage_Output_L3" offset="32" length="16" endianess="little">
+                <Notes>Voltage measured at the filter output, phase 3</Notes>
+                <Value slope="0.1" unit="V"/>
+            </Signal>
+        </Message>
+    </Bus>
+</NetworkDefinition>

@@ -1,5 +1,5 @@
-site_name: ADM-CS-SPCC Documentation
-site_description: Technical documentation for Advantics ADM-CS-SPCC 100kW AC/DC Active Frontend
+site_name: ADM-CS-SECC Documentation
+site_description: Technical documentation for Advantics ADM-CS-SECC Supply Equipment Communication Controller
 site_url: https://documentation.advantics.fr/adm-cs-secc
 # repo_url: https://github.com/ADVANTICS/documentation
 # repo_name: gh:ADVANTICS/documentation
@@ -72,23 +72,27 @@ plugins:
   - search
   - mermaid2
   - plantuml:
-      render: "server"
       puml_url: "https://www.plantuml.com/plantuml"
-      output_format: "svg"
-      theme_enabled: false
-      retries: 5
-      delay: 2
-      # theme:
-      #     url: _puml  # Path to custom themes, must contain advantics-theme-light.puml and advantics-theme-dark.puml
-      #     light: advantics-theme-light
-      #     dark: advantics-theme-dark
+      puml_keyword: "puml"
+      # Styling is carried INLINE by each diagram (the Advantics skinparam prelude), so the
+      # plugin must not inject its own theme: with theme.enabled true it prepends an
+      # `!include <github raw url>` that the plantuml server has to fetch, and it cannot.
+      # Disabled also means one diagram per block (class "puml light", display:block) instead
+      # of a light/dark pair -- which is what products/css/custom.css expects.
+      theme:
+        enabled: false
   - with-pdf:
       enabled_if_env: PDF_EXPORT
-      output_path: pdf/adm-cs-spcc-manual.pdf
-      cover_title: ADM-CS-SPCC User Manual
-      cover_subtitle: Single Pistol Charge Controller (SPCC)
+      output_path: pdf/adm-cs-secc-manual.pdf
+      cover_title: ADM-CS-SECC User Manual
+      cover_subtitle: Supply Equipment Communication Controller (SECC)
       author: ADVANTICS SAS
       custom_template_path: docs/assets
+  # Numbered figures: {{ figure('assets/x.svg', 'caption', id='fig-x') }} and {{ figref('fig-x') }}.
+  # Same module as the power-module manuals; here it is a symlink to the single shared copy at
+  # products/shared-charge-controllers/macros.py.
+  - macros:
+      module_name: docs/assets/macros
 
 # Markdown extensions
 markdown_extensions:
@@ -108,22 +112,37 @@ markdown_extensions:
       custom_checkbox: true
   - pymdownx.arithmatex
   - toc:
-      permalink: false
+      permalink: true
+      permalink_title: "Link to this section"
       baselevel: 1
   - tables
   - attr_list
+  - md_in_html
 
 # Navigation structure
 nav:
   - Document Information: "index.md"
   - Technical data: "introduction.md"
   - Interfaces: "interfaces.md"
+  - Integration Guide: "integration-guide.md"
   - Examples of use: "examples.md"
   - Software Releases: "secc_versions.md"
-  - Configuration: "secc_configuration.md"
+  - Configuration:
+    - Overview: "configuration/README.md"
+    - Pistols: "configuration/pistols.md"
+    - CCS DC pistol: "configuration/pistol-ccs-dc.md"
+    - CCS AC pistol: "configuration/pistol-ccs-ac.md"
+    - CHAdeMO pistol: "configuration/pistol-chademo.md"
+    - TLS: "configuration/tls.md"
+    - OCPP: "configuration/ocpp.md"
+    - Temperature: "configuration/temperature.md"
+    - Applications, logging, hardware and system: "configuration/generalities.md"
   - Working with the SECC:
     - SSH access: "buildroot-system/ssh-uart-access.md"
-    - Web UI Access: "csm-web-ui.md"
+    - Platforms: "buildroot-system/platforms.md"
+    - Accessing the controller: "buildroot-system/access.md"
+    - Managing charging applications: "buildroot-system/applications.md"
+    - Web UI Access: "advos-yocto-system/csm-web-ui.md"
     - Read-only file system: "buildroot-system/read-only.md"
     - Updating the Software: "buildroot-system/sys3_update.md"
     - Managing Applications: "buildroot-system/manage-applications.md"
@@ -135,6 +154,7 @@ nav:
     - Deployment Checklist: "buildroot-system/must-do-before-deploy.md"
   - CAN bus Interfaces:
     - Introduction: "charger-can-interfaces/introduction.md"
+    - Overview: "charger-can-interfaces/overview.md"
     - Generic interface v2:
       - Sequences of action: "charger-can-interfaces/sequences_v2.md"
       - CAN databases: "charger-can-interfaces/databases_v2.md"
@@ -159,7 +179,7 @@ nav:
       - Plug'n'Charge overview: "charger-features/tls_pnc/pnc_primer.md"
       - TLS & Plug'n'Charge configuration: "charger-features/tls_pnc/tls_pnc_config.md"
     - Supported Insulation Monitors: "charger-features/evse-supported-insulation-monitors.md"
-    - Charger Emulator: "charger-features/charger-simulation.md"
+    - Charger simulator: "charger-features/charger-simulation.md"
 
 # Extra configurations
 extra:

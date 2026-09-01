@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="880" height="658" viewBox="0 0 880 658" role="img" aria-label="ADM-CS-SECC overview: the controller drives the connector signals and the output contactors; the power modules and the insulation monitor can be driven by either side.">
+  <title>ADM-CS-SECC overview: the controller drives the connector signals and the output contactors; the power modules and the insulation monitor can be driven by either side.</title>
+  <rect width="880" height="658" fill="#ffffff"/>
+  <rect x="20.0" y="30.0" width="840.0" height="140.0" rx="14" fill="#eef2f7" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="440.0" y="58.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#4a5568" text-anchor="middle"><tspan x="440.0" dy="0">The controller drives all of this — you only wire it</tspan></text>
+  <rect x="50.0" y="78.0" width="178.5" height="68.0" rx="8" fill="#ffffff" stroke="#00A99D" stroke-width="1.5"/>
+  <text x="139.2" y="117.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="15" fill="#1a365d" text-anchor="middle"><tspan x="139.2" dy="0">CP / PP</tspan></text>
+  <rect x="250.5" y="78.0" width="178.5" height="68.0" rx="8" fill="#ffffff" stroke="#00A99D" stroke-width="1.5"/>
+  <text x="339.8" y="117.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="15" fill="#1a365d" text-anchor="middle"><tspan x="339.8" dy="0">PLC</tspan></text>
+  <rect x="451.0" y="78.0" width="178.5" height="68.0" rx="8" fill="#ffffff" stroke="#00A99D" stroke-width="1.5"/>
+  <text x="540.2" y="117.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="15" fill="#1a365d" text-anchor="middle"><tspan x="540.2" dy="0">Connector lock</tspan></text>
+  <rect x="651.5" y="78.0" width="178.5" height="68.0" rx="8" fill="#ffffff" stroke="#00A99D" stroke-width="1.5"/>
+  <text x="740.8" y="117.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="15" fill="#1a365d" text-anchor="middle"><tspan x="740.8" dy="0">Temperature</tspan></text>
+  <line x1="139.2" y1="146.0" x2="139.2" y2="250.0" stroke="#1a365d" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="339.8" y1="146.0" x2="339.8" y2="250.0" stroke="#1a365d" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="540.2" y1="146.0" x2="540.2" y2="250.0" stroke="#1a365d" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="740.8" y1="146.0" x2="740.8" y2="250.0" stroke="#1a365d" stroke-width="2.5" stroke-linecap="round"/>
+  <rect x="328.9" y="186.0" width="222.1" height="24.0" rx="12.0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="440.0" y="203.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="13" fill="#4a5568" text-anchor="middle"><tspan x="440.0" dy="0">dedicated hardware interfaces</tspan></text>
+  <rect x="50.0" y="250.0" width="780.0" height="72.0" rx="10" fill="#00A99D" stroke="#00A99D" stroke-width="1.5"/>
+  <text x="440.0" y="293.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle"><tspan x="440.0" dy="0">ADM-CS-SECC</tspan></text>
+  <rect x="50.0" y="456.0" width="499.3" height="120.0" rx="12" fill="#e9f7f6" stroke="#8fd3cd" stroke-width="1.5"/>
+  <text x="299.7" y="564.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#00A99D" text-anchor="middle"><tspan x="299.7" dy="0">The controller can optionally drive these</tspan></text>
+  <rect x="575.3" y="456.0" width="254.7" height="120.0" rx="12" fill="#eef2f7" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="702.7" y="564.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="13.5" font-weight="600" fill="#4a5568" text-anchor="middle"><tspan x="702.7" dy="0">Always driven by the controller</tspan></text>
+  <line x1="160.3" y1="322.0" x2="160.3" y2="470.0" stroke="#1a365d" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="194.3" y1="322.0" x2="194.3" y2="470.0" stroke="#00A99D" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="405.0" y1="322.0" x2="405.0" y2="470.0" stroke="#2d5aa0" stroke-width="2.5" stroke-dasharray="7 5" stroke-linecap="round"/>
+  <line x1="439.0" y1="322.0" x2="439.0" y2="470.0" stroke="#00A99D" stroke-width="2.5" stroke-linecap="round"/>
+  <line x1="702.7" y1="322.0" x2="702.7" y2="470.0" stroke="#1a365d" stroke-width="2.5" stroke-linecap="round"/>
+  <rect x="66.0" y="470.0" width="222.7" height="68.0" rx="8" fill="#ffffff" stroke="#00A99D" stroke-width="1.5"/>
+  <text x="177.3" y="509.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="15" fill="#1a365d" text-anchor="middle"><tspan x="177.3" dy="0">Power modules</tspan></text>
+  <rect x="310.7" y="470.0" width="222.7" height="68.0" rx="8" fill="#ffffff" stroke="#00A99D" stroke-width="1.5"/>
+  <text x="422.0" y="509.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="15" fill="#1a365d" text-anchor="middle"><tspan x="422.0" dy="0">Insulation monitor</tspan></text>
+  <rect x="591.3" y="470.0" width="222.7" height="68.0" rx="8" fill="#ffffff" stroke="#00A99D" stroke-width="1.5"/>
+  <text x="702.7" y="509.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="15" fill="#1a365d" text-anchor="middle"><tspan x="702.7" dy="0">Output contactors</tspan></text>
+  <rect x="90.7" y="338.0" width="139.3" height="40.0" rx="20.0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="160.3" y="354.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="13" fill="#1a365d" text-anchor="middle"><tspan x="160.3" dy="0">a supported</tspan><tspan x="160.3" dy="16">charger interface</tspan></text>
+  <rect x="114.3" y="398.0" width="160.0" height="40.0" rx="20.0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="194.3" y="414.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="13" fill="#00A99D" text-anchor="middle"><tspan x="194.3" dy="0">or you implement the</tspan><tspan x="194.3" dy="16">generic interface</tspan></text>
+  <rect x="325.0" y="338.0" width="160.0" height="40.0" rx="20.0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="405.0" y="354.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="13" fill="#2d5aa0" text-anchor="middle"><tspan x="405.0" dy="0">a supported monitor,</tspan><tspan x="405.0" dy="16">read directly</tspan></text>
+  <rect x="359.0" y="398.0" width="160.0" height="40.0" rx="20.0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="439.0" y="414.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="13" fill="#00A99D" text-anchor="middle"><tspan x="439.0" dy="0">or you report it, in</tspan><tspan x="439.0" dy="16">Power_Modules_Status</tspan></text>
+  <rect x="588.2" y="338.0" width="229.0" height="40.0" rx="20.0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="702.7" y="354.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="13" fill="#1a365d" text-anchor="middle"><tspan x="702.7" dy="0">relays, gated by</tspan><tspan x="702.7" dy="16">the hard-wired interlock chain</tspan></text>
+  <text x="440.0" y="606.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="600" fill="#4a5568" text-anchor="middle"><tspan x="440.0" dy="0">Your charger</tspan></text>
+  <line x1="24" y1="636" x2="50" y2="636" stroke="#1a365d" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="58.0" y="640.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="12.5" fill="#4a5568" text-anchor="start"><tspan x="58.0" dy="0">the controller drives it, through its own hardware interface</tspan></text>
+  <line x1="468" y1="636" x2="494" y2="636" stroke="#00A99D" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="502.0" y="640.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="12.5" fill="#4a5568" text-anchor="start"><tspan x="502.0" dy="0">you drive it, over the CAN bus</tspan></text>
+  <line x1="720" y1="636" x2="746" y2="636" stroke="#2d5aa0" stroke-width="2.5" stroke-dasharray="6 4" stroke-linecap="round"/>
+  <text x="754.0" y="640.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="12.5" fill="#4a5568" text-anchor="start"><tspan x="754.0" dy="0">optional alternative</tspan></text>
+</svg>

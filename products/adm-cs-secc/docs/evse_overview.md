@@ -2,12 +2,13 @@
 
 There are many key components making up a charging station. Some of them are essential (like power converters for DC charging), others are required by their respective national standards (like ground fault monitoring devices). A properly designed charging station should be cost-optimized, but safe and compliant. Generally speaking, the lower the power, the fewer additional components would be installed, as they can significantly affect the price.
 
-> [!WARNING]
-> Always check national rules and requirements when designing a charging station. Do not rely on the following information to be accurate or even applicable.
+!!! warning
+    Always check national rules and requirements when designing a charging station. Do not rely on the following information to be accurate or even applicable.
 
 ## Input (mains) side protection
 
 If the charger is powered from an existing 3-phase industrial power feed, the following equipment should be present in the installation:
+
 - Circuit breakers of appropriate rating. Most likely power modules will have a separate breaker for the 24V supply powering the controllers or fans. Most power module manufacturers will require a separate circuit breaker for each power module.
 - Residual-current device (RCD, RCCB, GFCI)
 - Dedicated 3-phase mains filter (depending on EMC performance of your station and power modules, required standard limits – residential, industrial)
@@ -21,6 +22,7 @@ For DC charging stations, type A RCCB is sufficient, and additional Ground Fault
 ## AC charging station residual current monitor
 When building an AC charging station, keep in mind that EU rules differ from US rules on the limits.
 There are several IEC 61851-1 compliant residual current monitors for AC charging station use, for example:
+
 - Phoenix Contact EV-RCM-C1-AC30-DC6 (part number 1622450)
 - Bender RCMB420E
 
@@ -31,6 +33,7 @@ Most power modules on the market will require you to put several units in parall
 The power modules will also vary greatly in additional capabilities. For example ADVANTICS power converters contain onboard ground fault monitoring of the DC output, as well as external voltage sensors, to measure voltage past the contactors or CHAdeMO diodes.
 
 Different cooling concepts are used – they can be separated into following categories:
+
 - Open-frame power supplies, requiring cold air to blow directly through power module components.
 - Heatsink-based modules, requiring fresh air only on the main heatsink
 - Water-cooled modules, relying on external heat exchangers.
@@ -42,11 +45,7 @@ Applicable only for DC charging. Ground fault monitoring is performed by injecti
 If power modules do not come equipped with a built-in ground fault monitor, an external one must be purchased and installed.
 
 
-<div class="bigger-1000">
-
-![Ground fault monitor installation - Sendyne SIM100MOD sensor](images/IMD.PNG "Ground fault monitor installation - Sendyne SIM100MOD sensor")
-</div>
-<figcaption style="text-align: center">Figure 8: Ground fault monitor installation - Sendyne SIM100MOD sensor</figcaption>
+{{ figure('assets/IMD.PNG', 'Ground fault monitor installation - Sendyne SIM100MOD sensor', size='1000px') }}
 
 ## Output DC contactors
 
@@ -61,6 +60,7 @@ The CHAdeMO standard requires a diode in series with the positive output termina
 ## CCS charging cable
 
 A majority of CCS cables on the market are identical in their wiring. The following wires can be identified at the cable end:
+
 - CP wire.
 - PP wire – may not even be present. The PP wire is not used for DC charging, and cables typically have a resistor built-in between the PP and PE (ground) wires.
 - PE ground (common high-gauge wire for power and signal ground).
@@ -69,19 +69,15 @@ A majority of CCS cables on the market are identical in their wiring. The follow
 - Positive DC high gauge wire (power delivery).
 - Negative DC high gauge wire (power delivery).
 
-> [!TIP]
-> Some CCS cable manufacturers are notoriously bad at documenting their cable. If you end up probing with a multimeter, just to find which wire is which, you can always identify the RTD (temperature sensor) by being able to see around 1100 Ohms between them
+!!! tip
+    Some CCS cable manufacturers are notoriously bad at documenting their cable. If you end up probing with a multimeter, just to find which wire is which, you can always identify the RTD (temperature sensor) by being able to see around 1100 Ohms between them
 
 ## CHAdeMO charging cable
 
-CHAdeMO charging cables vary to a much greater degree, mostly because of different ways of solenoid control and different temperature sensing technology. Often, CHAdeMO cable wiring has labeled pins as 1-10 (see  Figure 9: CHAdeMO pinout). The solenoid is not shown on this diagram.
+CHAdeMO charging cables vary to a much greater degree, mostly because of different ways of solenoid control and different temperature sensing technology. Often, CHAdeMO cable wiring has labeled pins as 1-10 (see {{ figref('fig-chademo-pinout') }}). The solenoid is not shown on this diagram.
 
 
-<div class="bigger-1000">
-
-![CHAdeMO pinout](images/Description-of-the-CHAdeMO-connector-pinout-and-schematic.jpg "CHAdeMO pinout")
-</div>
-<figcaption style="text-align: center">Figure 9: CHAdeMO pinout</figcaption>
+{{ figure('assets/Description-of-the-CHAdeMO-connector-pinout-and-schematic.jpg', 'CHAdeMO connector pinout and schematic', id='fig-chademo-pinout', size='1000px') }}
 
 ## HMI (Human Machine Interface)
 

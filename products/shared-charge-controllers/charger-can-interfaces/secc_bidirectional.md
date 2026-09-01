@@ -9,7 +9,7 @@ Version 3 of the interface provides improvements that made it easier to integrat
 
 !!! note
     Generic interface v3, CCS ISO 15118-20 and CHAdeMO V2G are available in version 4 of the software (from version 4.x.dev10 and newer).
-    Software releases can be found here: [Software Releases](../spcc_versions.md).
+    Software releases are listed on this controller's **Software Releases** page.
 
 
 ## Relevant config entries
@@ -67,7 +67,7 @@ have been entirely removed.
 
 The `Lower_Output_Voltage` and `Output_Contactors` command signals have been added to signal
 explicitly when the charger should actively stop presenting an output voltage using one way or
-another. You should definitely read [their](DC_Power_Control-Output_Contactors)
+another. You should definitely read [their](../charger-can-interfaces/can_v3.md#DC_Power_Control-Output_Contactors)
 [documentations](../charger-can-interfaces/can_v3.md#DC_Power_Control-Lower_Output_Voltage)
 as it can be a bit tricky to use correctly.
 
@@ -152,8 +152,7 @@ In a CHAdeMO bidirectional setup, it is necessary to replace the CHAdeMO diode w
 
 To implement this, you will need two relays and one precharge resistance:
 
-![CHAdeMO V2G Precharge Stage](../assets/chademo_precharge.jpg ':size=200%')
-<figcaption style="text-align: center">CHAdeMO V2G Precharge Stage</figcaption>
+{{ figure('../assets/chademo_precharge.jpg', 'CHAdeMO V2G Precharge Stage', size='200%') }}
 
 
 Precharge Relay and Resistance:

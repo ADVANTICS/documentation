@@ -2,7 +2,7 @@
 
 ADVANTICS CSM is used manage system-level actions on Charge Controllers. It is designed for development purposes and should be disabled in production.
 
-[ SSH ](charge-controllers/advantics_os/ssh.md) to the controller.
+[ SSH ](ssh.md) to the controller.
 
 Stop and remove all containers:
 

@@ -1,0 +1,528 @@
+VERSION "2.0.0"
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: User ADB_PC_GN01
+
+
+BO_ 8716352 GN01_Mode_Set: 1 User
+ SG_ mode : 0|8@1+ (1,0) [0|0] ""  ADB_PC_GN01
+
+BO_ 8716353 GN01_Mode_Applied: 1 ADB_PC_GN01
+ SG_ mode : 0|8@1+ (1,0) [0|0] ""  User
+
+BO_ 8716354 GN01_faults: 8 ADB_PC_GN01
+ SG_ NEUTRAL_STOP_RUNNING : 43|1@1+ (1,0) [0|0] ""  User
+ SG_ NEUTRAL_NOT_RUNNING : 42|1@1+ (1,0) [0|0] ""  User
+ SG_ INVERTER_3P_STOP_RUNNING : 41|1@1+ (1,0) [0|0] ""  User
+ SG_ INVERTER_3P_NOT_RUNNING : 40|1@1+ (1,0) [0|0] ""  User
+ SG_ FILTER_NOT_OFF : 39|1@1+ (1,0) [0|0] ""  User
+ SG_ BLEEDING_FAILED : 38|1@1+ (1,0) [0|0] ""  User
+ SG_ AFE_PWM_STOP_RUNNING : 37|1@1+ (1,0) [0|0] ""  User
+ SG_ AFE_PWM_NOT_RUNNING : 36|1@1+ (1,0) [0|0] ""  User
+ SG_ RECTIFIER_3P_STOP_RUNNING : 35|1@1+ (1,0) [0|0] ""  User
+ SG_ FILTER_STOP_RUNNING : 34|1@1+ (1,0) [0|0] ""  User
+ SG_ AFE_NOT_OFF : 32|1@1+ (1,0) [0|0] ""  User
+ SG_ RECTIFIER_3P_NOT_RUNNING : 31|1@1+ (1,0) [0|0] ""  User
+ SG_ FILTER_NOT_RUNNING : 30|1@1+ (1,0) [0|0] ""  User
+ SG_ Main_Contactors_failed : 29|1@1+ (1,0) [0|0] ""  User
+ SG_ PRECHARGE_FAILED : 28|1@1+ (1,0) [0|0] ""  User
+ SG_ reserved_4 : 27|1@1+ (1,0) [0|0] ""  User
+ SG_ reserved_3 : 26|1@1+ (1,0) [0|0] ""  User
+ SG_ reserved_2 : 25|1@1+ (1,0) [0|0] ""  User
+ SG_ reserved_1 : 24|1@1+ (1,0) [0|0] ""  User
+ SG_ MODULE_7_RUNNING : 23|1@1+ (1,0) [0|0] ""  User
+ SG_ MODULE_5_RUNNING : 22|1@1+ (1,0) [0|0] ""  User
+ SG_ MODULE_4_RUNNING : 21|1@1+ (1,0) [0|0] ""  User
+ SG_ MODULE_3_RUNNING : 20|1@1+ (1,0) [0|0] ""  User
+ SG_ MODULE_2_RUNNING : 19|1@1+ (1,0) [0|0] ""  User
+ SG_ MODULE_1_RUNNING : 18|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_3_5_DC : 17|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_2_3_DC : 15|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_1_4_L3 : 14|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_1_4_L2 : 13|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_1_4_L1 : 12|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_4_5_L3 : 10|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_7_L2_L3 : 9|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_4_5_L2 : 8|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_7_L1_L2 : 7|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_4_5_L1 : 6|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_1_3_L3 : 5|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_1_2_L3 : 4|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_1_3_L2 : 3|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_1_2_L2 : 2|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_1_3_L1 : 1|1@1+ (1,0) [0|0] ""  User
+ SG_ CABLE_1_2_L1 : 0|1@1+ (1,0) [0|0] ""  User
+
+BO_ 8716355 GN01_warning: 8 ADB_PC_GN01
+ SG_ V_B_HIGH : 20|1@1+ (1,0) [0|0] ""  User
+ SG_ V_B_LOW : 19|1@1+ (1,0) [0|0] ""  User
+ SG_ V_A_HIGH : 18|1@1+ (1,0) [0|0] ""  User
+ SG_ V_A_LOW : 17|1@1+ (1,0) [0|0] ""  User
+ SG_ MODE_NOT_SUPPORTED : 16|1@1+ (1,0) [0|0] ""  User
+ SG_ AFE_DROOP_NOT_ENABLE : 15|1@1+ (1,0) [0|0] ""  User
+ SG_ V_DC_BELOW_AC : 5|1@1+ (1,0) [0|0] ""  User
+ SG_ V_SET_DC_BELOW_AC : 4|1@1+ (1,0) [0|0] ""  User
+ SG_ reserved_3 : 3|1@1+ (1,0) [0|0] ""  User
+ SG_ grid_selection_wrong : 2|1@1+ (1,0) [0|0] ""  User
+ SG_ grid_not_existing : 1|1@1+ (1,0) [0|0] ""  User
+ SG_ grid_not_supported : 0|1@1+ (1,0) [0|0] ""  User
+
+BO_ 8716356 GN01_info: 8 ADB_PC_GN01
+ SG_ PHASE_SWAPPED : 5|1@1+ (1,0) [0|0] ""  User
+ SG_ VB_LIMITED_BY_VA : 4|1@1+ (1,0) [0|0] ""  User
+ SG_ CURRENT_LIMITED_BY_POWER : 3|1@1+ (1,0) [0|0] ""  User
+ SG_ CURRENT_LIMIT : 2|1@1+ (1,0) [0|0] ""  User
+ SG_ BLEEDING_DONE : 1|1@1+ (1,0) [0|0] ""  User
+
+BO_ 8716320 DC_Ports_Setpoints: 6 User
+ SG_ Negative_Current_Limit : 32|16@1- (0.1,0) [0|0] "A"  ADB_PC_GN01
+ SG_ Positive_Current_Limit : 16|16@1- (0.1,0) [0|0] "A"  ADB_PC_GN01
+ SG_ Voltage : 0|16@1+ (0.1,0) [0|0] "V"  ADB_PC_GN01
+
+BO_ 8716321 DC_Port_Applied_Setpoints: 8 ADB_PC_GN01
+ SG_ Negative_Current_Limit : 32|16@1- (0.1,0) [0|0] "A"  User
+ SG_ Positive_Current_Limit : 16|16@1- (0.1,0) [0|0] "A"  User
+ SG_ Voltage : 0|16@1+ (0.1,0) [0|0] "V"  User
+
+BO_ 8716324 DC_Port_Measurements: 4 ADB_PC_GN01
+ SG_ Current : 16|16@1- (0.1,0) [0|0] "A"  User
+ SG_ Voltage : 0|16@1+ (0.1,0) [0|0] "V"  User
+
+BO_ 8716322 DC_Port_Droop_Setpoints: 8 User
+ SG_ Reserved : 33|31@1+ (1,0) [0|0] ""  ADB_PC_GN01
+ SG_ Enable : 32|1@1+ (1,0) [0|0] ""  ADB_PC_GN01
+ SG_ Negative_Current_Droop : 16|16@1+ (0.001,0) [0|0] "Ohm"  ADB_PC_GN01
+ SG_ Positive_Current_Droop : 0|16@1+ (0.001,0) [0|0] "Ohm"  ADB_PC_GN01
+
+BO_ 8716323 DC_Port_Applied_Droop_Setpoints: 8 ADB_PC_GN01
+ SG_ Enable : 32|1@1+ (1,0) [0|0] ""  User
+ SG_ Negative_Current_Droop : 16|16@1+ (0.001,0) [0|0] "Ohm"  User
+ SG_ Positive_Current_Droop : 0|16@1+ (0.001,0) [0|0] "Ohm"  User
+
+BO_ 8716336 AC_Port_Setpoints: 8 User
+ SG_ RMS_Phase_Current_Limit : 32|16@1+ (0.1,0) [0|0] "A"  ADB_PC_GN01
+ SG_ Q : 16|16@1- (10,0) [0|0] "VAR"  ADB_PC_GN01
+ SG_ grid_standard : 8|8@1+ (1,0) [0|0] ""  ADB_PC_GN01
+ SG_ phase_config : 0|8@1+ (1,0) [0|0] ""  ADB_PC_GN01
+
+BO_ 8716337 AC_Port_Applied_Setpoints: 8 ADB_PC_GN01
+ SG_ RMS_Phase_Current_Limit : 32|16@1+ (0.1,0) [0|0] "A"  User
+ SG_ Q : 16|16@1- (10,0) [0|0] "VAR"  User
+ SG_ grid_standard : 8|8@1+ (1,0) [0|0] ""  User
+ SG_ phase_config : 0|8@1+ (1,0) [0|0] ""  User
+
+BO_ 8716338 AC_Port_Droop_Setpoints: 8 User
+ SG_ Reserved : 51|13@1+ (1,0) [0|0] ""  ADB_PC_GN01
+ SG_ Enable_Integral_Action : 50|1@1+ (1,0) [0|0] ""  ADB_PC_GN01
+ SG_ Disable_Harmonic_Compensation : 49|1@1+ (1,0) [0|0] ""  ADB_PC_GN01
+ SG_ Enable : 48|1@1+ (1,0) [0|0] ""  ADB_PC_GN01
+ SG_ Virtual_Impedance : 32|16@1- (1,0) [0|0] "uH"  ADB_PC_GN01
+ SG_ Volt_droop_nominal : 16|16@1- (0.1,0) [0|0] "V/MVAr"  ADB_PC_GN01
+ SG_ Freq_droop_nominal : 0|16@1- (0.01,0) [0|0] "Hz/MW"  ADB_PC_GN01
+
+BO_ 8716339 AC_Port_Applied_Droop_Setpoints: 8 ADB_PC_GN01
+ SG_ Reserved : 51|13@1+ (1,0) [0|0] ""  User
+ SG_ Enable_Integral_Action : 50|1@1+ (1,0) [0|0] ""  User
+ SG_ Disable_Harmonic_Compensation : 49|1@1+ (1,0) [0|0] ""  User
+ SG_ Enable : 48|1@1+ (1,0) [0|0] ""  User
+ SG_ Virtual_Impedance : 32|16@1- (1,0) [0|0] "uH"  User
+ SG_ Volt_droop_nominal : 16|16@1- (0.1,0) [0|0] "V/MVAr"  User
+ SG_ Freq_droop_nominal : 0|16@1- (0.01,0) [0|0] "Hz/MW"  User
+
+BO_ 8716340 AC_Port_Measurements: 8 ADB_PC_GN01
+ SG_ Reserved : 32|32@1+ (1,0) [0|0] ""  User
+ SG_ Voltage : 16|16@1+ (0.1,0) [0|0] "V"  User
+ SG_ Frequency : 0|16@1+ (0.01,0) [0|0] "Hz"  User
+
+BO_ 8716341 L1_Measurements: 8 ADB_PC_GN01
+ SG_ Q : 48|16@1- (0.1,0) [0|0] "VAR"  User
+ SG_ P : 32|16@1- (0.1,0) [0|0] "W"  User
+ SG_ I : 16|16@1- (0.1,0) [0|0] "A"  User
+ SG_ U : 0|16@1- (0.1,0) [0|0] "V"  User
+
+BO_ 8716342 L2_Measurements: 8 ADB_PC_GN01
+ SG_ Q : 48|16@1- (0.1,0) [0|0] "VAR"  User
+ SG_ P : 32|16@1- (0.1,0) [0|0] "W"  User
+ SG_ I : 16|16@1- (0.1,0) [0|0] "A"  User
+ SG_ U : 0|16@1- (0.1,0) [0|0] "V"  User
+
+BO_ 8716343 L3_Measurements: 8 ADB_PC_GN01
+ SG_ Q : 48|16@1- (0.1,0) [0|0] "VAR"  User
+ SG_ P : 32|16@1- (0.1,0) [0|0] "W"  User
+ SG_ I : 16|16@1- (0.1,0) [0|0] "A"  User
+ SG_ U : 0|16@1- (0.1,0) [0|0] "V"  User
+
+BO_ 8716344 N_Measurements: 8 ADB_PC_GN01
+ SG_ I : 16|16@1- (0.1,0) [0|0] "A"  User
+ SG_ reserved : 0|16@1- (0.1,0) [0|0] "V"  User
+
+BO_ 8716345 ac_custom_Setpoints_Control: 8 User
+ SG_ Reserved : 32|32@1+ (1,0) [0|0] ""  ADB_PC_GN01
+ SG_ Voltage : 16|16@1+ (0.1,0) [0|0] "V"  ADB_PC_GN01
+ SG_ Frequency : 0|16@1+ (0.01,0) [0|0] "Hz"  ADB_PC_GN01
+
+BO_ 8716346 ac_custom_Setpoints_Applied: 8 ADB_PC_GN01
+ SG_ Reserved : 32|32@1+ (1,0) [0|0] ""  User
+ SG_ Voltage : 16|16@1+ (0.1,0) [0|0] "V"  User
+ SG_ Frequency : 0|16@1+ (0.01,0) [0|0] "Hz"  User
+
+BO_ 8716347 ac_adjustments_Control: 8 User
+ SG_ Reserved : 32|32@1+ (1,0) [0|0] ""  ADB_PC_GN01
+ SG_ Voltage_shift : 16|16@1- (0.01,0) [0|0] "%"  ADB_PC_GN01
+ SG_ Frequency_shift : 0|16@1- (0.001,0) [0|0] "%"  ADB_PC_GN01
+
+BO_ 8716348 ac_adjustments_Applied: 8 ADB_PC_GN01
+ SG_ Reserved : 32|32@1+ (1,0) [0|0] ""  User
+ SG_ Voltage_shift : 16|16@1- (0.01,0) [0|0] "%"  User
+ SG_ Frequency_shift : 0|16@1- (0.001,0) [0|0] "%"  User
+
+
+
+
+CM_ BO_ 8716352 "Configure GN01 operating mode";
+CM_ SG_ 8716352 mode "Requested operating mode
+
+            DC_Controlled (0): DC side voltage controlled to setpoint, requires AC side input present
+            AC_Controlled (1): AC side voltage controlled, will generate AC if not present
+            Bleeding (2): Discharge internal capacitors/remaining charge
+
+            changing mode can only be done when the power converter is not \"Enable\"";
+CM_ BO_ 8716353 "GN01 actual operating mode (readback)";
+CM_ SG_ 8716353 mode "Currently applied operating mode
+
+                changing mode can only be done when the power converter is not \"Enable\"
+          ";
+CM_ BO_ 8716354 "GN01 Critical and error conditions";
+CM_ SG_ 8716354 NEUTRAL_STOP_RUNNING "Error: neutral stop running";
+CM_ SG_ 8716354 NEUTRAL_NOT_RUNNING "Error: neutral is not running, but it should be active";
+CM_ SG_ 8716354 INVERTER_3P_STOP_RUNNING "Error: Three-phase inverter stop running";
+CM_ SG_ 8716354 INVERTER_3P_NOT_RUNNING "Error: Three-phase inverter is not running, but it should be active";
+CM_ SG_ 8716354 FILTER_NOT_OFF "Error: Filter is not off, but it should be off";
+CM_ SG_ 8716354 BLEEDING_FAILED "Error: Bleeding process failed";
+CM_ SG_ 8716354 AFE_PWM_STOP_RUNNING "Error: Bleeding stop running";
+CM_ SG_ 8716354 AFE_PWM_NOT_RUNNING "Error: BLEEDING is not running";
+CM_ SG_ 8716354 RECTIFIER_3P_STOP_RUNNING "Error: Rectifier stop running";
+CM_ SG_ 8716354 FILTER_STOP_RUNNING "Error: Filter stop running";
+CM_ SG_ 8716354 AFE_NOT_OFF "Error: AFE is not off, but it should be off";
+CM_ SG_ 8716354 RECTIFIER_3P_NOT_RUNNING "Error: Three-phase rectifier is not running, but it should be active";
+CM_ SG_ 8716354 FILTER_NOT_RUNNING "Error: Filter is not running, but it should be active";
+CM_ SG_ 8716354 Main_Contactors_failed "Error: Main contactors did not closed";
+CM_ SG_ 8716354 PRECHARGE_FAILED "Error: Precharge failed";
+CM_ SG_ 8716354 reserved_4 "reserved_4";
+CM_ SG_ 8716354 reserved_3 "reserved_3";
+CM_ SG_ 8716354 reserved_2 "reserved_2";
+CM_ SG_ 8716354 reserved_1 "reserved_1";
+CM_ SG_ 8716354 MODULE_7_RUNNING "Error: Module 7 is running, but it should be off";
+CM_ SG_ 8716354 MODULE_5_RUNNING "Error: Module 5 is running, but it should be off";
+CM_ SG_ 8716354 MODULE_4_RUNNING "Error: Module 4 is running, but it should be off";
+CM_ SG_ 8716354 MODULE_3_RUNNING "Error: Module 3 is running, but it should be off";
+CM_ SG_ 8716354 MODULE_2_RUNNING "Error: Module 2 is running, but it should be off";
+CM_ SG_ 8716354 MODULE_1_RUNNING "Error: Module 1 is running, but it should be off";
+CM_ SG_ 8716354 CABLE_3_5_DC "Critical: DC mismatch between BP25(3) and BP25(5)";
+CM_ SG_ 8716354 CABLE_2_3_DC "Critical: DC mismatch between BP25(2) and BP25(3)";
+CM_ SG_ 8716354 CABLE_1_4_L3 "Critical: Phase mismatch between DMF1(1).L3 and DMF1(4).L3";
+CM_ SG_ 8716354 CABLE_1_4_L2 "Critical: Phase mismatch between DMF1(1).L2 and DMF1(4).L2";
+CM_ SG_ 8716354 CABLE_1_4_L1 "Critical: Grid L1 mismatch between DMF1(1).IN and DMF1(4).IN";
+CM_ SG_ 8716354 CABLE_4_5_L3 "Critical: Phase mismatch between DMF1(4).L3 and BP25(5).W";
+CM_ SG_ 8716354 CABLE_7_L2_L3 "Critical: Phase mismatch between BP25(7).V and BP25(7).W";
+CM_ SG_ 8716354 CABLE_4_5_L2 "Critical: Phase mismatch between DMF1(4).L2 and BP25(5).V";
+CM_ SG_ 8716354 CABLE_7_L1_L2 "Critical: Phase mismatch between BP25(7).U and BP25(7).V";
+CM_ SG_ 8716354 CABLE_4_5_L1 "Critical: Phase mismatch between DMF1(4).L1 and BP25(5).U";
+CM_ SG_ 8716354 CABLE_1_3_L3 "Critical: Phase mismatch between DMF1(1).L3 and BP25(3).W";
+CM_ SG_ 8716354 CABLE_1_2_L3 "Critical: Phase mismatch between DMF1(1).L3 and BP25(2).W";
+CM_ SG_ 8716354 CABLE_1_3_L2 "Critical: Phase mismatch between DMF1(1).L2 and BP25(3).V";
+CM_ SG_ 8716354 CABLE_1_2_L2 "Critical: Phase mismatch between DMF1(1).L2 and BP25(2).V";
+CM_ SG_ 8716354 CABLE_1_3_L1 "Critical: Phase mismatch between DMF1(1).L1 and BP25(3).U";
+CM_ SG_ 8716354 CABLE_1_2_L1 "Critical: Phase mismatch between DMF1(1).L1 and BP25(2).U";
+CM_ BO_ 8716355 "GN01 warning flags, it need to be cleared to \"Enable\" the power converter";
+CM_ SG_ 8716355 V_B_HIGH "Warning: Port A voltage exceeds the maximum operating threshold";
+CM_ SG_ 8716355 V_B_LOW "Warning: Port A voltage is below the minimum operating threshold";
+CM_ SG_ 8716355 V_A_HIGH "Warning: Port A voltage exceeds the maximum operating threshold";
+CM_ SG_ 8716355 V_A_LOW "Warning: Port A voltage is below the minimum operating threshold";
+CM_ SG_ 8716355 MODE_NOT_SUPPORTED "Warning: The selected operating mode is not supported";
+CM_ SG_ 8716355 AFE_DROOP_NOT_ENABLE "Warning: AFE droop control is disabled but expected to be enabled";
+CM_ SG_ 8716355 V_DC_BELOW_AC "Warning: DC voltage measured is too low to generate AC voltage
+
+                It needs to follow this equation::
+                      Vset DC > VAC rms * sqrt(2) * 2 + 20
+        ";
+CM_ SG_ 8716355 V_SET_DC_BELOW_AC "Warning: DC voltage setpoint is lower than the measured AC voltage
+
+                It needs to follow this equation::
+                      Vset DC > VAC rms * sqrt(2) * 2 + 20
+        ";
+CM_ SG_ 8716355 reserved_3 "reserved";
+CM_ SG_ 8716355 grid_selection_wrong "Warning: grid selection is wrong
+
+              converter see an existing grid and the selected grid mode is different 
+        ";
+CM_ SG_ 8716355 grid_not_existing "Warning: The converter is not connected to existing grid ";
+CM_ SG_ 8716355 grid_not_supported "Warning: Grid is not supported 
+
+        
+            3-Phase 230V (line-to-neutral) / 400V (line-to-line), 50Hz
+            3-Phase 277V (line-to-neutral) / 480V (line-to-line), 60Hz
+            3-Phase 120V (line-to-neutral) / 208V (line-to-line), 60Hz
+        ";
+CM_ BO_ 8716356 "Info: Informational status and operating conditions";
+CM_ SG_ 8716356 PHASE_SWAPPED "Info: input phase are swapped";
+CM_ SG_ 8716356 VB_LIMITED_BY_VA "Info: Output voltage VB is limited because input voltage VA is insufficient";
+CM_ SG_ 8716356 CURRENT_LIMITED_BY_POWER "Info: Output current is limited because the maximum power is reached";
+CM_ SG_ 8716356 CURRENT_LIMIT "Info: Current limit has been reached";
+CM_ SG_ 8716356 BLEEDING_DONE "Info: Bleeding process completed successfully";
+CM_ BO_ 8716320 "The setpoints control the behaviour of the DC Port of the GN01. The GN01 operates this port in CVCC mode";
+CM_ SG_ 8716320 Negative_Current_Limit "The maximum current that the GN01 will sink into the DC Port";
+CM_ SG_ 8716320 Positive_Current_Limit "The maximum current that the GN01 will source on the DC Port";
+CM_ SG_ 8716320 Voltage "Control the target dc side voltage. This voltage will be maintained as long as the current required to do so is smaller than the current limits specified in this message";
+CM_ BO_ 8716321 "The setpoints that are currently used by the GN01. This message allows to validate that the setpoints have been properly applied.";
+CM_ SG_ 8716321 Negative_Current_Limit "The maximum amount of current that the GN01 will sink into the DC port";
+CM_ SG_ 8716321 Positive_Current_Limit "The maximum current that the GN01 will source on the DC Port";
+CM_ SG_ 8716321 Voltage "The voltage target of the DC port";
+CM_ BO_ 8716324 "Measurements of the DC Bus";
+CM_ SG_ 8716324 Current "Current through the DC Port";
+CM_ SG_ 8716324 Voltage "Voltage on the DC Port";
+CM_ BO_ 8716322 "Setpoints for applying Droop on the DC Port. Droop is needed for paralleling multiple GN01";
+CM_ SG_ 8716322 Reserved "This space is reserved. This region should contain only '0's";
+CM_ SG_ 8716322 Enable "Enable DC Droop. If this feature is enabled the output voltage of the DC port varies with output current.";
+CM_ SG_ 8716322 Negative_Current_Droop "The droop resistance to apply for current flowing in to the DC Port (DC current is negative)";
+CM_ SG_ 8716322 Positive_Current_Droop "The droop resistance to apply for current flowing out of the DC port (DC current is positive)";
+CM_ BO_ 8716323 "Droop setpoints that are applied by the GN01";
+CM_ SG_ 8716323 Enable "Show is DC Droop is enabled.";
+CM_ SG_ 8716323 Negative_Current_Droop "The droop resistance applied for current flowing in to the DC Port (DC current is negative)";
+CM_ SG_ 8716323 Positive_Current_Droop "The droop resistance applied for current flowing out of the DC port (DC current is positive)";
+CM_ BO_ 8716336 "Setpoints to apply to the AC Port";
+CM_ SG_ 8716336 RMS_Phase_Current_Limit "The maximum RMS current that the GN01 will supply at its AC terminals.
+                This value limits the the magnitute of the AC current and applies
+                symmetrically to both source and sink currents. This limit applies to
+                the current carried by a single phase.
+        ";
+CM_ SG_ 8716336 Q "Reactive Power of the AC port. Positive values cause the GN01 to behave inductively, negative values cause the GN01 to behave capacitively";
+CM_ SG_ 8716336 grid_standard "Grid voltage and frequency standard";
+CM_ SG_ 8716336 phase_config "
+              FOLLOW_N        (0): follow phase + neutral
+              SINGLE_PHASE_N  (1): 1-phase + neutral
+              THREE_PHASE     (2): 3-phase, no neutral (delta load)
+              THREE_PHASE_N   (3): 3-phase + neutral (star load)
+        ";
+CM_ BO_ 8716337 "Setpoints that are currently being applied to the the AC Port";
+CM_ SG_ 8716337 RMS_Phase_Current_Limit "The maximum RMS current that the GN01 will supply at its AC terminals.
+                This value limits the the magnitute of the AC current and applies
+                symmetrically to both source and sink currents. This limit applies to
+                the current carried by a single phase.
+        ";
+CM_ SG_ 8716337 Q "Reactive Power of the AC port. Positive values cause the GN01 to behave inductively, negative values cause the GN01 to behave capacitively";
+CM_ SG_ 8716337 grid_standard "Grid voltage and frequency standard";
+CM_ SG_ 8716337 phase_config "
+              SINGLE_PHASE_N  (1): 1-phase + neutral
+              THREE_PHASE     (2): 3-phase, no neutral (delta load)
+              THREE_PHASE_N   (3): 3-phase + neutral (star load)
+        ";
+CM_ BO_ 8716338 "Setpoints for applying Droop on the DC Port. Droop is needed for paralleling multiple AC01";
+CM_ SG_ 8716338 Reserved "This space is reserved. This region should contain only '0's";
+CM_ SG_ 8716338 Enable_Integral_Action " Enable integral action for the Power loops. Enable this only if connected
+                to the utility grid. If you go off-grid, this bit must be immediately cleared.
+                This is disabled by default on startup.
+        ";
+CM_ SG_ 8716338 Disable_Harmonic_Compensation " Set this flag when harmonic compensation needs to be disabled (i.e, when 
+                the ADB is connected in parallel to the grid or to other diesel generators).
+                Harmonic compensation is enabled by default on startup. 
+        ";
+CM_ SG_ 8716338 Enable "Enable AC Droop. If this feature is enabled the output voltage of the AC port varies with output current.";
+CM_ SG_ 8716338 Virtual_Impedance " Sets the inductive virtual impedance in microhenries (uH). By default
+                    (i.e: after power cycle), this value is 8000 uH
+          ";
+CM_ SG_ 8716338 Volt_droop_nominal " Sets the nominal droop slope for the Voltage in V/MVAr. By default
+                    (i.e: after power cycle), this value is 630 V/MVAr
+          ";
+CM_ SG_ 8716338 Freq_droop_nominal " Sets the nominal droop slope for the Frequency in Hz/MW. By default
+                    (i.e: after power cycle), this value is 40 Hz/MW
+        ";
+CM_ BO_ 8716339 "Droop setpoints currently applied by the AC01.";
+CM_ SG_ 8716339 Reserved "
+          This space is reserved. This region should contain only '0's.
+        ";
+CM_ SG_ 8716339 Enable_Integral_Action "
+          Indicates whether integral action for the power loops is enabled.
+          This should only be enabled when connected to the utility grid.
+        ";
+CM_ SG_ 8716339 Disable_Harmonic_Compensation "
+          Indicates whether harmonic compensation is disabled.
+        ";
+CM_ SG_ 8716339 Enable "
+          Indicates whether AC droop is enabled.
+        ";
+CM_ SG_ 8716339 Virtual_Impedance "
+          The applied inductive virtual impedance in microhenries (uH).
+        ";
+CM_ SG_ 8716339 Volt_droop_nominal "
+          The applied nominal voltage droop slope in V/MVAr.
+          The value represents the voltage variation per MVAr of reactive power.
+        ";
+CM_ SG_ 8716339 Freq_droop_nominal "
+          The applied nominal frequency droop slope in Hz/MW.
+          The value represents the frequency variation per megawatt of active power.
+        ";
+CM_ BO_ 8716340 "Mesured values of the Grid connection";
+CM_ SG_ 8716340 Reserved "This space is reserved. This region contains only '0's";
+CM_ SG_ 8716340 Voltage "Average RMS Line to Line voltage at the AC port";
+CM_ SG_ 8716340 Frequency "Nominal frequency of the grid being formed by the GN01";
+CM_ BO_ 8716341 "Measurements for L1 of the AC port";
+CM_ SG_ 8716341 Q "Reactive power of L1";
+CM_ SG_ 8716341 P "Active power of L1";
+CM_ SG_ 8716341 I "RMS Current of L1";
+CM_ SG_ 8716341 U "RMS Voltage of L1";
+CM_ BO_ 8716342 "Measurements for L2 of the AC port";
+CM_ SG_ 8716342 Q "Reactive power of L2";
+CM_ SG_ 8716342 P "Active power of L2";
+CM_ SG_ 8716342 I "RMS Current of L2";
+CM_ SG_ 8716342 U "RMS Voltage of L1";
+CM_ BO_ 8716343 "Measurements for L3 of the AC port";
+CM_ SG_ 8716343 Q "Reactive power of L3";
+CM_ SG_ 8716343 P "Active power of L3";
+CM_ SG_ 8716343 I "RMS Current of L3";
+CM_ SG_ 8716343 U "RMS Voltage of L3";
+CM_ BO_ 8716344 "Measurements for Neutral of the AC port";
+CM_ SG_ 8716344 I "RMS current via the neutral line.";
+CM_ SG_ 8716344 reserved "reserved";
+CM_ BO_ 8716345 "Custom Setpoints control";
+CM_ SG_ 8716345 Reserved "This space is reserved. This region contains only '0's";
+CM_ SG_ 8716345 Voltage "Target RMS voltage of the grid";
+CM_ SG_ 8716345 Frequency " Target Frequency ";
+CM_ BO_ 8716346 "Custom Setpoints applied.";
+CM_ SG_ 8716346 Reserved "This space is reserved. This region contains only '0's";
+CM_ SG_ 8716346 Voltage "Target RMS voltage of the grid";
+CM_ SG_ 8716346 Frequency " Target Frequency ";
+CM_ BO_ 8716347 "Ac adjustment control , usefull to sync with another grid ";
+CM_ SG_ 8716347 Reserved "This space is reserved. This region contains only '0's";
+CM_ SG_ 8716347 Voltage_shift "Shift target RMS voltage by x percent (±20V) ";
+CM_ SG_ 8716347 Frequency_shift " Shift target Frequency by x percent (±2Hz) ";
+CM_ BO_ 8716348 "Shift target Frequency by x percent";
+CM_ SG_ 8716348 Reserved "This space is reserved. This region contains only '0's";
+CM_ SG_ 8716348 Voltage_shift "Shift target RMS voltage by x percent ";
+CM_ SG_ 8716348 Frequency_shift " Target Frequency ";
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65535;
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_ "GenMsgCycleTime" BO_ 8716353 1000;
+BA_ "GenMsgCycleTime" BO_ 8716354 1000;
+BA_ "GenMsgCycleTime" BO_ 8716355 1000;
+BA_ "GenMsgCycleTime" BO_ 8716356 1000;
+BA_ "GenMsgCycleTime" BO_ 8716320 1000;
+BA_ "GenMsgCycleTime" BO_ 8716321 1000;
+BA_ "GenMsgCycleTime" BO_ 8716324 100;
+BA_ "GenMsgCycleTime" BO_ 8716323 1000;
+BA_ "GenMsgCycleTime" BO_ 8716337 1000;
+BA_ "GenMsgCycleTime" BO_ 8716339 1000;
+BA_ "GenMsgCycleTime" BO_ 8716340 1000;
+BA_ "GenMsgCycleTime" BO_ 8716341 100;
+BA_ "GenMsgCycleTime" BO_ 8716342 100;
+BA_ "GenMsgCycleTime" BO_ 8716343 100;
+BA_ "GenMsgCycleTime" BO_ 8716344 100;
+BA_ "GenMsgCycleTime" BO_ 8716346 1000;
+BA_ "GenMsgCycleTime" BO_ 8716348 200;
+VAL_ 8716352 mode 0 "DC_Controlled" 1 "AC_Controlled" 2 "Bleeding" ;
+VAL_ 8716353 mode 0 "DC_Controlled" 1 "AC_Controlled" 2 "Bleeding" ;
+VAL_ 8716354 NEUTRAL_STOP_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8716354 NEUTRAL_NOT_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8716354 INVERTER_3P_STOP_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8716354 INVERTER_3P_NOT_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8716354 FILTER_NOT_OFF 0 "Clear" 1 "Error" ;
+VAL_ 8716354 BLEEDING_FAILED 0 "Clear" 1 "Error" ;
+VAL_ 8716354 AFE_PWM_STOP_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8716354 AFE_PWM_NOT_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8716354 RECTIFIER_3P_STOP_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8716354 FILTER_STOP_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8716354 AFE_NOT_OFF 0 "Clear" 1 "Error" ;
+VAL_ 8716354 RECTIFIER_3P_NOT_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8716354 FILTER_NOT_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8716354 Main_Contactors_failed 0 "Clear" 1 "Error" ;
+VAL_ 8716354 PRECHARGE_FAILED 0 "Clear" 1 "Error" ;
+VAL_ 8716354 reserved_4 0 "Clear" 1 "Error" ;
+VAL_ 8716354 reserved_3 0 "Clear" 1 "Error" ;
+VAL_ 8716354 reserved_2 0 "Clear" 1 "Error" ;
+VAL_ 8716354 reserved_1 0 "Clear" 1 "Error" ;
+VAL_ 8716354 MODULE_7_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8716354 MODULE_5_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8716354 MODULE_4_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8716354 MODULE_3_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8716354 MODULE_2_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8716354 MODULE_1_RUNNING 0 "Clear" 1 "Error" ;
+VAL_ 8716354 CABLE_3_5_DC 0 "Clear" 1 "Critical" ;
+VAL_ 8716354 CABLE_2_3_DC 0 "Clear" 1 "Critical" ;
+VAL_ 8716354 CABLE_1_4_L3 0 "Clear" 1 "Critical" ;
+VAL_ 8716354 CABLE_1_4_L2 0 "Clear" 1 "Critical" ;
+VAL_ 8716354 CABLE_1_4_L1 0 "Clear" 1 "Critical" ;
+VAL_ 8716354 CABLE_4_5_L3 0 "Clear" 1 "Critical" ;
+VAL_ 8716354 CABLE_7_L2_L3 0 "Clear" 1 "Critical" ;
+VAL_ 8716354 CABLE_4_5_L2 0 "Clear" 1 "Critical" ;
+VAL_ 8716354 CABLE_7_L1_L2 0 "Clear" 1 "Critical" ;
+VAL_ 8716354 CABLE_4_5_L1 0 "Clear" 1 "Critical" ;
+VAL_ 8716354 CABLE_1_3_L3 0 "Clear" 1 "Critical" ;
+VAL_ 8716354 CABLE_1_2_L3 0 "Clear" 1 "Critical" ;
+VAL_ 8716354 CABLE_1_3_L2 0 "Clear" 1 "Critical" ;
+VAL_ 8716354 CABLE_1_2_L2 0 "Clear" 1 "Critical" ;
+VAL_ 8716354 CABLE_1_3_L1 0 "Clear" 1 "Critical" ;
+VAL_ 8716354 CABLE_1_2_L1 0 "Clear" 1 "Critical" ;
+VAL_ 8716355 V_B_HIGH 0 "Clear" 1 "Warning" ;
+VAL_ 8716355 V_B_LOW 0 "Clear" 1 "Warning" ;
+VAL_ 8716355 V_A_HIGH 0 "Clear" 1 "Warning" ;
+VAL_ 8716355 V_A_LOW 0 "Clear" 1 "Warning" ;
+VAL_ 8716355 MODE_NOT_SUPPORTED 0 "Clear" 1 "Warning" ;
+VAL_ 8716355 AFE_DROOP_NOT_ENABLE 0 "Clear" 1 "Warning" ;
+VAL_ 8716355 V_DC_BELOW_AC 0 "Clear" 1 "Warning" ;
+VAL_ 8716355 V_SET_DC_BELOW_AC 0 "Clear" 1 "Warning" ;
+VAL_ 8716355 reserved_3 0 "Clear" 1 "Warning" ;
+VAL_ 8716355 grid_selection_wrong 0 "Clear" 1 "Warning" ;
+VAL_ 8716355 grid_not_existing 0 "Clear" 1 "Warning" ;
+VAL_ 8716355 grid_not_supported 0 "Clear" 1 "Warning" ;
+VAL_ 8716356 PHASE_SWAPPED 0 "Clear" 1 "Info" ;
+VAL_ 8716356 VB_LIMITED_BY_VA 0 "Clear" 1 "Info" ;
+VAL_ 8716356 CURRENT_LIMITED_BY_POWER 0 "Clear" 1 "Info" ;
+VAL_ 8716356 CURRENT_LIMIT 0 "Clear" 1 "Info" ;
+VAL_ 8716356 BLEEDING_DONE 0 "Clear" 1 "Info" ;
+VAL_ 8716322 Enable 1 "Enabled" 0 "Disabled" ;
+VAL_ 8716323 Enable 1 "Enabled" 0 "Disabled" ;
+VAL_ 8716336 grid_standard 0 "FOLLOW" 1 "EU_230V_50HZ" 2 "US_277V_60HZ" 3 "US_120V_60HZ" 7 "CUSTOM" ;
+VAL_ 8716336 phase_config 0 "FOLLOW_N" 1 "SINGLE_PHASE_N" 2 "THREE_PHASE" 3 "THREE_PHASE_N" 4 "SPLIT_PHASE" ;
+VAL_ 8716337 grid_standard 0 "FOLLOW" 1 "EU_230V_50HZ" 2 "US_277V_60HZ" 3 "US_120V_60HZ" 7 "CUSTOM" ;
+VAL_ 8716337 phase_config 0 "FOLLOW_N" 1 "SINGLE_PHASE_N" 2 "THREE_PHASE" 3 "THREE_PHASE_N" ;
+VAL_ 8716338 Enable_Integral_Action 1 "Enabled" 0 "Disabled" ;
+VAL_ 8716338 Disable_Harmonic_Compensation 0 "Enabled" 1 "Disabled" ;
+VAL_ 8716338 Enable 1 "Enabled" 0 "Disabled" ;
+VAL_ 8716339 Enable_Integral_Action 1 "Enabled" 0 "Disabled" ;
+VAL_ 8716339 Disable_Harmonic_Compensation 0 "Enabled" 1 "Disabled" ;
+VAL_ 8716339 Enable 1 "Enabled" 0 "Disabled" ;
+
+
+

@@ -12,7 +12,7 @@ between controllers and BMS.
 !!! tip
     For the purpose of evaluating quickly our solution in a development/prototyping environment,
     their exist a special operating mode in which, under specific conditions, no user code is needed to
-    reach a functional DC charge. See [No code mode](charge-controllers/evcc_no_code_mode.md).
+    reach a functional DC charge. See [No code mode](../vehicle-features/evcc_no_code_mode.md).
 
 
 ## Scope of this manual

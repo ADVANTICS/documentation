@@ -1,0 +1,1 @@
+../../../shared-charge-controllers/charger-configuration/ocpp.md

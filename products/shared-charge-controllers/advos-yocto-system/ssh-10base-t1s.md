@@ -5,41 +5,41 @@ The 10base-T1S interface used is EVB-LAN8670-USB from Microchip.
 
 Download the drivers [ from the official webpage ](https://www.microchip.com/en-us/development-tool/ev08l38a)
 
-![download](./images/download.png)
+{{ figure('./images/download.png', 'Downloading the EVB-LAN8670-USB drivers from Microchip') }}
 
 Extract the downloaded zip file by right clicking the downloaded file and choosing Extract all.
 
-![extract](./images/extract-1.png)
+{{ figure('./images/extract-1.png', 'Extracting the driver archive with "Extract all"') }}
 
-![extract](./images/extract.webp)
+{{ figure('./images/extract.webp', 'Choosing where to extract the driver archive') }}
 
 Execute the installer.
 
-![install](./images/start-install.png)
+{{ figure('./images/start-install.png', 'Starting the driver installer') }}
 
 Follow the instructions of the installer.
 
-![install-1](./images/install-1.webp)
+{{ figure('./images/install-1.webp', 'Driver installer, first step') }}
 
 Recommendation: Use the default path for the installation.
 
-![install-2](./images/install-2.webp)
+{{ figure('./images/install-2.webp', 'Driver installer, installation path -- keep the default') }}
 
-![install-3](./images/install-3.webp)
+{{ figure('./images/install-3.webp', 'Driver installer, installation complete') }}
 
 Go to Network Connections and check that there is a new interface type 10base-T1S.
 
-![interfaces](./images/interfaces.png)
+{{ figure('./images/interfaces.png', 'The new 10base-T1S interface in Windows Network Connections') }}
 
 Open a new command prompt and ping your controller using its mDNS hostname. You can find it [here](./connecting.md). It should work without further action.
 
-![cmd](./images/cmd.png)
+{{ figure('./images/cmd.png', 'Opening a Windows command prompt') }}
 
-![ping](./images/ping.webp)
+{{ figure('./images/ping.webp', 'Pinging the controller by its mDNS hostname') }}
 
 If the ping was successful, you should be able to ssh in the controller. The default password can be found [here](./connecting.md).
 
-![ssh](./images/ssh.webp)
+{{ figure('./images/ssh.webp', 'Logging in to the controller over SSH') }}
 
 ## SSH From Linux
 

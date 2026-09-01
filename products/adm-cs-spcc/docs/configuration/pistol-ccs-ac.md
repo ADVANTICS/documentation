@@ -1,0 +1,1 @@
+../../../shared-charge-controllers/charger-configuration/pistol-ccs-ac.md

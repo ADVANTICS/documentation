@@ -89,7 +89,6 @@ skinparam legend {
 }
 
 hide footbox
-skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2
 skinparam roundcorner 20
 
@@ -135,7 +134,7 @@ The content of this initialisation behaves differently from communication protoc
 rather quick, but requires the user to push a start button on the charger. In CCS it can be a few
 tens of seconds, especially if payment authorisation is carried on.
 
-[Advantics_Controller_Status](charge-controllers/secc_generic/can_v3.md#Advantics_Controller_Status) message reports a
+[Advantics_Controller_Status](can_v3.md#Advantics_Controller_Status) message reports a
 state of *Negotiating_Connection* at first.
 Once done with the negotiation, it reports *Connected_With_Full_Info*.
 
@@ -143,10 +142,10 @@ However, in CCS, if the charger is configured to use external authorisation, and
 the sequence flags, you will have an intermediate state *CCS_Authorisation_Process*.
 The controller, and the CCS communication itself, will stay in this state as long as the customer
 controller does not set the
-flag [CCS_Authorisation_Done](charge-controllers/secc_generic/can_v3.md#Sequence_Control-CCS_Authorisation_Done) to
+flag [CCS_Authorisation_Done](can_v3.md#Sequence_Control-CCS_Authorisation_Done) to
 `Done` (value 1).
 Once `Done` is set, the controller
-checks [CCS_Authorisation_Valid](charge-controllers/secc_generic/can_v3.md#Sequence_Control-CCS_Authorisation_Valid)
+checks [CCS_Authorisation_Valid](can_v3.md#Sequence_Control-CCS_Authorisation_Valid)
 flag. If set
 to `Valid` (value 1), the communication continue. If set to `Invalid` (value 0), the controller
 request a stop of communication to the vehicle (and it won't allow the vehicle to "force-through"
@@ -154,17 +153,17 @@ the sequence). If not using CCS external authorisation and sequence flags, the c
 consider user is always authorised and continues directly.
 
 When *Connected_With_Full_Info*, it also sends
-a [New_Charge_Session](charge-controllers/secc_generic/can_v3.md#New_Charge_Sessions) message alongside the other
+a [New_Charge_Session](can_v3.md#New_Charge_Session) message alongside the other
 messages carrying
 relevant information provided by the vehicle. If the controller is configured to use the sequence
 flags, it will wait
-that [Charge_Parameters_Done](charge-controllers/secc_generic/can_v3.md#Sequence_Control-Charge_Parameters_Done) is set
+that [Charge_Parameters_Done](can_v3.md#Sequence_Control-Charge_Parameters_Done) is set
 to `Done` (value 1) to
 continue to the next step (insulation test). Before that, as long as it is `Not_Done` (value 0), the
 customer controller can modify the content of
-the [DC_Power_Parameters](charge-controllers/secc_generic/can_v3.md#DC_Power_Parameters) message. If not using the
+the [DC_Power_Parameters](can_v3.md#DC_Power_Parameters) message. If not using the
 sequence flags then it continues directly with either the static limit values set in the config file,
-or whatever has been sent in [DC_Power_Parameters](charge-controllers/secc_generic/can_v3.md#DC_Power_Parameters) before
+or whatever has been sent in [DC_Power_Parameters](can_v3.md#DC_Power_Parameters) before
 that.
 
 !!! tip
@@ -239,7 +238,6 @@ skinparam legend {
 
 hide footbox
 title CCS AC charge session over Basic Signaling (ie. PWM)
-skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2
 skinparam roundcorner 20
 
@@ -394,7 +392,6 @@ skinparam legend {
 
 hide footbox
 title CCS AC charge session over Basic Signaling (ie. PWM)
-skinparam ParticipantPadding 20
 skinparam sequenceArrowThickness 2
 skinparam roundcorner 20
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" ?>
 <NetworkDefinition xmlns="http://kayak.2codeornot2code.org/1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="KCD_Definition.xsd">
-  <Document name="ADM_PC_BI25" version="1" author="[...]" company="Advantics" date="2019-11-04"/>
+  <Document name="ADM_PC_BI25" version="3.4.0" author="Balaje" company="Advantics" date="2026-04-09"/>
   <Node id="0" name="User"/>
   <Node id="8" name="ADM_PC_BI25"/>
   <Bus name="ADM_PC_BI25" baudrate="500000">
@@ -223,9 +223,17 @@
         <Notes>Indicates if converter is ready for operation.</Notes>
         <Consumer> <NodeRef id="0"/> </Consumer>
       </Signal>
+      <Signal name="factory_mode" offset="10" length="1" endianess="little">
+        <Notes>Indicates if converter is in factory mode.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
+      <Signal name="Bleeding_Mode" offset="11" length="1" endianess="little">
+        <Notes>Indicates if converter is in Bleeding mode.</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+      </Signal>
     </Message>
 
-    <Message id="0x88004" length="3" name="DAB_Faults" interval="100" format="extended">
+    <Message id="0x88004" length="3" name="DAB_Faults" interval="1000" format="extended">
       <Notes>Fault bitfield</Notes>
       <Producer> <NodeRef id="8"/> </Producer>
       <Signal name="Protection_trip_internal" offset="0" length="1" endianess="little">
@@ -434,6 +442,15 @@
           <Label name="fault" value="1" type="error" />
         </LabelSet>
       </Signal>
+      <Signal name="Low_Input_voltage" offset="23" length="1" endianess="little">
+        <Notes>
+            This flag is asserted when the Input voltage is low than 500V.
+        </Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+        <LabelSet>
+          <Label name="fault" value="1" type="error" />
+        </LabelSet>
+      </Signal>
     </Message>
 
     <Message id="0x88005" length="8" name="DAB_Voltages_Currents" interval="100" format="extended">
@@ -512,7 +529,7 @@
       </Signal>
     </Message>
 
-    <Message id="0x88009" length="8" name="DAB_Temperatures" interval="100" format="extended">
+    <Message id="0x88009" length="8" name="DAB_Temperatures" interval="1000" format="extended">
       <Notes>Readouts of the module temperature sensors</Notes>
       <Producer><NodeRef id="8"/></Producer>
       <Signal name="Temp_Bar_In" offset="0" length="16">
@@ -537,7 +554,7 @@
       </Signal>
     </Message>
 
-    <Message id="0x8800A" length="4" name="DAB_Setpoints_PWM_Phase" interval="100" format="extended">
+    <Message id="0x8800A" length="4" name="DAB_Setpoints_PWM_Phase" interval="1000" format="extended">
       <Notes>PWM duty cycle control</Notes>
       <Producer> <NodeRef id="8"/> </Producer>
       <Signal name="Phase_A" offset="0" length="16">
@@ -613,6 +630,10 @@
       </Signal>
       <Signal name="Gain_mode_on" offset="5" length="1" endianess="little">
         <Notes>Enable the GAIN mode (this will set the converter in open loop).</Notes>
+        <Consumer><NodeRef id="8"/></Consumer>
+      </Signal>
+      <Signal name="Bleeding_On" offset="6" length="1" endianess="little">
+        <Notes>Enable the Bleeding mode (this will set the converter in open loop).</Notes>
         <Consumer><NodeRef id="8"/></Consumer>
       </Signal>
     </Message>
@@ -995,16 +1016,7 @@
       </Signal>
     </Message>
 
-    <Message id="0x88090" length="1" name="Data_test_out" interval="100" format="extended">
-      <Notes>Readouts of the module temperature sensors</Notes>
-      <Producer> <NodeRef id="8"/> </Producer>
-      <Signal name="gain" offset="0" length="8">
-        <Notes>Gain mode select</Notes>
-         <Consumer><NodeRef id="0"/></Consumer>
-      </Signal>
-    </Message>
-
-    <Message id="0x88091" length="4" name="Data_phase_shift" interval="100" format="extended">
+    <Message id="0x88091" length="4" name="Data_phase_shift" interval="1000" format="extended">
       <Notes>Readouts of the module phase shifts</Notes>
       <Producer> <NodeRef id="8"/> </Producer>
       <Signal name="phase_shift_a" offset="0" length="16">
@@ -1073,5 +1085,55 @@
       </Signal>
     </Message>
 
+    <Message id="0x80009" length="2" name="DAB_Flags" format="extended">
+      <Notes>All Flags of the converter</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Signal name="factory_mode" offset="0" length="1">
+        <Notes>Enable Factory mode</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+      </Signal>
+      <Signal name="Bleeding_Side_A" offset="1" length="1">
+        <Notes>Enable Bleeding_Side_A mode</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+      </Signal>
+      <Signal name="Bleeding_Side_B" offset="2" length="1">
+        <Notes>Enable Bleeding_Side_B mode</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+      </Signal>
+    </Message>
+
+    <Message id="0x880FF" length="4" name="CLLC_Fault_Label" interval="1000" format="extended">
+      <Notes>This message tells the General Status of the converter.</Notes>
+      <Producer> <NodeRef id="8"/> </Producer>
+      <Signal name="Faults" offset="0" length="16" endianess="little">
+        <Notes>Faults state</Notes>
+        <Consumer> <NodeRef id="0"/> </Consumer>
+          <LabelSet>
+            <Label name="Current_Side_A_overcurrent" value="1"/>
+            <Label name="Current_Side_B_overcurrent" value="2"/>
+            <Label name="Current_Phase_Side_A_overcurrent" value="3"/>
+            <Label name="Current_Phase_Side_B_overcurrent" value="4"/>
+            <Label name="Voltage_Side_A_undervoltage" value="5"/>
+            <Label name="Voltage_Side_A_overvoltage" value="6"/>
+            <Label name="Voltage_Side_B_undervoltage" value="7"/>
+            <Label name="Voltage_Side_B_overvoltage" value="8"/>
+            <Label name="Bar_A_overtemperature" value="9"/>
+            <Label name="Bar_B_overtemperature" value="10"/>
+            <Label name="Transformer_1_overtemperature" value="11"/>
+            <Label name="Transformer_2_overtemperature" value="12"/>
+            <Label name="Low_Input_voltage" value="13"/>
+            <Label name="EEPROM_failure" value="14"/>
+          </LabelSet>
+      </Signal>
+    </Message>
+
+    <Message id="0x800AA" length="2" name="ADB_Schedule_Flag" format="extended">
+      <Notes>Chnage to preset of CAN messages for ADB converter</Notes>
+      <Producer> <NodeRef id="0"/> </Producer>
+      <Signal name="ADB_Preset_1" offset="0" length="1">
+        <Notes>Enable Preset mode</Notes>
+        <Consumer> <NodeRef id="8"/> </Consumer>
+      </Signal>
+    </Message>
   </Bus>
 </NetworkDefinition>

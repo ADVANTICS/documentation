@@ -9,21 +9,23 @@ This document describes how to configure TLS and Plug’n’Charge (PnC) for con
 
 ### Certificates
 
-You need to provision the following certificates and keys inside `/app/certs` volume of `ccs-evcc` application:
+You need to provision the following certificates and keys in the directory that is bind-mounted into the `ccs-evcc` container as `/app/certs` — `/srv/certs` on the ADM-CS-SECC and ADM-CS-EVCC, or `certs` under the Docker Compose profile in use (default `/etc/advantics/default/certs`) on the ADM-CS-SPCC and ADM-CS-MEVC. The paths written in `config.cfg` stay `/app/certs/...`, because the application reads them inside the container:
 
-- [The V2G Root CA](../tls_pnc/pnc_primer.md#Certificates-and-certificate-chains), in `pem` format
+- [The V2G Root CA](../tls_pnc/pnc_primer.md#certificates-and-certificate-chains), in `pem` format
 - The PnC contract and its associated certificate chain, in `pkcs12` format
-    <!-- - This is a single file that is usually not directly provided by the PKI, and therefore you need to build it yourself with the following command:
-        
-        `openssl pkcs12 -export -inkey <MO_CONTRACT_PRIVATE_KEY.pem> -in <MO_CONTRACT_LEAF_CERTIFICATE.pem> -name mo_cert -certfile <INTERMEDIATE_MO_SUB_CA_CERTIFICATES.pem> -passin "pass:" -passout "pass:" -out moCertChain.p12`
-        
-        - `MO_CONTRACT_PRIVATE_KEY.pem`: The actual [PnC contract](../tls_pnc/pnc_primer.md#mobility-operator) key. If protected by a password, don’t forget to customise the `-passin` argument (see `man openssl-passphrase-options` for more details about how to provide that password in a more confidential way).
-        - `MO_CONTRACT_LEAF_CERTIFICATE.pem`: The leaf certificate associated with the above private key.
-        - `INTERMEDIATE_MO_SUB_CA_CERTIFCATES.pem`: A certificate chain of the 2 MO Sub CAs certificate. If the PKI provided only separate certificate files, you can build it with the following command (order matters):
-            
-            `cat <MO_SUB_CA2_CERTIFICATE.pem> <MO_SUB_CA1_CERTIFICATE.pem> > <INTERMEDIATE_MO_SUB_CA_CERTIFICATES.pem>`
-            
-        - `moCertChain.p12` is the resulting file you have to provision on the controller. -->
+<!--
+- This is a single file that is usually not directly provided by the PKI, and therefore you need to build it yourself with the following command:
+
+       `openssl pkcs12 -export -inkey <MO_CONTRACT_PRIVATE_KEY.pem> -in <MO_CONTRACT_LEAF_CERTIFICATE.pem> -name mo_cert -certfile <INTERMEDIATE_MO_SUB_CA_CERTIFICATES.pem> -passin "pass:" -passout "pass:" -out moCertChain.p12`
+
+       - `MO_CONTRACT_PRIVATE_KEY.pem`: The actual [PnC contract](../tls_pnc/pnc_primer.md#mobility-operator) key. If protected by a password, don’t forget to customise the `-passin` argument (see `man openssl-passphrase-options` for more details about how to provide that password in a more confidential way).
+       - `MO_CONTRACT_LEAF_CERTIFICATE.pem`: The leaf certificate associated with the above private key.
+       - `INTERMEDIATE_MO_SUB_CA_CERTIFCATES.pem`: A certificate chain of the 2 MO Sub CAs certificate. If the PKI provided only separate certificate files, you can build it with the following command (order matters):
+
+           `cat <MO_SUB_CA2_CERTIFICATE.pem> <MO_SUB_CA1_CERTIFICATE.pem> > <INTERMEDIATE_MO_SUB_CA_CERTIFICATES.pem>`
+
+       - `moCertChain.p12` is the resulting file you have to provision on the controller. 
+-->
 
 ### Config file
 This configuration can be done using the [graphical user interface](../../advos-yocto-system/csm-web-ui.md) or by modifying directly the following sections of the config file:
@@ -43,19 +45,21 @@ allow_no_cert = true
 ca_file = /app/certs/.../V2G Root CA.pem
 ```
 
-## SECC
+## SECC/SPCC
 
 ### Certificates
 
-You need to provision the following certificates and keys inside `/app/certs` volume of `ccs-secc`:
+You need to provision the following certificates and keys in the directory that is bind-mounted into the `ccs-secc` container as `/app/certs` — `/srv/certs` on the ADM-CS-SECC and ADM-CS-EVCC, or `certs` under the Docker Compose profile in use (default `/etc/advantics/default/certs`) on the ADM-CS-SPCC and ADM-CS-MEVC. The paths written in `config.cfg` stay `/app/certs/...`, because the application reads them inside the container:
 
 - [The V2G Root CA](../tls_pnc/pnc_primer.md#certificates-and-certificate-chains), in `pem` format
 - The MO Root CA, if different from the V2G Root CA
 - The [CPO EVSE leaf](../tls_pnc/pnc_primer.md#certificates-and-certificate-chains) certificate, and its associated private key, in `pem` format (but private key can also be provided in `pkcs8` format directly)
 - The CPO certificate chain of the 2 CPO Sub CAs plus the Root CA (which should be the V2G Root CA)
-    <!-- - If the PKI provided only separate certificate files, you can build it with the following command (order matters):
-        
-        `cat <CPO_SUB_CA2_CERTIFICATE.pem> <CPO_SUB_CA1_CERTIFICATE.pem> <V2G Root CA.pem> > cpoCertChain.pem` -->
+<!--
+- If the PKI provided only separate certificate files, you can build it with the following command (order matters):
+
+       `cat <CPO_SUB_CA2_CERTIFICATE.pem> <CPO_SUB_CA1_CERTIFICATE.pem> <V2G Root CA.pem> > cpoCertChain.pem` 
+-->
         
 
 ### Config file
@@ -82,19 +86,20 @@ server_certificate_chain = /app/certs/.../cpoCertChain.pem
 
 # For ISO 15118-20
 
-## EVCC
+## EVCC/MEVC
 
 ### Certificates
 
-You need to provision the following certificates and keys inside `/app/certs` volume of `ccs-evcc`:
+You need to provision the following certificates and keys in the directory that is bind-mounted into the `ccs-evcc` container as `/app/certs` — `/srv/certs` on the ADM-CS-SECC and ADM-CS-EVCC, or `certs` under the Docker Compose profile in use (default `/etc/advantics/default/certs`) on the ADM-CS-SPCC and ADM-CS-MEVC. The paths written in `config.cfg` stay `/app/certs/...`, because the application reads them inside the container:
 
-- [The V2G Root CA](../tls_pnc/pnc_primer.md#Certificates-and-certificate-chains), in `pem` format
+- [The V2G Root CA](../tls_pnc/pnc_primer.md#certificates-and-certificate-chains), in `pem` format
 - The vehicle leaf certificate, and its associated private key, in `pem` format (but private key can also be provided in `pkcs8` format directly)
 - The vehicle certificate chain of the the 2 vehicle Sub CAs plus the Root CA (which should be the V2G Root CA)
-    <!-- - If the PKI provided only separate certificate files, you can build it with the following command (order matters):
-        
-        `cat <VEHICLE_SUB_CA2_CERTIFICATE.pem> <VEHICLE_SUB_CA1_CERTIFICATE.pem> <V2G Root CA.pem> > vehicleCertChain.pem`
-         -->
+<!--
+- If the PKI provided only separate certificate files, you can build it with the following command (order matters):
+
+       `cat <VEHICLE_SUB_CA2_CERTIFICATE.pem> <VEHICLE_SUB_CA1_CERTIFICATE.pem> <V2G Root CA.pem> > vehicleCertChain.pem`
+-->
 
 <aside>
 👉
@@ -126,19 +131,20 @@ keyfile = /app/certs/.../Vehicle Leaf private key.pem
 server_certificate_chain = vehicleCertChain.pem
 ```
 
-## SECC
+## SECC/SPCC
 
 ### Certificates
 
-You need to provision the following certificates and keys inside `/app/certs` volume of `ccs-secc`:
+You need to provision the following certificates and keys in the directory that is bind-mounted into the `ccs-secc` container as `/app/certs` — `/srv/certs` on the ADM-CS-SECC and ADM-CS-EVCC, or `certs` under the Docker Compose profile in use (default `/etc/advantics/default/certs`) on the ADM-CS-SPCC and ADM-CS-MEVC. The paths written in `config.cfg` stay `/app/certs/...`, because the application reads them inside the container:
 
-- [The V2G Root CA](../tls_pnc/pnc_primer.md#Certificates-and-certificate-chains), in `pem` format
-- The [CSO EVSE leaf](../tls_pnc/pnc_primer.md#Certificates-and-certificate-chains) certificate, and its associated private key, in `pem` format (but private key can also be provided in `pkcs8` format directly)
+- [The V2G Root CA](../tls_pnc/pnc_primer.md#certificates-and-certificate-chains), in `pem` format
+- The [CSO EVSE leaf](../tls_pnc/pnc_primer.md#certificates-and-certificate-chains) certificate, and its associated private key, in `pem` format (but private key can also be provided in `pkcs8` format directly)
 - The CSO certificate chain of the the 2 CSO Sub CAs plus the Root CA (which should be the V2G Root CA)
-    <!-- - If the PKI provided only separate certificate files, you can build it with the following command (order matters):
-        
-        `cat <CSO_SUB_CA2_CERTIFICATE.pem> <CSO_SUB_CA1_CERTIFICATE.pem> <V2G Root CA.pem> > csoCertChain.pem`
-         -->
+<!--
+- If the PKI provided only separate certificate files, you can build it with the following command (order matters):
+
+       `cat <CSO_SUB_CA2_CERTIFICATE.pem> <CSO_SUB_CA1_CERTIFICATE.pem> <V2G Root CA.pem> > csoCertChain.pem`
+-->
 
 <aside>
 ℹ️

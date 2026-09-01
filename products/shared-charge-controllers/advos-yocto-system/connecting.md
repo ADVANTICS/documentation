@@ -9,7 +9,7 @@ The default way to access controllers running the new AdvOS is through their web
 
 Then in your browser you should see something like this:
 
-![CSM Web UI landing page](./images/csm-ui-dashboard-status.png ":size=80%")
+{{ figure('./images/csm-ui-dashboard-status.png', 'CSM Web UI landing page', size='80%') }}
 
 You can find documentation on how to use the UI under [CSM Web UI](../advos-yocto-system/csm-web-ui.md).
 

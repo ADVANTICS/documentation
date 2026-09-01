@@ -68,8 +68,7 @@ Manufacturers of stationary and portable charging stations, integrators, researc
 
 ## Pinout
 
-![Pinout](images/charge-station-controller-pinout.jpg "Pinout")
-<figcaption style="text-align: center">Pinout</figcaption>
+{{ figure('assets/charge-station-controller-pinout.jpg', 'Pinout of the ADM-CS-SECC') }}
 
 ## Typical use case
 
@@ -82,10 +81,10 @@ Manufacturers of stationary and portable charging stations, integrators, researc
 - [Rescue Vehicules](https://advantics.fr/applications/ev-charging/rescue-vehicles/)
 
 Each EV charging station design is different – requiring a different set of interfaces or equipment. To gain some understanding about the minimum requirements, you can study the following documents:
+
 - Standard IEC 61851-1, Electric vehicle conductive charging system – Part 1: General requirements
 - Standard IEC 61851-21-2, Electric vehicle requirements for conductive connection to an AC/DC supply
 - CharIN association – [CCS implementation guide](https://www.charinev.org/ccs-at-a-glance/ccs-implementation-guideline/)
 
 
-![Functionality overview](images/functionalities.jpg "Functionality overview")
-<figcaption style="text-align: center">Functionality overview</figcaption>
+{{ figure('assets/functionalities.jpg', 'Functionality overview of the ADM-CS-SECC') }}

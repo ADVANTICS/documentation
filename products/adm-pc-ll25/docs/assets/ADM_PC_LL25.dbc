@@ -1,0 +1,506 @@
+VERSION "1"
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: User ADM_PC_LL25
+
+
+BO_ 2147713024 LLC_Identification: 8 ADM_PC_LL25
+ SG_ SN_number : 32|32@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Stack_position : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ HW_variant : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ HW_revision : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Device_type : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2147713025 LLC_FwInfo: 8 ADM_PC_LL25
+ SG_ FW_info_mux M : 56|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FW_datecode_13 m3 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FW_datecode_6 m2 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FW_revision_13 m1 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FW_revision_6 m0 : 48|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FW_datecode_12 m3 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FW_datecode_5 m2 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FW_revision_12 m1 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FW_revision_5 m0 : 40|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FW_datecode_11 m3 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FW_datecode_4 m2 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FW_revision_11 m1 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FW_revision_4 m0 : 32|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FW_datecode_10 m3 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FW_datecode_3 m2 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FW_revision_10 m1 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FW_revision_3 m0 : 24|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FW_datecode_9 m3 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FW_datecode_2 m2 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FW_revision_9 m1 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FW_revision_2 m0 : 16|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FW_datecode_8 m3 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FW_datecode_1 m2 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FW_revision_8 m1 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FW_revision_1 m0 : 8|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FW_datecode_7 m3 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FW_datecode_0 m2 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FW_revision_7 m1 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ FW_revision_0 m0 : 0|8@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2147713026 LLC_Debug: 8 ADM_PC_LL25
+ SG_ Data_3 : 48|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Data_2 : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Data_1 : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Status_Error_Code : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2147713027 LLC_Phase_Current_U_V_W: 6 ADM_PC_LL25
+ SG_ Phase_W : 32|16@1- (0.01,0) [0|0] "A" Vector__XXX
+ SG_ Phase_V : 16|16@1- (0.01,0) [0|0] "A" Vector__XXX
+ SG_ Phase_U : 0|16@1- (0.01,0) [0|0] "A" Vector__XXX
+
+BO_ 2147713028 LLC_Voltages_Currents: 6 ADM_PC_LL25
+ SG_ Voltage_Out : 32|16@1- (0.1,0) [0|0] "V" Vector__XXX
+ SG_ Voltage_In : 16|16@1- (0.1,0) [0|0] "V" Vector__XXX
+ SG_ Current_Out : 0|16@1- (0.01,0) [0|0] "A" Vector__XXX
+
+BO_ 2147713029 LLC_Temperatures: 6 ADM_PC_LL25
+ SG_ Temp_Transformer : 32|16@1- (0.01,0) [0|0] "°C" Vector__XXX
+ SG_ Temp_Bridge : 16|16@1- (0.01,0) [0|0] "°C" Vector__XXX
+ SG_ Temp_Rectifier : 0|16@1- (0.01,0) [0|0] "°C" Vector__XXX
+
+BO_ 2147713030 LLC_Faults: 3 ADM_PC_LL25
+ SG_ Rectifier_overtemperature : 21|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Phase_W_overcurrent : 20|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Phase_V_overcurrent : 19|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Phase_U_overcurrent : 18|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Ground_fault : 17|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ EEPROM_failure : 16|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Measurement_system_failure : 15|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Control_response_timedout : 14|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ CAN_failure : 13|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Voltage_loop_failure : 12|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Current_loop_failure : 11|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Switching_failure : 10|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Current_sharing_failure : 9|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Transformer_overtemperature : 8|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ MOSFET_overtemperature : 7|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Input_undervoltage : 6|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Input_overvoltage : 5|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Output_undervoltage : 4|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Output_overvoltage : 3|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Output_overcurrent : 2|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Protection_trip_external : 1|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Protection_trip_internal : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2147713031 LLC_Status: 3 ADM_PC_LL25
+ SG_ PWM_v2_mode : 9|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ PFC_voltage_loop_mode : 8|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ PFC_current_loop_mode : 7|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Precharge_mode : 6|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Slave : 5|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Master : 4|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Voltage_loop_mode : 3|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Current_loop_mode : 2|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ PWM_mode : 1|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Converter_running : 0|1@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2147713032 LLC_Setpoints: 6 ADM_PC_LL25
+ SG_ Voltage_setpoint : 32|16@1+ (0.1,0) [0|0] "V" Vector__XXX
+ SG_ Current_setpoint : 16|16@1+ (0.01,0) [0|0] "A" Vector__XXX
+ SG_ PWM_frequency : 0|16@1+ (10,0) [0|0] "Hz" Vector__XXX
+
+BO_ 2147713037 LLC_PWM_Setpoints: 8 ADM_PC_LL25
+ SG_ PWM_Lock : 50|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ PWM_Mode : 48|2@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ PWM_Deadtime : 32|16@1+ (1,0) [0|65535] "-" Vector__XXX
+ SG_ PWM_Duty_Cycle : 16|16@1+ (1,0) [0|65535] "-" Vector__XXX
+ SG_ PWM_Period : 0|16@1+ (1,0) [0|65535] "-" Vector__XXX
+
+BO_ 2147713033 LLC_Voltages_External: 4 ADM_PC_LL25
+ SG_ Voltage_EXT2 : 16|16@1- (0.1,0) [0|0] "V" Vector__XXX
+ SG_ Voltage_EXT1 : 0|16@1- (0.1,0) [0|0] "V" Vector__XXX
+
+BO_ 2147713040 _LLC_Voltages_Currents_Raw: 6 ADM_PC_LL25
+ SG_ Voltage_Out_Raw : 32|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Voltage_In_Raw : 16|16@1- (1,0) [0|0] "" Vector__XXX
+ SG_ Current_Out_Raw : 0|16@1- (1,0) [0|0] "" Vector__XXX
+
+BO_ 2147713034 LLC_Ground_Fault: 5 ADM_PC_LL25
+ SG_ Gnd_test_enabled : 34|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Gnd_monitor_enabled : 33|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Valid : 32|1@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ InsulationResistance : 0|32@1- (0.01,0) [0|0] "kOhm" Vector__XXX
+
+BO_ 2147713035 _LLC_Ground_Fault_Raw: 2 ADM_PC_LL25
+ SG_ InsulationResistance_Raw : 0|16@1- (1,0) [0|0] "" Vector__XXX
+
+BO_ 2147713036 _LLC_External_Raw: 4 ADM_PC_LL25
+ SG_ External2_Raw : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ External1_Raw : 0|16@1+ (1,0) [0|0] "" Vector__XXX
+
+BO_ 2147680321 LLC_Mode_Control: 1 User
+ SG_ PWM_v2_mode_ON : 7|1@1+ (1,0) [0|0] ""  ADM_PC_LL25
+ SG_ _PFC_Voltage_feedback_ON : 6|1@1+ (1,0) [0|0] ""  ADM_PC_LL25
+ SG_ _PFC_Current_feedback_ON : 5|1@1+ (1,0) [0|0] ""  ADM_PC_LL25
+ SG_ _Precharge_ON : 4|1@1+ (1,0) [0|0] ""  ADM_PC_LL25
+ SG_ Voltage_feedback_ON : 3|1@1+ (1,0) [0|0] ""  ADM_PC_LL25
+ SG_ Current_feedback_ON : 2|1@1+ (1,0) [0|0] ""  ADM_PC_LL25
+ SG_ PWM_mode_ON : 1|1@1+ (1,0) [0|0] ""  ADM_PC_LL25
+ SG_ Converter_ON : 0|1@1+ (1,0) [0|0] ""  ADM_PC_LL25
+
+BO_ 2147680336 LLC_Fault_Control: 1 User
+ SG_ Trip_Interlock : 4|1@1+ (1,0) [0|0] ""  ADM_PC_LL25
+ SG_ Bleeder_Pulse : 3|1@1+ (1,0) [0|0] ""  ADM_PC_LL25
+ SG_ Clear_Faults : 2|1@1+ (1,0) [0|0] ""  ADM_PC_LL25
+ SG_ Reset_Processor : 1|1@1+ (1,0) [0|0] ""  ADM_PC_LL25
+ SG_ Clear_Interlock : 0|1@1+ (1,0) [0|0] ""  ADM_PC_LL25
+
+BO_ 2147680323 LLC_PWM_Frequency_Control: 2 User
+ SG_ PWM_frequency : 0|16@1+ (10,0) [0|0] "Hz"  ADM_PC_LL25
+
+BO_ 2147680330 LLC_PWM_Control: 8 User
+ SG_ PWM_Lock : 50|1@1+ (1,0) [0|0] ""  ADM_PC_LL25
+ SG_ PWM_Mode : 48|2@1+ (1,0) [0|0] ""  ADM_PC_LL25
+ SG_ PWM_Deadtime : 32|16@1+ (1,0) [0|65535] "-"  ADM_PC_LL25
+ SG_ PWM_Duty_Cycle : 16|16@1+ (1,0) [0|65535] "-"  ADM_PC_LL25
+ SG_ PWM_Period : 0|16@1+ (1,0) [0|65535] "-"  ADM_PC_LL25
+
+BO_ 2147680324 LLC_Current_Setpoint_Control: 2 User
+ SG_ Current_setpoint : 0|16@1+ (0.01,0) [0|70] "A"  ADM_PC_LL25
+
+BO_ 2147680325 LLC_Voltage_Setpoint_Control: 2 User
+ SG_ Voltage_setpoint : 0|16@1+ (0.1,0) [0|500] "V"  ADM_PC_LL25
+
+BO_ 2147680326 LLC_Stack_Control: 6 User
+ SG_ SN_number : 16|32@1+ (1,0) [0|0] ""  ADM_PC_LL25
+ SG_ Stack_size : 8|8@1+ (1,0) [0|0] ""  ADM_PC_LL25
+ SG_ Stack_position : 0|8@1+ (1,0) [0|0] ""  ADM_PC_LL25
+
+BO_ 2147680329 LLC_Ground_Fault_Control: 1 User
+ SG_ Ground_Test_Enable : 1|1@1+ (1,0) [0|0] ""  ADM_PC_LL25
+ SG_ Ground_Fault_Enable : 0|1@1+ (1,0) [0|0] ""  ADM_PC_LL25
+
+BO_ 2147680352 LLC_Keep_Alive: 1 User
+ SG_ Keep_Alive_Enable : 0|1@1+ (1,0) [0|0] ""  ADM_PC_LL25
+
+BO_ 2147680353 LLC_System_Flags_Control: 8 User
+ SG_ Factory_mode : 0|1@1+ (1,0) [0|0] ""  ADM_PC_LL25
+
+BO_ 2147680327 LLC_Voltage_Limits: 8 User
+ SG_ Output_voltage_max : 48|16@1+ (0.1,0) [0|800] "V"  ADM_PC_LL25
+ SG_ Output_voltage_min : 32|16@1+ (0.1,0) [0|0] "V"  ADM_PC_LL25
+ SG_ Input_voltage_max : 16|16@1+ (0.1,0) [0|800] "V"  ADM_PC_LL25
+ SG_ Input_voltage_min : 0|16@1+ (0.1,0) [0|800] "V"  ADM_PC_LL25
+
+BO_ 2147680328 LLC_Current_Limits: 4 User
+ SG_ Output_current_max : 16|16@1+ (0.01,0) [0|75] "A"  ADM_PC_LL25
+ SG_ Output_current_min : 0|16@1+ (0.01,0) [0|0] "A"  ADM_PC_LL25
+
+BO_ 2147680337 _LLC_Calibration_Offset_Update: 6 User
+ SG_ CRC : 32|16@1+ (1,0) [0|0] "-"  ADM_PC_LL25
+ SG_ Calibration_Index M : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Ground_Fault_Calib m3 : 0|16@1- (1,0) [0|0] "ADC Counts"  ADM_PC_LL25
+ SG_ Voltage_Input_Calib m2 : 0|16@1- (1,0) [0|0] "ADC Counts"  ADM_PC_LL25
+ SG_ Voltage_Output_Calib m1 : 0|16@1- (1,0) [0|0] "ADC Counts"  ADM_PC_LL25
+ SG_ Current_Output_Calib m0 : 0|16@1- (1,0) [0|0] "ADC Counts"  ADM_PC_LL25
+
+BO_ 2147680338 _LLC_Calibration_Scale_Update: 6 User
+ SG_ CRC : 32|16@1+ (1,0) [0|0] "-"  ADM_PC_LL25
+ SG_ Calibration_Index M : 16|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ Ground_Fault_Calib m3 : 0|16@1- (1.52587890625e-05,0) [0|0] "scale = 1.0 + value"  ADM_PC_LL25
+ SG_ Voltage_Input_Calib m2 : 0|16@1- (1.52587890625e-05,0) [0|0] "scale = 1.0 + value"  ADM_PC_LL25
+ SG_ Voltage_Output_Calib m1 : 0|16@1- (1.52587890625e-05,0) [0|0] "scale = 1.0 + value"  ADM_PC_LL25
+ SG_ Current_Output_Calib m0 : 0|16@1- (1.52587890625e-05,0) [0|0] "scale = 1.0 + value"  ADM_PC_LL25
+
+BO_ 2147713105 _LLC_Calibration_Adc_Scale: 6 ADM_PC_LL25
+ SG_ Adc_Index M : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ InsulationResistance m3 : 0|32@1+ (1,0) [0|0] "1 / adc_bins"  User
+ SG_ Current_Out m2 : 0|32@1+ (1,0) [0|0] "1 / adc_bins"  User
+ SG_ Voltage_Out m1 : 0|32@1+ (1,0) [0|0] "1 / adc_bins"  User
+ SG_ Voltage_In m0 : 0|32@1+ (1,0) [0|0] "1 / adc_bins"  User
+
+BO_ 2147713106 _LLC_Calibration_Adc_Fs: 6 ADM_PC_LL25
+ SG_ Adc_Index M : 32|16@1+ (1,0) [0|0] "" Vector__XXX
+ SG_ InsulationResistance m3 : 0|32@1+ (1,0) [0|0] "Fullscale"  User
+ SG_ Current_Out m2 : 0|32@1+ (1,0) [0|0] "Fullscale"  User
+ SG_ Voltage_Out m1 : 0|32@1+ (1,0) [0|0] "Fullscale"  User
+ SG_ Voltage_In m0 : 0|32@1+ (1,0) [0|0] "Fullscale"  User
+
+
+
+
+CM_ BO_ 2147713024 "Identification of the device";
+CM_ SG_ 2147713024 SN_number "Unique module serial number";
+CM_ SG_ 2147713024 Stack_position "Position of the module within the stack";
+CM_ SG_ 2147713024 HW_variant "The DSP firmware revision number";
+CM_ SG_ 2147713024 HW_revision "The hardware revision number";
+CM_ SG_ 2147713024 Device_type "The device identification field, uniquely identifies the sender in the network";
+CM_ BO_ 2147713025 "Git revision of the DSP firmware";
+CM_ SG_ 2147713025 FW_datecode_13 "Character 13";
+CM_ SG_ 2147713025 FW_datecode_6 "Character 3";
+CM_ SG_ 2147713025 FW_revision_13 "Character 13";
+CM_ SG_ 2147713025 FW_revision_6 "Character 3";
+CM_ SG_ 2147713025 FW_datecode_12 "Character 12";
+CM_ SG_ 2147713025 FW_datecode_5 "Character 3";
+CM_ SG_ 2147713025 FW_revision_12 "Character 12";
+CM_ SG_ 2147713025 FW_revision_5 "Character 3";
+CM_ SG_ 2147713025 FW_datecode_11 "Character 11";
+CM_ SG_ 2147713025 FW_datecode_4 "Character 3";
+CM_ SG_ 2147713025 FW_revision_11 "Character 11";
+CM_ SG_ 2147713025 FW_revision_4 "Character 3";
+CM_ SG_ 2147713025 FW_datecode_10 "Character 10";
+CM_ SG_ 2147713025 FW_datecode_3 "Character 3";
+CM_ SG_ 2147713025 FW_revision_10 "Character 10";
+CM_ SG_ 2147713025 FW_revision_3 "Character 3";
+CM_ SG_ 2147713025 FW_datecode_9 "Character 9";
+CM_ SG_ 2147713025 FW_datecode_2 "Character 2";
+CM_ SG_ 2147713025 FW_revision_9 "Character 9";
+CM_ SG_ 2147713025 FW_revision_2 "Character 2";
+CM_ SG_ 2147713025 FW_datecode_8 "Character 8";
+CM_ SG_ 2147713025 FW_datecode_1 "Character 1";
+CM_ SG_ 2147713025 FW_revision_8 "Character 8";
+CM_ SG_ 2147713025 FW_revision_1 "Character 1";
+CM_ SG_ 2147713025 FW_datecode_7 "Character 7";
+CM_ SG_ 2147713025 FW_datecode_0 "Character 0";
+CM_ SG_ 2147713025 FW_revision_7 "Character 7";
+CM_ SG_ 2147713025 FW_revision_0 "Character 0";
+CM_ BO_ 2147713026 "Values for debugging of HW/SW problems";
+CM_ SG_ 2147713026 Data_3 "Additional information for the error/status";
+CM_ SG_ 2147713026 Data_2 "Additional information for the error/status";
+CM_ SG_ 2147713026 Data_1 "Additional information for the error/status";
+CM_ SG_ 2147713026 Status_Error_Code "Main status / error code as defined in errno/errno.h";
+CM_ BO_ 2147713027 "Current of phases U,V and W";
+CM_ SG_ 2147713027 Phase_W "Current of phase W";
+CM_ SG_ 2147713027 Phase_V "Current of the phase V";
+CM_ SG_ 2147713027 Phase_U "Current of the phase U";
+CM_ BO_ 2147713028 "Input and output currents and voltages readout. Realtime readouts of the sensed variables. The voltage is measured at the input and output of the converter, while the current is measured at the output only";
+CM_ SG_ 2147713028 Voltage_Out "Voltage measured at the converter output";
+CM_ SG_ 2147713028 Voltage_In "Voltage measured at the converter input";
+CM_ SG_ 2147713028 Current_Out "Current measured at the converter output";
+CM_ BO_ 2147713029 "Readouts of the module temperature sensors";
+CM_ SG_ 2147713029 Temp_Transformer "Temperature of the transformer";
+CM_ SG_ 2147713029 Temp_Bridge "Temperature of the switching bridge";
+CM_ SG_ 2147713029 Temp_Rectifier "Temperature of the output rectifier block";
+CM_ BO_ 2147713030 "Fault bitfield";
+CM_ SG_ 2147713030 Rectifier_overtemperature "This flag is asserted when the temperature of the Rectifier block is too high.";
+CM_ SG_ 2147713030 Phase_W_overcurrent "Indicates an overcurrent event on Phase U. The overcurrent event is triggered when the measured phase current is over the programmed current limit.";
+CM_ SG_ 2147713030 Phase_V_overcurrent "Indicates an overcurrent event on Phase U. The overcurrent event is triggered when the measured phase current is over the programmed current limit.";
+CM_ SG_ 2147713030 Phase_U_overcurrent "Indicates an overcurrent event on Phase U. The overcurrent event is triggered when the measured phase current is over the programmed current limit.";
+CM_ SG_ 2147713030 Ground_fault "A ground fault has been detected.";
+CM_ SG_ 2147713030 EEPROM_failure "The configuration EEPROM failed to load or save the module configuration.";
+CM_ SG_ 2147713030 Measurement_system_failure "The voltages/currents measurement system is malfunctionning, and readouts are not guaranteed to be accurate.";
+CM_ SG_ 2147713030 Control_response_timedout "The control system did not answer within the allowed time window, and a time out condition was triggered. The converter is switched off as the control system is not present.";
+CM_ SG_ 2147713030 CAN_failure "CAN bus or transceiver not operating properly.";
+CM_ SG_ 2147713030 Voltage_loop_failure "The voltage loop is not operational, and therefore voltage regulation is not guaranteed.";
+CM_ SG_ 2147713030 Current_loop_failure "The current loop is not operational, and therefore current regulation is not guaranteed.";
+CM_ SG_ 2147713030 Switching_failure "Failure in the MOSFET block or in their drivers.";
+CM_ SG_ 2147713030 Current_sharing_failure "A failure in the internal current sharing. The operation up to the nominal output current cannot be guaranteed.";
+CM_ SG_ 2147713030 Transformer_overtemperature "This flag is asserted when the temperature of the Transformer block is too high.";
+CM_ SG_ 2147713030 MOSFET_overtemperature "This flag is asserted when the temperature of the MOSFET block is too high.";
+CM_ SG_ 2147713030 Input_undervoltage "Input undervoltage condition. The undervoltage condition is asserted when the measured input voltage is under the programmed voltage limit.";
+CM_ SG_ 2147713030 Input_overvoltage "Input overvoltage condition. The overvoltage condition is asserted when the measured input voltage is over the programmed voltage limit.";
+CM_ SG_ 2147713030 Output_undervoltage "Output undervoltage condition. The undervoltage condition is asserted when the measured output voltage is under the programmed voltage limit.";
+CM_ SG_ 2147713030 Output_overvoltage "Indicates an output overvoltage event. The overvoltage event is triggered when the measured output voltage is over the programmed voltage limit.";
+CM_ SG_ 2147713030 Output_overcurrent "Indicates an output overcurrent event. The overcurrent event is triggered when the measured output current is over the programmed current limit.";
+CM_ SG_ 2147713030 Protection_trip_external "This flag is asserted if the interlock is open due to an external condition received in the module.";
+CM_ SG_ 2147713030 Protection_trip_internal "This flagg is asserted if the interlock is open due to an internal fault condition (self-protection)";
+CM_ BO_ 2147713031 "Status bitfield";
+CM_ SG_ 2147713031 PWM_v2_mode "Indicates if the converter is in PWM v2 mode, and therefore working in open loop.";
+CM_ SG_ 2147713031 PFC_voltage_loop_mode "Indicates id the pfc voltage loop mode is enabled.";
+CM_ SG_ 2147713031 PFC_current_loop_mode "Indicates id the pfc current loop mode is enabled.";
+CM_ SG_ 2147713031 Precharge_mode "Indickates if the precharge mode is enabled.";
+CM_ SG_ 2147713031 Slave "Indicates if the current converter is an Slave in the stack.";
+CM_ SG_ 2147713031 Master "Indicates if the current converter is the Master in the stack.";
+CM_ SG_ 2147713031 Voltage_loop_mode "Indicates if the voltage loop is enabled.";
+CM_ SG_ 2147713031 Current_loop_mode "Indicates if the current loop is enabled.";
+CM_ SG_ 2147713031 PWM_mode "Indicates if the converter is in PWM mode, and therefore working in open loop.";
+CM_ SG_ 2147713031 Converter_running "Indicates that the converter is running, and its output is active.";
+CM_ BO_ 2147713032 "Setpoints";
+CM_ SG_ 2147713032 Voltage_setpoint "The actual voltage setpoint";
+CM_ SG_ 2147713032 Current_setpoint "The actual current setpoint";
+CM_ SG_ 2147713032 PWM_frequency "The current PWM frequency";
+CM_ BO_ 2147713037 "PWM Setpoints";
+CM_ SG_ 2147713037 PWM_Lock "Lock duty cycle to period (50%)";
+CM_ SG_ 2147713037 PWM_Mode "PWM switching mode (0: Off, 1: 2-phase, 2: 3-phase)";
+CM_ SG_ 2147713037 PWM_Deadtime "PWM deadtime (16-bit)";
+CM_ SG_ 2147713037 PWM_Duty_Cycle "PWM duty cycle (16-bit)";
+CM_ SG_ 2147713037 PWM_Period "PWM period (16-bit)";
+CM_ BO_ 2147713033 "Output external voltage channels readout. Realtime readouts of the sensed variables. The voltage is measured at the two external voltage sensors (EXT1,EXT2), with reference to output DC-.";
+CM_ SG_ 2147713033 Voltage_EXT2 "Voltage measured at the converter output EXT2 channel";
+CM_ SG_ 2147713033 Voltage_EXT1 "Voltage measured at the converter output EXT1 channel";
+CM_ BO_ 2147713040 "LLC_Voltages_Currents without calibration";
+CM_ SG_ 2147713040 Voltage_Out_Raw "Voltage measured at the converter output";
+CM_ SG_ 2147713040 Voltage_In_Raw "Voltage measured at the converter input";
+CM_ SG_ 2147713040 Current_Out_Raw "Current measured at the converter output";
+CM_ BO_ 2147713034 "Ground fault measurement";
+CM_ SG_ 2147713034 Gnd_test_enabled "
+                    True if the Ground test circuit is enabled.
+                ";
+CM_ SG_ 2147713034 Gnd_monitor_enabled "
+                    True if the Ground insulation monitor is enabled.
+                ";
+CM_ SG_ 2147713034 Valid "
+                    Signs that the calculated insulation resistance is valid.
+                    Value can be invalid e.g. in case of too low voltage on the output terminals.
+                ";
+CM_ SG_ 2147713034 InsulationResistance "The insulation resistance between output terminals and ground";
+CM_ BO_ 2147713035 "Ground fault measurement";
+CM_ SG_ 2147713035 InsulationResistance_Raw "The insulation resistance between output terminals and ground";
+CM_ BO_ 2147713036 "LLC_External without calibration";
+CM_ SG_ 2147713036 External2_Raw "The external measurement 2";
+CM_ SG_ 2147713036 External1_Raw "The external measurement 1";
+CM_ BO_ 2147680321 "Operation Mode control: sets the converter operation mode";
+CM_ SG_ 2147680321 PWM_v2_mode_ON "Enable the PWM v2 mode (this will set the converter in open loop)";
+CM_ SG_ 2147680321 _PFC_Voltage_feedback_ON "Enable PFC voltage feedback loop";
+CM_ SG_ 2147680321 _PFC_Current_feedback_ON "Enable PFC current feedback loop";
+CM_ SG_ 2147680321 _Precharge_ON "Enable precharge mode";
+CM_ SG_ 2147680321 Voltage_feedback_ON "Enable the voltage loop";
+CM_ SG_ 2147680321 Current_feedback_ON "Enable the current loop";
+CM_ SG_ 2147680321 PWM_mode_ON "Enable the PWM mode (this will set the converter in open loop)";
+CM_ SG_ 2147680321 Converter_ON "Enable the converter";
+CM_ BO_ 2147680336 "Fault Control: actions to clear faults and reset the system";
+CM_ SG_ 2147680336 Trip_Interlock "Trips the converter interlock";
+CM_ SG_ 2147680336 Bleeder_Pulse "Bleed out output";
+CM_ SG_ 2147680336 Clear_Faults "Clear software faults";
+CM_ SG_ 2147680336 Reset_Processor "Reset the converter DSP";
+CM_ SG_ 2147680336 Clear_Interlock "Clears the converter interlock";
+CM_ BO_ 2147680323 "PWM frequency control";
+CM_ SG_ 2147680323 PWM_frequency "Sets the PWM frequency. Active only when the converter is in PWM mode";
+CM_ BO_ 2147680330 "Direct PWM control via period, duty cycle, and deadtime.";
+CM_ SG_ 2147680330 PWM_Lock "Locks duty cycle to period (50%)";
+CM_ SG_ 2147680330 PWM_Mode "PWM switching mode (0: Off, 1: 2-phase, 2: 3-phase)";
+CM_ SG_ 2147680330 PWM_Deadtime "PWM deadtime (16-bit)";
+CM_ SG_ 2147680330 PWM_Duty_Cycle "PWM duty cycle (16-bit)";
+CM_ SG_ 2147680330 PWM_Period "PWM period (16-bit)";
+CM_ BO_ 2147680324 "Current setpoint control";
+CM_ SG_ 2147680324 Current_setpoint "Sets the output current setpoint. Active only when the current loop is enabled";
+CM_ BO_ 2147680325 "Voltage setpoint control";
+CM_ SG_ 2147680325 Voltage_setpoint "Sets the output voltage setpoint. Active only when the voltage loop is enabled";
+CM_ BO_ 2147680326 "LLC stack control";
+CM_ SG_ 2147680326 SN_number "Unique module serial number";
+CM_ SG_ 2147680326 Stack_size "How many Buck converters are in stack in total";
+CM_ SG_ 2147680326 Stack_position "The converter position within the stack";
+CM_ BO_ 2147680329 "Ground fault control. This byte can enable/disable monitoring of the ground Insulation 
+            and enable/disable the ground insulation test circuit.";
+CM_ SG_ 2147680329 Ground_Test_Enable "If true, it enables the ground test circuit.";
+CM_ SG_ 2147680329 Ground_Fault_Enable "If true, it enables the ground fault monitoring. Ground fault monitoring is
+                disabled by default.";
+CM_ BO_ 2147680352 "Keep alive ping message. ";
+CM_ SG_ 2147680352 Keep_Alive_Enable "If set to 1, module will expect to receive this message every second repeatedly, or it will stop operation";
+CM_ BO_ 2147680353 "Control the system flags ";
+CM_ SG_ 2147680353 Factory_mode "Customers MUST NOT USE this bit. If set to 1, module will enter in factory mode. ";
+CM_ BO_ 2147680327 "Set the input and output voltage limits (minimum and maximum)";
+CM_ SG_ 2147680327 Output_voltage_max "Maximum allowable output voltage";
+CM_ SG_ 2147680327 Output_voltage_min "Minimum allowable output voltage";
+CM_ SG_ 2147680327 Input_voltage_max "Maximum allowable input voltage";
+CM_ SG_ 2147680327 Input_voltage_min "Minimum tolerated input voltage";
+CM_ BO_ 2147680328 "Current limits";
+CM_ SG_ 2147680328 Output_current_max "Maximum allowable output current";
+CM_ SG_ 2147680328 Output_current_min "Minimum allowable output current";
+CM_ BO_ 2147680337 "Update of the calibration table for offsets.";
+CM_ SG_ 2147680337 CRC "
+                    Checksum of bytes 0 to 2, CRC-CCITT, corresponding to qChecksum (www.qt.io)
+                ";
+CM_ SG_ 2147680337 Ground_Fault_Calib "Current offset at the converter output (Iout)";
+CM_ SG_ 2147680337 Voltage_Input_Calib "Voltage offset at the converter input (Vin)";
+CM_ SG_ 2147680337 Voltage_Output_Calib "Voltage offset at the converter output (Vout)";
+CM_ SG_ 2147680337 Current_Output_Calib "Current offset at the converter output (Iout)";
+CM_ BO_ 2147680338 "Update of the calibration table for scales.";
+CM_ SG_ 2147680338 CRC "
+                    Checksum of bytes 0 to 2, CRC-CCITT, corresponding to qChecksum (www.qt.io)
+                ";
+CM_ SG_ 2147680338 Ground_Fault_Calib "Current offset at the converter output (Iout)";
+CM_ SG_ 2147680338 Voltage_Input_Calib "Voltage offset at the converter input (Vin)";
+CM_ SG_ 2147680338 Voltage_Output_Calib "Voltage offset at the converter output (Vout)";
+CM_ SG_ 2147680338 Current_Output_Calib "Current offset at the converter output (Iout)";
+CM_ BO_ 2147713105 "
+                Adc scale (resolution) value of readouts.
+            ";
+CM_ BO_ 2147713106 "
+                Adc fullscale value of readouts.
+            ";
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65535;
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_ "GenMsgCycleTime" BO_ 2147713024 1000;
+BA_ "GenMsgCycleTime" BO_ 2147713025 1000;
+BA_ "GenMsgCycleTime" BO_ 2147713026 1000;
+BA_ "GenMsgCycleTime" BO_ 2147713027 100;
+BA_ "GenMsgCycleTime" BO_ 2147713028 100;
+BA_ "GenMsgCycleTime" BO_ 2147713029 1000;
+BA_ "GenMsgCycleTime" BO_ 2147713030 1000;
+BA_ "GenMsgCycleTime" BO_ 2147713031 1000;
+BA_ "GenMsgCycleTime" BO_ 2147713032 1000;
+BA_ "GenMsgCycleTime" BO_ 2147713037 1000;
+BA_ "GenMsgCycleTime" BO_ 2147713033 100;
+BA_ "GenMsgCycleTime" BO_ 2147713040 100;
+BA_ "GenMsgCycleTime" BO_ 2147713034 100;
+BA_ "GenMsgCycleTime" BO_ 2147713035 100;
+BA_ "GenMsgCycleTime" BO_ 2147713036 100;
+BA_ "GenMsgCycleTime" BO_ 2147680321 100;
+BA_ "GenMsgCycleTime" BO_ 2147680324 100;
+BA_ "GenMsgCycleTime" BO_ 2147680325 100;
+BA_ "GenMsgCycleTime" BO_ 2147680329 100;
+BA_ "GenMsgCycleTime" BO_ 2147680327 100;
+BA_ "GenMsgCycleTime" BO_ 2147680328 100;
+BA_ "GenMsgCycleTime" BO_ 2147713105 1000;
+BA_ "GenMsgCycleTime" BO_ 2147713106 1000;
+VAL_ 2147713024 Device_type 3 "LLC" ;
+VAL_ 2147713030 Rectifier_overtemperature 1 "fault" ;
+VAL_ 2147713030 Phase_W_overcurrent 1 "fault" ;
+VAL_ 2147713030 Phase_V_overcurrent 1 "fault" ;
+VAL_ 2147713030 Phase_U_overcurrent 1 "fault" ;
+VAL_ 2147713030 Ground_fault 1 "fault" ;
+VAL_ 2147713030 EEPROM_failure 1 "fault" ;
+VAL_ 2147713030 Measurement_system_failure 1 "fault" ;
+VAL_ 2147713030 Control_response_timedout 1 "fault" ;
+VAL_ 2147713030 CAN_failure 1 "fault" ;
+VAL_ 2147713030 Voltage_loop_failure 1 "fault" ;
+VAL_ 2147713030 Current_loop_failure 1 "fault" ;
+VAL_ 2147713030 Switching_failure 1 "fault" ;
+VAL_ 2147713030 Current_sharing_failure 1 "fault" ;
+VAL_ 2147713030 Transformer_overtemperature 1 "fault" ;
+VAL_ 2147713030 MOSFET_overtemperature 1 "fault" ;
+VAL_ 2147713030 Input_undervoltage 1 "fault" ;
+VAL_ 2147713030 Input_overvoltage 1 "fault" ;
+VAL_ 2147713030 Output_undervoltage 1 "fault" ;
+VAL_ 2147713030 Output_overvoltage 1 "fault" ;
+VAL_ 2147713030 Output_overcurrent 1 "fault" ;
+VAL_ 2147713030 Protection_trip_external 1 "fault" ;
+VAL_ 2147713030 Protection_trip_internal 1 "fault" ;
+SIG_VALTYPE_ 2147713105 Voltage_In : 1;
+SIG_VALTYPE_ 2147713105 Voltage_Out : 1;
+SIG_VALTYPE_ 2147713105 Current_Out : 1;
+SIG_VALTYPE_ 2147713105 InsulationResistance : 1;
+SIG_VALTYPE_ 2147713106 Voltage_In : 1;
+SIG_VALTYPE_ 2147713106 Voltage_Out : 1;
+SIG_VALTYPE_ 2147713106 Current_Out : 1;
+SIG_VALTYPE_ 2147713106 InsulationResistance : 1;
+
+

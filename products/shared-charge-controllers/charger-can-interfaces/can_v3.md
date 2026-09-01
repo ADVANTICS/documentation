@@ -1,4 +1,11 @@
+---
+hide:
+  - toc
+---
+
 # CAN messages
+
+_Generated from Advantics Generic EVSE protocol 3.6 ([`Advantics_Generic_EVSE_protocol_v3.6.kcd`](Advantics_Generic_EVSE_protocol_v3.6.kcd))._
 
 ## Message index
 
@@ -53,8 +60,8 @@ be sent all the time when power modules are running.
     Therefore, it is NOT evaluated when waiting for a PEV to plug-in, or when
     negotiating the connection with the PEV.
 
-    Power modules should be alive from the moment &lt;&lt;New_Charge_Session&gt;&gt; is sent, until
-    &lt;&lt;Charge_Session_Finished&gt;&gt; is sent. At any other time, power modules are allowed to
+    Power modules should be alive from the moment [New_Charge_Session](#New_Charge_Session) is sent, until
+    [Charge_Session_Finished](#Charge_Session_Finished) is sent. At any other time, power modules are allowed to
     sleep and not send this message.
 
 ### Payload
@@ -106,10 +113,10 @@ Top temperature sensed in the enclosure.
 
 Tells if charging is allowed.
 
-When &lt;&lt;New_Charge_Session&gt;&gt; is sent, the controller waits for this signal
+When [New_Charge_Session](#New_Charge_Session) is sent, the controller waits for this signal
 to be 1 to continue the charge sequence.
 
-If 0 is emitted between &lt;&lt;New_Charge_Session&gt;&gt; and before the charging loop
+If 0 is emitted between [New_Charge_Session](#New_Charge_Session) and before the charging loop
 starts, the charge controller tells the vehicle the charging service is
 unavailable.
 
@@ -129,12 +136,14 @@ emergency shutdown requested by power modules.
 
 Reports the current insulation resistance, in multiple of 2 kOhms.
 
-TIP: If the RCD sensor only gives a boolean value, then 255 correspond to a __Valid__
-insulation, and 0 to an __Invalid__ insulation.
+!!! tip
+    If the RCD sensor only gives a boolean value, then 255 correspond to a __Valid__
+    insulation, and 0 to an __Invalid__ insulation.
 
-IMPORTANT: Whenever a power function is used after the insulation test, if this
-signal reports an insulation resistance below the limit of 100 Ohms/V, then this
-is considered as an interlock condition and an emergency stop is carried out.
+!!! important
+    Whenever a power function is used after the insulation test, if this
+    signal reports an insulation resistance below the limit of 100 Ohms/V, then this
+    is considered as an interlock condition and an emergency stop is carried out.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -208,7 +217,7 @@ This signal is useful only for chargers using one of the supported power module
 interface (ie. we directly control power modules), plus the generic interface
 as a mean of external control.
 
-When &lt;&lt;DC_Power_Control.Setpoints_Mode&gt;&gt; == __Range_Mode__, and power modules
+When [DC_Power_Control.Setpoints_Mode](#DC_Power_Control-Setpoints_Mode) == __Range_Mode__, and power modules
 are of a kind that cannot decide of the load current by themselves, by default
 the maximum of the range will be used.
 
@@ -216,23 +225,24 @@ With this signal, you can set a different target setpoint that will be send to
 power modules. Direction of power transfers is chosen with the sign of this
 signal. When the sign changes, a switch over will happen.
 
-Values are always capped to the allowed range given in &lt;&lt;DC_Power_Control&gt;&gt;.
+Values are always capped to the allowed range given in [DC_Power_Control](#DC_Power_Control).
 Provided values will also be ramped up or down, using ramp slopes defined by
 config file entries `current_ramp_up_rate` and `current_ramp_down_rate`.
 
 Note that the actual setpoint sent to power modules is not reflected in
-&lt;&lt;DC_Power_Control&gt;&gt; message, as values in this message need to keep
-reflecting the full allowed range. Ie. &lt;&lt;DC_Power_Control&gt;&gt; will not emulate
+[DC_Power_Control](#DC_Power_Control) message, as values in this message need to keep
+reflecting the full allowed range. Ie. [DC_Power_Control](#DC_Power_Control) will not emulate
 a __Target_Mode__, and it will still show the normal __Range_Mode__.
 
 Note also that while the same functionality could be achieved by changing
-&lt;&lt;Power_Transfer_Parameters.Maximum_Charge_Current&gt;&gt;, this Range_Target_Current
+Power_Transfer_Parameters.Maximum_Charge_Current, this Range_Target_Current
 signal is actually entirely internal, and the value is never directly reported
 to the vehicle. Which mean Maximum_Charge_Current can still reflect the true
 maximum charge current advertised to the vehicle.
 
 This signal does nothing in the following situations:
-- &lt;&lt;DC_Power_Control.Setpoints_Mode&gt;&gt; == __Target_Mode__.
+
+- [DC_Power_Control.Setpoints_Mode](#DC_Power_Control-Setpoints_Mode) == __Target_Mode__.
 - Or you only use the generic interface, and manage power modules yourself.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
@@ -260,8 +270,8 @@ The second byte is for flags having effect during parameters negotiation.
 The third byte is for flags having effect during power stages (insulation test,
 precharge and charging).
 
-The controller config file should have the entry &quot;use_sequence_flags = true&quot; in the
-&quot;[charger]&quot; section in order to take them into account.
+The controller config file should have the entry "use_sequence_flags = true" in the
+"[charger]" section in order to take them into account.
 
 To make sure the controller is taking a first message as initialisation of these
 flags, send this first message after Advantics_Controller_Status message reports a
@@ -384,7 +394,7 @@ Simulate a press on the user stop button (for normal charge termination). Only a
 
 ### Description
 
-Controller (ADM-CS-SECC hardware variant, ie. &quot;DIN rail&quot;) has various outputs that
+Controller (ADM-CS-SECC hardware variant, ie. "DIN rail") has various outputs that
 can be controlled through this message.
 
 ### Payload
@@ -395,7 +405,10 @@ can be controlled through this message.
 | Digital_Output2 | 1 | Single bit |
 | Digital_Output3 | 1 | Single bit |
 | Digital_Output4 | 1 | Single bit |
-| Reserved | 60 | Unsigned |
+| Led1 | 8 | Unsigned |
+| Led2 | 8 | Unsigned |
+| Led3 | 8 | Unsigned |
+| Reserved | 26 | Unsigned |
 
 ### Payload description
 
@@ -447,13 +460,49 @@ Needs to be declared as CAN Controlled in `/srv/config.cfg`:
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 3 | 1 | Single bit |  | 1 | 0 | 0 | 1 |
 
+#### Led1 { #ADM_CS_SECC_Outputs-Led1 }
+
+Sets the brightness of LED1 (CON5 5) in a scale from 1 to 100.
+Greater values than 100 will be treated as max brigthness.
+
+    [hardware]
+    led1 = CAN_Controlled
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 4 | 8 | Unsigned |  | 1 | 0 | 0 | 255 |
+
+#### Led2 { #ADM_CS_SECC_Outputs-Led2 }
+
+Sets the brightness of LED2 (CON5 6) in a scale from 1 to 100.
+Greater values than 100 will be treated as max brigthness.
+
+    [hardware]
+    led2 = CAN_Controlled
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 12 | 8 | Unsigned |  | 1 | 0 | 0 | 255 |
+
+#### Led3 { #ADM_CS_SECC_Outputs-Led3 }
+
+Sets the brightness of LED3 (CON5 7) in a scale from 1 to 100.
+Greater values than 100 will be treated as max brigthness.
+
+    [hardware]
+    led3 = CAN_Controlled
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 20 | 8 | Unsigned |  | 1 | 0 | 0 | 255 |
+
 #### Reserved { #ADM_CS_SECC_Outputs-Reserved }
 
 Reserved bits for future uses.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 4 | 60 | Unsigned |  | 1 | 0 |  |  |
+| 28 | 26 | Unsigned |  | 1 | 0 |  |  |
 
 
 <a id="ADM_CS_SPCC_Outputs"></a>
@@ -478,7 +527,10 @@ can be controlled through this message.
 |--------|---------------|------|
 | Digital_Output1 | 1 | Single bit |
 | Digital_Output2 | 1 | Single bit |
-| Reserved | 62 | Unsigned |
+| Led1 | 8 | Unsigned |
+| Led2 | 8 | Unsigned |
+| Led3 | 8 | Unsigned |
+| Reserved | 38 | Unsigned |
 
 ### Payload description
 
@@ -506,13 +558,49 @@ Needs to be declared as CAN Controlled in the config file:
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 1 | 1 | Single bit |  | 1 | 0 | 0 | 1 |
 
+#### Led1 { #ADM_CS_SPCC_Outputs-Led1 }
+
+Sets the brightness of LED1 (CON105 11) in a scale from 1 to 100.
+Greater values than 100 will be treated as max brigthness.
+
+    [hardware]
+    led1 = CAN_Controlled
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 2 | 8 | Unsigned |  | 1 | 0 | 0 | 255 |
+
+#### Led2 { #ADM_CS_SPCC_Outputs-Led2 }
+
+Sets the brightness of LED2 (CON105 12) in a scale from 1 to 100.
+Greater values than 100 will be treated as max brigthness.
+
+    [hardware]
+    led2 = CAN_Controlled
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 10 | 8 | Unsigned |  | 1 | 0 | 0 | 255 |
+
+#### Led3 { #ADM_CS_SPCC_Outputs-Led3 }
+
+Sets the brightness of LED3 (CON105 13) in a scale from 1 to 100.
+Greater values than 100 will be treated as max brigthness.
+
+    [hardware]
+    led3 = CAN_Controlled
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 18 | 8 | Unsigned |  | 1 | 0 | 0 | 255 |
+
 #### Reserved { #ADM_CS_SPCC_Outputs-Reserved }
 
 Reserved bits for future uses.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 2 | 62 | Unsigned |  | 1 | 0 |  |  |
+| 26 | 38 | Unsigned |  | 1 | 0 |  |  |
 
 
 <a id="Advantics_Controller_Status"></a>
@@ -531,10 +619,11 @@ Reserved bits for future uses.
 Periodic message reporting the current status of the controller. This message is
 sent all the time as soon as the application on the controller is running.
 
-IMPORTANT: Power modules should implement a timeout on the reception of this message.
-If the controller does not send this message within 200 ms, then power modules
-should consider the controller to be in a defective state and stop any power function
-as soon as possible.
+!!! important
+    Power modules should implement a timeout on the reception of this message.
+    If the controller does not send this message within 200 ms, then power modules
+    should consider the controller to be in a defective state and stop any power function
+    as soon as possible.
 
 ### Payload
 
@@ -548,7 +637,7 @@ as soon as possible.
 
 Current internal state. For information only.
 
-- **Initialising**: Controller&#x27;s applications are starting up.
+- **Initialising**: Controller's applications are starting up.
 - **Waiting_For_PEV**: Controller is idle and ready for a plug-in.
 - **Negotiating_Connection**: Controller is plugged to a car and the connection is
     being initialised. Important charge information are exchanged.
@@ -605,7 +694,7 @@ Current internal state. For information only.
 
 Information about an incoming vehicle. Sent periodically from the moment a car is
 plugged in and all the information are known. Until power modules send a
-&lt;&lt;Power_Modules_Status.System_Enable&gt;&gt; with value  __Allowed__.
+[Power_Modules_Status.System_Enable](#Power_Modules_Status-System_Enable) with value  __Allowed__.
 
 ### Payload
 
@@ -711,63 +800,64 @@ Sent during any powered phase of a DC charge session. This message contains the
 power function in use, setpoint targets or range, the setpoints mode, the output
 contactors and voltage lowering commands.
 
-# Power function
+##### Power function
 
-The power function currently in use is given by &lt;&lt;DC_Power_Control.Power_Function&gt;&gt;.
+The power function currently in use is given by [DC_Power_Control.Power_Function](#DC_Power_Control-Power_Function).
 It covers the off state, standby, insulation test, precharge and the actual power
 transfer.
 
 During __Standby__, power modules should disable any power processing function (ie.
 turn off), but not bleed their output capacitors (ie. leave the output floating) as
 a load might be connected at that time, unless otherwise commanded by
-&lt;&lt;DC_Power_Control.Lower_Output_Voltage&gt;&gt;.
+[DC_Power_Control.Lower_Output_Voltage](#DC_Power_Control-Lower_Output_Voltage).
 
 During __Insulation_Test__, the insulation of the cable is tested by applying a
 voltage from the charger. The battery is not connected yet. The test voltage to
-apply is given by &lt;&lt;DC_Power_Control.Target_Voltage&gt;&gt;. Power modules report
-&lt;&lt;Power_Modules_Status.Present_Voltage&gt;&gt; and &lt;&lt;Power_Modules_Status.Insulation_Resistance&gt;&gt;
+apply is given by [DC_Power_Control.Target_Voltage](#DC_Power_Control-Target_Voltage). Power modules report
+[Power_Modules_Status.Present_Voltage](#Power_Modules_Status-Present_Voltage) and [Power_Modules_Status.Insulation_Resistance](#Power_Modules_Status-Insulation_Resistance)
 and the controller decides when the test passes or fails. Safety standards require a
 minimum of 100 Ohms/V insulation resistance. With a typical test voltage of 500 V,
 insulation resistance should be &gt;= 50 kOhms. Maximum current to use is not specified.
 
 During __Precharge__ (CCS only), charger is expected to match battery voltage at its
 output while having no load, apart from capacitors on the line. When charging this
-capacitive load, it shall not output more current than &lt;&lt;DC_Power_Control.Current_Range_Max&gt;&gt;.
-The battery voltage to match is given by &lt;&lt;DC_Power_Control.Target_Voltage&gt;&gt;. The
+capacitive load, it shall not output more current than [DC_Power_Control.Current_Range_Max](#DC_Power_Control-Current_Range_Max).
+The battery voltage to match is given by [DC_Power_Control.Target_Voltage](#DC_Power_Control-Target_Voltage). The
 vehicle decides to consider precharge done when it senses on its inlet a voltage that
 is +/- 20 V of its battery voltage.
 
 During __Power_Transfer__, actual power is being transfered in one direction or
-another. The meaning of setpoints depends on &lt;&lt;DC_Power_Control.Setpoints_Mode&gt;&gt;.
+another. The meaning of setpoints depends on [DC_Power_Control.Setpoints_Mode](#DC_Power_Control-Setpoints_Mode).
 The transfer direction depends on the sign of current setpoints, with positive
 meaning power being delivered to the vehicle (ie. charge). And negative meaning
 power extracted from the vehicle (ie. discharge).
 
-NOTE: While targets and ranges are expressed in both voltage and current, it is up
-to power modules to determine which control mode they should use (ie. constant current,
-constant voltage or constant power) depending on the present situation, and the load
-attached to their output. Charging protocols do not define it. In a typical situation,
-insulation tests and precharge have to be controlled in Constant Voltage. Whereas,
-when a battery is connected to the charger output, the vehicle BMS specifies the
-maximum current to be delivered to it, or consummed from it. Which makes it a
-Constant Current process. But you might also encounter a vehicle with a different
-pack voltage (eg. 800 V), and using a DC/DC in between the charger output and its
-battery to convert the voltage. In such case, you might have to run into Constant
-Voltage mode for instance.
+!!! note
+    While targets and ranges are expressed in both voltage and current, it is up
+    to power modules to determine which control mode they should use (ie. constant current,
+    constant voltage or constant power) depending on the present situation, and the load
+    attached to their output. Charging protocols do not define it. In a typical situation,
+    insulation tests and precharge have to be controlled in Constant Voltage. Whereas,
+    when a battery is connected to the charger output, the vehicle BMS specifies the
+    maximum current to be delivered to it, or consummed from it. Which makes it a
+    Constant Current process. But you might also encounter a vehicle with a different
+    pack voltage (eg. 800 V), and using a DC/DC in between the charger output and its
+    battery to convert the voltage. In such case, you might have to run into Constant
+    Voltage mode for instance.
 
-# Setpoints mode
+##### Setpoints mode
 
-Either the vehicle control the current to be delivered or consummed (that&#x27;s
+Either the vehicle control the current to be delivered or consummed (that's
 __Target_Mode__). Or, a range of acceptable values is given, and power modules are
-free to operate within that range (that&#x27;s __Range_Mode__).
+free to operate within that range (that's __Range_Mode__).
 
 In the simplest (historical) case, power transfer is unidirectional, with the
 vehicle requesting a certain amount of current for a target voltage, and power
 modules have to deliver that current. __Target_Mode__ is used in that case.
 And both min and max of the range have the same value. If you do less current than
 requested, some vehicle might accept it, and some might terminate the charge on a
-current deviation error. &lt;&lt;Power_Transfer_Parameters.Maximum_Charge_Current&gt;&gt; offers
-a way to dynamically &quot;negotiate&quot; a lower current request properly.
+current deviation error. Power_Transfer_Parameters.Maximum_Charge_Current offers
+a way to dynamically "negotiate" a lower current request properly.
 
 If the vehicle and/or charging protocol wants to use limits instead of targets (eg.
 CHAdeMO V2G, or ISO 15118-20 in Dynamic mode), then __Range_Mode__ is used. The min
@@ -783,7 +873,7 @@ However, during the rest of the session, for consistency, during __Insulation_Te
 it will be __Target_Mode__. And during __Precharge__ it will be __Range_Mode__.
 During other power functions it is not relevant.
 
-# Bidirectional power transfers
+##### Bidirectional power transfers
 
 Bidirectional power transfers are only possible when both the vehicle and the charger
 supports it (on charger side, `is_bidirectional` has to be set to True in the config
@@ -797,22 +887,23 @@ When in range mode, a portion of the range will be in the negative values (or al
 it if only discharge is possible). Note that the positive portion of the range, used
 for charging, naturally follows min and max charge current values. Whereas the
 negative portion of the range, used for discharging, is mirrored, and its min and
-max are logically inverted. Said differently &lt;&lt;DC_Power_Control.Current_Range_Min&gt;&gt;
+max are logically inverted. Said differently [DC_Power_Control.Current_Range_Min](#DC_Power_Control-Current_Range_Min)
 shows the maximum discharge current, but with a negative sign. And
-&lt;&lt;DC_Power_Control.Current_Range_Max&gt;&gt; shows the maximum charge current with a
+[DC_Power_Control.Current_Range_Max](#DC_Power_Control-Current_Range_Max) shows the maximum charge current with a
 positive sign.
 
 In the particular situation only discharge is possible, the minimum of the range is
 still the maximum discharge current with a negative sign. And the maximum of the
 range is then the minimum discharge current, also with a negative sign.
 
-As such, you can see this range as a &quot;continuous slider&quot; on which you can pick an
+As such, you can see this range as a "continuous slider" on which you can pick an
 operating point, moving between the maximum discharge current (the min), and the
 maximum charge current (the max). With 0 as a midpoint (but not necessarily
 symmetric). If no discharge is possible, then the min is positive. And if no charge
 is possible, then the max is negative.
 
-WARNING: The vehicle might not necessarily ramps up or down its requests.
+!!! warning
+    The vehicle might not necessarily ramps up or down its requests.
 
 ### Payload
 
@@ -871,7 +962,7 @@ In __Power_Transfer__, this signal gives the maximum of the current range to use
 Maximum current to draw (if negative), or minimum current to provide (if positive).
 
 In __Target_Mode__, this signal will have the same value than
-&lt;&lt;DC_Power_Control.Current_Range_Max&gt;&gt;.
+[DC_Power_Control.Current_Range_Max](#DC_Power_Control-Current_Range_Max).
 
 In __Insulation_Test__, this signal is not relevant.
 
@@ -893,7 +984,7 @@ the charger (exposed on the pistol pins) has ~0 V, floating.
 
 __Standby__: Power modules do not run any power processing function, while
 remaining ready to receive future requests. A load might still be connected to
-their output. Therefore, unless comanded by &lt;&lt;DC_Power_Control.Lower_Output_Voltage&gt;&gt;,
+their output. Therefore, unless comanded by [DC_Power_Control.Lower_Output_Voltage](#DC_Power_Control-Lower_Output_Voltage),
 it should remain floating, with contactors still closed, and no discharge of
 their output capacitors should be attempted.
 
@@ -909,7 +1000,7 @@ of the charger (unidirectional). Or a custom precharge circuit around the main
 output contactors (bidirectionnal, or unidirectional made without diode).
 
 __Power_Transfer__: Main mode of operation, as power is being transfered in one
-way or another. See the documentation of &lt;&lt;DC_Power_Control.Setpoints_Mode&gt;&gt; and
+way or another. See the documentation of [DC_Power_Control.Setpoints_Mode](#DC_Power_Control-Setpoints_Mode) and
 others signals of this message for more details.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
@@ -954,7 +1045,7 @@ provide or draw power within that range.
 
 #### Output_Contactors { #DC_Power_Control-Output_Contactors }
 
-Reflects contactors control done using controller&#x27;s onboard relay.
+Reflects contactors control done using controller's onboard relay.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -982,14 +1073,16 @@ session:
   itself (ie. using its onboard relay) as they would have to reclose shortly
   after. It will however wait that output voltage lower to &lt;= 20 V to comply
   with charging standards.
-- After power transfer, when &lt;&lt;Advantics_Controller_Status.State&gt;&gt; is
+
+- After power transfer, when [Advantics_Controller_Status.State](#Advantics_Controller_Status-State) is
   __Ending_Charge__, current has lowered to less than 1 A, and after having
   opened output contactors. In this case, the controller does not need to wait
   for voltage to lower. Note that at this point the vehicle battery might still
   be connected to pistol pins (hence why it does not wait on the voltage). Which
   means if your charger does not have output contactors, you should actually
   avoid bleeding output capacitors at this point, and ignore the lowering request.
-- When entering &lt;&lt;Advantics_Controller_Status.State&gt;&gt; == __Closing_Communication__
+
+- When entering [Advantics_Controller_Status.State](#Advantics_Controller_Status-State) == __Closing_Communication__
   if output voltage is above 20 V. It could happen after a welding detection
   process from the vehicle in case there are no output contactors and output
   capacitors are still charged (or got recharged during welding detection). This
@@ -1099,7 +1192,7 @@ From which side the emergency stop came from.
 
 Vehicle battery information.
 
-Sent at least once after first &lt;&lt;New_Charge_Session&gt;&gt; message. As well as every time
+Sent at least once after first [New_Charge_Session](#New_Charge_Session) message. As well as every time
 vehicle changes these information.
 
 Many of these information can be optional. There default value is 0 if the vehicle
@@ -1173,7 +1266,7 @@ Maximum battery SoC vehicle wants, in percent.
 
 Vehicle voltages information.
 
-Sent at least once after first &lt;&lt;New_Charge_Session&gt;&gt; message. As well as every time
+Sent at least once after first [New_Charge_Session](#New_Charge_Session) message. As well as every time
 vehicle changes these information.
 
 Many of these information can be optional. There default value is 0 if the vehicle
@@ -1231,7 +1324,7 @@ Note: Can be use in Constant Voltage mode to compensate for cable losses.
 
 Vehicle information for current and power limits during charging.
 
-Sent at least once after first &lt;&lt;New_Charge_Session&gt;&gt; message. As well as every time
+Sent at least once after first [New_Charge_Session](#New_Charge_Session) message. As well as every time
 vehicle changes these information.
 
 Many of these information can be optional. There default value is 0 if the vehicle
@@ -1296,7 +1389,7 @@ Maximum vehicle charge power.
 
 Vehicle information for current and power limits during discharging.
 
-Sent at least once after first &lt;&lt;New_Charge_Session&gt;&gt; message. As well as every time
+Sent at least once after first [New_Charge_Session](#New_Charge_Session) message. As well as every time
 vehicle changes these information.
 
 Many of these information can be optional. There default value is 0 if the vehicle
@@ -1361,7 +1454,7 @@ Maximum vehicle discharge power.
 
 Vehicle information for energy.
 
-Sent at least once after first &lt;&lt;New_Charge_Session&gt;&gt; message. As well as every time
+Sent at least once after first [New_Charge_Session](#New_Charge_Session) message. As well as every time
 vehicle changes these information.
 
 Many of these information can be optional. There default value is 0 if the vehicle
@@ -1497,7 +1590,7 @@ Byte 5 of the EV ID.
 
 ### Description
 
-Controller (ADM-CO-CUI1 hardware variant, ie. &quot;generic/mobile&quot;) is reporting various
+Controller (ADM-CO-CUI1 hardware variant, ie. "generic/mobile") is reporting various
 information about its inputs. It is sent every seconds (for temperature channels).
 Or on change for other digital inputs.
 
@@ -1645,7 +1738,7 @@ Measured temperature sensor on second PTC channel associated to this pistol.
 
 ### Description
 
-Controller (ADM-CS-SECC hardware variant, ie. &quot;DIN rail&quot;) is reporting various
+Controller (ADM-CS-SECC hardware variant, ie. "DIN rail") is reporting various
 information about its inputs. It is sent every seconds (for temperature channels).
 Or on change for other digital inputs.
 
@@ -1901,7 +1994,7 @@ Measured temperature sensor on PT1KS_D input.
 
 Extra information from CCS (for information only).
 !!! info
-        Available since version 4.2
+    Available since version 4.2
 
 ### Payload
 
@@ -1961,7 +2054,7 @@ Reserved bits for future uses.
 
 Extra information from MCS (for information only).
 !!! info
-        Available since version 4.2
+    Available since version 4.2
 
 ### Payload
 

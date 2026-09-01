@@ -73,8 +73,8 @@ You can enable the list and set its maximum length with the OCPP
 configuration keys `LocalAuthListEnabled`, `LocalAuthListMaxLength` and
 `SendLocalListMaxLength`. You can use OCPP ChangeConfiguration requests
 from your central system to change the following options. Alternatively,
-add them to the ADVANTICS [**configuration file**](charge-controllers/secc_configuration.md#ocpp-configuration) under the
-`ocpp:1.6_local_auth` section.
+add them to the ADVANTICS configuration file (see the *OCPP configuration* section of this
+controller's Configuration page) under the `ocpp:1.6_local_auth` section.
 
     [ocpp:1.6_local_auth]
     LocalAuthListEnabled=True
@@ -236,7 +236,7 @@ end
 
 @enduml -->
 
-<!-- ```puml
+<!--
 @startuml hlc_overview
 hide footbox
 skinparam BoxPadding 10
@@ -283,12 +283,11 @@ CAR <-> EVSE: handle charging process
 end
 
 @enduml
-``` -->
+-->
 
 
 
-![A high-level schematic of components involved when using OCPP](ocpp_images/hlc_overview.svg)
-<figcaption style="text-align: center">A high-level schematic of components involved when using OCPP</figcaption>
+{{ figure('ocpp_images/hlc_overview.svg', 'A high-level schematic of components involved when using OCPP') }}
 
 One can see four major groups of communications.
 
@@ -357,7 +356,7 @@ complete implementation usable for testing in [Reference Implementation](#refere
 
 ## The ZeroMQ RPC Channel
 
-<div hidden>
+<div hidden markdown="1">
 @startuml /ocpp_images/zmq_rpc_channel
 left to right direction
 hide circle
@@ -386,8 +385,7 @@ interface "ADVANTICS OCPP Application" << (A,LightGray) >> #LightGray {
 
 </div>
 
-![ZeroMQ RPC Channel](ocpp_images/zmq_rpc_channel.svg)
-<figcaption style="text-align: center">ZeroMQ RPC Channel</figcaption>
+{{ figure('ocpp_images/zmq_rpc_channel.svg', 'The ROUTER/DEALER socket pairs of the ZeroMQ RPC channel', alt='ZeroMQ RPC Channel') }}
 
 The ZeroMQ RPC Channel is based on a DEALER/ROUTER socket pair (see [The
 ZeroMQ Guide:
@@ -476,7 +474,6 @@ being executed by the OCPP Application..**
 @startuml /ocpp_images/customer_rcp_request_example
 hide footbox
 skinparam BoxPadding 10
-skinparam ParticipantPadding 35
 skinparam noteTextAlignment center
 
 box "Charge Point Vendor Application" #AquaMarine
@@ -507,8 +504,7 @@ hnote over CPVA_ROUTER: dealer.recv_json()
 @enduml
 </div>
 
-![Charge Point Vendor Application Calling a Function of the OCPP Application](ocpp_images/customer_rcp_request_example.svg)
-<figcaption style="text-align: center">Charge Point Vendor Application Calling a Function of the OCPP Application</figcaption>
+{{ figure('ocpp_images/customer_rcp_request_example.svg', 'Charge Point Vendor Application Calling a Function of the OCPP Application') }}
 
 ## OCPP Application Calling a Function of the Charge Point Vendor Application
 
@@ -528,7 +524,6 @@ by the Charge Point Vendor Application..**
 @startuml /ocpp_images/advantics_rcp_request_example
 hide footbox
 skinparam BoxPadding 10
-skinparam ParticipantPadding 35
 
 box "Charge Point Vendor Application" #AquaMarine
 participant "DEALER" as CPVA_ROUTER
@@ -558,8 +553,7 @@ OCPP_ROUTER -->] : process reply
 @enduml
 </div>
 
-![OCPP Application Calling a Function of the Charge Point Vendor Application](ocpp_images/advantics_rcp_request_example.svg)
-<figcaption style="text-align: center">OCPP Application Calling a Function of the Charge Point Vendor Application</figcaption>
+{{ figure('ocpp_images/advantics_rcp_request_example.svg', 'OCPP Application Calling a Function of the Charge Point Vendor Application') }}
 
 # List of RPC Requests
 
@@ -912,8 +906,7 @@ The following command does so with a short delay.
 
 </div>
 
-![CUSTOMER ARRIVES AT THE CHARGE POINT](ocpp_images/process_example1.svg)
-<figcaption style="text-align: center">CUSTOMER ARRIVES AT THE CHARGE POINT</figcaption>
+{{ figure('ocpp_images/process_example1.svg', 'CUSTOMER ARRIVES AT THE CHARGE POINT') }}
 
 &nbsp;
 
@@ -994,8 +987,7 @@ The following command does so with a short delay.
     @enduml
 </div>
 
-![CUSTOMER STARTS CHARGING AFTER SUCCESSFUL AUTHENTICATION](ocpp_images/process_example2.svg)
-<figcaption style="text-align: center">CUSTOMER STARTS CHARGING AFTER SUCCESSFUL AUTHENTICATION</figcaption>
+{{ figure('ocpp_images/process_example2.svg', 'CUSTOMER STARTS CHARGING AFTER SUCCESSFUL AUTHENTICATION') }}
 
 # REFERENCE IMPLEMENTATION
 

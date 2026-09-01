@@ -6,15 +6,26 @@ Kayak is an [open format](https://github.com/julietkilo/kcd) based on XML, and i
 readable (more than DBCs...). This is the main format for us. That is, we author the CAN DBs in this
 format, and our software and firmware use it directly.
 
-- [Advantics Generic EVSE protocol v2.5](../charger-can-interfaces/Advantics_Generic_EVSE_protocol_v2.6.kcd ':ignore')
+- [Advantics Generic EVSE protocol v2.7](Advantics_Generic_EVSE_protocol_v2.7.kcd)
+- [Advantics Generic EVSE protocol v2.6](Advantics_Generic_EVSE_protocol_v2.6.kcd)
+- [Advantics Generic EVSE protocol v2.4](Advantics_Generic_EVSE_protocol_v2.4.kcd)
+- [Advantics Generic EVSE protocol v2.3](Advantics_Generic_EVSE_protocol_v2.3.kcd)
+- [Advantics Generic EVSE protocol v2.2](Advantics_Generic_EVSE_protocol_v2.2.kcd)
+- [Advantics Generic EVSE protocol v2](Advantics_Generic_EVSE_protocol_v2.kcd)
+- [Advantics Generic EVSE protocol v1](Advantics_Generic_EVSE_protocol_v1.kcd)
 
 ## DBC format
 
 As a courtesy we also provide our CAN DBs in the more usual DBC format. Note these are automatically
 converted from the Kayak ones. Therefore, they are not the reference DBs.
 
-- [Advantics Generic EVSE protocol v2.5](../charger-can-interfaces/Advantics_Generic_EVSE_protocol_v2.6.dbc ':ignore')
-
+- [Advantics Generic EVSE protocol v2.7](Advantics_Generic_EVSE_protocol_v2.7.dbc)
+- [Advantics Generic EVSE protocol v2.6](Advantics_Generic_EVSE_protocol_v2.6.dbc)
+- [Advantics Generic EVSE protocol v2.4](Advantics_Generic_EVSE_protocol_v2.4.dbc)
+- [Advantics Generic EVSE protocol v2.3](Advantics_Generic_EVSE_protocol_v2.3.dbc)
+- [Advantics Generic EVSE protocol v2.2](Advantics_Generic_EVSE_protocol_v2.2.dbc)
+- [Advantics Generic EVSE protocol v2](Advantics_Generic_EVSE_protocol_v2.dbc)
+- [Advantics Generic EVSE protocol v1](Advantics_Generic_EVSE_protocol_v1.dbc)
 
 ## CAN ID index field
 
@@ -43,6 +54,6 @@ The following is an example:
     # Used to offset CAN addressing as well.
     index = 1
 
-Based on this configuration, the CAN IDs of the generic interface used for the CCS DC pistol should be offset by the index value (01). The CAN message [**New_Charge_Session**](can.md#new_charge_session) declaration in the CAN database should become as follows:
+Based on this configuration, the CAN IDs of the generic interface used for the CCS DC pistol should be offset by the index value (01). The CAN message [**New_Charge_Session**](can_v2.md#New_Charge_Session) declaration in the CAN database should become as follows:
 
     <Message id="0x01068001" length="8" name="New_Charge_Session" interval="100" format="extended">
