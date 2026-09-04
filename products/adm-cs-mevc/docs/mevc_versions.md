@@ -31,6 +31,56 @@ Currently supported hardware are for `ADM-CS-MEVC`.
   </thead>
   <tbody>
     <tr>
+      <td class="branch-col">Release 2.9.2</td>
+      <td class="date-col">2026-09-04</td>
+      <td>
+        <ul>
+          <li><strong>pev-controller 2.8.1</strong>
+            <ul>
+              <li>Temperature monitoring: the cable temperature function is now the default, with derating, stop and monitoring enabled by default</li>
+              <li>Inlet lock timing: a custom lock timing can now be configured by setting <code>enable_custom_lock_timing</code> to <code>True</code> and the delay after the charger is detected via <code>inlet_lock_delay_s</code> (default 5 s, range 3–60). Whatever the value, the plug is always locked at the latest just before the insulation test</li>
+              <li>ISO15118-20 energy requests handling: when the BMS does not provide a value, the configured energy values are used as a fallback instead of sending zeros, and the maximum request is capped by the configured battery energy capacity</li>
+              <li>Current deviation detection now also runs in dynamic mode against the current range</li>
+              <li>Generic CAN interface V1 &amp; V2: CAN IDs can now be remapped from the configuration file</li>
+              <li>Plugged-in signalling: a single wake pulse is emitted when the new <code>plugged_in_pulse_ms</code> hardware config entry is set on a digital output</li>
+              <li>Diagnostic messages are no longer sent while the controller is in the Emergency state until it settles</li>
+              <li>Waking from sleep no longer reports a spurious node disconnection: required nodes are given a short grace period to reconnect before a <code>NODE DISCONNECTED</code> error is raised, instead of reacting to the stale pre-sleep heartbeat</li>
+            </ul>
+          </li>
+          <li><strong>ccs-evcc 2.8.2</strong>
+            <ul>
+              <li>New config entry <code>communication_start_delay_s</code>: MCS communication now starts after a delay, so the user can finish inserting the connector without the link being interrupted</li>
+              <li>Fix spurious "Unexpected CE state" session aborts on fast EVs</li>
+              <li>CE/ID line sampling frequency lowered — safety-critical behaviour relies on the hardware logic</li>
+              <li>Fix MessageHeader timestamps: the charger clock offset is now anchored once on SessionSetupRes, instead of being recomputed from every response</li>
+              <li>Fix a 0 Wh energy request being treated as "not provided", which broke the required min ≤ target ≤ max ordering</li>
+              <li>Use both Target Voltage and Target Current in Scheduled Mode</li>
+              <li>Waking from sleep no longer reports a spurious node disconnection (see above)</li>
+            </ul>
+          </li>
+          <li><strong>advantics-csm 1.8.0</strong>
+            <ul>
+              <li>Configuration file: every entry now carries a description and belongs to a category, so the generated <code>.cfg</code> file and the web interface document themselves</li>
+              <li>Include the new config entries</li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><strong>Dockerhub update:</strong> Pull from Docker hub — <a href="advos-yocto-system/ssh.html#option-1-requires-internet-pulling-the-update-from-docker-hub">Guide</a></li>
+          <li><strong>.zip update:</strong> <a href="https://pub-ec884f5e1c6b4942867b3ac199d79823.r2.dev/mevc/mevc-release-2.9.2.zip">Download .zip (Release 2.9.2)</a> — <a href="advos-yocto-system/ssh.html#option-3-does-not-requires-internet-loading-the-images-from-a-zip-file">Update instructions</a></li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><a href="https://hub.docker.com/r/advantics/pev-controller/tags">advantics/pev-controller:2.8.1</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/ccs-evcc/tags">advantics/ccs-evcc:2.8.2</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/advantics-csm/tags">advantics/advantics-csm:1.8.0</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td class="branch-col">Release 2.8.1</td>
       <td class="date-col">2026-07-07</td>
       <td>
