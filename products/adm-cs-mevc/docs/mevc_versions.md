@@ -56,6 +56,7 @@ Currently supported hardware are for `ADM-CS-MEVC`.
               <li>Fix a 0 Wh energy request being treated as "not provided", which broke the required min ≤ target ≤ max ordering</li>
               <li>Use both Target Voltage and Target Current in Scheduled Mode</li>
               <li>Waking from sleep no longer reports a spurious node disconnection (see above)</li>
+              <li>Fixed an issue with certificate management that could prevent the vehicle from transmitting a certificate</li>
             </ul>
           </li>
           <li><strong>advantics-csm 1.8.0</strong>
