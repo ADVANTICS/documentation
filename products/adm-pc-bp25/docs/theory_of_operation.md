@@ -2,7 +2,7 @@
 
 ## Topology
 
-The ADM-PC-BP25 is a 3-phase Silicon Carbide bridge, with individual phase chokes. Up to 1000 V DC bus operation is possible (depending on the product variant).
+The ADM-PC-BP25 is a 3-phase Silicon Carbide bridge, with individual phase chokes. Up to 1000 V DC bus operation is possible (depending on the product variant).
 
 
 ![AFE topology](assets/afe_topology.svg){ width="60%" }
@@ -25,7 +25,7 @@ The overcurrent protection has three levels. HW, FW and SW. The HW protection is
 
 #### Overvoltage protection
 
-Similarly there is a three level overvoltage protection on the DC bus. The limit is set to 860 V (VA08 variant) and 1060 V (VA01 variant), is instantaneous, using comparators and logic, and is fully independent of the digital signal processor firmware. A voltage exceeding this level will cause a converter shutdown. Customer should be aware that the module has no means of protecting itself if excessive voltage is presented on its input. Excessive voltage will destroy the switching devices. The L1, L2, L3 voltages only provides SW protection for user’s convenience, as the phase voltages are always lower or equal to the DC bus voltage.
+Similarly there is a three level overvoltage protection on the DC bus. The limit is set to 860 V (VA08 variant) and 1060 V (VA01 variant), is instantaneous, using comparators and logic, and is fully independent of the digital signal processor firmware. A voltage exceeding this level will cause a converter shutdown. Customer should be aware that the module has no means of protecting itself if excessive voltage is presented on its input. Excessive voltage will destroy the switching devices. The L1, L2, L3 voltages only provides SW protection for user's convenience, as the phase voltages are always lower or equal to the DC bus voltage.
 
 #### Passive high voltage discharge
 
@@ -47,20 +47,20 @@ When talking about similar topologies, there are four main limiting aspects – 
 
 #### Voltage limit
 
-The voltage limit is the simplest to consider. The switching devices have blocking voltage defined (1000 V for VA08 variant, and 1200 V for VA01 variant). The maximum allowed voltage is then derated by 200V for each variant - that is to 800 V and 1000 V respectively. The module will not allow the user to exceed these limits. The absolute value of the voltage will have an impact on the maximum power available – as switching losses increase slightly with the bus voltage. But in general, having higher voltage on both sides of the converter results in higher power available, and higher efficiency.
+The voltage limit is the simplest to consider. The switching devices have blocking voltage defined (1000 V for VA08 variant, and 1200 V for VA01 variant). The maximum allowed voltage is then derated by 200V for each variant - that is to 800 V and 1000 V respectively. The module will not allow the user to exceed these limits. The absolute value of the voltage will have an impact on the maximum power available – as switching losses increase slightly with the bus voltage. But in general, having higher voltage on both sides of the converter results in higher power available, and higher efficiency.
 
 !!! warning
-    The module is equiped with HW protections that will shut down the converter if the limits are exceeded.
+    The module is equipped with HW protections that will shut down the converter if the limits are exceeded.
     But the module cannot protect itself against voltages applied on its terminals. Make sure that the applied voltage is within the operational limits
 
 
 #### Current limit
 
-Always consider current limit in the sense of phase currents. When the module is used as a DC/DC, the total current limit is 100 A for VA01 variant – resulting in maximum phase current of 33 A. When the module is used as a 3-phase power factor correction unit, the phase current is actually an AC current - expressed in Amps RMS. Therefore the phase limit will appear lower (30 A per phase for VA01 variant), as the module has to proccess much higher peak currents (42.5 A).
+Always consider current limit in the sense of phase currents. When the module is used as a DC/DC, the total current limit is 100 A for VA01 variant – resulting in maximum phase current of 33 A. When the module is used as a 3-phase power factor correction unit, the phase current is actually an AC current - expressed in Amps RMS. Therefore the phase limit will appear lower (30 A per phase for VA01 variant), as the module has to process much higher peak currents (42.5 A).
 
 #### Power limit
 
-The maximum power at given low side (phase) voltage and low side (phase) current is calculated as max phase current times phase voltage. For very high values of the phase voltage the total transistor dissipation becomes the limiting factor. The maximum power is set to 50 kW. The power envelope is actually much more complicated, as it depends on bus voltage to phase voltage ratio, output current and the duty cycle, as well as on current shape (AC vs DC). Consult the details with ADVANTICS, if you’re not sure your application fits within the power capabilities.
+The maximum power at given low side (phase) voltage and low side (phase) current is calculated as max phase current times phase voltage. For very high values of the phase voltage the total transistor dissipation becomes the limiting factor. The maximum power is set to 50 kW. The power envelope is actually much more complicated, as it depends on bus voltage to phase voltage ratio, output current and the duty cycle, as well as on current shape (AC vs DC). Consult the details with ADVANTICS, if you're not sure your application fits within the power capabilities.
 
 ![power envelope va01](assets/power_envelope_va01.svg){ width="60%" }
 <figcaption style="text-align: center">Power envelope of the variant VA01</figcaption>
@@ -70,7 +70,7 @@ The maximum power at given low side (phase) voltage and low side (phase) current
 
 #### Thermal limit
 
-There are two temperature sensors installed in the module. The inductor temperature sensor, and the bridge temperature sensor (also call as transistor bar sensor). Both sensors report the current temperature over the CAN bus (in degrees Celsius). The bridge temperature in the module should be maintained at maximum of 70 degrees Celsius for normal operation for long periods. However, it can reach a maximum of 90 degrees Celsius.It is important to note that continuous operation at this maximum temperature can result in damaging the device and reducing the lifetime of the unit. The shutdown temperature of the transistor bar sensor is **90 °C**. The shutdown temperature of the inductor temperature sensor is **130 °C**.
+There are two temperature sensors installed in the module. The inductor temperature sensor, and the bridge temperature sensor (also call as transistor bar sensor). Both sensors report the current temperature over the CAN bus (in degrees Celsius). The bridge temperature in the module should be maintained at maximum of 70 degrees Celsius for normal operation for long periods. However, it can reach a maximum of 90 degrees Celsius. It is important to note that continuous operation at this maximum temperature can result in damaging the device and reducing the lifetime of the unit. The shutdown temperature of the transistor bar sensor is **90 °C**. The shutdown temperature of the inductor temperature sensor is **130 °C**.
 
 Upon reaching the overheating condition, the converter will stop operating (still reachable via CAN communication) but without tripping the interlock line. This means that other modules chained in the same bus will still continue normal operation.
 
@@ -82,10 +82,14 @@ Upon reaching the overheating condition, the converter will stop operating (stil
 
 ## Control modes
 
+The control modes below are power-stage control functions. Interconnection protection for
+AC-connected equipment is a system-level function — see
+[Integration requirements](specifications.md#integration-requirements).
+
 AFE can operate in many different control modes, which includes both AC and DC applications (buck, boost, rectification, inverting, etc.). Some applications require a proper precharge to be done before connecting sources to the module. This is true whenever voltage source connected to three phases is of higher voltage than the DC link, which is in all applications that include boost and rectifier control modes. Otherwise, a permanent damage to the device might occur which will not be visible at first but it will definitely cause MOSFET failure.
 
 !!! warning
-    Verify if your application requires precharge before appliying any voltage on the module or permanent damage might occur to the module
+    Verify if your application requires precharge before applying any voltage on the module or permanent damage might occur to the module
 
 To start operating the device, please refer to the [Quick Start](quick_start.md) section. However, it can be summarized in:
 
@@ -156,10 +160,10 @@ Voltage setpoint corresponds to the output voltage reference. Current setpoint c
 <figcaption style="text-align: center">Example connection of ADM-PC-BP25 in boost & neutral mode with precharge</figcaption>
 
 ### Rectifier 1-phase mode
-In this mode, the module can be attached to an existing 1-phase grid to sink or source power from/to it and acting as an active power factor correction unit (PFC) with boost. The module reaches a power factor of 0.96-0.99 depending on the loading.
-Supported grid standards are:
+In this mode, the module can be attached to an existing 1-phase AC supply to sink or source power from/to it and acting as an active power factor correction unit (PFC) with boost. The module reaches a power factor of 0.96-0.99 depending on the loading.
+Supported AC voltages are:
 
-- EU grid (50Hz) both line-to-line or line-to-neutral
+- EU (50Hz) both line-to-line or line-to-neutral
 - US 480V<sub>AC</sub> and 208V<sub>AC</sub> (60Hz)
 
 AC voltage source is connected between phases L2 and L3, either line-to-neutral or line-to-line. Phase L1 is unused in this control mode. Input side is defined to be the two phases L2-L3, and output side to be the DC link. 
@@ -187,7 +191,7 @@ Voltage setpoint (2) corresponds to the phase L1 voltage reference. Current setp
 <figcaption style="text-align: center">Example connection of ADM-PC-BP25 in rectifier 1-phase & Buck mode with precharge</figcaption>
 
 ### Rectifier 3-phase mode
-In this mode, the module can be attached to an existing 3-phase grid to sink or source power from/to it and acting as an active power factor correction unit (PFC) with boost. The module reaches a power factor of 0.96-0.99 depending on the loading.
+In this mode, the module can be attached to an existing 3-phase AC supply to sink or source power from/to it and acting as an active power factor correction unit (PFC) with boost. The module reaches a power factor of 0.96-0.99 depending on the loading.
 
 Symmetrical three-phase AC voltage source is connected to the three phases. 
 
@@ -252,11 +256,11 @@ Voltage setpoint corresponds to the output RMS voltage reference. Current setpoi
 
 
 ### Inverter 1-phase distributed mode
-In this mode, the module generates a 'floating' AC voltage sine-wave in open loop on both L1 and L2 (they must be shorted toguether). L3 generates the Neutral. This control mode is usually used with others module that will generate other phases at a user defined phase shift. The master module (in stack position zero) will generate the synchronization signal for the specified sine-wave frequency.
+In this mode, the module generates a 'floating' AC voltage sine-wave in open loop on both L1 and L2 (they must be shorted together). L3 generates the Neutral. This control mode is usually used with others module that will generate other phases at a user defined phase shift. The master module (in stack position zero) will generate the synchronization signal for the specified sine-wave frequency.
 
 Voltage source is connected to the DC link. Input side is defined to be the DC link
 
-Voltage setpoint corresponds to the output RMS voltage reference. Current setpoint corresponds to the total output RMS current limit and must be greater than zero. Frequency setpoint corresponds to the sine-wave frequency. Phase setpoint corresponds to the phase shift with respect to the synchronization signal. For example, if we have 2 BP25 modules in this mode, we could send a setpoint of 180 degrees to the module with stack position 1, meaning it will generate a phase with oposite polarity to that one generated by the BP25 with stack position 0.
+Voltage setpoint corresponds to the output RMS voltage reference. Current setpoint corresponds to the total output RMS current limit and must be greater than zero. Frequency setpoint corresponds to the sine-wave frequency. Phase setpoint corresponds to the phase shift with respect to the synchronization signal. For example, if we have 2 BP25 modules in this mode, we could send a setpoint of 180 degrees to the module with stack position 1, meaning it will generate a phase with opposite polarity to that one generated by the BP25 with stack position 0.
 
 !!! note
     The frequency and phase setpoints must be set BEFORE the mode is enabled.
@@ -284,7 +288,7 @@ When the voltage at the output of the module is not defined by a battery or any 
 
 2. For modules working in **voltage regulation** (when the output voltage is not externally defined and current setpoint is not reached before):
 
-- Choose a positive current setpoint which is enough to supply the load by a margin, and whatever desired voltage. Note that even if the current setpoint is possitive, in this case, the module can still sink or source current while maintaining the bus voltage.
+- Choose a positive current setpoint which is enough to supply the load by a margin, and whatever desired voltage. Note that even if the current setpoint is positive, in this case, the module can still sink or source current while maintaining the bus voltage.
 
 !!! note
     In DC/DC modes, the current setpoint is referred always to the total phase current, so make sure that the estimated current draw (and the selected current setpoint) is converted to low-voltage side (phase side) current draw by multiplying by the voltage ratio. For example, if we are boosting from 400V to 800V, and the expected current draw in the high-voltage bus is 40A, then, the setpoint has to be actually 80A + margin in the low voltage side.
@@ -314,7 +318,7 @@ Some considerations about the Group ID:
 -  The user can retrieve the current Group ID of a device with the **AFE_Group_Info** message.
 - The Group ID can range from 0 to 7. A Group ID of '0' means that the device does NOT share any group with other devices (default configuration)
 - The Group ID of a device is **not persistent**, and is set to '0' by default upon reboot/power-up.
-- The only limit on the maximum number of modules that belong to a group is impossed by the maximum stack number, 32.
+- The only limit on the maximum number of modules that belong to a group is imposed by the maximum stack number, 32.
 
 Please, refer to the [CAN database](can_bus_interface.md) for more information about the messages to set/retrieve the group ID.
 
@@ -382,7 +386,7 @@ On top of the virtual impedance, and to prevent interlock trips when capacitive 
 
 The user can then play and adjust the current setpoint (the threshold at which the virtual impedance will start acting), in order to find a good balance between high current availability and low distortion of the waveform.
 
-For example, if the user is only interested in having the highest current availability, then an unrealisticly high current reference can be used (for example, 200 Amps), so that the virtual impedance never starts acting, and only the fast window comparators will actuate. Obviously, this is only to allow starting high loads (such as motors), but the steady state current should still be equal or below the nominal current of the converter (30/33 Amps RMS depending on the variant).
+For example, if the user is only interested in having the highest current availability, then an unrealistically high current reference can be used (for example, 200 Amps), so that the virtual impedance never starts acting, and only the fast window comparators will actuate. Obviously, this is only to allow starting high loads (such as motors), but the steady state current should still be equal or below the nominal current of the converter (30/33 Amps RMS depending on the variant).
 
 On the other hand, if the user is more interested in having less high frequency distortion, the user can lower the current reference, so that the virtual impedance will start acting before, and the voltage amplitude will drop, preventing the current to grow too much without introducing high frequency distortion.
 
@@ -392,15 +396,23 @@ On the other hand, if the user is more interested in having less high frequency 
 
 ## Parallel operation in DC/AC 3-phase Inverter mode  (grid forming)
 
+!!! warning "Grid forming"
+    Grid forming means the module generates and regulates an AC voltage, allowing it to supply an
+    isolated AC system or local microgrid and to be paralleled with other modules. The features
+    below control the power stage; they do not implement interconnection protection. A finished
+    product operating in parallel with a public electric utility requires that protection, its
+    settings, utility approval and the applicable certification, at system level. See
+    [Integration requirements](specifications.md#integration-requirements).
+
 Starting from firmware 2024.9.25, a new set of features were introduced in the 3-phase inverter mode to allow paralleling of modules for grid forming.
 
 The goal of this set of features is:
 
 - Allow modules to share the load when connected in parallel
-- Allow new modules to be connected in parallel while loads are still being suppled (hot plugging)
+- Allow new modules to be connected in parallel while loads are still being supplied (hot plugging)
 - Allow transfer of power between modules via power setpoints
 - Allow modifying the load sharing via power setpoints
-- Allow connection to the grid and exchange power with it via power setpoints
+- Allow connection to an external AC source and exchange power with it via power setpoints
 - Allow connection in parallel with other inverters
 
 !!! tip
@@ -411,7 +423,7 @@ To understand how to operate modules in this mode, please read through the follo
 ### Basic operation of 2 or more AFEs in parallel as grid forming
 With the new firmware, AFEs can be connected in parallel in AC modes, but only in 3-phase inverter mode. This means that every AFE will generate the 3 phase voltages, and the phases of other AFEs can be paralleled.
 
-To enable a single AFE in ¨Inverter 3-phase¨ mode, set bit number 13 (starting from 0) in the ¨AFE_Mode_Control¨ message (see CAN database for more info).
+To enable a single AFE in "Inverter 3-phase" mode, set bit number 13 (starting from 0) in the "AFE_Mode_Control" message (see CAN database for more info).
 
 To start operating, do the following:
 
@@ -424,7 +436,7 @@ Typical values:
 
 2. Enable one AFE as NEUTRAL mode (or generate the Neutral from another AFE in Boost+Neutral)
 
-3. Enable one AFE as ¨Inverter 3-phase¨ mode. Step 2 and 3 may be done in any order.
+3. Enable one AFE as "Inverter 3-phase" mode. Step 2 and 3 may be done in any order.
 
 4. Once the voltage has stabilized (may take around 0.5 to 1 second from the moment that the CAN message is sent), then the other 2 AFEs can be enabled as well. At this point, they will be in parallel generating an AC waveform. 
 
@@ -439,9 +451,9 @@ assumed a mainly inductive impedance, and with this in mind, the droop equations
 
 Δω = n⋅(Pset−P)
 
-Where Pset and Qset are the active and reactive power setpoints,respectively, P and Q are the measured active and reactive powers, and m and n are the voltage and frequency droop gains, respectively.
+Where Pset and Qset are the active and reactive power setpoints, respectively, P and Q are the measured active and reactive powers, and m and n are the voltage and frequency droop gains, respectively.
 
-Let’s start with the simplest case scenario: Pset and Qset are 0 (as this will usually be the case in microgrid operation). When applying the equations above, active power affects the frequency, and reactive power affects the voltage (in reality there is always some coupling). When the active power is increased (due to the connection of a load, for example), the frequency will be reduced, and when reactive power is increased, voltage will be reduced. The amount of reduction depends on the 'm' and 'n' constants. 
+Let's start with the simplest case scenario: Pset and Qset are 0 (as this will usually be the case in microgrid operation). When applying the equations above, active power affects the frequency, and reactive power affects the voltage (in reality there is always some coupling). When the active power is increased (due to the connection of a load, for example), the frequency will be reduced, and when reactive power is increased, voltage will be reduced. The amount of reduction depends on the 'm' and 'n' constants. 
 
 Now we can complicate things a bit more: we can play with the Pset and Qset. When they are modified, the modules will try to modify their voltage/frequency to reach a new equilibrium in which they no longer share equally the load. This can be used, for example, to flow energy from one battery to another through the AC microgrid. This is better explained in next section.
 
@@ -457,7 +469,7 @@ There are several aspects that need to be discussed regarding power delivery and
 
 First of all, because the modules in grid-forming behave as voltage sources, the delivered current (and therefore, power) is the subproduct of the AC voltage and the load. Therefore, there is no meaning on talking about active/reactive power control of a single AFE because they will only depend on the load.
 
-However, when more than one AFE are connected together (or when they are connected in parallel to the grid or to other inverters), we can modify the power transfet and sharing between the modules. This is done via the Active and Reactive power setpoints. To explain how they work, let's put an example.
+However, when more than one AFE are connected together (or when they are connected in parallel to the grid or to other inverters), we can modify the power transfer and sharing between the modules. This is done via the Active and Reactive power setpoints. To explain how they work, let's put an example.
 
 Let's say that we have 2 AFEs in grid-forming mode. Their power setpoints (both, active and reactive) should be zero initially. Having a zero power setpoint does NOT mean that the module will not produce power (remember, power just depends on voltage and load). In this condition, the 2 AFEs will reach an equilibrium in which they will share the load, meaning that they both contribute almost the same amount and therefore each AFE will provide roughly half of the total power consumed by the load. Power sharing will never be perfect due to real life uncertainties, impedance mismatch, etc.
 
@@ -474,11 +486,11 @@ Some things to point out:
 ### CAN messages for operation
 When operating in inverter 3p mode, these are the related CAN messages (for more information, refer directly to the CAN database):
 
-- **ID =** 0x78011, **Message name:** “AFE_AC_Power”, **Description:** contains the measured active and reactive powers (per phase).
+- **ID =** 0x78011, **Message name:** "AFE_AC_Power", **Description:** contains the measured active and reactive powers (per phase).
 
-- **ID =** 0x70039, **Message name:** “AFE_Power_Setpoint_Control”, **Description:** use this message to send power setpoints to the module.
+- **ID =** 0x70039, **Message name:** "AFE_Power_Setpoint_Control", **Description:** use this message to send power setpoints to the module.
 
-- **ID =** 0x70051, **Message name:** “AFE_Inverter_Droop_Control”, **Description:** use this message to modify advanced parameters for operation (explained in following section).
+- **ID =** 0x70051, **Message name:** "AFE_Inverter_Droop_Control", **Description:** use this message to modify advanced parameters for operation (explained in following section).
 
 ### Advanced parameters configuration
 When working in Inverter 3-phase mode, there are some extra configuration parameters that the user can modify. (For more information, please check the provided CAN database)
@@ -492,28 +504,29 @@ The list of (most important) parameters that can be changed over CAN is the foll
 - **Frequency droop:** this is the droop slope/gain for the Frequency in Hz/MegaWatt. 
 Important: the default value for this gain (40 Hz/MW) is already quite high, and increasing 
 it degrades stability. Therefore, we do not recommend increasing it. 
-- **Voltage droop:** sets the droop gain/slope for the Voltage in V/MegaWatt. We do not 
-recommend increasing or decreasing this gain. Its default value is 630 V/MW.
+- **Voltage droop:** sets the droop gain/slope for the Voltage in V/MVAr. We do not 
+recommend increasing or decreasing this gain. Its default value is 630 V/MVAr.
 
 - **Virtual impedance:** sets the inductive virtual impedance in microhenries (uH). By default 
 (i.e: after power cycle), this value is 8000 uH. Important: lowering this value too much will
 lead to instability in the power loop. We do not recommend increasing this value.
 
-- **“Disable Harmonic Compensation”:** you can set this flag when harmonic compensation 
-needs to be disabled (i.e, when the module is connected in parallel to the utility grid or to a 
-diesel generator). Harmonic compensation is enabled by default on startup.
+- **"Disable Harmonic Compensation":** you can set this flag when harmonic compensation 
+needs to be disabled (i.e, when the module is connected in parallel to an external AC source such as
+a utility supply or a diesel generator). Harmonic compensation is enabled by default on startup.
 
-- **“Enable integral action”:** this integral action refers to the Power loop controllers. Enable 
-this only if connected to the utility grid or any other 'stiff' AC source. If you go off-grid, this bit must be immediately 
-cleared. This is disabled by default on startup. Check the ‘Integral action: operate as 
-constant power/current source/sink’ section for more details on when to enable this setting
+- **"Enable integral action":** this integral action refers to the Power loop controllers. Enable 
+this only when connected to a 'stiff' external AC source. If the external source is removed and the
+system goes off-grid, this bit must be immediately cleared. This is disabled by default on startup.
+Check the 'Integral action: operate as constant power/current source/sink' section for more details
+on when to enable this setting
 
-### Tradeoff between droop grains, virtual impedance, transient performance and stability
+### Tradeoff between droop gains, virtual impedance, transient performance and stability
 In previous section we can see that almost every parameter has serious implications on the stability of the system. In this section, we try to explain a bit more this relationship, and possible combinations of parameters depending on the application.
 
-Let’s start with virtual impedance(inductance). This virtual inductance is needed to make the system behave inductively (remember from previous sections that an inductive behavior was assumed), and also to stabilize the dynamics. **In general, the higher the Frequency droop gain is, the higher virtual impedance is needed.** By default, both frequency and virtual impedance are relatively high, so technically, you could divide them both by a factor of 4 (for example) to maintain stability.
+Let's start with virtual impedance (inductance). This virtual inductance is needed to make the system behave inductively (remember from previous sections that an inductive behavior was assumed), and also to stabilize the dynamics. **In general, the higher the Frequency droop gain is, the higher virtual impedance is needed.** By default, both frequency and virtual impedance are relatively high, so technically, you could divide them both by a factor of 4 (for example) to maintain stability.
 
-Let’s continue with the frequency droop: in order to improve power sharing between AFEs, the frequency droop gain needs to increase. Therefore, if you decrease the frequency droop gain, power sharing will be slightly worse, but this will allow you to have less virtual inductance, which has a benefit explained next.
+Let's continue with the frequency droop: in order to improve power sharing between AFEs, the frequency droop gain needs to increase. Therefore, if you decrease the frequency droop gain, power sharing will be slightly worse, but this will allow you to have less virtual inductance, which has a benefit explained next.
 
 A high virtual impedance will worsen the transient performance of the voltage when loads are 
 connected/disconnected. To improve transient performance, you will want to lower virtual 
@@ -529,7 +542,7 @@ Here we present 2 case scenarios:
 In this case scenario, the default gains and virtual impedance will work just fine, although transient performance might not be the best. You can decide to operate with default parameters, or you can 
 decide to improve transient performance by decreasing both frequency droop and virtual impedance by a factor of 2 or 4, for example. Although power sharing will be slightly worse, but still good enough.
 
-**Case scenario 2: AFEs are used as current sources against the utility grid**
+**Case scenario 2: AFEs are used as current sources against an external AC source**
 
 In this case, transient performance is less important as the modules behave as current sources. Therefore the default values can be used without any problem
 
@@ -537,12 +550,16 @@ In this case, transient performance is less important as the modules behave as c
 In order to behave as a current/power source, you can enable integral action. Integral action adds infinite gain at DC in the power loop, which means that the AFE will increase/decrease its frequency or voltage until its power matches the user selected power setpoints and is perfectly tracked (within the sensors accuracy), therefore behaving as a current/power source.
 
 !!! warning
-    **Important:**  bear in mind that to be able to enable integral action there needs to be at least one or more devices that act as ‘master’ generators, meaning that they do not have integral action or that
-their frequency/voltage is stable, otherwise the whole system would drift in frequency/voltage. For example, it is ok to enable integral action when connected to a diesel generator, or to the utility grid.
+    **Important:**  bear in mind that to be able to enable integral action there needs to be at least one or more devices that act as 'master' generators, meaning that they do not have integral action or that
+their frequency/voltage is stable, otherwise the whole system would drift in frequency/voltage. For example, it is ok to enable integral action when connected to a diesel generator or another stiff external AC source.
 But if you only have one AFE generating 3-phase, then you should NOT enable integral action.
 
 !!! warning
-    If the integral action is activated because the AFE is operating in parallel to the utility grid (for example), bbut suddenly the utility grid is disconnected, then the integral action must be deactivated as soon as possible to prevent frequency/voltage drift.
+    Loss of the external AC source while integral action is enabled will cause frequency and voltage
+    to drift, and integral action must be cleared. In a utility-connected product this condition is
+    an unintentional island; detecting it and ceasing to energize is the function of the
+    interconnection protection in the finished equipment. Clearing integral action over CAN is not a
+    substitute for that protection and does not act on the timescale it requires.
 
 ### Overload conditions
 The overload capabilities of the AFE is inherently small because its peak current rating is very close to its nominal one. 

@@ -8,8 +8,24 @@ connectors</figcaption>
 
 ### CAN bus
 
-The communication with ADVANTICS power modules is realized over CAN bus 2.0B, with data rate of 500 kbit/s and extended addressing. Please see the module CAN database section for the protocol description. 
+The communication with ADVANTICS power modules is realized over CAN bus 2.0B, with data rate of 500 kbit/s and extended addressing. Please see the module CAN database section for the protocol description. 
 Up to 32 modules of the same type can be chained, limited by the available addresses. The modules of different type do not collide with each other on the addresses.
+
+### Local control interface
+
+CAN 2.0B is the local machine-control and status interface of the module. It carries setpoints,
+mode selection, measurements and diagnostics between the module and the supervisory controller of
+the equipment in which the module is installed. The module implements no network protocol stack
+above CAN.
+
+The interface connectors carry CAN 2.0B, the hardware interlock and the +24 V control-section
+supply. Every electrical interface on the module is listed in
+[Connectors and interfaces](specifications.md#connectors-and-interfaces); the CPT pinout is given in
+[Communication terminal and wiring](installation.md#communication-terminal-and-wiring).
+
+Firmware update also uses the CAN bus. The bootloader is driven by the Advantics firmware update
+tool running on a PC attached to the same bus, as described in [Servicing](servicing.md). The
+module provides no remote or over-the-air update path.
 
 ### CAN bus termination
 
@@ -29,4 +45,4 @@ The interlock pin on the interface connector is used to put the system in a safe
 
 Control power for the modules is nominally +24 V DC. Upper and lower limits and maximum current draw are given in the Specification Sheet. Two pins each are used for +24 V and ground to minimize voltage drop across the wires in installations with a large number of modules and/or long wiring. When planning the communications chain, ensure that no single connector is carrying more than 3 A in total, given the worst-case current requirement of the individual modules. Note that in larger installations, the voltage drop across the wires can be significant, and this will affect the supply voltage of the individual modules.
 
-Voltage drop across the communications ground wires will change the apparent logic levels at each module. Ensure that the voltage drop between any two modules does not exceed 1 volt. The nominal resistance of the recommended wire is 50 milliohms per meter. Two wires are used in parallel for ground, giving a total ground resistance of 25 milliohms per meter.
+Voltage drop across the communications ground wires will change the apparent logic levels at each module. Ensure that the voltage drop between any two modules does not exceed 1 volt. The nominal resistance of the recommended wire is 50 milliohms per meter. Two wires are used in parallel for ground, giving a total ground resistance of 25 milliohms per meter.

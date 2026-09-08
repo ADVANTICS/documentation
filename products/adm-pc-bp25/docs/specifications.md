@@ -12,7 +12,7 @@ The ADM-PC-BP25 ships in 3 variants. They differ only in the 4 ratings below; ev
 |**Voltage range**|800 V<sub>DC</sub> bus max|950 V<sub>DC</sub> bus max|950 V<sub>DC</sub> bus max|
 |**Current range**|DC/DC: 111 A (37 A per phase)  <br /> AC/DC: 111 A<sub>rms</sub> (37 A<sub>rms</sub> per phase)<br />Derating depends on heatsink design, cooling and ambient conditions|DC/DC: 100 A (33 A per phase)  <br /> AC/DC: 90 A<sub>rms</sub> (30 A<sub>rms</sub> per phase) <br />Derating depends on heatsink design, cooling and ambient conditions|DC/DC: 111 A (37 A per phase)  <br /> AC/DC: 111 A<sub>rms</sub> (37 A<sub>rms</sub> per phase)<br />Derating depends on heatsink design, cooling and ambient conditions|
 |**AC rated voltage**|400 V<sub>AC</sub>|480 V<sub>AC</sub>|480 V<sub>AC</sub>|
-|**AC 3-phase grid support**|208 V<sub>AC</sub> to 400 V<sub>AC</sub>, neutral wire not used|208 V<sub>AC</sub> to 480 V<sub>AC</sub>, neutral wire not used|208 V<sub>AC</sub> to 480 V<sub>AC</sub>, neutral wire not used|
+|**AC 3-phase operating voltage range**|208 V<sub>AC</sub> to 400 V<sub>AC</sub>, neutral wire not used|208 V<sub>AC</sub> to 480 V<sub>AC</sub>, neutral wire not used|208 V<sub>AC</sub> to 480 V<sub>AC</sub>, neutral wire not used|
 
 ### Common to all variants
 
@@ -22,9 +22,9 @@ The ADM-PC-BP25 ships in 3 variants. They differ only in the 4 ratings below; ev
 |**Efficiency**|>99% peak|
 |**Power factor**|3-phase mode: >0.995 @ 20 kW, >0.99 @ 9 kW  <br />1-phase mode: 0.997 @ 8 kW, >0.99 @ 2500 W|
 |**Power flow**|Bidirectional|
-|**Power conversion modes**|Step-down (Buck)<br />Step-up (Boost)<br />Grid attached (Rectification) <br /> AC generation (Inverter) <br />|
+|**Power conversion modes**|Step-down (Buck)<br />Step-up (Boost)<br />AC attached (Rectification) <br /> AC generation (Inverter) <br />|
 |**AC mains frequency**|45 - 65 Hz|
-|**AC 1-phase grid support**|110 V<sub>AC</sub> to 480 V<sub>AC</sub>, one phase, split phase (external capacitors required)|
+|**AC 1-phase operating voltage range**|110 V<sub>AC</sub> to 480 V<sub>AC</sub>, one phase, split phase (external capacitors required)|
 |**Protection features**|Overcurrent<br />Overvoltage<br />Overheating <br /> Common interlock line<br />'Keep alive' periodic message (optional)|
 |**Voltage and current accuracy**|+/-2% (+/-1% typical)|
 |**Communication protocol**|CAN bus 2.0B, 500kbit/s with extended addressing|
@@ -32,6 +32,13 @@ The ADM-PC-BP25 ships in 3 variants. They differ only in the 4 ratings below; ev
 |**Logic interface**|8 pin JST CPT automotive series|
 |**Logic power**|24V nominal (Min: 20V, Max: 28V), max 450 mA current per module|
 |**Interlock**|Open collector, hardware interlock|
+
+!!! note "AC operating ranges"
+    The AC voltage and frequency ranges above describe the electrical operating capability of the
+    power stage. They cover the common European and North American nominal AC voltages and
+    frequencies. Certification and listing of the finished equipment, including to UL 1741,
+    IEEE 1547 or EN 50549-1 where applicable, are determined at system level. See
+    [Integration requirements](#integration-requirements).
 
 ## Mechanical characteristics
 
@@ -43,3 +50,38 @@ The ADM-PC-BP25 ships in 3 variants. They differ only in the 4 ratings below; ev
 |**Operating temperature**| -20 to 50 degrees Celsius (ambient)|
 |**Storage temperature**| -20 to 75 degrees Celsius|
 |**Storage relative humidity**| 20 to 80% without condensation|
+
+## Connectors and interfaces
+
+The table below lists every electrical interface on ADM-PC-BP25 as supplied.
+
+|Interface|Connector|Function|
+|---------|---------|--------|
+|DC bus +/-|M5 screw terminal|DC power|
+|AC / DC output, 3 phases|M5 screw terminal|AC or DC power|
+|CAN 2.0B|8 pin JST CPT, 2 off|Control, status, diagnostics, firmware update|
+|INTLK|8 pin JST CPT (shared)|Hardware safety interlock|
+|+24 V / GND|8 pin JST CPT (shared)|Control-section supply|
+
+The CPT pinout is given in
+[Communication terminal and wiring](installation.md#communication-terminal-and-wiring).
+
+## Integration requirements
+
+ADM-PC-BP25 is supplied as an OEM power-conversion subassembly for integration into equipment built
+by the system integrator. It contains the power stage, its control and its own protection; the
+functions below belong to the finished equipment and must be provided by the integrator.
+
+|Function|Provided by|
+|--------|-----------|
+|AC precharge circuit and main AC contactors|Integrator — available as ADM-PC-LF46|
+|AC-side EMC filtering|Integrator — available as ADM-PC-LF46|
+|AC disconnect and AC overcurrent protection|Integrator|
+|Galvanic isolation, where required|Integrator — available as ADM-PC-BI25 or ADM-PC-LL25|
+|Grid voltage and frequency trip, anti-islanding, cease-to-energize, reconnect|Integrator|
+|Utility or DER communications, where required|Integrator|
+|Supervisory control|Integrator|
+|Enclosure, cooling, grounding and bonding|Integrator|
+
+Precharge, main AC contactors and AC-side EMC filtering are required for every AC operating mode of
+the module, in every product variant.

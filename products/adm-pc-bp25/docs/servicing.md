@@ -32,7 +32,7 @@ In the commands above, **X** is the stack position of the target device, and **M
 - BUCK
 - AFE
 - ADM-PC-BI25
-- ADM-PC-LF45
+- ADM-PC-LF46
 - ADM-PC-UP25
 - ADM-PC-LL25
 - ADM-PC-BC25

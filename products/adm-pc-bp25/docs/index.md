@@ -66,10 +66,12 @@ All trademarks within this guide belong to their legitimate owners.
 ## Disclaimer
 
 !!! info "FCC"
-    This device is considered a sub-assembly, and in accordance with CFR47 part 15.103 is exempted from
-    FCC technical standards. The user must follow the installation instructions provided by the manufacturer,
-    and the operator of the device shall be required to stop operating the device upon finding that the
-    device is causing harmful interference. The integrator is the responsible of the FCC testing of the final product.
+    ADM-PC-BP25 is an OEM subassembly intended for incorporation into equipment manufactured by the
+    system integrator. Whether FCC equipment-authorization and technical requirements apply, and which
+    ones, depends on the configuration and intended use of the finished equipment. The integrator is
+    responsible for determining and demonstrating compliance of the finished product with applicable
+    FCC requirements, for following the installation instructions provided by Advantics, and for
+    ceasing operation of the equipment on finding that it causes harmful interference.
 
 ---
 

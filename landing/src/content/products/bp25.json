@@ -1,7 +1,7 @@
 {
   "docsReady": true,
   "listReady": true,
-  "keywords": "AC/DC, ACDC, AC to DC, AC-to-DC, DC/AC, DCAC, DC to AC, DC-to-AC, DC/DC, DCDC, DC-to-DC, Inverter, Converter, bi-directional, bidirectional, active front end, rectifier step up, boost, boost converter, step down, buck, buck converter, step down converter, step up, boost, boost converter, step up converter, active neutral, non-isolated, hybrid, hybrid genset, hybrid generator, hybrid generator inverter, grid-tie, off-grid, pass thru, ac pass thru, ac coupling, paralleling, inverter-charger, inverter/charger, inverter charger, transformerless, transformer less, 3 phase, split phase, single phase, frequency control, phase shift, high voltage, hv, high voltage dc, hvdc, ev, electric vehicle, ev battery, CAN, UL, CE, Certified, high efficiency, 24V, 100V, 200V, 300V, 400V, 500V, 600V, 700V, 800V, 900V, 1000V, 1kV, SiC, Silicon Carbide, ev charge station, fast charger",
+  "keywords": "AC/DC, ACDC, AC to DC, AC-to-DC, DC/AC, DCAC, DC to AC, DC-to-AC, DC/DC, DCDC, DC-to-DC, Converter, bi-directional, bidirectional, active front end, rectifier step up, boost, boost converter, step down, buck, buck converter, step down converter, step up, boost, boost converter, step up converter, active neutral, non-isolated, hybrid, hybrid genset, hybrid generator, off-grid, pass thru, ac pass thru, ac coupling, paralleling, transformerless, transformer less, 3 phase, split phase, single phase, frequency control, phase shift, high voltage, hv, high voltage dc, hvdc, ev, electric vehicle, ev battery, CAN, CE, high efficiency, 24V, 100V, 200V, 300V, 400V, 500V, 600V, 700V, 800V, 900V, 1000V, 1kV, SiC, Silicon Carbide, ev charge station, fast charger",
   "storeHref": "https://store.advantics.fr/power-conversion/22-1-mcp-25-bidirectional-afe-boostbuckpfc-1000v.html#/31-afe_variants-select_variant",
   "sortNumber": 1,
   "datasheet": "https://advantics.fr/pdf/ADM-PC-BP25.pdf",
@@ -9,7 +9,7 @@
   "codename": "ADM-PC-BP25",
   "card": {
     "imgScale": "90%",
-    "name": "Bidirectional AC/DC Inverter or DC/DC Converter",
+    "name": "Bidirectional AC/DC and DC/DC Power Conversion Module",
     "img": "/src/assets/img/products/afe-1.png",
     "alt": "Active front end sub-assembly",
     "description": "This power module fits any application where you need bidirectional AC/DC rectification, DC/DC conversion or DC/AC generation, with up to 99% efficiency in a wide operating range.",
@@ -33,7 +33,7 @@
     }
   },
   "header": {
-    "title": "Bidirectional AC/DC Inverter or DC/DC Converter",
+    "title": "Bidirectional AC/DC and DC/DC Power Conversion Module",
     "name": "ADM-PC-BP25",
     "description": "This power module fits any application where you need bidirectional AC/DC rectification, DC/DC conversion or DC/AC generation, while keeping an efficiency of up to 99% in a wide operating range.",
     "img": "/src/assets/img/products/afe-1.png",
@@ -46,9 +46,9 @@
     "User defines high side DC output voltage and current limit. The converter will control amplitude and polarity of current to regulate the voltage setpoint.",
     "### **Buck Converter** **(DC/DC)**",
     "User defines low side DC output voltage and current limit. The converter will control amplitude and polarity of current to regulate the voltage setpoint.",
-    "### **Inverter (DC/AC)**",
-    "- Support single, split, and 3-phase operating modes.\n- Grid-Forming Mode: User defined desired voltage, frequency, current limit, and phase angle offset.\n- Paralleling Mode: User defined nominal voltage, frequency, and current limit. The inverter will regulate to the nominal AC bus voltage and track shifts in frequency. Units in parallel share the load equally if no additional power setpoint command is given.",
-    "To push or pull power from the grid, the inverter can increase/decrease its voltage setpoint based on a desired power level and or lead/lag the nominal microgrid frequency.",
+    "### **DC/AC (inverter mode)**",
+    "- Support single, split, and 3-phase operating modes.\n- Grid-Forming Mode: User defined desired voltage, frequency, current limit, and phase angle offset.\n- Paralleling Mode: User defined nominal voltage, frequency, and current limit. The module will regulate to the nominal AC bus voltage and track shifts in frequency. Units in parallel share the load equally if no additional power setpoint command is given.",
+    "To exchange power with the AC bus it is connected to, the module can increase or decrease its voltage setpoint based on a desired power level, and lead or lag the nominal AC bus frequency. Where that AC bus is a public electric utility, the interconnection and protection equipment required to connect to it is part of the integrator\u2019s system and is not provided by this module.",
     "### **Active Neutral (DC/DC)**",
     "The converter output will be ½ of the input voltage. This is used to generate a mid-point reference voltage needed in many AC systems. The neutral line is used as a return in single phase AC systems and to return any unbalanced current in multi-phase systems. It can also be used in electric vehicles where they need a mixed 800V and 400V high voltage rails during fast charging. The converter will control amplitude and polarity of current to regulate the voltage setpoint."
   ],
@@ -94,11 +94,11 @@
       },
       {
         "value": "208 V<sub>AC</sub> to 480 V<sub>AC</sub>",
-        "name": "AC 3-phase grid support"
+        "name": "AC 3-phase operating voltage range"
       },
       {
         "value": "110 V<sub>AC</sub> to 480 V<sub>AC</sub>",
-        "name": "AC 1-phase grid support"
+        "name": "AC 1-phase operating voltage range"
       },
       {
         "value": "Overcurrent, overvoltage, overtemperature and hardware interlock",
@@ -164,11 +164,11 @@
       },
       {
         "value": "208 V<sub>AC</sub> to 480 V<sub>AC</sub>",
-        "name": "AC 3-phase grid support"
+        "name": "AC 3-phase operating voltage range"
       },
       {
         "value": "110 V<sub>AC</sub> to 480 V<sub>AC</sub>",
-        "name": "AC 1-phase grid support"
+        "name": "AC 1-phase operating voltage range"
       },
       {
         "value": "Overcurrent, overvoltage, overtemperature and hardware interlock",
@@ -234,11 +234,11 @@
       },
       {
         "value": "208 V<sub>AC</sub> to 480 V<sub>AC</sub>",
-        "name": "AC 3-phase grid support"
+        "name": "AC 3-phase operating voltage range"
       },
       {
         "value": "110 V<sub>AC</sub> to 480 V<sub>AC</sub>",
-        "name": "AC 1-phase grid support"
+        "name": "AC 1-phase operating voltage range"
       },
       {
         "value": "Overcurrent, overvoltage, overtemperature and hardware interlock",
@@ -304,11 +304,11 @@
       },
       {
         "value": "208 V<sub>AC</sub> to 400 V<sub>AC</sub>",
-        "name": "AC 3-phase grid support"
+        "name": "AC 3-phase operating voltage range"
       },
       {
         "value": "110 V<sub>AC</sub> to 480 V<sub>AC</sub>",
-        "name": "AC 1-phase grid support"
+        "name": "AC 1-phase operating voltage range"
       },
       {
         "value": "Overcurrent, overvoltage, overtemperature and hardware interlock",

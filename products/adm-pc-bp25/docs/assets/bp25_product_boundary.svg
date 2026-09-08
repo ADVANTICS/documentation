@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="620" viewBox="0 0 1040 620" role="img" aria-label="ADM-PC-BP25 shown as one block inside an example finished AC/DC power conversion system. The module as supplied contains the 3-phase silicon carbide bridge, DSP power-stage control, DC link capacitance, a CAN 2.0B transceiver and a hardware interlock. The AC disconnect and overcurrent protection, the AC EMC filter with precharge and main contactors, AC measurement, the isolation stage, the DC disconnect and DC protection, the interconnection protection and the supervisory controller are all outside the module. Any remote communications sit outside the finished product and attach to the supervisory controller.">
+  <title>ADM-PC-BP25 shown as one block inside an example finished AC/DC power conversion system. The module as supplied contains the 3-phase silicon carbide bridge, DSP power-stage control, DC link capacitance, a CAN 2.0B transceiver and a hardware interlock. The AC disconnect and overcurrent protection, the AC EMC filter with precharge and main contactors, AC measurement, the isolation stage, the DC disconnect and DC protection, the interconnection protection and the supervisory controller are all outside the module. Any remote communications sit outside the finished product and attach to the supervisory controller.</title>
+  <rect width="1040" height="620" fill="#ffffff"/>
+  <rect x="140.0" y="44.0" width="776.0" height="436.0" rx="14" fill="none" stroke="#1a365d" stroke-width="2" stroke-dasharray="8 6"/>
+  <text x="156.0" y="70.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="14" font-weight="700" fill="#1a365d" text-anchor="start"><tspan x="156.0" dy="0">Finished equipment</tspan></text>
+  <text x="156.0" y="88.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="12.5" fill="#4a5568" text-anchor="start"><tspan x="156.0" dy="0">the integrator's product, and the integrator's certification</tspan></text>
+  <rect x="156.0" y="154.0" width="102.0" height="96.0" rx="8" fill="#eef2f7" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="207.0" y="191.2" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="12.5" fill="#1a365d" text-anchor="middle"><tspan x="207.0" dy="0">AC disconnect</tspan><tspan x="207.0" dy="15">&amp; overcurrent</tspan><tspan x="207.0" dy="15">protection</tspan></text>
+  <rect x="272.0" y="154.0" width="118.0" height="96.0" rx="8" fill="#eaf0fa" stroke="#2d5aa0" stroke-width="1.5"/>
+  <text x="331.0" y="191.2" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="12.5" fill="#1a365d" text-anchor="middle"><tspan x="331.0" dy="0">AC EMC filter,</tspan><tspan x="331.0" dy="15">precharge &amp;</tspan><tspan x="331.0" dy="15">main contactors</tspan></text>
+  <rect x="404.0" y="154.0" width="90.0" height="96.0" rx="8" fill="#eef2f7" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="449.0" y="191.2" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="12.5" fill="#1a365d" text-anchor="middle"><tspan x="449.0" dy="0">AC</tspan><tspan x="449.0" dy="15">V / I / f</tspan><tspan x="449.0" dy="15">measurement</tspan></text>
+  <rect x="686.0" y="154.0" width="98.0" height="96.0" rx="8" fill="#eaf0fa" stroke="#2d5aa0" stroke-width="1.5"/>
+  <text x="735.0" y="191.2" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="12.5" fill="#1a365d" text-anchor="middle"><tspan x="735.0" dy="0">Isolation stage</tspan><tspan x="735.0" dy="15">(where</tspan><tspan x="735.0" dy="15">required)</tspan></text>
+  <rect x="798.0" y="154.0" width="102.0" height="96.0" rx="8" fill="#eef2f7" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="849.0" y="191.2" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="12.5" fill="#1a365d" text-anchor="middle"><tspan x="849.0" dy="0">DC disconnect</tspan><tspan x="849.0" dy="15">&amp; DC</tspan><tspan x="849.0" dy="15">protection</tspan></text>
+  <rect x="508.0" y="118.0" width="164.0" height="168.0" rx="10" fill="#e9f7f6" stroke="#00A99D" stroke-width="2.5"/>
+  <text x="590.0" y="144.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="15" font-weight="700" fill="#00A99D" text-anchor="middle"><tspan x="590.0" dy="0">ADM-PC-BP25</tspan></text>
+  <text x="590.0" y="160.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="11.5" fill="#4a5568" text-anchor="middle"><tspan x="590.0" dy="0">as supplied</tspan></text>
+  <text x="590.0" y="184.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#1a365d" text-anchor="middle"><tspan x="590.0" dy="0">3-phase SiC bridge</tspan><tspan x="590.0" dy="17">DSP power-stage control</tspan><tspan x="590.0" dy="17">DC link capacitance</tspan><tspan x="590.0" dy="17">CAN 2.0B transceiver</tspan><tspan x="590.0" dy="17">Hardware interlock</tspan></text>
+  <rect x="16.0" y="154.0" width="112.0" height="96.0" rx="8" fill="#ffffff" stroke="#4a5568" stroke-width="1.5"/>
+  <text x="72.0" y="191.2" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="12.5" fill="#1a365d" text-anchor="middle"><tspan x="72.0" dy="0">Utility supply,</tspan><tspan x="72.0" dy="15">generator or</tspan><tspan x="72.0" dy="15">microgrid</tspan></text>
+  <rect x="928.0" y="154.0" width="96.0" height="96.0" rx="8" fill="#ffffff" stroke="#4a5568" stroke-width="1.5"/>
+  <text x="976.0" y="191.2" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="12.5" fill="#1a365d" text-anchor="middle"><tspan x="976.0" dy="0">DC source</tspan><tspan x="976.0" dy="15">(battery, PV,</tspan><tspan x="976.0" dy="15">DC bus)</tspan></text>
+  <line x1="128.0" y1="202.0" x2="156.0" y2="202.0" stroke="#1a365d" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="258.0" y1="202.0" x2="272.0" y2="202.0" stroke="#1a365d" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="390.0" y1="202.0" x2="404.0" y2="202.0" stroke="#1a365d" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="494.0" y1="202.0" x2="508.0" y2="202.0" stroke="#1a365d" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="672.0" y1="202.0" x2="686.0" y2="202.0" stroke="#1a365d" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="784.0" y1="202.0" x2="798.0" y2="202.0" stroke="#1a365d" stroke-width="3.5" stroke-linecap="round"/>
+  <line x1="900.0" y1="202.0" x2="928.0" y2="202.0" stroke="#1a365d" stroke-width="3.5" stroke-linecap="round"/>
+  <rect x="156.0" y="296.0" width="320.0" height="104.0" rx="8" fill="#eef2f7" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="316.0" y="340.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#1a365d" text-anchor="middle"><tspan x="316.0" dy="0">Interconnection protection</tspan></text>
+  <text x="316.0" y="358.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#4a5568" text-anchor="middle"><tspan x="316.0" dy="0">of the finished equipment</tspan></text>
+  <line x1="331.0" y1="250.0" x2="331.0" y2="296.0" stroke="#00A99D" stroke-width="2.5" stroke-linecap="round"/>
+  <rect x="266.6" y="261.0" width="128.8" height="24.0" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="331.0" y="277.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#4a5568" text-anchor="middle"><tspan x="331.0" dy="0">contactor control</tspan></text>
+  <line x1="449.0" y1="250.0" x2="449.0" y2="296.0" stroke="#00A99D" stroke-width="2.5" stroke-linecap="round"/>
+  <rect x="403.8" y="261.0" width="90.4" height="24.0" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="449.0" y="277.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#4a5568" text-anchor="middle"><tspan x="449.0" dy="0">measurement</tspan></text>
+  <rect x="498.0" y="316.0" width="184.0" height="84.0" rx="8" fill="#eef2f7" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="590.0" y="350.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#1a365d" text-anchor="middle"><tspan x="590.0" dy="0">Supervisory controller</tspan></text>
+  <text x="590.0" y="370.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#4a5568" text-anchor="middle"><tspan x="590.0" dy="0">the integrator's equipment</tspan></text>
+  <line x1="590.0" y1="286.0" x2="590.0" y2="316.0" stroke="#00A99D" stroke-width="2.5" stroke-linecap="round"/>
+  <rect x="535.2" y="289.0" width="109.6" height="24.0" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="590.0" y="305.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#4a5568" text-anchor="middle"><tspan x="590.0" dy="0">local CAN 2.0B</tspan></text>
+  <text x="156.0" y="424.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="12.5" fill="#4a5568" text-anchor="start"><tspan x="156.0" dy="0">Enclosure, cooling, grounding and bonding</tspan><tspan x="156.0" dy="17">System design and commissioning</tspan></text>
+  <rect x="440.0" y="516.0" width="300.0" height="56.0" rx="10" fill="#ffffff" stroke="#4a5568" stroke-width="1.5" stroke-dasharray="8 6"/>
+  <text x="590.0" y="549.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="13" font-weight="700" fill="#1a365d" text-anchor="middle"><tspan x="590.0" dy="0">Remote communications — optional</tspan></text>
+  <line x1="590.0" y1="400.0" x2="590.0" y2="516.0" stroke="#4a5568" stroke-width="2.5" stroke-dasharray="7 5" stroke-linecap="round"/>
+  <rect x="493.6" y="486.0" width="192.8" height="24.0" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="590.0" y="502.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="12" fill="#4a5568" text-anchor="middle"><tspan x="590.0" dy="0">if fitted by the integrator</tspan></text>
+  <rect x="20.0" y="514.0" width="22.0" height="14.0" rx="3" fill="#e9f7f6" stroke="#00A99D" stroke-width="1.5"/>
+  <text x="52.0" y="526.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="12.5" fill="#4a5568" text-anchor="start"><tspan x="52.0" dy="0">Supplied as ADM-PC-BP25</tspan></text>
+  <rect x="20.0" y="538.0" width="22.0" height="14.0" rx="3" fill="#eaf0fa" stroke="#2d5aa0" stroke-width="1.5"/>
+  <text x="52.0" y="550.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="12.5" fill="#4a5568" text-anchor="start"><tspan x="52.0" dy="0">Available separately from Advantics</tspan></text>
+  <rect x="20.0" y="562.0" width="22.0" height="14.0" rx="3" fill="#eef2f7" stroke="#cbd5e1" stroke-width="1.5"/>
+  <text x="52.0" y="574.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="12.5" fill="#4a5568" text-anchor="start"><tspan x="52.0" dy="0">Supplied by the system integrator</tspan></text>
+  <rect x="20.0" y="586.0" width="22.0" height="14.0" rx="3" fill="#ffffff" stroke="#4a5568" stroke-width="1.5"/>
+  <text x="52.0" y="598.0" font-family="Roboto, Helvetica, Arial, sans-serif" font-size="12.5" fill="#4a5568" text-anchor="start"><tspan x="52.0" dy="0">Outside the finished product</tspan></text>
+</svg>
