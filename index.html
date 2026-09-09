@@ -21,7 +21,9 @@
     var hash = window.location.hash.toLowerCase();
     var match = ROUTES.find(function (route) {
       var i = route.old.indexOf("#");
-      return i !== -1 && route.old.slice(i).toLowerCase() === hash;
+      if (i === -1) return false;
+      var routeHash = route.old.slice(i).toLowerCase();
+      return hash === routeHash || hash.indexOf(routeHash + "/") === 0;
     });
     window.location.replace(match ? match.new : FALLBACK);
   </script>
