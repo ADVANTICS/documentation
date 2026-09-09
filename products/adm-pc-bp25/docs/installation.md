@@ -27,7 +27,8 @@ Some of the common features are:
 - Each power module have at least one (optimally two) communication interface connectors
 - All mounting screws holes for mounting to the heatsink are designed for 5 mm screws
 - 24V powered
-![afe top view](assets/top_view.jpg){ width="300px" }
+
+![afe top view](assets/top_view.jpg){ width="450px" }
 <figcaption style="text-align: center">ADM-PC-BP25 top view</figcaption>
 
 ## Cooling considerations
@@ -40,22 +41,34 @@ There are four cooling surfaces on this module – three inductors and one trans
 !!! tip
     For a short tests of the module, cooling the inductors may not be needed, but the module still needs to be mounted on a heatsink. In this case, please verify the temperature of inductors through the CAN message or with ETKA software.
 
-![heat flow](assets/heat_flow.png){ width="300px" }
-<figcaption style="text-align: center">Module attached to heatsink with silicone under inductors</figcaption>
+![heat flow](assets/heat_flow.png){ width="450px" }
+<figcaption style="text-align: center">Module attached to heatsink with silicone under inductors (Only BP25-VA01 and BP25-VA08)</figcaption>
 
-## Drawings
+## Drawings of BP25-VA01 and BP25-VA08
 
 The following figures show the main mechanical dimensions four mounting of the module.
 
-![heat flow](assets/bottom_view.png){ width="30%" }
+![heat flow](assets/bottom_view.png){ width="70%" }
 <figcaption style="text-align: center">Bottom view</figcaption>
 
-![heat flow](assets/top_view_connectors.png){ width="55%" }
+![heat flow](assets/top_view_connectors.png){ width="100%" }
+<figcaption style="text-align: center">Top view</figcaption>
+
+## Drawings of BP25-VA03 and BP25-VA04
+
+The following figures show the main mechanical dimensions four mounting of the module.
+
+![heat flow](assets/bottom_view_va03_va04.png){ width="70%" }
+<figcaption style="text-align: center">Bottom view</figcaption>
+
+![heat flow](assets/top_view_va03_va04.png){ width="100%" }
 <figcaption style="text-align: center">Top view</figcaption>
 
 ## Mounting and assembly procedure
 
-### Recommended accessories <!-- {docsify-ignore} -->
+### BP25-VA01 and BP25-VA08
+
+#### Recommended accessories <!-- {docsify-ignore} -->
 - ACC Silicone AS1803
 - Thermal paste
 - Screw ISO 14579 M5 x 55
@@ -65,36 +78,75 @@ The following figures show the main mechanical dimensions four mounting of the m
 - Washer DIN 433 5.3 mm
 - Tool: Screwdriver bits ¼”, Torx, Size X25
 
-![heat flow](assets/recommended_accesories.png){ width="50%" }
+![heat flow](assets/recommended_accesories.png){ width="70%" }
 <figcaption style="text-align: center">Recommended accesories</figcaption>
 
 
-### Process <!-- {docsify-ignore} -->
+#### Process <!-- {docsify-ignore} -->
 1. Clean the surface of the cooler (degrease).
 1. Place plastic stud (spacer) Thora AB-IA-M5-SW10, AR.N: 100 32 47 into the holes of the cooler.
 1. Place the ACC silicone on the top of magnetic components (approx. 5 mm thick).
 1. Place thermal paste on the cooling bar on the module.
 
-    ![heat flow](assets/assembly_step_1.png){ width="50%" }
+    ![heat flow](assets/assembly_step_1.png){ width="70%" }
     <figcaption style="text-align: center">Steps 1,2,3,4</figcaption>
 
 1. Place the module on the cooler.
 
-    ![heat flow](assets/assembly_step_2.png){ width="50%" }
+    ![heat flow](assets/assembly_step_2.png){ width="70%" }
     <figcaption style="text-align: center">Step 5</figcaption>
 
 1. Place screws with washers into the holes.
 
-    ![heat flow](assets/assembly_step_3.png){ width="50%" }
+    ![heat flow](assets/assembly_step_3.png){ width="70%" }
     <figcaption style="text-align: center">Step 6</figcaption>
 
 1. Apply initial tightening torque on screws. Torque A: 0.5 Nm (Plastic studs), Torque B: 2.5 Nm (Aluminium base)
 
 !!! warning
-    Torque B is necessary to be applied again after the first heat up cycle. Make sure the circuit is off, cooled down and free from any
-residual current, then repeat tightening OF ALL screws.)
+    Torque B is necessary to be applied again after the first heat up cycle. Make sure the circuit is off, cooled down and free from any residual current, then repeat tightening OF ALL screws.)
 
-![heat flow](assets/top_view_connectors_cables.png){ width="50%" }
+![heat flow](assets/top_view_connectors_cables.png){ width="70%" }
+<figcaption style="text-align: center">Example of final assembly of power wires and power terminal screws</figcaption>
+
+### BP25-VA03 and BP25-VA04
+
+#### Recommended accessories <!-- {docsify-ignore} -->
+- Thermal paste (AAVID, TGrease 2500)
+- Screw ISO 14579 M5 x 40 (DIN 912)
+- Screw ISO 14579 M5 x 55 (DIN 912) (60 mm for deep installations)
+- Screw ISO 14583 M5 x 8 (DIN 912), max. torque: 2 Nm!
+- Washer DIN 7980 d 5 mm
+- Washer DIN 433 d 5.3 mm (DIN 125)
+- Tool: Screwdriver bits ¼”, Torx, Size X25 (HEX)
+
+![heat flow](assets/recommended_accesories_va03_va04.png){ width="70%" }
+<figcaption style="text-align: center">Recommended accesories</figcaption>
+
+
+#### Process <!-- {docsify-ignore} -->
+1. Clean the surface of the cooler (degrease).
+1. Place thermal paste on the cooling bar on the module.
+
+    ![heat flow](assets/assembly_va03_va04_step_1.png){ width="70%" }
+    <figcaption style="text-align: center">Steps 1,2</figcaption>
+
+1. Place the module on the cooler.
+
+    ![heat flow](assets/assembly_va03_va04_step_2.png){ width="70%" }
+    <figcaption style="text-align: center">Step 3</figcaption>
+
+1. Place screws with washers into the holes.
+
+    ![heat flow](assets/assembly_va03_va04_step_3.png){ width="70%" }
+    <figcaption style="text-align: center">Step 4</figcaption>
+
+1. Apply initial tightening torque on screws. Torque: 2.5 Nm (Aluminium base)
+
+!!! warning
+    Torque is necessary to be applied again after the first heat up cycle. Make sure the circuit is off, cooled down and free from any residual current, then repeat tightening OF ALL screws.)
+
+![heat flow](assets/assembly_va03_va04_step_4.png){ width="70%" }
 <figcaption style="text-align: center">Example of final assembly of power wires and power terminal screws</figcaption>
 
 ### Power terminals<!-- {docsify-ignore} -->
@@ -129,10 +181,10 @@ The interface connector mounted on every power converter is an 8-pin CPT series 
 The modules use the SM08B-CPTK male connector, and the mating female connector is model number 08CPT-B-2A. The pins used for the female connector are part number SCPT-A021GF-0.5, which can be crimped using the WC-CPT021 crimping tool. These terminals are made for use with 22 AWG (0.3 mm2) wire with an outer diameter of 1.4 mm. The wires for each connector should be bundled tightly together, to reduce the amount of electrical noise picked up from the environment. Unshielded communications cables should not be near the power wiring. CAN bus High and Low should be twisted (form a twisted pair).
 JST CPT product page: https://www.jst-mfg.com/product/detail_e.php?series=477
 
-![CPT connector](assets/CPT_connector.png){ width="300px" }
+![CPT connector](assets/CPT_connector.png){ width="450px" }
 <figcaption style="text-align: center">Pintout of the CPT-connector pins 1-8</figcaption>
 
-![CPT crimp tool](assets/JST_CPT_crimp_tool.jpg){ width="300px" }
+![CPT crimp tool](assets/JST_CPT_crimp_tool.jpg){ width="450px" }
 <figcaption style="text-align: center">JST CPT crimping tool WC-CPT021</figcaption>
 
 | JST CPT pin | Name | Description |
@@ -150,11 +202,11 @@ JST CPT product page: https://www.jst-mfg.com/product/detail_e.php?series=477
 
 The total end-to-end wire length of the network should not exceed 10 m with multiple power modules installed. The CAN standard specifies up to 100m  end-to-end cable length, but in an environment with high noise and multiple connection stubs, this figure is too high. In larger systems it can be beneficial (or even necessary) to split up the modules into several separate CAN networks. Consult with ADVANTICS, if you’re planning to deploy large network (more than 24 nodes).
 
-![chain cable](assets/JST_chain_cable.jpg){ width="300px" }
+![chain cable](assets/JST_chain_cable.jpg){ width="450px" }
 <figcaption style="text-align: center">An example of a 1:1 chaining cable</figcaption>
 
 
-![chain diagram](assets/chain_diagram.png){ width="70%" }
+![chain diagram](assets/chain_diagram.png){ width="90%" }
 <figcaption style="text-align: center">Chaining and termination diagram</figcaption>
 
 ### Functional accessories<!-- {docsify-ignore} -->
@@ -168,7 +220,7 @@ In DC/DC modes, the ADM-PC-BP25 should be connected as a 3-port device. This mea
 
 A proper connection would be as in the picture below:
 
-![protection](assets/AFE_3_port-AFE_3_port.svg){ width="60%" }
+![protection](assets/AFE_3_port-AFE_3_port.svg){ width="80%" }
 <figcaption style="text-align: center">Example of 3-port connection</figcaption>
 
 Why do you need to use only one DC- terminal? Just an example:
@@ -182,7 +234,7 @@ If you use both DC- terminals, the sum of the currents is still 25 A, however, y
 
 If desired, the user may install diodes for extra protection as in the picture below:
 
-![protection](assets/AFE_protection-AFE_protection.svg){ width="70%" }
+![protection](assets/AFE_protection-AFE_protection.svg){ width="90%" }
 <figcaption style="text-align: center">Example of placement for protection diodes</figcaption>
 
 ADVANTICS recommends the DD180N16S diode or an equivalent.

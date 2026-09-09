@@ -3,16 +3,16 @@
 
 ## Electrical characteristics
 
-The ADM-PC-BP25 ships in 3 variants. They differ only in the 4 ratings below; everything else is common to all of them.
+The ADM-PC-BP25 ships in 4 variants. They differ only in the 4 ratings below; everything else is common to all of them.
 
 ### Variant-specific ratings
 
-|Field|VA08|VA01|VA04|
-|-----|----|----|----|
-|**Voltage range**|800 V<sub>DC</sub> bus max|950 V<sub>DC</sub> bus max|950 V<sub>DC</sub> bus max|
-|**Current range**|DC/DC: 111 A (37 A per phase)  <br /> AC/DC: 111 A<sub>rms</sub> (37 A<sub>rms</sub> per phase)<br />Derating depends on heatsink design, cooling and ambient conditions|DC/DC: 100 A (33 A per phase)  <br /> AC/DC: 90 A<sub>rms</sub> (30 A<sub>rms</sub> per phase) <br />Derating depends on heatsink design, cooling and ambient conditions|DC/DC: 111 A (37 A per phase)  <br /> AC/DC: 111 A<sub>rms</sub> (37 A<sub>rms</sub> per phase)<br />Derating depends on heatsink design, cooling and ambient conditions|
-|**AC rated voltage**|400 V<sub>AC</sub>|480 V<sub>AC</sub>|480 V<sub>AC</sub>|
-|**AC 3-phase operating voltage range**|208 V<sub>AC</sub> to 400 V<sub>AC</sub>, neutral wire not used|208 V<sub>AC</sub> to 480 V<sub>AC</sub>, neutral wire not used|208 V<sub>AC</sub> to 480 V<sub>AC</sub>, neutral wire not used|
+|Field|VA08|VA01|VA04|VA03|
+|-----|----|----|----|----|
+|**Voltage range**|800 V<sub>DC</sub> bus max|950 V<sub>DC</sub> bus max|950 V<sub>DC</sub> bus max|950 V<sub>DC</sub> bus max|
+|**Current range**|DC/DC: 111 A (37 A per phase)  <br /> AC/DC: 111 A<sub>rms</sub> (37 A<sub>rms</sub> per phase)<br />Derating depends on heatsink design, cooling and ambient conditions|DC/DC: 100 A (33 A per phase)  <br /> AC/DC: 90 A<sub>rms</sub> (30 A<sub>rms</sub> per phase) <br />Derating depends on heatsink design, cooling and ambient conditions|DC/DC: 111 A (37 A per phase)  <br /> AC/DC: 111 A<sub>rms</sub> (37 A<sub>rms</sub> per phase)<br />Derating depends on heatsink design, cooling and ambient conditions|DC/DC: 135 A (45 A per phase)  <br /> AC/DC: 135 A<sub>rms</sub> (45 A<sub>rms</sub> per phase)<br />Derating depends on heatsink design, cooling and ambient conditions|
+|**AC rated voltage**|400 V<sub>AC</sub>|480 V<sub>AC</sub>|480 V<sub>AC</sub>|480 V<sub>AC</sub>|
+|**AC 3-phase operating voltage range**|208 V<sub>AC</sub> to 400 V<sub>AC</sub>, neutral wire not used|208 V<sub>AC</sub> to 480 V<sub>AC</sub>, neutral wire not used|208 V<sub>AC</sub> to 480 V<sub>AC</sub>, neutral wire not used|208 V<sub>AC</sub> to 480 V<sub>AC</sub>, neutral wire not used|
 
 ### Common to all variants
 
@@ -50,6 +50,17 @@ The ADM-PC-BP25 ships in 3 variants. They differ only in the 4 ratings below; ev
 |**Operating temperature**| -20 to 50 degrees Celsius (ambient)|
 |**Storage temperature**| -20 to 75 degrees Celsius|
 |**Storage relative humidity**| 20 to 80% without condensation|
+
+### 3D models
+
+3D models are available for each mechanical variant (see [Drawings of BP25-VA01 and BP25-VA08](installation.md#drawings-of-bp25-va01-and-bp25-va08) and [Drawings of BP25-VA03 and BP25-VA04](installation.md#drawings-of-bp25-va03-and-bp25-va04) in the Installation Guide for the corresponding mechanical drawings):
+
+|Variant|3D model|
+|-------|--------|
+|VA01|[BP25-VA01 3D model](https://pub-ec884f5e1c6b4942867b3ac199d79823.r2.dev/3d-models/adm-pc-bp25/ADM-PC-BP25-VA01-R10%20Bidirectional%203phase%20conv.%20AFE.zip)|
+|VA03|[BP25-VA03 3D model](https://pub-ec884f5e1c6b4942867b3ac199d79823.r2.dev/3d-models/adm-pc-bp25/ADM-PC-BP25-VA03-R10%20Bidirectional%203phase%20conv.%20AFE.zip)|
+|VA04|[BP25-VA04 3D model](https://pub-ec884f5e1c6b4942867b3ac199d79823.r2.dev/3d-models/adm-pc-bp25/ADM-PC-BP25-VA04-R09%20Bidirectional%203phase%20conv.%20AFE.zip)|
+|VA08|[BP25-VA08 3D model](https://pub-ec884f5e1c6b4942867b3ac199d79823.r2.dev/3d-models/adm-pc-bp25/ADM-PC-BP25-VA08-R10%20Bidirectional%203phase%20conv.%20AFE.zip)|
 
 ## Connectors and interfaces
 
