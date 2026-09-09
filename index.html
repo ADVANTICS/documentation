@@ -3,14 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <title>Advantics Documentation</title>
-  <meta http-equiv="refresh" content="0; url=https://docs.advantics.fr">
+  <meta http-equiv="refresh" content="3; url=https://docs.advantics.fr">
   <link rel="canonical" href="https://docs.advantics.fr">
   <meta name="robots" content="noindex">
 </head>
 <body>
   <p>This documentation has moved. Redirecting to <a href="https://docs.advantics.fr">docs.advantics.fr</a>...</p>
   <script>
-    window.location.replace("https://docs.advantics.fr");
+    var FALLBACK = "https://docs.advantics.fr";
+    var ROUTES = [
+      { old: "/documentation/#/charge-controllers/ADM-CS-SECC", new: "https://docs.advantics.fr/adm-cs-secc" },
+      { old: "/documentation/#/charge-controllers/ADM-CS-EVCC", new: "https://docs.advantics.fr/adm-cs-evcc" },
+      { old: "/documentation/#/power-modules/ADM-PC-LF45", new: "https://docs.advantics.fr/adm-pc-lf46" },
+      { old: "/documentation/#/power-modules/ADM-PC-BP25", new: "https://docs.advantics.fr/adm-pc-bp25" },
+      { old: "/documentation/#/power-modules/ADM-PC-LL25", new: "https://docs.advantics.fr/adm-pc-ll25" }
+    ];
+    var hash = window.location.hash;
+    var match = ROUTES.find(function (route) {
+      var i = route.old.indexOf("#");
+      return i !== -1 && route.old.slice(i) === hash;
+    });
+    window.location.replace(match ? match.new : FALLBACK);
   </script>
 </body>
 </html>
