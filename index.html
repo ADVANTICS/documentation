@@ -18,10 +18,10 @@
       { old: "/documentation/#/power-modules/ADM-PC-BP25", new: "https://docs.advantics.fr/adm-pc-bp25" },
       { old: "/documentation/#/power-modules/ADM-PC-LL25", new: "https://docs.advantics.fr/adm-pc-ll25" }
     ];
-    var hash = window.location.hash;
+    var hash = window.location.hash.toLowerCase();
     var match = ROUTES.find(function (route) {
       var i = route.old.indexOf("#");
-      return i !== -1 && route.old.slice(i) === hash;
+      return i !== -1 && route.old.slice(i).toLowerCase() === hash;
     });
     window.location.replace(match ? match.new : FALLBACK);
   </script>
