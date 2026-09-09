@@ -25,7 +25,7 @@ The overcurrent protection has three levels. HW, FW and SW. The HW protection is
 
 #### Overvoltage protection
 
-Similarly there is a three level overvoltage protection on the DC bus. The limit is set to 860 V (VA08 variant) and 1060 V (VA01 variant), is instantaneous, using comparators and logic, and is fully independent of the digital signal processor firmware. A voltage exceeding this level will cause a converter shutdown. Customer should be aware that the module has no means of protecting itself if excessive voltage is presented on its input. Excessive voltage will destroy the switching devices. The L1, L2, L3 voltages only provides SW protection for user's convenience, as the phase voltages are always lower or equal to the DC bus voltage.
+Similarly there is a three level overvoltage protection on the DC bus. The limit is set to 860 V (VA08 variant) and 1060 V (VA01, VA03, and VA04 variants), is instantaneous, using comparators and logic, and is fully independent of the digital signal processor firmware. A voltage exceeding this level will cause a converter shutdown. Customer should be aware that the module has no means of protecting itself if excessive voltage is presented on its input. Excessive voltage will destroy the switching devices. The L1, L2, L3 voltages only provides SW protection for user's convenience, as the phase voltages are always lower or equal to the DC bus voltage.
 
 #### Passive high voltage discharge
 
