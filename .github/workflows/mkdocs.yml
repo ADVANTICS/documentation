@@ -10,21 +10,17 @@ on:
   workflow_dispatch:
     inputs:
       product:
-        description: "Product to build (leave empty to build all)"
+        description: "Product to build (leave empty to build all). Must match a folder name under products/."
         required: false
-        type: choice
-        options:
-          - ""
-          - adb-pc-ac01
-          - adb-pc-dc01
-          - adm-cs-spcc
-          - adm-pc-bi25
+        type: string
 
 jobs:
   # ── Detect which products changed ──────────────────────────────────────────
-  # Builds a dynamic matrix so build-and-upload only runs for products whose
-  # files changed. Changes to tools/** or this workflow file are treated as
-  # affecting every product, since they're shared build dependencies.
+  # Products are discovered from the folders under products/ that contain a
+  # mkdocs.yaml. Builds a dynamic matrix so build-and-upload only runs for
+  # products whose files changed. Changes to tools/** or this workflow file
+  # are treated as affecting every product, since they're shared build
+  # dependencies.
   detect-changes:
     if: github.ref == 'refs/heads/material' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
@@ -34,48 +30,64 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
+      - name: Discover products
+        id: discover
+        run: |
+          products=()
+          for dir in products/*/; do
+            name=$(basename "$dir")
+            [[ -f "${dir}mkdocs.yaml" ]] && products+=("$name")
+          done
+          IFS=$'\n' products=($(sort <<<"${products[*]}")); unset IFS
+
+          json=$(printf '%s\n' "${products[@]}" | jq -R . | jq -sc .)
+          echo "list=$json" >> "$GITHUB_OUTPUT"
+          echo "Discovered products: $json"
+
+          {
+            echo "filters<<EOF"
+            echo "workflow:"
+            echo "  - '.github/workflows/mkdocs.yml'"
+            echo "tools:"
+            echo "  - 'tools/**'"
+            for name in "${products[@]}"; do
+              echo "$name:"
+              echo "  - 'products/$name/**'"
+            done
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
       - uses: dorny/paths-filter@v4
         id: filter
         if: github.event_name != 'workflow_dispatch'
         with:
-          filters: |
-            workflow:
-              - '.github/workflows/mkdocs.yml'
-            adb-pc-ac01:
-              - 'products/adb-pc-ac01/**'
-              - 'tools/**'
-            adb-pc-dc01:
-              - 'products/adb-pc-dc01/**'
-              - 'tools/**'
-            adm-cs-spcc:
-              - 'products/adm-cs-spcc/**'
-            adm-pc-bi25:
-              - 'products/adm-pc-bi25/**'
+          filters: ${{ steps.discover.outputs.filters }}
 
       - name: Compute product matrix
         id: set-matrix
         env:
           DISPATCH_PRODUCT: ${{ github.event.inputs.product }}
-          WORKFLOW_CHANGED: ${{ steps.filter.outputs.workflow }}
-          AC01_CHANGED: ${{ steps.filter.outputs['adb-pc-ac01'] }}
-          DC01_CHANGED: ${{ steps.filter.outputs['adb-pc-dc01'] }}
-          SPCC_CHANGED: ${{ steps.filter.outputs['adm-cs-spcc'] }}
-          BI25_CHANGED: ${{ steps.filter.outputs['adm-pc-bi25'] }}
+          ALL_PRODUCTS: ${{ steps.discover.outputs.list }}
+          CHANGES: ${{ steps.filter.outputs.changes }}
         run: |
-          if [[ -n "$DISPATCH_PRODUCT" ]]; then
-            products=("$DISPATCH_PRODUCT")
-          elif [[ "${{ github.event_name }}" == "workflow_dispatch" || "$WORKFLOW_CHANGED" == "true" ]]; then
-            products=(adb-pc-ac01 adb-pc-dc01 adm-cs-spcc adm-pc-bi25)
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            if [[ -n "$DISPATCH_PRODUCT" ]]; then
+              if ! jq -e --arg p "$DISPATCH_PRODUCT" 'index($p) != null' <<<"$ALL_PRODUCTS" >/dev/null; then
+                echo "::error::Unknown product '$DISPATCH_PRODUCT'. Available: $ALL_PRODUCTS"
+                exit 1
+              fi
+              products=$(jq -cn --arg p "$DISPATCH_PRODUCT" '[$p]')
+            else
+              products="$ALL_PRODUCTS"
+            fi
+          elif jq -e 'any(. == "workflow" or . == "tools")' <<<"$CHANGES" >/dev/null; then
+            products="$ALL_PRODUCTS"
           else
-            products=()
-            [[ "$AC01_CHANGED" == "true" ]] && products+=(adb-pc-ac01)
-            [[ "$DC01_CHANGED" == "true" ]] && products+=(adb-pc-dc01)
-            [[ "$SPCC_CHANGED" == "true" ]] && products+=(adm-cs-spcc)
-            [[ "$BI25_CHANGED" == "true" ]] && products+=(adm-pc-bi25)
+            products=$(jq -cn --argjson changes "$CHANGES" --argjson all "$ALL_PRODUCTS" \
+              '[$changes[] | select(. as $c | $all | index($c))]')
           fi
-          json=$(printf '%s\n' "${products[@]}" | jq -R . | jq -sc .)
-          echo "products=$json" >> "$GITHUB_OUTPUT"
-          echo "Products to build: $json"
+          echo "products=$products" >> "$GITHUB_OUTPUT"
+          echo "Products to build: $products"
 
   # ── Build and upload docs ──────────────────────────────────────────────────
   build-and-upload:
