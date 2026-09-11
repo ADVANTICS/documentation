@@ -62,6 +62,28 @@ The ADB-PC-GN01 supports multiple grid operation modes:
 | **Current Measurement Accuracy** | ±1% of full-scale | Over temperature range |
 | **Voltage Measurement Accuracy** | ±1% of full-scale | Over temperature range |
 
+### Minimum DC Link Voltage
+
+Because the GN01 generates a neutral, the requirement is higher than for a three-wire converter. The neutral sits at the midpoint of the DC link, and each phase must swing a full phase-voltage peak both above and below it — each half of the link must therefore cover that peak on its own, which doubles the requirement:
+
+$$
+V_{DC,min} = \frac{V_{AC(L\text{-}L)}}{\sqrt{3}} \times \sqrt{2} \times 2 + 50\ \text{V}
+$$
+
+The 50 V term is headroom for the regulation loops. For a 400 V mains: \(\frac{400}{\sqrt{3}} \times \sqrt{2} \times 2 + 50 \approx\) **703 VDC**.
+
+| **Mains (L-L)** | **Bare minimum DC link (4-wire, with neutral)** |
+|---|---|
+| 208 V | 390 V |
+| 400 V | 703 V |
+| 480 V | 834 V |
+
+!!! note "Three-wire (no neutral) operation"
+    Without a neutral, the lower three-wire requirement applies instead: \(V_{DC,min} = V_{AC(L\text{-}L)} \times \sqrt{2} + 50\ \text{V}\).
+
+!!! tip "Battery can't stay above this?"
+    If your battery cannot stay above this figure across its full state-of-charge range, a boost stage is required ahead of the inverter. The [ADB-PC-DC01](https://advantics.fr/products/ADB-PC-DC01/) provides boost and galvanic isolation in a single unit.
+
 ### Configuration
 
 !!! warning "Non-Isolated PFC"

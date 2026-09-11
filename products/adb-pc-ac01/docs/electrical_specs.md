@@ -62,6 +62,25 @@ The ADB-PC-AC01 supports multiple grid operation modes:
 | **Current Measurement Accuracy** | ±1% of full-scale | Over temperature range |
 | **Voltage Measurement Accuracy** | ±1% of full-scale | Over temperature range |
 
+### Minimum DC Link Voltage
+
+The DC link must always stay above the peak of the AC line-to-line voltage, otherwise the converter cannot follow the AC waveform and the current distorts. The bare minimum is therefore set by your mains voltage, not by the module:
+
+$$
+V_{DC,min} = V_{AC(L\text{-}L)} \times \sqrt{2} + 50\ \text{V}
+$$
+
+The 50 V term is headroom for the regulation loops. For a 400 V mains: \(400 \times \sqrt{2} + 50 \approx\) **615 VDC**.
+
+| **Mains (L-L)** | **Bare minimum DC link** |
+|---|---|
+| 208 V | 345 V |
+| 400 V | 615 V |
+| 480 V | 729 V |
+
+!!! tip "DC source can't stay above this?"
+    If your battery or DC source cannot stay above this figure across its full operating range, a boost stage is required ahead of the converter. The [ADB-PC-DC01](https://advantics.fr/products/ADB-PC-DC01/) provides boost and galvanic isolation in a single unit.
+
 ### Configuration
 
 !!! warning "Non-Isolated PFC"
