@@ -57,10 +57,9 @@ The ADM-PC-BP25 ships in 4 variants. They differ only in the 4 ratings below; ev
 
 |Variant|3D model|
 |-------|--------|
-|VA01|[BP25-VA01 3D model](https://pub-ec884f5e1c6b4942867b3ac199d79823.r2.dev/3d-models/adm-pc-bp25/ADM-PC-BP25-VA01-R10%20Bidirectional%203phase%20conv.%20AFE.zip)|
+|VA01 & VA08|[BP25-VA01 3D model](https://pub-ec884f5e1c6b4942867b3ac199d79823.r2.dev/3d-models/adm-pc-bp25/ADM-PC-BP25-VA01-R10%20Bidirectional%203phase%20conv.%20AFE.zip)|
 |VA03|[BP25-VA03 3D model](https://pub-ec884f5e1c6b4942867b3ac199d79823.r2.dev/3d-models/adm-pc-bp25/ADM-PC-BP25-VA03-R10%20Bidirectional%203phase%20conv.%20AFE.zip)|
 |VA04|[BP25-VA04 3D model](https://pub-ec884f5e1c6b4942867b3ac199d79823.r2.dev/3d-models/adm-pc-bp25/ADM-PC-BP25-VA04-R09%20Bidirectional%203phase%20conv.%20AFE.zip)|
-|VA08|[BP25-VA08 3D model](https://pub-ec884f5e1c6b4942867b3ac199d79823.r2.dev/3d-models/adm-pc-bp25/ADM-PC-BP25-VA08-R10%20Bidirectional%203phase%20conv.%20AFE.zip)|
 
 ## Connectors and interfaces
 
