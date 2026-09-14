@@ -1,8 +1,8 @@
 {
   "listReady": true,
   "sortNumber": 5,
-  "codename": "ADM-CS-PK",
-  "datasheet": "https://advantics.fr/pdf/ADM-CS-PK.pdf",
+  "codename": "ADS-CS-PK",
+  "datasheet": "https://advantics.fr/pdf/ADS-CS-PK.pdf",
   "card": {
     "name": "EV and Charger Emulator",
     "img": "/src/assets/img/products/emulators-1.png",
