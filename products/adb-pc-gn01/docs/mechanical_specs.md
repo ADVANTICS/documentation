@@ -1,7 +1,5 @@
 # Mechanical Specifications
 
-## Dimentions
-
 {{ figure('../assets/ADB-PC-GN01.webp', 'ADB-PC-GN01 3D model') }}
 
 | **Parameter** | **Value** | **Unit** |
@@ -10,14 +8,14 @@
 | **Dimensions with connectors** | 750 × 440 × 176 | mm |
 | **Weight** | 43 | kg |
 | **Mounting** | 4U rack or custom brackets | - |
-| **Cooling** | Liquid cooled | - |
-| **Ingress Protection** | IP67 | - |
+| **Cooling** | 50/50 Water Ethylene Glycol Mix | - |
+| **Ingress Protection Code** | IP67 | - |
 
 ## Liquid Cooling
 
-The ADB-PC-XXXX are watercooled power converters.
+ADVANTICS power converters as part of the ADB-PC-XXXX series are watercooled.
 
-Each unit has 4 ports - two for top plate, two for bottom plate. To simplify the integration, the units come with the left-side top+bottom ports interconnected from the factory.
+Each unit has four ports: two for top plate, two for bottom plate. To simplify the integration, the units come with the left-side top+bottom ports interconnected from the factory.
 
 The recommended flow of water would look like this. Color indicates the temperature rise, arrows indicate flow direction
 
@@ -25,7 +23,7 @@ The recommended flow of water would look like this. Color indicates the temperat
 
 ### Heat dissipation
 
-Thermal dissipation of each unit depends on operational conditions - voltage, current, power level. Typical head load can be calculated by multiplying the processed power by the efficiency figure at that operation point.
+Thermal dissipation of each unit depends on operational conditions: voltage, current, power level. Typical head load can be calculated by multiplying the processed power by the efficiency figure at that operation point.
 
 A typical loss would be: 100 kW * 0.98 = 2 kW
 For the exact loss for a specific setpoint, please consult the efficiency map.
@@ -52,7 +50,7 @@ Glycol mixture lowers the freezing temperature and acts as a corrosion protectio
     
     Failure to follow this can result in clogged pumps, limited cooling performance, and in the worst case, damaged fittings and leaks.
 
-Required flow rate is 5 liters per minute (5 l/min). The flow can be increased, to extend full power operation region in hot climates. Do not exceed 15 l/min.
+Required flow rate is 5 liters per minute (5 l/min). The flow can be increased to extend full power operation region in hot climates. Please do not exceed 15 l/min.
 
 Since the units are designed to be used in a parallel loop (cold water pushing into all the boxes at the same time through a manifold), there has to be enough water pressure to spread equally between all converters. If the flow is not restrictive enough per heatsink (or water inlets), there is a risk there won’t be enough pressure to feed all units equally (especially considering the vertical stacking in a rack).
 One way to test how well the fluid is distributed is to (temporarily) install flow indicators on every high pressure port on the first rack you build.
@@ -70,5 +68,4 @@ The bottom-to-top cooling plate interconnect is handled by a pre-installed hose 
 
 ### No-drip alternatives
 
-There are a number of no-drip fittings that can be installed instead of the straight barbed fitting.
-However, given that the hose connects to the manifold (distributor), it makes more sense to place the no-drip fittings there (so the disconnection happens on the manifold side, not on the converter side).
+There are a number of no-drip fittings that can be installed instead of the straight barbed fitting. However, given that the hose connects to the manifold (distributor), it is recommended to place the no-drip fittings there so the disconnection happens on the manifold side, and not on the converter side.
