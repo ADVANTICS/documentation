@@ -1,0 +1,778 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<NetworkDefinition xmlns="http://kayak.2codeornot2code.org/1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance">
+  <Document name="ADB_PC_CH01_CAN_Interface" version="1.2.0" author="Alexander Becker">ADB_PC_CH01_CAN_Interface</Document>
+  <Node id="1" name="Module"/>
+  <Node id="2" name="User"/>
+  <Bus name="SystemBus" baudrate="500000">
+    <Message id="0x830000" length="8" format="extended" name="Identification" interval="1000">
+      <Notes>Identification of the device</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="Type" offset="0" length="8" endianess="little">
+        <Notes>
+          The device identification field, uniquely identifies the sender in the network
+        </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+        <LabelSet>
+          <Label name="GC01" value="128"/>
+          <Label name="AC01" value="129"/>
+          <Label name="DC01" value="130"/>
+          <Label name="CH01" value="131"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Revision" offset="8" length="8" endianess="little">
+        <Notes>The hardware revision number</Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+        <LabelSet>
+          <Label name="R0" value="0"/>
+          <Label name="R1" value="1"/>
+          <Label name="R2" value="2"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Variant" offset="16" length="8" endianess="little">
+        <Notes>The hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+        <LabelSet>
+          <Label name="VA00" value="0"/>
+          <Label name="VA01" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Stack_position" offset="24" length="8" endianess="little">
+        <Notes>
+          This signal mirrors the stack position that is also part of the
+          can arbitration ID.
+          It used to indicate the configured stack position and changes
+          when receiving a valid stack control message in which the serial number matched.
+          The Arbitration ID does not change when a stack position update is received, only
+          this signal changes. The arbitration ID is read from eeprom once at boot time and
+          does not change over the runtime of the converter.
+        </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+      </Signal>
+      <Signal name="serial_number" offset="32" length="32" endianess="little">
+        <Notes>Unique module serial number</Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x830001" length="8" format="extended" name="Bootloader_UID" interval="1000">
+      <Notes>Unique Identifier of the Bootloader used on this module</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="UID" offset="0" length="64" endianess="little">
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x830002" length="8" format="extended" name="Firmware_UID" interval="1000">
+      <Notes>Unique Identifier of the Firmware used on this module</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="UID" offset="0" length="64" endianess="little">
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x830003" length="3" format="extended" name="CAN_API_Version" interval="1000">
+      <Notes>This message declares the version of the API that is provided by the converter. The version follows newer convention, as this file is an API definition, patch does not apply</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="Major" offset="0" length="8" endianess="little">
+        <Notes>The Major version number. This number increases if there are backwards incompatible changes</Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+      </Signal>
+      <Signal name="Minor" offset="8" length="8" endianess="little">
+        <Notes>The Minor version number. This number increases if there are backwards compatible changes, like new messages or the use of previously reserved space</Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+      </Signal>
+      <Signal name="Patch" offset="16" length="8" endianess="little">
+        <Notes>The Patch number. This number increases when changes to descriptions and documentation/comments are made</Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x830050" length="1" format="extended" name="Fault_Control">
+      <Notes>Fault Control: actions to clear faults and reset the system</Notes>
+      <Producer>
+        <NodeRef id="2"/>
+      </Producer>
+      <Signal name="Clear_Interlock" offset="0" length="1" endianess="little">
+        <Notes>Clears the converter interlock</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+      </Signal>
+      <Signal name="Reset_Processor" offset="1" length="1" endianess="little">
+        <Notes>Reset the converter DSP</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+      </Signal>
+      <Signal name="Trip_Interlock" offset="2" length="1" endianess="little">
+        <Notes>Trip the inetrnal Interlock</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+      </Signal>
+      <Signal name="Reserved" offset="3" length="5" endianess="little">
+        <Notes>Reserved space</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x830045" length="6" format="extended" name="Stack_Control">
+      <Notes>
+        Set the stack position that the module shall assume on reboot.
+        The stack position is a way to distinguise multiple modules of the same type
+        connected to the same bus.
+      </Notes>
+      <Producer>
+        <NodeRef id="2"/>
+      </Producer>
+      <Signal name="Stack_position" offset="0" length="8" endianess="little">
+        <Notes>The new stack position of the module</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+      </Signal>
+      <Signal name="reserved" offset="8" length="8" endianess="little">
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+      </Signal>
+      <Signal name="serial_number" offset="16" length="32" endianess="little">
+        <Notes>
+          The Module serial number to be able to distinguish
+          a particular module even if it currently shares the same
+          stack position with another module. The update will only be
+          applied to the module that has the corresponding serial number
+        </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x830010" length="8" format="extended" name="CH01_Mode_Control">
+      <Notes>Select the operating mode of the CH01.</Notes>
+      <Producer>
+        <NodeRef id="2"/>
+      </Producer>
+      <Signal name="Mode" offset="0" length="8" endianess="little">
+        <Notes>
+          Operating modes supported by the CH01. The operating mode also specifies
+          what kind of grid is expected on the AC input to the system.
+        </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+        <LabelSet>
+          <Label name="Off" value="0"/>
+          <Label name="On" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Efficiency_Optimization" offset="8" length="1" endianess="little">
+        <Notes>
+          When optimizing (this signal set to 'enabled') the operation of the CH01 for efficiency, the unit is limited in it's ability
+          to respond to voltage and current changes. Voltage and current slew rates should be kept below
+          100V/s and 20A/s respectively.
+          When this signal is set to 'disabled', the system response is greatly increased, at the cost of a lower conversion
+          efficiency.
+        </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+        <LabelSet>
+          <Label name="disabled" value="0"/>
+          <Label name="enabled" value="1"/>
+        </LabelSet>
+      </Signal>
+    </Message>
+
+    <Message id="0x830011" length="8" format="extended" name="CH01_Mode_Readback" interval="1000">
+      <Notes>
+        The current state of the CH01. 
+      </Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="State" offset="0" length="8" endianess="little">
+        <Notes>Current GN91 FSM state.</Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+        <LabelSet>
+          <Label name="Init" value="0"/>
+          <Label name="Idle" value="1"/>
+          <Label name="Starting" value="2"/>
+          <Label name="Running" value="3"/>
+          <Label name="Shutdown" value="4"/>
+          <Label name="Bleeding" value="5"/>
+          <Label name="Bleed_done" value="6"/>
+          <Label name="Fault" value="7"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Efficiency_Optimizations" offset="8" length="1" endianess="little">
+        <Notes>
+          The efficiency optimization is enabled. This limits the slew rate of externally driven
+          voltages and currents.
+        </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+        <LabelSet>
+          <Label name="disabled" value="0"/>
+          <Label name="enabled" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="No_AC_Warning" offset="16" length="1" endianess="little">
+        <Notes>
+          No AC voltage has been detected. The CH01 will refuse to start if no AC voltage
+          is present
+        </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Warning" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Incompatible_AC_Warning" offset="17" length="1" endianess="little">
+        <Notes>
+          There Is AC voltage present but it is outside of the region required by the CH01
+          to operate
+        </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Warning" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="No_Valid_Setpoints_Warning" offset="18" length="1" endianess="little">
+        <Notes>
+          Before operation can commence, setpoints need to be sent to allow operation
+          This warning says that no setpoints have been sent yet.
+          The CH01 will not commence power on while this warning is active
+        </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Warning" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="SW_forced_Fault" offset="32" length="1" endianess="little">
+        <Notes>
+          The firmware forced a Hardware fault. The sw force trip signal is part of the
+          Fault_Control Message and can be controlled from there
+        </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Hw_Config_Fault" offset="33" length="1" endianess="little">
+        <Notes>
+          The Hardware configuration stored in eeprom is faulty. 
+        </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Hardware_Protection_Fault" offset="34" length="1" endianess="little">
+        <Notes>
+          The Hardware interlock is tripped. This fault will stay active until a clear operation
+          is successful, as it is latched in hardware. This fault should clear upon reception of
+          the clear command.
+        </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="AC_Precharge_Fault" offset="35" length="1" endianess="little">
+        <Notes>
+          The Internal bus was not sufficiently charged during precharge, possibly indicating wrong wiring or
+          damaged electronics.
+        </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Overtemperature_Protection_Fault" offset="36" length="1" endianess="little">
+        <Notes>
+          The overtemperature threshold was reached and caused a the module to cease operations.
+          Once the module drops below the temp threshold, this fault will clear
+        </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Hardware_Overtemperature_Protection_Fault" offset="37" length="1" endianess="little">
+        <Notes>
+          The hardware overtemperature protection faulted and caused a hardware interlock. This fault will
+          stay latched until it is cleared by the system controller
+        </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Internal_Fault" offset="38" length="1" endianess="little">
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Fault" value="1"/>
+        </LabelSet>
+      </Signal>
+    </Message>
+
+    <Message id="0x830012" length="8" format="extended" name="CH01_Latched_Faults" interval="100">
+      <Notes>
+        Faults occurring during operation are latched here. The current state of the fault
+        is shown in the CH01 Mode Readback message. The faults in this message only clear
+        if the fault condition has cleared and the command signal is set to the 'clear_fault'
+        value.
+      </Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="SW_forced_Fault" offset="0" length="1" endianess="little">
+        <Notes>
+          The firmware forced a Hardware fault. The sw force trip signal is part of the
+          Fault_Control Message and can be controlled from there
+        </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Hw_Config_Fault" offset="1" length="1" endianess="little">
+        <Notes>
+          The Hardware configuration stored in eeprom is faulty. 
+        </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Hardware_Protection_Fault" offset="2" length="1" endianess="little">
+        <Notes>
+          The Hardware interlock is tripped. This fault will stay active until a clear operation
+          is successful, as it is latched in hardware. This fault should clear upon reception of
+          the clear command.
+        </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="AC_Precharge_Fault" offset="3" length="1" endianess="little">
+        <Notes>
+          The Internal bus was not sufficiently charged during precharge, possibly indicating wrong wiring or
+          damaged electronics.
+        </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="System_Protection_Fault" offset="4" length="1" endianess="little">
+        <Notes>
+          The Converter has an interlock line that the system controller can assert to immediately stop
+          the converter from operation. This is a hardware line that the control system can simply read
+          and try to reset. This fault will only clear when a clear message is received and the system controller
+          does not assert this line.
+        </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Hardware_Overtemperature_Protection_Fault" offset="5" length="1" endianess="little">
+        <Notes>
+          The hardware overtemperature protection faulted and caused a hardware interlock. This fault will
+          stay latched until it is cleared by the system controller
+        </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Overtemperature_Protection_Fault" offset="6" length="1" endianess="little">
+        <Notes>
+          The configurable overtemperature thresh has been exceeded, resulting in a fault, shutting
+          off the module.
+        </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Fault" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Internal_Fault" offset="7" length="1" endianess="little">
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Fault" value="1"/>
+        </LabelSet>
+      </Signal>
+    </Message>
+
+    <Message id="0x830014" length="8" format="extended" name="CH01_DC_Setpoint_Control">
+      <Notes>Set the DC port setpoints</Notes>
+      <Producer>
+        <NodeRef id="2"/>
+      </Producer>
+      <Signal name="Voltage" offset="0" length="16" endianess="little">
+        <Notes>
+          This is the voltage setpoint of the DC Port. The CH01 will try to maintain the voltage set here
+          as long as the current required for this is within the current limits.
+        </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0" unit="V"/>
+      </Signal>
+      <Signal name="Current" offset="16" length="16" endianess="little">
+        <Notes>
+          The maxumum currnet (in either direction) that the CH01 will drive.
+        </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" intercept="0.0" unit="A"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x830015" length="8" format="extended" name="CH01_DC_Setpoint_Readback" interval="1000">
+      <Notes>
+        Setpoints currently applied on the CH01
+        Signals mirror message 0x12
+      </Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="Voltage" offset="0" length="16" endianess="little">
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0" unit="V"/>
+      </Signal>
+      <Signal name="Current" offset="16" length="16" endianess="little">
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" intercept="0.0" unit="A"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x830020" length="4" format="extended" name="CH01_DC_Measurements" interval="100">
+      <Notes>Measurements on the DC port.</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="Voltage" offset="0" length="16" endianess="little">
+        <Notes>DC port voltage.</Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" intercept="0.0" unit="V"/>
+      </Signal>
+      <Signal name="Current" offset="16" length="16" endianess="little">
+        <Notes>
+          DC port current. Positive values mean current sourced by the DC port;
+          negative values mean current sunk by the DC port.
+        </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" intercept="0.0" unit="A"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x830021" length="8" format="extended" name="CH01_AC_L1_Measurements" interval="100">
+      <Notes>AC measurements for line 1.</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="RMS_Current" offset="0" length="16" endianess="little">
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" intercept="0.0" unit="A"/>
+      </Signal>
+      <Signal name="RMS_Voltage" offset="16" length="16" endianess="little">
+        <Notes>
+          Line-to-neutral voltage, using a virtual neutral located at the
+          average of the vector sum of the three phases.
+        </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" intercept="0.0" unit="V"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x830022" length="8" format="extended" name="CH01_AC_L2_Measurements" interval="100">
+      <Notes>AC measurements for line 2.</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="RMS_Current" offset="0" length="16" endianess="little">
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" intercept="0.0" unit="A"/>
+      </Signal>
+      <Signal name="RMS_Voltage" offset="16" length="16" endianess="little">
+        <Notes>
+          Line-to-neutral voltage, using a virtual neutral located at the
+          average of the vector sum of the three phases.
+        </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" intercept="0.0" unit="V"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x830023" length="8" format="extended" name="CH01_AC_L3_Measurements" interval="100">
+      <Notes>AC measurements for line 3.</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="RMS_Current" offset="0" length="16" endianess="little">
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" intercept="0.0" unit="A"/>
+      </Signal>
+      <Signal name="RMS_Voltage" offset="16" length="16" endianess="little">
+        <Notes>
+          Line-to-neutral voltage, using a virtual neutral located at the
+          average of the vector sum of the three phases.
+        </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" intercept="0.0" unit="V"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x830024" length="6" format="extended" name="CH01_Temperatures" interval="100">
+      <Notes>
+        The temperatures measured by the CH01. The CH01 has various sensors in critical locations
+        of the device. This message reports the hottest and coldest spot of the converter
+        along with the temperature of the coolant entering the Converter.
+      </Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="Max_Temp" offset="0" length="16" endianess="little">
+        <Notes> The highest temperature measured in the  converter </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" intercept="0.0" unit="C"/>
+      </Signal>
+      <Signal name="Min_Temp" offset="16" length="16" endianess="little">
+        <Notes> The lowest temperature in the converter </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" intercept="0.0" unit="C"/>
+      </Signal>
+      <Signal name="Coolant_Temp" offset="32" length="16" endianess="little">
+        <Notes> The Temperature of the Coolant </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" intercept="0.0" unit="C"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x830025" length="8" format="extended" name="CH01_Internal_DC_Measurements" interval="100">
+      <Notes>
+        The internal DC Voltages of the two intermediate busses
+      </Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="AC_Side_DC_Voltage" offset="0" length="16" endianess="little">
+        <Notes> The Voltage of the AC side DC bus </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" intercept="0.0" unit="C"/>
+      </Signal>
+      <Signal name="DC_Side_DC_Voltage" offset="16" length="16" endianess="little">
+        <Notes> The Voltage od the DC side DC bus </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" intercept="0.0" unit="C"/>
+      </Signal>
+    </Message>
+
+    <Message id="0x830026" length="8" format="extended" name="CH01_Grid_Connection_Measurements" interval="100">
+      <Notes>
+        The internal DC Voltages of the two intermediate busses
+      </Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="Status" offset="0" length="8" endianess="little">
+        <Notes>
+          The state of the grid as determined by the converter. If the grid is 'good' the
+          converter may start operations
+        </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+        <LabelSet>
+          <Label name="Bad" value="0"/>
+          <Label name="Ok" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Voltage_RMS" offset="8" length="16" endianess="little">
+        <Notes>
+          The line to neutral equivalent RMS voltage at the grid connection point.
+          The measurement point lies in front of the 
+          integrated contactors. This way the grid properties can be measured
+          even without the converter being connected to the grid
+        </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0" unit="V"/>
+      </Signal>
+      <Signal name="Frequency" offset="24" length="16" endianess="little">
+        <Notes>
+          An estimate of the frequency of the grid
+          canculated via zero crossing detection.
+        </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="0.1" intercept="0.0" unit="Hz"/>
+      </Signal>
+    </Message>
+
+  </Bus>
+</NetworkDefinition>

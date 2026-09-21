@@ -1,0 +1,2994 @@
+<NetworkDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://kayak.2codeornot2code.org/1.0" xsi:schemaLocation="Definition.xsd">
+  <Document name="Some Document Name">some text</Document>
+  <Node name="User" id="1"/>
+  <Node name="ADB_PC_AC01" id="2"/>
+  <Node name="ADB_PC_BASE" id="3"/>
+  <Node name="ADB_PC_BOX" id="4"/>
+  <Bus name="ADB_PC_AC01">
+    <Message id="0x810040" name="AC01_Mode_Set" length="1" format="extended">
+      <Notes>Configure AC01 operating mode</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="mode" offset="0" length="8">
+        <Notes>Requested operating mode
+
+            DC_Controlled (0): DC side voltage controlled to setpoint, requires AC side input present
+            AC_Controlled (1): AC side voltage controlled (not yet supported)
+            Bleeding (2): Discharge internal capacitors/remaining charge
+
+            changing mode can only be done when the power converter is not "Enable"</Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="DC_Controlled" value="0"/>
+          <Label name="AC_Controlled" value="1"/>
+          <Label name="Bleeding" value="2"/>
+        </LabelSet>
+      </Signal>
+    </Message>
+    <Message id="0x810041" name="AC01_Mode_Applied" length="1" format="extended">
+      <Notes>AC01 actual operating mode (readback)</Notes>
+      <Producer>
+        <NodeRef id="2"/>
+      </Producer>
+      <Signal name="mode" offset="0" length="8">
+        <Notes>Currently applied operating mode
+
+                changing mode can only be done when the power converter is not "Enable"
+          </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="DC_Controlled" value="0"/>
+          <Label name="AC_Controlled" value="1"/>
+          <Label name="Bleeding" value="2"/>
+        </LabelSet>
+      </Signal>
+    </Message>
+    <Message id="0x810042" name="AC01_faults" length="8" format="extended">
+      <Notes>AC01 Critical and error conditions</Notes>
+      <Producer>
+        <NodeRef id="2"/>
+      </Producer>
+      <Signal name="CABLE_1_2_L1" offset="0">
+        <Notes>Critical: Phase mismatch between DMF1(1).L1 and BP25(2).U</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_1_3_L1" offset="1">
+        <Notes>Critical: Phase mismatch between DMF1(1).L1 and BP25(3).U</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_1_2_L2" offset="2">
+        <Notes>Critical: Phase mismatch between DMF1(1).L2 and BP25(2).V</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_1_3_L2" offset="3">
+        <Notes>Critical: Phase mismatch between DMF1(1).L2 and BP25(3).V</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_1_2_L3" offset="4">
+        <Notes>Critical: Phase mismatch between DMF1(1).L3 and BP25(2).W</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_1_3_L3" offset="5">
+        <Notes>Critical: Phase mismatch between DMF1(1).L3 and BP25(3).W</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_4_5_L1" offset="6">
+        <Notes>Critical: Phase mismatch between DMF1(4).L1 and BP25(5).U</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_4_6_L1" offset="7">
+        <Notes>Critical: Phase mismatch between DMF1(4).L1 and BP25(6).U</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_4_5_L2" offset="8">
+        <Notes>Critical: Phase mismatch between DMF1(4).L2 and BP25(5).V</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_4_6_L2" offset="9">
+        <Notes>Critical: Phase mismatch between DMF1(4).L2 and BP25(6).V</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_4_5_L3" offset="10">
+        <Notes>Critical: Phase mismatch between DMF1(4).L3 and BP25(5).W</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_4_6_L3" offset="11">
+        <Notes>Critical: Phase mismatch between DMF1(4).L3 and BP25(6).W</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_1_4_L1" offset="12">
+        <Notes>Critical: Grid L1 mismatch between DMF1(1).IN and DMF1(4).IN</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_1_4_L2" offset="13">
+        <Notes>Critical: Phase mismatch between DMF1(1).L2 and DMF1(4).L2</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_1_4_L3" offset="14">
+        <Notes>Critical: Phase mismatch between DMF1(1).L3 and DMF1(4).L3</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_2_3_DC" offset="15">
+        <Notes>Critical: DC mismatch between BP25(2) and BP25(3)</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_5_6_DC" offset="16">
+        <Notes>Critical: DC mismatch between BP25(5) and BP25(6)</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CABLE_3_5_DC" offset="17">
+        <Notes>Critical: DC mismatch between BP25(3) and BP25(5)</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="MODULE_1_RUNNING" offset="18">
+        <Notes>Error: Module 1 is running, but it should be off</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="MODULE_2_RUNNING" offset="19">
+        <Notes>Error: Module 2 is running, but it should be off</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="MODULE_3_RUNNING" offset="20">
+        <Notes>Error: Module 3 is running, but it should be off</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="MODULE_4_RUNNING" offset="21">
+        <Notes>Error: Module 4 is running, but it should be off</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="MODULE_5_RUNNING" offset="22">
+        <Notes>Error: Module 5 is running, but it should be off</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="MODULE_6_RUNNING" offset="23">
+        <Notes>Error: Module 6 is running, but it should be off</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="reserved_1" offset="24">
+        <Notes>reserved_1</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="reserved_2" offset="25">
+        <Notes>reserved_2</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="reserved_3" offset="26">
+        <Notes>reserved_3</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="reserved_4" offset="27">
+        <Notes>reserved_4</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="PRECHARGE_FAILED" offset="28">
+        <Notes>Error: Precharge failed</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Main_Contactors_failed" offset="29">
+        <Notes>Error: Main contactors did not closed</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="FILTER_NOT_RUNNING" offset="30">
+        <Notes>Error: Filter is not running, but it should be active</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="RECTIFIER_3P_NOT_RUNNING" offset="31">
+        <Notes>Error: Three-phase rectifier is not running, but it should be active</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="AFE_NOT_OFF" offset="32">
+        <Notes>Error: AFE is not off, but it should be off</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="FILTER_STOP_RUNNING" offset="34">
+        <Notes>Error: Filter stop running</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="RECTIFIER_3P_STOP_RUNNING" offset="35">
+        <Notes>Error: Rectifier stop running</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="AFE_PWM_NOT_RUNNING" offset="36">
+        <Notes>Error: BLEEDING is not running</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="AFE_PWM_STOP_RUNNING" offset="37">
+        <Notes>Error: Bleeding stop running</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="BLEEDING_FAILED" offset="38">
+        <Notes>Error: Bleeding process failed</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="FILTER_NOT_OFF" offset="39">
+        <Notes>Error: Filter is not off, but it should be off</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="INVERTER_3P_NOT_RUNNING" offset="40">
+        <Notes>Error: Three-phase inverter is not running, but it should be active</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="INVERTER_3P_STOP_RUNNING" offset="41">
+        <Notes>Error: Three-phase inverter stop running</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+    </Message>
+    <Message id="0x810043" name="AC01_warning" length="8" format="extended">
+      <Notes>AC01 warning flags, it need to be cleared to "Enable" the power converter</Notes>
+      <Producer>
+        <NodeRef id="2"/>
+      </Producer>
+      <Signal name="grid_not_supported" offset="0">
+        <Notes>Warning: Grid is not supported 
+
+      
+          3-Phase 230V (line-to-neutral) / 400V (line-to-line), 50Hz
+          3-Phase 277V (line-to-neutral) / 480V (line-to-line), 60Hz
+          3-Phase 120V (line-to-neutral) / 208V (line-to-line), 60Hz
+      </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Warning" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="grid_not_existing" offset="1">
+        <Notes>Warning: The converter is not connected to existing grid </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Warning" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="grid_selection_wrong" offset="2">
+        <Notes>Warning: grid selection is wrong
+
+            converter see an existing grid and the selected grid mode is different 
+      </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Warning" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="reserved_3" offset="3">
+        <Notes>reserved</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Warning" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="V_SET_DC_BELOW_AC" offset="4">
+        <Notes>Warning: DC voltage setpoint is lower than the measured AC voltage
+
+              It needs to follow this equation::
+                    Vset DC &gt; VAC rms * sqrt(2) * 2 + 20
+      </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Warning" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="V_DC_BELOW_AC" offset="5">
+        <Notes>Warning: DC voltage measured is too low to generate AC voltage
+
+              It needs to follow this equation::
+                    Vset DC &gt; VAC rms * sqrt(2) * 2 + 20
+      </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Warning" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="AFE_DROOP_NOT_ENABLE" offset="15">
+        <Notes>Warning: AFE droop control is disabled but expected to be enabled</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Warning" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="MODE_NOT_SUPPORTED" offset="16">
+        <Notes>Warning: The selected operating mode is not supported</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Warning" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="V_A_LOW" offset="17">
+        <Notes>Warning: Port A voltage is below the minimum operating threshold</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Warning" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="V_A_HIGH" offset="18">
+        <Notes>Warning: Port A voltage exceeds the maximum operating threshold</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Warning" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="V_B_LOW" offset="19">
+        <Notes>Warning: Port A voltage is below the minimum operating threshold</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Warning" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="V_B_HIGH" offset="20">
+        <Notes>Warning: Port A voltage exceeds the maximum operating threshold</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Warning" value="1"/>
+        </LabelSet>
+      </Signal>
+    </Message>
+    <Message id="0x810044" name="AC01_info" length="8" format="extended">
+      <Notes>Info: Informational status and operating conditions</Notes>
+      <Producer>
+        <NodeRef id="2"/>
+      </Producer>
+      <Signal name="BLEEDING_DONE" offset="1">
+        <Notes>Info: Bleeding process completed successfully</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Info" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CURRENT_LIMIT" offset="2">
+        <Notes>Info: Current limit has been reached</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Info" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="CURRENT_LIMITED_BY_POWER" offset="3">
+        <Notes>Info: Output current is limited because the maximum power is reached</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Info" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="VB_LIMITED_BY_VA" offset="4">
+        <Notes>Info: Output voltage VB is limited because input voltage VA is insufficient</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Info" value="1"/>
+        </LabelSet>
+      </Signal>
+    </Message>
+    <Message id="0x810020" name="DC_Ports_Setpoints" length="6" format="extended">
+      <Notes>The setpoints control the behaviour of the DC Port of the AC01. The AC01 operates this port in CVCC mode</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="Voltage" offset="0" length="16">
+        <Notes>Control the target dc side voltage. This voltage will be maintained as long as the current required to do so is smaller than the current limits specified in this message</Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value slope="0.1" max="6553.5" unit="V"/>
+      </Signal>
+      <Signal name="Positive_Current_Limit" offset="16" length="16">
+        <Notes>The maximum current that the AC01 will source on the DC Port</Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="A"/>
+      </Signal>
+      <Signal name="Negative_Current_Limit" offset="32" length="16">
+        <Notes>The maximum current that the AC01 will sink into the DC Port</Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="A"/>
+      </Signal>
+    </Message>
+    <Message id="0x810021" name="DC_Port_Applied_Setpoints" length="8" format="extended">
+      <Notes>The setpoints that are currently used by the AC01. This message allows to validate that the setpoints have been properly applied.</Notes>
+      <Producer>
+        <NodeRef id="2"/>
+      </Producer>
+      <Signal name="Voltage" offset="0" length="16">
+        <Notes>The voltage target of the DC port</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value slope="0.1" max="6553.5" unit="V"/>
+      </Signal>
+      <Signal name="Positive_Current_Limit" offset="16" length="16">
+        <Notes>The maximum current that the AC01 will source on the DC Port</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="A"/>
+      </Signal>
+      <Signal name="Negative_Current_Limit" offset="32" length="16">
+        <Notes>The maximum amount of current that the AC01 will sink into the DC port</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="A"/>
+      </Signal>
+    </Message>
+    <Message id="0x810024" name="DC_Port_Measurements" length="4" format="extended">
+      <Notes>Measurements of the DC Bus</Notes>
+      <Producer>
+        <NodeRef id="2"/>
+      </Producer>
+      <Signal name="Voltage" offset="0" length="16">
+        <Notes>Voltage on the DC Port</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value slope="0.1" max="6553.5" unit="V"/>
+      </Signal>
+      <Signal name="Current" offset="16" length="16">
+        <Notes>Current through the DC Port</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="A"/>
+      </Signal>
+    </Message>
+    <Message id="0x810022" name="DC_Port_Droop_Setpoints" length="8" format="extended">
+      <Notes>Setpoints for applying Droop on the DC Port. Droop is needed for paralleling multiple AC01</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="Positive_Current_Droop" offset="0" length="16">
+        <Notes>The droop resistance to apply for current flowing out of the DC port (DC current is positive)</Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value slope="0.01" max="655.35" unit="Ohm"/>
+      </Signal>
+      <Signal name="Negative_Current_Droop" offset="16" length="16">
+        <Notes>The droop resistance to apply for current flowing in to the DC Port (DC current is negative)</Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value slope="0.01" max="655.35" unit="Ohm"/>
+      </Signal>
+      <Signal name="Enable" offset="32">
+        <Notes>Enable DC Droop. If this feature is enabled the output voltage of the DC port varies with output current.</Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+          <NodeRef id="1"/>
+          <NodeRef id="4"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Disabled" value="0"/>
+          <Label name="Enabled" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Reserved" offset="33" length="31">
+        <Notes>This space is reserved. This region should contain only '0's</Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+          <NodeRef id="1"/>
+          <NodeRef id="3"/>
+        </Consumer>
+        <Value max="2147483647"/>
+      </Signal>
+    </Message>
+    <Message id="0x810023" name="DC_Port_Applied_Droop_Setpoints" length="8" format="extended">
+      <Notes>Droop setpoints that are applied by the AC01</Notes>
+      <Producer>
+        <NodeRef id="2"/>
+      </Producer>
+      <Signal name="Positive_Current_Droop" offset="0" length="16">
+        <Notes>The droop resistance applied for current flowing out of the DC port (DC current is positive)</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value slope="0.01" max="655.35" unit="Ohm"/>
+      </Signal>
+      <Signal name="Negative_Current_Droop" offset="16" length="16">
+        <Notes>The droop resistance applied for current flowing in to the DC Port (DC current is negative)</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value slope="0.01" max="655.35" unit="Ohm"/>
+      </Signal>
+      <Signal name="Enable" offset="32">
+        <Notes>Show is DC Droop is enabled.</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Disabled" value="0"/>
+          <Label name="Enabled" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Reserved" offset="33" length="31">
+        <Notes>This space is reserved. This region should contain only '0's</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="2147483647"/>
+      </Signal>
+    </Message>
+    <Message id="0x810032" name="AC_Port_Measurements" length="8" format="extended">
+      <Notes>Mesured values of the Grid connection</Notes>
+      <Producer>
+        <NodeRef id="2"/>
+      </Producer>
+      <Signal name="Frequency" offset="0" length="16">
+        <Notes>RMS Voltage of L1</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value slope="0.01" max="655.35" unit="Hz"/>
+      </Signal>
+      <Signal name="Voltage" offset="16" length="16">
+        <Notes>Average RMS Line to Line voltage at the AC port</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value slope="0.1" max="6553.5" unit="V"/>
+      </Signal>
+      <Signal name="Reserved" offset="32" length="32">
+        <Notes>This space is reserved. This region contains only '0's</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="4294967295"/>
+      </Signal>
+    </Message>
+    <Message id="0x810033" name="L1_Measurements" length="8" format="extended">
+      <Notes>Measurements for L1 of the AC port</Notes>
+      <Producer>
+        <NodeRef id="2"/>
+      </Producer>
+      <Signal name="U" offset="0" length="16">
+        <Notes>RMS Voltage of L1</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="V"/>
+      </Signal>
+      <Signal name="I" offset="16" length="16">
+        <Notes>RMS Current of L1</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="A"/>
+      </Signal>
+      <Signal name="P" offset="32" length="16">
+        <Notes>Active power of L1</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="W"/>
+      </Signal>
+      <Signal name="Q" offset="48" length="16">
+        <Notes>Reactive power of L1</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="VAR"/>
+      </Signal>
+    </Message>
+    <Message id="0x810034" name="L2_Measurements" length="8" format="extended">
+      <Notes>Measurements for L2 of the AC port</Notes>
+      <Producer>
+        <NodeRef id="2"/>
+      </Producer>
+      <Signal name="U" offset="0" length="16">
+        <Notes>RMS Voltage of L1</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="V"/>
+      </Signal>
+      <Signal name="I" offset="16" length="16">
+        <Notes>RMS Current of L2</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="A"/>
+      </Signal>
+      <Signal name="P" offset="32" length="16">
+        <Notes>Active power of L2</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="W"/>
+      </Signal>
+      <Signal name="Q" offset="48" length="16">
+        <Notes>Reactive power of L2</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="VAR"/>
+      </Signal>
+    </Message>
+    <Message id="0x810035" name="L3_Measurements" length="8" format="extended">
+      <Notes>Measurements for L3 of the AC port</Notes>
+      <Producer>
+        <NodeRef id="2"/>
+      </Producer>
+      <Signal name="U" offset="0" length="16">
+        <Notes>RMS Voltage of L3</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="V"/>
+      </Signal>
+      <Signal name="I" offset="16" length="16">
+        <Notes>RMS Current of L3</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="A"/>
+      </Signal>
+      <Signal name="P" offset="32" length="16">
+        <Notes>Active power of L3</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="W"/>
+      </Signal>
+      <Signal name="Q" offset="48" length="16">
+        <Notes>Reactive power of L3</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="VAR"/>
+      </Signal>
+    </Message>
+    <Message id="0x810030" name="AC_Port_Setpoints" length="8" format="extended">
+      <Notes>Setpoints to apply to the AC Port</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="grid" offset="0" length="16">
+        <Notes>select grid type that should be generated. All grids are 3-phase.
+
+                FOLLOWING (0): Follows existing grid if compatible (see below).
+                230V_400V_50HZ (1): 3-Phase 230V (line-to-neutral) / 400V (line-to-line), 50Hz
+                277V_480V_60HZ (2): 3-Phase 277V (line-to-neutral) / 480V (line-to-line), 60Hz
+                120V_208V_60HZ (3): 3-Phase 120V (line-to-neutral) / 208V (line-to-line), 60Hz
+        </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="65535"/>
+        <LabelSet>
+          <Label name="FOLLOWING" value="0"/>
+          <Label name="230V_400V_50HZ" value="1"/>
+          <Label name="277V_480V_60HZ" value="2"/>
+          <Label name="120V_208V_60HZ" value="3"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Q" offset="16" length="16">
+        <Notes>Reactive Power of the AC port. Positive values cause the AC01 to behave inductively, negative values cause the AC01 to behave capacitively</Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="signed" slope="10" min="-327680" max="327670" unit="VAR"/>
+      </Signal>
+      <Signal name="RMS_Phase_Current_Limit" offset="32" length="16">
+        <Notes>The maximum RMS current that the AC01 will supply at its AC terminals.
+                This value limits the the magnitute of the AC current and applies
+                symmetrically to both source and sink currents. This limit applies to
+                the current carried by a single phase.
+        </Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value slope="0.1" max="6553.5" unit="A"/>
+      </Signal>
+    </Message>
+    <Message id="0x810031" name="AC_Port_Applied_Setpoints" length="8" format="extended">
+      <Notes>Setpoints that are currently being applied to the the AC Port</Notes>
+      <Producer>
+        <NodeRef id="2"/>
+      </Producer>
+      <Signal name="grid" offset="0" length="16">
+        <Notes>select grid type that should be generated. All grids are 3-phase.
+                        
+                FOLLOWING (0): Follows existing grid if compatible (see below).
+                230V_400V_50HZ (1): 3-Phase 230V (line-to-neutral) / 400V (line-to-line), 50Hz
+                277V_480V_60HZ (2): 3-Phase 277V (line-to-neutral) / 480V (line-to-line), 60Hz
+                120V_208V_60HZ (3): 3-Phase 120V (line-to-neutral) / 208V (line-to-line), 60Hz
+        </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="65535"/>
+        <LabelSet>
+          <Label name="FOLLOWING" value="0"/>
+          <Label name="230V_400V_50HZ" value="1"/>
+          <Label name="277V_480V_60HZ" value="2"/>
+          <Label name="120V_208V_60HZ" value="3"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Q" offset="16" length="16">
+        <Notes>Reactive Power of the AC port. Positive values cause the AC01 to behave inductively, negative values cause the AC01 to behave capacitively</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="10" min="-327680" max="327670" unit="VAR"/>
+      </Signal>
+      <Signal name="RMS_Phase_Current_Limit" offset="32" length="16">
+        <Notes>The maximum RMS current that the AC01 will supply at its AC terminals.
+                This value limits the the magnitute of the AC current and applies
+                symmetrically to both source and sink currents. This limit applies to
+                the current carried by a single phase.
+        </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value slope="0.1" max="6553.5" unit="A"/>
+      </Signal>
+    </Message>
+    <Message id="0x810000" name="Identification" length="8" format="extended">
+      <Notes>Identification of the device</Notes>
+      <Producer>
+        <NodeRef id="3"/>
+      </Producer>
+      <Signal name="Type" offset="0" length="8">
+        <Notes>Type of device</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="GC01" value="128"/>
+          <Label name="AC01" value="129"/>
+          <Label name="DC01" value="130"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Revision" offset="8" length="8">
+        <Notes>The hardware revision number</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="R0A" value="0"/>
+          <Label name="R0B" value="1"/>
+          <Label name="R0C" value="2"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Variant" offset="16" length="8">
+        <Notes>The hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="VA00" value="0"/>
+          <Label name="VA01" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Stack_position" offset="24" length="8">
+        <Notes>Position of the device within the stack</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+          <NodeRef id="3"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="serial_number" offset="32" length="32">
+        <Notes>Unique device serial number</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="4294967295"/>
+      </Signal>
+    </Message>
+    <Message id="0x810002" name="Firmware_UID" length="8" format="extended">
+      <Notes>Unique Identifier of the Firmware used on this device</Notes>
+      <Producer>
+        <NodeRef id="3"/>
+      </Producer>
+      <Signal name="UID" offset="0" length="64">
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="1.844674407370955e+19"/>
+      </Signal>
+    </Message>
+    <Message id="0x810001" name="Bootloader_UID" length="8" format="extended">
+      <Notes>Unique Identifier of the Bootloader used on this device</Notes>
+      <Producer>
+        <NodeRef id="3"/>
+      </Producer>
+      <Signal name="UID" offset="0" length="64">
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="1.844674407370955e+19"/>
+      </Signal>
+    </Message>
+    <Message id="0x810003" name="ADB_CAN_API_Version" length="3" format="extended">
+      <Notes>This message declares the version of the API that is provided by the device. The version follows newer convention, as this file is an API definition, patch does not apply</Notes>
+      <Producer>
+        <NodeRef id="3"/>
+      </Producer>
+      <Signal name="Major" offset="0" length="8">
+        <Notes>The Major version number. This number increases if there are backwards incompatible changes</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Minor" offset="8" length="8">
+        <Notes>The Minor version number. This number increases if there are backwards compatible changes, like new messages or the use of previously reserved space</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Patch" offset="16" length="8">
+        <Notes>The Patch number. This number increases when changes to descriptions and documentation/comments are made</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+    </Message>
+    <Message id="0x810045" name="Stack_Control" length="6" format="extended">
+      <Notes>Device stack control</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="Stack_position" offset="0" length="8">
+        <Notes>Device position within the stack</Notes>
+        <Consumer>
+          <NodeRef id="3"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="reserved" offset="8" length="8">
+        <Notes>reserved</Notes>
+        <Consumer>
+          <NodeRef id="3"/>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="SN_number" offset="16" length="32">
+        <Notes>Unique device serial number, that require change of stack address</Notes>
+        <Consumer>
+          <NodeRef id="3"/>
+        </Consumer>
+        <Value max="4294967295"/>
+      </Signal>
+    </Message>
+    <Message id="0x810050" name="Fault_Control" length="1" format="extended">
+      <Notes>Fault Control: actions to clear faults and reset the system</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="Clear_Interlock" offset="0">
+        <Notes>Clears the device interlock</Notes>
+        <Consumer>
+          <NodeRef id="3"/>
+        </Consumer>
+      </Signal>
+      <Signal name="Reset_Processor" offset="1">
+        <Notes>Reset the device DSP</Notes>
+        <Consumer>
+          <NodeRef id="3"/>
+        </Consumer>
+      </Signal>
+      <Signal name="Trip_Interlock" offset="2">
+        <Notes>Trip the internal Interlock</Notes>
+        <Consumer>
+          <NodeRef id="3"/>
+        </Consumer>
+      </Signal>
+      <Signal name="Reserved" offset="3" length="5">
+        <Notes>Reserved</Notes>
+        <Consumer>
+          <NodeRef id="3"/>
+        </Consumer>
+        <Value max="31"/>
+      </Signal>
+    </Message>
+    <Message id="0x810061" name="Factory_Control" length="8" format="extended">
+      <Notes>FACTORY USE ONLY - Control the device factory flags</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="Factory_mode" offset="0">
+        <Notes>If set to 1, module will enter in factory mode. </Notes>
+        <Consumer>
+          <NodeRef id="3"/>
+        </Consumer>
+      </Signal>
+    </Message>
+    <Message id="0x810012" name="Converter_Control" length="1" format="extended">
+      <Notes>Converter control command</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="enable" offset="0">
+        <Notes>Enable the power converter 
+                       enable takes priority over sleep
+                </Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+        </Consumer>
+      </Signal>
+      <Signal name="sleep" offset="1">
+        <Notes>Ask the converter to go to sleep mode 
+
+                        the converter will go to sleep mode only from standby mode
+                        enable  takes priority over sleep
+                </Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+        </Consumer>
+      </Signal>
+    </Message>
+    <Message id="0x810013" name="Converter_Power_Info" length="6" format="extended">
+      <Notes>Real-time power converter performance metrics
+
+                  Some signals are still experimental and may change in the future.
+            </Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="load" offset="0" length="8">
+        <Notes>Current load utilization 
+                        
+                    Actual power demand relative to Power_capability limit.
+                </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255" unit="%"/>
+      </Signal>
+      <Signal name="efficiency" offset="8" length="8">
+        <Notes>Converter efficiency</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255" unit="%"/>
+      </Signal>
+      <Signal name="Power_capability" offset="16" length="16">
+        <Notes> Maximum deliverable power based on configured setpoints (V * A).
+             
+                    Examples:
+                        - 1000V * 50A = 50kW &#10003; (within limits)
+                        - 1500V * 200A = 300kW &#8594; capped at 100kW (converter maximum)
+                </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.1" min="-3276.8" max="3276.7" unit="kw"/>
+      </Signal>
+      <Signal name="low_power_input" offset="32" length="16">
+        <Notes>low-voltage input (typically 24V)</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.01" min="-327.68" max="327.67" unit="v"/>
+      </Signal>
+    </Message>
+    <Message id="0x810010" name="Status" length="8" format="extended">
+      <Notes>General Status of the power converter</Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="State" offset="0" length="16">
+        <Notes>Current operating state of the power converter.
+
+                        Init: The converter is initializing. It will transition to Standby if initialization succeeds, 
+                        or to Critical/Error if it fails.
+                        Standby: The converter is idle and ready to be turned-on if conditions are met (no errors, no warnings).
+                        Turning_on: The converter is powering up.
+                        Running: The converter is actively operating.
+                        Turning_off: The converter is shutting down.
+                        Error: A recoverable fault has occurred.
+                        Critical: A critical fault has occurred, requiring reboot (please inform Advantics).
+                        God: For Developer (mode cannot be used by customers).
+                        Sleeping: The converter is in sleeping mode in order to save energy.
+                </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="65535"/>
+        <LabelSet>
+          <Label name="init" value="0"/>
+          <Label name="standby" value="1"/>
+          <Label name="turning_on" value="2"/>
+          <Label name="running" value="3"/>
+          <Label name="turning_off" value="4"/>
+          <Label name="error" value="5"/>
+          <Label name="critical" value="6"/>
+          <Label name="god" value="7"/>
+          <Label name="sleeping" value="8"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="flag_enable" offset="16">
+        <Notes>Indicates  that the converter is asked to be enabled.
+                        once condition are meet (no wanring nor error) the converter will do to turning-on
+                </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="flag_ready" offset="17">
+        <Notes>Indicates that a valid setpoint has been received and conditions are met to turn on the converter.</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="flag_energized" offset="18">
+        <Notes>Indicates that the converter is energized (internal and external &gt; 24V)</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="flag_busy" offset="19">
+        <Notes>Indicates that the converter is in a transition state (init, turning on, or turning off). Some commands may be ignored during this step.</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="flag_sleep" offset="20">
+        <Notes>Indicates that the converter is asked to operating in energy-saving (sleep) mode.
+
+                        the converter will go in sleeping mode
+                        Turning on the power converter in eco mode may take a little more time (feature not yet implemented).
+                </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="flag_warning" offset="24">
+        <Notes>Indicates that one or more warnings are active.
+
+                        When in standby mode, all warnings must be cleared before turning on the power converter.
+                        If "Enable" is set in "Converter_Control", the power converter will turn on as soon as all warnings are cleared.
+                        The system may be operating in degraded mode.
+                        During operation (Running), the power converter will continue to run, but degraded performance may be expected.
+                        Refer to the "Warning" message for more details.
+                </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="flag_degraded" offset="25">
+        <Notes>Indicates that the converter is running in degraded performance mode 
+
+                    This can be due to high temperature.
+                    Refer to the "Warning" message for more details.
+
+                </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="flag_error" offset="26">
+        <Notes>Indicates that one or more Errors are active.
+
+                    When in standby mode, all errors must be cleared before turning on the power converter.
+                    If "Enable" is set in "Converter_Control", the power converter will turn on as soon as all warnings are cleared.
+                    During operation (Running), the power converter will turn off.
+                    Errors can be cleared using "Clear_Interlock" signals from the "Fault_Control" message.
+                    The system may be operating in degraded mode.
+                    Refer to the "Errors" or "Faults" message for more details.
+                </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="flag_factory" offset="48">
+        <Notes>Indicates that the converter is operating in factory or service mode. 
+
+                        This flag should not be active for customers
+                </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="flag_god_mode" offset="49">
+        <Notes>Indicates that the converter is in special diagnostic or unrestricted mode (god mode).
+                    
+                        This flag should not be active for customers
+
+                </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+    </Message>
+    <Message id="0x8100F0" name="_fms_state" length="8" format="extended">
+      <Notes>FSM  status - DEBUG ONLY, not for customer visibility</Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="init" offset="0" length="8">
+        <Notes>state: INIT (initialization phase)</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="ready" offset="16" length="8">
+        <Notes>state: READY </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="turned_on" offset="32" length="8">
+        <Notes>state: TURNED_ON</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="turned_off" offset="40" length="8">
+        <Notes>state: TURNED_OFF</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="bleeding" offset="48" length="8">
+        <Notes>state: BLEEDING</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+    </Message>
+    <Message id="0x810011" name="Faults" length="8" format="extended">
+      <Notes>Fault status bitfield (1-bit flags per fault type)
+
+                    Severity levels and clearing:
+                    - Tripped: Can be cleared using "Clear_Interlock" signals from "Fault_Control" message.
+                    - Critical: Requires system reboot (contact Advantics support).
+                    - Error: Can be cleared using "Clear_Interlock" signals from "Fault_Control" message.
+
+                    State machine behavior:
+                    - Standby: All errors must be cleared before power-on is allowed. if "Enable"  is active, the converter will 
+                      turns on when all faults/warnings are cleared.
+                    - Running: Any Error fault triggers the turning-off sequence shutdown. And any Critical fault trigger immediate shutdown
+                
+            </Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="internal" offset="0">
+        <Notes>Internal interlock trip 
+                    
+                    An internal issue has arisen.
+                </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Tripped" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="external" offset="1">
+        <Notes>External interlock trip
+
+                    Common causes:
+                    - External emergency stop button pressed
+                    - External safety interlock opened (door switch, guard, etc.)
+                </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Tripped" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="system" offset="2">
+        <Notes>Critical system fault detected (contact Advantics support)</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="EEPROM_failure" offset="3">
+        <Notes>EEPROM read/write failure (contact Advantics support)</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="wrong_nfo" offset="4">
+        <Notes>Invalid configuration detected (contact Advantics support)</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Measurement_system_failure" offset="5">
+        <Notes>Voltage/current measurement system fault (contact Advantics support)</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Warning" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="PLL_not_locked" offset="6">
+        <Notes>PLL not locked (contact Advantics support)</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="overtemperature" offset="7">
+        <Notes>Over-temperature condition detected 
+
+                    Cooling plate temperature exceeded 75&#176;C threshold
+                    Can be cleared once temperature is bellow 75&#176;C. check message "Converter_Temperature"
+
+                </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="fan_stuck" offset="8">
+        <Notes>Cooling fan stalled or not running
+
+                        The system may overheat(contact Advantics support if the problem persist)
+                </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Warning" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="dead_module" offset="9">
+        <Notes>Lost communication between the ADM-CS and one or more ADM-PC</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="keep_alive_not_serv_internal" offset="10">
+        <Notes>Internal ADM-PC keep-alive watchdog timeout. Was not served in time by ADM-CS</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="error_temperature" offset="11">
+        <Notes>Temperature sensor error. One or more sensors are unavailable or reporting invalid data.</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Info" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="internal_modules_ready" offset="12">
+        <Notes>One or more internal modules (ADM-PC) are NOT ready</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="internal_modules_can_api" offset="13">
+        <Notes>One or more internal modules (ADM-PC) have mismatched CAN API versions expected by ADM-CS
+                        
+                        check message "info_can_api_error" for more detail
+                </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="internal_modules_missing" offset="14">
+        <Notes>One or more internal modules (ADM-PC) are  missing (not detect on can bus)
+
+                        check message "info_adm_pc" for more detail
+                </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="internal_modules_wrong" offset="15">
+        <Notes>One or more internal modules (ADM-PC) are not compatible with the NFO of ADM-CS</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="internal_modules_stack" offset="16">
+        <Notes>One or more internal modules (ADM-PC) don't respect the required stack position for the NFO of ADM-CS</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="internal_modules_init" offset="17">
+        <Notes>One or more internal modules (ADM-PC) failed at init (ready flag)</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="wrong_revision" offset="18">
+        <Notes>One or more internal modules (ADM-PC) don't have the required revision for the NFO of ADM-CS </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="v_in_low" offset="19">
+        <Notes>24V input voltage too low
+
+                        Increase voltage and/or current before clearing the error.
+                </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="v_in_critical" offset="20">
+        <Notes>24V input voltage critically low, 
+
+                        Increase voltage and/or current and reboot the power converter
+                </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Critical" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="keep_alive_not_serv" offset="21">
+        <Notes>keep-alive watchdog timeout
+
+                    Upper controller did not service the keepalive watchdog in time.
+                    Check "Interface_Status" message and increase "keep_Alive_Period" if needed
+                </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Clear" value="0"/>
+          <Label name="Error" value="1"/>
+        </LabelSet>
+      </Signal>
+    </Message>
+    <Message id="0x810015" name="Interface_Status" length="3" format="extended">
+      <Notes>interface status</Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="Broadcast_Group" offset="0" length="8">
+        <Notes>The broadcast group that the module belongs to. Broadcast group 0 implies that the module is not part of a broadcast group. </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="30"/>
+      </Signal>
+      <Signal name="keep_Alive" offset="8" length="4">
+        <Notes>keep alive requires the supervisory/upper controller to send a heartbeat message at regular intervals</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="15"/>
+        <LabelSet>
+          <Label name="Disabled" value="0"/>
+          <Label name="Enabled" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="reserved" offset="12" length="4">
+        <Notes>reserved for future usage</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="15"/>
+        <LabelSet>
+          <Label name="Disabled" value="0"/>
+          <Label name="Enabled" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="keep_Alive_Period" offset="16" length="8">
+        <Notes>The maximum period of the keep alive message. If the time between two heart-beat messages is longer than this value, the power converter will go to Error. This only applies when the Heartbeat signal is Enabled</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value slope="0.1" max="25.5" unit="s"/>
+      </Signal>
+    </Message>
+    <Message id="0x810016" name="Keep_Alive_Control" length="2" format="extended">
+      <Notes>Configure the Heartbeat for the Module. The 'Heartbeat Period' signal only apply if the heartbeat signals are enabled</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="Enable" offset="0">
+        <Notes>Enable/Disable the Heartbeat feature of the Module</Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Disabled" value="0"/>
+          <Label name="Enabled" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="reserved" offset="1">
+        <Notes>Reserved for future usage</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Disabled" value="0"/>
+          <Label name="Enabled" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Period" offset="8" length="8">
+        <Notes>Set the maximum period of the Heartbeat message. If the time between two heart-beat messages is longer than this value, the power converter will go to Error.</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value slope="0.1" max="25.5" unit="s"/>
+      </Signal>
+    </Message>
+    <Message id="0x810017" name="Converter_Temperature" length="8" format="extended">
+      <Notes>Readouts of the power converter temperature sensors</Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="Cooling_plate" offset="0" length="16">
+        <Notes>Temperature of the cooling plate</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.01" min="-327.68" max="327.67" unit="&#176;C"/>
+      </Signal>
+      <Signal name="Magnetics" offset="16" length="16">
+        <Notes>Highest measured temp of magnetics</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.01" min="-327.68" max="327.67" unit="&#176;C"/>
+      </Signal>
+      <Signal name="Transistors" offset="32" length="16">
+        <Notes>Highest measured temp of transistors</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.01" min="-327.68" max="327.67" unit="&#176;C"/>
+      </Signal>
+      <Signal name="reserved" offset="48" length="16">
+        <Notes>reserved for future usage</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.01" min="-327.68" max="327.67" unit="&#176;C"/>
+      </Signal>
+    </Message>
+    <Message id="0x810018" name="Converter_Fans" length="6" format="extended">
+      <Notes>Readouts from the power converter's internal fans.</Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="A_rpm" offset="0" length="16">
+        <Notes>Measured speed of Fan A</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="65535" unit="rpm"/>
+      </Signal>
+      <Signal name="A_pwm" offset="16" length="8">
+        <Notes>Fan A target speed in percentage (0 to 100%)</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255" unit="%"/>
+      </Signal>
+      <Signal name="B_rpm" offset="24" length="16">
+        <Notes>Measured speed of Fan B</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="65535" unit="rpm"/>
+      </Signal>
+      <Signal name="B_pwm" offset="40" length="8">
+        <Notes>Fan B target speed in percentage (0 to 100%)</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255" unit="%"/>
+      </Signal>
+    </Message>
+    <Message id="0x810019" name="Keep_Alive_Feed" length="1" format="extended">
+      <Notes>keep alive feeding</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="feed" offset="0">
+        <Notes>The value doesn't matter here, it is only used to feed the keepalive</Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+        </Consumer>
+      </Signal>
+    </Message>
+    <Message id="0x8100F1" name="_interlocks_status" length="3" format="extended">
+      <Notes>INTERNAL DEBUG ONLY - Customer systems should NOT monitor or display this message
+                    
+                    Split power converter interlock status
+            </Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="e" offset="0">
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Tripped" value="0"/>
+          <Label name="Clear" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="a" offset="1">
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Tripped" value="0"/>
+          <Label name="Clear" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="b" offset="2">
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Tripped" value="0"/>
+          <Label name="Clear" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="i" offset="3">
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Tripped" value="0"/>
+          <Label name="Clear" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="x" offset="4">
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="Tripped" value="0"/>
+          <Label name="Clear" value="1"/>
+        </LabelSet>
+      </Signal>
+    </Message>
+    <Message id="0x810014" name="Broadcast_Group_Control" length="1" format="extended">
+      <Notes>Configure the broadcast group that the power converter belongs to.</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="Group_ID" offset="0" length="8">
+        <Notes>Broadcast Group that the power converter should monitor</Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+    </Message>
+    <Message id="0x810080" name="info_adm_cs" length="8" format="extended">
+      <Notes>DEBUG/FACTORY USE ONLY - Not important for customers. 
+                
+                    Contains information about the ADM-CS (controller).
+            </Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="Type" offset="0" length="8">
+        <Notes>The device identification field</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="GC01" value="16"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Revision" offset="8" length="8">
+        <Notes>The hardware revision numbere</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Variant" offset="16" length="8">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="reserved" offset="24" length="8">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="serial_number" offset="32" length="32">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="4294967295"/>
+      </Signal>
+    </Message>
+    <Message id="0x810081" name="info_adm_pc" length="4" format="extended">
+      <Notes>DEBUG/FACTORY USE ONLY - Not important for customers. 
+                
+                    Contains information about detected ADM-PC.
+            </Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="nb_detected" offset="0" length="8">
+        <Notes>number of ADM-PC detected</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="nd_side_a" offset="8" length="8">
+        <Notes>number of ADM-PC detected</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="nd_side_b" offset="16" length="8">
+        <Notes>number of ADM-PC detected</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Collision" offset="24" length="8">
+        <Notes>collision between module</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+    </Message>
+    <Message id="0x810082" name="info_adm_pc_id_1" length="8" format="extended">
+      <Notes>DEBUG/FACTORY USE ONLY - Not important for customers. 
+                
+                    Contains information about detected ADM-PC #1.
+            </Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="Type" offset="0" length="8">
+        <Notes>The device identification field</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="BP25" value="7"/>
+          <Label name="BI25" value="8"/>
+          <Label name="DMF1" value="19"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Revision" offset="8" length="8">
+        <Notes>The hardware revision number</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Variant" offset="16" length="8">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Stack_position" offset="24" length="8">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="serial_number" offset="32" length="32">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="4294967295"/>
+      </Signal>
+    </Message>
+    <Message id="0x810083" name="info_adm_pc_id_2" length="8" format="extended">
+      <Notes>DEBUG/FACTORY USE ONLY - Not important for customers. 
+                
+                    Contains information about detected ADM-PC #2.
+            </Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="Type" offset="0" length="8">
+        <Notes>The device identification field</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="BP25" value="7"/>
+          <Label name="BI25" value="8"/>
+          <Label name="DMF1" value="19"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Revision" offset="8" length="8">
+        <Notes>The hardware revision number</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Variant" offset="16" length="8">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Stack_position" offset="24" length="8">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="serial_number" offset="32" length="32">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="4294967295"/>
+      </Signal>
+    </Message>
+    <Message id="0x810084" name="info_adm_pc_id_3" length="8" format="extended">
+      <Notes>DEBUG/FACTORY USE ONLY - Not important for customers. 
+                
+                    Contains information about detected ADM-PC #3.
+            </Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="Type" offset="0" length="8">
+        <Notes>The device identification field</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="BP25" value="7"/>
+          <Label name="BI25" value="8"/>
+          <Label name="DMF1" value="19"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Revision" offset="8" length="8">
+        <Notes>The hardware revision number</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Variant" offset="16" length="8">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Stack_position" offset="24" length="8">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="serial_number" offset="32" length="32">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="4294967295"/>
+      </Signal>
+    </Message>
+    <Message id="0x810085" name="info_adm_pc_id_4" length="8" format="extended">
+      <Notes>DEBUG/FACTORY USE ONLY - Not important for customers. 
+                
+                    Contains information about detected ADM-PC #4.
+            </Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="Type" offset="0" length="8">
+        <Notes>The device identification field</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="BP25" value="7"/>
+          <Label name="BI25" value="8"/>
+          <Label name="DMF1" value="19"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Revision" offset="8" length="8">
+        <Notes>The hardware revision number</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Variant" offset="16" length="8">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Stack_position" offset="24" length="8">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="serial_number" offset="32" length="32">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="4294967295"/>
+      </Signal>
+    </Message>
+    <Message id="0x810086" name="info_adm_pc_id_5" length="8" format="extended">
+      <Notes>DEBUG/FACTORY USE ONLY - Not important for customers. 
+                
+                    Contains information about detected ADM-PC #5.
+            </Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="Type" offset="0" length="8">
+        <Notes>The device identification field</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="BP25" value="7"/>
+          <Label name="BI25" value="8"/>
+          <Label name="DMF1" value="19"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Revision" offset="8" length="8">
+        <Notes>The hardware revision number</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Variant" offset="16" length="8">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Stack_position" offset="24" length="8">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="serial_number" offset="32" length="32">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="4294967295"/>
+      </Signal>
+    </Message>
+    <Message id="0x810087" name="info_adm_pc_id_6" length="8" format="extended">
+      <Notes>DEBUG/FACTORY USE ONLY - Not important for customers. 
+                
+                    Contains information about detected ADM-PC #6.
+            </Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="Type" offset="0" length="8">
+        <Notes>The device identification field</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="BP25" value="7"/>
+          <Label name="BI25" value="8"/>
+          <Label name="DMF1" value="19"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Revision" offset="8" length="8">
+        <Notes>The hardware revision number</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Variant" offset="16" length="8">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Stack_position" offset="24" length="8">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="serial_number" offset="32" length="32">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="4294967295"/>
+      </Signal>
+    </Message>
+    <Message id="0x810088" name="info_adm_pc_status_1" length="8" format="extended">
+      <Notes>DEBUG/FACTORY USE ONLY - Not important for customers. 
+                
+                    Contains status information about detected ADM-PC #1.
+            </Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="Available" offset="0">
+        <Notes>The device available</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="Side" offset="1" length="2">
+        <Notes>The device is Ready</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="3"/>
+        <LabelSet>
+          <Label name="side_unk" value="0"/>
+          <Label name="side_a" value="1"/>
+          <Label name="side_b" value="2"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Status" offset="3" length="2">
+        <Notes>The device is Running</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="3"/>
+        <LabelSet>
+          <Label name="off" value="0"/>
+          <Label name="ready" value="1"/>
+          <Label name="running" value="2"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Interlock_I" offset="8">
+        <Notes>The device have interlock internal</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="Interlock_E" offset="9">
+        <Notes>The device have interlock external</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="mode" offset="16" length="16">
+        <Notes>Mode</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="65535"/>
+      </Signal>
+    </Message>
+    <Message id="0x810089" name="info_adm_pc_status_2" length="8" format="extended">
+      <Notes>DEBUG/FACTORY USE ONLY - Not important for customers. 
+                
+                    Contains status information about detected ADM-PC #2.
+            </Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="Available" offset="0">
+        <Notes>The device available</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="Side" offset="1" length="2">
+        <Notes>The device is Ready</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="3"/>
+        <LabelSet>
+          <Label name="side_unk" value="0"/>
+          <Label name="side_a" value="1"/>
+          <Label name="side_b" value="2"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Status" offset="3" length="2">
+        <Notes>The device is Running</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="3"/>
+        <LabelSet>
+          <Label name="off" value="0"/>
+          <Label name="ready" value="1"/>
+          <Label name="running" value="2"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Interlock_I" offset="8">
+        <Notes>The device have interlock internal</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="Interlock_E" offset="9">
+        <Notes>The device have interlock external</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="mode" offset="16" length="16">
+        <Notes>Mode</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="65535"/>
+      </Signal>
+    </Message>
+    <Message id="0x81008A" name="info_adm_pc_status_3" length="8" format="extended">
+      <Notes>DEBUG/FACTORY USE ONLY - Not important for customers. 
+                
+                    Contains status information about detected ADM-PC #3.
+            </Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="Available" offset="0">
+        <Notes>The device available</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="Side" offset="1" length="2">
+        <Notes>The device is Ready</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="3"/>
+        <LabelSet>
+          <Label name="side_unk" value="0"/>
+          <Label name="side_a" value="1"/>
+          <Label name="side_b" value="2"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Status" offset="3" length="2">
+        <Notes>The device is Running</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="3"/>
+        <LabelSet>
+          <Label name="off" value="0"/>
+          <Label name="ready" value="1"/>
+          <Label name="running" value="2"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Interlock_I" offset="8">
+        <Notes>The device have interlock internal</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="Interlock_E" offset="9">
+        <Notes>The device have interlock external</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="mode" offset="16" length="16">
+        <Notes>Mode</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="65535"/>
+      </Signal>
+    </Message>
+    <Message id="0x81008B" name="info_adm_pc_status_4" length="8" format="extended">
+      <Notes>DEBUG/FACTORY USE ONLY - Not important for customers. 
+                
+                    Contains status information about detected ADM-PC #4.
+            </Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="Available" offset="0">
+        <Notes>The device available</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="Side" offset="1" length="2">
+        <Notes>The device is Ready</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="3"/>
+        <LabelSet>
+          <Label name="side_unk" value="0"/>
+          <Label name="side_a" value="1"/>
+          <Label name="side_b" value="2"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Status" offset="3" length="2">
+        <Notes>The device is Running</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="3"/>
+        <LabelSet>
+          <Label name="off" value="0"/>
+          <Label name="ready" value="1"/>
+          <Label name="running" value="2"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Interlock_I" offset="8">
+        <Notes>The device have interlock internal</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="Interlock_E" offset="9">
+        <Notes>The device have interlock external</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="mode" offset="16" length="16">
+        <Notes>Mode</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="65535"/>
+      </Signal>
+    </Message>
+    <Message id="0x81008C" name="info_adm_pc_status_5" length="8" format="extended">
+      <Notes>DEBUG/FACTORY USE ONLY - Not important for customers. 
+                
+                    Contains status information about detected ADM-PC #5.
+            </Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="Available" offset="0">
+        <Notes>The device available</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="Side" offset="1" length="2">
+        <Notes>The device is Ready</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="3"/>
+        <LabelSet>
+          <Label name="side_unk" value="0"/>
+          <Label name="side_a" value="1"/>
+          <Label name="side_b" value="2"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Status" offset="3" length="2">
+        <Notes>The device is Running</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="3"/>
+        <LabelSet>
+          <Label name="off" value="0"/>
+          <Label name="ready" value="1"/>
+          <Label name="running" value="2"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Interlock_I" offset="8">
+        <Notes>The device have interlock internal</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="Interlock_E" offset="9">
+        <Notes>The device have interlock external</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="mode" offset="16" length="16">
+        <Notes>Mode</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="65535"/>
+      </Signal>
+    </Message>
+    <Message id="0x81008D" name="info_adm_pc_status_6" length="8" format="extended">
+      <Notes>DEBUG/FACTORY USE ONLY - Not important for customers. 
+                
+                    Contains status information about detected ADM-PC #6.
+            </Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="Available" offset="0">
+        <Notes>The device available</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="Side" offset="1" length="2">
+        <Notes>The device is Ready</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="3"/>
+        <LabelSet>
+          <Label name="side_unk" value="0"/>
+          <Label name="side_a" value="1"/>
+          <Label name="side_b" value="2"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Status" offset="3" length="2">
+        <Notes>The device is Running</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="3"/>
+        <LabelSet>
+          <Label name="off" value="0"/>
+          <Label name="ready" value="1"/>
+          <Label name="running" value="2"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Interlock_I" offset="8">
+        <Notes>The device have interlock internal</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="Interlock_E" offset="9">
+        <Notes>The device have interlock external</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+      </Signal>
+      <Signal name="mode" offset="16" length="16">
+        <Notes>Mode</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="65535"/>
+      </Signal>
+    </Message>
+    <Message id="0x810090" name="cs_performance" length="8" format="extended">
+      <Notes>Performance status of the AMD-CS</Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="cpu_1_usage" offset="0" length="8">
+        <Notes>Controller cpu 1 usage</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255" unit="%"/>
+      </Signal>
+      <Signal name="cpu_2_usage" offset="8" length="8">
+        <Notes>Controller cpu 2 usage</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255" unit="%"/>
+      </Signal>
+      <Signal name="can_bus_load_A" offset="16" length="8">
+        <Notes>Controller cup 1 usage</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255" unit="%"/>
+      </Signal>
+      <Signal name="can_bus_load_B" offset="24" length="8">
+        <Notes>Controller cpu 1 usage</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255" unit="%"/>
+      </Signal>
+      <Signal name="main_loop_freq" offset="32" length="16">
+        <Notes>Controller cpu 1 usage</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="65535" unit="Hz"/>
+      </Signal>
+    </Message>
+    <Message id="0x810091" name="info_can_api_error" length="8" format="extended">
+      <Notes>DEBUG - Allow to know  what ADM-PC has wrong can api</Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="Type" offset="0" length="8">
+        <Notes>The ADM-PC identification field</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="BP25" value="7"/>
+          <Label name="BI25" value="8"/>
+          <Label name="DMF1" value="19"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="Stack_position" offset="8" length="8">
+        <Notes>Hardware variant</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Major_expected" offset="16" length="8">
+        <Notes>The Major version number. This number increases if there are backwards incompatible changes</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Minor_expected" offset="24" length="8">
+        <Notes>The minor version number. This number increases if there are backwards incompatible changes</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Patch_expected" offset="32" length="8">
+        <Notes>The patch version number. This number increases if there are backwards incompatible changes</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Major_actual" offset="40" length="8">
+        <Notes>The Major version number. This number increases if there are backwards incompatible changes</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Minor_actual" offset="48" length="8">
+        <Notes>The minor version number. This number increases if there are backwards incompatible changes</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="Patch_actual" offset="56" length="8">
+        <Notes>The patch version number. This number increases if there are backwards incompatible changes</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+    </Message>
+    <Message id="0x810062" name="_Calibration_writing" length="6" format="extended">
+      <Notes>FACTORY USE ONLY - Calibration control (requires factory mode)
+
+                    Should only be used in factory, not customers. For calibration issues, contact Advantics support.
+
+            </Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="index" offset="0" length="8">
+        <Notes>index of the device that nee calibration (0 is invalid) </Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="invalid" value="0"/>
+          <Label name="voltage_sensor_b" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="select" offset="8" length="8">
+        <Notes>select what value to set</Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="invalid" value="0"/>
+          <Label name="prob_offset" value="1"/>
+          <Label name="prob_scale_factor" value="2"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="value" offset="16" length="32">
+        <Notes>require calibration value </Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.0001" min="-214748.3648" max="214748.3647"/>
+      </Signal>
+    </Message>
+    <Message id="0x810063" name="_Calibration_reading_cmd" length="2" format="extended">
+      <Notes>FACTORY USE ONLY - Calibration reading cmd (requires factory mode)
+
+                Should only be used in factory, not customers. For calibration issues, contact Advantics support.</Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="index" offset="0" length="8">
+        <Notes>index of the device that need reading </Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="invalid" value="0"/>
+          <Label name="voltage_sensor_b" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="select" offset="8" length="8">
+        <Notes>select what value to read</Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="raw" value="0"/>
+          <Label name="value" value="1"/>
+          <Label name="prob_offset" value="2"/>
+          <Label name="prob_scale_factor" value="3"/>
+        </LabelSet>
+      </Signal>
+    </Message>
+    <Message id="0x810064" name="_Calibration_reading" length="8" format="extended">
+      <Notes>FACTORY USE ONLY - Calibration reading (requires factory mode)
+
+                Should only be used in factory, not customers. For calibration issues, contact Advantics support</Notes>
+      <Producer>
+        <NodeRef id="4"/>
+      </Producer>
+      <Signal name="index" offset="0" length="8">
+        <Notes>index of the device that need reading </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="unvalid" value="0"/>
+          <Label name="voltage_sensor_b" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="select" offset="8" length="8">
+        <Notes>select what value to read</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="raw" value="0"/>
+          <Label name="value" value="1"/>
+          <Label name="prob_offset" value="2"/>
+          <Label name="prob_scale_factor" value="3"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="calibration_status" offset="16">
+        <Notes>select what value to read</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="bad" value="0"/>
+          <Label name="ok" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="reserved" offset="17" length="7">
+        <Notes>select what value to read</Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value max="127"/>
+      </Signal>
+      <Signal name="value" offset="24" length="32">
+        <Notes>require calibration valut </Notes>
+        <Consumer>
+          <NodeRef id="1"/>
+        </Consumer>
+        <Value type="signed" slope="0.0001" min="-214748.3648" max="214748.3647"/>
+      </Signal>
+    </Message>
+    <Message id="0x810060" name="_Factory_Config" length="8" format="extended">
+      <Notes>FACTORY USE ONLY - Factory configuration (requires factory mode)
+
+                    Should only be used in factory, not customers. In case of issues, contact Advantics support.
+            </Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="select" offset="0" length="8">
+        <Notes>set ID (will apply setted revision and variant as well)</Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+        </Consumer>
+        <Value max="255"/>
+        <LabelSet>
+          <Label name="invalid" value="0"/>
+          <Label name="cs" value="1"/>
+          <Label name="adb" value="2"/>
+          <Label name="reset" value="3"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="set_id" offset="8" length="8">
+        <Notes>set ID, need factory mode = 1 (will change revision and variant as well)</Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="set_revision" offset="16" length="8">
+        <Notes>set revision, need factory mode = 1 , applied if set_id is valid</Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+      <Signal name="set_variant" offset="24" length="8">
+        <Notes>set variant, need factory mode = 1, applied if set_id is valid</Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+        </Consumer>
+        <Value max="255"/>
+      </Signal>
+    </Message>
+    <Message id="0x810065" name="_Factory_Debug_cmd" length="8" format="extended">
+      <Notes>FACTORY USE ONLY - Factory debug command (requires factory mode)
+
+                    Should only be used in factory, not customers. In case of issues, contact Advantics support.
+            </Notes>
+      <Producer>
+        <NodeRef id="1"/>
+      </Producer>
+      <Signal name="god_mode" offset="0">
+        <Notes>If set to 1, module will enter in god mode. </Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+        </Consumer>
+      </Signal>
+      <Signal name="internal_power_a" offset="1">
+        <Notes>If set to 1, ADM-PC on side A will be turned off</Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="on" value="0"/>
+          <Label name="off" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="internal_power_b" offset="2">
+        <Notes>If set to 1, ADM-PC on side B will be turned off</Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+        </Consumer>
+        <LabelSet>
+          <Label name="on" value="0"/>
+          <Label name="off" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="offset_stack_internal" offset="8" length="8">
+        <Notes>Allow to generate a virtual offset in the stack address for internal ADM-PC</Notes>
+        <Consumer>
+          <NodeRef id="4"/>
+        </Consumer>
+        <Value max="255" unit="offset"/>
+      </Signal>
+    </Message>
+  </Bus>
+</NetworkDefinition>
