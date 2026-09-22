@@ -113,6 +113,9 @@ Reach it with the controller's **IP address**, on port 80:
 
 </div>
 
+What the interface offers, page by page, is documented in
+[Web UI Access](csm-web-ui.md).
+
 Those are the default static addresses from the [SSH](#ssh) section above; if you have changed the
 controller's address, use the new one. Your computer has to be on the same subnet, so step 1 of
 that section applies here too — give your own adapter a free address on `192.168.1.x` before

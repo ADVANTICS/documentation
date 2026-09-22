@@ -145,6 +145,7 @@ nav:
     - User guide: "buildroot-system/README.md"
     - Platforms: "buildroot-system/platforms.md"
     - Accessing the controller: "buildroot-system/access.md"
+    - Web UI Access: "buildroot-system/csm-web-ui.md"
     - Managing charging applications: "buildroot-system/applications.md"
     - Getting started: "buildroot-system/secc_getting_stated.md"
     - SSH and UART access: "buildroot-system/ssh-uart-access.md"

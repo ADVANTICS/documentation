@@ -27,7 +27,7 @@ The main content shows:
 - Controller Status: Shows the state of the applications as well as the uptime.
 - Pistol Status: Shows the **enabled** pistols and their voltage, current and power limits that are currently set, as well as the point in the charging sequence that the pistol that is currently charging is in.
 
-{{ figure('./images/csm-ui-index-annotated.png', 'CSM Web UI landing page', size='80%') }}
+{{ figure('../csm/images/csm-ui-index-annotated.png', 'CSM Web UI landing page', size='80%') }}
 
 ## Monitoring page `/dashboard/monitoring`
 
@@ -37,14 +37,14 @@ There are two widgets in the monitoring page.
 
 This widget shows live parameters of the controller and the ongoing charge session.
 
-{{ figure('./images/csm-ui-monitoring-live-parameters.png', 'CSM Monitoring Live Parameters', size='100%') }}
+{{ figure('../csm/images/csm-ui-monitoring-live-parameters.png', 'CSM Monitoring Live Parameters', size='100%') }}
 
 ### Live Charts
 
 "Live Charts" plot shows the stage of the charge and output voltage and current. At the top of the  
 plot the user can select which data to display and freeze the plot. Once the plot is frozen, the user can download the data in CSV format.
 
-{{ figure('./images/csm-ui-monitoring-chart.png', 'The Live Charts widget of the monitoring page', alt='CSM Live Charts Monitoring', size='100%') }}
+{{ figure('../csm/images/csm-ui-monitoring-chart.png', 'The Live Charts widget of the monitoring page', alt='CSM Live Charts Monitoring', size='100%') }}
 
 ### Meters
 
@@ -60,27 +60,27 @@ The configuration header allows to:
 - Reset Configuration: Reset the configuration to the factory default values.
 - Retrieve Configuration: Overwrites changes that you might have made in the UI with the current configuration that is loaded in the controller.
 
-{{ figure('./images/csm-ui-configuration-header.png', 'The header of the configuration page', size='50%') }}
+{{ figure('../csm/images/csm-ui-configuration-header.png', 'The header of the configuration page', size='50%') }}
 
 ### The options shown vary with the type of the controller.
 
 The two images below depict the differences between a supply equipment controller and a vehicle controller.
 
-{{ figure('./images/csm-ui-configuration-mevc.png', 'Configuration sections of our MEVC - MCS vehicle controller', size='50%') }}
+{{ figure('../csm/images/csm-ui-configuration-mevc.png', 'Configuration sections of our MEVC - MCS vehicle controller', size='50%') }}
 
-{{ figure('./images/csm-ui-configuration-spcc.png', 'Configuration sections of our SPCC - MCS supply equipment controller', size='50%') }}
+{{ figure('../csm/images/csm-ui-configuration-spcc.png', 'Configuration sections of our SPCC - MCS supply equipment controller', size='50%') }}
 
 !!! attention
     After successfully modifying the config, the applications should be restarted in order for changes to be taken into account. The CSM Web UI will notify and propose to do so after submitting.
 
 
-{{ figure('./images/csm-ui-configuration-restart.png', 'Configuration submission prompting to restart', size='50%') }}
+{{ figure('../csm/images/csm-ui-configuration-restart.png', 'Configuration submission prompting to restart', size='50%') }}
 
 ## Management page `/dashboard/management`
 
 The **Management** page provides tools for maintaining and updating the system’s containers and controller.
 
-{{ figure('./images/csm-ui-management.png', 'Management section of the CSM web UI', size='80%') }}
+{{ figure('../csm/images/csm-ui-management.png', 'Management section of the CSM web UI', size='80%') }}
 
 ### Update Containers
 
@@ -111,4 +111,4 @@ Refresh the page if the logs are not loading properly.
 
 Export the logs will generate a zip file with the logs of the controller and a copy of the config file.
 
-{{ figure('./images/csm-ui-logging.png', 'CSM Logging page of a vehicle controller', alt='CSM Logging', size='80%') }}
+{{ figure('../csm/images/csm-ui-logging.png', 'CSM Logging page of a vehicle controller', alt='CSM Logging', size='80%') }}

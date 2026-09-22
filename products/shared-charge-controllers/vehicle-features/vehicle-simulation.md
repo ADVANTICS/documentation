@@ -53,7 +53,7 @@ tell you. Clean simulated sessions are what you want *before* HV testing, not in
 
 ## Driving the simulator
 
-Everything happens in the [Web UI](../advos-yocto-system/csm-web-ui.md):
+Everything happens in the **Web UI**:
 [connect to the controller](../advos-yocto-system/connecting.md) and open `/dashboard/simulation`.
 The simulator can be enabled, disabled and re-parameterised **while a session is running**.
 

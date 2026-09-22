@@ -142,7 +142,7 @@ nav:
     - Platforms: "buildroot-system/platforms.md"
     - Accessing the controller: "buildroot-system/access.md"
     - Managing charging applications: "buildroot-system/applications.md"
-    - Web UI Access: "advos-yocto-system/csm-web-ui.md"
+    - Web UI Access: "buildroot-system/csm-web-ui.md"
     - Read-only file system: "buildroot-system/read-only.md"
     - Updating the Software: "buildroot-system/sys3_update.md"
     - Managing Applications: "buildroot-system/manage-applications.md"
