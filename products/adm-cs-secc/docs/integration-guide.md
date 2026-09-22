@@ -234,7 +234,7 @@ Backend-driven limits reach the power stage through
 | [Charge_Status_Change](charger-can-interfaces/can_v3.md#Charge_Status_Change) | Why the procedure moved on |
 | [EV_Information_*](charger-can-interfaces/can_v3.md#EV_Information_Battery) | What the vehicle actually asked for |
 | [Debugging](buildroot-system/debugging.md) | Logs on the controller |
-| [Web UI Access](advos-yocto-system/csm-web-ui.md) | Status, logs and configuration from a browser |
+| [Web UI Access](csm/csm-web-ui.md) | Status, logs and configuration from a browser |
 | [Charger simulator](charger-features/charger-simulation.md) | Run a session with a simulated power stack, and hand messages over to your own code one at a time |
 
 <!-- ## 11. Bringing it up, in order

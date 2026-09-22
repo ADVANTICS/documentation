@@ -102,7 +102,7 @@ The controller serves a web interface, the ADVANTICS CSM, whose management page 
 methods below, and installs it on its own.
 
 The procedure is documented in
-[Update Containers](csm-web-ui.md#update-containers), on the Web UI page.
+[Update Containers](../csm/csm-web-ui.md#update-containers), on the Web UI page.
 
 !!! note
     The web interface is served by the ADVANTICS CSM application, shipped since **release 2.0** on

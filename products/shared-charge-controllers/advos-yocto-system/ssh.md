@@ -1,7 +1,7 @@
 # SSH Access
 
 !!! note
-    SSH is not the preferred method to access the device in controllers running AdvOS. Please use the [ CSM Web UI ](../advos-yocto-system/csm-web-ui.md) instead unless SSH is strictly necessary.
+    SSH is not the preferred method to access the device in controllers running AdvOS. Please use the [ CSM Web UI ](../csm/csm-web-ui.md) instead unless SSH is strictly necessary.
 
 
 Grab the hostname of the controller as documented in [Accessing and interacting with the controller](../advos-yocto-system/connecting.md).

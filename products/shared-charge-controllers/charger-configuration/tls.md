@@ -138,7 +138,7 @@ first — that gets an encrypted session working without the vehicle's PKI havin
 then set `allow_no_cert = false`, which is the step that actually exercises certificate verification.
 
 This configuration can also be applied from the
-[Web UI](../advos-yocto-system/csm-web-ui.md) instead of editing the file, with the exception of the
+[Web UI](../csm/csm-web-ui.md) instead of editing the file, with the exception of the
 Plug & Charge entries — see [Plug & Charge](#plug-charge).
 
 ## `[tls]`

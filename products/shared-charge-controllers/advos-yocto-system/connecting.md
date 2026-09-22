@@ -11,7 +11,7 @@ Then in your browser you should see something like this:
 
 {{ figure('../csm/images/csm-ui-dashboard-status.png', 'CSM Web UI landing page', size='80%') }}
 
-You can find documentation on how to use the UI under [CSM Web UI](../advos-yocto-system/csm-web-ui.md).
+You can find documentation on how to use the UI under [CSM Web UI](../csm/csm-web-ui.md).
 
 Sections below explain typical network configurations for accessing the controller.
 

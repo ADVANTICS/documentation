@@ -383,7 +383,7 @@ or display them without its own sensors.
 | [EVCC_MEVC_Diagnostic_Status](vehicle-can-interfaces/can_v2.md#evcc_mevc_diagnostic_status) | Active faults and errors, and charger status forwarded from the HLC layer. The first place to look when a session fails |
 | [EVSE_Information.Communication_Stage](vehicle-can-interfaces/can_v2.md#EVSE_Information-Communication_Stage) | Where in the sequence the controller currently is |
 | [MCS_Extra_Information](vehicle-can-interfaces/can_v2.md#mcs_extra_information) | Protocol-level detail |
-| [Web UI Access](advos-yocto-system/csm-web-ui.md) | Status, logs and configuration from a browser |
+| [Web UI Access](csm/csm-web-ui.md) | Status, logs and configuration from a browser |
 | [Connecting to the MEVC](advos-yocto-system/connecting.md) / [SSH access](advos-yocto-system/ssh.md) | Shell access for logs; also available [over 10BASE-T1S](advos-yocto-system/ssh-10base-t1s.md) |
 | [Vehicle simulator](vehicle-features/vehicle-simulation.md) | Run a session with a simulated battery and BMS, and hand messages over to your own code one at a time |
 

@@ -28,7 +28,7 @@ You need to provision the following certificates and keys in the directory that 
 -->
 
 ### Config file
-This configuration can be done using the [graphical user interface](../../advos-yocto-system/csm-web-ui.md) or by modifying directly the following sections of the config file:
+This configuration can be done using the [graphical user interface](../../csm/csm-web-ui.md) or by modifying directly the following sections of the config file:
 
 ```
 [ccs]
@@ -63,7 +63,7 @@ You need to provision the following certificates and keys in the directory that 
         
 
 ### Config file
-This configuration can be done using the [graphical user interface](../../advos-yocto-system/csm-web-ui.md) or by modifying directly the following sections of the config file:
+This configuration can be done using the [graphical user interface](../../csm/csm-web-ui.md) or by modifying directly the following sections of the config file:
 
 ```
 [pistol:CCS DC]
@@ -109,7 +109,7 @@ You need to provision the following certificates and keys in the directory that 
 </aside>
 
 ### Config file
-This configuration can be done using the [graphical user interface](../../advos-yocto-system/csm-web-ui.md) or by modifying directly the following sections of the config file:
+This configuration can be done using the [graphical user interface](../../csm/csm-web-ui.md) or by modifying directly the following sections of the config file:
 
 ```
 [ccs]
@@ -154,7 +154,7 @@ CSO in ISO 15118-20 is equivalent to CPO in ISO 15118-2
 </aside>
 
 ### Config file
-This configuration can be done using the [graphical user interface](../../advos-yocto-system/csm-web-ui.md) or by modifying directly the following sections of the config file:
+This configuration can be done using the [graphical user interface](../../csm/csm-web-ui.md) or by modifying directly the following sections of the config file:
 
 ```
 [pistol:CCS DC]

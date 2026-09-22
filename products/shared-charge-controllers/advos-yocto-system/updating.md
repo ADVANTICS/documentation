@@ -7,7 +7,7 @@ There are two main ways of doing such tasks:
 
 ## Updating using CSM Web UI
 
-Please go to the [ management page ](./csm-web-ui.md#management-page-dashboardmanagement) and you can update the system (Update AdvOS) and the applications (Manage Containers, pull and recreate).
+Please go to the [ management page ](../csm/csm-web-ui.md#management-page-dashboardmanagement) and you can update the system (Update AdvOS) and the applications (Manage Containers, pull and recreate).
 
 ## Updating "manually"
 

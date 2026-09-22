@@ -1,7 +1,7 @@
 # Configuration
 
 This document provides details about the configuration of the MEVC.
-To modify the configuration, please access the [web UI](../advos-yocto-system/csm-web-ui.md) and navigate to the configuration section.
+To modify the configuration, please access the [web UI](../csm/csm-web-ui.md) and navigate to the configuration section.
 
 
 1. [Generalities](generalities.md)

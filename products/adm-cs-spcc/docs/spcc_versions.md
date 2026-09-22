@@ -348,7 +348,7 @@ They are slow paced because the release process is substantial.
         <ul>
           <li>Initial SPCC Engineering Units release</li>
           <li>MCS support</li>
-          <li>Includes <a href="advos-yocto-system/csm-web-ui.html#advantics-csm-web-ui">Advantics Controller System Manager</a></li>
+          <li>Includes <a href="csm/csm-web-ui.html#advantics-csm-web-ui">Advantics Controller System Manager</a></li>
         </ul>
       </td>
       <td>-</td>

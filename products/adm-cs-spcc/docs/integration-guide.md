@@ -97,7 +97,7 @@ Each block holds the same families of settings: [`index`](configuration/pistol-m
 Limits**, **Cable Limits**, **Bidirectional Charging Extra Parameters**, and **Specific Charger
 Interface Extra Parameters** — the last being where a supported power module interface is tuned.
 
-Configuration is done through the [Web UI](advos-yocto-system/csm-web-ui.md), or by editing
+Configuration is done through the [Web UI](csm/csm-web-ui.md), or by editing
 `/etc/advantics/default/config.cfg` over [SSH](advos-yocto-system/ssh.md).
 
 ### 2.1 MCS: CE and ID lines
@@ -261,7 +261,7 @@ Backend-driven limits reach the power stage through
 | [Advantics_Controller_Status](charger-can-interfaces/can_v3.md#Advantics_Controller_Status) | Where the controller is in the sequence — the first thing to watch |
 | [Charge_Status_Change](charger-can-interfaces/can_v3.md#Charge_Status_Change) | Why the procedure moved on |
 | [EV_Information_*](charger-can-interfaces/can_v3.md#EV_Information_Battery) | What the vehicle actually asked for |
-| [Web UI Access](advos-yocto-system/csm-web-ui.md) | Status, logs and configuration from a browser |
+| [Web UI Access](csm/csm-web-ui.md) | Status, logs and configuration from a browser |
 | [Connecting to the SPCC](advos-yocto-system/connecting.md) / [SSH access](advos-yocto-system/ssh.md) | Shell access for logs; also available [over 10BASE-T1S](advos-yocto-system/ssh-10base-t1s.md) |
 | [Charger simulator](charger-features/charger-simulation.md) | Run a session with a simulated power stack, and hand messages over to your own code one at a time |
 

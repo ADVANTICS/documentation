@@ -44,7 +44,7 @@ simulated sessions are what you want *before* HV testing, not instead of it.
   pistol, including their integrated resistances — so the controller sees a plausible plug without a
   real inlet, cable or vehicle connector on the bench. Its pinouts, should you want to wire your own
   hardware to one side of it, are in [Hardware wiring](#hardware-wiring).
-- **Network access** to the controller's [Web UI](../advos-yocto-system/csm-web-ui.md), which is how
+- **Network access** to the controller's [Web UI](../csm/csm-web-ui.md), which is how
   the simulator is driven.
 
 !!! warning "One simulated side means the other side must not deliver power"
@@ -54,7 +54,7 @@ simulated sessions are what you want *before* HV testing, not instead of it.
 
 ## Driving the simulator
 
-Everything happens in the [Web UI](../advos-yocto-system/csm-web-ui.md):
+Everything happens in the [Web UI](../csm/csm-web-ui.md):
 [connect to the controller](../advos-yocto-system/connecting.md) and open `/dashboard/simulation`.
 The simulator can be enabled, disabled and re-parameterised **while a session is running**.
 
