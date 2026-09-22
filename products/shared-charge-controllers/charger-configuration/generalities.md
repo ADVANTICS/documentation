@@ -76,5 +76,13 @@ The following is an example:
 {: #enable_web_interface }
 - **`web_interface_ip`**: IP address for the web interface (default: `0.0.0.0`)
 {: #web_interface_ip }
-- **`web_interface_port`**: Port for the web interface (default: `80`)
+- **`web_interface_port`**: Port for the web interface. Left at `80`, plain HTTP is served on
+  `80`, and HTTPS on `443` if a certificate is configured (default: `80`)
 {: #web_interface_port }
+- **`web_interface_certificate`**: Name of the certificate file, as present in the certificates
+  folder, used to serve the web interface over HTTPS. Leave empty to serve it over plain HTTP
+  (default: empty)
+{: #web_interface_certificate }
+- **`web_interface_certificate_key`**: Name of the private key file matching
+  `web_interface_certificate`, as present in the certificates folder (default: empty)
+{: #web_interface_certificate_key }

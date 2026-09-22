@@ -96,6 +96,23 @@ Patch updates are a way to partially update a controller, mostly for bug fixes a
 developments. This should only be done when Advantics tells you to do so, and provide you the right
 files.
 
+### Application container patch update using the web interface
+
+The controller serves a web interface, the ADVANTICS CSM, whose management page takes the very same _.tar_ file as the two
+methods below, and installs it on its own.
+
+The procedure is documented in
+[Update Containers](csm-web-ui.md#update-containers), on the Web UI page.
+
+!!! note
+    The web interface is served by the ADVANTICS CSM application, shipped since **release 2.0** on
+    the EVCC and **release 4.1** on the SECC. On an older system, use one of the two methods below.
+
+!!! attention
+    The web interface updates the **applications only**. It does not touch the Linux system: for
+    that, use the [SD card update](#sd-card-update).
+
+
 ### Application container patch update using SD card
 
 This is for updating one or several of the application containers. Advantics provide you a _.tar_
