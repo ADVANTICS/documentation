@@ -10,12 +10,22 @@ These configuration entries are all under the `[pistol:CCS AC]` section.
 Entries marked **advanced** are hidden in the Web UI until you switch to expert mode.
 
 ### CAN BUS
-- **`charger_can_if`**: default `can0` **advanced**
+- **`charger_can_if`**: CAN interface the power stage of this connector is wired to (default: `can0`) **advanced**
 {: #charger_can_if }
 - **`charger_can_timeout_ms`**: Timeout for reception of Power_Modules_Status message in generic interface (ms) (default: `500.0` ms) **advanced**
 {: #charger_can_timeout_ms }
 - **`charger_type`**: The type of CAN interfacer to communicate with your charger. One of `Advantics_Generic_AC_v2` (default: `Advantics_Generic_AC_v2`)
 {: #charger_type }
+
+### Diagnostics
+- **`clear_error_codes_on_idle`**: By default a code outlives the session that raised it: it stays raised through the return to idle and is cleared when the next plug-in starts a new session. Codes read while the controller is idle are then the post-mortem of the session that just ended. Turn this on to clear them on the way back to idle instead, so codes are only ever visible while a vehicle is connected. The trade-off is that nobody who arrives after the vehicle is unplugged can still see why the last session failed (default: `false`) **advanced**
+{: #clear_error_codes_on_idle }
+
+### General
+- **`index`**: Pistol index. Must be a non-zero positive integer unique with respect to other pistols. Used to offset CAN addressing as well. One of `1` to `16` (default: `2`)
+{: #index }
+- **`use_sequence_flags`**: Tells if flags in Sequence_Control message of the Generic CAN interface should be used (default: `true`)
+{: #use_sequence_flags }
 
 ### Lock Parameters
 - **`lock_feedback_low_is_locked`**: There are various lock feedback mechanisms existing. The one provided as default here correspond to a simple Normally Open switch that will short to ground (ie. R~=0) when locked. For a 1K/11K lock feedback, you would have to change the R threshold (eg. 5000) as well as inverse the polarity option by setting it to false (default: `true`)
@@ -39,14 +49,9 @@ Entries marked **advanced** are hidden in the Web UI until you switch to expert 
 - **`number_of_phases`**: Only used in OCPP GetCompositeSchedule (default: `3`) **advanced**
 {: #number_of_phases }
 
-### General
+### Proximity Pilot
 - **`ignore_pp`**: Ignore the values from Proximity Pilot (default: `true`) **advanced**
 {: #ignore_pp }
-- **`index`**: Pistol index. Must be a non-zero positive integer unique with respect to other pistols. Used to offset CAN addressing as well. One of `1` to `16` (default: `2`)
-{: #index }
-- **`is_cable_detachable`**: default `false`
+- **`is_cable_detachable`**: The AC cable can be unplugged from the charger. Connects the Proximity Pilot pull-up so the charger can read the cable's current rating (default: `false`)
 {: #is_cable_detachable }
-- **`is_ventilated`**: Some vehicles may require (by using CP State D instead of C) to be charging only in a ventilatedarea. If charger is not in a ventilated place, and vehicle requires ventilation, CP PWMgoes to 100% (default: `true`) **advanced**
-{: #is_ventilated }
-- **`use_sequence_flags`**: Tells if flags in Sequence_Control message of the Generic CAN interface should be used (default: `true`)
-{: #use_sequence_flags }
+

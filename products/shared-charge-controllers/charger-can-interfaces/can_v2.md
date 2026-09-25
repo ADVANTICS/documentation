@@ -5,7 +5,7 @@ hide:
 
 # CAN messages
 
-_Generated from Advantics Generic EVSE protocol 2.7 ([`Advantics_Generic_EVSE_protocol_v2.7.kcd`](Advantics_Generic_EVSE_protocol_v2.7.kcd))._
+_Generated from Advantics Generic EVSE protocol 2.8 ([`Advantics_Generic_EVSE_protocol_v2.8.kcd`](Advantics_Generic_EVSE_protocol_v2.8.kcd))._
 
 ## Message index
 
@@ -30,6 +30,15 @@ _Generated from Advantics Generic EVSE protocol 2.7 ([`Advantics_Generic_EVSE_pr
 | [ADM_CS_SPCC_Inputs](#ADM_CS_SPCC_Inputs) | 0x6800d | 8 | OUT | 1000 |
 | [CCS_Extra_Information](#CCS_Extra_Information) | 0x6800e | 8 | OUT | 100 |
 | [MCS_Extra_Information](#MCS_Extra_Information) | 0x6800f | 8 | OUT | 100 |
+| [Charger_Diagnostic_Status](#Charger_Diagnostic_Status) | 0x68010 | 8 | OUT | 1000 |
+| [Charger_Status_Flags](#Charger_Status_Flags) | 0x68011 | 8 | OUT | 1000 |
+| [Insulation_Monitor_Status](#Insulation_Monitor_Status) | 0x68012 | 8 | OUT | 1000 |
+| [CSM_Version](#CSM_Version) | 0x68013 | 4 | OUT | 1000 |
+| [EVSE_Controller_Version](#EVSE_Controller_Version) | 0x68014 | 4 | OUT | 1000 |
+| [CCS_SECC_Version](#CCS_SECC_Version) | 0x68015 | 4 | OUT | 1000 |
+| [Chademo_SECC_Version](#Chademo_SECC_Version) | 0x68016 | 4 | OUT | 1000 |
+| [OCPP_Charge_Point_Version](#OCPP_Charge_Point_Version) | 0x68017 | 4 | OUT | 1000 |
+| [SLAC_EVSE_Version](#SLAC_EVSE_Version) | 0x68018 | 4 | OUT | 1000 |
 
 
 <a id="Power_Modules_Status"></a>
@@ -1609,3 +1618,1054 @@ Reserved bits for future uses.
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
 | 16 | 48 | Unsigned |  | 1 | 0 |  |  |
+
+
+<a id="Charger_Diagnostic_Status"></a>
+## Charger_Diagnostic_Status { #Charger_Diagnostic_Status }
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x68010 |
+| **Length [Bytes]** | 8 |
+| **Periodicity [ms]** | 1000 |
+| **Direction** | OUT |
+
+### Description
+
+Error codes currently raised by the charge controller. One bit per code, several
+can be set at once. Codes are named after DIN DKE SPEC 99003 wherever the
+specification defines one.
+
+Sent every second, and immediately whenever a code is raised or cleared, so
+the codes currently raised can be read at any time rather than only at the moment
+they change.
+
+How long a code stays raised is one of two behaviours, chosen per pistol in
+the controller's config file:
+
+- **Kept until the next session**, the default. A code outlives the session
+  that raised it: it stays raised through the return to idle and is cleared
+  only when the next plug-in starts a new session.
+  whenever __Advantics_Controller_Status.State__ reads __Waiting_For_PEV__,
+  a code set here belongs to the session that has just finished. It tells you
+  why that session ended, not that something is wrong with the charger right now.
+
+- **Cleared on the way back to idle**, with the config entry
+  `clear_error_codes_on_idle = true` in the pistol section.
+  A code is dropped as soon as the controller cycles
+  back to __Waiting_For_PEV__, so it is never visible outside the session
+  that raised it.
+
+Live status, such as which limit the charge is currently held to, is in
+[Charger_Status_Flags](#Charger_Status_Flags) instead, so a listener of these codes is never woken up
+by a status change.
+
+The pilot-line and V2G codes only apply to CCS and MCS sessions, and the __EV*__
+ones report what the vehicle declared about itself in DC_EVStatus.EVErrorCode
+(DIN SPEC 70121 and DIN EN ISO 15118-2 only).
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| InterlockFault | 1 | Single bit |
+| EmergencyStopLoopOpen | 1 | Single bit |
+| OutputDriverFault | 1 | Single bit |
+| ConnectorLockFailure | 1 | Single bit |
+| InsulationFault | 1 | Single bit |
+| InsulationMonitorFault | 1 | Single bit |
+| PowerModuleFault | 1 | Single bit |
+| PowerModuleCANTimeout | 1 | Single bit |
+| PowerModuleDisabled | 1 | Single bit |
+| PowerModuleRampDownTimeout | 1 | Single bit |
+| HighTemperature | 1 | Single bit |
+| ChargerSequenceError | 1 | Single bit |
+| InternalError | 1 | Single bit |
+| NodeDisconnected | 1 | Single bit |
+| CANBusError | 1 | Single bit |
+| RangeModeNotSupported | 1 | Single bit |
+| BidirectionalNotSupported | 1 | Single bit |
+| ControlPilotFault | 1 | Single bit |
+| ControlPilotStateUnexpected | 1 | Single bit |
+| ChargeEnableFault | 1 | Single bit |
+| ChargeEnableStateUnexpected | 1 | Single bit |
+| V2GSequenceError | 1 | Single bit |
+| V2GSessionIDUnexpected | 1 | Single bit |
+| V2GParameterNotSupported | 1 | Single bit |
+| V2GProtocolNotAllowed | 1 | Single bit |
+| CommunicationSetupTimeout | 1 | Single bit |
+| EVRESSTemperatureInhibit | 1 | Single bit |
+| EVShiftPosition | 1 | Single bit |
+| EVConnectorLockFault | 1 | Single bit |
+| EVRESSMalfunction | 1 | Single bit |
+| EVChargingCurrentDifferential | 1 | Single bit |
+| EVChargingVoltageOutOfRange | 1 | Single bit |
+| EVChargingSystemIncompatibility | 1 | Single bit |
+| SessionStoppedBeforeCharge | 1 | Single bit |
+| PowerPermitWithdrawn | 1 | Single bit |
+| Reserved_Flags | 29 | Unsigned |
+
+### Payload description
+
+#### InterlockFault { #Charger_Diagnostic_Status-InterlockFault }
+
+The interlock protection input is pulled low. Any safety device wired to that
+                    line can pull it down to stop the charge. Causes that have their own code
+                    are excluded here: the emergency stop loop, the industrial output driver,
+                    and the controller pulling the line low itself.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### EmergencyStopLoopOpen { #Charger_Diagnostic_Status-EmergencyStopLoopOpen }
+
+The emergency stop current loop is open.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 1 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### OutputDriverFault { #Charger_Diagnostic_Status-OutputDriverFault }
+
+The industrial digital output driver reports a fault.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 2 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### ConnectorLockFailure { #Charger_Diagnostic_Status-ConnectorLockFailure }
+
+The connector lock driver reports a fault. AC charging only.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 3 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### InsulationFault { #Charger_Diagnostic_Status-InsulationFault }
+
+Insulation resistance is below the allowed limit.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 4 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### InsulationMonitorFault { #Charger_Diagnostic_Status-InsulationMonitorFault }
+
+The insulation monitoring device reports an internal device error. Distinct from
+                    InsulationFault, which is the measured resistance being too low.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 5 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### PowerModuleFault { #Charger_Diagnostic_Status-PowerModuleFault }
+
+The power modules are in a fault or defective state.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 6 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### PowerModuleCANTimeout { #Charger_Diagnostic_Status-PowerModuleCANTimeout }
+
+No Power_Modules_Status received within the configured timeout.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 7 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### PowerModuleDisabled { #Charger_Diagnostic_Status-PowerModuleDisabled }
+
+The power modules withdrew Power_Modules_Status.System_Enable during a powered phase.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 8 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### PowerModuleRampDownTimeout { #Charger_Diagnostic_Status-PowerModuleRampDownTimeout }
+
+The power modules did not bring the output current down in time when the charge
+                    ended. The contactors were left closed.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 9 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### HighTemperature { #Charger_Diagnostic_Status-HighTemperature }
+
+A monitored temperature crossed its charge-stop threshold.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 10 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### ChargerSequenceError { #Charger_Diagnostic_Status-ChargerSequenceError }
+
+The power modules refused a state transition the controller asked for.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 11 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### InternalError { #Charger_Diagnostic_Status-InternalError }
+
+An unhandled error occurred inside the controller.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 12 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### NodeDisconnected { #Charger_Diagnostic_Status-NodeDisconnected }
+
+A required controller application stopped answering its heartbeat.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 13 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### CANBusError { #Charger_Diagnostic_Status-CANBusError }
+
+Sending on the power modules CAN bus failed.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 14 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### RangeModeNotSupported { #Charger_Diagnostic_Status-RangeModeNotSupported }
+
+Range mode setpoints were requested from a charger configured without range mode.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 15 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### BidirectionalNotSupported { #Charger_Diagnostic_Status-BidirectionalNotSupported }
+
+The vehicle requested discharge from a charger that is not bidirectional.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### ControlPilotFault { #Charger_Diagnostic_Status-ControlPilotFault }
+
+The CCS Control Pilot line is in an error state: E (0 V) or F, the charger
+                    signalling itself unavailable. The line itself is at fault.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 17 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### ControlPilotStateUnexpected { #Charger_Diagnostic_Status-ControlPilotStateUnexpected }
+
+Control Pilot is in a valid state, but not one the charging sequence allows at that
+                    point: B where C or D is required, C or D where only B is, or a drop
+                    to A with a session still running. The normal unplug once a session
+                    has ended is not reported.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 18 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### ChargeEnableFault { #Charger_Diagnostic_Status-ChargeEnableFault }
+
+The MCS Charge Enable line is in error state E. The line itself is at fault.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 19 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### ChargeEnableStateUnexpected { #Charger_Diagnostic_Status-ChargeEnableStateUnexpected }
+
+Charge Enable is in a valid state, but not one the charging sequence allows at that
+                    point, such as leaving C while power is being transferred or dropping
+                    to A with a session still running. Readings the sequence treats as
+                    noise are not reported.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 20 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### V2GSequenceError { #Charger_Diagnostic_Status-V2GSequenceError }
+
+The vehicle sent a request that is not allowed in the current sequence state.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 21 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### V2GSessionIDUnexpected { #Charger_Diagnostic_Status-V2GSessionIDUnexpected }
+
+The vehicle used a session ID we do not know.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 22 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### V2GParameterNotSupported { #Charger_Diagnostic_Status-V2GParameterNotSupported }
+
+The application protocol the vehicle asked for is not supported.
+                    DIN DKE SPEC 99003 use case 8.4.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 23 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### V2GProtocolNotAllowed { #Charger_Diagnostic_Status-V2GProtocolNotAllowed }
+
+The negotiated application protocol is disabled, or not allowed over this connection.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 24 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### CommunicationSetupTimeout { #Charger_Diagnostic_Status-CommunicationSetupTimeout }
+
+The vehicle did not complete the session setup within the time allowed by
+                    `communication_setup_timeout`, counted from the communication link coming up.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 25 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### EVRESSTemperatureInhibit { #Charger_Diagnostic_Status-EVRESSTemperatureInhibit }
+
+Vehicle reports DC_EVStatus.EVErrorCode = FAILED_RESSTemperatureInhibit.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 26 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### EVShiftPosition { #Charger_Diagnostic_Status-EVShiftPosition }
+
+Vehicle reports DC_EVStatus.EVErrorCode = FAILED_EVShiftPosition.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 27 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### EVConnectorLockFault { #Charger_Diagnostic_Status-EVConnectorLockFault }
+
+Vehicle reports DC_EVStatus.EVErrorCode = FAILED_ChargerConnectorLockFault.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 28 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### EVRESSMalfunction { #Charger_Diagnostic_Status-EVRESSMalfunction }
+
+Vehicle reports DC_EVStatus.EVErrorCode = FAILED_EVRESSMalfunction.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 29 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### EVChargingCurrentDifferential { #Charger_Diagnostic_Status-EVChargingCurrentDifferential }
+
+Vehicle reports DC_EVStatus.EVErrorCode = FAILED_ChargingCurrentdifferential.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 30 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### EVChargingVoltageOutOfRange { #Charger_Diagnostic_Status-EVChargingVoltageOutOfRange }
+
+Vehicle reports DC_EVStatus.EVErrorCode = FAILED_ChargingVoltageOutOfRange.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 31 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### EVChargingSystemIncompatibility { #Charger_Diagnostic_Status-EVChargingSystemIncompatibility }
+
+Vehicle reports DC_EVStatus.EVErrorCode = FAILED_ChargingSystemIncompatibility.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 32 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### SessionStoppedBeforeCharge { #Charger_Diagnostic_Status-SessionStoppedBeforeCharge }
+
+The session ended before the charge phase started: the vehicle was connected and
+                    communicating, but the charger never delivered power. Says that a
+                    session was lost early, not why -- any code raised alongside it is
+                    the reason. On its own it means the vehicle or the operator ended
+                    it, or the negotiation never completed.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 33 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### PowerPermitWithdrawn { #Charger_Diagnostic_Status-PowerPermitWithdrawn }
+
+The vehicle stopped granting its hardware power permit while power transfer was
+                    in progress. Not reported when the permit drops at the normal end of
+                    a charge.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 34 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### Reserved_Flags { #Charger_Diagnostic_Status-Reserved_Flags }
+
+Reserved bits for future uses.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 35 | 29 | Unsigned |  | 1 | 0 |  |  |
+
+
+<a id="Charger_Status_Flags"></a>
+## Charger_Status_Flags { #Charger_Status_Flags }
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x68011 |
+| **Length [Bytes]** | 8 |
+| **Periodicity [ms]** | 1000 |
+| **Direction** | OUT |
+
+### Description
+
+Live status flags of the charge controller. One bit per flag, several can be set
+at once. During a charge session, a flag can be set then goes back to 0 on its own
+once its condition is gone.
+
+Sent every second, and immediately whenever a flag changes.
+
+- When two limits give the same value, both flags are set.
+- The same flags cover charging and discharging, and in range mode they cover
+  both ends of the range at once.
+
+- A power limit becomes a current limit once divided by the present voltage, so
+  which limit is the lowest can change as the voltage moves. Several frames may
+  follow in quick succession when it does.
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| ChargerCurrentLimit | 1 | Single bit |
+| ChargerVoltageLimit | 1 | Single bit |
+| ChargerTemperatureDerating | 1 | Single bit |
+| CableCurrentLimit | 1 | Single bit |
+| CableVoltageLimit | 1 | Single bit |
+| CableTemperatureDerating | 1 | Single bit |
+| OCPPCurrentLimit | 1 | Single bit |
+| VehicleCurrentLimit | 1 | Single bit |
+| Reserved_Flags | 56 | Unsigned |
+
+### Payload description
+
+#### ChargerCurrentLimit { #Charger_Status_Flags-ChargerCurrentLimit }
+
+The charger's own rating is what holds the current down: `max_charger_current`,
+                    `max_charger_power` divided by the present voltage, their discharge
+                    counterparts, or a lower limit the power modules report. On AC,
+                    `max_charger_phase_current`.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### ChargerVoltageLimit { #Charger_Status_Flags-ChargerVoltageLimit }
+
+The charger's own rated voltage (`max_charger_voltage`, or a lower limit the power
+                    modules report) is what holds the target voltage below what the vehicle asked
+                    for. DC only.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 1 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### ChargerTemperatureDerating { #Charger_Status_Flags-ChargerTemperatureDerating }
+
+A monitored temperature is derating the charger's current limit. Set whenever that
+                    derating applies, whether or not it is what holds the current down: it is a real
+                    reduction of what the charger can do.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 2 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### CableCurrentLimit { #Charger_Status_Flags-CableCurrentLimit }
+
+The cable's own rating is what holds the current down: `max_cable_current`, or
+                    `max_cable_power` divided by the present voltage. On AC,
+                    `max_cable_phase_current`.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 3 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### CableVoltageLimit { #Charger_Status_Flags-CableVoltageLimit }
+
+The cable's own rated voltage (`max_cable_voltage`) is what holds the target voltage
+                    below what the vehicle asked for. DC only.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 4 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### CableTemperatureDerating { #Charger_Status_Flags-CableTemperatureDerating }
+
+A monitored temperature is derating the cable's current limit. Set whenever that
+                    derating applies, whether or not it is what holds the current down.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 5 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### OCPPCurrentLimit { #Charger_Status_Flags-OCPPCurrentLimit }
+
+The limit set by OCPP smart charging is what holds the current down, either as a
+                    current or as a power divided by the present voltage. Applies to charging, not
+                    discharging.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 6 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### VehicleCurrentLimit { #Charger_Status_Flags-VehicleCurrentLimit }
+
+The maximum current the vehicle declared is what holds the current down, below every
+                    limit of our own. DC only.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 7 | 1 | Single bit |  | 1 | 0 |  |  |
+
+#### Reserved_Flags { #Charger_Status_Flags-Reserved_Flags }
+
+Reserved bits for future uses.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 8 | 56 | Unsigned |  | 1 | 0 |  |  |
+
+
+<a id="Insulation_Monitor_Status"></a>
+## Insulation_Monitor_Status { #Insulation_Monitor_Status }
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x68012 |
+| **Length [Bytes]** | 8 |
+| **Periodicity [ms]** | 1000 |
+| **Direction** | OUT |
+
+### Description
+
+What the insulation monitor the charge controller reads itself is measuring.
+
+Sent every second, and only when the controller is configured to read a supported
+insulation monitor. A charger that measures the insulation itself, and reports it
+in [Power_Modules_Status.Insulation_Resistance](#Power_Modules_Status-Insulation_Resistance), never sees this message: the
+value is already its own.
+
+This is a reading, not a verdict. The outcome of the insulation test is the charge
+sequence moving on, and a failure is reported as __InsulationFault__ or
+__InsulationMonitorFault__ in [Charger_Diagnostic_Status](#Charger_Diagnostic_Status).
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Resistance | 16 | Unsigned |
+| Voltage | 16 | Unsigned |
+| Device_Status | 8 | Label set |
+| Reserved | 24 | Unsigned |
+
+### Payload description
+
+#### Resistance { #Insulation_Monitor_Status-Resistance }
+
+Insulation resistance measured by the device.
+
+65535 means there is no measurement to report, which is also what
+__Device_Status__ then says. It is never reported as 0, which would read as a
+dead short.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 16 | Unsigned | kOhms | 1 | 0 |  |  |
+
+#### Voltage { #Insulation_Monitor_Status-Voltage }
+
+Voltage measured by the device on the line it watches. This is its own
+measurement, independent of the charger's, so it can be compared against
+[Power_Modules_Status.Present_Voltage](#Power_Modules_Status-Present_Voltage).
+
+65535 means there is no measurement to report.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 16 | Unsigned | Volts | 1 | 0 |  |  |
+
+#### Device_Status { #Insulation_Monitor_Status-Device_Status }
+
+What the device says about itself and about the resistance it measures,
+ordered from no news to worst news.
+
+The first two are the controller's own answers rather than the device's,
+and are the two that mean there is no measurement:
+
+- __Not_Available__: no insulation monitor is being read at all. It cannot
+  appear on this message, which is only sent when one is.
+
+- __No_Communication__: a monitor is configured and is not answering --
+  not yet, or not any more. A silent device is not a faulty one, so this is
+  not reported as __Device_Error__.
+
+__Prewarning__, __Warning__ and __Alarm__ are the device telling you about
+the resistance, and the measurement stands. __Device_Error__ is the device
+reporting a fault of its own, and then there is no measurement: on a device
+error this ISOMETER re-purposes its measurement channels to report earth
+and system connection instead of resistance and voltage.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 32 | 8 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Not_Available | 0 |
+| No_Communication | 1 |
+| OK | 2 |
+| Prewarning | 3 |
+| Warning | 4 |
+| Alarm | 5 |
+| Device_Error | 6 |
+
+#### Reserved { #Insulation_Monitor_Status-Reserved }
+
+Reserved bits for future uses.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 40 | 24 | Unsigned |  | 1 | 0 |  |  |
+
+
+<a id="CSM_Version"></a>
+## CSM_Version { #CSM_Version }
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x68013 |
+| **Length [Bytes]** | 4 |
+| **Periodicity [ms]** | 1000 |
+| **Direction** | OUT |
+
+### Description
+
+Reports the software version of the CSM (Charge Station Management) application.
+
+Sent periodically once the application is running. Versions rarely change (a new
+version requires restarting the application), so a slow polling interval on the
+receiving side is fine.
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| CSM_Version_Major | 8 | Unsigned |
+| CSM_Version_Minor | 8 | Unsigned |
+| CSM_Version_Patch | 8 | Unsigned |
+| CSM_Version_Type | 8 | Label set |
+
+### Payload description
+
+#### CSM_Version_Major { #CSM_Version-CSM_Version_Major }
+
+Major version number of the CSM application.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### CSM_Version_Minor { #CSM_Version-CSM_Version_Minor }
+
+Minor version number of the CSM application.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 8 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### CSM_Version_Patch { #CSM_Version-CSM_Version_Patch }
+
+Patch version number of the CSM application.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### CSM_Version_Type { #CSM_Version-CSM_Version_Type }
+
+Release type of the CSM application version.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 24 | 8 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| None | 0 |
+| dev | 1 |
+| rc | 2 |
+| post | 3 |
+
+
+<a id="EVSE_Controller_Version"></a>
+## EVSE_Controller_Version { #EVSE_Controller_Version }
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x68014 |
+| **Length [Bytes]** | 4 |
+| **Periodicity [ms]** | 1000 |
+| **Direction** | OUT |
+
+### Description
+
+Reports the software version of the EVSE controller application itself.
+
+Sent periodically once the application is running. Versions rarely change (a new
+version requires restarting the application), so a slow polling interval on the
+receiving side is fine.
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| EVSE_Controller_Version_Major | 8 | Unsigned |
+| EVSE_Controller_Version_Minor | 8 | Unsigned |
+| EVSE_Controller_Version_Patch | 8 | Unsigned |
+| EVSE_Controller_Version_Type | 8 | Label set |
+
+### Payload description
+
+#### EVSE_Controller_Version_Major { #EVSE_Controller_Version-EVSE_Controller_Version_Major }
+
+Major version number of the EVSE controller application.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### EVSE_Controller_Version_Minor { #EVSE_Controller_Version-EVSE_Controller_Version_Minor }
+
+Minor version number of the EVSE controller application.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 8 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### EVSE_Controller_Version_Patch { #EVSE_Controller_Version-EVSE_Controller_Version_Patch }
+
+Patch version number of the EVSE controller application.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### EVSE_Controller_Version_Type { #EVSE_Controller_Version-EVSE_Controller_Version_Type }
+
+Release type of the EVSE controller application version.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 24 | 8 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| None | 0 |
+| dev | 1 |
+| rc | 2 |
+| post | 3 |
+
+
+<a id="CCS_SECC_Version"></a>
+## CCS_SECC_Version { #CCS_SECC_Version }
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x68015 |
+| **Length [Bytes]** | 4 |
+| **Periodicity [ms]** | 1000 |
+| **Direction** | OUT |
+
+### Description
+
+Reports the software version of the CCS SECC (Supply Equipment Communication
+Controller) application.
+
+Sent periodically once the application is running. Only relevant on installations
+that have CCS enabled; otherwise reported as 0.0.0.
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| CCS_SECC_Version_Major | 8 | Unsigned |
+| CCS_SECC_Version_Minor | 8 | Unsigned |
+| CCS_SECC_Version_Patch | 8 | Unsigned |
+| CCS_SECC_Version_Type | 8 | Label set |
+
+### Payload description
+
+#### CCS_SECC_Version_Major { #CCS_SECC_Version-CCS_SECC_Version_Major }
+
+Major version number of the CCS SECC application.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### CCS_SECC_Version_Minor { #CCS_SECC_Version-CCS_SECC_Version_Minor }
+
+Minor version number of the CCS SECC application.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 8 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### CCS_SECC_Version_Patch { #CCS_SECC_Version-CCS_SECC_Version_Patch }
+
+Patch version number of the CCS SECC application.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### CCS_SECC_Version_Type { #CCS_SECC_Version-CCS_SECC_Version_Type }
+
+Release type of the CCS SECC application version.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 24 | 8 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| None | 0 |
+| dev | 1 |
+| rc | 2 |
+| post | 3 |
+
+
+<a id="Chademo_SECC_Version"></a>
+## Chademo_SECC_Version { #Chademo_SECC_Version }
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x68016 |
+| **Length [Bytes]** | 4 |
+| **Periodicity [ms]** | 1000 |
+| **Direction** | OUT |
+
+### Description
+
+Reports the software version of the CHAdeMO SECC (Supply Equipment Communication
+Controller) application.
+
+Sent periodically once the application is running. Only relevant on installations
+that have CHAdeMO enabled; otherwise reported as 0.0.0.
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| Chademo_SECC_Version_Major | 8 | Unsigned |
+| Chademo_SECC_Version_Minor | 8 | Unsigned |
+| Chademo_SECC_Version_Patch | 8 | Unsigned |
+| Chademo_SECC_Version_Type | 8 | Label set |
+
+### Payload description
+
+#### Chademo_SECC_Version_Major { #Chademo_SECC_Version-Chademo_SECC_Version_Major }
+
+Major version number of the CHAdeMO SECC application.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### Chademo_SECC_Version_Minor { #Chademo_SECC_Version-Chademo_SECC_Version_Minor }
+
+Minor version number of the CHAdeMO SECC application.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 8 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### Chademo_SECC_Version_Patch { #Chademo_SECC_Version-Chademo_SECC_Version_Patch }
+
+Patch version number of the CHAdeMO SECC application.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### Chademo_SECC_Version_Type { #Chademo_SECC_Version-Chademo_SECC_Version_Type }
+
+Release type of the CHAdeMO SECC application version.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 24 | 8 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| None | 0 |
+| dev | 1 |
+| rc | 2 |
+| post | 3 |
+
+
+<a id="OCPP_Charge_Point_Version"></a>
+## OCPP_Charge_Point_Version { #OCPP_Charge_Point_Version }
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x68017 |
+| **Length [Bytes]** | 4 |
+| **Periodicity [ms]** | 1000 |
+| **Direction** | OUT |
+
+### Description
+
+Reports the software version of the OCPP charge point application.
+
+Sent periodically once the application is running. Versions rarely change (a new
+version requires restarting the application), so a slow polling interval on the
+receiving side is fine.
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| OCPP_Charge_Point_Version_Major | 8 | Unsigned |
+| OCPP_Charge_Point_Version_Minor | 8 | Unsigned |
+| OCPP_Charge_Point_Version_Patch | 8 | Unsigned |
+| OCPP_Charge_Point_Version_Type | 8 | Label set |
+
+### Payload description
+
+#### OCPP_Charge_Point_Version_Major { #OCPP_Charge_Point_Version-OCPP_Charge_Point_Version_Major }
+
+Major version number of the OCPP charge point application.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### OCPP_Charge_Point_Version_Minor { #OCPP_Charge_Point_Version-OCPP_Charge_Point_Version_Minor }
+
+Minor version number of the OCPP charge point application.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 8 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### OCPP_Charge_Point_Version_Patch { #OCPP_Charge_Point_Version-OCPP_Charge_Point_Version_Patch }
+
+Patch version number of the OCPP charge point application.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### OCPP_Charge_Point_Version_Type { #OCPP_Charge_Point_Version-OCPP_Charge_Point_Version_Type }
+
+Release type of the OCPP charge point application version.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 24 | 8 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| None | 0 |
+| dev | 1 |
+| rc | 2 |
+| post | 3 |
+
+
+<a id="SLAC_EVSE_Version"></a>
+## SLAC_EVSE_Version { #SLAC_EVSE_Version }
+
+
+| * | * |
+|---|---|
+| **Frame ID** | 0x68018 |
+| **Length [Bytes]** | 4 |
+| **Periodicity [ms]** | 1000 |
+| **Direction** | OUT |
+
+### Description
+
+Reports the software version of the SLAC (Signal Level Attenuation
+Characterization) EVSE application.
+
+Sent periodically once the application is running. Versions rarely change (a new
+version requires restarting the application), so a slow polling interval on the
+receiving side is fine.
+
+### Payload
+
+| Signal | Length (bits) | Type |
+|--------|---------------|------|
+| SLAC_EVSE_Version_Major | 8 | Unsigned |
+| SLAC_EVSE_Version_Minor | 8 | Unsigned |
+| SLAC_EVSE_Version_Patch | 8 | Unsigned |
+| SLAC_EVSE_Version_Type | 8 | Label set |
+
+### Payload description
+
+#### SLAC_EVSE_Version_Major { #SLAC_EVSE_Version-SLAC_EVSE_Version_Major }
+
+Major version number of the SLAC EVSE application.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 0 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### SLAC_EVSE_Version_Minor { #SLAC_EVSE_Version-SLAC_EVSE_Version_Minor }
+
+Minor version number of the SLAC EVSE application.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 8 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### SLAC_EVSE_Version_Patch { #SLAC_EVSE_Version-SLAC_EVSE_Version_Patch }
+
+Patch version number of the SLAC EVSE application.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 16 | 8 | Unsigned |  | 1 | 0 |  |  |
+
+#### SLAC_EVSE_Version_Type { #SLAC_EVSE_Version-SLAC_EVSE_Version_Type }
+
+Release type of the SLAC EVSE application version.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 24 | 8 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| None | 0 |
+| dev | 1 |
+| rc | 2 |
+| post | 3 |

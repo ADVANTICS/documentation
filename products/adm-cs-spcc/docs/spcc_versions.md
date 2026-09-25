@@ -30,6 +30,70 @@ They are slow paced because the release process is substantial.
   </thead>
   <tbody>
     <tr>
+      <td class="branch-col">Release 4.7.0</td>
+      <td class="date-col">2026-09-24</td>
+      <td>
+        <ul>
+          <li><strong>evse-controller 3.9.0</strong>
+            <ul>
+              <li>Charger error codes, charge-limit status and diagnostics published on the generic EVSE CAN interface (v2 and v3)</li>
+              <li>Insulation monitor reading and status published on the generic EVSE CAN interface</li>
+              <li>Application version of every container reported on the generic EVSE CAN interface</li>
+              <li>Support for the ADVANTICS AC01+DC01 power module</li>
+              <li>New options: <code>current_ramp_enabled</code>, <code>clear_error_codes_on_idle</code>, <code>skip_voltage_lowering_after_insulation_test</code>, <code>always_use_dynamic_max_current</code></li>
+              <li>Charger voltage and current limits enforced in every control mode, charge parameters refreshed throughout the session</li>
+              <li>"Charger powered" now follows the output contactor drive status input, and an abnormal session end is reported as a rushed stop</li>
+            </ul>
+          </li>
+          <li><strong>ccs-secc 2.9.0</strong>
+            <ul>
+              <li>A session setup the vehicle never completes is abandoned after a configurable timeout and reported with a dedicated error code (<code>communication_setup_timeout</code>, 60 s by default)</li>
+              <li>MCS: the start of high-level communication can be delayed by up to 10 s (<code>communication_start_delay_s</code>)</li>
+              <li>Much richer diagnostics when the charger cannot find the vehicle on the network</li>
+              <li>Fixes: starting a session right after an aborted one, unexpected connector-state aborts on fast vehicles, control pilot state reporting, disabling AC charging from the configuration, a closed S3 forcing the current limit to zero, pairing on chargers with several connectors</li>
+              <li>Removed the control pilot noise-filtering bypass; <code>invert_pp_b1</code> is deprecated and ignored</li>
+            </ul>
+          </li>
+          <li><strong>slac-evse 2.4.0</strong>
+            <ul>
+              <li>Reports its application version on the internal bus</li>
+              <li>Fix: after a few hundred pairing attempts the service could run out of system resources and restart</li>
+              <li>Fix: a pairing timeout could take effect after the message that cancelled it</li>
+              <li>Fix: clean exit at start-up when no CCS connector is configured</li>
+            </ul>
+          </li>
+          <li><strong>advantics-csm 1.9.0</strong>
+            <ul>
+              <li>TLS certificate support for the web interface, uploaded or self-signed from the Management page</li>
+              <li>Application versions read from the application metadata instead of the Docker image label</li>
+              <li>Fixes: navigation sidebar configuration items, per-controller documentation links</li>
+            </ul>
+          </li>
+          <li><strong>chademo-secc 2.0.0</strong>
+            <ul>
+              <li>CHAdeMO application enabled on the SPCC platform</li>
+            </ul>
+          </li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><strong>Dockerhub update:</strong> Pull from Docker Hub - <a href="advos-yocto-system/ssh.html#option-1-requires-internet-pulling-the-update-from-docker-hub">Guide</a></li>
+          <li><strong>.zip update:</strong> <a href="https://pub-ec884f5e1c6b4942867b3ac199d79823.r2.dev/spcc/spcc-release-4.7.0.zip">Download .zip</a> + <a href="advos-yocto-system/ssh.html#option-3-does-not-requires-internet-loading-the-images-from-a-zip-file">Update instructions</a></li>
+        </ul>
+      </td>
+      <td>
+        <ul>
+          <li><a href="https://hub.docker.com/r/advantics/evse-controller/tags">advantics/evse-controller:3.9.0</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/ccs-secc/tags">advantics/ccs-secc:2.9.0</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/slac-evse/tags">advantics/slac-evse:2.4.0</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/chademo-secc/tags">advantics/chademo-secc:2.0.0</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/ocpp-charge-point/tags">advantics/ocpp-charge-point:2.1.0</a></li>
+          <li><a href="https://hub.docker.com/r/advantics/advantics-csm/tags">advantics/advantics-csm:1.9.0</a></li>
+        </ul>
+      </td>
+    </tr>
+    <tr>
       <td class="branch-col">Release 4.5.1</td>
       <td class="date-col">2026-06-05</td>
       <td>

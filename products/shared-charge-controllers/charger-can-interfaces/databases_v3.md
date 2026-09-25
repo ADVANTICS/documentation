@@ -4,7 +4,9 @@ See [all messages page](can_v3.md).
 
 Download CAN DBs:
 
+- [Advantics Generic EVSE protocol v3.7 (Kayak format)](Advantics_Generic_EVSE_protocol_v3.7.kcd)
 - [Advantics Generic EVSE protocol v3.6 (Kayak format)](Advantics_Generic_EVSE_protocol_v3.6.kcd)
+- [Advantics Generic EVSE protocol v3.7 (DBC format)](Advantics_Generic_EVSE_protocol_v3.7.dbc)
 - [Advantics Generic EVSE protocol v3.6 (DBC format)](Advantics_Generic_EVSE_protocol_v3.6.dbc)
 
 ## CAN ID index field

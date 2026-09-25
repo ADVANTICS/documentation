@@ -292,24 +292,30 @@ Entries marked **advanced** are hidden in the Web UI until you switch to expert 
 ### Bidirectional Charging Extra Parameters
 - **`is_bidirectional`**: Whether this charger supports both charge and discharge (default: `false`)
 {: #is_bidirectional }
-- **`limit_non_bidir_to_positive_current`**: default `true` **advanced**
+- **`limit_non_bidir_to_positive_current`**: Never report a negative present current to a vehicle that does not support bidirectional charging. Some vehicles refuse to charge otherwise (default: `true`) **advanced**
 {: #limit_non_bidir_to_positive_current }
 - **`supports_range_mode`**: Tells if charger can handle setpoints range mode, or if it is constrained to target mode only. NB.: Range mode is only supported since Generic DC v3 (and for specific charger interfaces using the Generic interface in parallel for external control). For charger interfaces not actually supporting range mode (eg. Generic DC v2), this option is forced to false (and you will see an harmless warning in evse-controller logs about it) (default: `true`) **advanced**
 {: #supports_range_mode }
 
 ### CAN BUS
-- **`charger_can_if`**: default `can0` **advanced**
+- **`charger_can_if`**: CAN interface the power stage of this connector is wired to (default: `can0`) **advanced**
 {: #charger_can_if }
 - **`charger_can_timeout_ms`**: Timeout for reception of Power_Modules_Status message in generic interface (ms) (default: `500.0` ms) **advanced**
 {: #charger_can_timeout_ms }
 
 ### CCS Params
+- **`V2G_SECC_CommunicationSetup_Performance_Time`**: Time the vehicle is given, from the data link coming up, to complete session setup. The standard mandates 18 s, we are a bit more flexible. 0 disables the timeout. One of `0` to `300` (default: `60.0` s) **advanced**
+{: #V2G_SECC_CommunicationSetup_Performance_Time }
 - **`allow_no_tls_for_iso_part20`**: Whether we should accept communications without TLS on -20This is prohibited by the standard, yet you should not expect this to be wideliy applied in the wild (default: `false`) **advanced**
 {: #allow_no_tls_for_iso_part20 }
 - **`din_iso_part2_cpd_force_evse_ready_on_processing_finished`**: Whether to force EVSE_Ready status in DC_EVSEStatus when charge parameter discovery processing EVSEProcessing is Finished in DIN SPEC 70121 and ISO 15118-2 (default: `false`) **advanced**
 {: #din_iso_part2_cpd_force_evse_ready_on_processing_finished }
 - **`enable_iso_part20`**: Whether ISO15118-20 communications are allowed (default: `false`)
 {: #enable_iso_part20 }
+- **`evse_id_for_iso_part2`**: Identifier of the EVSE in a ISO15118-2 session (default: *(empty)*) **advanced**
+{: #evse_id_for_iso_part2 }
+- **`log_signature_details`**: Write the details of every signature check to the log. Only useful when debugging Plug and Charge (default: `false`) **advanced**
+{: #log_signature_details }
 
 ### Cable Limits
 - **`max_cable_current`**: Maximum current rated for the cable (default: `100.0` A)
@@ -320,10 +326,23 @@ Entries marked **advanced** are hidden in the Web UI until you switch to expert 
 {: #max_cable_voltage }
 
 ### Charge Limits
-- **`min_charger_power`**: Minimum power the charger can deliver (default: `0.0` W)
+- **`current_ramp_down_rate`**: Rate of the current ramp at the end of the charge, A/s (default: `-20.0` A/s) **advanced**
+{: #current_ramp_down_rate }
+- **`current_ramp_enabled`**: Apply the current ramp rates. Turn off to hand the power modules the current the vehicle asked for, unchanged (default: `true`) **advanced**
+{: #current_ramp_enabled }
+- **`current_ramp_up_rate`**: Rate of the current ramp at the beginning of the charge, A/s (default: `20.0` A/s) **advanced**
+{: #current_ramp_up_rate }
+- **`min_charger_power`**: Charger and cable electrical limits. Should describe the actual limitations of these components. Ie.: - Charger and cable limits are combined (by lowest value) to provide a single set of limits to vehicle. - But they are actually taken into consideration separately when doing deratings when each get hot. - Power can be set to 0 to just use max voltage * max current. But you can set something different in order to define a power enveloppe. - When giving our combined max current to vehicle during charging, we also use the max power limits divided by actual present output voltage at that time. Defaults are sensible limits for a 50kW unidirectional station (default: `0.0` W)
 {: #min_charger_power }
 
+### Diagnostics
+- **`clear_error_codes_on_idle`**: By default a code outlives the session that raised it: it stays raised through the return to idle and is cleared when the next plug-in starts a new session. Codes read while the controller is idle are then the post-mortem of the session that just ended. Turn this on to clear them on the way back to idle instead, so codes are only ever visible while a vehicle is connected. The trade-off is that nobody who arrives after the vehicle is unplugged can still see why the last session failed (default: `false`) **advanced**
+{: #clear_error_codes_on_idle }
+
 ### Discharge Limits
+
+Charger and cable electrical limits. Should describe the actual limitations of these components. Ie.: - Charger and cable limits are combined (by lowest value) to provide a single set of limits to vehicle. - But they are actually taken into consideration separately when doing deratings when each get hot. - Power can be set to 0 to just use max voltage * max current. But you can set something different in order to define a power enveloppe. - When giving our combined max current to vehicle during charging, we also use the max power limits divided by actual present output voltage at that time. Defaults are sensible limits for a 50kW unidirectional station.
+
 - **`max_charger_discharge_current`**: default `0.0` A
 {: #max_charger_discharge_current }
 - **`max_charger_discharge_power`**: default `0.0` W
@@ -337,22 +356,18 @@ Entries marked **advanced** are hidden in the Web UI until you switch to expert 
 - **`min_charger_discharge_voltage`**: default `0.0` V
 {: #min_charger_discharge_voltage }
 
-### Specific Charger Interface Extra Parameters
-- **`do_not_rearm_after_fault`**: Only for ADVANTICS power module (default: `false`) **advanced**
-{: #do_not_rearm_after_fault }
-- **`llc_use_external_voltage`**: Only for ADVANTICS power module (default: `0.0` V) **advanced**
-{: #llc_use_external_voltage }
-
 ### General
 - **`always_use_dynamic_max_current`**: When enabled, the dynamic maximum current(s) received over the Generic CAN interface are always used as the current limit (still capped by the configured maximum current), instead of being ignored when reported as zero. Note: a reported dynamic maximum of 0 A will then limit the current to 0 A (default: `false`) **advanced**
 {: #always_use_dynamic_max_current }
-- **`current_ramp_down_rate`**: Rate of the current ramp at the end of the charge, A/s (default: `-20.0` A/s) **advanced**
-{: #current_ramp_down_rate }
-- **`current_ramp_up_rate`**: Rate of the current ramp at the beginning of the charge, A/s (default: `20.0` A/s) **advanced**
-{: #current_ramp_up_rate }
-- **`evse_id_for_iso_part2`**: Identifier of the EVSE in a ISO15118-2 session (default: *(empty)*) **advanced**
-{: #evse_id_for_iso_part2 }
-- **`log_signature_details`**: default `false` **advanced**
-{: #log_signature_details }
 - **`skip_voltage_lowering_after_insulation_test`**: Once the insulation test is done, do not ask the charger to lower its output voltage below 20 V before proceeding. Insulation_Test_Done is set to True immediately and the charger is left in its previous state (default: `false`) **advanced**
 {: #skip_voltage_lowering_after_insulation_test }
+
+### Specific Charger Interface Extra Parameters
+- **`dc_link_voltage`**: Only for ADVANTICS AC01+DC01 power module: DC-link voltage the AC01 holds. Must stay above the maximum vehicle voltage; values below the charger minimum are clamped up (default: `920.0` V) **advanced**
+{: #dc_link_voltage }
+- **`do_not_rearm_after_fault`**: Only for ADVANTICS power module (default: `false`) **advanced**
+{: #do_not_rearm_after_fault }
+- **`force_charger_range_target_current`**: Test only: drive the interface Range_Target_Current clamped by the charger current range only, ignoring the vehicle-requested/negotiated current. Only for ADVANTICS power module (default: `false`) **advanced**
+{: #force_charger_range_target_current }
+- **`llc_use_external_voltage`**: Only for ADVANTICS power module (default: `0.0` V) **advanced**
+{: #llc_use_external_voltage }

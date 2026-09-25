@@ -129,6 +129,7 @@ nav:
   - Software Releases: "spcc_versions.md"
   - Configuration:
     - Overview: "configuration/README.md"
+    - Complete reference: "configuration/all-entries.md"
     - Pistols: "configuration/pistols.md"
     - MCS pistol: "configuration/pistol-mcs.md"
     - CCS DC pistol: "configuration/pistol-ccs-dc.md"
