@@ -26,6 +26,7 @@ ADB_DEVICE_TYPE_MAP: Dict[str, int] = {
     "CH01": 0x83,
     "DC02": 0x84,
     "GN01": 0x85,
+    "DC03": 0x88,
 }
 
 

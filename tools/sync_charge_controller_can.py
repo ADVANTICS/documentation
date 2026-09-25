@@ -1,9 +1,15 @@
 #!/usr/bin/env python3
 """Regenerate the charge controllers' "CAN messages" pages from their source-of-truth `.kcd`.
 
-Source of truth: the **`master` branch of this repository**, which carries every released
+Source of truth: the **`master` branch of this repository**, which archives every released
 version of both databases under `charge-controllers/{evcc,secc}_generic/`. (Unlike the power
 modules -- see `sync_power_module_can.py` -- these do not come from the CAN_Databases repo.)
+
+A version is *authored* in an application repo and only later archived on master -- the charger
+databases in `etka-mcp-25-chargers`, the vehicle ones in `etka-bms`. `sync_can_databases.py`
+publishes a new one straight from a tag of that repo and records it in `can_versions.json`,
+which overrides the VERSIONS pins below. Until someone commits that `.kcd` to master this prints
+a warning and generates the page anyway, rather than blocking a release on the archiving step.
 
 Each generation of the protocol has one page, and that page must document the **latest minor
 version** of its generation, which is what `VERSIONS` below pins. It had drifted badly:
@@ -34,6 +40,7 @@ Usage:
 from __future__ import annotations
 
 import argparse
+import json
 import re
 import subprocess
 import sys
@@ -92,6 +99,15 @@ VERSIONS = {
     "charger-v3":     (CHARGER, "charger-can-interfaces/can_v3.md", "v3.6"),
 }
 
+# `sync_can_databases.py` publishes a new version and records it here, so the version a page is
+# generated from is stated once rather than in both tools.
+PINS = Path(__file__).resolve().parent / "can_versions.json"
+if PINS.exists():
+    for _name, _version in json.loads(PINS.read_text()).items():
+        if _name in VERSIONS:
+            _tmpl, _page, _ = VERSIONS[_name]
+            VERSIONS[_name] = (_tmpl, _page, _version)
+
 # The vehicle v2 database is shared by the CCS and the MCS vehicle controllers, and it is the
 # CAN database a customer downloads -- so it stays complete, AC messages included. But an MCS
 # controller has no AC charging (its config class has no `enable_din`, no `pp_mode`, and MCS is
@@ -110,11 +126,10 @@ EXCLUDE_MESSAGES = {
 PROTOCOL = {"vehicle": "Advantics Generic PEV protocol", "charger": "Advantics Generic EVSE protocol"}
 
 
-def git_show(path: str) -> bytes:
+def git_show(path: str) -> bytes | None:
+    """The file's content on master, or None when master does not carry it."""
     r = subprocess.run(["git", "show", f"master:{path}"], cwd=ROOT, capture_output=True)
-    if r.returncode:
-        raise SystemExit(f"not on master: {path}\n{r.stderr.decode(errors='replace')[:200]}")
-    return r.stdout
+    return None if r.returncode else r.stdout
 
 
 def provenance(path: str) -> str:
@@ -122,7 +137,7 @@ def provenance(path: str) -> str:
         ["git", "log", "-1", "--format=%h %ad :: %s", "--date=short", "master", "--", path],
         cwd=ROOT, capture_output=True, text=True,
     )
-    return r.stdout.strip()
+    return r.stdout.strip() or "not archived on master yet"
 
 
 def generate(name: str, out: Path) -> None:
@@ -131,11 +146,15 @@ def generate(name: str, out: Path) -> None:
     kcd_rel = tmpl % version
     kcd_name = Path(kcd_rel).name
 
-    # Generate from the copy published next to the page. It is byte-identical to master's (the
-    # sync check below is what guarantees that), and using it keeps the generated header, the
-    # download link on the databases page and the file a reader actually receives in agreement.
+    # Generate from the copy published next to the page, so the generated header, the download
+    # link on the databases page and the file a reader actually receives all agree.
     kcd = SHARED / Path(rel).parent / kcd_name
-    if kcd.read_bytes() != git_show(kcd_rel):
+    archived = git_show(kcd_rel)
+    if archived is None:
+        # A version published from an application repo but not yet committed to master. The page
+        # is generated anyway -- refusing would block a release on an archiving step.
+        print(f"    warning  : master has no {kcd_rel} yet -- archive it there")
+    elif kcd.read_bytes() != archived:
         raise SystemExit(f"{kcd.relative_to(ROOT)} differs from master:{kcd_rel} -- refresh it first")
 
     cmd = [
