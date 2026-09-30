@@ -22,7 +22,7 @@ Entries marked **advanced** are hidden in the Web UI until you switch to expert 
 {: #charger_can_if }
 - **`charger_can_timeout_ms`**: Timeout for reception of Power_Modules_Status message in generic interface (ms) (default: `500.0` ms) **advanced**
 {: #charger_can_timeout_ms }
-- **`charger_type`**: Power stage this connector talks to. Picks the CAN protocol used between the controller and the charger. One of `Advantics_Generic_DC_v1`, `Advantics_Generic_DC_v2`, `Advantics_Generic_DC_v3`, `Advantics_ADS_PC_UPUD`, `Advantics_ADS_PC_BPUD`, `Advantics_ADS_PC_BPBD`, `Advantics_ADS_PC_AC01_DC01`, `Advantics_ADM_PC_BP25_BoostBuck`, `PRE_Charger`, `Maxwell_MXR` (default: `Advantics_Generic_DC_v3`)
+- **`charger_type`**: Power stage this connector talks to. Picks the CAN protocol used between the controller and the charger. One of `Advantics_Generic_DC_v1`, `Advantics_Generic_DC_v2`, `Advantics_Generic_DC_v3`, `Advantics_ADS_PC_UPUD`, `Advantics_ADS_PC_BPUD`, `Advantics_ADM_PC_BP25_BoostBuck`, `PRE_Charger`, `Maxwell_MXR` (default: `Advantics_Generic_DC_v3`)
 {: #charger_type }
 
 ### CCS Params
@@ -100,8 +100,6 @@ Charger and cable electrical limits. Should describe the actual limitations of t
 {: #index }
 - **`use_sequence_flags`**: Tells if flags in Sequence_Control message of the Generic CAN interface should be used (default: `true`)
 {: #use_sequence_flags }
-- **`skip_voltage_lowering_after_insulation_test`**: Once the insulation test is done, do not ask the charger to lower its output voltage below 20 V before proceeding. Insulation_Test_Done is set to True immediately and the charger is left in its previous state (default: `false`) **advanced**
-{: #skip_voltage_lowering_after_insulation_test }
 
 ### Insulation Monitor
 - **`insulation_monitor_address`**: RS485 address ID of the insulation monitor. One of `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `11`, `12`, `13`, `14`, `15`, `16`, `17`, `18`, `19`, `20`, `21`, `22`, `23`, `24`, `25`, `26`, `27`, `28`, `29`, `30`, `31`, `32`, `33`, `34`, `35`, `36`, `37`, `38`, `39`, `40`, `41`, `42`, `43`, `44`, `45`, `46`, `47`, `48`, `49`, `50`, `51`, `52`, `53`, `54`, `55`, `56`, `57`, `58`, `59`, `60`, `61`, `62`, `63`, `64`, `65`, `66`, `67`, `68`, `69`, `70`, `71`, `72`, `73`, `74`, `75`, `76`, `77`, `78`, `79`, `80`, `81`, `82`, `83`, `84`, `85`, `86`, `87`, `88`, `89`, `90`. Only when `insulation_monitor_type` = `BenderISOCHA425HV` (default: `3`)
@@ -150,6 +148,9 @@ Charger and cable electrical limits. Should describe the actual limitations of t
 ### Test and Debug
 - **`skip_cable_check`**: Should not be used in production. For R&D, allows skipping the cable check step in the charging sequence (default: `false`) **advanced**
 {: #skip_cable_check }
+- **`skip_voltage_lowering_after_insulation_test`**: Once the insulation test is done, do not ask the charger to lower its output voltage below 20 V before proceeding. Insulation_Test_Done is set to True immediately and the charger is left in its previous state (default: `false`) **advanced**
+{: #skip_voltage_lowering_after_insulation_test }
+
 
 ## `[t1s_driver]`
 

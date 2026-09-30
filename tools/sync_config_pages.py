@@ -25,6 +25,9 @@ published:
 
 The `controller-config` version each release pins is in that release's `[version:X.Y.Z]`
 section of `evse-controller/setup.cfg`.
+
+Choice values are shown only when `public_choices.py` lists them. Every run then audits all the
+configuration pages, hand-written ones included, for a hidden value or a hidden entry.
 """
 
 from __future__ import annotations
@@ -196,7 +199,7 @@ def sync_reference(controller: str, check_only: bool) -> bool:
     module_name, class_name, product = CONTROLLERS[controller]
     config = getattr(__import__(module_name, fromlist=[class_name]), class_name)()
     entries: list = []
-    collect(config, '', entries)
+    collect(config, '', entries, controller)
     new = render(controller, product, entries)
 
     page = PRODUCTS / DESTINATIONS[controller]
@@ -251,7 +254,30 @@ def main(args: argparse.Namespace) -> int:
 
     verb = 'out of date' if args.check else 'updated'
     print(f'\n{len(drift)} page(s) {verb}: {", ".join(drift) or "none"}')
-    return 1 if (args.check and drift) else 0
+
+    # The hand-written pages are not regenerated, so they are checked instead: they must not
+    # show a value or an entry that the generated pages hide.
+    from generate_config_reference import audit_pages, unreviewed_choices
+
+    unreviewed = unreviewed_choices()
+    if unreviewed:
+        print(f'\n{len(unreviewed)} choice list(s) in public_choices.py not reviewed yet, so their '
+              'pages show the default only:')
+        for pattern in unreviewed:
+            print(f'    {pattern}')
+
+    values, entries = audit_pages(PRODUCTS)
+    print(f'\n{len(values)} place(s) where a configuration page shows a value that is not public'
+          + (':' if values else ''))
+    for finding in values:
+        print(f'    {finding}')
+    # Reported, not failed: whether these entries are public is a scope question for the owner
+    # of controller-config, and each needs deciding one way or the other.
+    print(f'\n{len(entries)} entry(ies) documented on a topic page but left off the generated one'
+          + (':' if entries else ''))
+    for finding in entries:
+        print(f'    {finding}')
+    return 1 if (args.check and (drift or values or unreviewed)) else 0
 
 
 if __name__ == '__main__':

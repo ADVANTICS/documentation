@@ -5,7 +5,8 @@ controller software itself so that it cannot fall behind. Use it to check a name
 or an allowed value; the other pages in this section explain what the entries are *for*.
 
 Entries marked **advanced** are hidden in the Web UI until you switch to expert mode. Anything
-not listed here is internal and not meant to be changed.
+not listed here is internal and not meant to be changed. The same goes for values: only
+the ones supported for your use are given under *Allowed*.
 
 !!! warning "A misspelled entry is silently ignored"
     The configuration is loaded non-strictly: an option the controller does not recognise is
@@ -36,16 +37,16 @@ not listed here is internal and not meant to be changed.
 
 | Entry | Type | Default | Allowed | Description |
 |---|---|---|---|---|
-| `version` | str | `din_controller_v2020-1` | `mobile_charger_controller_v2018-1`, `din_controller_v2020-1`, `din_controller_v2021-1`, `pev_controller_v2018-1` | Hardware version of your SECC |
+| `version` | str | `din_controller_v2020-1` | `din_controller_v2020-1`, `din_controller_v2021-1` | Hardware version of your SECC |
 
 ### Inputs
 
 | Entry | Type | Default | Allowed | Description |
 |---|---|---|---|---|
-| `dig_in1` | str | `Not_Connected` | `Not_Connected`, `CHAdeMO_Start`, `Stop`, `CCS_DC_Stop`, `CCS_AC_Stop`, `CHAdeMO_Stop`, `IMD_24V`, `DC_Output_Contactor_Feedback_24V`, `Aux_Ready_24V`, `Aux_Warning_24V`, `Monitor`, `Emergency_Stop`, `Sleep` | Defines the function controlled by digital input 1. |
-| `dig_in2` | str | `Not_Connected` | `Not_Connected`, `CHAdeMO_Start`, `Stop`, `CCS_DC_Stop`, `CCS_AC_Stop`, `CHAdeMO_Stop`, `IMD_24V`, `DC_Output_Contactor_Feedback_24V`, `Aux_Ready_24V`, `Aux_Warning_24V`, `Monitor`, `Emergency_Stop`, `Sleep` | Defines the function controlled by digital input 2. |
-| `dig_in3` | str | `Not_Connected` | `Not_Connected`, `CHAdeMO_Start`, `Stop`, `CCS_DC_Stop`, `CCS_AC_Stop`, `CHAdeMO_Stop`, `IMD_24V`, `DC_Output_Contactor_Feedback_24V`, `Aux_Ready_24V`, `Aux_Warning_24V`, `Monitor`, `Emergency_Stop`, `Sleep` | Defines the function controlled by digital input 3. |
-| `dig_in4` | str | `Not_Connected` | `Not_Connected`, `CHAdeMO_Start`, `Stop`, `CCS_DC_Stop`, `CCS_AC_Stop`, `CHAdeMO_Stop`, `IMD_24V`, `DC_Output_Contactor_Feedback_24V`, `Aux_Ready_24V`, `Aux_Warning_24V`, `Monitor`, `Emergency_Stop`, `Sleep` | Defines the function controlled by digital input 4. |
+| `dig_in1` | str | `Not_Connected` | `Not_Connected`, `CHAdeMO_Start`, `Stop`, `CCS_DC_Stop`, `CCS_AC_Stop`, `CHAdeMO_Stop`, `Monitor` | Defines the function controlled by digital input 1. |
+| `dig_in2` | str | `Not_Connected` | `Not_Connected`, `CHAdeMO_Start`, `Stop`, `CCS_DC_Stop`, `CCS_AC_Stop`, `CHAdeMO_Stop`, `Monitor` | Defines the function controlled by digital input 2. |
+| `dig_in3` | str | `Not_Connected` | `Not_Connected`, `CHAdeMO_Start`, `Stop`, `CCS_DC_Stop`, `CCS_AC_Stop`, `CHAdeMO_Stop`, `Monitor` | Defines the function controlled by digital input 3. |
+| `dig_in4` | str | `Not_Connected` | `Not_Connected`, `CHAdeMO_Start`, `Stop`, `CCS_DC_Stop`, `CCS_AC_Stop`, `CHAdeMO_Stop`, `Monitor` | Defines the function controlled by digital input 4. |
 
 ### Leds
 
@@ -59,10 +60,10 @@ not listed here is internal and not meant to be changed.
 
 | Entry | Type | Default | Allowed | Description |
 |---|---|---|---|---|
-| `dig_out1` | str | `Not_Connected` | `Not_Connected`, `Plugged_In`, `CAN_Controlled`, `Contactor_Enable` | Defines the function controlled by digital output 1. |
-| `dig_out2` | str | `Not_Connected` | `Not_Connected`, `Plugged_In`, `CAN_Controlled`, `Contactor_Enable` | Defines the function controlled by digital output 2. |
-| `dig_out3` | str | `Not_Connected` | `Not_Connected`, `Plugged_In`, `CAN_Controlled`, `Contactor_Enable` | Defines the function controlled by digital output 3. |
-| `dig_out4` | str | `Not_Connected` | `Not_Connected`, `Plugged_In`, `CAN_Controlled`, `Contactor_Enable` | Defines the function controlled by digital output 4. |
+| `dig_out1` | str | `Not_Connected` | `Not_Connected`, `CAN_Controlled`, `Contactor_Enable` | Defines the function controlled by digital output 1. |
+| `dig_out2` | str | `Not_Connected` | `Not_Connected`, `CAN_Controlled`, `Contactor_Enable` | Defines the function controlled by digital output 2. |
+| `dig_out3` | str | `Not_Connected` | `Not_Connected`, `CAN_Controlled`, `Contactor_Enable` | Defines the function controlled by digital output 3. |
+| `dig_out4` | str | `Not_Connected` | `Not_Connected`, `CAN_Controlled`, `Contactor_Enable` | Defines the function controlled by digital output 4. |
 
 | Entry | Type | Default | Allowed | Description |
 |---|---|---|---|---|
@@ -277,7 +278,7 @@ Turn this on to clear them on the way back to idle instead, so codes are only ev
 |---|---|---|---|---|
 | `charger_can_if` **advanced** | str | `can0` | — | CAN interface the power stage of this connector is wired to. |
 | `charger_can_timeout_ms` **advanced** | float (ms) | `500.0` | — | Timeout for reception of Power_Modules_Status message in generic interface (ms). |
-| `charger_type` | str | `Advantics_Generic_DC_v2` | `Advantics_Generic_DC_v1`, `Advantics_Generic_DC_v2`, `Advantics_Generic_DC_v3`, `Advantics_ADS_PC_UPUD`, `Advantics_ADS_PC_BPUD`, `Advantics_ADS_PC_BPBD`, `Advantics_ADS_PC_AC01_DC01`, `Advantics_ADM_PC_BP25_BoostBuck`, `PRE_Charger`, `Maxwell_MXR` | Power stage this connector talks to. Picks the CAN protocol used between the controller and the charger. |
+| `charger_type` | str | `Advantics_Generic_DC_v2` | `Advantics_Generic_DC_v1`, `Advantics_Generic_DC_v2`, `Advantics_Generic_DC_v3`, `Advantics_ADS_PC_UPUD`, `Advantics_ADS_PC_BPUD`, `Advantics_ADM_PC_BP25_BoostBuck`, `PRE_Charger`, `Maxwell_MXR` | Power stage this connector talks to. Picks the CAN protocol used between the controller and the charger. |
 
 ### CCS Params
 
@@ -592,7 +593,7 @@ Tells if charger can handle setpoints range mode, or if it is constrained to tar
 |---|---|---|---|---|
 | `charger_can_if` **advanced** | str | `can0` | — | CAN interface the power stage of this connector is wired to. |
 | `charger_can_timeout_ms` **advanced** | float (ms) | `500.0` | — | Timeout for reception of Power_Modules_Status message in generic interface (ms) |
-| `charger_type` | str | `Advantics_Generic_DC_v2` | `Advantics_Generic_DC_v1`, `Advantics_Generic_DC_v2`, `Advantics_Generic_DC_v3`, `Advantics_ADS_PC_UPUD`, `Advantics_ADS_PC_BPUD`, `Advantics_ADS_PC_AC01_DC01`, `Advantics_ADM_PC_BP25_BoostBuck`, `PRE_Charger`, `Maxwell_MXR` | Power stage this connector talks to. Picks the CAN protocol used between the controller and the charger. |
+| `charger_type` | str | `Advantics_Generic_DC_v2` | `Advantics_Generic_DC_v1`, `Advantics_Generic_DC_v2`, `Advantics_Generic_DC_v3`, `Advantics_ADS_PC_UPUD`, `Advantics_ADS_PC_BPUD`, `Advantics_ADM_PC_BP25_BoostBuck`, `PRE_Charger`, `Maxwell_MXR` | Power stage this connector talks to. Picks the CAN protocol used between the controller and the charger. |
 
 ### CHAdeMO Params
 
@@ -880,7 +881,7 @@ NB.: Range mode is only supported since Generic DC v3 (and for specific charger 
 
 | Entry | Type | Default | Allowed | Description |
 |---|---|---|---|---|
-| `enabled` | list | `['CCS DC', 'CCS AC', 'CHAdeMO']` | `CCS`, `DC`, `CCS`, `AC`, `CHAdeMO` / Length[1, 3] | Name of the pistols that you would like to enable |
+| `enabled` | list | `['CCS DC', 'CCS AC', 'CHAdeMO']` | `CCS DC`, `CCS AC`, `CHAdeMO` / Length[1, 3] | Name of the pistols that you would like to enable |
 
 ## `[system]`
 
@@ -922,7 +923,7 @@ NB.: Range mode is only supported since Generic DC v3 (and for specific charger 
 | `allow_iso_20_without_tls` | bool | `true` | — | Allow ISO 20 communication without TLS. |
 | `allow_no_cert` | bool | `true` | — | Allow no certificate verification. |
 | `enabled` | bool | `false` | — | Whether TLS is enabled. |
-| `side` | str | `server` | `client`, `server` | — |
+| `side` | str | `server` | `server` | — |
 
 ## `[tls:server]`
 
