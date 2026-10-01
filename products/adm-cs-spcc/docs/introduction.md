@@ -20,7 +20,7 @@ The ADM-CS-SPCC is a charge controller for electric vehicle charging stations. T
 - **HDMI**: Via External Conversion From MIPI DSI
 - **Digital Outputs**: 2 outputs, 24V, push-pull, max. 1 A (sink or source), Hi-Z capability
 - **Digital Inputs**: 4 inputs, 24V and 12V compatible, Max voltage 30V
-- **LEDs**: 3 LED outputs, 12V, overcurrent protected
+- **LEDs**: 3 LED outputs, 12V, overcurrent protected, max 100 mA per LED output.
 - **RS-485 + 5V**: Modbus-RTU stack available, 5 V max. 2 A max
 - **Ethernet**: 100Mbps RJ45, Modbus TCP available
 - **Wireless (optional)**: Dual-Band 2.4 and 5 GHz 1x1 Wi-Fi 4 (802.11n), Bluetooth 5.2
