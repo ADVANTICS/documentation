@@ -152,9 +152,9 @@ The following graph shows the efficiency curve of the ADB-PC-DC01 across various
 
 The ADB-PC-DC01 converter demonstrates robust transient response to load steps, maintaining output voltage stability during rapid load changes. This ensures reliable operation in dynamic environments.
 
-{{ figure('../assets/output_voltage_transient_response_load_step.png', 'Output Voltage Transient Response Load Step') }}
+<!-- {{ figure('../assets/output_voltage_transient_response_load_step.png', 'Output Voltage Transient Response Load Step') }} -->
 
-The graph depicts Port B voltage behavior during a load step, highlighting low overshoot and fast recovery to steady-state conditions.
+<!-- The graph depicts Port B voltage behavior during a load step, highlighting low overshoot and fast recovery to steady-state conditions. -->
 
 
 ### Output Ripple and Noise
