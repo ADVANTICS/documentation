@@ -17,6 +17,8 @@ Major releases are result of months of development, consolidation, extensive tes
 They are slow paced because the release process is substantial.
 
 
+To install a release, follow the [Updating the Software](advos-yocto-system/updating.md) page: [Install a release](advos-yocto-system/updating.md#install-a-release) for a `.zip`, [Install a container bundle](advos-yocto-system/updating.md#install-a-container-bundle) for a `.tar`, or [Pull from Docker Hub](advos-yocto-system/updating.md#pull-from-docker-hub) for the images listed in the _Docker Hub_ column.
+
 <div class="custom-table-wrapper">
 <table class="custom-table">
   <thead>
@@ -78,8 +80,7 @@ They are slow paced because the release process is substantial.
       </td>
       <td>
         <ul>
-          <li><strong>Dockerhub update:</strong> Pull from Docker Hub - <a href="advos-yocto-system/ssh.html#option-1-requires-internet-pulling-the-update-from-docker-hub">Guide</a></li>
-          <li><strong>.zip update:</strong> <a href="https://pub-ec884f5e1c6b4942867b3ac199d79823.r2.dev/spcc/spcc-release-4.7.0.zip">Download .zip</a> + <a href="advos-yocto-system/ssh.html#option-3-does-not-requires-internet-loading-the-images-from-a-zip-file">Update instructions</a></li>
+          <li><a href="https://pub-ec884f5e1c6b4942867b3ac199d79823.r2.dev/spcc/spcc-release-4.7.0.zip">Download .zip</a></li>
         </ul>
       </td>
       <td>
@@ -108,8 +109,7 @@ They are slow paced because the release process is substantial.
       </td>
       <td>
         <ul>
-          <li><strong>Dockerhub update:</strong> Pull from Docker Hub - <a href="advos-yocto-system/ssh.html#option-1-requires-internet-pulling-the-update-from-docker-hub">Guide</a></li>
-          <li><strong>.zip update:</strong> <a href="https://pub-ec884f5e1c6b4942867b3ac199d79823.r2.dev/spcc/spcc-release-4.5.1.zip">Download .zip</a> + <a href="advos-yocto-system/ssh.html#option-3-does-not-requires-internet-loading-the-images-from-a-zip-file">Update instructions</a></li>
+          <li><a href="https://pub-ec884f5e1c6b4942867b3ac199d79823.r2.dev/spcc/spcc-release-4.5.1.zip">Download .zip</a></li>
         </ul>
       </td>
       <td>
@@ -148,8 +148,7 @@ They are slow paced because the release process is substantial.
       </td>
       <td>
         <ul>
-          <li><strong>Dockerhub update:</strong> Pull from Docker Hub - <a href="advos-yocto-system/ssh.html#option-1-requires-internet-pulling-the-update-from-docker-hub">Guide</a></li>
-          <li><strong>.zip update:</strong> <a href="https://pub-ec884f5e1c6b4942867b3ac199d79823.r2.dev/spcc/spcc-release-4.5.0.zip">Download .zip</a> + <a href="advos-yocto-system/ssh.html#option-3-does-not-requires-internet-loading-the-images-from-a-zip-file">Update instructions</a></li>
+          <li><a href="https://pub-ec884f5e1c6b4942867b3ac199d79823.r2.dev/spcc/spcc-release-4.5.0.zip">Download .zip</a></li>
         </ul>
       </td>
       <td>
@@ -189,8 +188,7 @@ They are slow paced because the release process is substantial.
       </td>
       <td>
         <ul>
-          <li><strong>Dockerhub update:</strong> Pull from Docker Hub - <a href="advos-yocto-system/ssh.html#option-1-requires-internet-pulling-the-update-from-docker-hub">Guide</a></li>
-          <li><strong>.zip update:</strong> <a href="https://pub-ec884f5e1c6b4942867b3ac199d79823.r2.dev/spcc/spcc-release-4.4.zip">Download .zip</a> + <a href="advos-yocto-system/ssh.html#option-3-does-not-requires-internet-loading-the-images-from-a-zip-file">Update instructions</a></li>
+          <li><a href="https://pub-ec884f5e1c6b4942867b3ac199d79823.r2.dev/spcc/spcc-release-4.4.zip">Download .zip</a></li>
         </ul>
       </td>
       <td>
@@ -234,8 +232,7 @@ They are slow paced because the release process is substantial.
       </td>
       <td>
         <ul>
-          <li><strong>Dockerhub update:</strong> Pull from Docker Hub - <a href="advos-yocto-system/ssh.html#option-1-requires-internet-pulling-the-update-from-docker-hub">Guide</a></li>
-          <li><strong>.zip update:</strong> <a href="">Download .zip</a> + <a href="advos-yocto-system/ssh.html#option-3-does-not-requires-internet-loading-the-images-from-a-zip-file">Update instructions</a></li>
+          <li><a href="">Download .zip</a></li>
         </ul>
       </td>
       <td>
@@ -279,8 +276,7 @@ They are slow paced because the release process is substantial.
       </td>
       <td>
         <ul>
-          <li><strong>Option 1:</strong> Pull from Docker Hub - <a href="advos-yocto-system/ssh.html#option-1-requires-internet-pulling-the-update-from-docker-hub">Guide</a></li>
-          <li><strong>Option 2:</strong> <a href="https://drive.google.com/uc?export=download&id=1ykdS71tNExKZLM468Rl9SJCZUj5mm7UP">Download .tar</a> + <a href="advos-yocto-system/ssh.html#full-release-update">Update instructions</a></li>
+          <li><a href="https://drive.google.com/uc?export=download&id=1ykdS71tNExKZLM468Rl9SJCZUj5mm7UP">Download .tar</a></li>
         </ul>
       </td>
       <td>
@@ -309,8 +305,7 @@ They are slow paced because the release process is substantial.
       </td>
       <td>
         <ul>
-          <li><strong>Option 1:</strong> Pull from Docker Hub - <a href="advos-yocto-system/ssh.html#option-1-requires-internet-pulling-the-update-from-docker-hub">Guide</a></li>
-          <li><strong>Option 2:</strong> <a href="https://pub-ec884f5e1c6b4942867b3ac199d79823.r2.dev/spcc/release_4.1.2.tar">Download .tar</a> + <a href="advos-yocto-system/ssh.html#full-release-update">Update instructions</a></li>
+          <li><a href="https://pub-ec884f5e1c6b4942867b3ac199d79823.r2.dev/spcc/release_4.1.2.tar">Download .tar</a></li>
         </ul>
       </td>
       <td>
@@ -344,8 +339,7 @@ They are slow paced because the release process is substantial.
       </td>
       <td>
         <ul>
-          <li><strong>Option 1:</strong> Pull from Docker Hub - <a href="advos-yocto-system/ssh.html#option-1-requires-internet-pulling-the-update-from-docker-hub">Guide</a></li>
-          <li><strong>Option 2:</strong> <a href="https://drive.google.com/uc?export=download&id=181-lwnTX-a7RBmUjBx6UnJWfxi2aslbR">Download .tar</a> + <a href="advos-yocto-system/ssh.html#full-release-update">Update instructions</a></li>
+          <li><a href="https://drive.google.com/uc?export=download&id=181-lwnTX-a7RBmUjBx6UnJWfxi2aslbR">Download .tar</a></li>
         </ul>
       </td>
       <td>
@@ -390,8 +384,7 @@ They are slow paced because the release process is substantial.
       </td>
       <td>
         <ul>
-          <li><strong>Option 1:</strong> Pull from Docker Hub - <a href="./advos-yocto-system/updating.html#option-1-requires-internet-pulling-the-update-from-docker-hub">Guide</a></li>
-          <li><strong>Option 2:</strong> <a href="https://drive.google.com/uc?export=download&id=1BKGBPBxun3zyU2DG1n7415U_D_fKvjNz">Download .tar</a> + <a href="advos-yocto-system/ssh.html#full-release-update">Update instructions</a></li>
+          <li><a href="https://drive.google.com/uc?export=download&id=1BKGBPBxun3zyU2DG1n7415U_D_fKvjNz">Download .tar</a></li>
         </ul>
       </td>
       <td>

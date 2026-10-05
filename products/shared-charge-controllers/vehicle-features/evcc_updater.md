@@ -1,4 +1,9 @@
 # EVCC Updater
+
+!!! warning "Legacy tool"
+    This tool brought EVCC systems up to release 2.0.0rc3 (2022). It does not apply to later
+    releases: follow the **Updating the Software** page instead.
+
 This update should improve the resilience of your EVCC to noisy conditions on the CP line, for both PWM and PLC communications. It is provided as a script for both Windows and Linux to facilitate the process.<br>
 This script will update the following things:
 

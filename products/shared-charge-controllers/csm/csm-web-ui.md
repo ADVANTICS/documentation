@@ -57,6 +57,9 @@ In this page the user can edit the configuration of the controller. It is equiva
 The configuration header allows to:
 
 - Switch to expert mode: Showing extended configuration options.
+- Export config: Downloads the configuration file loaded in the controller.
+- Upload config file: Replaces the configuration with a file from your computer, for instance one
+  exported before a software update.
 - Reset Configuration: Reset the configuration to the factory default values.
 - Retrieve Configuration: Overwrites changes that you might have made in the UI with the current configuration that is loaded in the controller.
 

@@ -127,6 +127,7 @@ nav:
   - Integration Guide: "integration-guide.md"
   - Examples of use: "examples.md"
   - Software Releases: "secc_versions.md"
+  - Updating the Software: "buildroot-system/sys3_update.md"
   - Configuration:
     - Overview: "configuration/README.md"
     - Complete reference: "configuration/all-entries.md"
@@ -145,7 +146,6 @@ nav:
     - Managing charging applications: "buildroot-system/applications.md"
     - Web UI Access: "csm/csm-web-ui.md"
     - Read-only file system: "buildroot-system/read-only.md"
-    - Updating the Software: "buildroot-system/sys3_update.md"
     - Managing Applications: "buildroot-system/manage-applications.md"
     - Debugging: "buildroot-system/debugging.md"
     - Manual GPIO control: "buildroot-system/gpios.md"

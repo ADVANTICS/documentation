@@ -1,72 +1,127 @@
-# Updating
+# Updating the software
 
-Updating consists of updating the Linux system and/or the charge controller applications separately.
-The "versioning" of the Linux system is done using [ ostree ](https://github.com/ostreedev/ostree). The charge controller applications are managed using [Docker Compose](https://docs.docker.com/compose/).
+The controller runs two layers, updated separately:
 
-There are two main ways of doing such tasks:
+- the **applications**, which run in Docker containers managed with
+  [Docker Compose](https://docs.docker.com/compose/);
+- the **Linux system**, AdvOS, versioned with [ostree](https://github.com/ostreedev/ostree).
 
-## Updating using CSM Web UI
+## Which procedure to follow
 
-Please go to the [ management page ](../csm/csm-web-ui.md#management-page-dashboardmanagement) and you can update the system (Update AdvOS) and the applications (Manage Containers, pull and recreate).
+| You have | It updates | Follow |
+|---|---|---|
+| A release `.zip` from the **Software Releases** page | Applications | [Install a release](#install-a-release) |
+| A container bundle (`.tar`) sent by ADVANTICS | Applications in the bundle | [Install a container bundle](#install-a-container-bundle) |
+| A controller connected to the Internet | Applications, from Docker Hub | [Pull from Docker Hub](#pull-from-docker-hub) |
+| A new AdvOS version | Linux system | [Update the Linux system](#update-the-linux-system) |
 
-## Updating "manually"
+## Before you start
 
-### System update
+- Pick a moment with no vehicle connected: the applications are stopped during the update, so the
+  controller cannot charge. Installing a release takes about 10 minutes.
+- Note the versions installed, shown in the _Controller Status_ table of the Web UI
+  [Status page](../csm/csm-web-ui.md#status-page-dashboard).
+- The release script and the commands on this page work on the `default` Docker Compose profile. If
+  your controller uses another profile, or a modified default one, ask ADVANTICS before updating.
+- Do not power off the controller while an update is running.
 
-1. Make sure this is the content of /etc/ostree/remotes.d/advos.conf
+## Install a release
 
-```
-[remote "advos"]
-url=https://ostree.advos.advantics.com
-```
+!!! note "Replace `<release>` and `<hostname>` in the commands"
+    The commands below write `<release>` where the name of your release goes. Replace it with the
+    actual name of the release `.zip` you downloaded, without the `.zip` extension. Replace
+    `<hostname>` with the hostname of your controller, as found in
+    [Connecting to the controller](connecting.md).
 
-2. Run: `sudo ostree admin upgrade`
+1. Extract the release `.zip` on your computer. It holds one folder with the same name as the
+   `.zip`. Do not extract the `.tar` or `.tar.gz` archive inside it: the controller reads it as
+   it is.
+2. Copy that folder to the home folder of the controller, as explained in
+   [Copying files to the controller using SCP](ssh.md#copying-files-to-the-controller-using-scp):
 
-### Full release update
+    ```bash
+    scp -r <release> advantics@<hostname>:/home/advantics/
+    ```
 
-#### Loading the update
+    Do not copy it to `/tmp`: it is a small memory-based area, too small for a release.
 
-#### Option 1 (requires internet): Pulling the update from Docker Hub
+3. [Log in to the controller](ssh.md#ssh-access) and run the update script:
 
-In case the controller is connected to the internet, you can easily load the new images using the command:
+    ```bash
+    cd /home/advantics/<release>
+    chmod +x update-controller.sh
+    ./update-controller.sh
+    ```
 
-```bash
-/etc/advantics/compose.sh default pull
-```
+4. Wait for the script to print `=> All applications updated and old versions cleared.` It
+   restarts the applications itself, so no power cycle is needed.
+5. Check the new versions in the _Controller Status_ table of the Status page, or with `docker ps`.
 
-Please note that here we're using the default profile (`default`), more steps might be needed if you're using a different profile or have modified the default one.
+!!! tip "If the script stops before the end"
+    The applications may be left stopped: read the error, then run the script again. If the error
+    is `No space left on device`, first free the images no longer used with
+    `docker image prune -a -f`.
 
-**_Then jump to [Common steps](#common-steps)_**
+## Install a container bundle
 
-#### Option 2 (does not requires internet): Loading the images from a .tar file
+A container bundle is a `.tar` file holding one or several application images.
 
-This is for updating one or several of the application containers. Advantics provide you a _.tar_
-file. The process is to:
+### With the Web UI
 
-1. Copy the update file to the controller following the guide here: [Copying files to the controller using SCP](./ssh.md#copying-files-to-the-controller-using-scp)
+Upload the bundle from the Management page, as explained in
+[Update Containers](../csm/csm-web-ui.md#update-containers). The Web UI installs it and restarts
+the applications on its own.
 
-2. [Login to the controller](./ssh.md#ssh-access)
+### From the command line
 
-3. Load the new images from the .tar file using this command:
+1. Copy the bundle to `/home/advantics`, as explained in
+   [Copying files to the controller using SCP](ssh.md#copying-files-to-the-controller-using-scp).
+2. [Log in to the controller](ssh.md#ssh-access) and load the bundle:
 
-```bash
-docker load -i /path/to/update.tar
-```
+    ```bash
+    docker load -i /home/advantics/update.tar
+    ```
 
-(Replace `/path/to/update.tar` by the actual path and name of the .tar file)
+3. [Start the new containers](#start-the-new-containers).
 
-#### Common steps
+## Pull from Docker Hub
 
-- After updating the applications, use the following command to recreate and start new containers:
+The controller downloads the images itself, so it needs access to the Internet.
+
+- **With the Web UI**: on the Management page, under
+  [Manage Containers](../csm/csm-web-ui.md#manage-containers-secc-spcc-and-mevc), press
+  **Pull images**, then **Recreate containers**.
+- **From the command line**: [log in to the controller](ssh.md#ssh-access), pull the images, then
+  [start the new containers](#start-the-new-containers):
+
+    ```bash
+    /etc/advantics/compose.sh default pull
+    ```
+
+## Start the new containers
+
+After loading or pulling images from the command line, recreate the containers, then delete the
+images they no longer use:
 
 ```bash
 /etc/advantics/compose.sh default up -d
+docker image prune -f
 ```
 
-Please note that here we're using the default profile (`default`), more steps might be needed if you're using a different profile or have modified the default one.
+## Update the Linux system
 
-- Then, to clean up and delete the old images, you can use:
+A new AdvOS version is used from the next boot of the controller.
 
-```bash
-docker image prune
-```
+- **With the Web UI**: on the Management page, under
+  [Manage the Controller](../csm/csm-web-ui.md#manage-the-controller-secc-spcc-and-mevc), press
+  **Update AdvOS**.
+- **From the command line**: [log in to the controller](ssh.md#ssh-access), then:
+
+    1. Make sure this is the content of `/etc/ostree/remotes.d/advos.conf`:
+
+        ```
+        [remote "advos"]
+        url=https://ostree.advos.advantics.com
+        ```
+
+    2. Run `sudo ostree admin upgrade`, then reboot with `sudo reboot`.

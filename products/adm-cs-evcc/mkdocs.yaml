@@ -129,6 +129,7 @@ nav:
   - Examples of use: "examples.md"
   # - Troubleshooting: "troubleshooting.md"
   - Software Releases: "evcc_versions.md"
+  - Updating the Software: "buildroot-system/sys3_update.md"
   - Configuration:
     - Overview: "configuration/README.md"
     - Generalities: "configuration/generalities.md"
@@ -157,7 +158,6 @@ nav:
     - Read-only file system: "buildroot-system/read-only.md"
     - Developing with the EVCC: "buildroot-system/developing.md"
     - Developing in Python: "buildroot-system/python.md"
-    - Updating the Software: "buildroot-system/sys3_update.md"
     - System 3.x branch: "buildroot-system/systems_branch3.md"
     - Deployment Checklist: "buildroot-system/must-do-before-deploy.md"
   - CAN bus Interfaces:
@@ -192,7 +192,6 @@ nav:
     - Special: 
       - ORION BMS no code integration: "vehicle-features/evcc_special.md"
       - Orion BMS setup: "vehicle-features/evcc_orion_bms/orion_bms_integration.md"
-      - Updater tool: "vehicle-features/evcc_updater.md"
 
 # Extra configurations
 extra:

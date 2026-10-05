@@ -127,6 +127,7 @@ nav:
   - Integration Guide: "integration-guide.md"
   - Examples of use: "examples.md"
   - Software Releases: "spcc_versions.md"
+  - Updating the Software: "advos-yocto-system/updating.md"
   - Configuration:
     - Overview: "configuration/README.md"
     - Complete reference: "configuration/all-entries.md"
@@ -145,7 +146,6 @@ nav:
     - SSH access: "advos-yocto-system/ssh.md"
     - SSH via 10Base-T1S: "advos-yocto-system/ssh-10base-t1s.md"
     - Setting Static IP: "advos-yocto-system/static-ip.md"
-    - Updating the Software: "advos-yocto-system/updating.md"
     - CAN Interface System Configuration: "advos-yocto-system/can-bus-configuration.md"
     - Deployment Checklist: "advos-yocto-system/must-do-before-deploy.md"
   - CAN bus Interfaces:
