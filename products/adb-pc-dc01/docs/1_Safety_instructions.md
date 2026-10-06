@@ -177,6 +177,7 @@ The liquid cooling system operates under pressure and with hot fluids:
 The device needs to be pre-charged from either Port A or Port B. Please see the [complete pre-charging instructions (PDF)](https://advantics.fr/pdf/ADB-PC-DC01-pre-charge.pdf).
 
 
+
 # Safety symbols
 
 ADB-PC-DC01 module is equipped with relevant safety labels on the front panel. A clear description of each symbol is provided  below.
