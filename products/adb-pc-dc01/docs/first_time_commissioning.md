@@ -14,9 +14,7 @@ Before you begin, make sure you have the following:
 
 - You must be a qualified electrical engineer or certified technician.
 - You must be familiar with high-voltage and high-current DC systems.
-- You have read and understood the [Electrical Safety](../safety#electrical-safety) considerations.  
-  
-***See Also:*** <a href="../safety">General Safety Information</a>
+- You have read and understood the [Safety instructions](1_Safety_instructions.md) before installing.
 
 **Tools & Equipment:**  
 
