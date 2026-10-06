@@ -169,7 +169,8 @@ The liquid cooling system operates under pressure and with hot fluids:
 - Ensure adequate personnel.
 - Check equipment condition.
 
-**Remember: Safety is everyone's responsibility. When in doubt, stop the work and seek guidance from qualified personnel.**
+!!! tip "Remember"
+    Safety is everyone's responsibility. When in doubt, stop the work and seek guidance from qualified personnel.
 
 
 ## Pre-Charge
