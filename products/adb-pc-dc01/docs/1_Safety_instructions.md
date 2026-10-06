@@ -59,7 +59,7 @@ This equipment must be connected to protective earth (PE) before operation. A pr
 
 Surfaces may reach high temperatures during operation. Allow sufficient cooling time before handling.
 
-### Electrical Safety
+## Electrical Safety
 
 #### High Voltage Hazards
 
@@ -75,25 +75,23 @@ Surfaces may reach high temperatures during operation. Allow sufficient cooling 
 | **Control Power** | 24V DC | Low |
 
 
-#### Electrical Safety
+#### Lockout/Tagout (LOTO)
+      - Always use proper lockout/tagout procedures
+      - Verify zero energy state before work
+      - Use appropriate locks and tags
+      - Follow company safety procedures
 
-1. **Lockout/Tagout (LOTO)**
-      - Always use proper lockout/tagout procedures.
-      - Verify zero energy state before work.
-      - Use appropriate locks and tags.
-      - Follow company safety procedures.
+#### Personal Protective Equipment (PPE)
+      - Insulated gloves
+      - Safety glasses
+      - Hard hat
+      - Safety boots
 
-2. **Personal Protective Equipment (PPE)**
-      - Insulated gloves.
-      - Safety glasses.
-      - Hard hat.
-      - Safety boots.
-
-3. **Tools and Equipment**
-      - Use insulated tools rated for voltage level.
-      - Verify tool condition before use.
-      - Use proper test equipment.
-      - Maintain safe working distances.
+#### Tools and Equipment
+      - Use insulated tools rated for voltage level
+      - Verify tool condition before use
+      - Use proper test equipment
+      - Maintain safe working distances
 
 #### Arc Flash Hazards
 
