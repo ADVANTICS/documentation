@@ -54,7 +54,7 @@ You need to provision the following certificates and keys in the directory that 
 - [The V2G Root CA](../tls_pnc/pnc_primer.md#certificates-and-certificate-chains), in `pem` format
 - The MO Root CA, if different from the V2G Root CA
 - The [CPO EVSE leaf](../tls_pnc/pnc_primer.md#certificates-and-certificate-chains) certificate, and its associated private key, in `pem` format (but private key can also be provided in `pkcs8` format directly)
-- The CPO certificate chain of the 2 CPO Sub CAs plus the Root CA (which should be the V2G Root CA)
+- The CPO certificate chain of the CPO EVSE leaf plus the 2 CPO Sub CAs 
 <!--
 - If the PKI provided only separate certificate files, you can build it with the following command (order matters):
 

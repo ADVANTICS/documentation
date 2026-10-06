@@ -80,8 +80,7 @@ Provide these files:
 
 - The **V2G Root CA**, in `pem` format.
 - The **vehicle leaf certificate** and its **private key**, in `pem` format.
-- The **vehicle certificate chain** — the two vehicle Sub CAs followed by the Root CA, which should
-  be the V2G Root CA.
+- The **vehicle certificate chain** — the vehicle leaf certificated followed by the two vehicle Sub CAs.
 
 !!! warning "Everything must be PEM, including the key"
     All four files are loaded as PEM and nothing else is accepted — a DER or otherwise binary file
@@ -93,7 +92,7 @@ Provide these files:
 
 Order matters when building the chain from separate files:
 
-    cat <VEHICLE_SUB_CA2.pem> <VEHICLE_SUB_CA1.pem> <V2G Root CA.pem> > vehicleCertChain.pem
+    cat <VEHICLE_LEAF_CERT.pem>  <VEHICLE_SUB_CA2.pem> <VEHICLE_SUB_CA1.pem> > vehicleCertChain.pem
 
 ### 2. Point the configuration at them
 
