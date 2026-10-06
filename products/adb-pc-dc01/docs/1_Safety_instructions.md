@@ -3,29 +3,29 @@
 !!! warning 
     Please note that users must read the safety instructions before using this equipment. The most important general safety precautions are summarized in this preface. Improper connection or operation could result in death, serious injury, fire, or equipment damage. Always read and understand the full manual before installation and use, and follow all recommended procedures. The ADB-PC-DC01 contains high-voltage capacitors that store energy and discharge slowly. Even when unplugged, lethal voltages may still be present. The passive self-bleeding of the converter takes approximately 11 minutes to discharge Port A and 17 minutes to discharge Port B capacitors to 60V from 950V. Therefore, always allow sufficient time before handling. Users should always treat the device as energized unless verified otherwise with a voltage absence tester. 
 
-## Qualified personnel only
+### Qualified personnel only
 
 The instrument may only be operated by personnel capable of recognizing contact hazards and implementing appropriate safety precautions. 
 
 Contact hazards are present anywhere where voltages of greater than 60 VDC in dry conditions or 15 VDC in wet conditions. This is very important when the open-ended output signal cable is used or any OEM/PCB version of equipment is operated, tested or else used.
 
-## Avoid working alone
+### Avoid working alone
 
 Do not perform measurements involving contact hazards alone; another person must always be present.
 
-## Do Not Operate During Faults
+### Do Not Operate During Faults
 
 Do not use the equipment in case of sparking, short circuits or other discharge events with attached batteries, module or signal cable.
 
-## Prohibit Use in Damp Conditions
+### Prohibit Use in Damp Conditions
 
 Operation under damp or wet ambient conditions is strictly prohibited.
 
-## Maintain Cable and Lead Integrity
+### Maintain Cable and Lead Integrity
 
 Power and data cables must be kept in flawless condition, with no damage to insulation, plugs, or connectors.
 
-## Remove Unsafe Equipment from Service
+### Remove Unsafe Equipment from Service
 
 If safe operation of the instrument can no longer be assumed, it must be removed from the factory, laboratory and secured against unintentional use. Safe operation can be no longer assumed if: 
 
@@ -35,31 +35,31 @@ If safe operation of the instrument can no longer be assumed, it must be removed
 - After lengthy periods of storage under unfavourable conditions  
 - After exposure to unusual transport stresses
 
-## Power disconnection before handling
+### Power disconnection before handling
 
 Maintenance, repair, or internal balancing may only be performed by trained personnel familiar with the dangers involved. As long as the module is connected, conducting parts may be exposed to the voltage. The instrument must be disconnected from all external power sources before performing maintenance and repair work.
 
 Under the worst conditions (loss of supply voltage), a minimum waiting period of 17 minutes must be observed after the module has been disconnected to allow internal capacitors to discharge to less than 60V. This duration takes system and component tolerances into account and considers the capacitors charged to 950V. Even if this time has passed, a voltage absence test is required before handling the unit.
 
-## Do not remove cover
+### Do not remove cover
 
 Do not remove the cover under any circumstances. There are no user-serviceable parts inside. Hazardous voltages may be present even after disconnection.
 Removal of the cover may result in serious injury or death.
 
-## Heavy equipment
+### Heavy equipment
 
 This module has an approximate mass of 40 kg. Installation at elevated locations is not recommended unless the supporting structure is specifically designed and verified to safely support the load. Failure to ensure adequate mechanical support may result in the unit falling, leading to serious injury or death.
 <br>
 
-## Protective earth connection
+### Protective earth connection
 
 This equipment must be connected to protective earth (PE) before operation. A protective earth conductor with a minimum cross-sectional area of 16 mm² shall be connected to the front panel using an M8 thread, tightened to 6N.m torque. Failure to provide an adequate protective earth connection may result in electric shock, equipment damage, or death.
 
-## Thermal hazard
+### Thermal hazard
 
 Surfaces may reach high temperatures during operation. Allow sufficient cooling time before handling.
 
-## Electrical Safety
+### Electrical Safety
 
 #### High Voltage Hazards
 
@@ -74,7 +74,8 @@ Surfaces may reach high temperatures during operation. Allow sufficient cooling 
 | **DC Output (Port B)** | 200-1500V DC | High |
 | **Control Power** | 24V DC | Low |
 
-#### Electrical Safety Requirements
+
+#### Electrical Safety
 
 1. **Lockout/Tagout (LOTO)**
       - Always use proper lockout/tagout procedures.
@@ -117,6 +118,7 @@ Proper grounding is essential for safety:
 - Bonding of all metallic parts.
 - Ground fault protection.
 
+
 ## Thermal Safety
 
 #### Hot Surfaces
@@ -152,6 +154,7 @@ The liquid cooling system operates under pressure and with hot fluids:
       - Provide adequate ventilation.
       - Follow MSDS requirements of your coolant.
 
+
 ## Mechanical Safety
 
 #### Heavy Equipment
@@ -167,6 +170,10 @@ The liquid cooling system operates under pressure and with hot fluids:
 - Check equipment condition.
 
 **Remember: Safety is everyone's responsibility. When in doubt, stop the work and seek guidance from qualified personnel.**
+
+
+## Pre-Charge
+The device needs to be pre-charged from either Port A or Port B. Please see the [complete pre-charging instructions (PDF)](https://advantics.fr/pdf/ADB-PC-DC01-pre-charge.pdf).
 
 
 # Safety symbols
