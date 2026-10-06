@@ -120,15 +120,19 @@ Interlock state must be cleared for all affected modules by setting the <font co
 
 The other modes, Voltage Follower Mode and Gain Mode, are under development. We do not recommend using this mode at this stage.
 
-### Step 3 – Start converter
+### Step 3 - Precharge 
 
-Once setpoints and operating mode have been configured, the converter can be started by setting Converter\_ON in BI25\_Mode\_Control. The selected control mode must also be kept active in this message. Alternatively, you can combine Step 2 and Step 3 in a single step by sending only one message with Converter\_ON and selected control mode.
+The converter input includes high-voltage DC-link capacitors. To prevent excessive inrush current and damage to the converter, the DC-link capacitors must be precharged before the main DC contactor is closed. Direct connection of the uncharged DC-link capacitors to the DC source is prohibited.
 
 The module will not start conversion if the bus voltage is below 200V. If the converter started above this voltage and at any point in time fell below 195V, conversion will stop to protect the converter from operating at low efficiency. A new Converter On command must be sent to restart the converter as it is could be unsafe to automatically restart even if the voltage rises above 200V. 
 
 If the application requires operation below 200V, please contact Advantics for the required commands, and expect efficiencies as low as 85%. 
 
-### Step 4 – Stop converter
+### Step 4 – Start converter
+
+Once precharge is complete, the converter can be started by setting Converter\_ON in BI25\_Mode\_Control. The selected control mode must also be kept active in this message. Alternatively, you can combine Step 2 and Step 3 in a single step by sending only one message with Converter\_ON and selected control mode.
+
+### Step 5 – Stop converter
 
 The converter is stopped by one of the following two events:
 
