@@ -61,6 +61,7 @@ jobs:
         id: filter
         if: github.event_name != 'workflow_dispatch'
         with:
+          base: ${{ github.ref_name }}
           filters: ${{ steps.discover.outputs.filters }}
 
       - name: Compute product matrix
