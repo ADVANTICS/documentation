@@ -5,6 +5,10 @@ and what each actor in the charge process does.
 
 See the [Charge sequence diagram](charge-sequence-diagram_v2.md) for the full sequence. Extracts of it will be given here.
 
+
+!!! important
+    The Message IDs shown below do not include the pistol id offset. Please check [CAN ID index field](databases_v2.md#can-id-index-field) for more info.
+
 ## Controller starts-up
 
 When powering up the controller, the operating system starts-up, then a few application processes

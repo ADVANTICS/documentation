@@ -5,6 +5,10 @@
     The EVSE Generic interface version 3 supports all the charging standards, both unidirectional and bidirectional (DIN SPEC 70121 and ISO 15118-2/-20 (CCS and MCS), NACS and CHAdeMO).
 
 
+!!! important
+    The Message IDs shown below do not include the pistol id offset. Please check [CAN ID index field](databases_v3.md#can-id-index-field) for more info.
+
+
 Before describing the CAN communication, let's take a detailed look at the sequences of actions,
 and what each actor in the charge process does.
 
