@@ -42,7 +42,8 @@ If safe operation of the instrument can no longer be assumed, it must be removed
 Maintenance, or repair may only be performed by trained personnel familiar with the dangers involved.
 As long as the module is connected, it should be assumed that exposed conductive parts are live.
 As far as possible, the converter must be disconnected from all external power sources before performing maintenance and repair work.
-A waiting period of 20 minutes must be observed after the module has been disconnected to allow internal capacitors discharge to a safe voltage level.
+The power converters contain capacitive storage elements that may hold lethal chagre for extended periods after shutdown. See the
+symbols on the device for the time needed before being able to safely handle the device.
 
 [image1]: <data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAdCAYAAAAgqdWEAAABu0lEQVR4XsXUO1LDMBAGYOUQgZZwBS5CzTEYOhpuwSsQQyAYCBCeLeehoNkmpfBKu0JWtFg2TqyZv3HsyTe7v61UO0eHFzo58KE0J8+y7lDj/V8IvJvpaD2fdwPyIfBm08l0HIIhr5SX1YNECDzbdYUPLO34a3EIgsDMZiXTCSHKTsGEIfCk9Fe+gjL7a1EehIMQeCzysOTphP1QMQxBTKbLA0lFLWMIYXJvr7W+rlhRVQzjQeDOptXpxCB/YhhyS2mxzHsOwRAsaZGN9QgmAoGblqYjQbioKsREICaTf4J6PQ/BEETwGzONYBjBkAnl2v7eeF1VkBCzuy1D4Mqm0XSktTgIdoNeXU64FoNgyJhyqfQsz2uBkiDYD7yXkwKBC3d/2qmE0PcD+6F8TGQtDkEQyGyS1vWNfyr0I4TgWlSISYDASOmtQUKZ60DEogZrcZAR5bzIWcV0xLUIH7KUfkgQk6EMagTB5/yIEEQwZEg5tc8U69opSZquZQET6YcEgROb0nSaQnAtC5iaEDgucuSVuc5awn58HkQgQj8MgiGIIAgcetNpChH7URNSwuDZHAz0Wr/fSRCCa/oBFhI1S7MT7E8AAAAASUVORK5CYII=>
 
@@ -54,7 +55,7 @@ Removal of the cover may result in serious injury or death.
 
 ## 1.8. Heavy equipment
 
-This module has an approximate mass of 40 kg. Installation in elevated locations is not recommended unless the supporting structure is specifically designed and verified to safely support the load. Failure to ensure adequate mechanical support may result in the unit falling, leading to serious injury or death.
+This module has a weight of approximately 40 kg. Installation in elevated locations is not recommended unless the supporting structure is able to safely support the load. Failure to ensure adequate mechanical support may result in the unit falling, leading to serious injury or death.
 <br>
 
 ## 1.9. Protective earth connection
@@ -74,5 +75,5 @@ ADB-PC-CH01 module is equipped with relevant safety labels on the front panel. A
 | ![General safety warning](../assets/General warning.png) | ISO 7010-W001: 2011-05 | Indicates a potential hazard requiring operator awareness and appropriate action to prevent harm or equipment damage. |
 | ![Refer to instruction manual/booklet](../assets/Refer to instruction manualbooklet.png) | ISO 7010-M002: 2011-05 | Refer to the instruction manual before operating the module. |
 | ![Caution, risk of electric shock](../assets/Caution, risk of electric shock.png) | IEC 60417-6042: 2010-11 | Contact with hazardous voltage may result in injury or death. |
-| ![Capacitor discharge time](../assets/Remaining time display; processing.png) | IEC 60417-5416: 2015-04 | Indicates required capacitor discharge time under fault conditions. Capacitors must discharge to a safe energy level before access. For this unit, discharge time is 23 minutes at Port A and 36 minutes at Port B. Verify absence of voltage before handling. |
+| ![Capacitor discharge time](../assets/Remaining time display; processing.png) | IEC 60417-5416: 2015-04 | Indicates required capacitor discharge time under fault conditions. Capacitors must discharge to a safe energy level before access. The discharge time is printed on the unit|
 | ![Caution, hot surface](../assets/Caution, hot surface.png) | IEC 60417-5041: 2002-10 | Surfaces may reach high temperatures and cause burns. Allow adequate cooling before contact. |

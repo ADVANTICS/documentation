@@ -8,8 +8,8 @@
 | [Bootloader_UID](#Bootloader_UID) | 0x830001 | 8 |  | 1000 |
 | [Firmware_UID](#Firmware_UID) | 0x830002 | 8 |  | 1000 |
 | [CAN_API_Version](#CAN_API_Version) | 0x830003 | 3 |  | 1000 |
-| [CH01_Mode_Control](#CH01_Mode_Control) | 0x830010 | 8 |  |  |
-| [CH01_Mode_Readback](#CH01_Mode_Readback) | 0x830011 | 8 |  | 1000 |
+| [CH01_Control](#CH01_Control) | 0x830010 | 8 |  |  |
+| [CH01_Status](#CH01_Status) | 0x830011 | 8 |  | 1000 |
 | [CH01_Latched_Faults](#CH01_Latched_Faults) | 0x830012 | 8 |  | 100 |
 | [CH01_DC_Setpoint_Control](#CH01_DC_Setpoint_Control) | 0x830014 | 8 |  |  |
 | [CH01_DC_Setpoint_Readback](#CH01_DC_Setpoint_Readback) | 0x830015 | 8 |  | 1000 |
@@ -37,7 +37,8 @@
 
 ### Description
 
-Identification of the device
+Contains information about the device sending messages with the corresponding Module type
+and stack position as encodede in the arbitration ID.
 
 ### Payload
 
@@ -53,7 +54,7 @@ Identification of the device
 
 #### Type { #Identification-Type }
 
-The device identification field, uniquely identifies the sender in the network
+The module Type. This is the product identifier and appears in bits [23:16] of the arbitration ID.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -68,7 +69,7 @@ The device identification field, uniquely identifies the sender in the network
 
 #### Revision { #Identification-Revision }
 
-The hardware revision number
+The hardware revision number. As the hardware is updated over time this number will change
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -82,7 +83,7 @@ The hardware revision number
 
 #### Variant { #Identification-Variant }
 
-The hardware variant
+Variants define units that are the same product but with differing specifications (like a higher current variant for example)
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -91,17 +92,17 @@ The hardware variant
 | Label name | Value |
 |------------|-------|
 | VA00 | 0 |
-| VA01 | 1 |
 
 #### Stack_position { #Identification-Stack_position }
 
-This signal mirrors the stack position that is also part of the
-can arbitration ID.
+This signal mirrors the stack position that is at bits [15:8] of the CAN arbitration ID.
 It used to indicate the configured stack position and changes
 when receiving a valid stack control message in which the serial number matched.
-The Arbitration ID does not change when a stack position update is received, only
-this signal changes. The arbitration ID is read from eeprom once at boot time and
-does not change over the runtime of the converter.
+In the case in which a matching stack control message is received the new stack position is
+written to the EEPROM configuration memory.
+The CAN arbitration ID does not change when a stack position update is received, only
+this signal changes. The value that determins bits [15:8] of the CAN arbitration ID is
+read from eeprom once at boot time and does not change over the runtime of the converter.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -109,7 +110,7 @@ does not change over the runtime of the converter.
 
 #### serial_number { #Identification-serial_number }
 
-Unique module serial number
+serial number of the power converter
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -129,7 +130,7 @@ Unique module serial number
 
 ### Description
 
-Unique Identifier of the Bootloader used on this module
+Unique identifier of the bootloader firmware used on this module
 
 ### Payload
 
@@ -159,7 +160,7 @@ Unique Identifier of the Bootloader used on this module
 
 ### Description
 
-Unique Identifier of the Firmware used on this module
+Unique identifier of the application firmware used on this module. This ID allows to identify what exact version of the firmware is running on the converter
 
 ### Payload
 
@@ -189,7 +190,8 @@ Unique Identifier of the Firmware used on this module
 
 ### Description
 
-This message declares the version of the API that is provided by the converter. The version follows newer convention, as this file is an API definition, patch does not apply
+This message declares the version of the CAN API that is provided by the converter.
+The numbers follow the semver convention
 
 ### Payload
 
@@ -203,7 +205,7 @@ This message declares the version of the API that is provided by the converter. 
 
 #### Major { #CAN_API_Version-Major }
 
-The Major version number. This number increases if there are backwards incompatible changes
+The Major version number. This number increases if there are changes that break backwards compatibility
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -226,8 +228,8 @@ The Patch number. This number increases when changes to descriptions and documen
 | 16 | 8 | Unsigned |  | 1 | 0 |  |  |
 
 
-<a id="CH01_Mode_Control"></a>
-## CH01_Mode_Control { #CH01_Mode_Control }
+<a id="CH01_Control"></a>
+## CH01_Control { #CH01_Control }
 
 
 | * | * |
@@ -245,26 +247,26 @@ Select the operating mode of the CH01.
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
-| Mode | 8 | Label set |
+| Command | 4 | Label set |
 | Efficiency_Optimization | 1 | Label set |
 
 ### Payload description
 
-#### Mode { #CH01_Mode_Control-Mode }
+#### Command { #CH01_Control-Command }
 
-Operating modes supported by the CH01. The operating mode also specifies
-what kind of grid is expected on the AC input to the system.
+The command that tells the CH01 what to do. Currently only DC side control
+is available.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 8 | Label set |  | 1 | 0 |  |  |
+| 0 | 4 | Label set |  | 1 | 0 |  |  |
 
 | Label name | Value |
 |------------|-------|
 | Off | 0 |
-| On | 1 |
+| DC_Side_Control | 1 |
 
-#### Efficiency_Optimization { #CH01_Mode_Control-Efficiency_Optimization }
+#### Efficiency_Optimization { #CH01_Control-Efficiency_Optimization }
 
 When optimizing (this signal set to 'enabled') the operation of the CH01 for efficiency, the unit is limited in it's ability
 to respond to voltage and current changes. Voltage and current slew rates should be kept below
@@ -282,8 +284,8 @@ efficiency.
 | enabled | 1 |
 
 
-<a id="CH01_Mode_Readback"></a>
-## CH01_Mode_Readback { #CH01_Mode_Readback }
+<a id="CH01_Status"></a>
+## CH01_Status { #CH01_Status }
 
 
 | * | * |
@@ -301,6 +303,7 @@ The current state of the CH01.
 
 | Signal | Length (bits) | Type |
 |--------|---------------|------|
+| Command_Readback | 4 | Label set |
 | State | 8 | Label set |
 | Efficiency_Optimizations | 1 | Label set |
 | No_AC_Warning | 1 | Label set |
@@ -316,43 +319,42 @@ The current state of the CH01.
 
 ### Payload description
 
-#### State { #CH01_Mode_Readback-State }
+#### Command_Readback { #CH01_Status-Command_Readback }
 
-Current GN91 FSM state.
+The command currently set on the CH01, this is to acknowledge the reception of the command signal
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 0 | 8 | Label set |  | 1 | 0 |  |  |
+| 0 | 4 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Off | 0 |
+| DC_Side_Control | 1 |
+
+#### State { #CH01_Status-State }
+
+Current Ch01 operating state.
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 8 | 8 | Label set |  | 1 | 0 |  |  |
 
 | Label name | Value |
 |------------|-------|
 | Init | 0 |
 | Idle | 1 |
 | Starting | 2 |
-| Running | 3 |
+| DC_Side_Control | 3 |
 | Shutdown | 4 |
 | Bleeding | 5 |
 | Bleed_done | 6 |
 | Fault | 7 |
 
-#### Efficiency_Optimizations { #CH01_Mode_Readback-Efficiency_Optimizations }
+#### Efficiency_Optimizations { #CH01_Status-Efficiency_Optimizations }
 
 The efficiency optimization is enabled. This limits the slew rate of externally driven
 voltages and currents.
-
-| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
-|-----------|---------------|------|------|-------|--------|-----|-----|
-| 8 | 1 | Label set |  | 1 | 0 |  |  |
-
-| Label name | Value |
-|------------|-------|
-| disabled | 0 |
-| enabled | 1 |
-
-#### No_AC_Warning { #CH01_Mode_Readback-No_AC_Warning }
-
-No AC voltage has been detected. The CH01 will refuse to start if no AC voltage
-is present
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -360,24 +362,38 @@ is present
 
 | Label name | Value |
 |------------|-------|
-| Clear | 0 |
-| Warning | 1 |
+| disabled | 0 |
+| enabled | 1 |
 
-#### Incompatible_AC_Warning { #CH01_Mode_Readback-Incompatible_AC_Warning }
+#### No_AC_Warning { #CH01_Status-No_AC_Warning }
 
-There Is AC voltage present but it is outside of the region required by the CH01
-to operate
+No AC voltage has been detected. The CH01 will refuse to start if no AC voltage
+is present
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 17 | 1 | Label set |  | 1 | 0 |  |  |
+| 24 | 1 | Label set |  | 1 | 0 |  |  |
 
 | Label name | Value |
 |------------|-------|
 | Clear | 0 |
 | Warning | 1 |
 
-#### No_Valid_Setpoints_Warning { #CH01_Mode_Readback-No_Valid_Setpoints_Warning }
+#### Incompatible_AC_Warning { #CH01_Status-Incompatible_AC_Warning }
+
+There Is AC voltage present but it is outside of the region required by the CH01
+to operate
+
+| Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
+|-----------|---------------|------|------|-------|--------|-----|-----|
+| 25 | 1 | Label set |  | 1 | 0 |  |  |
+
+| Label name | Value |
+|------------|-------|
+| Clear | 0 |
+| Warning | 1 |
+
+#### No_Valid_Setpoints_Warning { #CH01_Status-No_Valid_Setpoints_Warning }
 
 Before operation can commence, setpoints need to be sent to allow operation
 This warning says that no setpoints have been sent yet.
@@ -385,14 +401,14 @@ The CH01 will not commence power on while this warning is active
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
-| 18 | 1 | Label set |  | 1 | 0 |  |  |
+| 26 | 1 | Label set |  | 1 | 0 |  |  |
 
 | Label name | Value |
 |------------|-------|
 | Clear | 0 |
 | Warning | 1 |
 
-#### SW_forced_Fault { #CH01_Mode_Readback-SW_forced_Fault }
+#### SW_forced_Fault { #CH01_Status-SW_forced_Fault }
 
 The firmware forced a Hardware fault. The sw force trip signal is part of the
 Fault_Control Message and can be controlled from there
@@ -406,7 +422,7 @@ Fault_Control Message and can be controlled from there
 | Clear | 0 |
 | Fault | 1 |
 
-#### Hw_Config_Fault { #CH01_Mode_Readback-Hw_Config_Fault }
+#### Hw_Config_Fault { #CH01_Status-Hw_Config_Fault }
 
 The Hardware configuration stored in eeprom is faulty.
 
@@ -419,7 +435,7 @@ The Hardware configuration stored in eeprom is faulty.
 | Clear | 0 |
 | Fault | 1 |
 
-#### Hardware_Protection_Fault { #CH01_Mode_Readback-Hardware_Protection_Fault }
+#### Hardware_Protection_Fault { #CH01_Status-Hardware_Protection_Fault }
 
 The Hardware interlock is tripped. This fault will stay active until a clear operation
 is successful, as it is latched in hardware. This fault should clear upon reception of
@@ -434,7 +450,7 @@ the clear command.
 | Clear | 0 |
 | Fault | 1 |
 
-#### AC_Precharge_Fault { #CH01_Mode_Readback-AC_Precharge_Fault }
+#### AC_Precharge_Fault { #CH01_Status-AC_Precharge_Fault }
 
 The Internal bus was not sufficiently charged during precharge, possibly indicating wrong wiring or
 damaged electronics.
@@ -448,7 +464,7 @@ damaged electronics.
 | Clear | 0 |
 | Fault | 1 |
 
-#### Overtemperature_Protection_Fault { #CH01_Mode_Readback-Overtemperature_Protection_Fault }
+#### Overtemperature_Protection_Fault { #CH01_Status-Overtemperature_Protection_Fault }
 
 The overtemperature threshold was reached and caused a the module to cease operations.
 Once the module drops below the temp threshold, this fault will clear
@@ -462,7 +478,7 @@ Once the module drops below the temp threshold, this fault will clear
 | Clear | 0 |
 | Fault | 1 |
 
-#### Hardware_Overtemperature_Protection_Fault { #CH01_Mode_Readback-Hardware_Overtemperature_Protection_Fault }
+#### Hardware_Overtemperature_Protection_Fault { #CH01_Status-Hardware_Overtemperature_Protection_Fault }
 
 The hardware overtemperature protection faulted and caused a hardware interlock. This fault will
 stay latched until it is cleared by the system controller
@@ -476,7 +492,7 @@ stay latched until it is cleared by the system controller
 | Clear | 0 |
 | Fault | 1 |
 
-#### Internal_Fault { #CH01_Mode_Readback-Internal_Fault }
+#### Internal_Fault { #CH01_Status-Internal_Fault }
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -1094,7 +1110,9 @@ applied to the module that has the corresponding serial number
 
 ### Description
 
-Fault Control: actions to clear faults and reset the system
+The Fault Control message is a little bit special. The Clear_Interlock signal in this
+message is automatically reset to 0 after a clear attempt so sending multiple identical
+messages actually triggers multiple attempts to clear a hardware interlock.
 
 ### Payload
 
@@ -1109,7 +1127,9 @@ Fault Control: actions to clear faults and reset the system
 
 #### Clear_Interlock { #Fault_Control-Clear_Interlock }
 
-Clears the converter interlock
+Attempts to clear the converter interlock.
+If a fault condition is currently active the fault will relatch immediately keeping the module from operating.
+In the case where the interlock is already cleared this results in a NoOp.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -1117,7 +1137,7 @@ Clears the converter interlock
 
 #### Reset_Processor { #Fault_Control-Reset_Processor }
 
-Reset the converter DSP
+Reboot the power converter
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|
@@ -1125,7 +1145,8 @@ Reset the converter DSP
 
 #### Trip_Interlock { #Fault_Control-Trip_Interlock }
 
-Trip the inetrnal Interlock
+When set the Software forces a hardware interlock, needs to be cleared to 0 before
+a clear interlock signal will take any effect.
 
 | Start bit | Length (bits) | Type | Unit | Scale | Offset | Min | Max |
 |-----------|---------------|------|------|-------|--------|-----|-----|

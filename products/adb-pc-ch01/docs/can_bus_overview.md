@@ -21,6 +21,7 @@ with the same control interface are designed to behave the same way to external 
 
 | CAN API Version | .kcd file | .dbc file |
 |-----------------|-----------|-----------|
+| 1.2.0           | [**ADB_PC_CH01_1.2.0.kcd**](../assets/ADB_PC_CH01_1.2.0.kcd) | [**ADB_PC_CH01_1.2.0.dbc**](../assets/ADB_PC_CH01_1.2.0.dbc) |
 
 
 # CAN frame ID format

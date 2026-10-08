@@ -70,7 +70,7 @@ construction sites, farms, or other remote locations. Safety, is built in thanks
 
 ## Compliance and Standards
 
-The ADB-PC-AC01 is designed to meet major international standards:
+The ADB-PC-CH01 is designed to meet major international standards:
 
 ### Safety Standards
 - IEC 61851-1 (Electric vehicle conductive charging system)

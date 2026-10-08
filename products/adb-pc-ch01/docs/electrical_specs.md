@@ -9,10 +9,9 @@
 |---------------|-----------|----------------|
 | **Rated Nominal AC Voltage (L-L)** | 208 - 480 V<sub>rms</sub> | Reduced power below 380 V<sub>rms</sub> |
 | **Rated AC Frequency** | 50 / 60 Hz | ±3% tolerance |
-| **Maximum AC Current** | ±150 A<sub>rms</sub> per phase | Continuous operation |
+| **Maximum AC Current** | ±75 A<sub>rms</sub> per phase | Continuous operation |
 | **Power Factor (PF)** | ≥0.99 | At rated power |
 | **Total Harmonic Distortion (THDi)** | ≤5% | For loads above 20% |
-| **Reactive Power Control** | ±0.9 inductive-capacitive | Full power range |
 
 ### Configuration
 
@@ -39,7 +38,7 @@
 
 ### Grid Generation Capabilities
 
-The ADB-PC-CH01 supports requires a grid to operate. It it thus a purely grid following inverter.
+The ADB-PC-CH01 supports requires a grid to operate. It is a purely grid following inverter.
 
 ## DC Side (DC Bus - Bidirectional) Specifications
 
@@ -47,8 +46,8 @@ The ADB-PC-CH01 supports requires a grid to operate. It it thus a purely grid fo
 
 | **Parameter** | **Value** | **Conditions** |
 |---------------|-----------|----------------|
-| **Voltage Range** | 200 - 950 V DC | Minimum depends on mains voltage |
-| **Current Range** | ±135 A | Bidirectional, power envelope limited |
+| **Voltage Range** | 200 - 950 V DC | |
+| **Current Range** | ±60 A | Bidirectional galvanic isolation from AC side |
 | **Maximum Power** | 50 kW | Continuous operation |
 | **Current Measurement Accuracy** | ±1% of full-scale | Over full temperature range |
 | **Voltage Measurement Accuracy** | ±1% of full-scale | Over full temperature range |
@@ -80,7 +79,7 @@ The ADB-PC-CH01 supports requires a grid to operate. It it thus a purely grid fo
 | **Parameter** | **Value** | **Tolerance** |
 |---------------|-----------|---------------|
 | **Nominal Voltage** | 24 V DC | 20 - 28 V |
-| **Control Power Consumption** | 50 W | During operation |
+| **Control Power Consumption** | 50 W | average power During operation |
 | **Standby Power Consumption** | 5 W | Idle state |
 
 ### Isolation Concept

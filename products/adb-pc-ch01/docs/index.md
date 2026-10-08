@@ -9,11 +9,11 @@ description: 50kW AC/DC Bidirectional Isolated EV Charger - User Documentation
       ADB-PC-CH01
     </div>
     <div role="heading" aria-level="2" style="color: #1a1a1a; font-size: 1.25rem; margin-bottom: 0.5rem; font-weight: 600;">
-      100kW AC/DC Bidirectional Isolated EV Charger
+      50kW AC/DC Bidirectional Isolated EV Charger
     </div>
     <p style="font-size: 1rem; color: #666; margin: 0 0 1rem 0;">User Manual</p>
     <div style="margin-top: 1rem;">
-      <img src="assets/ADB-PC-AC01 (1).png" alt="ADB-PC-AC01" style="max-width: 600px; width: 100%; height: auto; max-height: 300px; object-fit: contain;">
+      <img src="../assets/CH01.png" alt="ADB-PC-CH01" style="max-width: 600px; width: 100%; height: auto; max-height: 300px; object-fit: contain;">
     </div>
   </div>
 

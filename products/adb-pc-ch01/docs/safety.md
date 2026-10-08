@@ -18,14 +18,14 @@ Installation, operation, and maintenance of the ADB-PC-CH01 must be performed by
 #### High Voltage Hazards
 
 !!! warning "High Voltage Danger"
-    The ADB-PC-CH01 operates with DC voltages up to 1000 VDC. These voltages can cause severe electrical shock, burns, or death.
+    The ADB-PC-CH01 operates with DC voltages up to 950 VDC. These voltages can cause severe electrical shock, burns, or death.
 
 #### Voltage Levels Present
 
 | **Circuit Type** | **Voltage Range** | **Hazard Level** |
 |------------------|-------------------|------------------|
-| **AC Side (Port A)** | 208 - 480 V<sub>rms</sub> | High |
-| **DC Bus (Port B)** | 650 - 950 V DC | High |
+| **AC Port** | 208 - 480 V<sub>rms</sub> | High |
+| **DC Port** | 200 - 950 V DC | High |
 | **Control Power** | 24V DC | Low |
 
 #### Electrical Safety Requirements
@@ -80,7 +80,7 @@ Proper grounding is essential for safety:
 
 #### Thermal Hazards
 
-- Heat sink temperatures up to 80°C.
+- Heat sink temperatures can reach up to 80°C during operation.
 - Cooling system components.
 - Electrical connection points.
 
@@ -98,20 +98,20 @@ The liquid cooling system operates under pressure and with hot fluids:
 **Cooling System Safety Procedures**
 
 1. **Pressure Safety**
-      - Depressurize before service (turn off pumps).
+  - Depressurize before service (turn off pumps).
 
 2. **Chemical Safety**
-      - Use appropriate PPE for coolant.
-      - Avoid skin and eye contact.
-      - Provide adequate ventilation.
-      - Follow MSDS requirements of your coolant.
+  - Use appropriate PPE for coolant.
+  - Avoid skin and eye contact.
+  - Provide adequate ventilation.
+  - Follow MSDS requirements of your coolant.
 
 ## Mechanical Safety
 
 #### Heavy Equipment
 
 !!! warning "Lifting Hazard"
-    The ADB-PC-AC01 weighs around 40kg. Use proper lifting techniques and equipment.
+    The ADB-PC-CH01 weighs around 40kg. Use appropriate lifting techniques and equipment. Avoid lifting it alone without equipment.
 
 **Lifting Safety**
 

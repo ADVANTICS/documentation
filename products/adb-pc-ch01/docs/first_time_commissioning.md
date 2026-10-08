@@ -53,7 +53,7 @@ Here we get the
 ### **Grid Connection**
 
 1. Now that the unit is live and communicating It is time to start up ETKA on your laptop. It should autodetect the ADB-PC-CH01 and bring up an overview window
-2. Check the `CH01_Mode_Readback`, it should be either reporting `Init` (if the box has just been powered on), or `Idle` at this point.
+2. Check the `State` signal of `CH01_Status`, it should be either reporting `Init` (if the box has just been powered on), or `Idle` at this point.
 3. Given that nothing should be connected at this point, The `Status` signal in the `CH01_Grid_Connection_Measurements` should report `0`.
 4. Connect the grid Lines to the converter. It is important to connect the phases with their corresponding connector on the front panel. Misaligned phases will
    prevent the CH01 from starting up.
@@ -64,9 +64,9 @@ Here we get the
 1. With the grid connected and `Voltage_RMS`, `Status` and `Frequency` showing the expected values we can continue to power up the converter.
 2. Before enabling the converter, the output setpoints for the DC port need to be sent. If they have not been sent at least once after a power
    up the `No_Valid_Setpoints_Warning` signal should be set to `1`. Sending a setpiont message clears this flag and acknowledges the
-   applied setpoints via the `CH01_DC_Setpoints_Readback` message. For a starting point it is recommended to set the `Voltage` signal of the `CH01_DC_Setpoint_Control` message to `750` in ETKA and the `Current` to `10`. The CH01 operates in CV/CC mode on the DC output so the `Current` signal sets both the sink and source current limits. When in CC mode the voltage on the input is no longer controlled by the CH01.
-3. With the setpoints sent, the `No_Valid_Setpoints_Warning` flag clear and the `CH01_DC_Setpoints_Readback` message acknowledging the setpoints send a
-   `CH01_Mode_Control` message with the `Mode` signal set to `DC_Side_Control`. The converter should start to report the `Starting` State. You should hear contactors clicking inside the box and once the CH01 enters the `Running` state you should see `750` volts on the output. Congrats, the unit is up and runnign and can start to be loaded.
+   applied setpoints via the `CH01_DC_Setpoint_Readback` message. For a starting point it is recommended to set the `Voltage` signal of the `CH01_DC_Setpoint_Control` message to `750` in ETKA and the `Current` to `10`. The CH01 operates in CV/CC mode on the DC output so the `Current` signal sets both the sink and source current limits. When in CC mode the voltage on the input is no longer controlled by the CH01.
+3. With the setpoints sent, the `No_Valid_Setpoints_Warning` flag clear and the `CH01_DC_Setpoint_Readback` message acknowledging the setpoints send a
+   `CH01_Control` message with the `Command` signal set to `DC_Side_Control`. The converter should start to report the `Starting` State. You should hear contactors clicking inside the box and once the CH01 enters the `DC_Side_Control` state you should see `750` volts on the output. Congrats, the unit is up and runnign and can start to be loaded.
 
 ### **Step 2: Basic Mechanical & Electrical Installation**
 
@@ -126,29 +126,3 @@ Your control system should be successfully connected at this stage.
 2.  **Apply Auxiliary Power:** Energize the converter's auxiliary 24 V power supply.
 3.  **Energize AC side** Apply the 3-phase AC voltage input.
 4.   **Energize DC Bus:** In case your equipment energizes the DC bus on it's own, it can be performed now. Otherwise, it will get energized during precharge sequence later automatically.
-
-### **Step 5: Run a Simple Power Test**
-
-Let's confirm the unit can process power.
-
-1.  **check `STANDBY`:** Use ETKA tool make sure that the unit is `STANDBY` mode. If the unit is in `ERROR` mode, make sure that no emergency stop is active. If the unit is in `CRITICAL` mode, please contact Advantics support.
-
-    !!! tip
-        Errors can be cleared using `Clear_Interlock` signals from the `Fault_Control` message.
-
-2.  **Set operating Mode:** Send command to `AC01_Mode_Set` , to choose the  operating mode 
-    !!! tip
-        Requested operating mode :
-
-            - DC_Controlled (0): DC side voltage controlled to setpoint, requires AC side input present
-            - AC_Controlled (1): AC side voltage controlled, will generate AC if not present
-            - Bleeding (2): Discharge internal capacitors/remaining charge
-
-
-        Changing mode can only be done when the power converter is not "Enable"
-
-
-2.  **Set Target Voltage/Current:** Send a simple command, for example, to regulate the DC side at a nominal voltage with a minimal current limit.
-3.  **Enable Operation:** Send the CAN command to move from `STANDBY` to `OPERATE`.
-4.  **Apply a Small Load:** Using your external DC load, draw a small amount of current (e.g., 10% of the unit's rating).
-5.  **Verify Output:** On ETKA tool and your external DMM, confirm that the voltage and current at DC side match your setpoints and that no faults are present.

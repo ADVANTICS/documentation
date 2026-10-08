@@ -84,9 +84,9 @@ plugins:
         enabled: false
   - with-pdf:
       enabled_if_env: PDF_EXPORT
-      output_path: pdf/adb-pc-ac01-manual.pdf
-      cover_title: ADB-PC-AC01 User Manual
-      cover_subtitle: 100kW AC/DC Active Frontend (PFC)
+      output_path: pdf/adb-pc-ch01-manual.pdf
+      cover_title: ADB-PC-CH01 User Manual
+      cover_subtitle: 50kW AC/DC Bidirectional Isolated Charger
       author: ADVANTICS SAS
       custom_template_path: docs/assets
   - macros:

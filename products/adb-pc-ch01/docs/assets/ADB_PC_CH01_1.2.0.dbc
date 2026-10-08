@@ -1,0 +1,404 @@
+VERSION "1.2.0"
+
+
+NS_ : 
+	NS_DESC_
+	CM_
+	BA_DEF_
+	BA_
+	VAL_
+	CAT_DEF_
+	CAT_
+	FILTER
+	BA_DEF_DEF_
+	EV_DATA_
+	ENVVAR_DATA_
+	SGTYPE_
+	SGTYPE_VAL_
+	BA_DEF_SGTYPE_
+	BA_SGTYPE_
+	SIG_TYPE_REF_
+	VAL_TABLE_
+	SIG_GROUP_
+	SIG_VALTYPE_
+	SIGTYPE_VALTYPE_
+	BO_TX_BU_
+	BA_DEF_REL_
+	BA_REL_
+	BA_DEF_DEF_REL_
+	BU_SG_REL_
+	BU_EV_REL_
+	BU_BO_REL_
+	SG_MUL_VAL_
+
+BS_:
+
+BU_: Module User
+
+
+BO_ 2156068864 Identification: 8 Module
+ SG_ serial_number : 32|32@1+ (1,0) [0|0] ""  User
+ SG_ Stack_position : 24|8@1+ (1,0) [0|0] ""  User
+ SG_ Variant : 16|8@1+ (1.0,0.0) [0|0] ""  User
+ SG_ Revision : 8|8@1+ (1.0,0.0) [0|0] ""  User
+ SG_ Type : 0|8@1+ (1.0,0.0) [0|0] ""  User
+
+BO_ 2156068865 Bootloader_UID: 8 Module
+ SG_ UID : 0|64@1+ (1,0) [0|0] ""  User
+
+BO_ 2156068866 Firmware_UID: 8 Module
+ SG_ UID : 0|64@1+ (1,0) [0|0] ""  User
+
+BO_ 2156068867 CAN_API_Version: 3 Module
+ SG_ Patch : 16|8@1+ (1,0) [0|0] ""  User
+ SG_ Minor : 8|8@1+ (1,0) [0|0] ""  User
+ SG_ Major : 0|8@1+ (1,0) [0|0] ""  User
+
+BO_ 2156068944 Fault_Control: 1 User
+ SG_ Reserved : 3|5@1+ (1,0) [0|0] ""  Module
+ SG_ Trip_Interlock : 2|1@1+ (1,0) [0|0] ""  Module
+ SG_ Reset_Processor : 1|1@1+ (1,0) [0|0] ""  Module
+ SG_ Clear_Interlock : 0|1@1+ (1,0) [0|0] ""  Module
+
+BO_ 2156068933 Stack_Control: 6 User
+ SG_ serial_number : 16|32@1+ (1,0) [0|0] ""  Module
+ SG_ reserved : 8|8@1+ (1,0) [0|0] ""  Module
+ SG_ Stack_position : 0|8@1+ (1,0) [0|0] ""  Module
+
+BO_ 2156068880 CH01_Control: 8 User
+ SG_ Efficiency_Optimization : 8|1@1+ (1.0,0.0) [0|0] ""  Module
+ SG_ Command : 0|4@1+ (1.0,0.0) [0|0] ""  Module
+
+BO_ 2156068881 CH01_Status: 8 Module
+ SG_ Internal_Fault : 38|1@1+ (1.0,0.0) [0|0] ""  User
+ SG_ Hardware_Overtemperature_Protect : 37|1@1+ (1.0,0.0) [0|0] ""  User
+ SG_ Overtemperature_Protection_Fault : 36|1@1+ (1.0,0.0) [0|0] ""  User
+ SG_ AC_Precharge_Fault : 35|1@1+ (1.0,0.0) [0|0] ""  User
+ SG_ Hardware_Protection_Fault : 34|1@1+ (1.0,0.0) [0|0] ""  User
+ SG_ Hw_Config_Fault : 33|1@1+ (1.0,0.0) [0|0] ""  User
+ SG_ SW_forced_Fault : 32|1@1+ (1.0,0.0) [0|0] ""  User
+ SG_ No_Valid_Setpoints_Warning : 26|1@1+ (1.0,0.0) [0|0] ""  User
+ SG_ Incompatible_AC_Warning : 25|1@1+ (1.0,0.0) [0|0] ""  User
+ SG_ No_AC_Warning : 24|1@1+ (1.0,0.0) [0|0] ""  User
+ SG_ Efficiency_Optimizations : 16|1@1+ (1.0,0.0) [0|0] ""  User
+ SG_ State : 8|8@1+ (1.0,0.0) [0|0] ""  User
+ SG_ Command_Readback : 0|4@1+ (1.0,0.0) [0|0] ""  User
+
+BO_ 2156068882 CH01_Latched_Faults: 8 Module
+ SG_ Internal_Fault : 7|1@1+ (1.0,0.0) [0|0] ""  User
+ SG_ Overtemperature_Protection_Fault : 6|1@1+ (1.0,0.0) [0|0] ""  User
+ SG_ Hardware_Overtemperature_Protect : 5|1@1+ (1.0,0.0) [0|0] ""  User
+ SG_ System_Protection_Fault : 4|1@1+ (1.0,0.0) [0|0] ""  User
+ SG_ AC_Precharge_Fault : 3|1@1+ (1.0,0.0) [0|0] ""  User
+ SG_ Hardware_Protection_Fault : 2|1@1+ (1.0,0.0) [0|0] ""  User
+ SG_ Hw_Config_Fault : 1|1@1+ (1.0,0.0) [0|0] ""  User
+ SG_ SW_forced_Fault : 0|1@1+ (1.0,0.0) [0|0] ""  User
+
+BO_ 2156068884 CH01_DC_Setpoint_Control: 8 User
+ SG_ Current : 16|16@1- (0.1,0.0) [0|0] "A"  Module
+ SG_ Voltage : 0|16@1+ (1,0) [0|0] "V"  Module
+
+BO_ 2156068885 CH01_DC_Setpoint_Readback: 8 Module
+ SG_ Current : 16|16@1- (0.1,0.0) [0|0] "A"  User
+ SG_ Voltage : 0|16@1+ (1,0) [0|0] "V"  User
+
+BO_ 2156068896 CH01_DC_Measurements: 4 Module
+ SG_ Current : 16|16@1- (0.1,0.0) [0|0] "A"  User
+ SG_ Voltage : 0|16@1- (0.1,0.0) [0|0] "V"  User
+
+BO_ 2156068897 CH01_AC_L1_Measurements: 8 Module
+ SG_ RMS_Voltage : 16|16@1- (0.1,0.0) [0|0] "V"  User
+ SG_ RMS_Current : 0|16@1- (0.1,0.0) [0|0] "A"  User
+
+BO_ 2156068898 CH01_AC_L2_Measurements: 8 Module
+ SG_ RMS_Voltage : 16|16@1- (0.1,0.0) [0|0] "V"  User
+ SG_ RMS_Current : 0|16@1- (0.1,0.0) [0|0] "A"  User
+
+BO_ 2156068899 CH01_AC_L3_Measurements: 8 Module
+ SG_ RMS_Voltage : 16|16@1- (0.1,0.0) [0|0] "V"  User
+ SG_ RMS_Current : 0|16@1- (0.1,0.0) [0|0] "A"  User
+
+BO_ 2156068900 CH01_Temperatures: 6 Module
+ SG_ Coolant_Temp : 32|16@1- (0.1,0.0) [0|0] "C"  User
+ SG_ Min_Temp : 16|16@1- (0.1,0.0) [0|0] "C"  User
+ SG_ Max_Temp : 0|16@1- (0.1,0.0) [0|0] "C"  User
+
+BO_ 2156068901 CH01_Internal_DC_Measurements: 8 Module
+ SG_ DC_Side_DC_Voltage : 16|16@1- (0.1,0.0) [0|0] "C"  User
+ SG_ AC_Side_DC_Voltage : 0|16@1- (0.1,0.0) [0|0] "C"  User
+
+BO_ 2156068902 CH01_Grid_Connection_Measurement: 8 Module
+ SG_ Frequency : 24|16@1+ (0.1,0.0) [0|0] "Hz"  User
+ SG_ Voltage_RMS : 8|16@1+ (1,0) [0|0] "V"  User
+ SG_ Status : 0|8@1+ (1.0,0.0) [0|0] ""  User
+
+
+
+
+CM_ BO_ 2156068864 "
+        Contains information about the device sending messages with the corresponding Module type
+        and stack position as encodede in the arbitration ID.
+      ";
+CM_ SG_ 2156068864 serial_number "serial number of the power converter";
+CM_ SG_ 2156068864 Stack_position "
+          This signal mirrors the stack position that is at bits [15:8] of the CAN arbitration ID.
+          It used to indicate the configured stack position and changes
+          when receiving a valid stack control message in which the serial number matched.
+          In the case in which a matching stack control message is received the new stack position is
+          written to the EEPROM configuration memory.
+          The CAN arbitration ID does not change when a stack position update is received, only
+          this signal changes. The value that determins bits [15:8] of the CAN arbitration ID is
+          read from eeprom once at boot time and does not change over the runtime of the converter.
+        ";
+CM_ SG_ 2156068864 Variant "Variants define units that are the same product but with differing specifications (like a higher current variant for example)";
+CM_ SG_ 2156068864 Revision "The hardware revision number. As the hardware is updated over time this number will change";
+CM_ SG_ 2156068864 Type "
+          The module Type. This is the product identifier and appears in bits [23:16] of the arbitration ID.
+        ";
+CM_ BO_ 2156068865 "Unique identifier of the bootloader firmware used on this module ";
+CM_ BO_ 2156068866 "Unique identifier of the application firmware used on this module. This ID allows to identify what exact version of the firmware is running on the converter";
+CM_ BO_ 2156068867 "
+        This message declares the version of the CAN API that is provided by the converter.
+        The numbers follow the semver convention
+      ";
+CM_ SG_ 2156068867 Patch "The Patch number. This number increases when changes to descriptions and documentation/comments are made";
+CM_ SG_ 2156068867 Minor "The Minor version number. This number increases if there are backwards compatible changes, like new messages or the use of previously reserved space";
+CM_ SG_ 2156068867 Major "The Major version number. This number increases if there are changes that break backwards compatibility";
+CM_ BO_ 2156068944 "
+        The Fault Control message is a little bit special. The Clear_Interlock signal in this
+        message is automatically reset to 0 after a clear attempt so sending multiple identical
+        messages actually triggers multiple attempts to clear a hardware interlock.
+      ";
+CM_ SG_ 2156068944 Reserved "Reserved space";
+CM_ SG_ 2156068944 Trip_Interlock "
+          When set the Software forces a hardware interlock, needs to be cleared to 0 before
+          a clear interlock signal will take any effect.
+        ";
+CM_ SG_ 2156068944 Reset_Processor " Reboot the power converter ";
+CM_ SG_ 2156068944 Clear_Interlock "
+          Attempts to clear the converter interlock.
+          If a fault condition is currently active the fault will relatch immediately keeping the module from operating.
+          In the case where the interlock is already cleared this results in a NoOp.
+        ";
+CM_ BO_ 2156068933 "
+        Set the stack position that the module shall assume on reboot.
+        The stack position is a way to distinguise multiple modules of the same type
+        connected to the same bus.
+      ";
+CM_ SG_ 2156068933 serial_number "
+          The Module serial number to be able to distinguish
+          a particular module even if it currently shares the same
+          stack position with another module. The update will only be
+          applied to the module that has the corresponding serial number
+        ";
+CM_ SG_ 2156068933 Stack_position "The new stack position of the module";
+CM_ BO_ 2156068880 "Select the operating mode of the CH01.";
+CM_ SG_ 2156068880 Efficiency_Optimization "
+          When optimizing (this signal set to 'enabled') the operation of the CH01 for efficiency, the unit is limited in it's ability
+          to respond to voltage and current changes. Voltage and current slew rates should be kept below
+          100V/s and 20A/s respectively.
+          When this signal is set to 'disabled', the system response is greatly increased, at the cost of a lower conversion
+          efficiency.
+        ";
+CM_ SG_ 2156068880 Command "
+          The command that tells the CH01 what to do. Currently only DC side control
+          is available.
+        ";
+CM_ BO_ 2156068881 "
+        The current state of the CH01. 
+      ";
+CM_ SG_ 2156068881 Hardware_Overtemperature_Protect "
+          The hardware overtemperature protection faulted and caused a hardware interlock. This fault will
+          stay latched until it is cleared by the system controller
+        ";
+CM_ SG_ 2156068881 Overtemperature_Protection_Fault "
+          The overtemperature threshold was reached and caused a the module to cease operations.
+          Once the module drops below the temp threshold, this fault will clear
+        ";
+CM_ SG_ 2156068881 AC_Precharge_Fault "
+          The Internal bus was not sufficiently charged during precharge, possibly indicating wrong wiring or
+          damaged electronics.
+        ";
+CM_ SG_ 2156068881 Hardware_Protection_Fault "
+          The Hardware interlock is tripped. This fault will stay active until a clear operation
+          is successful, as it is latched in hardware. This fault should clear upon reception of
+          the clear command.
+        ";
+CM_ SG_ 2156068881 Hw_Config_Fault "
+          The Hardware configuration stored in eeprom is faulty. 
+        ";
+CM_ SG_ 2156068881 SW_forced_Fault "
+          The firmware forced a Hardware fault. The sw force trip signal is part of the
+          Fault_Control Message and can be controlled from there
+        ";
+CM_ SG_ 2156068881 No_Valid_Setpoints_Warning "
+          Before operation can commence, setpoints need to be sent to allow operation
+          This warning says that no setpoints have been sent yet.
+          The CH01 will not commence power on while this warning is active
+        ";
+CM_ SG_ 2156068881 Incompatible_AC_Warning "
+          There Is AC voltage present but it is outside of the region required by the CH01
+          to operate
+        ";
+CM_ SG_ 2156068881 No_AC_Warning "
+          No AC voltage has been detected. The CH01 will refuse to start if no AC voltage
+          is present
+        ";
+CM_ SG_ 2156068881 Efficiency_Optimizations "
+          The efficiency optimization is enabled. This limits the slew rate of externally driven
+          voltages and currents.
+        ";
+CM_ SG_ 2156068881 State "Current Ch01 operating state.";
+CM_ SG_ 2156068881 Command_Readback "The command currently set on the CH01, this is to acknowledge the reception of the command signal";
+CM_ BO_ 2156068882 "
+        Faults occurring during operation are latched here. The current state of the fault
+        is shown in the CH01 Mode Readback message. The faults in this message only clear
+        if the fault condition has cleared and the command signal is set to the 'clear_fault'
+        value.
+      ";
+CM_ SG_ 2156068882 Overtemperature_Protection_Fault "
+          The configurable overtemperature thresh has been exceeded, resulting in a fault, shutting
+          off the module.
+        ";
+CM_ SG_ 2156068882 Hardware_Overtemperature_Protect "
+          The hardware overtemperature protection faulted and caused a hardware interlock. This fault will
+          stay latched until it is cleared by the system controller
+        ";
+CM_ SG_ 2156068882 System_Protection_Fault "
+          The Converter has an interlock line that the system controller can assert to immediately stop
+          the converter from operation. This is a hardware line that the control system can simply read
+          and try to reset. This fault will only clear when a clear message is received and the system controller
+          does not assert this line.
+        ";
+CM_ SG_ 2156068882 AC_Precharge_Fault "
+          The Internal bus was not sufficiently charged during precharge, possibly indicating wrong wiring or
+          damaged electronics.
+        ";
+CM_ SG_ 2156068882 Hardware_Protection_Fault "
+          The Hardware interlock is tripped. This fault will stay active until a clear operation
+          is successful, as it is latched in hardware. This fault should clear upon reception of
+          the clear command.
+        ";
+CM_ SG_ 2156068882 Hw_Config_Fault "
+          The Hardware configuration stored in eeprom is faulty. 
+        ";
+CM_ SG_ 2156068882 SW_forced_Fault "
+          The firmware forced a Hardware fault. The sw force trip signal is part of the
+          Fault_Control Message and can be controlled from there
+        ";
+CM_ BO_ 2156068884 "Set the DC port setpoints";
+CM_ SG_ 2156068884 Current "
+          The maxumum currnet (in either direction) that the CH01 will drive.
+        ";
+CM_ SG_ 2156068884 Voltage "
+          This is the voltage setpoint of the DC Port. The CH01 will try to maintain the voltage set here
+          as long as the current required for this is within the current limits.
+        ";
+CM_ BO_ 2156068885 "
+        Setpoints currently applied on the CH01
+        Signals mirror message 0x12
+      ";
+CM_ BO_ 2156068896 "Measurements on the DC port.";
+CM_ SG_ 2156068896 Current "
+          DC port current. Positive values mean current sourced by the DC port;
+          negative values mean current sunk by the DC port.
+        ";
+CM_ SG_ 2156068896 Voltage "DC port voltage.";
+CM_ BO_ 2156068897 "AC measurements for line 1.";
+CM_ SG_ 2156068897 RMS_Voltage "
+          Line-to-neutral voltage, using a virtual neutral located at the
+          average of the vector sum of the three phases.
+        ";
+CM_ BO_ 2156068898 "AC measurements for line 2.";
+CM_ SG_ 2156068898 RMS_Voltage "
+          Line-to-neutral voltage, using a virtual neutral located at the
+          average of the vector sum of the three phases.
+        ";
+CM_ BO_ 2156068899 "AC measurements for line 3.";
+CM_ SG_ 2156068899 RMS_Voltage "
+          Line-to-neutral voltage, using a virtual neutral located at the
+          average of the vector sum of the three phases.
+        ";
+CM_ BO_ 2156068900 "
+        The temperatures measured by the CH01. The CH01 has various sensors in critical locations
+        of the device. This message reports the hottest and coldest spot of the converter
+        along with the temperature of the coolant entering the Converter.
+      ";
+CM_ SG_ 2156068900 Coolant_Temp " The Temperature of the Coolant ";
+CM_ SG_ 2156068900 Min_Temp " The lowest temperature in the converter ";
+CM_ SG_ 2156068900 Max_Temp " The highest temperature measured in the  converter ";
+CM_ BO_ 2156068901 "
+        The internal DC Voltages of the two intermediate busses
+      ";
+CM_ SG_ 2156068901 DC_Side_DC_Voltage " The Voltage od the DC side DC bus ";
+CM_ SG_ 2156068901 AC_Side_DC_Voltage " The Voltage of the AC side DC bus ";
+CM_ BO_ 2156068902 "
+        The internal DC Voltages of the two intermediate busses
+      ";
+CM_ SG_ 2156068902 Frequency "
+          An estimate of the frequency of the grid
+          canculated via zero crossing detection.
+        ";
+CM_ SG_ 2156068902 Voltage_RMS "
+          The line to neutral equivalent RMS voltage at the grid connection point.
+          The measurement point lies in front of the 
+          integrated contactors. This way the grid properties can be measured
+          even without the converter being connected to the grid
+        ";
+CM_ SG_ 2156068902 Status "
+          The state of the grid as determined by the converter. If the grid is 'good' the
+          converter may start operations
+        ";
+BA_DEF_ BO_  "SystemMessageLongSymbol" STRING ;
+BA_DEF_ SG_  "SystemSignalLongSymbol" STRING ;
+BA_DEF_ BO_  "GenMsgCycleTime" INT 0 65535;
+BA_DEF_DEF_  "SystemMessageLongSymbol" "";
+BA_DEF_DEF_  "SystemSignalLongSymbol" "";
+BA_DEF_DEF_  "GenMsgCycleTime" 0;
+BA_ "GenMsgCycleTime" BO_ 2156068864 1000;
+BA_ "GenMsgCycleTime" BO_ 2156068865 1000;
+BA_ "GenMsgCycleTime" BO_ 2156068866 1000;
+BA_ "GenMsgCycleTime" BO_ 2156068867 1000;
+BA_ "GenMsgCycleTime" BO_ 2156068881 1000;
+BA_ "SystemSignalLongSymbol" SG_ 2156068881 Hardware_Overtemperature_Protect "Hardware_Overtemperature_Protection_Fault";
+BA_ "GenMsgCycleTime" BO_ 2156068882 100;
+BA_ "SystemSignalLongSymbol" SG_ 2156068882 Hardware_Overtemperature_Protect "Hardware_Overtemperature_Protection_Fault";
+BA_ "GenMsgCycleTime" BO_ 2156068885 1000;
+BA_ "GenMsgCycleTime" BO_ 2156068896 100;
+BA_ "GenMsgCycleTime" BO_ 2156068897 100;
+BA_ "GenMsgCycleTime" BO_ 2156068898 100;
+BA_ "GenMsgCycleTime" BO_ 2156068899 100;
+BA_ "GenMsgCycleTime" BO_ 2156068900 100;
+BA_ "GenMsgCycleTime" BO_ 2156068901 100;
+BA_ "SystemMessageLongSymbol" BO_ 2156068902 "CH01_Grid_Connection_Measurements";
+BA_ "GenMsgCycleTime" BO_ 2156068902 100;
+VAL_ 2156068864 Variant 0 "VA00" ;
+VAL_ 2156068864 Revision 0 "R0" 1 "R1" 2 "R2" ;
+VAL_ 2156068864 Type 128 "GC01" 129 "AC01" 130 "DC01" 131 "CH01" ;
+VAL_ 2156068880 Efficiency_Optimization 0 "disabled" 1 "enabled" ;
+VAL_ 2156068880 Command 0 "Off" 1 "DC_Side_Control" ;
+VAL_ 2156068881 Internal_Fault 0 "Clear" 1 "Fault" ;
+VAL_ 2156068881 Hardware_Overtemperature_Protect 0 "Clear" 1 "Fault" ;
+VAL_ 2156068881 Overtemperature_Protection_Fault 0 "Clear" 1 "Fault" ;
+VAL_ 2156068881 AC_Precharge_Fault 0 "Clear" 1 "Fault" ;
+VAL_ 2156068881 Hardware_Protection_Fault 0 "Clear" 1 "Fault" ;
+VAL_ 2156068881 Hw_Config_Fault 0 "Clear" 1 "Fault" ;
+VAL_ 2156068881 SW_forced_Fault 0 "Clear" 1 "Fault" ;
+VAL_ 2156068881 No_Valid_Setpoints_Warning 0 "Clear" 1 "Warning" ;
+VAL_ 2156068881 Incompatible_AC_Warning 0 "Clear" 1 "Warning" ;
+VAL_ 2156068881 No_AC_Warning 0 "Clear" 1 "Warning" ;
+VAL_ 2156068881 Efficiency_Optimizations 0 "disabled" 1 "enabled" ;
+VAL_ 2156068881 State 0 "Init" 1 "Idle" 2 "Starting" 3 "DC_Side_Control" 4 "Shutdown" 5 "Bleeding" 6 "Bleed_done" 7 "Fault" ;
+VAL_ 2156068881 Command_Readback 0 "Off" 1 "DC_Side_Control" ;
+VAL_ 2156068882 Internal_Fault 0 "Clear" 1 "Fault" ;
+VAL_ 2156068882 Overtemperature_Protection_Fault 0 "Clear" 1 "Fault" ;
+VAL_ 2156068882 Hardware_Overtemperature_Protect 0 "Clear" 1 "Fault" ;
+VAL_ 2156068882 System_Protection_Fault 0 "Clear" 1 "Fault" ;
+VAL_ 2156068882 AC_Precharge_Fault 0 "Clear" 1 "Fault" ;
+VAL_ 2156068882 Hardware_Protection_Fault 0 "Clear" 1 "Fault" ;
+VAL_ 2156068882 Hw_Config_Fault 0 "Clear" 1 "Fault" ;
+VAL_ 2156068882 SW_forced_Fault 0 "Clear" 1 "Fault" ;
+VAL_ 2156068902 Status 0 "Bad" 1 "Ok" ;
+
+
+

@@ -5,13 +5,16 @@
   <Node id="2" name="User"/>
   <Bus name="SystemBus" baudrate="500000">
     <Message id="0x830000" length="8" format="extended" name="Identification" interval="1000">
-      <Notes>Identification of the device</Notes>
+      <Notes>
+        Contains information about the device sending messages with the corresponding Module type
+        and stack position as encodede in the arbitration ID.
+      </Notes>
       <Producer>
         <NodeRef id="1"/>
       </Producer>
       <Signal name="Type" offset="0" length="8" endianess="little">
         <Notes>
-          The device identification field, uniquely identifies the sender in the network
+          The module Type. This is the product identifier and appears in bits [23:16] of the arbitration ID.
         </Notes>
         <Consumer>
           <NodeRef id="2"/>
@@ -25,7 +28,7 @@
         </LabelSet>
       </Signal>
       <Signal name="Revision" offset="8" length="8" endianess="little">
-        <Notes>The hardware revision number</Notes>
+        <Notes>The hardware revision number. As the hardware is updated over time this number will change</Notes>
         <Consumer>
           <NodeRef id="2"/>
         </Consumer>
@@ -37,25 +40,25 @@
         </LabelSet>
       </Signal>
       <Signal name="Variant" offset="16" length="8" endianess="little">
-        <Notes>The hardware variant</Notes>
+        <Notes>Variants define units that are the same product but with differing specifications (like a higher current variant for example)</Notes>
         <Consumer>
           <NodeRef id="2"/>
         </Consumer>
         <Value type="unsigned" slope="1.0" intercept="0.0"/>
         <LabelSet>
           <Label name="VA00" value="0"/>
-          <Label name="VA01" value="1"/>
         </LabelSet>
       </Signal>
       <Signal name="Stack_position" offset="24" length="8" endianess="little">
         <Notes>
-          This signal mirrors the stack position that is also part of the
-          can arbitration ID.
+          This signal mirrors the stack position that is at bits [15:8] of the CAN arbitration ID.
           It used to indicate the configured stack position and changes
           when receiving a valid stack control message in which the serial number matched.
-          The Arbitration ID does not change when a stack position update is received, only
-          this signal changes. The arbitration ID is read from eeprom once at boot time and
-          does not change over the runtime of the converter.
+          In the case in which a matching stack control message is received the new stack position is
+          written to the EEPROM configuration memory.
+          The CAN arbitration ID does not change when a stack position update is received, only
+          this signal changes. The value that determins bits [15:8] of the CAN arbitration ID is
+          read from eeprom once at boot time and does not change over the runtime of the converter.
         </Notes>
         <Consumer>
           <NodeRef id="2"/>
@@ -63,7 +66,7 @@
         <Value type="unsigned" slope="1.0" intercept="0.0"/>
       </Signal>
       <Signal name="serial_number" offset="32" length="32" endianess="little">
-        <Notes>Unique module serial number</Notes>
+        <Notes>serial number of the power converter</Notes>
         <Consumer>
           <NodeRef id="2"/>
         </Consumer>
@@ -72,7 +75,7 @@
     </Message>
 
     <Message id="0x830001" length="8" format="extended" name="Bootloader_UID" interval="1000">
-      <Notes>Unique Identifier of the Bootloader used on this module</Notes>
+      <Notes>Unique identifier of the bootloader firmware used on this module </Notes>
       <Producer>
         <NodeRef id="1"/>
       </Producer>
@@ -85,7 +88,7 @@
     </Message>
 
     <Message id="0x830002" length="8" format="extended" name="Firmware_UID" interval="1000">
-      <Notes>Unique Identifier of the Firmware used on this module</Notes>
+      <Notes>Unique identifier of the application firmware used on this module. This ID allows to identify what exact version of the firmware is running on the converter</Notes>
       <Producer>
         <NodeRef id="1"/>
       </Producer>
@@ -98,12 +101,15 @@
     </Message>
 
     <Message id="0x830003" length="3" format="extended" name="CAN_API_Version" interval="1000">
-      <Notes>This message declares the version of the API that is provided by the converter. The version follows newer convention, as this file is an API definition, patch does not apply</Notes>
+      <Notes>
+        This message declares the version of the CAN API that is provided by the converter.
+        The numbers follow the semver convention
+      </Notes>
       <Producer>
         <NodeRef id="1"/>
       </Producer>
       <Signal name="Major" offset="0" length="8" endianess="little">
-        <Notes>The Major version number. This number increases if there are backwards incompatible changes</Notes>
+        <Notes>The Major version number. This number increases if there are changes that break backwards compatibility</Notes>
         <Consumer>
           <NodeRef id="2"/>
         </Consumer>
@@ -126,26 +132,37 @@
     </Message>
 
     <Message id="0x830050" length="1" format="extended" name="Fault_Control">
-      <Notes>Fault Control: actions to clear faults and reset the system</Notes>
+      <Notes>
+        The Fault Control message is a little bit special. The Clear_Interlock signal in this
+        message is automatically reset to 0 after a clear attempt so sending multiple identical
+        messages actually triggers multiple attempts to clear a hardware interlock.
+      </Notes>
       <Producer>
         <NodeRef id="2"/>
       </Producer>
       <Signal name="Clear_Interlock" offset="0" length="1" endianess="little">
-        <Notes>Clears the converter interlock</Notes>
+        <Notes>
+          Attempts to clear the converter interlock.
+          If a fault condition is currently active the fault will relatch immediately keeping the module from operating.
+          In the case where the interlock is already cleared this results in a NoOp.
+        </Notes>
         <Consumer>
           <NodeRef id="1"/>
         </Consumer>
         <Value type="unsigned" slope="1.0" intercept="0.0"/>
       </Signal>
       <Signal name="Reset_Processor" offset="1" length="1" endianess="little">
-        <Notes>Reset the converter DSP</Notes>
+        <Notes> Reboot the power converter </Notes>
         <Consumer>
           <NodeRef id="1"/>
         </Consumer>
         <Value type="unsigned" slope="1.0" intercept="0.0"/>
       </Signal>
       <Signal name="Trip_Interlock" offset="2" length="1" endianess="little">
-        <Notes>Trip the inetrnal Interlock</Notes>
+        <Notes>
+          When set the Software forces a hardware interlock, needs to be cleared to 0 before
+          a clear interlock signal will take any effect.
+        </Notes>
         <Consumer>
           <NodeRef id="1"/>
         </Consumer>
@@ -196,15 +213,15 @@
       </Signal>
     </Message>
 
-    <Message id="0x830010" length="8" format="extended" name="CH01_Mode_Control">
+    <Message id="0x830010" length="8" format="extended" name="CH01_Control">
       <Notes>Select the operating mode of the CH01.</Notes>
       <Producer>
         <NodeRef id="2"/>
       </Producer>
-      <Signal name="Mode" offset="0" length="8" endianess="little">
+      <Signal name="Command" offset="0" length="4" endianess="little">
         <Notes>
-          Operating modes supported by the CH01. The operating mode also specifies
-          what kind of grid is expected on the AC input to the system.
+          The command that tells the CH01 what to do. Currently only DC side control
+          is available.
         </Notes>
         <Consumer>
           <NodeRef id="1"/>
@@ -212,7 +229,7 @@
         <Value type="unsigned" slope="1.0" intercept="0.0"/>
         <LabelSet>
           <Label name="Off" value="0"/>
-          <Label name="On" value="1"/>
+          <Label name="DC_Side_Control" value="1"/>
         </LabelSet>
       </Signal>
       <Signal name="Efficiency_Optimization" offset="8" length="1" endianess="little">
@@ -234,15 +251,26 @@
       </Signal>
     </Message>
 
-    <Message id="0x830011" length="8" format="extended" name="CH01_Mode_Readback" interval="1000">
+    <Message id="0x830011" length="8" format="extended" name="CH01_Status" interval="1000">
       <Notes>
         The current state of the CH01. 
       </Notes>
       <Producer>
         <NodeRef id="1"/>
       </Producer>
-      <Signal name="State" offset="0" length="8" endianess="little">
-        <Notes>Current GN91 FSM state.</Notes>
+      <Signal name="Command_Readback" offset="0" length="4" endianess="little">
+        <Notes>The command currently set on the CH01, this is to acknowledge the reception of the command signal</Notes>
+        <Consumer>
+          <NodeRef id="2"/>
+        </Consumer>
+        <Value type="unsigned" slope="1.0" intercept="0.0"/>
+        <LabelSet>
+          <Label name="Off" value="0"/>
+          <Label name="DC_Side_Control" value="1"/>
+        </LabelSet>
+      </Signal>
+      <Signal name="State" offset="8" length="8" endianess="little">
+        <Notes>Current Ch01 operating state.</Notes>
         <Consumer>
           <NodeRef id="2"/>
         </Consumer>
@@ -251,14 +279,14 @@
           <Label name="Init" value="0"/>
           <Label name="Idle" value="1"/>
           <Label name="Starting" value="2"/>
-          <Label name="Running" value="3"/>
+          <Label name="DC_Side_Control" value="3"/>
           <Label name="Shutdown" value="4"/>
           <Label name="Bleeding" value="5"/>
           <Label name="Bleed_done" value="6"/>
           <Label name="Fault" value="7"/>
         </LabelSet>
       </Signal>
-      <Signal name="Efficiency_Optimizations" offset="8" length="1" endianess="little">
+      <Signal name="Efficiency_Optimizations" offset="16" length="1" endianess="little">
         <Notes>
           The efficiency optimization is enabled. This limits the slew rate of externally driven
           voltages and currents.
@@ -272,7 +300,7 @@
           <Label name="enabled" value="1"/>
         </LabelSet>
       </Signal>
-      <Signal name="No_AC_Warning" offset="16" length="1" endianess="little">
+      <Signal name="No_AC_Warning" offset="24" length="1" endianess="little">
         <Notes>
           No AC voltage has been detected. The CH01 will refuse to start if no AC voltage
           is present
@@ -286,7 +314,7 @@
           <Label name="Warning" value="1"/>
         </LabelSet>
       </Signal>
-      <Signal name="Incompatible_AC_Warning" offset="17" length="1" endianess="little">
+      <Signal name="Incompatible_AC_Warning" offset="25" length="1" endianess="little">
         <Notes>
           There Is AC voltage present but it is outside of the region required by the CH01
           to operate
@@ -300,7 +328,7 @@
           <Label name="Warning" value="1"/>
         </LabelSet>
       </Signal>
-      <Signal name="No_Valid_Setpoints_Warning" offset="18" length="1" endianess="little">
+      <Signal name="No_Valid_Setpoints_Warning" offset="26" length="1" endianess="little">
         <Notes>
           Before operation can commence, setpoints need to be sent to allow operation
           This warning says that no setpoints have been sent yet.

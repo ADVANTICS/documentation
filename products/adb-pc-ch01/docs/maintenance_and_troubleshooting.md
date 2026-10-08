@@ -47,7 +47,7 @@ be used to identify the firmware currently running on the converters.
 
 ## Faults and Warnings
 
-The ADB-PC-CH01 reports faults and warnings via the `CH01_Mode_Readback` message. A Fault will halt system operation
+The ADB-PC-CH01 reports faults and warnings via the `CH01_Status` message. A Fault will halt system operation
 and requires the operator to acknowledge the fault before allowing operations to recommence. Warnings are advisory and
 clear automatically as soon as the condition causing the warning is no longer present.
 
