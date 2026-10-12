@@ -58,7 +58,6 @@ The insulation coordination of the converter is designed assuming that PE potent
 | Port A- to Port B+ | -1225V working, 4kV impulse |
 | Port A- to Port B- | -275V working, 4kV impulse |
 | Port A+ to Case | ±475V working, 4kV impulse |
-| Port A+ to Case | ±475V working, 4kV impulse |
 | Port A- to Case | ±475V working, 4kV impulse |
 | Port B+ to Case | ±750V working, 4kV impulse |
 | Port B- to Case | ±750V working, 4kV impulse |
