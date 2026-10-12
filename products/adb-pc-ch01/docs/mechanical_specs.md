@@ -25,31 +25,30 @@ The recommended flow of water would look like this. Color indicates the temperat
 
 ### Heat dissipation
 
-Thermal dissipation of each unit depends on operational conditions - voltage, current, power level. Typical head load can be calculated by multiplying the processed power by the efficiency figure at that operation point.
+Thermal dissipation of each unit depends on operational conditions - voltage, current, power level. Typical heat load can be calculated by multiplying the processed power by the losses (1 - efficiency) at that operation point.
 
-A typical loss would be: 100 kW * 0.98 = 2 kW
-For the exact loss for a specific setpoint, please consult the efficiency map.
-2kW of heat generation per converter would result in 6.5 &deg;C temperature rise (inlet to outlet, 5 l/min).
+A typical loss at full load would be: 50 kW * (1 - 0.97) = 1.5 kW
+For the efficiency at a specific operating point, please consult the [Efficiency Characteristics](electrical_specs.md#efficiency-characteristics).
+1.5 kW of heat generation per converter would result in approximately 5 &deg;C temperature rise (inlet to outlet, 5 l/min).
 
-The system has a very high inertia, thanks to the aluminium heatsink and the liquid loop. That means it can take a long time (>10 minutes in some cases) before you see a significant heat buildup.
-This can be used to improve noise profile - the heat exchanger (radiator) doesn't need to have its fan run at all times. However, **never switch off the coolant flow (pump) during operation.** You don't need to run the pump system if there is no power flowing.
+The converter has high thermal inertia owing to the large aluminium plates and the coolant loop. That means it can take a long time (>10 minutes in some cases) for the temperature to noticably change.
+It is important that the coolant is kept flowing through the power converters during opreration.
 
 !!! tip
-    It is ok to run power converters on a test bench without any cooling at all, for prototyping or (supervised) testing scenarios.
-    However monitor the temperatures and don't push the system to very high power if no cooling fluid is present.
+    It is ok to run power converters on a test bench without a cooling system attached. In this case the converter needs to be actively
+    monitored. It is not recommended to operate the converters at high power in this scenarios.
 
 
 ### Flow and temperature rise
 
-The cooling medium is a water-glycol mix. The ratio depends on the environmental conditions (freeze prevention).
-Glycol mixture lowers the freezing temperature and acts as a corrosion protection agent, in case of mixed-metal cooling loops. Additional additives could include organic growth inhibitors.
+The recommended cooling medium is a water-glycol mix. The ratio depends on the environmental conditions (freeze prevention).
+The Glycol lowers the freezing temperature and acts as a corrosion inhibiting agent in case of mixed-metal cooling loops. Additional additives could include organic growth inhibitors.
 
 !!! warning
     It is important to use the correct coolant formulation. The heatsinks are made out of aluminium, distribution manifolds tends to be made out of stainless steel, 
     fittings tends to be made out of nickel-plated brass, pipes in the heat exchangers tends to be made ouf of copper.
     To limit the galvanic corrosion and organic growth in the coolant loop, use only glycol-based coolant fluids formulated for mixed metal loops containing aluminium, with organic growth inhibitors.
     Do not use tap water or distilled water in the loop. Consult a coolant manufacturer before commissioning.
-    
     Failure to follow this can result in clogged pumps, limited cooling performance, and in the worst case, damaged fittings and leaks.
 
 Required flow rate is 5 liters per minute (5 l/min). The flow can be increased, to extend full power operation region in hot climates. Do not exceed 15 l/min.
@@ -60,13 +59,13 @@ One way to test how well the fluid is distributed is to (temporarily) install fl
 ### Port adapter
 
 Each port (inlet and outlet) uses G1/4" thread (British Standard Pipe). Unless specified separately by the customer, each unit comes with barbed fittings installed on all ports.
-These barbed fittings accept a hose with 3/8" (10 mm) internal tube wall.
+The barbed fittings are compatible with 3/8" (10 mm) internal diameter hoses.
 
 <!-- ![image.png](assets/barbed_fitting.png) -->
 
 {{ figure('../assets/barbed_fitting.png', 'Barbed fitting') }}
 
-The bottom-to-top cooling plate interconnect is handled by a pre-installed hose on the left side.
+The converters are shipped with a pre installed hose on the left hand side connecting both cooling plates.
 
 ### No-drip alternatives
 

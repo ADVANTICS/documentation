@@ -62,9 +62,10 @@ recommended to include overcurrent protection at the power supply output. Consul
 2. **Lock out Tag Out**
       * ensure the system that the ADB-PC-CH01 is deenergized and can't be energized accidentally during installation.
 
-2. **Connect Cables**
+3. **Connect Cables**
       * attach PE first: a protective earth conductor of at least 16 mm2 to the M8 thread on the front panel, tightened to 6 N.m.
-      * Verify the Phase ploarity and attach the phases to the specified connectors on the front panel(L1, L2, L3)
+      * Verify the phase order and attach the phases to the matching connectors on the front panel (L1, L2, L3).
+        The ADB-PC-CH01 checks the phase order of the grid and will not start if the phases are swapped.
       * Connect DC+ and DC- cables. Ensure that all Surelock connectors are latched to the front panel.
 
 ### Connect control wiring

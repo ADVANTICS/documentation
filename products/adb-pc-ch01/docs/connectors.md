@@ -31,7 +31,7 @@ The DC side features bidirectional connectors for the high voltage DC link:
 | **Connector Type** | RADSOK Size 8mm | Same technology as AC side |
 | **Manufacturer** | Amphenol | SurLok Plus series |
 | **Series** | SLP-HIR-B | High-current locking design |
-| **Quantity** | 2x Port A | Positive and negative connections |
+| **Quantity** | 2x Port B | Positive and negative connections |
  **Colour and Keyway** | Red, Black | 20&deg; (Red), 30&deg; (Black) |
 | **Connector Current Rating** | 200 A | Continuous operation |
 | **Connector Voltage Rating** | 1500 VDC | |
