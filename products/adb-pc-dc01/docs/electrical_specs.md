@@ -47,6 +47,23 @@ The following graph illustrates the relationship between the maximum achievable 
 
 {{ figure('../assets/max_power_vs_output_voltage.png', 'Maximum Power vs Output Voltage') }} -->
 
+## Impulse withstand and working voltage limits between the barriers
+
+The insulation coordination of the converter is designed assuming that PE potential is at the midpoint between the positive and negative terminals of both Port A and Port B. Accordingly, the voltage of each terminal with respect to PE must remain within the applicable working voltage and impulse withstand voltage limits specified in the table. Reinforced insulation is not guaranteed beyond these limits. Contact us for any questions.
+
+| Isolation barrier | Maximum working, impulse voltage |
+|------------|--------|
+| Port A+ to Port B+ | +275V working, 4kV impulse|
+| Port A+ to Port B- | +1225V working, 4kV impulse |
+| Port A- to Port B+ | -1225V working, 4kV impulse |
+| Port A- to Port B- | -275V working, 4kV impulse |
+| Port A+ to Case | ±475V working, 4kV impulse |
+| Port A+ to Case | ±475V working, 4kV impulse |
+| Port A- to Case | ±475V working, 4kV impulse |
+| Port B+ to Case | ±750V working, 4kV impulse |
+| Port B+ to Case | ±750V working, 4kV impulse |
+
+
 ## Port A and Port B voltage relationship
 
 The module operates within a nominal voltage range of 750–950 V on Port A and 200–1500 V on Port B.
