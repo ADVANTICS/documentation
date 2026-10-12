@@ -3,31 +3,31 @@
 !!! warning 
     Please note that users must read the safety instructions before using this equipment. The most important general safety precautions are summarized     in this preface. Improper connection or operation could result in death, serious injury, fire, or equipment damage. Always read and understand the     full manual before installation and use, and follow all recommended procedures. ADM-PC-CH01 contains high-voltage capacitors that store energy     and discharge slowly. Even when unplugged, lethal voltages may still be  present. The passive self-bleeding of the converter takes approximately       20 minutes, so always allow sufficient time before handling. Users should always treat the device as energized unless verified otherwise with a        volt meter.
 
-## 1.1. Qualified personnel only
+### Qualified personnel only
 
 The converter may only be operated by personnel capable of recognizing contact hazards and implementing appropriate safety precautions. 
 
 Contact hazards are present anywhere where voltages of greater than 50 V exist.
 
-## 1.2. Avoid working alone
+### Avoid working alone
 
 Do not perform measurements involving contact hazards alone; another person must always be present.
 
-## 1.3. Do Not Operate During Faults
+### Do Not Operate During Faults
 
 Do not use the equipment in case of arcing, short circuits or other discharge events, especially when batteries are attached.
 The module implements self protection measures. When a Converter stops due to these protection measures it is very important to first understand
 the reason why the protection mechanism activated, and apply appropriate corrective measures before restarting operations of the equipment.
 
-## 1.4. Prohibit Use in Damp Conditions
+### Prohibit Use in Damp Conditions
 
 Operation under damp or wet ambient conditions is strictly prohibited.
 
-## 1.5. Maintain Cable and Lead Integrity
+### Maintain Cable and Lead Integrity
 
 Power and data cables must be kept in flawless condition, with no damage to insulation, plugs, or connectors.
 
-## 1.6. Remove Unsafe Equipment from Service
+### Remove Unsafe Equipment from Service
 
 If safe operation of the instrument can no longer be assumed, it must be removed from the factory, laboratory and secured against unintentional use. Safe operation can be no longer assumed if: 
 
@@ -37,7 +37,7 @@ If safe operation of the instrument can no longer be assumed, it must be removed
 - After lengthy periods of storage under unfavourable conditions  
 - After exposure to unusual transport stresses
 
-## 1.7. Power Disconnection Before Work
+### Power Disconnection Before Work
 
 Maintenance, or repair may only be performed by trained personnel familiar with the dangers involved.
 As long as the module is connected, it should be assumed that exposed conductive parts are live.
@@ -47,26 +47,26 @@ symbols on the device for the time needed before being able to safely handle the
 
 [image1]: <data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAAdCAYAAAAgqdWEAAABu0lEQVR4XsXUO1LDMBAGYOUQgZZwBS5CzTEYOhpuwSsQQyAYCBCeLeehoNkmpfBKu0JWtFg2TqyZv3HsyTe7v61UO0eHFzo58KE0J8+y7lDj/V8IvJvpaD2fdwPyIfBm08l0HIIhr5SX1YNECDzbdYUPLO34a3EIgsDMZiXTCSHKTsGEIfCk9Fe+gjL7a1EehIMQeCzysOTphP1QMQxBTKbLA0lFLWMIYXJvr7W+rlhRVQzjQeDOptXpxCB/YhhyS2mxzHsOwRAsaZGN9QgmAoGblqYjQbioKsREICaTf4J6PQ/BEETwGzONYBjBkAnl2v7eeF1VkBCzuy1D4Mqm0XSktTgIdoNeXU64FoNgyJhyqfQsz2uBkiDYD7yXkwKBC3d/2qmE0PcD+6F8TGQtDkEQyGyS1vWNfyr0I4TgWlSISYDASOmtQUKZ60DEogZrcZAR5bzIWcV0xLUIH7KUfkgQk6EMagTB5/yIEEQwZEg5tc8U69opSZquZQET6YcEgROb0nSaQnAtC5iaEDgucuSVuc5awn58HkQgQj8MgiGIIAgcetNpChH7URNSwuDZHAz0Wr/fSRCCa/oBFhI1S7MT7E8AAAAASUVORK5CYII=>
 
-<br>
-## Do not remove cover
+### Do not remove cover
 
 Do not remove the cover under any circumstances. There are no user-serviceable parts inside. Hazardous voltages may be present even after disconnection.
 Removal of the cover may result in serious injury or death.
 
-## 1.8. Heavy equipment
+### Heavy equipment
 
 This module has a weight of approximately 40 kg. Installation in elevated locations is not recommended unless the supporting structure is able to safely support the load. Failure to ensure adequate mechanical support may result in the unit falling, leading to serious injury or death.
 <br>
 
-## 1.9. Protective earth connection
+### Protective earth connection
 
 This equipment must be connected to protective earth (PE) before operation. A protective earth conductor with a minimum cross-sectional area of 16 mm² shall be connected to the front panel using an M8 thread, tightened to 6N.m torque. Failure to provide an adequate protective earth connection may result in electric shock, equipment damage, or death.
 
-## 1.10 Thermal hazard
+### Thermal hazard
 
 Surfaces may reach high temperatures during operation. Allow sufficient cooling time before handling.
 
-# 1.11 Safety symbols
+
+# Safety symbols
 
 ADB-PC-CH01 module is equipped with relevant safety labels on the front panel. A clear description of each symbol is provided  below.
 

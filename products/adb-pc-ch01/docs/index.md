@@ -25,7 +25,7 @@ description: 50kW AC/DC Bidirectional Isolated EV Charger - User Documentation
 
   <div style="text-align: center; margin: 1.5rem 0; font-size: 0.95rem; color: #333;">
     <p style="margin: 0.25rem 0;"><strong>Document Version:</strong> 1.0</p>
-    <p style="margin: 0.25rem 0;"><strong>Release Date:</strong> September 2026</p>
+    <p style="margin: 0.25rem 0;"><strong>Release Date:</strong> October 2026</p>
     <p style="margin: 0.25rem 0;"><strong>Document Classification:</strong> Public</p>
   </div>
 </div>
@@ -44,7 +44,7 @@ description: 50kW AC/DC Bidirectional Isolated EV Charger - User Documentation
 | **Description** | 50kW AC/DC Bidirectional Isolated EV Charger |
 | **Document Type** | User Manual |
 | **Version** | 1.0 |
-| **Last Updated** | September 2026 |
+| **Last Updated** | October 2026 |
 
 ---
 
