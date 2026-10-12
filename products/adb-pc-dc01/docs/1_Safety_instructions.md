@@ -76,22 +76,22 @@ Surfaces may reach high temperatures during operation. Allow sufficient cooling 
 
 
 #### Lockout/Tagout (LOTO)
-      - Always use proper lockout/tagout procedures
-      - Verify zero energy state before work
-      - Use appropriate locks and tags
-      - Follow company safety procedures
+- Always use proper lockout/tagout procedures
+- Verify zero energy state before work
+- Use appropriate locks and tags
+- Follow company safety procedures
 
 #### Personal Protective Equipment (PPE)
-      - Insulated gloves
-      - Safety glasses
-      - Hard hat
-      - Safety boots
+- Insulated gloves
+- Safety glasses
+- Hard hat
+- Safety boots
 
 #### Tools and Equipment
-      - Use insulated tools rated for voltage level
-      - Verify tool condition before use
-      - Use proper test equipment
-      - Maintain safe working distances
+- Use insulated tools rated for voltage level
+- Verify tool condition before use
+- Use proper test equipment
+- Maintain safe working distances
 
 #### Arc Flash Hazards
 
