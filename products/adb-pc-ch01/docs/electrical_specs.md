@@ -132,9 +132,9 @@ This behaviour allows for multiple CH01 Units to be combined in parallel without
 
 | **Parameter** | **Range** | **Derating** |
 |---------------|-----------|--------------|
-| **Operating Temperature** | -40°C to +70°C | Power derating applies above 50°C |
-| **Storage Temperature** | -50°C to +85°C | No operation |
-| **Altitude** | Up to 3000m | |
+| **Operating Temperature** | -40°C to 70°C | Power derating applies above 50°C |
+| **Storage Temperature** | -50°C to 85°C | No operation |
+| **Altitude** | Up to 3000 m | |
 | **Pollution Degree** | 3 (external) | Sealed IP67 design |
 
 !!! note "Power derating"
