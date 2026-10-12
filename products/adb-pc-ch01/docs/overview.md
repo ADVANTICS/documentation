@@ -1,9 +1,8 @@
-# Overview
+# Module Overview
 
-## Product Description
+{{ figure('../assets/CH01.png', 'Physical view of the ADB-PC-CH01 power converter') }}
 
-The **ADB-PC-CH01** is a 50kW bidirectional isolated AC/DC converter designed for demanding industrial applications. Built with advanced Silicon Carbide (SiC) technology,
-this module delivers exceptional efficiency and power quality in a compact, robust package.
+The ADVANTICS module, <span style="color:#00A89D;"><strong>ADB-PC-CH01</strong></span> is a 50 kW bidirectional isolated AC/DC converter designed for demanding industrial applications. Built with advanced Silicon Carbide (SiC) technology, this module delivers exceptional efficiency and power quality in a compact, robust package.
 
 !!! info "Key Features"
     - **Bidirectional Operation**: Supports both AC-to-DC and DC-to-AC power flow
@@ -16,7 +15,7 @@ this module delivers exceptional efficiency and power quality in a compact, robu
 
 ## Applications
 
-The ADB-PC-CH01 is suitable for a wide range of applications requiring bidirectional AC/DC rectification with excellent power factor:
+The ADB-PC-CH01 module is suitable for a wide range of applications requiring bidirectional AC/DC rectification with excellent power factor:
 
 ### Electric Vehicle Charging
 - DC Fast Charge stations supporting CCS1, CCS2, NACS, MCS, and CHAdeMO standards
@@ -27,7 +26,7 @@ The ADB-PC-CH01 is suitable for a wide range of applications requiring bidirecti
 - Grid-tied energy storage systems
 - Industrial energy management
 
-### Industrial Applications
+### Industrial 
 - Industrial PFC rectifiers
 - Laboratory bidirectional power supplies
 - EV and charge simulators
@@ -35,8 +34,8 @@ The ADB-PC-CH01 is suitable for a wide range of applications requiring bidirecti
 
 ### Harsh Environments
 - Marine and coastal applications
-- Mining operations, construction
-- Extreme temperature environments (-40°C to +70°C)
+- Construction and mining operations
+- Extreme temperature environments (-40°C to 70°C)
 
 ## Main Characteristics
 
@@ -53,7 +52,7 @@ The ADB-PC-CH01 is suitable for a wide range of applications requiring bidirecti
 
 ## System Architecture
 
-The ADB-PC-CH01 is designed as part of the modular ADB Series system, allowing for flexible configuration and scaling to MW-level power systems.
+The ADB-PC-CH01 module is designed as part of the modular ADB Series system, allowing for flexible configuration and scaling to MW-level power systems.
 
 ### Key Architectural Features:
 
@@ -64,13 +63,13 @@ The ADB-PC-CH01 is designed as part of the modular ADB Series system, allowing f
 
 ### Application example: Off Highway Charger
 
-The ADB-PC-CH01 may be combined with an Advantics charge controller to build a portable AC Vehicle charger. With this a standard 3 Phase cable can now be used
+The ADB-PC-CH01 module may be combined with an Advantics charge controller to build a portable AC Vehicle charger. With this a standard 3 Phase cable can now be used
 to charge essentially any CCS/ChaDemo/MCS vehicle, or use said vehicle as a 'portable' power source for other equipment, enabling smart enery management at
 construction sites, farms, or other remote locations. Safety, is built in thanks to the galvanic Isolation between the AC and DC port.
 
 ## Compliance and Standards
 
-The ADB-PC-CH01 is designed to meet major international standards:
+The ADB-PC-CH01 module is designed to meet major international standards:
 
 ### Safety Standards
 - IEC 61851-1 (Electric vehicle conductive charging system)
@@ -105,7 +104,7 @@ All Advantics products are proudly designed and manufactured in the European Uni
 
 ## Environmental Responsibility
 
-The ADB-PC-CH01 is designed with environmental considerations:
+The ADB-PC-CH01 module is designed with environmental considerations:
 
 - High efficiency reduces energy consumption and carbon footprint
 - Liquid cooling lowers the ambient noise level and increases reliability
