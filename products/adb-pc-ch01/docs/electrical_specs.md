@@ -18,7 +18,7 @@
 !!! info "AC Wiring Configuration"
     - **Connection Type**: 3-phase, 3-wire (L1, L2, L3)
     - **Neutral**: Not used
-    - **Ground**: PE (protective earth) connection required for safety
+    - **Ground**: Protective Earth (PE) connection required for safety
 
 ### Protection Features
 
@@ -31,14 +31,14 @@
 
 ### Startup Characteristics
 
-- **Internal Soft Start**: Controlled ramp-up to prevent inrush current (precharge)
+- **Internal Soft Start**: Controlled ramp-up to prevent inrush current (Pre-charge)
 - **Inrush Current**: Less than nominal current during startup
 - **Phase to PE Separation**: Basic safety isolation
-- **Overvoltage Category**: OVC2 (Overvoltage Category 2)
+- **Overvoltage Category**: Overvoltage Category 2 (OVC2)
 
 ### Grid Generation Capabilities
 
-The ADB-PC-CH01 supports requires a grid to operate. It is a purely grid following inverter.
+The ADB-PC-CH01 module supports requires a grid to operate. It is a purely grid following inverter.
 
 ## DC Side (DC Bus - Bidirectional) Specifications
 
@@ -87,22 +87,18 @@ The ADB-PC-CH01 supports requires a grid to operate. It is a purely grid followi
 
 **Connection Diagram:**
 
-- **CAN Bus**: Isolated from power electronics and 24V supply
-- **Control Power**: 24V isolated from CAN bus and HV, PE referenced
-- **HV (AC,DC) side**: Reinforced isolation between AC and DC port. Basic isolation towards PE.
+- **CAN Bus**: Isolated from power electronics and 24 V supply
+- **Control Power**: 24 V isolated from CAN bus and HV, PE referenced
+- **HV (AC,DC) side**: Reinforced isolation between AC and DC port. Basic isolation towards PE
 
 
 ## Safe Operating Area
 
-The ADB-PC-CH01 is engineered to operate reliably within a specific DC voltage range of 200V to 950V.
-The module is fundamentally current limited, so the power processing capability scales with AC and DC voltage (the limit is set by whichever side can process less power).
-For 480 VAC the available AC power is higher than for 400VAC. A low DC output voltage will lead to the ADB-PC-CH01 to be limited by the DC port output current, instead of the AC port current.
-The device needs to be kept in it's operating temperature margins at all time so the cooling system needs
-to be dimensioned according to the expected losses.
+The ADB-PC-CH01 module is engineered to operate reliably within a specific DC voltage range of 200 V to 950 V. The module is fundamentally current limited, so the power processing capability scales with AC and DC voltage (the limit is set by whichever side can process less power).
 
-## Efficiency Characteristics
+For 480 VAC the available AC power is higher than for 400 VAC. A low DC output voltage will lead to the ADB-PC-CH01 to be limited by the DC port output current, instead of the AC port current. The device needs to be kept in its operating temperature margins at all time, so the cooling system needs to be dimensioned according to the expected losses.
 
-### Efficiency Performance
+## Efficiency Performance
 
 - **Peak Efficiency**: 98.5% at optimal operating point
 - **Full Load Efficiency**: >97% across wide operating range
@@ -115,7 +111,7 @@ Similarly, Total Harmonic Current Distortion (THDi) remaining below the 5% limit
 
 ## Harmonic Spectrum
 
-The ADB-PC-CH01 employs a three-phase active Power Factor Correction (PFC) stage utilizing high-speed Silicon Carbide (SiC) switching technology.
+The ADB-PC-CH01 module employs a three-phase active Power Factor Correction (PFC) stage utilizing high-speed Silicon Carbide (SiC) switching technology.
 This advanced architecture is designed to draw a near-sinusoidal input current, ensuring near-unity Power Factor (PF).
 
 Due to the fundamental nature of balanced three-phase systems, the PFC action naturally minimizes even-order harmonics (2nd, 4th, etc.).
@@ -124,9 +120,10 @@ that originate primarily from switching ripple and slight imbalances in the grid
 
 ## Parallel Operation Capability
 
-Multiple ADB-PC-CH01 may be operated in parallel, providing a shared DC bus from a common AC grid connection.
+Multiple ADB-PC-CH01 modules may be operated in parallel, providing a shared DC bus from a common AC grid connection.
 The CH01 AC port assumes a stiff grid is present and it's operation will not significantly distort the voltage at it's AC terminals.
 The CH01 DC port is configured with a 'virtual resistance' which means the CH01 DC voltage will drop when providing current and rise when absorbing current.
+
 This behaviour allows for multiple CH01 Units to be combined in parallel without needing constant feedback via a separate communications channel.
 
 ## Environmental Electrical Specifications
