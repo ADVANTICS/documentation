@@ -55,7 +55,6 @@ Configuration is spread over three places:
     [tls]
     enabled = false
     allow_no_cert = true
-    allow_iso_20_without_tls = true
 
 There is no `[tls:server]` section in the shipped file — the built-in file paths apply, and nothing
 reads them while `enabled` is `false`.
@@ -121,7 +120,6 @@ and for ISO 15118-20:
     [tls]
     enabled = true
     allow_no_cert = false
-    allow_iso_20_without_tls = false
 
     [tls:server]
     ca_file = /app/certs/V2G Root CA.pem
@@ -169,17 +167,6 @@ authenticated there is the *contract* the vehicle presents, not the TLS client c
 
 Default to true.
 
-### allow_iso_20_without_tls
-
-<figcaption>Example</figcaption>
-
-    allow_iso_20_without_tls = true
-
-Whether an ISO 15118-20 session may proceed with no TLS at all. Shipped as `true`, which is what
-makes the default configuration work with vehicles that do not do TLS. Set it `false` once you
-require TLS, so a vehicle that does not offer it is rejected rather than silently downgraded.
-
-Default to true.
 
 ## `[tls:server]`
 

@@ -48,7 +48,6 @@ Configuration is split across two sections, plus two entries in `[ccs]`:
     [tls]
     enabled = false
     allow_no_cert = true
-    allow_iso_20_without_tls = true
 
 There is no `[tls:client]` section in the shipped file — the built-in file paths apply, and nothing
 reads them while `enabled` is `false`.
@@ -105,7 +104,6 @@ Order matters when building the chain from separate files:
     [tls]
     enabled = true
     allow_no_cert = false
-    allow_iso_20_without_tls = false
 
     [tls:client]
     ca_file = /app/certs/V2G Root CA.pem
@@ -150,17 +148,6 @@ is being authenticated there is the *contract*, not the charger.
 
 Default to true.
 
-### allow_iso_20_without_tls
-
-<figcaption>Example</figcaption>
-
-    allow_iso_20_without_tls = true
-
-Whether an ISO 15118-20 session may proceed with no TLS at all. Shipped as `true`, which is what
-makes the default configuration work against non-TLS chargers. Set it `false` once you require TLS,
-so a charger that does not offer it is rejected rather than silently downgraded.
-
-Default to true.
 
 ## `[tls:client]`
 

@@ -240,7 +240,6 @@ not listed here is internal and not meant to be changed.
 
 | Entry | Type | Default | Allowed | Description |
 |---|---|---|---|---|
-| `allow_iso_20_without_tls` | bool | `true` | — | Allow ISO 20 communication without TLS. |
 | `allow_no_cert` | bool | `true` | — | Allow no certificate verification. |
 | `enabled` | bool | `false` | — | Whether TLS is enabled. |
 | `side` | str | `client` | `client`, `server` | — |

@@ -1247,7 +1247,6 @@ Tells if charger can handle setpoints range mode, or if it is constrained to tar
 
 | Entry | Type | Default | Allowed | Description |
 |---|---|---|---|---|
-| `allow_iso_20_without_tls` | bool | `true` | — | Allow ISO 20 communication without TLS. |
 | `allow_no_cert` | bool | `true` | — | Allow no certificate verification. |
 | `enabled` | bool | `false` | — | Whether TLS is enabled. |
 | `side` | str | `server` | `server` | — |
