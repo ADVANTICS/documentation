@@ -28,7 +28,7 @@ The recommended flow of water would look like this. Color indicates the temperat
 Thermal dissipation of each unit depends on operational conditions - voltage, current, power level. Typical heat load can be calculated by multiplying the processed power by the losses (1 - efficiency) at that operation point.
 
 A typical loss at full load would be: 50 kW * (1 - 0.97) = 1.5 kW
-For the efficiency at a specific operating point, please consult the [Efficiency Characteristics](electrical_specs.md#efficiency-characteristics).
+For the efficiency at a specific operating point, please consult the [Efficiency Performance](electrical_specs.md#efficiency-performance).
 1.5 kW of heat generation per converter would result in approximately 5 &deg;C temperature rise (inlet to outlet, 5 l/min).
 
 The converter has high thermal inertia owing to the large aluminium plates and the coolant loop. That means it can take a long time (>10 minutes in some cases) for the temperature to noticably change.

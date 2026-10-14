@@ -10,13 +10,13 @@ Along with these common connectors the CH01 utilizes the following connectors fo
 
 ## AC Connectors
 
-The ADB-PC-CH01 features high-current Amphenol Surlok Plus connectors designed for reliable operation in industrial and automotive environments:
+The AC side of the ADB-PC-CH01 connects to the three phase grid through high-current Amphenol SurLok Plus connectors designed for reliable operation in industrial and automotive environments:
 
 | **Specification** | **Value** | **Notes** |
 |-------------------|-----------|-----------|
 | **Connector Type** | RADSOK Size 5.7mm | High-current contact technology |
 | **Manufacturer** | Amphenol | Industry-leading reliability |
-| **Series** | SurLock Plus (SLP-HIR-B) | Locking mechanism for safety |
+| **Series** | SurLock Plus (SLP-HIR-A) | Locking mechanism for safety |
 | **Quantity** | 3 | One per phase (L1, L2, L3) |
 | **Colour and Keyway** | Orange | 20&deg; |
 | **Connector Current Rating** | 125 A | Continuous operation |
@@ -24,15 +24,15 @@ The ADB-PC-CH01 features high-current Amphenol Surlok Plus connectors designed f
 
 ## DC Connectors
 
-The DC side features bidirectional connectors for the high voltage DC link:
+The DC side connects to the high voltage DC link (battery or vehicle) through the following bidirectional connectors:
 
 | **Specification** | **Value** | **Notes** |
 |-------------------|-----------|-----------|
-| **Connector Type** | RADSOK Size 8mm | Same technology as AC side |
+| **Connector Type** | RADSOK Size 8mm | Larger size than the AC side |
 | **Manufacturer** | Amphenol | SurLok Plus series |
 | **Series** | SLP-HIR-B | High-current locking design |
-| **Quantity** | 2x Port B | Positive and negative connections |
- **Colour and Keyway** | Red, Black | 20&deg; (Red), 30&deg; (Black) |
+| **Quantity** | 2 | DC side positive and negative (DC+, DC-) |
+| **Colour and Keyway** | Red, Black | 20&deg; (Red), 30&deg; (Black) |
 | **Connector Current Rating** | 200 A | Continuous operation |
 | **Connector Voltage Rating** | 1500 VDC | |
 
@@ -41,14 +41,15 @@ The DC side features bidirectional connectors for the high voltage DC link:
 Depending on the current and insulation material rating (PVC vs XLPE for example),
 cross section of the cable has to be selected. For higher quality insulation materials (eg. not 70 &deg;C PVC), a lower cross section can be selected.
 
-That means for L1, L2, L3 and also DC+ and DC-, a 35 mm2 cross section is suitable.
+That means for the AC side (L1, L2, L3), a 25 mm2 cross section is suitable. The DC side (DC+, DC-) uses the larger 8 mm connectors with a 35 mm2 cross section.
+There is no risk of incorrectly wiring polarity, because of the keying and colour encoding, and since the AC and DC side connectors have a different diameter, they cannot be swapped either.
 Here's a table showing the individual connector part numbers, taking into consideration the connector keying, colour as well as cross section:
 
 | **Connector label** | **Cable cross section** | **Part number** | **Notes** |
 |---------------------|-------------------------|-----------------|-----------|
-| **L1** | 35 mm2 | SLPHPA25BSO1 | Orange, 20&deg;, IP rated |
-| **L2** | 35 mm2 | SLPHPA25BSO1 | Orange, 20&deg;, IP rated |
-| **L3** | 35 mm2 | SLPHPA25BSO1 | Orange, 20&deg;, IP rated |
+| **L1** | 25 mm2 | SLPHPA25BSO1 | Orange, 20&deg;, IP rated |
+| **L2** | 25 mm2 | SLPHPA25BSO1 | Orange, 20&deg;, IP rated |
+| **L3** | 25 mm2 | SLPHPA25BSO1 | Orange, 20&deg;, IP rated |
 | **DC+** | 35 mm2 | SLPHPB35BSR1 | Red, 20&deg;, IP rated |
 | **DC-** | 35 mm2 | SLPHPB35BSB2 | Black, 30&deg;, IP rated |
 

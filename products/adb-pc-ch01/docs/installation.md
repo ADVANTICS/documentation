@@ -26,21 +26,21 @@ This section covers the physical installation of the **ADB-PC-CH01** unit.
 ## Wiring the converter
 
 !!! WARNING "**RISK OF ELECTRIC SHOCK**"
-      This procedure must only be performed by qualified personnel. Ensure all power sources (Port A and Port B) are **de-energized, disconnected, and locked out**.
+      This procedure must only be performed by qualified personnel. Ensure all power sources (AC and DC side) are **de-energized, disconnected, and locked out**.
 
 The power connectors, their keying and the full list of mating part numbers are described on the [Connectors](connectors.md) page.
 For the current class of the ADB-PC-CH01 (up to 75 A<sub>rms</sub> per phase on the AC port, up to 60 A on the DC port) the following
-mating connectors and cables are required:
+mating connectors are required:
 
-| **Connector label** | **Mating connector** | **Cable** | **Notes** |
-|---------------------|----------------------|-----------|-----------|
-| **L1, L2, L3** | 3x SLPHPA25BSO1 | 35 mm2, rated for 480 V<sub>rms</sub> L-L | Orange, 20&deg; |
-| **DC+** | 1x SLPHPB35BSR1 | 35 mm2, rated for 950 V DC | Red, 20&deg; |
-| **DC-** | 1x SLPHPB35BSB2 | 35 mm2, rated for 950 V DC | Black, 30&deg; |
-| **PE** | Ring lug for M8 thread | min. 16 mm2 | Front panel, tightened to 6 N.m |
+| **Connector label** | **Mating connector** | **Notes** |
+|---------------------|----------------------|-----------|
+| **L1, L2, L3** | 3x SLPHPA25BSO1 | Orange, 20&deg; |
+| **DC+** | 1x SLPHPB35BSR1 | Red, 20&deg; |
+| **DC-** | 1x SLPHPB35BSB2 | Black, 30&deg; |
+| **PE** | Ring lug for M8 thread | min. 16 mm2, front panel, tightened to 6 N.m |
 
-The cross section assumes standard 70 &deg;C PVC insulation. With higher rated insulation (e.g. XLPE) a smaller cross section may be
-possible, see [Selection of connector part numbers](connectors.md#selection-of-connector-part-numbers).
+The cable insulation and cross section must match the expected operating temperatures of the installation. See
+[Selection of connector part numbers](connectors.md#selection-of-connector-part-numbers) for the cross sections of the mating connectors.
 
 The unit is controlled via CAN. the two 'Link' connectors are internally shorted together, allowing multiple units to be connected
 to the same physical can bus, without needing to splice cables or add T-junctions. To allow for reliable control systems in
