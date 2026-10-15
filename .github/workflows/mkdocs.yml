@@ -18,7 +18,8 @@ jobs:
   # ── Detect which products changed ──────────────────────────────────────────
   # Products are discovered from the folders under products/ that contain a
   # mkdocs.yaml. Builds a dynamic matrix so build-and-upload only runs for
-  # products whose files changed. Changes to tools/** or this workflow file
+  # products whose files changed (including shared files they reach through
+  # symlinks). Changes to tools/** or this workflow file
   # are treated as affecting every product, since they're shared build
   # dependencies.
   detect-changes:
@@ -53,6 +54,17 @@ jobs:
             for name in "${products[@]}"; do
               echo "$name:"
               echo "  - 'products/$name/**'"
+              # Shared content (shared-charge-controllers, shared_power_modules,
+              # css) is pulled in via symlinks. paths-filter only sees the real
+              # paths in the diff, so add each symlink target to the filter.
+              find "products/$name" -type l | while read -r link; do
+                target=$(realpath --relative-to=. "$link")
+                if [[ -d "$target" ]]; then
+                  echo "  - '$target/**'"
+                else
+                  echo "  - '$target'"
+                fi
+              done | sort -u
             done
             echo "EOF"
           } >> "$GITHUB_OUTPUT"
