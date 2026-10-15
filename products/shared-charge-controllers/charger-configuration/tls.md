@@ -88,8 +88,7 @@ Provide these files:
 - The **EVSE leaf certificate** and its **private key**, in `pem` format. This is the **CPO** EVSE
   leaf for ISO 15118-2 and the **CSO** EVSE leaf for ISO 15118-20 — CSO in -20 is the same role CPO
   plays in -2.
-- The **EVSE certificate chain** — the two CPO (or CSO) Sub CAs followed by the Root CA, which should
-  be the V2G Root CA.
+- The **EVSE certificate chain** — the CSO EVSE leaf certificated followed by the two CPO (or CSO) Sub CAs.
 - For Plug & Charge only: the **MO Root CA**, if it is not the same as the V2G Root CA.
 
 Order matters when building the chain from separate files:
