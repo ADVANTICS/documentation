@@ -141,6 +141,7 @@ nav:
     - Temperature: "configuration/temperature.md"
     - Applications, logging, hardware and system: "configuration/generalities.md"
   - Working with the SPCC:
+    - Getting started: "getting-started.md"
     - Connecting to the SPCC: "advos-yocto-system/connecting.md"
     - Web UI Access: "csm/csm-web-ui.md"
     - SSH access: "advos-yocto-system/ssh.md"
