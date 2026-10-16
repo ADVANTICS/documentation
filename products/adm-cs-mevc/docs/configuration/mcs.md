@@ -196,6 +196,28 @@ increases the latency before a genuine transition is acted upon. Only effective 
 
 Default to 3.
 
+## allow_no_tls_for_iso_part20
+
+!!! warning
+    ISO 15118-20 requires TLS. Enabling this entry lets the vehicle charge with a charger that does
+    not comply with the standard. Do not enable it unless you have a charger that needs it.
+
+!!! note
+    This is an advanced configuration option.
+
+<figcaption>Example</figcaption>
+
+    allow_no_tls_for_iso_part20 = false
+
+Whether an ISO 15118-20 session may continue when the charger offers no TLS. When `false`,
+a charger that does not offer TLS is rejected; when `true`, the session goes on without TLS.
+
+The standard does not allow ISO 15118-20 without TLS, but some chargers in the field skip it
+anyway. Turn this entry on if you need the vehicle to charge with those chargers. TLS itself
+is configured in [TLS](tls.md).
+
+Default to false.
+
 ## `[t1s_driver]`
 
 On controllers fitted with a 10BASE-T1S interface, this section configures it.
