@@ -1,4 +1,4 @@
-# Connecting to the SPCC
+# Connecting to the Controller
 
 ## Introduction
 
